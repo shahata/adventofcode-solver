@@ -1,8 +1,8 @@
-# Advent of Code
+# Advent of Code - Solver
 
 This repo contains solutions for advent of code (http://adventofcode.com)
 
-Go ahead and try it out before using those spoilers.
+Go ahead and try to solve the challenge on your own before using this spoiler!
 
 In order to use this solver yourself simply clone this git and:
 
