@@ -8,8 +8,8 @@ In order to use this solver yourself simply clone this git and:
 
 ```sh
 $ npm install
-$ vi index.js #replace session id with the session id from your cookie
-$ node index.js
+$ vi src/index.js #replace session id with the session id from your cookie
+$ npm start
 - or -
-$ node index.js [day-number]
+$ npm start [day-number]
 ```
