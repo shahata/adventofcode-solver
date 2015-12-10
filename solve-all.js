@@ -23,7 +23,6 @@ async function solveDay(index, fn, session) {
 
 export async function solveAll(session) {
   let keys = Object.keys(solvers);
-  console.log();
   for (let i = 0; i < keys.length; i++) {
     if (!process.argv[2] || parseInt(process.argv[2], 10) === i + 1) {
       await solveDay(i + 1, solvers[keys[i]], session);
