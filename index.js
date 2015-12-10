@@ -4,4 +4,4 @@
 var sessionId = '***REMOVED***';
 
 require('babel-register');
-require('./solve-all.js').solveAll(sessionId);
+require('./solve-all').solveAll(sessionId);

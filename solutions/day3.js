@@ -34,4 +34,3 @@ export function day3(input) {
   part2 = Object.keys(part2.visited).length;
   console.log(`Part2: ${part2}`);
 }
-
