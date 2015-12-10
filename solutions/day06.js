@@ -28,7 +28,7 @@ export function day6(input) {
 
   let part2 = countLights(input, {
     'turn on': val => val + 1,
-    'turn off': val => val === 0 ? 0 : val - 1,
+    'turn off': val => Math.max(val - 1, 0),
     'toggle': val => val + 2
   });
 
