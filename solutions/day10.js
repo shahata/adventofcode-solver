@@ -1,4 +1,3 @@
-/* global console */
 'use strict';
 
 export function day10(input) {
@@ -7,8 +6,6 @@ export function day10(input) {
   }
 
   let part1 = new Array(40).fill(undefined).reduce(prev => transform(prev), input).length;
-  console.log(`Part1: ${part1}`);
-
   let part2 = new Array(50).fill(undefined).reduce(prev => transform(prev), input).length;
-  console.log(`Part2: ${part2}`);
+  return [part1, part2];
 }

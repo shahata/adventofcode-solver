@@ -1,4 +1,3 @@
-/* global console */
 'use strict';
 
 export function day3(input) {
@@ -21,7 +20,6 @@ export function day3(input) {
                      return state;
                    }, {visited: {'0-0': true}, pos: {x: 0, y: 0}});
   part1 = Object.keys(part1.visited).length;
-  console.log(`Part1: ${part1}`);
 
   let part2 = input.split('')
                    .map(x => steps[x])
@@ -32,5 +30,6 @@ export function day3(input) {
                      return state;
                    }, {visited: {'0-0': true}, pos: {santa: {x: 0, y: 0}, robot: {x: 0, y: 0}}});
   part2 = Object.keys(part2.visited).length;
-  console.log(`Part2: ${part2}`);
+
+  return [part1, part2];
 }

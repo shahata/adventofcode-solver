@@ -1,4 +1,3 @@
-/* global console */
 'use strict';
 
 export function day5(input) {
@@ -7,11 +6,11 @@ export function day5(input) {
                    .filter(x => x.match(/([a-z])\1/))
                    .filter(x => !x.match(/ab|cd|pq|xy/))
                    .length;
-  console.log(`Part1: ${part1}`);
 
   let part2 = input.split('\n')
                    .filter(x => x.match(/([a-z][a-z]).*\1/))
                    .filter(x => x.match(/([a-z]).\1/))
                    .length;
-  console.log(`Part2: ${part2}`);
+
+  return [part1, part2];
 }

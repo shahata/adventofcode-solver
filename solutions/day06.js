@@ -1,4 +1,3 @@
-/* global console */
 'use strict';
 
 export function day6(input) {
@@ -26,12 +25,12 @@ export function day6(input) {
     'turn off': () => 0,
     'toggle': val => val === 0 ? 1 : 0
   });
-  console.log(`Part1: ${part1}`);
 
   let part2 = countLights(input, {
     'turn on': val => val + 1,
     'turn off': val => val === 0 ? 0 : val - 1,
     'toggle': val => val + 2
   });
-  console.log(`Part2: ${part2}`);
+
+  return [part1, part2];
 }

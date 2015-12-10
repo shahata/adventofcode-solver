@@ -17,7 +17,9 @@ async function solveDay(index, fn, session) {
   let input = await getDayInput(index, session);
   console.log(`Solution for day ${index}!!!`);
   console.log('----------------------------');
-  fn(input.trim());
+  let result = fn(input.trim());
+  console.log(`Part1: ${result[0]}`);
+  console.log(`Part2: ${result[1]}`);
   console.log('');
 }
 

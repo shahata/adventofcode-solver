@@ -1,4 +1,3 @@
-/* global console */
 'use strict';
 
 export function day2(input) {
@@ -7,11 +6,11 @@ export function day2(input) {
                    .map(x => [x[0] * x[1], x[1] * x[2], x[0] * x[2]])
                    .map(x => 2 * (x[0] + x[1] + x[2]) + Math.min.apply(Math, x))
                    .reduce((prev, item) => prev + item, 0);
-  console.log(`Part1: ${part1}`);
 
   let part2 = input.split('\n')
                    .map(x => x.split('x').map(x => parseInt(x, 10)))
                    .map(x => 2 * (x[0] + x[1] + x[2] - Math.max.apply(Math, x)) + x[0] * x[1] * x[2])
                    .reduce((prev, item) => prev + item, 0);
-  console.log(`Part2: ${part2}`);
+
+  return [part1, part2];
 }

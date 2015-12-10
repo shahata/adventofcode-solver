@@ -1,4 +1,3 @@
-/* global console */
 'use strict';
 
 export function day7(input) {
@@ -30,8 +29,6 @@ export function day7(input) {
   }
 
   let part1 = makeCircuit(input.split('\n')).a();
-  console.log(`Part1: ${part1}`);
-
   let part2 = makeCircuit(input.split('\n').concat(`${part1} -> b`)).a();
-  console.log(`Part2: ${part2}`);
+  return [part1, part2];
 }
