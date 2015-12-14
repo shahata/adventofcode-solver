@@ -2,12 +2,11 @@
 
 export function day14(input) {
   let race = input.split('\n')
-                  .map(x => x.match(/(.*) can fly (\d+) km\/s for (\d+) seconds, but then must rest for (\d+) seconds\.$/).slice(1))
+                  .map(x => x.match(/^.* can fly (\d+) km\/s for (\d+) seconds, but then must rest for (\d+) seconds\.$/).slice(1))
                   .map(x => ({
-                    name: x[0],
-                    speed: parseInt(x[1], 10),
-                    fly: parseInt(x[2], 10),
-                    rest: parseInt(x[3], 10),
+                    speed: parseInt(x[0], 10),
+                    fly: parseInt(x[1], 10),
+                    rest: parseInt(x[2], 10),
                     distance: 0,
                     points: 0
                   }));
