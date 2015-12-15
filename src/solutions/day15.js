@@ -1,16 +1,13 @@
 'use strict';
 
 export function day15(input) {
-  function next(digits, i) {
+  function add(digits, param, i) {
     i = i || 0;
-    if (i === digits.length) {
-      return null;
-    } else if (digits[i] === 100) {
-      digits[i] = 0;
-      return next(digits, i + 1);
-    } else {
-      digits[i]++;
-      return digits;
+    if (i < digits.length) {
+      let sum = digits[i] + param;
+      let pass = Math.floor(sum / 101);
+      digits[i] = sum % 101;
+      return pass ? add(digits, pass, i + 1) : digits;
     }
   }
 
@@ -27,12 +24,12 @@ export function day15(input) {
 
   let part1 = 0, part2 = 0;
   let spoons = new Array(ingredients.length).fill(0);
-  while (next(spoons)) {
+  while (add(spoons, 100)) {
     if (spoons.reduce((prev, x) => prev + x) === 100) {
-      let amounts = spoons.map((amount, index) => objMap(ingredients[index], x => amount * x));
+      let amounts = ingredients.map((x, index) => objMap(x, property => property * spoons[index]));
       let sum = amounts.reduce((prev, x) => objMap(x, (value, key) => prev[key] + value));
       let properties = Object.keys(sum).filter(x => x !== 'calories');
-      let result = properties.map(x => Math.max(0, sum[x])).reduce((prev, x) => prev * x, 1);
+      let result = properties.map(x => Math.max(0, sum[x])).reduce((prev, x) => prev * x);
 
       part1 = Math.max(part1, result);
       if (sum.calories === 500) {
