@@ -11,6 +11,11 @@ export function day15(input) {
     }
   }
 
+  function parseMap(s, p1, p2) {
+    return s.split(p1).map(x => x.split(p2))
+            .reduce((obj, pair) => Object.assign(obj, {[pair[0]]: parseInt(pair[1], 10)}), {});
+  }
+
   function objMap(obj, fn) {
     return Object.keys(obj).reduce((result, key) => {
       return Object.assign(result, {[key]: fn(obj[key], key)});
@@ -18,9 +23,8 @@ export function day15(input) {
   }
 
   let ingredients = input.split('\n')
-                         .map(x => x.match(/^.*: capacity ([-\d]+), durability ([-\d]+), flavor ([-\d]+), texture ([-\d]+), calories ([-\d]+)$/).slice(1))
-                         .map(x => ({capacity: x[0], durability: x[1], flavor: x[2], texture: x[3], calories: x[4]}))
-                         .map(x => objMap(x, num => parseInt(num, 10)));
+                         .map(x => x.match(/^.*: (.*)$/).slice(1))
+                         .map(x => parseMap(x[0], ', ', ' '));
 
   let part1 = 0, part2 = 0;
   let spoons = new Array(ingredients.length).fill(0);

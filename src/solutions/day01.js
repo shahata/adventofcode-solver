@@ -3,7 +3,7 @@
 export function day1(input) {
   let part1 = input.split('')
                    .map(x => x === '(' ? 1 : -1)
-                   .reduce((sum, x) => sum + x, 0);
+                   .reduce((sum, x) => sum + x);
 
   let part2 = input.split('')
                    .map(x => x === '(' ? 1 : -1)

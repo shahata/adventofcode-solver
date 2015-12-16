@@ -17,7 +17,7 @@ export function day6(input) {
                   }
                   return state;
                 }, new Array(1000).fill(undefined).map(() => new Array(1000).fill(0)))
-                .reduce((sum, row) => sum + row.reduce((sum, x) => sum + x, 0), 0);
+                .reduce((sum, row) => sum + row.reduce((sum, x) => sum + x), 0);
   }
 
   let part1 = countLights(input, {
