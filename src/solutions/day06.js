@@ -3,11 +3,11 @@
 export function day6(input) {
   function countLights(input, operations) {
     return input.split('\n')
-                .map(x => x.match(/^(.*) (\d+),(\d+) through (\d+),(\d+)$/).slice(1))
+                .map(x => x.match(/^(.*) (\d+),(\d+) through (\d+),(\d+)$/))
                 .map(x => ({
-                  op: operations[x[0]],
-                  start: {x: parseInt(x[1], 10), y: parseInt(x[2], 10)},
-                  end: {x: parseInt(x[3], 10), y: parseInt(x[4], 10)}
+                  op: operations[x[1]],
+                  start: {x: parseInt(x[2], 10), y: parseInt(x[3], 10)},
+                  end: {x: parseInt(x[4], 10), y: parseInt(x[5], 10)}
                 }))
                 .reduce((state, next) => {
                   for (let x = next.start.x; x <= next.end.x; x++) {

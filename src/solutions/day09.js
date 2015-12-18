@@ -16,11 +16,11 @@ export function day9(input) {
   }
 
   let graph = input.split('\n')
-                   .map(x => x.match(/^(.*) to (.*) = (\d+)$/).slice(1))
-                   .map(x => ({p1: x[0], p2: x[1], distance: parseInt(x[2], 10)}))
+                   .map(x => x.match(/^(.*) to (.*) = (\d+)$/))
+                   .map(x => ({p1: x[1], p2: x[2], d: parseInt(x[3], 10)}))
                    .reduce((graph, edge) => {
-                     graph[edge.p1] = Object.assign({}, graph[edge.p1], {[edge.p2]: edge.distance});
-                     graph[edge.p2] = Object.assign({}, graph[edge.p2], {[edge.p1]: edge.distance});
+                     graph[edge.p1] = Object.assign({}, graph[edge.p1], {[edge.p2]: edge.d});
+                     graph[edge.p2] = Object.assign({}, graph[edge.p2], {[edge.p1]: edge.d});
                      return graph;
                    }, {});
   graph.$$start = Object.keys(graph).reduce((obj, key) => Object.assign({[key]: 0}, obj), {});

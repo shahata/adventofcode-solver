@@ -23,8 +23,8 @@ export function day15(input) {
   }
 
   let ingredients = input.split('\n')
-                         .map(x => x.match(/^.*: (.*)$/).slice(1))
-                         .map(x => parseMap(x[0], ', ', ' '));
+                         .map(x => x.match(/^.*: (.*)$/))
+                         .map(x => parseMap(x[1], ', ', ' '));
 
   let part1 = 0, part2 = 0;
   let spoons = new Array(ingredients.length).fill(0);

@@ -34,8 +34,8 @@ export function day16(input) {
   }
 
   let sues = input.split('\n')
-                  .map(x => x.match(/^Sue ([^:]*): (.*)/).slice(1))
-                  .map(x => [x[0], parseMap(x[1], ', ', ': ')])
+                  .map(x => x.match(/^Sue ([^:]*): (.*)/))
+                  .map(x => [x[1], parseMap(x[2], ', ', ': ')])
                   .map(x => Object.assign({id: x[0]}, x[1]));
 
   let part1 = sues.filter(x => matches(x, expect1)).map(x => x.id).shift();
