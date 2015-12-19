@@ -15,7 +15,7 @@ export function day19(input) {
   function calcDistance(src, dest, replacements) {
     let queue = [dest];
     let cost = {[dest]: 0};
-    let heuristic = p =>cost[p] + p.length - src.length;
+    let heuristic = p => cost[p] + p.length - src.length;
     replacements = replacements.map(x => ({from: x.to, to: x.from}));
 
     while (queue.length) {
