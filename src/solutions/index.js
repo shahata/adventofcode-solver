@@ -20,3 +20,4 @@ export {day17} from './day17';
 export {day18} from './day18';
 export {day19} from './day19';
 export {day20} from './day20';
+export {day21} from './day21';
