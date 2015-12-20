@@ -1,19 +1,19 @@
 'use strict';
 
-function divisors(x) {
-  let nums = [], sqrt = Math.sqrt(x);
-  for (let i = 1; i <= sqrt; i++) {
-    if (x % i === 0) {
-      nums.push(i);
-      if (i !== sqrt) {
-        nums.push(x / i);
+export function day20(input) {
+  function divisors(x) {
+    let nums = [], sqrt = Math.sqrt(x);
+    for (let i = 1; i <= sqrt; i++) {
+      if (x % i === 0) {
+        nums.push(i);
+        if (i !== sqrt) {
+          nums.push(x / i);
+        }
       }
     }
+    return nums;
   }
-  return nums;
-}
 
-export function day20(input) {
   input = parseInt(input);
   let part1, part2;
   let target1 = input / 10, target2 = input / 11;
