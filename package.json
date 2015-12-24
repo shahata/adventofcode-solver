@@ -15,6 +15,7 @@
     "babel-plugin-transform-es2015-destructuring": "^6.3.15",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.3.16",
     "babel-register": "^6.3.13",
+    "js-combinatorics": "^0.5.0",
     "md5": "^2.0.0",
     "node-fetch": "^1.3.3"
   }
