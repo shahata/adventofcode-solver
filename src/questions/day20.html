@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 20 - Advent of Code</title>
+<!--[if lt IE 9]><script src="static/html5.js"></script><![endif]-->
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="static/style.css?3"/>
+<link rel="shortcut icon" href="favicon.ico?2"/>
+</head>
+<body>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 20: Infinite Elves and Infinite Houses ---</h2><p>To keep the Elves busy, Santa has them deliver some presents <span title="This was before the Elves unionized, apparently.">by hand, door-to-door</span>.  He sends them down a street with infinite houses numbered sequentially: <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, and so on.</p>
+<p>Each Elf is assigned a number, too, and delivers presents to houses based on that number:</p>
+<ul>
+<li>The first Elf (number <code>1</code>) delivers presents to every house: <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, ....</li>
+<li>The second Elf (number <code>2</code>) delivers presents to every second house: <code>2</code>, <code>4</code>, <code>6</code>, <code>8</code>, <code>10</code>, ....</li>
+<li>Elf number <code>3</code> delivers presents to every third house: <code>3</code>, <code>6</code>, <code>9</code>, <code>12</code>, <code>15</code>, ....</li>
+</ul>
+<p>There are infinitely many Elves, numbered starting with <code>1</code>.  Each Elf delivers presents equal to <em>ten times</em> his or her number at each house.</p>
+<p>So, the first nine houses on the street end up like this:</p>
+<pre><code>House 1 got 10 presents.
+House 2 got 30 presents.
+House 3 got 40 presents.
+House 4 got 70 presents.
+House 5 got 60 presents.
+House 6 got 120 presents.
+House 7 got 80 presents.
+House 8 got 150 presents.
+House 9 got 130 presents.
+</code></pre>
+<p>The first house gets <code>10</code> presents: it is visited only by Elf <code>1</code>, which delivers <code>1 * 10 = 10</code> presents.  The fourth house gets <code>70</code> presents, because it is visited by Elves <code>1</code>, <code>2</code>, and <code>4</code>, for a total of <code>10 + 20 + 40 = 70</code> presents.</p>
+<p>What is the <em>lowest house number</em> of the house to get at least as many presents as the number in your puzzle input?</p>
+</article>
+<p>Your puzzle answer was <code>776160</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>The Elves decide they don't want to visit an infinite number of houses.  Instead, each Elf will stop after delivering presents to <code>50</code> houses.  To make up for it, they decide to deliver presents equal to <em>eleven times</em> their number at each house.</p>
+<p>With these changes, what is the new <em>lowest house number</em> of the house to get at least as many presents as the number in your puzzle input?</p>
+</article>
+<p>Your puzzle answer was <code>786240</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
+<p>Your puzzle input was <code class="puzzle-input">33100000</code>.</p>
+</main>
+</body>
+</html>
