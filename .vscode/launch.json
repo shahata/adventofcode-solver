@@ -5,7 +5,7 @@
     "type": "node",
     "request": "launch",
     "program": "${workspaceRoot}/src/index.js",
-    "args": ["2015"],
+    "args": ["2016", "1"],
     "cwd": "${workspaceRoot}",
     "env": {
       "NODE_ENV": "test"

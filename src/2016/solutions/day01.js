@@ -1,8 +1,27 @@
 'use strict';
 
+const directions = [{y: 1, x: 0}, {y: 0, x: 1}, {y: -1, x: 0}, {y: 0, x: -1}];
 function day(input) {
-  const part1 = input;
-  const part2 = input;
+  const destination = input.split(', ').map(x => {
+    const [, turn, count] = x.match(/^(R|L)(\d+)$/);
+    return {turn: turn === 'R' ? 1 : -1, count: parseInt(count, 10)};
+  }).reduce((state, next) => {
+    const direction = (state.direction + next.turn + directions.length) % directions.length;
+    return new Array(next.count).fill().reduce(state => {
+      const x = state.x + (directions[direction].x);
+      const y = state.y + (directions[direction].y);
+      if (state.history[`${x},${y}`]) {
+        state.twice = state.twice || {x, y};
+      } else {
+        state.history[`${x},${y}`] = true;
+      }
+      return {direction, x, y, history: state.history, twice: state.twice};
+    }, state);
+  }, {direction: 0, x: 0, y: 0, history: {'0,0': true}});
+  destination.twice = destination.twice || {x: NaN, y: NaN};
+
+  const part1 = Math.abs(destination.x) + Math.abs(destination.y);
+  const part2 = Math.abs(destination.twice.x) + Math.abs(destination.twice.y);
   return [part1, part2];
 }
 
