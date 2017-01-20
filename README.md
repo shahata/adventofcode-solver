@@ -11,5 +11,7 @@ $ npm install
 $ vi src/index.js #replace session id with the session id from your cookie
 $ npm start
 - or -
-$ npm start [day-number]
+$ npm start 2015 [day-number]
+- or -
+$ npm start 2016 [day-number]
 ```

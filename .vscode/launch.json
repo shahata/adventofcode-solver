@@ -1,30 +1,33 @@
 {
   "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Launch",
-      "type": "node",
-      "request": "launch",
-      "program": "dist/index.js",
-      "stopOnEntry": false,
-      "args": [],
-      "cwd": ".",
-      "runtimeExecutable": null,
-      "runtimeArgs": [
-        "--nolazy"
-      ],
-      "env": {
-        "NODE_ENV": "development"
-      },
-      "externalConsole": false,
-      "sourceMaps": true,
-      "outDir": null
+  "configurations": [{
+    "name": "Launch",
+    "type": "node",
+    "request": "launch",
+    "program": "${workspaceRoot}/src/index.js",
+    "args": ["2015"],
+    "cwd": "${workspaceRoot}",
+    "env": {
+      "NODE_ENV": "test"
     },
-    {
-      "name": "Attach",
-      "type": "node",
-      "request": "attach",
-      "port": 5858
-    }
-  ]
+    "runtimeArgs": [
+      "--nolazy",
+      "--harmony"
+    ]
+  }, {
+    "name": "Launch Mocha",
+    "type": "node",
+    "request": "launch",
+    "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+    "args": ["{test,src}/**/*.spec.js{,x}", "--no-timeouts"],
+    "cwd": "${workspaceRoot}",
+    "env": {
+      "NODE_ENV": "test"
+    },
+    "runtimeArgs": [
+      "--nolazy",
+      "--harmony",
+      "--require", "${workspaceRoot}/node_modules/wix-node-build/lib/ignore-extensions.js"
+    ]
+  }]
 }
