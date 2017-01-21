@@ -1,14 +1,13 @@
 const fs = require('fs');
+const path = require('path');
 const day = require('./template');
 const {expect} = require('chai');
-const input = fs.readFileSync(`${__dirname}/template.txt`).toString();
+const input = fs.readFileSync(path.join(__dirname, 'template.txt')).toString();
 
 describe('template', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(day('1').shift()).to.equal('1');
-      // expect(day('2').shift()).to.equal('2');
-      // expect(day('3').shift()).to.equal('3');
     });
 
     it('should work for part 1 input', () => {
@@ -18,11 +17,11 @@ describe('template', () => {
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      // expect(day('4').pop()).to.equal('4');
+      // expect(day('1').pop()).to.equal('1');
     });
 
     it('should work for part 2 input', () => {
-      // expect(day(input).pop()).to.equal('()()');
+      // expect(day(input).pop()).to.equal(input);
     });
   });
 });

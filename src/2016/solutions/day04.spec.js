@@ -1,15 +1,18 @@
 const fs = require('fs');
+const path = require('path');
 const day = require('./day04');
 const {expect} = require('chai');
-const input = fs.readFileSync(`${__dirname}/day04.txt`).toString();
+const input = fs.readFileSync(path.join(__dirname, 'day04.txt')).toString();
 
 describe('template', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(day(`aaaaa-bbb-z-y-x-123[abxyz]
-a-b-c-d-e-f-g-h-987[abcde]
-not-a-real-room-404[oarel]
-totally-real-room-200[decoy]`).shift()).to.equal(1514);
+      let s1, s2, s3, s4;
+      expect(day(s1 = 'aaaaa-bbb-z-y-x-123[abxyz]').shift()).to.equal(123);
+      expect(day(s2 = 'a-b-c-d-e-f-g-h-987[abcde]').shift()).to.equal(987);
+      expect(day(s3 = 'not-a-real-room-404[oarel]').shift()).to.equal(404);
+      expect(day(s4 = 'totally-real-room-200[decoy]').shift()).to.equal(0);
+      expect(day([s1, s2, s3, s4].join('\n')).shift()).to.equal(1514);
     });
 
     it('should work for part 1 input', () => {

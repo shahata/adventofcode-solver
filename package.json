@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node --harmony src/index.js",
-    "test": "wix-node-build lint && wix-node-build test"
+    "test": "wix-node-build test"
   },
   "dependencies": {
     "js-combinatorics": "^0.5.0",

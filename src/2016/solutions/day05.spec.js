@@ -1,8 +1,9 @@
 const fs = require('fs');
 require('describe-heavy');
+const path = require('path');
 const day = require('./day05');
 const {expect} = require('chai');
-const input = fs.readFileSync(`${__dirname}/day05.txt`).toString();
+const input = fs.readFileSync(path.join(__dirname, 'day05.txt')).toString();
 
 describe.heavy('day05', () => {
   describe('part1', () => {
