@@ -29,7 +29,7 @@ function getSolvers(year) {
     const folder = path.join(__dirname, `${year}/solutions`);
     const days = fs.readdirSync(folder).filter(x => x.match(/^day\d+\.js$/));
     return days.reduce((obj, day) => Object.assign(obj, {
-      [day]: require(`./${path.join(`${year}/solutions`, day)}`)
+      [day]: require(`./${path.join(`${year}/solutions`, day)}`).day
     }), {});
   } catch (e) {
     console.error(e);

@@ -1,4 +1,4 @@
-const day = require('./day01.js');
+const {day} = require('./day01.js');
 const {expect} = require('chai');
 
 describe('day01', () => {

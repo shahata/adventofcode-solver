@@ -30,4 +30,4 @@ function day(input) {
   return [part1, JSON.stringify(part2)];
 }
 
-module.exports = day;
+module.exports = {day};

@@ -1,7 +1,7 @@
 const fs = require('fs');
 require('describe-heavy');
 const path = require('path');
-const day = require('./day05');
+const {day} = require('./day05');
 const {expect} = require('chai');
 const input = fs.readFileSync(path.join(__dirname, 'day05.txt')).toString();
 

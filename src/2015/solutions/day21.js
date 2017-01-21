@@ -71,4 +71,4 @@ function day(input) {
   return [part1, part2];
 }
 
-module.exports = day;
+module.exports = {day};

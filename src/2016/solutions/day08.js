@@ -52,4 +52,4 @@ function day(input, width = 50, height = 6) {
   return [part1, part2];
 }
 
-module.exports = day;
+module.exports = {day};

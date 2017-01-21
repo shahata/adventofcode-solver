@@ -25,4 +25,4 @@ function day(input) {
   return [part1, undefined];
 }
 
-module.exports = day;
+module.exports = {day};
