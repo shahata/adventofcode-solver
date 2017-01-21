@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "describe-heavy": "^1.0.0",
     "wix-node-build": "latest"
   },
   "eslintConfig": {
