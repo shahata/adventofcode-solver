@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   const spells = {
     Missile: {

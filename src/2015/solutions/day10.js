@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function transform(s) {
     return s.match(/(.)\1*/g).map(x => x.length + '' + x[0]).join('');

@@ -1,5 +1,3 @@
-'use strict';
-
 function init(width, height) {
   return new Array(height).fill().map(() => new Array(width).fill(false));
 }

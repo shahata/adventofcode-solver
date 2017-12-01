@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function add(digits, param, i) {
     i = i || 0;

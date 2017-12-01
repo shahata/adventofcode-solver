@@ -1,5 +1,3 @@
-'use strict';
-
 const Combinatorics = require('js-combinatorics');
 
 function day(input) {

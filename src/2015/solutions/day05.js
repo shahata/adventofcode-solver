@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   const part1 = input.split('\n')
                      .filter(x => (x.match(/[aeiou]/g) || []).length >= 3)

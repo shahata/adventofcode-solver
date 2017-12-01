@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function calcIndex(row, column) {
     let index = 0;

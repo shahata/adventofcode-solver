@@ -5,29 +5,13 @@
     "type": "node",
     "request": "launch",
     "program": "${workspaceRoot}/src/index.js",
-    "args": ["2016", "3"],
-    "cwd": "${workspaceRoot}",
-    "env": {
-      "NODE_ENV": "test"
-    },
-    "runtimeArgs": [
-      "--nolazy",
-      "--harmony"
-    ]
+    "args": ["2017", "1"],
+    "cwd": "${workspaceRoot}"
   }, {
     "name": "Launch Mocha",
     "type": "node",
     "request": "launch",
-    "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
-    "args": ["{test,src}/**/*.spec.js{,x}", "--no-timeouts"],
-    "cwd": "${workspaceRoot}",
-    "env": {
-      "NODE_ENV": "test"
-    },
-    "runtimeArgs": [
-      "--nolazy",
-      "--harmony",
-      "--require", "${workspaceRoot}/node_modules/wix-node-build/lib/ignore-extensions.js"
-    ]
+    "program": "${workspaceRoot}/node_modules/haste-preset-yoshi/debug/mocha.js",
+    "cwd": "${workspaceRoot}"
   }]
 }

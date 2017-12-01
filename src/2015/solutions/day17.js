@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   const boxes = input.split('\n').map(x => parseInt(x, 10));
   const result = new Array(boxes.length).fill(0);

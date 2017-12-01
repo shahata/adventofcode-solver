@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function life(grid, stuck) {
     function calc(state, i, j) {

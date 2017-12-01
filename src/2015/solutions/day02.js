@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   const part1 = input.split('\n')
                      .map(x => x.split('x').map(x => parseInt(x, 10)))

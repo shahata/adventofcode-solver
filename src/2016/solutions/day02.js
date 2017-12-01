@@ -1,5 +1,3 @@
-'use strict';
-
 const directions = {D: {y: 1, x: 0}, R: {y: 0, x: 1}, U: {y: -1, x: 0}, L: {y: 0, x: -1}};
 
 function move(keypad, position, step) {

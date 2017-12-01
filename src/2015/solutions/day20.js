@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function divisors(x) {
     const nums = [];

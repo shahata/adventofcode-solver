@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   const part1 = input;
   const part2 = input;

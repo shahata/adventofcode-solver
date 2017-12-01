@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function deepSum(obj, ignore) {
     if (Array.isArray(obj)) {

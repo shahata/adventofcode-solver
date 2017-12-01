@@ -1,5 +1,3 @@
-'use strict';
-
 function decodeLength(s, v2) {
   let [, prefix, length, times, rest] = s.match(/^([^(]*)(?:\((\d+)x(\d+)\))?(.*)$/);
   if (length) {

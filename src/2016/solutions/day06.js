@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   const result = input.split('\n').map(x => x.split('')).reduce((commons, word) => {
     return word.map((c, i) => {

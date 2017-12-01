@@ -1,6 +1,3 @@
-/* global console */
-'use strict';
-
 const solveAll = require('./solve-all');
 
 //copy session id from adventofcode.com session cookie

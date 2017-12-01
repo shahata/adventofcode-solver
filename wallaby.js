@@ -1,1 +1,1 @@
-module.exports = require('wix-node-build/config/wallaby-mocha');
+module.exports = require('haste-preset-yoshi/config/wallaby-mocha');

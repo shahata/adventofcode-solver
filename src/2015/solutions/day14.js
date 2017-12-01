@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   let race = input.split('\n')
                   .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))

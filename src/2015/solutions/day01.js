@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   const part1 = input.split('')
                      .map(x => x === '(' ? 1 : -1)

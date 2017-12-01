@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   /* eslint no-eval: "off" */
   const part1 = input.split('\n')

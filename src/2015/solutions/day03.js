@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function step(x, y) {
     return pos => ({x: pos.x + x, y: pos.y + y});

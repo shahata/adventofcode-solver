@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function shortest(graph, curr, visited) {
     const paths = Object.keys(graph[curr])

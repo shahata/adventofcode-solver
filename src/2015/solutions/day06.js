@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function countLights(input, operations) {
     return input.split('\n')

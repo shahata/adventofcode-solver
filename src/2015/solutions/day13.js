@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function longest(graph, curr, visited) {
     const paths = Object.keys(graph[curr])

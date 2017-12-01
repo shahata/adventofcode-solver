@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   const instructions = input.split('\n')
                             .map(x => x.match(/^(\w+) ([\w+-]+)(?:, ([\w+-]+))?$/)

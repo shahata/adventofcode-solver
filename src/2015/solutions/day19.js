@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   function calcNeighbors(molecule, replacements) {
     return replacements.reduce((result, pair) => {

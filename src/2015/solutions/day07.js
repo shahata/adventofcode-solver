@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input) {
   /* eslint no-bitwise: "off" */
   const ops = {

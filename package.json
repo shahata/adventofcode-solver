@@ -2,8 +2,9 @@
   "name": "adventofcode-solver",
   "version": "1.0.0",
   "scripts": {
-    "start": "node --harmony src/index.js",
-    "test": "wix-node-build test"
+    "start": "node src/index.js",
+    "test": "haste test",
+    "posttest": "haste lint"
   },
   "dependencies": {
     "js-combinatorics": "^0.5.0",
@@ -11,9 +12,15 @@
     "node-fetch": "^1.3.3"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "chai": "^3.5.0",
+    "cosmiconfig": "^3.1.0",
     "describe-heavy": "^1.0.0",
-    "wix-node-build": "latest"
+    "haste-cli": "^0.1.16",
+    "haste-preset-yoshi": "0.0.11"
+  },
+  "haste": {
+    "preset": "haste-preset-yoshi"
   },
   "eslintConfig": {
     "extends": "wix/esnext"

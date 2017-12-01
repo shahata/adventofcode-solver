@@ -1,5 +1,3 @@
-'use strict';
-
 function day(input, low = 17, high = 61) {
   let part1;
 

@@ -1,5 +1,3 @@
-'use strict';
-
 const table = ` Weapons:    Cost  Damage  Armor
                 Dagger        8     4       0
                 Shortsword   10     5       0

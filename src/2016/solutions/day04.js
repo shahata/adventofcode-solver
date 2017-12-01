@@ -1,5 +1,3 @@
-'use strict';
-
 function parseRoom(s) {
   const [, name, sector, checksum] = s.match(/^(.*)-(\d+)\[(.*)\]$/);
   return {name, sector: parseInt(sector, 10), checksum};
