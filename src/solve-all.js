@@ -42,9 +42,9 @@ async function createSolver(year, day, session) {
   if (answers.create) {
     const prefix = path.join(__dirname, year, 'solutions', day);
     const template = path.join(__dirname, 'template', 'template');
-    fs.writeFileSync(`${prefix}.js`, fs.readFileSync(`${template}.template`).toString().replace('template', day));
+    fs.writeFileSync(`${prefix}.js`, fs.readFileSync(`${template}.template`).toString().replace(/template/g, day));
     console.log(`Created ${prefix}.js`);
-    fs.writeFileSync(`${prefix}.spec.js`, fs.readFileSync(`${template}.spec.template`).toString().replace('template', day));
+    fs.writeFileSync(`${prefix}.spec.js`, fs.readFileSync(`${template}.spec.template`).toString().replace(/template/g, day));
     console.log(`Created ${prefix}.spec.js`);
     fs.writeFileSync(`${prefix}.txt`, await getDayInput(year, day, session));
     console.log(`Created ${prefix}.txt`);
