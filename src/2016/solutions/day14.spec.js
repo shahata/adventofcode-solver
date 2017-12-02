@@ -1,9 +1,10 @@
+require('describe-heavy');
 const {day} = require('./day14');
 const {expect} = require('chai');
 const readInput = require('../../read-input');
 const input = readInput(__filename);
 
-describe.skip('day14', () => {
+describe.heavy('day14', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(day('abc').shift()).to.equal(22728);

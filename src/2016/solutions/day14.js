@@ -14,7 +14,6 @@ function generateKeys(input, hashFn) {
       const index = digit !== undefined && characters[digit] && characters[digit].find(x => x > i - 1000);
       if (index) {
         keys.push(i - 1000);
-        console.log('found key', keys.length, 'index', i - 1000);
       }
     }
     window.push(str);
@@ -31,6 +30,7 @@ function md5times(str, count) {
 }
 
 function day(input) {
+  console.log('Please wait patiently for result...');
   const part1 = generateKeys(input, x => md5times(x, 1)).pop();
   const part2 = generateKeys(input, x => md5times(x, 2017)).pop();
   return [part1, part2];
