@@ -53,7 +53,7 @@ function direction({position, direction, map}) {
 }
 
 function solve2(destination) {
-  const state = {position: {x: 0, y: 0}, direction: 'R', map: {'0-0': 1}};
+  const state = {position: {x: 0, y: 0}, direction: 'R', map: {[toKey({x: 0, y: 0})]: 1}};
   let current = 1;
   while (current <= destination) {
     state.position = next(state);
