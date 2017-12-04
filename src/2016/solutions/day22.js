@@ -15,10 +15,56 @@ function solve1(nodes) {
   });
 }
 
+function cellId({x, y}) {
+  return `${x}-${y}`;
+}
+
+function build(nodes) {
+  const big = Math.floor(Math.log10(nodes.sort((a, b) => a.used - b.used)[nodes.length - 1].used));
+  const map = {};
+  let start, data = {x: 0, y: 0};
+  nodes.forEach(node => {
+    const [x, y] = node.name.match(/x(\d+)-y(\d+)$/).slice(1).map(x => parseInt(x, 10));
+    map[cellId({x, y})] = {wall: Math.floor(Math.log10(node.used)) === big};
+    start = node.used === 0 ? {x, y} : start;
+    data = y === 0 && x > data.x ? {x, y} : data;
+  });
+  return {map, start, data};
+}
+
+function getNeighbors(map, point) {
+  return [
+    {x: point.x - 1, y: point.y, distance: point.distance + 1},
+    {x: point.x + 1, y: point.y, distance: point.distance + 1},
+    {x: point.x, y: point.y - 1, distance: point.distance + 1},
+    {x: point.x, y: point.y + 1, distance: point.distance + 1}
+  ].filter(p => map[cellId(p)]);
+}
+
+function shortest(map, source, destination) {
+  let queue = [source];
+  const visited = {[cellId(source)]: {distance: 0}};
+  while (queue.length) {
+    const next = queue.shift();
+    if (next.x === destination.x && next.y === destination.y) {
+      return visited[cellId(next)].distance;
+    } else {
+      const neighbors = getNeighbors(map, next).filter(x => !visited[cellId(x)]);
+      const distance = visited[cellId(next)].distance + 1;
+      neighbors.forEach(x => visited[cellId(x)] = {distance});
+      queue = queue.concat(neighbors.filter(x => !map[cellId(x)].wall));
+    }
+  }
+  return 0;
+}
+
 function day(input) {
   const nodes = parse(input);
   const part1 = solve1(nodes).length;
-  const part2 = 7;
+
+  const {map, start, data} = build(nodes);
+  const part2 = shortest(map, start, {x: data.x - 1, y: 0}) + 1 + (5 * (data.x - 1));
+
   return [part1, part2];
 }
 

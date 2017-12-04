@@ -30,7 +30,7 @@ Filesystem            Size  Used  Avail  Use%
     });
 
     it('should work for part 2 input', () => {
-      // expect(day(input).pop()).to.equal(input);
+      expect(day(input).pop()).to.equal(188);
     });
   });
 });
