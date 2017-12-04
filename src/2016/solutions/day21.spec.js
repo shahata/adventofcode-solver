@@ -21,7 +21,7 @@ rotate based on position of letter d`, 'abcde').shift()).to.equal('decab');
     });
   });
 
-  describe('part2', () => {
+  describe.only('part2', () => {
     it('should work for part 2 examples', () => {
       expect(day(`swap position 4 with position 0
 swap letter d with letter b
@@ -34,7 +34,7 @@ rotate based on position of letter d`, 'decab').pop()).to.equal('abcde');
     });
 
     it('should work for part 2 input', () => {
-      // expect(day(input).pop()).to.equal(input);
+      expect(day(input).pop()).to.equal('egfbcadh');
     });
   });
 });

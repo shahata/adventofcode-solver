@@ -1,10 +1,3 @@
-//swap position X with position Y
-//swap letter X with letter Y
-//rotate left/right X steps
-//rotate based on position of letter X
-//reverse positions X through Y
-//move position X to position Y
-
 function parse(input, fn) {
   const regexp = /^(swap position|swap letter|rotate based|rotate|reverse positions|move position) ([^\s]+)\s.*\s([^\s]+)$/;
   const ops = {
@@ -23,8 +16,10 @@ function parse(input, fn) {
       return str.match(new RegExp(`^(.*)(.{${b}})$`)).slice(1).reverse().join('');
     },
     'un rotate based': (a, b) => str => {
-      b = (str.indexOf(b) + 1 + (str.indexOf(b) >= 4 ? 1 : 0)) % str.length;
-      return str.match(new RegExp(`^(.{${b}})(.*)$`)).slice(1).reverse().join('');
+      return new Array(str.length).fill().map((x, i) => {
+        const rotate = (i + 1 + (i >= 4 ? 1 : 0)) % str.length;
+        return str.match(new RegExp(`^(.{${rotate}})(.*)$`)).slice(1).reverse().join('');
+      }).filter((x, i) => x.indexOf(b) === i).pop();
     },
     rotate: (a, b) => str => {
       b = parseInt(b, 10) % str.length;
@@ -57,7 +52,7 @@ function undo(x) {
 
 function day(input, password) {
   const part1 = parse(input, x => x).reduce((x, f) => f(x), password || 'abcdefgh');
-  const part2 = parse(input, undo).reduce((x, f) => f(x), password || 'fbgdceah');
+  const part2 = parse(input, undo).reverse().reduce((x, f) => f(x), password || 'fbgdceah');
   return [part1, part2];
 }
 
