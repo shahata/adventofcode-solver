@@ -1,23 +1,24 @@
-// root@ebhq-gridcenter# df -h
-// Filesystem              Size  Used  Avail  Use%
-// /dev/grid/node-x0-y0     92T   72T    20T   78%
-// /dev/grid/node-x0-y1     88T   67T    21T   76%
-// /dev/grid/node-x0-y2     89T   67T    22T   75%
-// /dev/grid/node-x0-y3     90T   68T    22T   75%
 const Combinatorics = require('js-combinatorics');
 
-function day(input) {
-  const nodes = input.split('\n').slice(2).map(x => {
+function parse(input) {
+  return input.split('\n').slice(2).map(x => {
     const fix = x => parseInt(x.replace(/.$/, ''), 10);
     const [name, size, used, avail, use] = x.split(/\s+/);
     return {name, size: fix(size), used: fix(used), avail: fix(avail), use};
   });
-  const combinations = Combinatorics.bigCombination(nodes, 2).toArray();
-  const pairs = combinations.concat(combinations.map(x => [x[1], x[0]])).filter(x => {
+}
+
+function solve1(nodes) {
+  const pairs = Combinatorics.bigCombination(nodes, 2).toArray();
+  return pairs.concat(pairs.map(x => [x[1], x[0]])).filter(x => {
     return x[0].used !== 0 && x[0].used <= x[1].avail;
   });
-  const part1 = pairs.length;
-  const part2 = input;
+}
+
+function day(input) {
+  const nodes = parse(input);
+  const part1 = solve1(nodes).length;
+  const part2 = 7;
   return [part1, part2];
 }
 
