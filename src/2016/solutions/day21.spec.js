@@ -21,7 +21,7 @@ rotate based on position of letter d`, 'abcde').shift()).to.equal('decab');
     });
   });
 
-  describe.only('part2', () => {
+  describe('part2', () => {
     it('should work for part 2 examples', () => {
       expect(day(`swap position 4 with position 0
 swap letter d with letter b
