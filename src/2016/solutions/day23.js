@@ -55,10 +55,10 @@ function run(commands, state) {
   return state;
 }
 
-function day(input) {
+function day(input, state) {
   const commands = input.split('\n').map(toReducer);
-  const part1 = run(commands, {a: 7, b: 0, c: 0, d: 0, index: 0}).a;
-  const part2 = input;
+  const part1 = run(commands, state || {a: 7, b: 0, c: 0, d: 0, index: 0}).a;
+  const part2 = run(commands, state || {a: 12, b: 0, c: 0, d: 0, index: 0}).a;
   return [part1, part2];
 }
 
