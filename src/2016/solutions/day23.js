@@ -16,7 +16,7 @@ const ops = {
     }
   },
   jnz: (register, distance) => state => {
-    if ((state[register] !== undefined && state[register] !== 0) || (state[register] === undefined && register !== 0)) {
+    if ((state[register] !== undefined && state[register] !== 0) || (state[register] === undefined && register !== '0')) {
       distance = state[distance] === undefined ? parseInt(distance, 10) : state[distance];
       state.index += distance - 1;
     }
