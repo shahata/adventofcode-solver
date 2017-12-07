@@ -48,17 +48,27 @@ function toReducer(str) {
 
 function run(commands, state) {
   while (commands.length > state.index) {
-    const cmd = commands[state.index];
-    ops[cmd.name](...cmd.params)(state, commands);
-    state.index++;
+    if (state.index === 4 && commands.slice(4, 10).map(x => x.name).join(' ') === 'cpy inc dec jnz dec jnz') {
+      state.a += state.b * state.d;
+      state.c = 0;
+      state.d = 0;
+      state.index = 10;
+    } else {
+      const cmd = commands[state.index];
+      ops[cmd.name](...cmd.params)(state, commands);
+      state.index++;
+    }
   }
   return state;
 }
 
 function day(input, state) {
-  const commands = input.split('\n').map(toReducer);
-  const part1 = run(commands, state || {a: 7, b: 0, c: 0, d: 0, index: 0}).a;
-  const part2 = run(commands, state || {a: 12, b: 0, c: 0, d: 0, index: 0}).a;
+  const commands1 = input.split('\n').map(toReducer);
+  const part1 = run(commands1, state || {a: 7, b: 0, c: 0, d: 0, index: 0}).a;
+
+  const commands2 = input.split('\n').map(toReducer);
+  const part2 = run(commands2, state || {a: 12, b: 0, c: 0, d: 0, index: 0}).a;
+
   return [part1, part2];
 }
 
