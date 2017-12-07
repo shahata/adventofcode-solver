@@ -50,9 +50,9 @@ function undo(x) {
   }
 }
 
-function day(input, password) {
+function day(input, password, encoded) {
   const part1 = parse(input, x => x).reduce((x, f) => f(x), password || 'abcdefgh');
-  const part2 = parse(input, undo).reverse().reduce((x, f) => f(x), password || 'fbgdceah');
+  const part2 = parse(input, undo).reverse().reduce((x, f) => f(x), encoded || 'fbgdceah');
   return [part1, part2];
 }
 

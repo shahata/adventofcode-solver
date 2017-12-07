@@ -13,7 +13,7 @@ rotate left 1 step
 move position 1 to position 4
 move position 3 to position 0
 rotate based on position of letter b
-rotate based on position of letter d`, 'abcde').shift()).to.equal('decab');
+rotate based on position of letter d`, 'abcde', 'decab').shift()).to.equal('decab');
     });
 
     it('should work for part 1 input', () => {
@@ -30,7 +30,7 @@ rotate left 1 step
 move position 1 to position 4
 move position 3 to position 0
 rotate based on position of letter b
-rotate based on position of letter d`, 'decab').pop()).to.equal('abcde');
+rotate based on position of letter d`, 'abcde', 'decab').pop()).to.equal('abcde');
     });
 
     it('should work for part 2 input', () => {
