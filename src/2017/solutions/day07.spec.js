@@ -44,7 +44,7 @@ cntj (57)`).pop()).to.equal(60);
     });
 
     it('should work for part 2 input', () => {
-      // expect(day(input).pop()).to.equal(input);
+      expect(day(input).pop()).to.equal(1458);
     });
   });
 });
