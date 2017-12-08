@@ -13,7 +13,7 @@ The fourth floor contains nothing relevant.`).shift()).to.equal(11);
     });
 
     it('should work for part 1 input', () => {
-      // expect(day(input).shift()).to.equal(input);
+      expect(day(input).shift()).to.equal(33);
     });
   });
 
