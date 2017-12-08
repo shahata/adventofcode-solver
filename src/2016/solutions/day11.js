@@ -48,10 +48,7 @@ function legal(state) {
 
 function getMoves(state, diff) {
   const src = state.floors[state.elevator];
-  // const dest = state.floors[state.elevator + diff];
   const pairs = src.generators.filter(x => src.microchips.includes(x));
-  // const microchips = dest.generators.length === 0 ? src.microchips : src.microchips.filter(x => dest.generators.includes(x));
-  // const generators = dest.microchips.length === 0 ? src.generators : src.generators.filter(x => dest.microchips.includes(x));
   return pairs.map(x => ({generators: [x], microchips: [x]}))
     .concat(select(src.microchips, 2).map(x => ({microchips: x, generators: []})))
     .concat(select(src.generators, 2).map(x => ({generators: x, microchips: []})))
@@ -59,7 +56,6 @@ function getMoves(state, diff) {
 }
 
 function score({state, distance}) {
-  // return distance + state.floors.reduce((sum, x, i) => sum + ((state.floors.length - i - 1) * (x.generators.length)), 0);
   return distance + (state.floors.reduce((sum, x, i) => sum + (2 * (state.floors.length - i - 1) * (x.generators.length + x.microchips.length)), 0));
 }
 
@@ -79,40 +75,49 @@ function done(state) {
   return state.pieces.length === generators.length + microchips.length;
 }
 
-function print(state) {
-  const dic = {
-    promethium: 'P',
-    cobalt: 'T',
-    curium: 'C',
-    ruthenium: 'R',
-    plutonium: 'L',
-    elerium: 'E',
-    dilithium: 'D',
-    hydrogen: 'H',
-    lithium: 'M'
-  };
-  const str = state.floors.map((floor, i) => {
-    let str = `${i} `;
-    str += i === state.elevator ? 'E ' : '  ';
-    Object.keys(dic).filter(x => state.pieces.includes(x)).forEach(k => {
-      str += floor.generators.includes(k) ? `${dic[k]}G ` : '   ';
-      str += floor.microchips.includes(k) ? `${dic[k]}M ` : '   ';
-    });
-    return str;
-  }).reverse().join('\n');
-  return str;
+// function print(state) {
+//   const dic = {
+//     promethium: 'P',
+//     cobalt: 'T',
+//     curium: 'C',
+//     ruthenium: 'R',
+//     plutonium: 'L',
+//     elerium: 'E',
+//     dilithium: 'D',
+//     hydrogen: 'H',
+//     lithium: 'M'
+//   };
+//   const str = state.floors.map((floor, i) => {
+//     let str = `${i} `;
+//     str += i === state.elevator ? 'E ' : '  ';
+//     Object.keys(dic).filter(x => state.pieces.includes(x)).forEach(k => {
+//       str += floor.generators.includes(k) ? `${dic[k]}G ` : '   ';
+//       str += floor.microchips.includes(k) ? `${dic[k]}M ` : '   ';
+//     });
+//     return str;
+//   }).reverse().join('\n');
+//   return str;
+// }
+
+function stringify({elevator, floors}) {
+  return JSON.stringify({elevator, floors: floors.map((floor, i) => {
+    return {
+      generators: floor.generators.map(x => i - floors.findIndex(f => f.microchips.includes(x))).sort(),
+      microchips: floor.microchips.map(x => i - floors.findIndex(f => f.generators.includes(x))).sort()
+    };
+  })});
 }
 
 function solve(state) {
   const queue = [{distance: 0, state, path: [state]}];
-  const visited = new Set().add(print(state));
+  const visited = new Set().add(stringify(state));
   while (queue.length > 0) {
     const {state, distance, path} = queue.shift();
-    const neighbors = getNeighbors(state).filter(x => !visited.has(print(x)));
+    const neighbors = getNeighbors(state).filter(x => !visited.has(stringify(x)));
     for (const x of neighbors) {
-      const json = print(x);
+      const json = stringify(x);
       if (done(x)) {
-        path.concat(x).forEach(state => console.log(print(state), '\n----------------------'));
+        // path.concat(x).forEach(state => console.log(print(state), '\n----------------------'));
         return distance + 1;
       } else if (!visited.has(json)) {
         visited.add(json);
