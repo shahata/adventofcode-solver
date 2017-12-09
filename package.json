@@ -24,6 +24,9 @@
     "preset": "haste-preset-yoshi"
   },
   "eslintConfig": {
-    "extends": "wix/esnext"
+    "extends": "wix/esnext",
+    "globals": {
+      "itHeavy": false
+    }
   }
 }

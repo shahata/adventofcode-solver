@@ -3,7 +3,7 @@ const {expect} = require('chai');
 const readInput = require('../../read-input');
 const input = readInput(__filename);
 
-describe('template', () => {
+describe('day09 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(day('ADVENT').shift()).to.equal('ADVENT'.length);

@@ -4,7 +4,7 @@ const readInput = require('../../read-input');
 const input = readInput(__filename);
 const oldInput = readInput(__filename.replace(/23/g, '12'));
 
-describe('day23', () => {
+describe('day23 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(day(`cpy 41 a

@@ -3,7 +3,7 @@ const {expect} = require('chai');
 const readInput = require('../../read-input');
 const input = readInput(__filename);
 
-describe.skip('day24', () => {
+describe('day24 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(day(`###########
@@ -13,7 +13,7 @@ describe.skip('day24', () => {
 ###########`).shift()).to.equal(14);
     });
 
-    it('should work for part 1 input', () => {
+    itHeavy('should work for part 1 input', () => {
       expect(day(input).shift()).to.equal(412);
     });
   });
@@ -27,7 +27,7 @@ describe.skip('day24', () => {
 ###########`).pop()).to.equal(20);
     });
 
-    it('should work for part 2 input', () => {
+    itHeavy('should work for part 2 input', () => {
       expect(day(input).pop()).to.equal(664);
     });
   });

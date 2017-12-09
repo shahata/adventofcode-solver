@@ -37,14 +37,18 @@ function getSolvers(year) {
   }
 }
 
+function render(year, day, str) {
+  return str.replace(/template/g, day).replace(/year/g, year);
+}
+
 async function createSolver(year, day, session) {
   const answers = await inquirer.prompt([{type: 'confirm', name: 'create', message: `Create solver ${year}/${day}?`}]);
   if (answers.create) {
     const prefix = path.join(__dirname, year, 'solutions', day);
     const template = path.join(__dirname, 'template', 'template');
-    fs.writeFileSync(`${prefix}.js`, fs.readFileSync(`${template}.template`).toString().replace(/template/g, day));
+    fs.writeFileSync(`${prefix}.js`, render(year, day, fs.readFileSync(`${template}.template`).toString()));
     console.log(`Created ${prefix}.js`);
-    fs.writeFileSync(`${prefix}.spec.js`, fs.readFileSync(`${template}.spec.template`).toString().replace(/template/g, day));
+    fs.writeFileSync(`${prefix}.spec.js`, render(year, day, fs.readFileSync(`${template}.spec.template`).toString()));
     console.log(`Created ${prefix}.spec.js`);
     fs.writeFileSync(`${prefix}.txt`, await getDayInput(year, day, session));
     console.log(`Created ${prefix}.txt`);

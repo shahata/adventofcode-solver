@@ -3,7 +3,7 @@ const {expect} = require('chai');
 const readInput = require('../../read-input');
 const input = readInput(__filename);
 
-describe('day15', () => {
+describe('day15 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(day(`Disc #1 has 5 positions; at time=0, it is at position 4.
