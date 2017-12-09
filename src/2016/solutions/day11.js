@@ -131,7 +131,6 @@ function solve(state) {
 function day(input) {
   const state = parse(input);
   const part1 = solve(state);
-  console.log(part1);
 
   state.floors[0].generators.push('elerium', 'dilithium');
   state.floors[0].microchips.push('elerium', 'dilithium');

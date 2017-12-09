@@ -1,4 +1,5 @@
 const md5 = require('md5');
+const log = require('single-line-log').stdout;
 
 function findRepeatingCharacters(str, num) {
   return (str.match(new RegExp(`(.)\\1{${num - 1}}`, 'g')) || []).map(x => x[0]);
@@ -7,6 +8,7 @@ function findRepeatingCharacters(str, num) {
 function generateKeys(input, hashFn) {
   const keys = [], window = [], characters = {};
   for (let i = 0; keys.length < 64; i++) {
+    log(`${Math.round(100 * keys.length / 64)}%`);
     const str = hashFn(`${input}${i}`);
     findRepeatingCharacters(str, 5).forEach(x => characters[x] = (characters[x] || []).concat([i]));
     if (i >= 1000) {
@@ -18,6 +20,7 @@ function generateKeys(input, hashFn) {
     }
     window.push(str);
   }
+  log('');
   return keys;
 }
 

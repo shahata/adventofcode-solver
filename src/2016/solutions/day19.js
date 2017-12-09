@@ -12,6 +12,7 @@ function solve1(elves) {
 }
 
 function solve2(elves) {
+  const originalLength = elves.length;
   let next = 0;
   while (elves.length > 1) {
     const from = (next + Math.floor(elves.length / 2)) % elves.length;
@@ -20,7 +21,7 @@ function solve2(elves) {
       next--;
     }
     next = (next + 1) % elves.length;
-    log(elves.length);
+    log(`${Math.round(10000 * (originalLength - elves.length) / originalLength) / 100}%`);
   }
   log('');
   return elves.shift();

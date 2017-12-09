@@ -48,6 +48,7 @@ function solve(maze, source, targets, andBack) {
 }
 
 function day(input) {
+  console.log('Please wait patiently for result...');
   const {source, maze, targets} = parse(input);
   const part1 = solve(maze, source, targets, false);
   const part2 = solve(maze, source, targets, true);
