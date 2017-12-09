@@ -1,26 +1,26 @@
-const {day} = require('./day01');
+const {day} = require('./day13');
 const {expect} = require('chai');
 const readInput = require('../../read-input');
 const input = readInput(__filename);
 
-describe('day01 2015', () => {
+describe('day13 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(day('()()').shift()).to.equal(0);
+      // expect(day('1').shift()).to.equal('1');
     });
 
     it('should work for part 1 input', () => {
-      expect(day(input).shift()).to.equal(74);
+      expect(day(input).shift()).to.equal(733);
     });
   });
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(day('()())()').pop()).to.equal(5);
+      // expect(day('1').pop()).to.equal('1');
     });
 
     it('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal(1795);
+      expect(day(input).pop()).to.equal(725);
     });
   });
 });
