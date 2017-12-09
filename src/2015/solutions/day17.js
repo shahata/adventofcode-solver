@@ -1,11 +1,11 @@
-function day(input) {
+function day(input, fill = 150) {
   const boxes = input.split('\n').map(x => parseInt(x, 10));
   const result = new Array(boxes.length).fill(0);
   const pad = result.join('');
 
   for (let i = Math.pow(2, boxes.length) - 1; i > 0; i--) {
     const select = (pad + i.toString(2)).slice(-boxes.length).split('').map(x => parseInt(x, 10));
-    if (select.map((x, index) => x * boxes[index]).reduce((sum, x) => sum + x) === 150) {
+    if (select.map((x, index) => x * boxes[index]).reduce((sum, x) => sum + x) === fill) {
       result[select.filter(x => x).length - 1]++;
     }
   }

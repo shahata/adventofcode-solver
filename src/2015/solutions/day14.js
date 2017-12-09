@@ -1,4 +1,4 @@
-function day(input) {
+function day(input, seconds) {
   let race = input.split('\n')
                   .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))
                   .map(x => ({
@@ -8,7 +8,7 @@ function day(input) {
                     distance: 0,
                     points: 0
                   }));
-  new Array(2503).fill(undefined).forEach((item, index) => {
+  new Array(seconds || 2503).fill(undefined).forEach((item, index) => {
     race = race.map(x => {
       const ran = index % (x.fly + x.rest) < x.fly;
       x.distance += ran ? x.speed : 0;

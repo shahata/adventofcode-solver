@@ -1,4 +1,4 @@
-function day(input) {
+function day(input, initialHit = 50, initialMana = 500) {
   const spells = {
     Missile: {
       mana: 53,
@@ -111,7 +111,7 @@ function day(input) {
   });
 
   const [hit, damage] = input.match(/\d+/g);
-  const hero = {hit: 50, mana: 500, armor: 0};
+  const hero = {hit: initialHit, mana: initialMana, armor: 0};
   const boss = {hit: parseInt(hit, 10), damage: parseInt(damage, 10), armor: 0};
   const active = Object.keys(spells).reduce((obj, spell) => Object.assign(obj, {[spell]: 0}), {});
 

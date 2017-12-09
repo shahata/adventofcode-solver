@@ -5,8 +5,9 @@ const input = readInput(__filename);
 
 describe('day04 2015', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
-      // expect(day('1').shift()).to.equal('1');
+    itHeavy('should work for part 1 examples', () => {
+      expect(day('abcdef').shift()).to.equal(609043);
+      expect(day('pqrstuv').shift()).to.equal(1048970);
     });
 
     itHeavy('should work for part 1 input', () => {

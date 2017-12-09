@@ -6,7 +6,10 @@ const input = readInput(__filename);
 describe('day23 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      // expect(day('1').shift()).to.equal('1');
+      expect(day(`inc b
+jio b, +2
+tpl b
+inc b`).shift()).to.equal(2);
     });
 
     it('should work for part 1 input', () => {

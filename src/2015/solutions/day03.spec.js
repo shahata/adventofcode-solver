@@ -6,7 +6,9 @@ const input = readInput(__filename);
 describe('day03 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      // expect(day('1').shift()).to.equal('1');
+      expect(day('>').shift()).to.equal(2);
+      expect(day('^>v<').shift()).to.equal(4);
+      expect(day('^v^v^v^v^v').shift()).to.equal(2);
     });
 
     it('should work for part 1 input', () => {
@@ -16,7 +18,9 @@ describe('day03 2015', () => {
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      // expect(day('1').pop()).to.equal('1');
+      expect(day('^v').pop()).to.equal(3);
+      expect(day('^>v<').pop()).to.equal(3);
+      expect(day('^v^v^v^v^v').pop()).to.equal(11);
     });
 
     it('should work for part 2 input', () => {

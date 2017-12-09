@@ -1,16 +1,16 @@
 function day(input) {
   /* eslint no-bitwise: "off" */
   const ops = {
-    AND: (p1, p2) => p1 & p2,
-    OR: (p1, p2) => p1 | p2,
-    NOT: (p1, p2) => ~p2,
-    LSHIFT: (p1, p2) => p1 << p2,
-    RSHIFT: (p1, p2) => p1 >> p2,
-    undefined: p1 => p1
+    AND: (p1, p2) => (Math.pow(2, 16) + (p1 & p2)) % Math.pow(2, 16),
+    OR: (p1, p2) => (Math.pow(2, 16) + (p1 | p2)) % Math.pow(2, 16),
+    NOT: (p1, p2) => (Math.pow(2, 16) + (~p2)) % Math.pow(2, 16),
+    LSHIFT: (p1, p2) => (Math.pow(2, 16) + (p1 << p2)) % Math.pow(2, 16),
+    RSHIFT: (p1, p2) => (Math.pow(2, 16) + (p1 >> p2)) % Math.pow(2, 16),
+    undefined: p1 => (Math.pow(2, 16) + p1) % Math.pow(2, 16)
   };
 
   function getter(id) {
-    return id && id.match(/[a-z]+/) ? circuit => circuit[id]() : () => id;
+    return id && id.match(/^[a-z]+$/) ? circuit => circuit[id]() : () => parseInt(id, 10);
   }
 
   function makeCircuit(input) {

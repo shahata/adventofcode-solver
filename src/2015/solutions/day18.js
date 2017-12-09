@@ -1,4 +1,4 @@
-function day(input) {
+function day(input, steps = 100) {
   function life(grid, stuck) {
     function calc(state, i, j) {
       const safe = (idiff, jdiff) => grid[i + idiff] && grid[i + idiff][j + jdiff];
@@ -14,12 +14,12 @@ function day(input) {
   }
 
   const grid1 = input.split('\n').map(x => x.split('').map(c => c === '#'));
-  let part1 = new Array(100).fill(undefined).reduce(x => life(x, () => false), grid1);
+  let part1 = new Array(steps).fill(undefined).reduce(x => life(x, () => false), grid1);
   part1 = part1.reduce((prev, row) => prev.concat(row)).filter(x => x).length;
 
-  const corner = (i, j) => (i === 0 || i === 99) && (j === 0 || j === 99);
+  const corner = (i, j) => (i === 0 || i === grid1.length - 1) && (j === 0 || j === grid1.length - 1);
   const grid2 = grid1.map((row, i) => row.map((cell, j) => cell || corner(i, j)));
-  let part2 = new Array(100).fill(undefined).reduce(x => life(x, corner), grid2);
+  let part2 = new Array(steps).fill(undefined).reduce(x => life(x, corner), grid2);
   part2 = part2.reduce((prev, row) => prev.concat(row)).filter(x => x).length;
 
   return [part1, part2];

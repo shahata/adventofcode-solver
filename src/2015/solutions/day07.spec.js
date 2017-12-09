@@ -6,7 +6,24 @@ const input = readInput(__filename);
 describe('day07 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      // expect(day('1').shift()).to.equal('1');
+      expect(day(`123 -> x
+456 -> y
+x AND y -> a`).shift()).to.equal(72);
+      expect(day(`123 -> x
+456 -> y
+x OR y -> a`).shift()).to.equal(507);
+      expect(day(`123 -> x
+456 -> y
+x LSHIFT 2 -> a`).shift()).to.equal(492);
+      expect(day(`123 -> x
+456 -> y
+y RSHIFT 2 -> a`).shift()).to.equal(114);
+      expect(day(`123 -> x
+456 -> y
+NOT x -> a`).shift()).to.equal(65412);
+      expect(day(`123 -> x
+456 -> y
+NOT y -> a`).shift()).to.equal(65079);
     });
 
     it('should work for part 1 input', () => {
