@@ -1,3 +1,5 @@
+const log = require('single-line-log').stdout;
+
 function solve1(elves) {
   while (elves.length > 1) {
     const length = elves.length;
@@ -18,7 +20,9 @@ function solve2(elves) {
       next--;
     }
     next = (next + 1) % elves.length;
+    log(elves.length);
   }
+  log('');
   return elves.shift();
 }
 

@@ -20,7 +20,7 @@ describe('day19', () => {
     });
 
     it.skip('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal(5819);
+      expect(day(input).pop()).to.equal(1410967);
     });
   });
 });
