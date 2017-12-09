@@ -9,18 +9,18 @@ describe('day19', () => {
       expect(day('5').shift()).to.equal(3);
     });
 
-    it('should work for part 1 input', () => {
+    it.skip('should work for part 1 input', () => {
       expect(day(input).shift()).to.equal(1816277);
     });
   });
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      // expect(day('1').pop()).to.equal('1');
+      expect(day('5').pop()).to.equal(2);
     });
 
-    it('should work for part 2 input', () => {
-      // expect(day(input).pop()).to.equal(input);
+    it.skip('should work for part 2 input', () => {
+      expect(day(input).pop()).to.equal(5819);
     });
   });
 });
