@@ -34,7 +34,7 @@ function day(input) {
   const sues = input.split('\n')
                     .map(x => x.match(/^Sue ([^:]*): (.*)/))
                     .map(x => [x[1], parseMap(x[2], ', ', ': ')])
-                    .map(x => Object.assign({id: x[0]}, x[1]));
+                    .map(x => Object.assign({id: parseInt(x[0], 10)}, x[1]));
 
   const part1 = sues.filter(x => matches(x, expect1)).map(x => x.id).shift();
   const part2 = sues.filter(x => matches(x, expect2)).map(x => x.id).shift();

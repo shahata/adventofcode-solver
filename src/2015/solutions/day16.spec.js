@@ -10,7 +10,7 @@ describe('day16 2015', () => {
     });
 
     it('should work for part 1 input', () => {
-      expect(day(input).shift()).to.equal('213');
+      expect(day(input).shift()).to.equal(213);
     });
   });
 
@@ -20,7 +20,7 @@ describe('day16 2015', () => {
     });
 
     it('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal('323');
+      expect(day(input).pop()).to.equal(323);
     });
   });
 });

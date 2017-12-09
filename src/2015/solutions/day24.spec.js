@@ -34,11 +34,11 @@ describe('day24 2015', () => {
 8
 9
 10
-11`).pop()).to.equal('44');
+11`).pop()).to.equal(44);
     });
 
     it('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal('74850409');
+      expect(day(input).pop()).to.equal(74850409);
     });
   });
 });

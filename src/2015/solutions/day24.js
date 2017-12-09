@@ -25,7 +25,7 @@ function day(input) {
 
   const part1 = f(boxes, total / 3, 3);
   const part2 = f(boxes, total / 4, 4);
-  return [part1, JSON.stringify(part2)];
+  return [part1, part2];
 }
 
 module.exports = {day};
