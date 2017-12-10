@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 10 - Advent of Code 2017</title>
+<!--[if lt IE 9]><script src="static/html5.js"></script><![endif]-->
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="static/style.css?11"/>
+<link rel="stylesheet alternate" type="text/css" href="static/highcontrast.css?0" title="High Contrast"/>
+<link rel="shortcut icon" href="favicon.ico?2"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<article class="day-desc"><h2>--- Day 10: Knot Hash ---</h2><p>You come across some programs that are trying to implement a software emulation of a hash based on knot-tying. The hash these programs are implementing isn't very strong, but you decide to help them anyway. You make a mental note to remind the Elves later not to <span title="NEW CRYPTOSYSTEM WHO DIS">invent their own cryptographic functions</span>.</p>
+<p>This hash function simulates tying a knot in a circle of string with 256 marks on it. Based on the input to be hashed, the function repeatedly selects a span of string, brings the ends together, and gives the span a half-twist to reverse the order of the marks within it. After doing this many times, the order of the marks is used to build the resulting hash.</p>
+<pre><code>  4--5   pinch   4  5           4   1
+ /    \  5,0,1  / \/ \  twist  / \ / \
+3      0  -->  3      0  -->  3   X   0
+ \    /         \ /\ /         \ / \ /
+  2--1           2  1           2   5
+</code></pre>
+<p>To achieve this, begin with a <em>list</em> of numbers from <code>0</code> to <code>255</code>, a <em>current position</em> which begins at <code>0</code> (the first element in the list), a <em>skip size</em> (which starts at <code>0</code>), and a sequence of <em>lengths</em> (your puzzle input).  Then, for each length:</p>
+<ul>
+<li><em>Reverse</em> the order of that <em>length</em> of elements in the <em>list</em>, starting with the element at the <em>current position</em>.</li>
+<li><em>Move</em> the <em>current position</em> forward by that <em>length</em> plus the <em>skip size</em>.</li>
+<li><em>Increase</em> the <em>skip size</em> by one.</li>
+</ul>
+<p>The <em>list</em> is circular; if the <em>current position</em> and the <em>length</em> try to reverse elements beyond the end of the list, the operation reverses using as many extra elements as it needs from the front of the list. If the <em>current position</em> moves past the end of the list, it wraps around to the front. <em>Lengths</em> larger than the size of the <em>list</em> are invalid.</p>
+<p>Here's an example using a smaller list:</p>
+<p>Suppose we instead only had a circular list containing five elements, <code>0, 1, 2, 3, 4</code>, and were given input lengths of <code>3, 4, 1, 5</code>.</p>
+<ul>
+<li>The list begins as <code>[0] 1 2 3 4</code> (where square brackets indicate the <em>current position</em>).</li>
+<li>The first length, <code>3</code>, selects <code>([0] 1 2) 3 4</code> (where parentheses indicate the sublist to be reversed).</li>
+<li>After reversing that section (<code>0 1 2</code> into <code>2 1 0</code>), we get <code>([2] 1 0) 3 4</code>.</li>
+<li>Then, the <em>current position</em> moves forward by the <em>length</em>, <code>3</code>, plus the <em>skip size</em>, 0: <code>2 1 0 [3] 4</code>. Finally, the <em>skip size</em> increases to <code>1</code>.</li>
+</ul>
+<ul>
+<li>The second length, <code>4</code>, selects a section which wraps: <code>2 1) 0 ([3] 4</code>.</li>
+<li>The sublist <code>3 4 2 1</code> is reversed to form <code>1 2 4 3</code>: <code>4 3) 0 ([1] 2</code>.</li>
+<li>The <em>current position</em> moves forward by the <em>length</em> plus the <em>skip size</em>, a total of <code>5</code>, causing it not to move because it wraps around: <code>4 3 0 [1] 2</code>. The <em>skip size</em> increases to <code>2</code>.</li>
+</ul>
+<ul>
+<li>The third length, <code>1</code>, selects a sublist of a single element, and so reversing it has no effect.</li>
+<li>The <em>current position</em> moves forward by the <em>length</em> (<code>1</code>) plus the <em>skip size</em> (<code>2</code>): <code>4 [3] 0 1 2</code>. The <em>skip size</em> increases to <code>3</code>.</li>
+</ul>
+<ul>
+<li>The fourth length, <code>5</code>, selects every element starting with the second: <code>4) ([3] 0 1 2</code>. Reversing this sublist (<code>3 0 1 2 4</code> into <code>4 2 1 0 3</code>) produces: <code>3) ([4] 2 1 0</code>.</li>
+<li>Finally, the <em>current position</em> moves forward by <code>8</code>: <code>3 4 2 1 [0]</code>. The <em>skip size</em> increases to <code>4</code>.</li>
+</ul>
+<p>In this example, the first two numbers in the list end up being <code>3</code> and <code>4</code>; to check the process, you can multiply them together to produce <code>12</code>.</p>
+<p>However, you should instead use the standard list size of <code>256</code> (with values <code>0</code> to <code>255</code>) and the sequence of <em>lengths</em> in your puzzle input. Once this process is complete, <em>what is the result of multiplying the first two numbers in the list</em>?</p>
+</article>
+<p>Your puzzle answer was <code>9656</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>The logic you've constructed forms a single <em>round</em> of the <em>Knot Hash</em> algorithm; running the full thing requires many of these rounds. Some input and output processing is also required.</p>
+<p>First, from now on, your input should be taken not as a list of numbers, but as a string of bytes instead. Unless otherwise specified, convert characters to bytes using their <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">ASCII codes</a>. This will allow you to handle arbitrary ASCII strings, and it also ensures that your input lengths are never larger than <code>255</code>. For example, if you are given <code>1,2,3</code>, you should convert it to the ASCII codes for each character: <code>49,44,50,44,51</code>.</p>
+<p>Once you have determined the sequence of lengths to use, add the following lengths to the end of the sequence: <code>17, 31, 73, 47, 23</code>. For example, if you are given <code>1,2,3</code>, your final sequence of lengths should be <code>49,44,50,44,51,17,31,73,47,23</code> (the ASCII codes from the input string combined with the standard length suffix values).</p>
+<p>Second, instead of merely running one <em>round</em> like you did above, run a total of <code>64</code> rounds, using the same <em>length</em> sequence in each round. The <em>current position</em> and <em>skip size</em> should be preserved between rounds. For example, if the previous example was your first round, you would start your second round with the same <em>length</em> sequence (<code>3, 4, 1, 5, 17, 31, 73, 47, 23</code>, now assuming they came from ASCII codes and include the suffix), but start with the previous round's <em>current position</em> (<code>4</code>) and <em>skip size</em> (<code>4</code>).</p>
+<p>Once the rounds are complete, you will be left with the numbers from <code>0</code> to <code>255</code> in some order, called the <em>sparse hash</em>. Your next task is to reduce these to a list of only <code>16</code> numbers called the <em>dense hash</em>. To do this, use numeric bitwise <a href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR">XOR</a> to combine each consecutive block of <code>16</code> numbers in the sparse hash (there are <code>16</code> such blocks in a list of <code>256</code> numbers). So, the first element in the dense hash is the first sixteen elements of the sparse hash XOR'd together, the second element in the dense hash is the second sixteen elements of the sparse hash XOR'd together, etc.</p>
+<p>For example, if the first sixteen elements of your sparse hash are as shown below, and the XOR operator is <code>^</code>, you would calculate the first output number like this:</p>
+<pre><code>65 ^ 27 ^ 9 ^ 1 ^ 4 ^ 3 ^ 40 ^ 50 ^ 91 ^ 7 ^ 6 ^ 0 ^ 2 ^ 5 ^ 68 ^ 22 = 64</code></pre>
+<p>Perform this operation on each of the sixteen blocks of sixteen numbers in your sparse hash to determine the sixteen numbers in your dense hash.</p>
+<p>Finally, the standard way to represent a Knot Hash is as a single <a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a> string; the final output is the dense hash in hexadecimal notation. Because each number in your dense hash will be between <code>0</code> and <code>255</code> (inclusive), always represent each number as two hexadecimal digits (including a leading zero as necessary). So, if your first three numbers are <code>64, 7, 255</code>, they correspond to the hexadecimal numbers <code>40, 07, ff</code>, and so the first six characters of the hash would be <code>4007ff</code>. Because every Knot Hash is sixteen such numbers, the hexadecimal representation is always <code>32</code> hexadecimal digits (<code>0</code>-<code>f</code>) long.
+<p>Here are some example hashes:</p>
+<ul>
+<li>The empty string becomes <code>a2582a3a0e66e6e86e3812dcb672a272</code>.</li>
+<li><code>AoC 2017</code> becomes <code>33efeb34ea91902bb2f59c9920caa6cd</code>.</li>
+<li><code>1,2,3</code> becomes <code>3efbe78a8d82f29979031a4aa0b16a9d</code>.</li>
+<li><code>1,2,4</code> becomes <code>63960835bcdc130f0b66d7ff4f6a5a8e</code>.</li>
+</ul>
+<p>Treating your puzzle input as a string of ASCII characters, <em>what is the Knot Hash of your puzzle input?</em> Ignore any leading or trailing whitespace you might encounter.</p>
+</article>
+<p>Your puzzle answer was <code>20b7b54c92bf73cf3e5631458a715149</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, you should <a href="index.html">return to your advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href="../solutions/day10.txt" target="_blank">get your puzzle input</a>.</p>
+</main>
+</body>
+</html>
