@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 10 - Advent of Code 2016</title>
+<!--[if lt IE 9]><script src="static/html5.js"></script><![endif]-->
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="static/style.css?3"/>
+<link rel="shortcut icon" href="favicon.ico?2"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2016</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 10: Balance Bots ---</h2><p>You come upon a factory in which many robots are <a href="https://www.youtube.com/watch?v=JnkMyfQ5YfY&t=40">zooming around</a> handing small microchips to each other.</p>
+<p>Upon closer examination, you notice that each bot only proceeds when it has <em>two</em> microchips, and once it does, it gives each one to a different bot or puts it in a marked "output" bin. Sometimes, bots take microchips from "input" bins, too.</p>
+<p>Inspecting one of the microchips, it seems like they each contain a single number; the bots must use some logic to decide what to do with each chip. You access the local control computer and download the bots' instructions (your puzzle input).</p>
+<p>Some of the instructions specify that a specific-valued microchip should be given to a specific bot; the rest of the instructions indicate what a given bot should do with its <em>lower-value</em> or <em>higher-value</em> chip.</p>
+<p>For example, consider the following instructions:</p>
+<pre><code>value 5 goes to bot 2
+bot 2 gives low to bot 1 and high to bot 0
+value 3 goes to bot 1
+bot 1 gives low to output 1 and high to bot 0
+bot 0 gives low to output 2 and high to output 0
+value 2 goes to bot 2
+</code></pre>
+<ul>
+<li>Initially, bot <code>1</code> starts with a value-<code>3</code> chip, and bot <code>2</code> starts with a value-<code>2</code> chip and a value-<code>5</code> chip.</li>
+<li>Because bot <code>2</code> has two microchips, it gives its lower one (<code>2</code>) to bot <code>1</code> and its higher one (<code>5</code>) to bot <code>0</code>.</li>
+<li>Then, bot <code>1</code> has two microchips; it puts the value-<code>2</code> chip in output <code>1</code> and gives the value-<code>3</code> chip to bot <code>0</code>.</li>
+<li>Finally, bot <code>0</code> has two microchips; it puts the <code>3</code> in output <code>2</code> and the <code>5</code> in output <code>0</code>.</li>
+</ul>
+<p>In the end, output bin <code>0</code> contains a value-<code>5</code> microchip, output bin <code>1</code> contains a value-<code>2</code> microchip, and output bin <code>2</code> contains a value-<code>3</code> microchip. In this configuration, bot number <em><code>2</code></em> is responsible for comparing value-<code>5</code> microchips with value-<code>2</code> microchips.</p>
+<p>Based on your instructions, <em>what is the number of the bot</em> that is responsible for comparing value-<code>61</code> microchips with value-<code>17</code> microchips?</p>
+</article>
+<p>Your puzzle answer was <code>181</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p><span title="What do you get if you multiply six by nine?">What do you get</span> if you <em>multiply together the values</em> of one chip in each of outputs <code>0</code>, <code>1</code>, and <code>2</code>?</p>
+</article>
+<p>Your puzzle answer was <code>12567</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="../solutions/day10.txt" target="_blank">get your puzzle input</a>.</p>
+</main>
+</body>
+</html>

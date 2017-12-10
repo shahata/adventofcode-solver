@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 9 - Advent of Code 2017</title>
+<!--[if lt IE 9]><script src="static/html5.js"></script><![endif]-->
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="static/style.css?11"/>
+<link rel="stylesheet alternate" type="text/css" href="static/highcontrast.css?0" title="High Contrast"/>
+<link rel="shortcut icon" href="favicon.ico?2"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<article class="day-desc"><h2>--- Day 9: Stream Processing ---</h2><p>A large stream blocks your path. According to the locals, it's not safe to <span title="&quot;Don't cross the streams!&quot;, they yell, even though there's only one. They seem to think they're hilarious.">cross the stream</span> at the moment because it's full of <em>garbage</em>. You look down at the stream; rather than water, you discover that it's a <em>stream of characters</em>.</p>
+<p>You sit for a while and record part of the stream (your puzzle input). The characters represent <em>groups</em> - sequences that begin with <code>{</code> and end with <code>}</code>. Within a group, there are zero or more other things, separated by commas: either another <em>group</em> or <em>garbage</em>. Since groups can contain other groups, a <code>}</code> only closes the <em>most-recently-opened unclosed group</em> - that is, they are nestable. Your puzzle input represents a single, large group which itself contains many smaller ones.</p>
+<p>Sometimes, instead of a group, you will find <em>garbage</em>. Garbage begins with <code>&lt;</code> and ends with <code>&gt;</code>. Between those angle brackets, almost any character can appear, including <code>{</code> and <code>}</code>. <em>Within</em> garbage, <code>&lt;</code> has no special meaning.</p>
+<p>In a futile attempt to clean up the garbage, some program has <em>canceled</em> some of the characters within it using <code>!</code>: inside garbage, <em>any</em> character that comes after <code>!</code> should be <em>ignored</em>, including <code>&lt;</code>, <code>&gt;</code>, and even another <code>!</code>.</p>
+<p>You don't see any characters that deviate from these rules.  Outside garbage, you only find well-formed groups, and garbage always terminates according to the rules above.</p>
+<p>Here are some self-contained pieces of garbage:</p>
+<ul>
+<li><code>&lt;&gt;</code>, empty garbage.</li>
+<li><code>&lt;random characters&gt;</code>, garbage containing random characters.</li>
+<li><code>&lt;&lt;&lt;&lt;&gt;</code>, because the extra <code>&lt;</code> are ignored.</li>
+<li><code>&lt;{!&gt;}&gt;</code>, because the first <code>&gt;</code> is canceled.</li>
+<li><code>&lt;!!&gt;</code>, because the second <code>!</code> is canceled, allowing the <code>&gt;</code> to terminate the garbage.</li>
+<li><code>&lt;!!!&gt;&gt;</code>, because the second <code>!</code> and the first <code>&gt;</code> are canceled.</li>
+<li><code>&lt;{o"i!a,&lt;{i&lt;a&gt;</code>, which ends at the first <code>&gt;</code>.</li>
+</ul>
+<p>Here are some examples of whole streams and the number of groups they contain:</p>
+<ul>
+<li><code>{}</code>, <code>1</code> group.</li>
+<li><code>{{{}}}</code>, <code>3</code> groups.</li>
+<li><code>{{},{}}</code>, also <code>3</code> groups.</li>
+<li><code>{{{},{},{{}}}}</code>, <code>6</code> groups.</li>
+<li><code>{&lt;{},{},{{}}&gt;}</code>, <code>1</code> group (which itself contains garbage).</li>
+<li><code>{&lt;a&gt;,&lt;a&gt;,&lt;a&gt;,&lt;a&gt;}</code>, <code>1</code> group.</li>
+<li><code>{{&lt;a&gt;},{&lt;a&gt;},{&lt;a&gt;},{&lt;a&gt;}}</code>, <code>5</code> groups.</li>
+<li><code>{{&lt;!&gt;},{&lt;!&gt;},{&lt;!&gt;},{&lt;a&gt;}}</code>, <code>2</code> groups (since all but the last <code>&gt;</code> are canceled).</li>
+</ul>
+<p>Your goal is to find the total score for all groups in your input. Each group is assigned a <em>score</em> which is one more than the score of the group that immediately contains it. (The outermost group gets a score of <code>1</code>.)</p>
+<ul>
+<li><code>{}</code>, score of <code>1</code>.</li>
+<li><code>{{{}}}</code>, score of <code>1 + 2 + 3 = 6</code>.</li>
+<li><code>{{},{}}</code>, score of <code>1 + 2 + 2 = 5</code>.</li>
+<li><code>{{{},{},{{}}}}</code>, score of <code>1 + 2 + 3 + 3 + 3 + 4 = 16</code>.</li>
+<li><code>{&lt;a&gt;,&lt;a&gt;,&lt;a&gt;,&lt;a&gt;}</code>, score of <code>1</code>.</li>
+<li><code>{{&lt;ab&gt;},{&lt;ab&gt;},{&lt;ab&gt;},{&lt;ab&gt;}}</code>, score of <code>1 + 2 + 2 + 2 + 2 = 9</code>.</li>
+<li><code>{{&lt;!!&gt;},{&lt;!!&gt;},{&lt;!!&gt;},{&lt;!!&gt;}}</code>, score of <code>1 + 2 + 2 + 2 + 2 = 9</code>.</li>
+<li><code>{{&lt;a!&gt;},{&lt;a!&gt;},{&lt;a!&gt;},{&lt;ab&gt;}}</code>, score of <code>1 + 2 = 3</code>.</li>
+</ul>
+<p><em>What is the total score</em> for all groups in your input?</p>
+</article>
+<p>Your puzzle answer was <code>20530</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>Now, you're ready to remove the garbage.</p>
+<p>To prove you've removed it, you need to count all of the characters within the garbage.  The leading and trailing <code>&lt;</code> and <code>&gt;</code> don't count, nor do any canceled characters or the <code>!</code> doing the canceling.</p>
+<ul>
+<li><code>&lt;&gt;</code>, <code>0</code> characters.</li>
+<li><code>&lt;random characters&gt;</code>, <code>17</code> characters.</li>
+<li><code>&lt;&lt;&lt;&lt;&gt;</code>, <code>3</code> characters.</li>
+<li><code>&lt;{!&gt;}&gt;</code>, <code>2</code> characters.</li>
+<li><code>&lt;!!&gt;</code>, <code>0</code> characters.</li>
+<li><code>&lt;!!!&gt;&gt;</code>, <code>0</code> characters.</li>
+<li><code>&lt;{o"i!a,&lt;{i&lt;a&gt;</code>, <code>10</code> characters.</li>
+</ul>
+<p><em>How many non-canceled characters are within the garbage</em> in your puzzle input?</p>
+</article>
+<p>Your puzzle answer was <code>9978</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, you should <a href="index.html">return to your advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href="../solutions/day09.txt" target="_blank">get your puzzle input</a>.</p>
+</main>
+</body>
+</html>

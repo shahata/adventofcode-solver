@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 20 - Advent of Code 2016</title>
+<!--[if lt IE 9]><script src="static/html5.js"></script><![endif]-->
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="static/style.css?3"/>
+<link rel="shortcut icon" href="favicon.ico?2"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2016</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 20: Firewall Rules ---</h2><p>You'd like to set up a small hidden computer here so you can use it to <span title="I'll create a GUI interface using Visual Basic... see if I can track an IP address.">get back into the network</span> later. However, the corporate firewall only allows communication with certain external <a href="https://en.wikipedia.org/wiki/IPv4#Addressing">IP addresses</a>.</p>
+<p>You've retrieved the list of blocked IPs from the firewall, but the list seems to be messy and poorly maintained, and it's not clear which IPs are allowed. Also, rather than being written in <a href="https://en.wikipedia.org/wiki/Dot-decimal_notation">dot-decimal</a> notation, they are written as plain <a href="https://en.wikipedia.org/wiki/32-bit">32-bit integers</a>, which can have any value from <code>0</code> through <code>4294967295</code>, inclusive.</p>
+<p>For example, suppose only the values <code>0</code> through <code>9</code> were valid, and that you retrieved the following blacklist:</p>
+<pre><code>5-8
+0-2
+4-7
+</code></pre>
+<p>The blacklist specifies ranges of IPs (inclusive of both the start and end value) that are <em>not</em> allowed. Then, the only IPs that this firewall allows are <code>3</code> and <code>9</code>, since those are the only numbers not in any range.</p>
+<p>Given the list of blocked IPs you retrieved from the firewall (your puzzle input), <em>what is the lowest-valued IP</em> that is not blocked?</p>
+</article>
+<p>Your puzzle answer was <code>14975795</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p><em>How many IPs</em> are allowed by the blacklist?</p>
+</article>
+<p>Your puzzle answer was <code>101</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="../solutions/day20.txt" target="_blank">get your puzzle input</a>.</p>
+</main>
+</body>
+</html>

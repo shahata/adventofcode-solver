@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 19 - Advent of Code 2016</title>
+<!--[if lt IE 9]><script src="static/html5.js"></script><![endif]-->
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="static/style.css?3"/>
+<link rel="shortcut icon" href="favicon.ico?2"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2016</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 19: An Elephant Named Joseph ---</h2><p>The Elves contact you over a highly secure emergency channel. Back at the North Pole, the Elves are busy <span title="Eggnoggedly misunderstanding them, actually.">misunderstanding</span> <a href="https://en.wikipedia.org/wiki/White_elephant_gift_exchange">White Elephant parties</a>.</p>
+<p>Each Elf brings a present. They all sit in a circle, numbered starting with position <code>1</code>. Then, starting with the first Elf, they take turns stealing all the presents from the Elf to their left.  An Elf with no presents is removed from the circle and does not take turns.</p>
+<p>For example, with five Elves (numbered <code>1</code> to <code>5</code>):</p>
+<pre><code>  1
+5   2
+ 4 3
+</code></pre>
+<ul>
+<li>Elf <code>1</code> takes Elf <code>2</code>'s present.</li>
+<li>Elf <code>2</code> has no presents and is skipped.</li>
+<li>Elf <code>3</code> takes Elf <code>4</code>'s present.</li>
+<li>Elf <code>4</code> has no presents and is also skipped.</li>
+<li>Elf <code>5</code> takes Elf <code>1</code>'s two presents.</li>
+<li>Neither Elf <code>1</code> nor Elf <code>2</code> have any presents, so both are skipped.</li>
+<li>Elf <code>3</code> takes Elf <code>5</code>'s three presents.</li>
+</ul>
+<p>So, with <em>five</em> Elves, the Elf that sits starting in position <code>3</code> gets all the presents.</p>
+<p>With the number of Elves given in your puzzle input, <em>which Elf gets all the presents?</em></p>
+</article>
+<p>Your puzzle answer was <code>1816277</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>Realizing the folly of their present-exchange rules, the Elves agree to instead steal presents from the Elf <em>directly across the circle</em>. If two Elves are across the circle, the one on the left (from the perspective of the stealer) is stolen from.  The other rules remain unchanged: Elves with no presents are removed from the circle entirely, and the other elves move in slightly to keep the circle evenly spaced.</p>
+<p>For example, with five Elves (again numbered <code>1</code> to <code>5</code>):</p>
+<ul>
+<li>The Elves sit in a circle; Elf <code>1</code> goes first:
+<pre><code>  <em>1</em>
+5   2
+ 4 3
+</code></pre></li>
+<li>Elves <code>3</code> and <code>4</code> are across the circle; Elf <code>3</code>'s present is stolen, being the one to the left. Elf <code>3</code> leaves the circle, and the rest of the Elves move in:
+<pre><code>  <em>1</em>           1
+5   2  --&gt;  5   2
+ 4 -          4
+</code></pre></li>
+<li>Elf <code>2</code> steals from the Elf directly across the circle, Elf <code>5</code>:
+<pre><code>  1         1
+-   <em>2</em>  --&gt;     2
+  4         4
+</code></pre></li>
+<li>Next is Elf <code>4</code> who, choosing between Elves <code>1</code> and <code>2</code>, steals from Elf <code>1</code>:
+<pre><code> -          2
+    2  --&gt;
+ <em>4</em>          4
+</code></pre></li>
+<li>Finally, Elf <code>2</code> steals from Elf <code>4</code>:
+<pre><code> <em>2</em>
+    --&gt;  2
+ -
+</code></pre></li>
+</ul>
+<p>So, with <em>five</em> Elves, the Elf that sits starting in position <code>2</code> gets all the presents.</p>
+<p>With the number of Elves given in your puzzle input, <em>which Elf now gets all the presents?</em></p>
+</article>
+<p>Your puzzle answer was <code>1410967</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
+<p>Your puzzle input was <code class="puzzle-input">3005290</code>.</p>
+</main>
+</body>
+</html>
