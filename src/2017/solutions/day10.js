@@ -1,9 +1,8 @@
 function step({chain, skip, current}, length) {
-  const phase1 = chain.slice(current).concat(chain.slice(0, current));
-  const phase2 = phase1.slice(0, length).reverse().concat(phase1.slice(length));
-  const phase3 = phase2.slice(-1 * current).concat(phase2.slice(0, -1 * current));
-  const rotated = phase3;
-  return {chain: rotated, skip: skip + 1, current: (current + length + skip) % chain.length};
+  const currentIsFirst = chain.slice(current).concat(chain.slice(0, current));
+  const lengthReversed = currentIsFirst.slice(0, length).reverse().concat(currentIsFirst.slice(length));
+  const currentRotatedBack = lengthReversed.slice(-1 * current).concat(lengthReversed.slice(0, -1 * current));
+  return {chain: currentRotatedBack, skip: skip + 1, current: (current + length + skip) % chain.length};
 }
 
 function solve(chain, lengths) {
