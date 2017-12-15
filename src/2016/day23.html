@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -6,6 +5,7 @@
 <title>Day 23 - Advent of Code 2016</title>
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
 <link rel="shortcut icon" href="../static/favicon.ico"/>
 </head>
 <body>
@@ -13,9 +13,9 @@
 <main>
 <style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 23: Safe Cracking ---</h2><p>This is one of the top floors of the nicest tower in EBHQ. The Easter Bunny's private office is here, complete with a safe hidden behind a painting, and who <em>wouldn't</em> hide a star in a safe behind a painting?</p>
 <p>The safe has a digital screen and keypad for code entry. A sticky note attached to the safe has a password hint on it: "eggs". The painting is of a large rabbit coloring some eggs. You see <code>7</code>.</p>
-<p>When you go to type the code, though, nothing appears on the display; instead, the keypad comes apart in your hands, apparently having been smashed. Behind it is some kind of socket - one that matches a connector in your <a href="11">prototype computer</a>! You pull apart the smashed keypad and extract the logic circuit, plug it into your computer, and plug your computer into the safe.</p>
-</p>Now, you just need to figure out what output the keypad would have sent to the safe. You extract the <a href="12">assembunny code</a> from the logic chip (your puzzle input).</p>
-<p>The code looks like it uses <em>almost</em> the same architecture and instruction set that the <a href="12">monorail computer</a> used! You should be able to <em>use the same assembunny interpreter</em> for this as you did there, but with one new instruction:</p>
+<p>When you go to type the code, though, nothing appears on the display; instead, the keypad comes apart in your hands, apparently having been smashed. Behind it is some kind of socket - one that matches a connector in your <a href="day11.html">prototype computer</a>! You pull apart the smashed keypad and extract the logic circuit, plug it into your computer, and plug your computer into the safe.</p>
+</p>Now, you just need to figure out what output the keypad would have sent to the safe. You extract the <a href="day12.html">assembunny code</a> from the logic chip (your puzzle input).</p>
+<p>The code looks like it uses <em>almost</em> the same architecture and instruction set that the <a href="day12.html">monorail computer</a> used! You should be able to <em>use the same assembunny interpreter</em> for this as you did there, but with one new instruction:</p>
 <p><code>tgl x</code> <em>toggles</em> the instruction <code>x</code> away (pointing at instructions like <code>jnz</code> does: positive means forward; negative means backward):</p>
 <ul>
 <li>For <em>one-argument</em> instructions, <code>inc</code> becomes <code>dec</code>, and all other one-argument instructions become <code>inc</code>.</li>
@@ -53,6 +53,11 @@ dec a
 <p>Your puzzle answer was <code>479007440</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
 <p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
 <p>If you still want to see it, you can <a href="day23.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Safe+Cracking%22+%2D+Day+23+%2D+Advent+of+Code+2016&amp;url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F23&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F23" target="_blank">Google+</a>
+  <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F23&amp;title=I%27ve+completed+%22Safe+Cracking%22+%2D+Day+23+%2D+Advent+of+Code+2016" target="_blank">Reddit</a
+></span>]</span> this puzzle.</p>
 </main>
 </body>
 </html>

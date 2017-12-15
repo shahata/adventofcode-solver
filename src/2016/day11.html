@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -6,6 +5,7 @@
 <title>Day 11 - Advent of Code 2016</title>
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
 <link rel="shortcut icon" href="../static/favicon.ico"/>
 </head>
 <body>
@@ -26,67 +26,67 @@ The third floor contains a lithium generator.
 The fourth floor contains nothing relevant.
 </code></pre>
 <p>As a diagram (<code>F#</code> for a Floor number, <code>E</code> for Elevator, <code>H</code> for Hydrogen, <code>L</code> for Lithium, <code>M</code> for Microchip, and <code>G</code> for Generator), the initial state looks like this:</p>
-<pre><code>F4 .  .  .  .  .
-F3 .  .  .  LG .
-F2 .  HG .  .  .
-F1 E  .  HM .  LM
+<pre><code>F4 .  .  .  .  .  
+F3 .  .  .  LG .  
+F2 .  HG .  .  .  
+F1 E  .  HM .  LM 
 </code></pre>
 <p>Then, to get everything up to the assembling machine on the fourth floor, the following steps could be taken:</p>
 <ul>
-<li><p>Bring the Hydrogen-compatible Microchip to the second floor, which is safe because it can get power from the Hydrogen Generator:</p><pre><code>F4 .  .  .  .  .
-F3 .  .  .  LG .
-F2 E  HG HM .  .
-F1 .  .  .  .  LM
+<li><p>Bring the Hydrogen-compatible Microchip to the second floor, which is safe because it can get power from the Hydrogen Generator:</p><pre><code>F4 .  .  .  .  .  
+F3 .  .  .  LG .  
+F2 E  HG HM .  .  
+F1 .  .  .  .  LM 
 </code></pre></li>
-<li><p>Bring both Hydrogen-related items to the third floor, which is safe because the Hydrogen-compatible microchip is getting power from its generator:</p><pre><code>F4 .  .  .  .  .
-F3 E  HG HM LG .
-F2 .  .  .  .  .
-F1 .  .  .  .  LM
+<li><p>Bring both Hydrogen-related items to the third floor, which is safe because the Hydrogen-compatible microchip is getting power from its generator:</p><pre><code>F4 .  .  .  .  .  
+F3 E  HG HM LG .  
+F2 .  .  .  .  .  
+F1 .  .  .  .  LM 
 </code></pre></li>
-<li><p>Leave the Hydrogen Generator on floor three, but bring the Hydrogen-compatible Microchip back down with you so you can still use the elevator:</p><pre><code>F4 .  .  .  .  .
-F3 .  HG .  LG .
-F2 E  .  HM .  .
-F1 .  .  .  .  LM
+<li><p>Leave the Hydrogen Generator on floor three, but bring the Hydrogen-compatible Microchip back down with you so you can still use the elevator:</p><pre><code>F4 .  .  .  .  .  
+F3 .  HG .  LG .  
+F2 E  .  HM .  .  
+F1 .  .  .  .  LM 
 </code></pre></li>
-<li><p>At the first floor, grab the Lithium-compatible Microchip, which is safe because Microchips don't affect each other:</p><pre><code>F4 .  .  .  .  .
-F3 .  HG .  LG .
-F2 .  .  .  .  .
-F1 E  .  HM .  LM
+<li><p>At the first floor, grab the Lithium-compatible Microchip, which is safe because Microchips don't affect each other:</p><pre><code>F4 .  .  .  .  .  
+F3 .  HG .  LG .  
+F2 .  .  .  .  .  
+F1 E  .  HM .  LM 
 </code></pre></li>
-<li><p>Bring both Microchips up one floor, where there is nothing to fry them:</p><pre><code>F4 .  .  .  .  .
-F3 .  HG .  LG .
-F2 E  .  HM .  LM
-F1 .  .  .  .  .
+<li><p>Bring both Microchips up one floor, where there is nothing to fry them:</p><pre><code>F4 .  .  .  .  .  
+F3 .  HG .  LG .  
+F2 E  .  HM .  LM 
+F1 .  .  .  .  .  
 </code></pre></li>
-<li><p>Bring both Microchips up again to floor three, where they can be temporarily connected to their corresponding generators while the elevator recharges, preventing either of them from being fried:</p><pre><code>F4 .  .  .  .  .
-F3 E  HG HM LG LM
-F2 .  .  .  .  .
-F1 .  .  .  .  .
+<li><p>Bring both Microchips up again to floor three, where they can be temporarily connected to their corresponding generators while the elevator recharges, preventing either of them from being fried:</p><pre><code>F4 .  .  .  .  .  
+F3 E  HG HM LG LM 
+F2 .  .  .  .  .  
+F1 .  .  .  .  .  
 </code></pre></li>
-<li><p>Bring both Microchips to the fourth floor:</p><pre><code>F4 E  .  HM .  LM
-F3 .  HG .  LG .
-F2 .  .  .  .  .
-F1 .  .  .  .  .
+<li><p>Bring both Microchips to the fourth floor:</p><pre><code>F4 E  .  HM .  LM 
+F3 .  HG .  LG .  
+F2 .  .  .  .  .  
+F1 .  .  .  .  .  
 </code></pre></li>
-<li><p>Leave the Lithium-compatible microchip on the fourth floor, but bring the Hydrogen-compatible one so you can still use the elevator; this is safe because although the Lithium Generator is on the destination floor, you can connect Hydrogen-compatible microchip to the Hydrogen Generator there:</p><pre><code>F4 .  .  .  .  LM
-F3 E  HG HM LG .
-F2 .  .  .  .  .
-F1 .  .  .  .  .
+<li><p>Leave the Lithium-compatible microchip on the fourth floor, but bring the Hydrogen-compatible one so you can still use the elevator; this is safe because although the Lithium Generator is on the destination floor, you can connect Hydrogen-compatible microchip to the Hydrogen Generator there:</p><pre><code>F4 .  .  .  .  LM 
+F3 E  HG HM LG .  
+F2 .  .  .  .  .  
+F1 .  .  .  .  .  
 </code></pre></li>
-<li><p>Bring both Generators up to the fourth floor, which is safe because you can connect the Lithium-compatible Microchip to the Lithium Generator upon arrival:</p><pre><code>F4 E  HG .  LG LM
-F3 .  .  HM .  .
-F2 .  .  .  .  .
-F1 .  .  .  .  .
+<li><p>Bring both Generators up to the fourth floor, which is safe because you can connect the Lithium-compatible Microchip to the Lithium Generator upon arrival:</p><pre><code>F4 E  HG .  LG LM 
+F3 .  .  HM .  .  
+F2 .  .  .  .  .  
+F1 .  .  .  .  .  
 </code></pre></li>
-<li><p>Bring the Lithium Microchip with you to the third floor so you can use the elevator:</p><pre><code>F4 .  HG .  LG .
-F3 E  .  HM .  LM
-F2 .  .  .  .  .
-F1 .  .  .  .  .
+<li><p>Bring the Lithium Microchip with you to the third floor so you can use the elevator:</p><pre><code>F4 .  HG .  LG .  
+F3 E  .  HM .  LM 
+F2 .  .  .  .  .  
+F1 .  .  .  .  .  
 </code></pre></li>
-<li><p>Bring both Microchips to the fourth floor:</p><pre><code>F4 E  HG HM LG LM
-F3 .  .  .  .  .
-F2 .  .  .  .  .
-F1 .  .  .  .  .
+<li><p>Bring both Microchips to the fourth floor:</p><pre><code>F4 E  HG HM LG LM 
+F3 .  .  .  .  .  
+F2 .  .  .  .  .  
+F1 .  .  .  .  .  
 </code></pre></li>
 </ul>
 <p>In this arrangement, it takes <code>11</code> steps to collect all of the objects at the fourth floor for assembly. (Each elevator stop counts as one step, even if nothing is added to or removed from it.)</p>
@@ -106,6 +106,11 @@ F1 .  .  .  .  .
 <p>Your puzzle answer was <code>57</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
 <p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
 <p>If you still want to see it, you can <a href="day11.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016&amp;url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11" target="_blank">Google+</a>
+  <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F11&amp;title=I%27ve+completed+%22Radioisotope+Thermoelectric+Generators%22+%2D+Day+11+%2D+Advent+of+Code+2016" target="_blank">Reddit</a
+></span>]</span> this puzzle.</p>
 </main>
 </body>
 </html>
