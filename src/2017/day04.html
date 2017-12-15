@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 4 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.ico"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<article class="day-desc"><h2>--- Day 4: High-Entropy Passphrases ---</h2><p>A new system policy has been put in place that requires all accounts to use a <em>passphrase</em> instead of simply a pass<em>word</em>. A passphrase consists of a series of words (lowercase letters) separated by spaces.</p>
+<p>To ensure security, a valid passphrase must contain no duplicate words.</p>
+<p>For example:</p>
+<ul>
+<li><code>aa bb cc dd ee</code> is valid.</li>
+<li><code>aa bb cc dd aa</code> is not valid - the word <code>aa</code> appears more than once.</li>
+<li><code>aa bb cc dd aaa</code> is valid - <code>aa</code> and <code>aaa</code> count as different words.</li>
+</ul>
+<p>The system's full passphrase list is available as your puzzle input. <em>How many passphrases are valid?</em></p>
+</article>
+<p>Your puzzle answer was <code>325</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>For added security, <span title="Because as everyone knows, the number of rules is proportional to the level of security.">yet another system policy</span> has been put in place.  Now, a valid passphrase must contain no two words that are anagrams of each other - that is, a passphrase is invalid if any word's letters can be rearranged to form any other word in the passphrase.</p>
+<p>For example:</p>
+<ul>
+<li><code>abcde fghij</code> is a valid passphrase.</li>
+<li><code>abcde xyz ecdab</code> is not valid - the letters from the third word can be rearranged to form the first word.</li>
+<li><code>a ab abc abd abf abj</code> is a valid passphrase, because <em>all</em> letters need to be used when forming another word.</li>
+<li><code>iiii oiii ooii oooi oooo</code> is valid.</li>
+<li><code>oiii ioii iioi iiio</code> is not valid - any of these words can be rearranged to form any other word.</li>
+</ul>
+<p>Under this new system policy, <em>how many passphrases are valid?</em></p>
+</article>
+<p>Your puzzle answer was <code>119</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, you should <a href="index.html">return to your advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href="day04.txt" target="_blank">get your puzzle input</a>.</p>
+</main>
+</body>
+</html>

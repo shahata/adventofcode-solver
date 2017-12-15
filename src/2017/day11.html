@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 11 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.ico"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<article class="day-desc"><h2>--- Day 11: Hex Ed ---</h2><p>Crossing the bridge, you've barely reached the other side of the stream when a program comes up to you, clearly in distress.  "It's my child process," she says, "he's gotten lost in an infinite grid!"</p>
+<p>Fortunately for her, you have plenty of experience with infinite grids.</p>
+<p>Unfortunately for you, it's a <a href="https://en.wikipedia.org/wiki/Hexagonal_tiling">hex grid</a>.</p>
+<p>The hexagons ("hexes") in <span title="Raindrops on roses and whiskers on kittens.">this grid</span> are aligned such that adjacent hexes can be found to the north, northeast, southeast, south, southwest, and northwest:</p>
+<pre><code>  \ n  /
+nw +--+ ne
+  /    \
+-+      +-
+  \    /
+sw +--+ se
+  / s  \
+</code></pre>
+<p>You have the path the child process took. Starting where he started, you need to determine the fewest number of steps required to reach him. (A "step" means to move from the hex you are in to any adjacent hex.)</p>
+<p>For example:</p>
+<ul>
+<li><code>ne,ne,ne</code> is <code>3</code> steps away.</li>
+<li><code>ne,ne,sw,sw</code> is <code>0</code> steps away (back where you started).</li>
+<li><code>ne,ne,s,s</code> is <code>2</code> steps away (<code>se,se</code>).</li>
+<li><code>se,sw,se,sw,sw</code> is <code>3</code> steps away (<code>s,s,sw</code>).</li>
+</ul>
+</article>
+<p>Your puzzle answer was <code>747</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p><em>How many steps away</em> is the <em>furthest</em> he ever got from his starting position?</p>
+</article>
+<p>Your puzzle answer was <code>1544</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, you should <a href="index.html">return to your advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href="day11.txt" target="_blank">get your puzzle input</a>.</p>
+</main>
+</body>
+</html>

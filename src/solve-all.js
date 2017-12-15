@@ -25,10 +25,10 @@ async function solveDay(year, day, fn, session) {
 
 function getSolvers(year) {
   try {
-    const folder = path.join(__dirname, year, 'solutions');
+    const folder = path.join(__dirname, year);
     const days = fs.readdirSync(folder).filter(x => x.match(/^day\d+\.js$/));
     return days.reduce((obj, day) => Object.assign(obj, {
-      [day.split('.').shift()]: require(`./${path.join(`${year}/solutions`, day)}`).day
+      [day.split('.').shift()]: require(`./${path.join(`${year}`, day)}`).day
     }), {});
   } catch (e) {
     console.error(e);
@@ -44,7 +44,7 @@ function render(year, day, str) {
 async function createSolver(year, day, session) {
   const answers = await inquirer.prompt([{type: 'confirm', name: 'create', message: `Create solver ${year}/${day}?`}]);
   if (answers.create) {
-    const prefix = path.join(__dirname, year, 'solutions', day);
+    const prefix = path.join(__dirname, year, day);
     const template = path.join(__dirname, 'template', 'template');
     fs.writeFileSync(`${prefix}.js`, render(year, day, fs.readFileSync(`${template}.template`).toString()));
     console.log(`Created ${prefix}.js`);

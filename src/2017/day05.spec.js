@@ -1,26 +1,34 @@
-const {day} = require('./template');
+const {day} = require('./day05');
 const {expect} = require('chai');
 const readInput = require('../read-input');
 const input = readInput(__filename);
 
-describe('template year', () => {
+describe('day05 2017', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(day('1').shift()).to.equal('1');
+      expect(day(`0
+3
+0
+1
+-3`).shift()).to.equal(5);
     });
 
     it('should work for part 1 input', () => {
-      // expect(day(input).shift()).to.equal(input);
+      expect(day(input).shift()).to.equal(343364);
     });
   });
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      // expect(day('1').pop()).to.equal('1');
+      expect(day(`0
+3
+0
+1
+-3`).pop()).to.equal(10);
     });
 
     it('should work for part 2 input', () => {
-      // expect(day(input).pop()).to.equal(input);
+      expect(day(input).pop()).to.equal(25071947);
     });
   });
 });
