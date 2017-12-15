@@ -2,7 +2,6 @@ const md5 = require('md5');
 const log = require('single-line-log').stdout;
 
 function day(input) {
-  console.log('Please wait patiently for result...');
   let hash, count = 0;
   let password1 = '';
   const password2 = [];

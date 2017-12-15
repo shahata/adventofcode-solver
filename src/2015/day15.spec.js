@@ -3,7 +3,7 @@ const {expect} = require('chai');
 const readInput = require('../read-input');
 const input = readInput(__filename);
 
-describe('day15 2015', () => {
+describeHeavy('day15 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(day(`Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8

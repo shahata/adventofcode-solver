@@ -1,3 +1,5 @@
+const log = require('single-line-log').stdout;
+
 function parse(input) {
   let source;
   const targets = [];
@@ -27,7 +29,7 @@ function getNeighbors(maze, point, props) {
   ].filter(x => !x.point.wall);
 }
 
-function solve(maze, source, targets, andBack) {
+function solve({maze, source, targets}, andBack) {
   const visited = {'': new Set().add(source)};
   let queue = [{distance: 0, found: new Set(), key: '', point: source}];
   while (queue.length) {
@@ -47,12 +49,14 @@ function solve(maze, source, targets, andBack) {
   }
 }
 
+const part1 = input => solve(parse(input), false);
+const part2 = input => solve(parse(input), true);
+
 function day(input) {
-  console.log('Please wait patiently for result...');
-  const {source, maze, targets} = parse(input);
-  const part1 = solve(maze, source, targets, false);
-  const part2 = solve(maze, source, targets, true);
-  return [part1, part2];
+  log('Please wait patiently for result...');
+  const result = [part1(input), part2(input)];
+  log('');
+  return result;
 }
 
-module.exports = {day};
+module.exports = {day, part1, part2};

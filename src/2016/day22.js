@@ -58,14 +58,19 @@ function shortest(map, source, destination) {
   return 0;
 }
 
-function day(input) {
+function part1(input) {
   const nodes = parse(input);
-  const part1 = solve1(nodes).length;
-
-  const {map, start, data} = build(nodes);
-  const part2 = shortest(map, start, {x: data.x - 1, y: 0}) + 1 + (5 * (data.x - 1));
-
-  return [part1, part2];
+  return solve1(nodes).length;
 }
 
-module.exports = {day};
+function part2(input) {
+  const nodes = parse(input);
+  const {map, start, data} = build(nodes);
+  return shortest(map, start, {x: data.x - 1, y: 0}) + 1 + (5 * (data.x - 1));
+}
+
+function day(input) {
+  return [part1(input), part2(input)];
+}
+
+module.exports = {day, part1, part2};

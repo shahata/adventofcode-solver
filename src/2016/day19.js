@@ -27,12 +27,13 @@ function solve2(elves) {
   return elves.shift();
 }
 
-function day(input) {
+function elves(input) {
   const count = parseInt(input, 10);
-  const elves = new Array(count).fill().map((x, i) => i + 1);
-  const part1 = solve1(elves);
-  const part2 = solve2(elves);
-  return [part1, part2];
+  return new Array(count).fill().map((x, i) => i + 1);
 }
 
-module.exports = {day};
+const part1 = input => solve1(elves(input));
+const part2 = input => solve2(elves(input));
+const day = input => [part1(input), part2(input)];
+
+module.exports = {day, part1, part2};

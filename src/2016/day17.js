@@ -27,10 +27,8 @@ function solve(input, shortest = true) {
   return max;
 }
 
-function day(input) {
-  const part1 = solve(input, true);
-  const part2 = solve(input, false);
-  return [part1, part2];
-}
+const part1 = input => solve(input, true);
+const part2 = input => solve(input, false);
+const day = input => [part1(input), part2(input)];
 
-module.exports = {day};
+module.exports = {day, part1, part2};

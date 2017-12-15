@@ -128,16 +128,20 @@ function solve(state) {
   }
 }
 
-function day(input) {
-  const state = parse(input);
-  const part1 = solve(state);
+function part1(input) {
+  return solve(parse(input));
+}
 
+function part2(input) {
+  const state = parse(input);
   state.floors[0].generators.push('elerium', 'dilithium');
   state.floors[0].microchips.push('elerium', 'dilithium');
   state.pieces.push('elerium', 'dilithium', 'elerium', 'dilithium');
-  const part2 = solve(state);
-
-  return [part1, part2];
+  return solve(state);
 }
 
-module.exports = {day};
+function day(input) {
+  return [part1(input), part2(input)];
+}
+
+module.exports = {day, part1, part2};

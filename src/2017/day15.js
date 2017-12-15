@@ -25,10 +25,8 @@ function parse(input) {
   return input.split('\n').map(x => parseInt(x.match(/\d+$/).pop(), 10));
 }
 
-function day(input, times1 = 40 * 1000 * 1000, times2 = 5 * 1000 * 1000) {
-  const part1 = judge(...parse(input), [1, 1], times1);
-  const part2 = judge(...parse(input), [4, 8], times2);
-  return [part1, part2];
-}
+const part1 = (input, times = 40 * 1000 * 1000) => judge(...parse(input), [1, 1], times);
+const part2 = (input, times = 5 * 1000 * 1000) => judge(...parse(input), [4, 8], times);
+const day = input => [part1(input), part2(input)];
 
-module.exports = {day};
+module.exports = {day, part1, part2};

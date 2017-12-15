@@ -23,10 +23,14 @@
   "haste": {
     "preset": "haste-preset-yoshi"
   },
+  "jest": {
+    "setupFiles": ["./test/setup.js"]
+  },
   "eslintConfig": {
     "extends": "wix/esnext",
     "globals": {
-      "itHeavy": false
+      "itHeavy": false,
+      "describeHeavy": false
     }
   }
 }

@@ -18,10 +18,6 @@ Damage: 8`, 10, 250).shift()).to.equal(229 + 113 + 73 + 173 + 53);
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
-      // expect(day('1').pop()).to.equal('1');
-    });
-
     it('should work for part 2 input', () => {
       expect(day(input).pop()).to.equal(1937);
     });

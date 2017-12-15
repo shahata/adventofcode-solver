@@ -16,10 +16,6 @@ Disc #2 has 2 positions; at time=0, it is at position 1.`).shift()).to.equal(5);
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
-      // expect(day('1').pop()).to.equal('1');
-    });
-
     it('should work for part 2 input', () => {
       expect(day(input).pop()).to.equal(3903937);
     });

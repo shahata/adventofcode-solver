@@ -19,10 +19,8 @@ function checksum(data) {
   }
 }
 
-function day(input, size) {
-  const part1 = checksum(generate(input, size || 272));
-  const part2 = checksum(generate(input, size || 35651584));
-  return [part1, part2];
-}
+const part1 = (input, size) => checksum(generate(input, size || 272));
+const part2 = (input, size) => checksum(generate(input, size || 35651584));
+const day = (input, size) => [part1(input, size), part2(input, size)];
 
-module.exports = {day};
+module.exports = {day, part1, part2};

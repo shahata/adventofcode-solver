@@ -33,7 +33,6 @@ function md5times(str, count) {
 }
 
 function day(input) {
-  console.log('Please wait patiently for result...');
   const part1 = generateKeys(input, x => md5times(x, 1)).pop();
   const part2 = generateKeys(input, x => md5times(x, 2017)).pop();
   return [part1, part2];
