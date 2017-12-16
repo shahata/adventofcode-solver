@@ -4,15 +4,9 @@ const readInput = require('../read-input');
 const input = readInput(__filename);
 
 describeHeavy('day25 2016', () => {
-  describe('part1', () => {
-    it('should work for part 1 input', () => {
-      expect(day(input).shift()).to.equal(180);
-    });
-  });
-
-  describe('part2', () => {
-    it('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal(undefined);
-    });
+  it('should work for input', () => {
+    const [part1, part2] = day(input);
+    expect(part1).to.equal(180);
+    expect(part2).to.equal(undefined);
   });
 });

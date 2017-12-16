@@ -3,7 +3,7 @@ const {expect} = require('chai');
 const readInput = require('../read-input');
 const input = readInput(__filename);
 
-describe('day06 2015', () => {
+describeHeavy('day06 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(part1(`turn on 0,0 through 999,999

@@ -1,4 +1,4 @@
-function day(input) {
+function day(input, part1Only = false) {
   function divisors(x) {
     const nums = [];
     for (let i = 1; i <= Math.sqrt(x); i++) {
@@ -13,7 +13,7 @@ function day(input) {
   }
 
   input = parseInt(input);
-  let part1, part2;
+  let part1, part2 = part1Only;
   for (let i = 1; !part1 || !part2; i++) {
     const nums = divisors(i);
     const sum = nums.reduce((sum, x) => sum + x, 0);

@@ -23,10 +23,8 @@ function solve(scanners) {
   return i;
 }
 
-function day(input) {
-  const part1 = severity(parse(input));
-  const part2 = solve(parse(input));
-  return [part1, part2];
-}
+const part1 = input => severity(parse(input));
+const part2 = input => solve(parse(input));
+const day = input => [part1(input), part2(input)];
 
-module.exports = {day};
+module.exports = {day, part1, part2};

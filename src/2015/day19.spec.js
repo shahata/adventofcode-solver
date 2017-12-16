@@ -1,4 +1,4 @@
-const {day} = require('./day19');
+const {part1, part2} = require('./day19');
 const {expect} = require('chai');
 const readInput = require('../read-input');
 const input = readInput(__filename);
@@ -6,43 +6,43 @@ const input = readInput(__filename);
 describeHeavy('day19 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(day(`H => HO
+      expect(part1(`H => HO
 H => OH
 O => HH
 
-HOH`).shift()).to.equal(4);
-      expect(day(`H => HO
+HOH`)).to.equal(4);
+      expect(part1(`H => HO
 H => OH
 O => HH
 
-HOHOHO`).shift()).to.equal(7);
+HOHOHO`)).to.equal(7);
     });
 
     it('should work for part 1 input', () => {
-      expect(day(input).shift()).to.equal(576);
+      expect(part1(input)).to.equal(576);
     });
   });
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(day(`e => H
+      expect(part2(`e => H
 e => O
 H => HO
 H => OH
 O => HH
 
-HOH`).pop()).to.equal(3);
-      expect(day(`e => H
+HOH`)).to.equal(3);
+      expect(part2(`e => H
 e => O
 H => HO
 H => OH
 O => HH
 
-HOHOHO`).pop()).to.equal(6);
+HOHOHO`)).to.equal(6);
     });
 
     it('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal(207);
+      expect(part2(input)).to.equal(207);
     });
   });
 });

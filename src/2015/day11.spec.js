@@ -1,4 +1,4 @@
-const {day} = require('./day11');
+const {day, part1} = require('./day11');
 const {expect} = require('chai');
 const readInput = require('../read-input');
 const input = readInput(__filename);
@@ -6,11 +6,11 @@ const input = readInput(__filename);
 describeHeavy('day11 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(day('abcdefgh').shift()).to.equal('abcdffaa');
+      expect(part1('abcdefgh')).to.equal('abcdffaa');
     });
 
     it('should work for part 1 input', () => {
-      expect(day(input).shift()).to.equal('vzbxxyzz');
+      expect(part1(input)).to.equal('vzbxxyzz');
     });
   });
 

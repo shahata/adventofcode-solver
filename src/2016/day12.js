@@ -20,11 +20,8 @@ function run(commands, state) {
   return state;
 }
 
-function day(input) {
-  const commands = input.split('\n').map(toReducer);
-  const part1 = run(commands, {a: 0, b: 0, c: 0, d: 0, index: 0}).a;
-  const part2 = run(commands, {a: 0, b: 0, c: 1, d: 0, index: 0}).a;
-  return [part1, part2];
-}
+const part1 = input => run(input.split('\n').map(toReducer), {a: 0, b: 0, c: 0, d: 0, index: 0}).a;
+const part2 = input => run(input.split('\n').map(toReducer), {a: 0, b: 0, c: 1, d: 0, index: 0}).a;
+const day = input => [part1(input), part2(input)];
 
-module.exports = {day};
+module.exports = {day, part1, part2};

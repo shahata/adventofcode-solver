@@ -14,10 +14,8 @@ function solve(input, rows) {
   return count;
 }
 
-function day(input, rows) {
-  const part1 = solve(input, rows || 40);
-  const part2 = solve(input, rows || 400000);
-  return [part1, part2];
-}
+const part1 = (input, rows = 40) => solve(input, rows);
+const part2 = (input, rows = 400000) => solve(input, rows);
+const day = input => [part1(input), part2(input)];
 
-module.exports = {day};
+module.exports = {day, part1, part2};

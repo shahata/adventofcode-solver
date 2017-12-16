@@ -19,8 +19,8 @@ function checksum(data) {
   }
 }
 
-const part1 = (input, size) => checksum(generate(input, size || 272));
-const part2 = (input, size) => checksum(generate(input, size || 35651584));
-const day = (input, size) => [part1(input, size), part2(input, size)];
+const part1 = (input, size = 272) => checksum(generate(input, size));
+const part2 = (input, size = 35651584) => checksum(generate(input, size));
+const day = input => [part1(input), part2(input)];
 
 module.exports = {day, part1, part2};
