@@ -36,7 +36,7 @@ async function solveDay(year, day, fn, session) {
   const input = await getDayInput(year, day, session);
   console.log(`Solution for ${day}!!!`);
   console.log('----------------------------');
-  const result = fn(input.trim());
+  const result = fn(input.trimRight());
   console.log(`Part1: ${result[0]}`);
   console.log(`Part2: ${result[1]}`);
   console.log('');
