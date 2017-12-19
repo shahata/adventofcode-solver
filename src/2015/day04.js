@@ -1,16 +1,17 @@
 const log = require('single-line-log').stdout;
 const md5 = require('md5');
 
-function solve(input, prefix) {
+function solve(input, validator) {
   let result = 1;
-  while (!md5(input + result).startsWith(prefix)) {
+  while (!validator(md5(input + result, {asBytes: true}))) {
     result++;
   }
   return result;
 }
 
-const part1 = input => solve(input, '00000');
-const part2 = input => solve(input, '000000');
+/* eslint no-bitwise: "off" */
+const part1 = input => solve(input, x => x[0] === 0 && x[1] === 0 && x[2] >> 4 === 0);
+const part2 = input => solve(input, x => x[0] === 0 && x[1] === 0 && x[2] === 0);
 
 function day(input) {
   log('Please wait patiently for result...');
