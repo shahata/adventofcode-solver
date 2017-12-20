@@ -1,10 +1,11 @@
 function day(input, part1Only = false) {
   function divisors(x) {
     const nums = [];
-    for (let i = 1; i <= Math.sqrt(x); i++) {
+    const sqrt = Math.sqrt(x);
+    for (let i = 1; i <= sqrt; i++) {
       if (x % i === 0) {
         nums.push(i);
-        if (i !== Math.sqrt(x)) {
+        if (i !== sqrt) {
           nums.push(x / i);
         }
       }
