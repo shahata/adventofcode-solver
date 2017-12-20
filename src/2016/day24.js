@@ -30,6 +30,8 @@ function getNeighbors(maze, point, props) {
 }
 
 function solve({maze, source, targets}, andBack) {
+  const back = {};
+  let closest, backResult = Infinity;
   const visited = {'': new Set().add(source)};
   let queue = [{distance: 0, found: new Set(), key: '', point: source}];
   while (queue.length) {
@@ -38,14 +40,22 @@ function solve({maze, source, targets}, andBack) {
       found = new Set(found).add(point);
       key += point.target;
       visited[key] = visited[key] || new Set();
+      back[point.target] = back[point.target] || distance;
+      closest = closest || point.target;
+      if (found.size === targets.length) {
+        if (andBack) {
+          backResult = Math.min(backResult, distance + back[point.target]);
+        } else {
+          return distance;
+        }
+      }
     }
-    if (found.size === targets.length && (!andBack || point === source)) {
-      return distance;
-    } else {
-      const neighbors = getNeighbors(maze, point, {found, distance: distance + 1, key}).filter(({point}) => !visited[key].has(point));
-      neighbors.forEach(({point}) => visited[key].add(point));
-      queue = queue.concat(neighbors);
+    if (backResult <= distance + back[closest]) {
+      return backResult;
     }
+    const neighbors = getNeighbors(maze, point, {found, distance: distance + 1, key}).filter(({point}) => !visited[key].has(point));
+    neighbors.forEach(({point}) => visited[key].add(point));
+    queue = queue.concat(neighbors);
   }
 }
 
