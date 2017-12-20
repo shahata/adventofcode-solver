@@ -10,7 +10,7 @@ function day(input) {
   while (count < 8) {
     do {
       index++;
-      bytes = md5(input + index, {asBytes: true});
+      bytes = md5(input + index, {asBytes: true, encoding: 'binary'});
       /* eslint no-bitwise: "off" */
     } while (bytes[0] !== 0 || bytes[1] !== 0 || bytes[2] >> 4 !== 0);
     hash = md5(input + index);

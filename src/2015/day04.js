@@ -3,7 +3,7 @@ const md5 = require('md5');
 
 function solve(input, validator) {
   let result = 1;
-  while (!validator(md5(input + result, {asBytes: true}))) {
+  while (!validator(md5(input + result, {encoding: 'binary', asBytes: true}))) {
     result++;
   }
   return result;
