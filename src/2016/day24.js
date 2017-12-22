@@ -1,5 +1,3 @@
-const log = require('single-line-log').stdout;
-
 function parse(input) {
   let source;
   const targets = [];
@@ -61,12 +59,6 @@ function solve({maze, source, targets}, andBack) {
 
 const part1 = input => solve(parse(input), false);
 const part2 = input => solve(parse(input), true);
-
-function day(input) {
-  log('Please wait patiently for result...');
-  const result = [part1(input), part2(input)];
-  log('');
-  return result;
-}
+const day = input => [part1(input), part2(input)];
 
 module.exports = {day, part1, part2};

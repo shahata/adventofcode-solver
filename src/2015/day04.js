@@ -1,4 +1,3 @@
-const log = require('single-line-log').stdout;
 const md5 = require('../utils/md5');
 
 function solve(input, prefix) {
@@ -14,9 +13,7 @@ const part1 = input => solve(input, '00000');
 const part2 = input => solve(input, '000000');
 
 function day(input) {
-  log('Please wait patiently for result...');
   const result = [part1(input), part2(input)];
-  log('');
   return result;
 }
 

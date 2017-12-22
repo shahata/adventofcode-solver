@@ -1,5 +1,3 @@
-const log = require('single-line-log').stdout;
-
 function next(x, factor, validator) {
   do {
     x = (x * factor) % 2147483647;
@@ -14,10 +12,8 @@ function judge(a, b, validators, times) {
     b = next(b, 48271, validators[1]);
     if (a % 65536 === b % 65536) {
       count++;
-      log(`${Math.floor(100 * i / times)}%`);
     }
   }
-  log('');
   return count;
 }
 

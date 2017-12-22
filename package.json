@@ -10,14 +10,10 @@
   "dependencies": {
     "inquirer": "^4.0.1",
     "js-combinatorics": "^0.5.0",
-    "md5": "^2.0.0",
-    "node-fetch": "^1.3.3",
-    "single-line-log": "^1.1.2"
+    "node-fetch": "^1.3.3"
   },
   "devDependencies": {
-    "babel-polyfill": "^6.26.0",
     "chai": "^3.5.0",
-    "describe-heavy": "^1.0.0",
     "haste-cli": "^0.1.16",
     "haste-preset-yoshi": "0.0.11"
   },
@@ -25,7 +21,9 @@
     "preset": "haste-preset-yoshi"
   },
   "jest": {
-    "setupFiles": ["./test/setup.js"]
+    "setupFiles": [
+      "./test/setup.js"
+    ]
   },
   "eslintConfig": {
     "extends": "wix/esnext",
