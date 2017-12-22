@@ -33,16 +33,24 @@ async function getYearPage(year, session) {
 }
 
 function dayFunction(module) {
-  return module.day || (input => [module.part1(input), module.part2(input)]);
+  return input => {
+    input = input.trimRight();
+    if (module.day) {
+      const {part1, part2} = module.day(input);
+      console.log(`Part1: ${part1}`);
+      console.log(`Part2: ${part2}`);
+    } else {
+      console.log(`Part1: ${module.part1(input)}`);
+      console.log(`Part2: ${module.part2(input)}`);
+    }
+  };
 }
 
 async function solveDay(year, day, fn, session) {
   const input = await getDayInput(year, day, session);
   console.log(`Solution for ${day}!!!`);
   console.log('----------------------------');
-  const result = fn(input.trimRight());
-  console.log(`Part1: ${result[0]}`);
-  console.log(`Part2: ${result[1]}`);
+  fn(input.trimRight());
   console.log('');
 }
 

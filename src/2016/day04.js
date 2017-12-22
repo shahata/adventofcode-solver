@@ -23,12 +23,19 @@ function decrypt(name, sector) {
   return name.split('-').map(word => word.split('').map(c => shift(c, sector)).join('')).join(' ');
 }
 
-function day(input) {
-  const rooms = input.split('\n').map(parseRoom).filter(room => room.checksum === checksum(room.name));
-  const room = rooms.map(room => decrypt(room.name, room.sector)).findIndex(x => x === 'northpole object storage');
-  const part1 = rooms.reduce((sum, room) => sum + room.sector, 0);
-  const part2 = rooms[room] && rooms[room].sector;
-  return [part1, part2];
+function parse(input) {
+  return input.split('\n').map(parseRoom).filter(room => room.checksum === checksum(room.name));
 }
 
-module.exports = {day};
+function part1(input) {
+  const rooms = parse(input);
+  return rooms.reduce((sum, room) => sum + room.sector, 0);
+}
+
+function part2(input) {
+  const rooms = parse(input);
+  const room = rooms.map(room => decrypt(room.name, room.sector)).findIndex(x => x === 'northpole object storage');
+  return rooms[room] && rooms[room].sector;
+}
+
+module.exports = {part1, part2};

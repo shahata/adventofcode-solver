@@ -16,10 +16,7 @@ function next(password) {
   return s.toString(36);
 }
 
-function day(input) {
-  const part1 = next(input);
-  const part2 = next(part1);
-  return [part1, part2];
-}
+const part1 = input => next(input);
+const part2 = input => next(next(input));
 
-module.exports = {day, part1: next};
+module.exports = {part1, part2};

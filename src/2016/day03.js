@@ -12,14 +12,13 @@ function rotate(sides, index, lines) {
   ];
 }
 
-function day(input) {
-  const parsed = input.split('\n')
-                     .map(x => x.replace(/^\s*/, '')
-                                .split(/\s+/)
-                                .map(x => parseInt(x, 10)));
-  const part1 = parsed.filter(validTriangle).length;
-  const part2 = parsed.map(rotate).filter(validTriangle).length;
-  return [part1, part2];
+function parse(input) {
+  return input.split('\n').map(x => {
+    return x.replace(/^\s*/, '').split(/\s+/).map(x => parseInt(x, 10));
+  });
 }
 
-module.exports = {day};
+const part1 = input => parse(input).filter(validTriangle).length;
+const part2 = input => parse(input).map(rotate).filter(validTriangle).length;
+
+module.exports = {part1, part2};

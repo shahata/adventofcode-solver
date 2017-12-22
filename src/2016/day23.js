@@ -62,14 +62,14 @@ function run(commands, state) {
   return state;
 }
 
-function day(input, state) {
+function part1(input, state = {a: 7, b: 0, c: 0, d: 0, index: 0}) {
   const commands1 = input.split('\n').map(toReducer);
-  const part1 = run(commands1, state || {a: 7, b: 0, c: 0, d: 0, index: 0}).a;
-
-  const commands2 = input.split('\n').map(toReducer);
-  const part2 = run(commands2, state || {a: 12, b: 0, c: 0, d: 0, index: 0}).a;
-
-  return [part1, part2];
+  return run(commands1, state).a;
 }
 
-module.exports = {day};
+function part2(input, state = {a: 12, b: 0, c: 0, d: 0, index: 0}) {
+  const commands2 = input.split('\n').map(toReducer);
+  return run(commands2, state).a;
+}
+
+module.exports = {part1, part2};

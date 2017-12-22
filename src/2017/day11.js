@@ -28,10 +28,7 @@ function distance({x, y}) {
   return diagonal + straight;
 }
 
-function day(input) {
-  const part1 = distance(parse(input));
-  const part2 = parse2(input).furthest;
-  return [part1, part2];
-}
+const part1 = input => distance(parse(input));
+const part2 = input => parse2(input).furthest;
 
-module.exports = {day};
+module.exports = {part1, part2};

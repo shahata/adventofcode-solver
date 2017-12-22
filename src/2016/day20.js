@@ -12,11 +12,12 @@ function merge(ranges) {
     return segments;
   }, [[0, 0]]);
 }
-function day(input) {
-  const ranges = input.split('\n').map(x => x.match(/^(\d+)-(\d+)$/).slice(1).map(x => parseInt(x, 10)));
-  const part1 = merge(ranges)[0][1] + 1;
-  const part2 = MAX_IP - merge(ranges).reduce((sum, x) => sum + x[1] - x[0] + 1, 0) + 1;
-  return [part1, part2];
+
+function parse(input) {
+  return input.split('\n').map(x => x.match(/^(\d+)-(\d+)$/).slice(1).map(x => parseInt(x, 10)));
 }
 
-module.exports = {day};
+const part1 = input => merge(parse(input))[0][1] + 1;
+const part2 = input => MAX_IP - merge(parse(input)).reduce((sum, x) => sum + x[1] - x[0] + 1, 0) + 1;
+
+module.exports = {part1, part2};

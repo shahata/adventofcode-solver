@@ -22,11 +22,7 @@ function process(input) {
   return input.split('').reduce(parse, {score: 0, level: 0, removed: 0, mode: 'read'});
 }
 
-function day(input) {
-  const state = process(input);
-  const part1 = state.score;
-  const part2 = state.removed;
-  return [part1, part2];
-}
+const part1 = input => process(input).score;
+const part2 = input => process(input).removed;
 
-module.exports = {day};
+module.exports = {part1, part2};

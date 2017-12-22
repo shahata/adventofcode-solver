@@ -23,11 +23,7 @@ function countGroups(graph) {
   return groups;
 }
 
-function day(input) {
-  const graph = parse(input);
-  const part1 = count(graph, '0').size;
-  const part2 = countGroups(graph);
-  return [part1, part2];
-}
+const part1 = input => count(parse(input), '0').size;
+const part2 = input => countGroups(parse(input));
 
-module.exports = {day};
+module.exports = {part1, part2};

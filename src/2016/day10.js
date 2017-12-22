@@ -35,7 +35,7 @@ function day(input, low = 17, high = 61) {
   while (instructions.some(update => update(state))) {/**/}
 
   const part2 = state.outputs[0] * state.outputs[1] * state.outputs[2];
-  return [part1, part2];
+  return {part1, part2};
 }
 
 module.exports = {day};

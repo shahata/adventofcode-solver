@@ -26,15 +26,13 @@ function run(commands, state) {
   return state;
 }
 
-function day(input) {
+function part1(input) {
   const commands = input.split('\n').map(toReducer);
   let a = 0;
   while (run(commands, {a, b: 0, c: 0, d: 0, index: 0, out: ''}).out !== '0101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101') {
     a++;
   }
-  const part1 = a;
-  const part2 = undefined;
-  return [part1, part2];
+  return a;
 }
 
-module.exports = {day};
+module.exports = {part1, part2: () => undefined};

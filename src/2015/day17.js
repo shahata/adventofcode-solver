@@ -12,7 +12,7 @@ function day(input, fill = 150) {
 
   const part1 = result.reduce((sum, x) => sum + x);
   const part2 = result.filter(x => x).shift();
-  return [part1, part2];
+  return {part1, part2};
 }
 
 module.exports = {day};

@@ -16,11 +16,13 @@ function solve(discs) {
   return time;
 }
 
-function day(input) {
-  const discs = parse(input);
-  const part1 = solve(discs);
-  const part2 = solve(discs.concat([{index: discs.length + 1, positions: 11, initial: 0}]));
-  return [part1, part2];
+function part1(input) {
+  return solve(parse(input));
 }
 
-module.exports = {day};
+function part2(input) {
+  const discs = parse(input);
+  return solve(discs.concat([{index: discs.length + 1, positions: 11, initial: 0}]));
+}
+
+module.exports = {part1, part2};

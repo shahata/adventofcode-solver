@@ -10,10 +10,7 @@ function decodeLength(s, v2) {
   }
 }
 
-function day(input) {
-  const part1 = decodeLength(input);
-  const part2 = decodeLength(input, true);
-  return [part1, part2];
-}
+const part1 = input => decodeLength(input);
+const part2 = input => decodeLength(input, true);
 
-module.exports = {day};
+module.exports = {part1, part2};

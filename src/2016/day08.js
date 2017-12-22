@@ -42,12 +42,19 @@ function parseCommand(command) {
   }
 }
 
-function day(input, width = 50, height = 6) {
+function solve(input, width, height) {
   const screen = init(width, height);
-  const final = input.split('\n').map(parseCommand).reduce((state, fn) => fn(state), screen);
-  const part1 = flatten(final).filter(x => x).length;
-  const part2 = `\n${final.map(row => row.map(x => x ? '#' : '.').join('')).join('\n')}`;
-  return [part1, part2];
+  return input.split('\n').map(parseCommand).reduce((state, fn) => fn(state), screen);
 }
 
-module.exports = {day};
+function part1(input, width = 50, height = 6) {
+  const final = solve(input, width, height);
+  return flatten(final).filter(x => x).length;
+}
+
+function part2(input, width = 50, height = 6) {
+  const final = solve(input, width, height);
+  return `\n${final.map(row => row.map(x => x ? '#' : '.').join('')).join('\n')}`;
+}
+
+module.exports = {part1, part2};

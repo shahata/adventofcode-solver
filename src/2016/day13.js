@@ -16,7 +16,8 @@ function cellId({x, y}) {
   return `${x}-${y}`;
 }
 
-function solveMaze(magicNumber, source, destination) {
+function solveMaze(input, source, destination) {
+  const magicNumber = parseInt(input, 10);
   let queue = [source];
   const maze = {[cellId(source)]: {distance: 0, open: true}};
   while (queue.length) {
@@ -32,12 +33,14 @@ function solveMaze(magicNumber, source, destination) {
   }
 }
 
-function day(input, destination = {x: 31, y: 39}) {
-  const magicNumber = parseInt(input, 10);
-  const maze = solveMaze(magicNumber, {x: 1, y: 1}, destination);
-  const part1 = maze[cellId(destination)].distance;
-  const part2 = Object.values(maze).filter(x => x.distance <= 50 && x.open).length;
-  return [part1, part2];
+function part1(input, destination = {x: 31, y: 39}) {
+  const maze = solveMaze(input, {x: 1, y: 1}, destination);
+  return maze[cellId(destination)].distance;
 }
 
-module.exports = {day};
+function part2(input, destination = {x: 31, y: 39}) {
+  const maze = solveMaze(input, {x: 1, y: 1}, destination);
+  return Object.values(maze).filter(x => x.distance <= 50 && x.open).length;
+}
+
+module.exports = {part1, part2};

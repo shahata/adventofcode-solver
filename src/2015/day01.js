@@ -1,16 +1,10 @@
-function day(input) {
-  const part1 = input.split('')
-                     .map(x => x === '(' ? 1 : -1)
-                     .reduce((sum, x) => sum + x);
+const parse = input => input.split('').map(x => x === '(' ? 1 : -1);
 
-  const part2 = input.split('')
-                     .map(x => x === '(' ? 1 : -1)
-                     .reduce((state, x, index) => ({
-                       sum: state.sum + x,
-                       marker: state.marker || (state.sum + x === -1 ? index + 1 : undefined)
-                     }), {sum: 0, marker: undefined}).marker;
+const part1 = input => parse(input).reduce((sum, x) => sum + x);
 
-  return [part1, part2];
-}
+const part2 = input => parse(input).reduce((state, x, index) => ({
+  sum: state.sum + x,
+  marker: state.marker || (state.sum + x === -1 ? index + 1 : undefined)
+}), {sum: 0, marker: undefined}).marker;
 
-module.exports = {day};
+module.exports = {part1, part2};

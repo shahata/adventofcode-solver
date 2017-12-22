@@ -63,11 +63,7 @@ function solve2(destination) {
   return current;
 }
 
-function day(input) {
-  const destination = parseInt(input, 10);
-  const part1 = solve1(destination);
-  const part2 = solve2(destination);
-  return [part1, part2];
-}
+const part1 = input => solve1(parseInt(input, 10));
+const part2 = input => solve2(parseInt(input, 10));
 
-module.exports = {day};
+module.exports = {part1, part2};

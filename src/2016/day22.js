@@ -69,8 +69,4 @@ function part2(input) {
   return shortest(map, start, {x: data.x - 1, y: 0}) + 1 + (5 * (data.x - 1));
 }
 
-function day(input) {
-  return [part1(input), part2(input)];
-}
-
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

@@ -9,11 +9,12 @@ function solve(maze, mutate) {
   }
   return steps;
 }
-function day(input) {
-  const maze = input.split('\n').map(x => parseInt(x, 10));
-  const part1 = solve(maze.slice(0), x => x + 1);
-  const part2 = solve(maze.slice(0), x => x >= 3 ? x - 1 : x + 1);
-  return [part1, part2];
+
+function parse(input) {
+  return input.split('\n').map(x => parseInt(x, 10));
 }
 
-module.exports = {day};
+const part1 = input => solve(parse(input), x => x + 1);
+const part2 = input => solve(parse(input), x => x >= 3 ? x - 1 : x + 1);
+
+module.exports = {part1, part2};

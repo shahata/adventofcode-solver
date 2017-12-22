@@ -16,7 +16,7 @@ describe('day22 2017', () => {
     });
   });
 
-  describe('part2', () => {
+  describeHeavy('part2', () => {
     it('should work for part 2 examples', () => {
       expect(part2('..#\n#..\n...', 100)).to.equal(26);
       expect(part2('..#\n#..\n...')).to.equal(2511944);

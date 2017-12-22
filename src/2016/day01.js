@@ -20,7 +20,7 @@ function day(input) {
 
   const part1 = Math.abs(destination.x) + Math.abs(destination.y);
   const part2 = Math.abs(destination.twice.x) + Math.abs(destination.twice.y);
-  return [part1, part2];
+  return {part1, part2};
 }
 
 module.exports = {day};

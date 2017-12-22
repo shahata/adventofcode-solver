@@ -17,7 +17,7 @@ function day(input) {
   }
   const part1 = rounds;
   const part2 = rounds - memory[banks.join('-')];
-  return [part1, part2];
+  return {part1, part2};
 }
 
 module.exports = {day};

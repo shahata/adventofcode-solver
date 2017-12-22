@@ -1,4 +1,4 @@
-const {day} = require('./day07');
+const {part1, part2} = require('./day07');
 const {expect} = require('chai');
 const readInput = require('../utils/read-input');
 const input = readInput(__filename);
@@ -6,7 +6,7 @@ const input = readInput(__filename);
 describe('day07 2017', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(day(`pbga (66)
+      expect(part1(`pbga (66)
 xhth (57)
 ebii (61)
 havc (66)
@@ -18,17 +18,17 @@ tknk (41) -> ugml, padx, fwft
 jptl (61)
 ugml (68) -> gyxo, ebii, jptl
 gyxo (61)
-cntj (57)`).shift()).to.equal('tknk');
+cntj (57)`)).to.equal('tknk');
     });
 
     it('should work for part 1 input', () => {
-      expect(day(input).shift()).to.equal('aapssr');
+      expect(part1(input)).to.equal('aapssr');
     });
   });
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(day(`pbga (66)
+      expect(part2(`pbga (66)
 xhth (57)
 ebii (61)
 havc (66)
@@ -40,11 +40,11 @@ tknk (41) -> ugml, padx, fwft
 jptl (61)
 ugml (68) -> gyxo, ebii, jptl
 gyxo (61)
-cntj (57)`).pop()).to.equal(60);
+cntj (57)`)).to.equal(60);
     });
 
     it('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal(1458);
+      expect(part2(input)).to.equal(1458);
     });
   });
 });

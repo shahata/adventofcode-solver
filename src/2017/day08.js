@@ -41,10 +41,7 @@ function max(registers) {
   return Object.values(registers).sort((a, b) => a - b).pop();
 }
 
-function day(input) {
-  const part1 = max(execute(parse(input)));
-  const part2 = max(executeMax(parse(input)));
-  return [part1, part2];
-}
+const part1 = input => max(execute(parse(input)));
+const part2 = input => max(executeMax(parse(input)));
 
-module.exports = {day};
+module.exports = {part1, part2};

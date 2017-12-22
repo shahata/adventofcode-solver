@@ -1,8 +1,8 @@
-const {day: knot} = require('./day10');
+const {part2: knot} = require('./day10');
 
-function toDisk(input) {
+function parse(input) {
   return new Array(128).fill().map((x, y) => {
-    return knot(`${input}-${y}`).pop().split('').map(x => {
+    return knot(`${input}-${y}`).split('').map(x => {
       return parseInt(x, 16).toString(2).padStart(4, '0');
     }).join('').split('').map(((d, x) => ({x, y, value: d === '1' ? '#' : '.'})));
   });
@@ -47,11 +47,7 @@ function countRegions(disk) {
   return regions;
 }
 
-function day(input) {
-  const disk = toDisk(input);
-  const part1 = countUsed(disk);
-  const part2 = countRegions(disk);
-  return [part1, part2];
-}
+const part1 = input => countUsed(parse(input));
+const part2 = input => countRegions(parse(input));
 
-module.exports = {day};
+module.exports = {part1, part2};

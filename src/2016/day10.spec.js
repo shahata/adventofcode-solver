@@ -11,11 +11,11 @@ bot 2 gives low to bot 1 and high to bot 0
 value 3 goes to bot 1
 bot 1 gives low to output 1 and high to bot 0
 bot 0 gives low to output 2 and high to output 0
-value 2 goes to bot 2`, 2, 5).shift()).to.equal(2);
+value 2 goes to bot 2`, 2, 5).part1).to.equal(2);
     });
 
     it('should work for part 1 input', () => {
-      expect(day(input).shift()).to.equal(181);
+      expect(day(input).part1).to.equal(181);
     });
   });
 
@@ -26,11 +26,11 @@ bot 2 gives low to bot 1 and high to bot 0
 value 3 goes to bot 1
 bot 1 gives low to output 1 and high to bot 0
 bot 0 gives low to output 2 and high to output 0
-value 2 goes to bot 2`, 2, 5).pop()).to.equal(30);
+value 2 goes to bot 2`, 2, 5).part2).to.equal(30);
     });
 
     it('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal(12567);
+      expect(day(input).part2).to.equal(12567);
     });
   });
 });

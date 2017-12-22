@@ -1,26 +1,37 @@
-function day(input, seconds) {
-  let race = input.split('\n')
-                  .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))
-                  .map(x => ({
-                    speed: parseInt(x[1], 10),
-                    fly: parseInt(x[2], 10),
-                    rest: parseInt(x[3], 10),
-                    distance: 0,
-                    points: 0
-                  }));
-  new Array(seconds || 2503).fill(undefined).forEach((item, index) => {
+function parse(input) {
+  return input.split('\n')
+              .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))
+              .map(x => ({
+                speed: parseInt(x[1], 10),
+                fly: parseInt(x[2], 10),
+                rest: parseInt(x[3], 10),
+                distance: 0,
+                points: 0
+              }));
+}
+
+function run(race, seconds) {
+  for (let i = 0; i < seconds; i++) {
     race = race.map(x => {
-      const ran = index % (x.fly + x.rest) < x.fly;
+      const ran = i % (x.fly + x.rest) < x.fly;
       x.distance += ran ? x.speed : 0;
       return x;
     });
+
     const lead = race.reduce((prev, x) => Math.max(prev, x.distance), 0);
     race.filter(x => x.distance === lead).forEach(x => x.points++);
-  });
-
-  const part1 = race.reduce((prev, x) => Math.max(prev, x.distance), 0);
-  const part2 = race.reduce((prev, x) => Math.max(prev, x.points), 0);
-  return [part1, part2];
+  }
+  return race;
 }
 
-module.exports = {day};
+function part1(input, seconds = 2503) {
+  const race = run(parse(input), seconds);
+  return race.reduce((prev, x) => Math.max(prev, x.distance), 0);
+}
+
+function part2(input, seconds = 2503) {
+  const race = run(parse(input), seconds);
+  return race.reduce((prev, x) => Math.max(prev, x.points), 0);
+}
+
+module.exports = {part1, part2};

@@ -1,18 +1,18 @@
-function day(input, part1Only = false) {
-  function divisors(x) {
-    const nums = [];
-    const sqrt = Math.sqrt(x);
-    for (let i = 1; i <= sqrt; i++) {
-      if (x % i === 0) {
-        nums.push(i);
-        if (i !== sqrt) {
-          nums.push(x / i);
-        }
+function divisors(x) {
+  const nums = [];
+  const sqrt = Math.sqrt(x);
+  for (let i = 1; i <= sqrt; i++) {
+    if (x % i === 0) {
+      nums.push(i);
+      if (i !== sqrt) {
+        nums.push(x / i);
       }
     }
-    return nums;
   }
+  return nums;
+}
 
+function day(input, part1Only = false) {
   input = parseInt(input);
   let part1, part2 = part1Only;
   for (let i = 1; !part1 || !part2; i++) {
@@ -26,7 +26,7 @@ function day(input, part1Only = false) {
       part2 = i;
     }
   }
-  return [part1, part2];
+  return {part1, part2};
 }
 
 module.exports = {day};

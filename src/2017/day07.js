@@ -21,19 +21,19 @@ function rightWeight(programs, name) {
   }
 }
 
-function day(input) {
+function part1(input) {
   const programs = parse(input);
   const children = Object.values(programs).filter(x => x.children).reduce((all, x) => all.concat(x.children), []);
-  const part1 = Object.values(programs).filter(x => x.children).find(x => !children.includes(x.name)).name;
-
-  let part2;
-  try {
-    rightWeight(programs, part1);
-  } catch (e) {
-    part2 = e;
-  }
-
-  return [part1, part2];
+  return Object.values(programs).filter(x => x.children).find(x => !children.includes(x.name)).name;
 }
 
-module.exports = {day};
+function part2(input) {
+  const programs = parse(input);
+  try {
+    rightWeight(programs, part1(input));
+  } catch (e) {
+    return e;
+  }
+}
+
+module.exports = {part1, part2};

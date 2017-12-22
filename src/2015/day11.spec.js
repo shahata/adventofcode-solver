@@ -1,4 +1,4 @@
-const {day, part1} = require('./day11');
+const {part1, part2} = require('./day11');
 const {expect} = require('chai');
 const readInput = require('../utils/read-input');
 const input = readInput(__filename);
@@ -16,7 +16,7 @@ describe('day11 2015', () => {
 
   describe('part2', () => {
     itHeavy('should work for part 2 input', () => {
-      expect(day(input).pop()).to.equal('vzcaabcc');
+      expect(part2(input)).to.equal('vzcaabcc');
     });
   });
 });

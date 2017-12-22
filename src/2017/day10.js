@@ -43,10 +43,7 @@ function list(size) {
   return new Array(size).fill().map((x, i) => i);
 }
 
-function day(input, size = 256) {
-  const part1 = solve(list(size), parse(input)).chain.slice(0, 2).reduce((a, b) => a * b);
-  const part2 = encode(dense(solve2(list(size), parse2(input))));
-  return [part1, part2];
-}
+const part1 = (input, size = 256) => solve(list(size), parse(input)).chain.slice(0, 2).reduce((a, b) => a * b);
+const part2 = (input, size = 256) => encode(dense(solve2(list(size), parse2(input))));
 
-module.exports = {day};
+module.exports = {part1, part2};
