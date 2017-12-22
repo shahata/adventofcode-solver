@@ -1,4 +1,4 @@
-# Advent of Code - Solver
+# Advent of Code - Solver [![Build Status](https://travis-ci.org/shahata/adventofcode-solver.svg?branch=master)](https://travis-ci.org/shahata/adventofcode-solver)
 
 This repo contains solutions for advent of code (http://adventofcode.com)
 
