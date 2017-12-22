@@ -9,9 +9,12 @@ In order to use this solver yourself simply clone this git and:
 ```sh
 $ npm install
 $ vi src/index.js #replace session id with the session id from your cookie
+
 $ npm start
 - or -
-$ npm start 2015 [day-number]
+$ npm start 2015
 - or -
-$ npm start 2016 [day-number]
+$ npm start 2015 [day-number]
 ```
+
+Above commands will work for years 2015-2017.
