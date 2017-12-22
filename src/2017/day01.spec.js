@@ -1,4 +1,4 @@
-const readInput = require('../read-input');
+const readInput = require('../utils/read-input');
 const {day} = require('./day01');
 const {expect} = require('chai');
 const input = readInput(__filename);

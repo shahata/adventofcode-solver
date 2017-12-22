@@ -1,6 +1,6 @@
 const {day} = require('./day23');
 const {expect} = require('chai');
-const readInput = require('../read-input');
+const readInput = require('../utils/read-input');
 const input = readInput(__filename);
 const oldInput = readInput(__filename.replace(/23/g, '12'));
 

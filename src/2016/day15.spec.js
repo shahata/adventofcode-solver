@@ -1,6 +1,6 @@
 const {day} = require('./day15');
 const {expect} = require('chai');
-const readInput = require('../read-input');
+const readInput = require('../utils/read-input');
 const input = readInput(__filename);
 
 describe('day15 2016', () => {
