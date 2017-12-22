@@ -20,7 +20,7 @@ describe('day17 2017', () => {
       expect(part1(input, 0)).to.equal(part2(input, 2017));
     });
 
-    itHeavy('should work for part 2 input', () => {
+    it('should work for part 2 input', () => {
       expect(part2(input)).to.equal(10242889);
     });
   });

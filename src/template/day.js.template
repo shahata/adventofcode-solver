@@ -3,7 +3,7 @@ function part1(input) {
 }
 
 function part2(input) {
-  return input;
+  return part1(input);
 }
 
 const day = input => [part1(input), part2(input)];
