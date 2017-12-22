@@ -14,7 +14,7 @@ function judge(a, b, validators, times) {
     b = next(b, 48271, validators[1]);
     if (a % 65536 === b % 65536) {
       count++;
-      log(`${i} ${Math.floor(100 * i / times)}% (${count})`);
+      log(`${Math.floor(100 * i / times)}%`);
     }
   }
   log('');

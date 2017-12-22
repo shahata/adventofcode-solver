@@ -3,7 +3,9 @@ global.describeHeavy = function (desc, fn) {
     describe.skip.apply(this, arguments);
   } else {
     describe(desc, function () {
-      this.timeout(0);
+      if (this.timeout) {
+        this.timeout(0);
+      }
       fn();
     });
   }

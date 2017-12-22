@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node src/index.js",
-    "test": "export mocha_reporter=spec && haste test",
+    "test": "haste test --jest",
+    "test:mocha": "export mocha_reporter=spec && haste test",
     "posttest": "haste lint"
   },
   "dependencies": {
