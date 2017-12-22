@@ -23,6 +23,5 @@ function parse(input) {
 
 const part1 = (input, times = 40 * 1000 * 1000) => judge(...parse(input), [1, 1], times);
 const part2 = (input, times = 5 * 1000 * 1000) => judge(...parse(input), [4, 8], times);
-const day = input => [part1(input), part2(input)];
 
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

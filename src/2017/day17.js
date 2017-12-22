@@ -39,5 +39,4 @@ function part2(input, times = 50 * 1000 * 1000) {
   return spinner.result;
 }
 
-const day = input => [part1(input), part2(input)];
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

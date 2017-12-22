@@ -44,6 +44,5 @@ function parse(input) {
 
 const part1 = input => calcNeighbors(parse(input)).length;
 const part2 = input => calcDistance('e', parse(input));
-const day = input => [part1(input), part2(input)];
 
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

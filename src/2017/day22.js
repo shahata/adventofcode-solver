@@ -89,5 +89,4 @@ function part2(input, bursts = 10000000) {
   return part1(input, bursts, true);
 }
 
-const day = input => [part1(input), part2(input)];
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

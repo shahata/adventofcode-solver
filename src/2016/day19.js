@@ -48,6 +48,5 @@ function solve2(count) {
 
 const part1 = input => solve1(parseInt(input, 10));
 const part2 = input => solve2(parseInt(input, 10));
-const day = input => [part1(input), part2(input)];
 
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

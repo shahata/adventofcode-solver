@@ -22,6 +22,5 @@ function run(commands, state) {
 
 const part1 = input => run(input.split('\n').map(toReducer), {a: 0, b: 0, c: 0, d: 0, index: 0}).a;
 const part2 = input => run(input.split('\n').map(toReducer), {a: 0, b: 0, c: 1, d: 0, index: 0}).a;
-const day = input => [part1(input), part2(input)];
 
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

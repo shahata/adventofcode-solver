@@ -26,6 +26,4 @@ function part2(input, steps = 100) {
   return result.reduce((prev, row) => prev.concat(row)).filter(x => x).length;
 }
 
-const day = input => [part1(input), part2(input)];
-
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

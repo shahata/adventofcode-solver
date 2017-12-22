@@ -32,6 +32,10 @@ async function getYearPage(year, session) {
   return page.replace(/href="\/\d+\/day\/(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`);
 }
 
+function dayFunction(module) {
+  return module.day || (input => [module.part1(input), module.part2(input)]);
+}
+
 async function solveDay(year, day, fn, session) {
   const input = await getDayInput(year, day, session);
   console.log(`Solution for ${day}!!!`);
@@ -47,7 +51,7 @@ function getSolvers(year) {
     const folder = path.join(__dirname, year);
     const days = fs.readdirSync(folder).filter(x => x.match(/^day\d+\.js$/));
     return days.reduce((obj, day) => Object.assign(obj, {
-      [day.split('.').shift()]: require(`./${path.join(`${year}`, day)}`).day
+      [day.split('.').shift()]: dayFunction(require(`./${path.join(`${year}`, day)}`))
     }), {});
   } catch (e) {
     console.error(e);

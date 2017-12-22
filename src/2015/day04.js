@@ -12,9 +12,4 @@ function solve(input, prefix) {
 const part1 = input => solve(input, '00000');
 const part2 = input => solve(input, '000000');
 
-function day(input) {
-  const result = [part1(input), part2(input)];
-  return result;
-}
-
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};

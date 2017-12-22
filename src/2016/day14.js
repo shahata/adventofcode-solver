@@ -31,6 +31,5 @@ function md5times(str, count) {
 
 const part1 = input => generateKeys(input, x => md5times(x, 1)).pop();
 const part2 = input => generateKeys(input, x => md5times(x, 2017)).pop();
-const day = input => [part1(input), part2(input)];
 
-module.exports = {day, part1, part2};
+module.exports = {part1, part2};
