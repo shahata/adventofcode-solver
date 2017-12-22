@@ -1,4 +1,4 @@
-const md5 = require('md5');
+const md5 = require('../utils/md5');
 const log = require('single-line-log').stdout;
 
 function findRepeatingCharacters(str, num) {

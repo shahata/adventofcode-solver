@@ -1,4 +1,4 @@
-const md5 = require('md5');
+const md5 = require('../utils/md5');
 
 function getNeighbors(point, [U, D, L, R]) {
   return [
