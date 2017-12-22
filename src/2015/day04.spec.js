@@ -3,7 +3,7 @@ const {expect} = require('chai');
 const readInput = require('../read-input');
 const input = readInput(__filename);
 
-describeHeavy('day04 2015', () => {
+describe('day04 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(part1('abcdef')).to.equal(609043);
@@ -15,7 +15,7 @@ describeHeavy('day04 2015', () => {
     });
   });
 
-  describe('part2', () => {
+  describeHeavy('part2', () => {
     it('should work for part 2 input', () => {
       expect(part2(input)).to.equal(9962624);
     });

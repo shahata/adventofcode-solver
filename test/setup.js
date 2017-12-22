@@ -1,8 +1,11 @@
-global.describeHeavy = function () {
+global.describeHeavy = function (desc, fn) {
   if (process.env.WIX_NODE_BUILD_WATCH_MODE) {
     describe.skip.apply(this, arguments);
   } else {
-    describe.apply(this, arguments);
+    describe(desc, function () {
+      this.timeout(0);
+      fn();
+    });
   }
 };
 
@@ -10,6 +13,9 @@ global.itHeavy = function () {
   if (process.env.WIX_NODE_BUILD_WATCH_MODE) {
     it.skip.apply(this, arguments);
   } else {
-    it.apply(this, arguments);
+    const result = it.apply(this, arguments);
+    if (result.timeout) {
+      result.timeout(0);
+    }
   }
 };
