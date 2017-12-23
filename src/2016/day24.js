@@ -8,8 +8,6 @@ function parse(input) {
       return {x, y, wall: true};
     } else if (c === '.') {
       return {x, y, wall: false};
-    } else if (c === '0') {
-      return source = {x, y, wall: false, target: 0};
     } else {
       const point = {x, y, wall: false, target: parseInt(c, 10)};
       targets.push(point);
@@ -45,38 +43,35 @@ function path(maze, source, destination) {
 
 function solve({maze, source, targets}, andBack) {
   const back = {};
-  const paths = Combinatorics.combination(targets.concat([source]), 2).toArray().map(([source, destination]) => {
+  const paths = Combinatorics.combination(targets, 2).toArray().map(([source, destination]) => {
     const distance = path(maze, source, destination);
     if (source.target === 0 || destination.target === 0) {
       back[source.target + destination.target] = distance;
     }
-    return {points: [source, destination], distance};
+    return {points: [source.target, destination.target], distance};
   });
 
-  const options = Combinatorics.combination(paths, targets.length).filter(option => {
+  const options = Combinatorics.combination(paths, targets.length - 1).map(option => {
     const points = option.reduce((points, path) => {
-      points[path.points[0].target] = (points[path.points[0].target] || []).concat([path.points[1].target]);
-      points[path.points[1].target] = (points[path.points[1].target] || []).concat([path.points[0].target]);
+      points[path.points[0]] = (points[path.points[0]] || []).concat([path.points[1]]);
+      points[path.points[1]] = (points[path.points[1]] || []).concat([path.points[0]]);
       return points;
     }, {});
-    const state = {current: 0, prev: 0, visited: new Set().add(0)};
-    while (points[state.current] !== undefined && points[state.current].length > 0) {
-      points[state.current] = points[state.current].filter(x => x !== state.prev);
-      state.prev = state.current;
+    const state = {current: 0, visited: new Set().add(0)};
+    while (points[state.current] && points[state.current].length === 1) {
+      const prev = state.current;
       state.current = points[state.current].shift();
-      if (state.current !== undefined) {
-        state.visited.add(state.current);
-      }
+      points[state.current] = points[state.current].filter(x => x !== prev);
+      state.visited.add(state.current);
     }
-    if (state.visited.size === targets.length + 1) {
-      option.back = back[state.prev];
-    }
-    return !!option.back;
-  });
+    return state.visited.size === targets.length && {
+      length: option.reduce((distance, path) => distance + path.distance, 0),
+      back: back[state.current]
+    };
+  }).filter(x => x);
 
   return options.reduce((shortest, option) => {
-    const length = option.reduce((distance, path) => distance + path.distance, 0);
-    return Math.min(shortest, length + (andBack ? option.back : 0));
+    return Math.min(shortest, andBack ? option.length + option.back : option.length);
   }, Infinity);
 }
 
