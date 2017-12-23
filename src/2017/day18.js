@@ -9,7 +9,7 @@ function getter(state, p) {
   }
 }
 
-function parse(input, ops2 = {}) {
+function parse(input, ops2 = {}, debug) {
   const ops = Object.assign({
     snd: p1 => state => state.sound = getter(state, p1),
     set: (p1, p2) => state => state[p1] = getter(state, p2),
@@ -24,7 +24,7 @@ function parse(input, ops2 = {}) {
     let [cmd, p1, p2] = str.split(' ');
     p1 = p1.match(/^-?\d+$/) ? parseInt(p1, 10) : p1;
     p2 = p2 && p2.match(/^-?\d+$/) ? parseInt(p2, 10) : p2;
-    return ops[cmd](p1, p2);
+    return state => (!debug || debug(cmd)) && ops[cmd](p1, p2)(state);
   });
 }
 
@@ -80,4 +80,4 @@ function part2(input) {
   return state2.sent;
 }
 
-module.exports = {part1, part2};
+module.exports = {part1, part2, parse, getter};
