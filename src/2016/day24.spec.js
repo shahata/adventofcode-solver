@@ -27,7 +27,7 @@ describe('day24 2016', () => {
 ###########`)).to.equal(20);
     });
 
-    itHeavy('should work for part 2 input', () => {
+    it('should work for part 2 input', () => {
       expect(part2(input)).to.equal(664);
     });
   });
