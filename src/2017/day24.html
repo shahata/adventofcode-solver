@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 24 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.ico"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<article class="day-desc"><h2>--- Day 24: Electromagnetic Moat ---</h2><p>The CPU itself is a large, black building surrounded by a bottomless pit. Enormous metal tubes extend outward from the side of the building at regular intervals and descend down into the void. There's no way to cross, but you need to get inside.</p>
+<p>No way, of course, other than building a <em>bridge</em> out of the magnetic components strewn about nearby.</p>
+<p>Each component has two <em>ports</em>, one on each end.  The ports come in all different types, and only matching types can be connected.  You take an inventory of the components by their port types (your puzzle input). Each port is identified by the number of <em>pins</em> it uses; more pins mean a stronger connection for your bridge. A <code>3/7</code> component, for example, has a type-<code>3</code> port on one side, and a type-<code>7</code> port on the other.</p>
+<p>Your side of the pit is metallic; a perfect surface to connect a magnetic, <em>zero-pin port</em>. Because of this, the first port you use must be of type <code>0</code>. It doesn't matter what type of port you end with; your goal is just to make the bridge as strong as possible.</p>
+<p>The <em>strength</em> of a bridge is the sum of the port types in each component. For example, if your bridge is made of components <code>0/3</code>, <code>3/7</code>, and <code>7/4</code>, your bridge has a strength of <code>0+3 + 3+7 + 7+4 = 24</code>.</p>
+<p>For example, suppose you had the following components:</p>
+<pre><code>0/2
+2/2
+2/3
+3/4
+3/5
+0/1
+10/1
+9/10
+</code></pre>
+<p>With them, you could make the following valid bridges:</p>
+<ul>
+<li><code>0/1</code></li>
+<li><code>0/1</code>--<code>10/1</code></li>
+<li><code>0/1</code>--<code>10/1</code>--<code>9/10</code></li>
+<li><code>0/2</code></li>
+<li><code>0/2</code>--<code>2/3</code></li>
+<li><code>0/2</code>--<code>2/3</code>--<code>3/4</code></li>
+<li><code>0/2</code>--<code>2/3</code>--<code>3/5</code></li>
+<li><code>0/2</code>--<code>2/2</code></li>
+<li><code>0/2</code>--<code>2/2</code>--<code>2/3</code></li>
+<li><code>0/2</code>--<code>2/2</code>--<code>2/3</code>--<code>3/4</code></li>
+<li><code>0/2</code>--<code>2/2</code>--<code>2/3</code>--<code>3/5</code></li>
+</ul>
+<p>(Note how, as shown by <code>10/1</code>, order of ports within a component doesn't matter. However, you may only use each port on a component once.)</p>
+<p>Of these bridges, the <em>strongest</em> one is <code>0/1</code>--<code>10/1</code>--<code>9/10</code>; it has a strength of <code>0+1 + 1+10 + 10+9 = <em>31</em></code>.</p>
+<p><em>What is the strength of the strongest bridge you can make</em> with the components you have available?</p>
+</article>
+<p>Your puzzle answer was <code>1906</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>The bridge you've built isn't long enough; you can't <span title="Who do you think you are, Mario?">jump the rest of the way</span>.</p>
+<p>In the example above, there are two longest bridges:</p>
+<ul>
+<li><code>0/2</code>--<code>2/2</code>--<code>2/3</code>--<code>3/4</code></li>
+<li><code>0/2</code>--<code>2/2</code>--<code>2/3</code>--<code>3/5</code></li>
+</ul>
+<p>Of them, the one which uses the <code>3/5</code> component is stronger; its strength is <code>0+2 + 2+2 + 2+3 + 3+5 = <em>19</em></code>.</p>
+<p><em>What is the strength of the longest bridge you can make?</em> If you can make multiple bridges of the longest length, pick the <em>strongest</em> one.</p>
+</article>
+<p>Your puzzle answer was <code>1824</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, you should <a href="index.html">return to your advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href="day24.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Electromagnetic+Moat%22+%2D+Day+24+%2D+Advent+of+Code+2017&amp;url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F24&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F24" target="_blank">Google+</a>
+  <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F24&amp;title=I%27ve+completed+%22Electromagnetic+Moat%22+%2D+Day+24+%2D+Advent+of+Code+2017" target="_blank">Reddit</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
+</html>
