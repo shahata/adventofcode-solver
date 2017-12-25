@@ -8,7 +8,7 @@ In order to use this solver yourself simply clone this git and:
 
 ```sh
 $ npm install
-$ vi src/index.js #replace session id with the session id from your cookie
+$ export ADVENT_SESSION=your-cookie-value
 
 $ npm start
 - or -
