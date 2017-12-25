@@ -1,4 +1,5 @@
 const {day} = require('./day20');
+const {itHeavy} = require('describe-heavy');
 const {expect} = require('chai');
 const readInput = require('../utils/read-input');
 const input = readInput(__filename);

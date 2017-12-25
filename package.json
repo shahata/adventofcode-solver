@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "describe-heavy": "^1.0.12",
     "haste-cli": "^0.1.16",
     "haste-preset-yoshi": "0.0.11",
     "husky": "^0.14.3"
@@ -22,16 +23,7 @@
   "haste": {
     "preset": "haste-preset-yoshi"
   },
-  "jest": {
-    "setupFiles": [
-      "./test/setup.js"
-    ]
-  },
   "eslintConfig": {
-    "extends": "wix/esnext",
-    "globals": {
-      "itHeavy": false,
-      "describeHeavy": false
-    }
+    "extends": "wix/esnext"
   }
 }
