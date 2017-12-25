@@ -11,7 +11,7 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<article class="day-desc"><h2>--- Day 14: Disk Defragmentation ---</h2><p>Suddenly, a scheduled job activates the system's <a href="https://en.wikipedia.org/wiki/Defragmentation">disk defragmenter</a>. Were the situation different, you might <a href="https://www.youtube.com/watch?v=kPv1gQ5Rs8A&t=37">sit and watch it for a while</a>, but today, you just don't have that kind of time. It's soaking up valuable system resources that are needed elsewhere, and so the only option is to help it finish its task as soon as possible.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: Disk Defragmentation ---</h2><p>Suddenly, a scheduled job activates the system's <a href="https://en.wikipedia.org/wiki/Defragmentation">disk defragmenter</a>. Were the situation different, you might <a href="https://www.youtube.com/watch?v=kPv1gQ5Rs8A&t=37">sit and watch it for a while</a>, but today, you just don't have that kind of time. It's soaking up valuable system resources that are needed elsewhere, and so the only option is to help it finish its task as soon as possible.</p>
 <p>The disk in question consists of a 128x128 grid; each square of the grid is either <em>free</em> or <em>used</em>. On this disk, the state of the grid is tracked by the bits in a sequence of <a href="day10.html">knot hashes</a>.</p>
 <p>A total of 128 knot hashes are calculated, each corresponding to a single row in the grid; each hash contains 128 bits which correspond to individual grid squares. Each bit of a hash indicates whether that square is <em>free</em> (<code>0</code>) or <em>used</em> (<code>1</code>).</p>
 <p>The hash inputs are a key string (your puzzle input), a dash, and a number from <code>0</code> to <code>127</code> corresponding to the row.  For example, if your key string were <code>flqrgnkx</code>, then the first row would be given by the bits of the knot hash of <code>flqrgnkx-0</code>, the second row from the bits of the knot hash of <code>flqrgnkx-1</code>, and so on until the last row, <code>flqrgnkx-127</code>.</p>
@@ -48,7 +48,7 @@ V      V
 <p><em>How many regions</em> are present given your key string?</p>
 </article>
 <p>Your puzzle answer was <code>1141</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, you should <a href="index.html">return to your advent calendar</a> and try another puzzle.</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
 <p>Your puzzle input was <code class="puzzle-input">uugsqrei</code>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Disk+Defragmentation%22+%2D+Day+14+%2D+Advent+of+Code+2017&amp;url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>

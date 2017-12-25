@@ -23,7 +23,8 @@ async function getDayQuestion(year, day, session) {
   const index = parseInt(day.slice(-2));
   const text = await downloadText(`http://adventofcode.com/${year}/day/${index}`, session);
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return question.replace(`/${year}`, 'index.html').replace(/\d+\/input/, `${day}.txt`).replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`);
+  return question.replace(`/${year}`, 'index.html').replace(/\d+\/input/, `${day}.txt`)
+    .replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`).replace(/action="[^"]*"/g, 'action="end.html"');
 }
 
 async function getYearPage(year, session) {

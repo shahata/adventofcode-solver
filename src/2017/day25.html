@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 25 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.ico"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 25: The Halting Problem ---</h2><p>Following the twisty passageways deeper and deeper into the CPU, you finally reach the <span title="Get it? CPU core?">core</span> of the computer. Here, in the expansive central chamber, you find a grand apparatus that fills the entire room, suspended nanometers above your head.</p>
+<p>You had always imagined CPUs to be noisy, chaotic places, bustling with activity. Instead, the room is quiet, motionless, and dark.</p>
+<p>Suddenly, you and the CPU's <em>garbage collector</em> startle each other. "It's not often we get  many visitors here!", he says. You inquire about the stopped machinery.</p>
+<p>"It stopped milliseconds ago; not sure why. I'm a garbage collector, not a doctor." You ask what the machine is for.</p>
+<p>"Programs these days, don't know their origins. That's the <em>Turing machine</em>! It's what makes the whole computer work." You try to explain that Turing machines are merely models of computation, but he cuts you off. "No, see, that's just what they <em>want</em> you to think. Ultimately, inside every CPU, there's a Turing machine driving the whole thing! Too bad this one's broken. <a href="https://www.youtube.com/watch?v=cTwZZz0HV8I">We're doomed!</a>"</p>
+<p>You ask how you can help. "Well, unfortunately, the only way to get the computer running again would be to create a whole new Turing machine from scratch, but there's no <em>way</em> you can-" He notices the look on your face, gives you a curious glance, shrugs, and goes back to sweeping the floor.</p>
+<p>You find the <em>Turing machine blueprints</em> (your puzzle input) on a tablet in a nearby pile of debris. Looking back up at the broken Turing machine above, you can start to identify its parts:</p>
+<ul>
+<li>A <em>tape</em> which contains <code>0</code> repeated infinitely to the left and right.</li>
+<li>A <em>cursor</em>, which can move left or right along the tape and read or write values at its current position.</li>
+<li>A set of <em>states</em>, each containing rules about what to do based on the current value under the cursor.</li>
+</ul>
+<p>Each slot on the tape has two possible values: <code>0</code> (the starting value for all slots) and <code>1</code>. Based on whether the cursor is pointing at a <code>0</code> or a <code>1</code>, the current state says <em>what value to write</em> at the current position of the cursor, whether to <em>move the cursor</em> left or right one slot, and <em>which state to use next</em>.</p>
+<p>For example, suppose you found the following blueprint:</p>
+<pre><code>Begin in state A.
+Perform a diagnostic checksum after 6 steps.
+
+In state A:
+  If the current value is 0:
+    - Write the value 1.
+    - Move one slot to the right.
+    - Continue with state B.
+  If the current value is 1:
+    - Write the value 0.
+    - Move one slot to the left.
+    - Continue with state B.
+
+In state B:
+  If the current value is 0:
+    - Write the value 1.
+    - Move one slot to the left.
+    - Continue with state A.
+  If the current value is 1:
+    - Write the value 1.
+    - Move one slot to the right.
+    - Continue with state A.
+</code></pre>
+<p>Running it until the number of steps required to take the listed <em>diagnostic checksum</em> would result in the following tape configurations (with the <em>cursor</em> marked in square brackets):</p>
+<pre><code>... 0  0  0 [0] 0  0 ... (before any steps; about to run state A)
+... 0  0  0  1 [0] 0 ... (after 1 step;     about to run state B)
+... 0  0  0 [1] 1  0 ... (after 2 steps;    about to run state A)
+... 0  0 [0] 0  1  0 ... (after 3 steps;    about to run state B)
+... 0 [0] 1  0  1  0 ... (after 4 steps;    about to run state A)
+... 0  1 [1] 0  1  0 ... (after 5 steps;    about to run state B)
+... 0  1  1 [0] 1  0 ... (after 6 steps;    about to run state A)
+</code></pre>
+<p>The CPU can confirm that the Turing machine is working by taking a <em>diagnostic checksum</em> after a specific number of steps (given in the blueprint). Once the specified number of steps have been executed, the Turing machine should pause; once it does, count the number of times <code>1</code> appears on the tape. In the above example, the <em>diagnostic checksum</em> is <em><code>3</code></em>.</p>
+<p>Recreate the Turing machine and save the computer! <em>What is the diagnostic checksum</em> it produces once it's working again?</p>
+</article>
+<p>Your puzzle answer was <code>4225</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>The Turing machine, and soon the entire computer, springs back to life.  A console glows dimly nearby, awaiting your command.</p>
+<pre><code>&gt; reboot printer
+Error: That command requires <em>priority 50</em>. You currently have <em>priority 0</em>.
+You must deposit <em class="star">50 stars</em> to increase your priority to the required level.
+</code></pre>
+<p>The console flickers for a moment, and then prints another message:</p>
+<pre><code><em class="star">Star</em> accepted.
+You must deposit <em class="star">49 stars</em> to increase your priority to the required level.
+</code></pre>
+<p>The <em>garbage collector</em> winks at you, then continues sweeping.</p>
+</article>
+<form method="post" action="end.html"><input type="hidden" name="level" value="2"/><input type="hidden" name="answer" value="0"/><p>If you like, you can <input type="submit" value="[Reboot the Printer Again]"/>.</p></form>
+<p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day25.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22The+Halting+Problem%22+%2D+Day+25+%2D+Advent+of+Code+2017&amp;url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25" target="_blank">Google+</a>
+  <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F25&amp;title=I%27ve+completed+%22The+Halting+Problem%22+%2D+Day+25+%2D+Advent+of+Code+2017" target="_blank">Reddit</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
+</html>
