@@ -29,7 +29,7 @@ function isPrime(num) {
 }
 
 function part2(input) {
-  const num = (parseInt(input.split('\n').shift().split(' ').pop(), 10) * 100) + 100000;
+  const num = (parseInt(input.split('\n').shift().split(' ').pop(), 10) * 100) + 1e5;
   let count = 0;
   for (let i = 0; i <= 17000; i += 17) {
     if (!isPrime(num + i)) {

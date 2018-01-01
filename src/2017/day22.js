@@ -76,7 +76,7 @@ function parse(input) {
   return {nodes, position};
 }
 
-function part1(input, bursts = 10000, evolved = false) {
+function part1(input, bursts = 1e4, evolved = false) {
   const {nodes, position} = parse(input);
   const state = {nodes, position, direction: 'U', infections: 0};
   for (let i = 0; i < bursts; i++) {
@@ -85,7 +85,7 @@ function part1(input, bursts = 10000, evolved = false) {
   return state.infections;
 }
 
-function part2(input, bursts = 10000000) {
+function part2(input, bursts = 1e7) {
   return part1(input, bursts, true);
 }
 

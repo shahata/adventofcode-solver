@@ -26,7 +26,7 @@ function add2({steps, current, zeroPosition, result}, number) {
   return {steps, current, zeroPosition, result};
 }
 
-function part2(input, times = 50 * 1000 * 1000) {
+function part2(input, times = 5e7) {
   let spinner = {
     steps: parseInt(input, 10),
     current: 0,

@@ -30,7 +30,7 @@ function part1(input, order = 'abcdefghijklmnop') {
   return dance(order, parse(input, order.length));
 }
 
-function part2(input, order = 'abcdefghijklmnop', times = 1000 * 1000 * 1000) {
+function part2(input, order = 'abcdefghijklmnop', times = 1e9) {
   const commands = parse(input, order.length);
   const memory = {};
   let i;

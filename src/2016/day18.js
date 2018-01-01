@@ -15,6 +15,6 @@ function solve(input, rows) {
 }
 
 const part1 = (input, rows = 40) => solve(input, rows);
-const part2 = (input, rows = 400000) => solve(input, rows);
+const part2 = (input, rows = 4e5) => solve(input, rows);
 
 module.exports = {part1, part2};
