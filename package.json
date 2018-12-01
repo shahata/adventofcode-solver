@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "yoshi lint",
     "start": "node src/index.js",
-    "test": "if [ -z \"$CI\" ]; then yoshi test --jest --onlyChanged; else yoshi test --jest; fi",
+    "test": "f(){ if [ -z \"$CI\" ]; then yoshi test --jest --onlyChanged $*; else yoshi test --jest $*; fi ;};f",
     "precommit": "yoshi lint"
   },
   "dependencies": {

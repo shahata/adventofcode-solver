@@ -150,10 +150,10 @@ async function solveAll(session) {
     if (solvers[day]) {
       await downloadQuestion(year, day, session);
       await solveDay(year, day, solvers[day], session);
-      execSync(`npx jest ${year}/${day} --colors`);
     } else {
       await createSolver(year, day, session);
     }
+    execSync(`npm test -- ${year}/${day} --colors`);
   } else {
     await downloadYearPage(year, session);
     await Object.keys(solvers).reduce(async (prev, day) => {
