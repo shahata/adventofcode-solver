@@ -9,6 +9,13 @@ const dayName = num => `day${num.padStart(2, '0')}`;
 async function downloadText(url, session) {
   const headers = { Cookie: `session=${session}` };
   const response = await fetch(url, { headers });
+  if (response.status >= 400) {
+    throw new Error(
+      `Failed to download from ${url} (${
+        response.status
+      })\nDescription: ${await response.text()}`,
+    );
+  }
   return await response.text();
 }
 
@@ -103,6 +110,7 @@ async function createSolver(year, day, session) {
   if (answers.create) {
     const prefix = path.join(__dirname, year, day);
     const template = path.join(__dirname, 'template', 'day');
+    await downloadQuestion(year, day, session);
     fs.writeFileSync(
       `${prefix}.js`,
       render(`${template}.js.template`, { year, day }),
@@ -115,6 +123,7 @@ async function createSolver(year, day, session) {
     console.log(`Created ${prefix}.spec.js`);
     fs.writeFileSync(`${prefix}.txt`, await getDayInput(year, day, session));
     console.log(`Created ${prefix}.txt`);
+    console.log('');
   }
 }
 
@@ -150,10 +159,10 @@ async function solveAll(session) {
     if (solvers[day]) {
       await downloadQuestion(year, day, session);
       await solveDay(year, day, solvers[day], session);
+      execSync(`npm test -- ${year}/${day} --colors`);
     } else {
       await createSolver(year, day, session);
     }
-    execSync(`npm test -- ${year}/${day} --colors`);
   } else {
     await downloadYearPage(year, session);
     await Object.keys(solvers).reduce(async (prev, day) => {
