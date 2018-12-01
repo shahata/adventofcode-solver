@@ -36,10 +36,7 @@ function parse(input) {
     const [from, to] = line.split(' => ');
     const keys = permute(from.replace(/\//g, ''));
     const value = to.split('/');
-    return keys.reduce(
-      (rules, key) => Object.assign(rules, { [key]: value }),
-      rules,
-    );
+    return keys.reduce((rules, key) => ({ ...rules, [key]: value }), rules);
   }, {});
 }
 

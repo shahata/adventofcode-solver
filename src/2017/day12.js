@@ -1,7 +1,7 @@
 function parse(input) {
   return input.split('\n').reduce((obj, line) => {
     const [key, neighbors] = line.split(' <-> ');
-    return Object.assign({ [key]: neighbors.split(', ') }, obj);
+    return { ...obj, [key]: neighbors.split(', ') };
   }, {});
 }
 

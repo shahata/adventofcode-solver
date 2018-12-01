@@ -2,8 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
 const inquirer = require('inquirer');
+const { execSync } = require('child_process');
 
-const dayName = num => `day${num.length === 1 ? '0' : ''}${num}`;
+const dayName = num => `day${num.padStart(2, '0')}`;
 
 async function downloadText(url, session) {
   const headers = { Cookie: `session=${session}` };
@@ -54,23 +55,25 @@ function dayFunction(module) {
 
 async function solveDay(year, day, fn, session) {
   const input = await getDayInput(year, day, session);
-  console.log(`Solution for ${day}!!!`);
+  console.log(`Solution for ${year}/${day}!!!`);
   console.log('----------------------------');
   fn(input.trimRight());
   console.log('');
 }
 
-function getSolvers(year) {
+function getSolvers(year, day) {
   try {
     const folder = path.join(__dirname, year);
-    const days = fs.readdirSync(folder).filter(x => x.match(/^day\d+\.js$/));
+    const days = fs
+      .readdirSync(folder)
+      .filter(x => x.match(/^day\d+\.js$/) && (!day || x.includes(day)));
     return days.reduce(
-      (obj, day) =>
-        Object.assign(obj, {
-          [day.split('.').shift()]: dayFunction(
-            require(`./${path.join(`${year}`, day)}`),
-          ),
-        }),
+      (obj, day) => ({
+        ...obj,
+        [day.split('.').shift()]: dayFunction(
+          require(`./${path.join(`${year}`, day)}`),
+        ),
+      }),
       {},
     );
   } catch (e) {
@@ -140,21 +143,23 @@ async function downloadYearPage(year, session) {
 }
 
 async function solveAll(session) {
-  const solvers = getSolvers(process.argv[2]);
-  if (process.argv[3]) {
-    const day = dayName(process.argv[3]);
+  const year = process.argv[2];
+  const day = process.argv[3] && dayName(process.argv[3]);
+  const solvers = getSolvers(year, day);
+  if (day) {
     if (solvers[day]) {
-      await downloadQuestion(process.argv[2], day, session);
-      await solveDay(process.argv[2], day, solvers[day], session);
+      await downloadQuestion(year, day, session);
+      await solveDay(year, day, solvers[day], session);
+      execSync(`npx jest ${year}/${day} --colors`);
     } else {
-      await createSolver(process.argv[2], day, session);
+      await createSolver(year, day, session);
     }
   } else {
-    await downloadYearPage(process.argv[2], session);
+    await downloadYearPage(year, session);
     await Object.keys(solvers).reduce(async (prev, day) => {
       await prev;
-      await downloadQuestion(process.argv[2], day, session);
-      await solveDay(process.argv[2], day, solvers[day], session);
+      await downloadQuestion(year, day, session);
+      await solveDay(year, day, solvers[day], session);
     }, Promise.resolve());
   }
 }

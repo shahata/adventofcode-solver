@@ -2,46 +2,39 @@ const spells = {
   Missile: {
     mana: 53,
     effect: game => {
-      return Object.assign({}, game, {
-        boss: Object.assign({}, game.boss, { hit: game.boss.hit - 4 }),
-      });
+      return { ...game, boss: { ...game.boss, hit: game.boss.hit - 4 } };
     },
     turns: 1,
   },
   Drain: {
     mana: 73,
     effect: game => {
-      return Object.assign({}, game, {
-        boss: Object.assign({}, game.boss, { hit: game.boss.hit - 2 }),
-        hero: Object.assign({}, game.hero, { hit: game.hero.hit + 2 }),
-      });
+      return {
+        ...game,
+        boss: { ...game.boss, hit: game.boss.hit - 2 },
+        hero: { ...game.hero, hit: game.hero.hit + 2 },
+      };
     },
     turns: 1,
   },
   Shield: {
     mana: 113,
     effect: game => {
-      return Object.assign({}, game, {
-        hero: Object.assign({}, game.hero, { armor: 7 }),
-      });
+      return { ...game, hero: { ...game.hero, armor: 7 } };
     },
     turns: 6,
   },
   Poison: {
     mana: 173,
     effect: game => {
-      return Object.assign({}, game, {
-        boss: Object.assign({}, game.boss, { hit: game.boss.hit - 3 }),
-      });
+      return { ...game, boss: { ...game.boss, hit: game.boss.hit - 3 } };
     },
     turns: 6,
   },
   Recharge: {
     mana: 229,
     effect: game => {
-      return Object.assign({}, game, {
-        hero: Object.assign({}, game.hero, { mana: game.hero.mana + 101 }),
-      });
+      return { ...game, hero: { ...game.hero, mana: game.hero.mana + 101 } };
     },
     turns: 5,
   },
@@ -52,37 +45,35 @@ function canSpell(spell, game) {
 }
 
 function runSpells(game) {
-  game = Object.assign({}, game, {
-    hero: Object.assign({}, game.hero, { armor: 0 }),
-  });
+  game = { ...game, hero: { ...game.hero, armor: 0 } };
   for (const spell in game.active) {
     if (game.active[spell] > 0) {
       game = spells[spell].effect(game);
-      game = Object.assign({}, game, {
-        active: Object.assign({}, game.active, {
-          [spell]: game.active[spell] - 1,
-        }),
-      });
+      game = {
+        ...game,
+        active: { ...game.active, [spell]: game.active[spell] - 1 },
+      };
     }
   }
   return game;
 }
 
 function castSpell(spell, game) {
-  return Object.assign({}, game, {
-    hero: Object.assign({}, game.hero, {
-      mana: game.hero.mana - spells[spell].mana,
-    }),
-    active: Object.assign({}, game.active, { [spell]: spells[spell].turns }),
-  });
+  return {
+    ...game,
+    hero: { ...game.hero, mana: game.hero.mana - spells[spell].mana },
+    active: { ...game.active, [spell]: spells[spell].turns },
+  };
 }
 
 function playBoss(game) {
-  return Object.assign({}, game, {
-    hero: Object.assign({}, game.hero, {
+  return {
+    ...game,
+    hero: {
+      ...game.hero,
       hit: game.hero.hit - Math.max(1, game.boss.damage - game.hero.armor),
-    }),
-  });
+    },
+  };
 }
 
 function memoize(fn) {
@@ -124,7 +115,7 @@ function parse(input, initialHit, initialMana) {
     armor: 0,
   };
   const active = Object.keys(spells).reduce(
-    (obj, spell) => Object.assign(obj, { [spell]: 0 }),
+    (obj, spell) => ({ ...obj, [spell]: 0 }),
     {},
   );
   return { hero, boss, active };

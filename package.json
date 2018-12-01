@@ -2,9 +2,9 @@
   "name": "adventofcode-solver",
   "version": "1.0.0",
   "scripts": {
+    "postinstall": "yoshi lint",
     "start": "node src/index.js",
-    "test": "SKIP_HEAVY=1 yoshi test --jest",
-    "posttest": "yoshi lint",
+    "test": "if [ -z \"$CI\" ]; then yoshi test --jest --onlyChanged; else yoshi test --jest; fi",
     "precommit": "yoshi lint"
   },
   "dependencies": {

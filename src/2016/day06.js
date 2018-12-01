@@ -5,9 +5,7 @@ function solve(input) {
     .reduce((commons, word) => {
       return word.map((c, i) => {
         commons[i] = commons[i] || {};
-        commons[i] = Object.assign(commons[i], {
-          [c]: (commons[i][c] || 0) + 1,
-        });
+        commons[i] = { ...commons[i], [c]: (commons[i][c] || 0) + 1 };
         return commons[i];
       });
     }, [])

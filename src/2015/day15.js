@@ -14,14 +14,14 @@ function day(input) {
       .split(p1)
       .map(x => x.split(p2))
       .reduce(
-        (obj, pair) => Object.assign(obj, { [pair[0]]: parseInt(pair[1], 10) }),
+        (obj, pair) => ({ ...obj, [pair[0]]: parseInt(pair[1], 10) }),
         {},
       );
   }
 
   function objMap(obj, fn) {
     return Object.keys(obj).reduce((result, key) => {
-      return Object.assign(result, { [key]: fn(obj[key], key) });
+      return { ...result, [key]: fn(obj[key], key) };
     }, {});
   }
 

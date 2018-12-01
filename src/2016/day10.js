@@ -2,9 +2,10 @@ function day(input, low = 17, high = 61) {
   let part1;
 
   function assign(state, dest, index, value) {
-    Object.assign(state[dest], {
+    state[dest] = {
+      ...state[dest],
       [index]: (state[dest][index] || []).concat(value).sort((a, b) => a - b),
-    });
+    };
     if (
       dest === 'bots' &&
       state[dest][index][0] === low &&

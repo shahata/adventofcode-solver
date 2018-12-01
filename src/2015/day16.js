@@ -12,21 +12,19 @@ const expect1 = {
   perfumes: 1,
 };
 
-const expect2 = Object.assign({}, expect1, {
+const expect2 = {
+  ...expect1,
   cats: x => x > expect1.cats,
   trees: x => x > expect1.trees,
   pomeranians: x => x < expect1.pomeranians,
   goldfish: x => x < expect1.goldfish,
-});
+};
 
 function parseMap(s, p1, p2) {
   return s
     .split(p1)
     .map(x => x.split(p2))
-    .reduce(
-      (obj, pair) => Object.assign(obj, { [pair[0]]: parseInt(pair[1], 10) }),
-      {},
-    );
+    .reduce((obj, pair) => ({ ...obj, [pair[0]]: parseInt(pair[1], 10) }), {});
 }
 
 function matches(x, expect) {
@@ -42,7 +40,7 @@ function parse(input) {
     .split('\n')
     .map(x => x.match(/^Sue ([^:]*): (.*)/))
     .map(x => [x[1], parseMap(x[2], ', ', ': ')])
-    .map(x => Object.assign({ id: parseInt(x[0], 10) }, x[1]));
+    .map(x => ({ id: parseInt(x[0], 10), ...x[1] }));
 }
 
 const part1 = input =>

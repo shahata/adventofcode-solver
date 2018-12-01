@@ -22,12 +22,12 @@ function parse(input) {
     .map(x => x.match(/^(.*) to (.*) = (\d+)$/))
     .map(x => ({ p1: x[1], p2: x[2], d: parseInt(x[3], 10) }))
     .reduce((graph, edge) => {
-      graph[edge.p1] = Object.assign({}, graph[edge.p1], { [edge.p2]: edge.d });
-      graph[edge.p2] = Object.assign({}, graph[edge.p2], { [edge.p1]: edge.d });
+      graph[edge.p1] = { ...graph[edge.p1], [edge.p2]: edge.d };
+      graph[edge.p2] = { ...graph[edge.p2], [edge.p1]: edge.d };
       return graph;
     }, {});
   graph.$$start = Object.keys(graph).reduce(
-    (obj, key) => Object.assign({ [key]: 0 }, obj),
+    (obj, key) => ({ [key]: 0, ...obj }),
     {},
   );
   return graph;

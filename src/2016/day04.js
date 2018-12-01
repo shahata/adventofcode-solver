@@ -9,7 +9,7 @@ function checksum(s) {
     .split('')
     .sort()
     .reduce((obj, c) => {
-      return Object.assign(obj, { [c]: (obj[c] || 0) + 1 });
+      return { ...obj, [c]: (obj[c] || 0) + 1 };
     }, {});
   return Object.keys(occurences)
     .map(x => ({ letter: x, times: occurences[x] }))

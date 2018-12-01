@@ -50,7 +50,7 @@
 <p>In this example, the first two numbers in the list end up being <code>3</code> and <code>4</code>; to check the process, you can multiply them together to produce <code>12</code>.</p>
 <p>However, you should instead use the standard list size of <code>256</code> (with values <code>0</code> to <code>255</code>) and the sequence of <em>lengths</em> in your puzzle input. Once this process is complete, <em>what is the result of multiplying the first two numbers in the list</em>?</p>
 </article>
-<p>Your puzzle answer was <code>9656</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>The logic you've constructed forms a single <em>round</em> of the <em>Knot Hash</em> algorithm; running the full thing requires many of these rounds. Some input and output processing is also required.</p>
+<p>Your puzzle answer was <code>9656</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>The logic you've constructed forms a single <em>round</em> of the <em>Knot Hash</em> algorithm; running the full thing requires many of these rounds. Some input and output processing is also required.</p>
 <p>First, from now on, your input should be taken not as a list of numbers, but as a string of bytes instead. Unless otherwise specified, convert characters to bytes using their <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">ASCII codes</a>. This will allow you to handle arbitrary ASCII strings, and it also ensures that your input lengths are never larger than <code>255</code>. For example, if you are given <code>1,2,3</code>, you should convert it to the ASCII codes for each character: <code>49,44,50,44,51</code>.</p>
 <p>Once you have determined the sequence of lengths to use, add the following lengths to the end of the sequence: <code>17, 31, 73, 47, 23</code>. For example, if you are given <code>1,2,3</code>, your final sequence of lengths should be <code>49,44,50,44,51,17,31,73,47,23</code> (the ASCII codes from the input string combined with the standard length suffix values).</p>
 <p>Second, instead of merely running one <em>round</em> like you did above, run a total of <code>64</code> rounds, using the same <em>length</em> sequence in each round. The <em>current position</em> and <em>skip size</em> should be preserved between rounds. For example, if the previous example was your first round, you would start your second round with the same <em>length</em> sequence (<code>3, 4, 1, 5, 17, 31, 73, 47, 23</code>, now assuming they came from ASCII codes and include the suffix), but start with the previous round's <em>current position</em> (<code>4</code>) and <em>skip size</em> (<code>4</code>).</p>
@@ -72,9 +72,8 @@
 <p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
 <p>If you still want to see it, you can <a href="day10.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Knot+Hash%22+%2D+Day+10+%2D+Advent+of+Code+2017&amp;url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="https://plus.google.com/share?url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F10" target="_blank">Google+</a>
-  <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F10&amp;title=I%27ve+completed+%22Knot+Hash%22+%2D+Day+10+%2D+Advent+of+Code+2017" target="_blank">Reddit</a
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Knot+Hash%22+%2D+Day+10+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F10&amp;title=I%27ve+completed+%22Knot+Hash%22+%2D+Day+10+%2D+Advent+of+Code+2017" target="_blank">Reddit</a
 ></span>]</span> this puzzle.</p>
 </main>
 </body>

@@ -1,15 +1,16 @@
 const operations = {
-  hlf: (state, p1) =>
-    Object.assign({}, state, { [p1]: state[p1] / 2, next: state.next + 1 }),
-  tpl: (state, p1) =>
-    Object.assign({}, state, { [p1]: state[p1] * 3, next: state.next + 1 }),
-  inc: (state, p1) =>
-    Object.assign({}, state, { [p1]: state[p1] + 1, next: state.next + 1 }),
-  jmp: (state, p1) => Object.assign({}, state, { next: state.next + p1 }),
-  jie: (state, p1, p2) =>
-    Object.assign({}, state, { next: state.next + (state[p1] % 2 ? 1 : p2) }),
-  jio: (state, p1, p2) =>
-    Object.assign({}, state, { next: state.next + (state[p1] !== 1 ? 1 : p2) }),
+  hlf: (state, p1) => ({ ...state, [p1]: state[p1] / 2, next: state.next + 1 }),
+  tpl: (state, p1) => ({ ...state, [p1]: state[p1] * 3, next: state.next + 1 }),
+  inc: (state, p1) => ({ ...state, [p1]: state[p1] + 1, next: state.next + 1 }),
+  jmp: (state, p1) => ({ ...state, next: state.next + p1 }),
+  jie: (state, p1, p2) => ({
+    ...state,
+    next: state.next + (state[p1] % 2 ? 1 : p2),
+  }),
+  jio: (state, p1, p2) => ({
+    ...state,
+    next: state.next + (state[p1] !== 1 ? 1 : p2),
+  }),
 };
 
 function run(state, instructions) {

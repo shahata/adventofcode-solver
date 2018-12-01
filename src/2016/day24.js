@@ -21,10 +21,10 @@ function parse(input) {
 function getNeighbors(maze, point, props) {
   const { x, y } = point;
   return [
-    Object.assign({ point: maze[y][x - 1] }, props),
-    Object.assign({ point: maze[y][x + 1] }, props),
-    Object.assign({ point: maze[y - 1][x] }, props),
-    Object.assign({ point: maze[y + 1][x] }, props),
+    { ...props, point: maze[y][x - 1] },
+    { ...props, point: maze[y][x + 1] },
+    { ...props, point: maze[y - 1][x] },
+    { ...props, point: maze[y + 1][x] },
   ].filter(x => !x.point.wall);
 }
 

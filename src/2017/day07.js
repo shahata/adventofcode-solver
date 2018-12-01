@@ -3,13 +3,14 @@ function parse(input) {
     const [, name, weight, children] = x.match(
       /^([^\s]+)\s+\((\d+)\)(?:\s+->\s+(.*))?$/,
     );
-    return Object.assign(programs, {
+    return {
+      ...programs,
       [name]: {
         name,
         weight: parseInt(weight, 10),
         children: children && children.replace(/\s+/g, '').split(','),
       },
-    });
+    };
   }, {});
 }
 

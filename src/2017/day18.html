@@ -46,7 +46,7 @@ jgz a -2
 <p>At the time the <em>recover</em> operation is executed, the frequency of the last sound played is <code>4</code>.</p>
 <p><em>What is the value of the recovered frequency</em> (the value of the most recently played sound) the <em>first</em> time a <code>rcv</code> instruction is executed with a non-zero value?</p>
 </article>
-<p>Your puzzle answer was <code>4601</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>As you congratulate yourself for a job well done, you notice that the documentation has been on the back of the tablet this entire time. While you actually got most of the instructions correct, there are a few key differences. This assembly code isn't about sound at all - it's meant to be run <em>twice at the same time</em>.</p>
+<p>Your puzzle answer was <code>4601</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>As you congratulate yourself for a job well done, you notice that the documentation has been on the back of the tablet this entire time. While you actually got most of the instructions correct, there are a few key differences. This assembly code isn't about sound at all - it's meant to be run <em>twice at the same time</em>.</p>
 <p>Each running copy of the program has its own set of registers and follows the code independently - in fact, the programs don't even necessarily run at the same speed. To coordinate, they use the <em>send</em> (<code>snd</code>) and <em>receive</em> (<code>rcv</code>) instructions:</p>
 <ul>
 <li><code>snd X</code> <em>sends</em> the value of <code>X</code> to the other program. These values wait in a queue until that program is ready to receive them. Each program has its own message queue, so a program can never receive a message it sent.</li>
@@ -71,9 +71,8 @@ rcv d
 <p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
 <p>If you still want to see it, you can <a href="day18.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Duet%22+%2D+Day+18+%2D+Advent+of+Code+2017&amp;url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="https://plus.google.com/share?url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18" target="_blank">Google+</a>
-  <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18&amp;title=I%27ve+completed+%22Duet%22+%2D+Day+18+%2D+Advent+of+Code+2017" target="_blank">Reddit</a
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Duet%22+%2D+Day+18+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18&amp;title=I%27ve+completed+%22Duet%22+%2D+Day+18+%2D+Advent+of+Code+2017" target="_blank">Reddit</a
 ></span>]</span> this puzzle.</p>
 </main>
 </body>

@@ -10,25 +10,23 @@ function getter(state, p) {
 }
 
 function parse(input, ops2 = {}, debug) {
-  const ops = Object.assign(
-    {
-      snd: p1 => state => (state.sound = getter(state, p1)),
-      set: (p1, p2) => state => (state[p1] = getter(state, p2)),
-      add: (p1, p2) => state =>
-        (state[p1] = getter(state, p1) + getter(state, p2)),
-      mul: (p1, p2) => state =>
-        (state[p1] = getter(state, p1) * getter(state, p2)),
-      mod: (p1, p2) => state =>
-        (state[p1] = getter(state, p1) % getter(state, p2)),
-      rcv: p1 => state =>
-        getter(p1) !== 0 ? (state.recovered = state.sound) : null,
-      jgz: (p1, p2) => state =>
-        getter(state, p1) > 0
-          ? (state.instruction += getter(state, p2) - 1)
-          : null,
-    },
-    ops2,
-  );
+  const ops = {
+    snd: p1 => state => (state.sound = getter(state, p1)),
+    set: (p1, p2) => state => (state[p1] = getter(state, p2)),
+    add: (p1, p2) => state =>
+      (state[p1] = getter(state, p1) + getter(state, p2)),
+    mul: (p1, p2) => state =>
+      (state[p1] = getter(state, p1) * getter(state, p2)),
+    mod: (p1, p2) => state =>
+      (state[p1] = getter(state, p1) % getter(state, p2)),
+    rcv: p1 => state =>
+      getter(p1) !== 0 ? (state.recovered = state.sound) : null,
+    jgz: (p1, p2) => state =>
+      getter(state, p1) > 0
+        ? (state.instruction += getter(state, p2) - 1)
+        : null,
+    ...ops2,
+  };
 
   return input.split('\n').map(str => {
     const [cmd, p1Str, p2Str] = str.split(' ');
