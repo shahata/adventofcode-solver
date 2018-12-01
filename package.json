@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node src/index.js",
-    "test": "haste test --jest",
-    "test:mocha": "export mocha_reporter=spec && haste test",
-    "posttest": "haste lint",
-    "precommit": "haste lint"
+    "test": "yoshi test --jest",
+    "posttest": "yoshi lint",
+    "precommit": "yoshi lint"
   },
   "dependencies": {
     "inquirer": "^4.0.1",
@@ -16,14 +15,10 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "describe-heavy": "^1.0.12",
-    "haste-cli": "^0.1.16",
-    "haste-preset-yoshi": "0.0.11",
-    "husky": "^0.14.3"
-  },
-  "haste": {
-    "preset": "haste-preset-yoshi"
+    "husky": "^0.14.3",
+    "yoshi": "^3.21.0"
   },
   "eslintConfig": {
-    "extends": "wix/esnext"
+    "extends": "yoshi"
   }
 }

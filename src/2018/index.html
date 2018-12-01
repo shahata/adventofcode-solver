@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Advent of Code 2018</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.ico"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<pre class="calendar"><span class="calendar-day25">                                                   <span class="calendar-day">25</span></span>
+<span class="calendar-day24">                                                   <span class="calendar-day">24</span></span>
+<span class="calendar-day23">                                                   <span class="calendar-day">23</span></span>
+<span class="calendar-day22">                                                   <span class="calendar-day">22</span></span>
+<span class="calendar-day21">                                                   <span class="calendar-day">21</span></span>
+<span class="calendar-day20">                                                   <span class="calendar-day">20</span></span>
+<span class="calendar-day19">                                                   <span class="calendar-day">19</span></span>
+<span class="calendar-day18">                                                   <span class="calendar-day">18</span></span>
+<span class="calendar-day17">                                                   <span class="calendar-day">17</span></span>
+<span class="calendar-day16">                                                   <span class="calendar-day">16</span></span>
+<span class="calendar-day15">                                                   <span class="calendar-day">15</span></span>
+<span class="calendar-day14">                                                   <span class="calendar-day">14</span></span>
+<span class="calendar-day13">                                                   <span class="calendar-day">13</span></span>
+<span class="calendar-day12">                                                   <span class="calendar-day">12</span></span>
+<span class="calendar-day11">                                                   <span class="calendar-day">11</span></span>
+<span class="calendar-day10">                                                   <span class="calendar-day">10</span></span>
+<span class="calendar-day9">                                                   <span class="calendar-day"> 9</span></span>
+<span class="calendar-day8">                                                   <span class="calendar-day"> 8</span></span>
+<span class="calendar-day7">       /    \                                      <span class="calendar-day"> 7</span></span>
+<span class="calendar-day6">                                                   <span class="calendar-day"> 6</span></span>
+<span class="calendar-day5">    /       \                                      <span class="calendar-day"> 5</span></span>
+<span class="calendar-day4">                                                   <span class="calendar-day"> 4</span></span>
+<span class="calendar-day3">  /           \                                    <span class="calendar-day"> 3</span></span>
+<span class="calendar-day2">(               )                                  <span class="calendar-day"> 2</span><span id="calendar-countdown"></span><script>
+(function(){
+var countdown = document.getElementById("calendar-countdown");
+if (!countdown) return;
+var target = 61841+Math.floor(new Date().getTime()/1000);
+var interval = null;
+function update_countdown() {
+  var remaining = Math.ceil(target - new Date().getTime()/1000);
+  if (remaining <= 0) {
+    clearInterval(interval);
+    interval = null;
+    countdown.textContent = "";
+
+    var a = document.createElement("a");
+    a[String.fromCharCode(104,114,101,102)] = "/2018" + String.fromCharCode(47,100,97,121,47) + "2";
+    a.className = "calendar-day2 calendar-day-new";
+    var span = countdown.parentNode;
+    while (span.firstChild) {
+      a.appendChild(span.firstChild);
+    }
+    a.appendChild(document.createTextNode("   "));
+    span.parentNode.insertBefore(a, span);
+    span.parentNode.removeChild(span);
+    countdown.parentNode.removeChild(countdown);
+  } else {
+    var hours = Math.floor(remaining/60/60);
+    remaining -= hours * 60 * 60;
+    var minutes = Math.floor(remaining/60);
+    remaining -= minutes * 60;
+    var seconds = remaining;
+    countdown.textContent = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  }
+}
+interval = setInterval(update_countdown,1000);
+update_countdown();
+})();
+</script></span>
+<a href="day01.html" class="calendar-day1 calendar-verycomplete">_               _________ ___ __ _  _   _    _     <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+</pre>
+</main>
+</body>
+</html>
