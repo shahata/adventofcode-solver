@@ -1,17 +1,19 @@
 {
   "version": "0.2.0",
   "configurations": [{
-    "name": "Launch",
+    "name": "Launch Day",
     "type": "node",
     "request": "launch",
     "program": "${workspaceRoot}/src/index.js",
-    "args": ["2018", "1"],
+    "args": ["${relativeFile}"],
     "cwd": "${workspaceRoot}"
   }, {
-    "name": "Launch Mocha",
+    "name": "Launch Tests",
     "type": "node",
     "request": "launch",
-    "program": "${workspaceRoot}/node_modules/yoshi/debug/mocha.js",
+    "port" : 9229,
+    "program": "${workspaceFolder}/node_modules/.bin/yoshi",
+    "args": ["test", "--jest", "--debug-brk", "--findRelatedTests", "${relativeFile}"],
     "cwd": "${workspaceRoot}"
   }]
 }
