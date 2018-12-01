@@ -1,7 +1,7 @@
-const {day} = require('./day20');
-const {itHeavy} = require('describe-heavy');
-const {expect} = require('chai');
+const { day } = require('./day20');
+const { expect } = require('chai');
 const readInput = require('../utils/read-input');
+
 const input = readInput(__filename);
 
 describe('day20 2015', () => {
@@ -16,8 +16,8 @@ describe('day20 2015', () => {
     });
   });
 
-  itHeavy('should work for input', () => {
-    const {part1, part2} = day(input);
+  it('should work for input', () => {
+    const { part1, part2 } = day(input);
     expect(part1).to.equal(776160);
     expect(part2).to.equal(786240);
   });

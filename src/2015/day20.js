@@ -14,11 +14,14 @@ function divisors(x) {
 
 function day(input, part1Only = false) {
   input = parseInt(input);
-  let part1, part2 = part1Only;
+  let part1,
+    part2 = part1Only;
   for (let i = 1; !part1 || !part2; i++) {
     const nums = divisors(i);
     const sum = nums.reduce((sum, x) => sum + x, 0);
-    const sub = nums.filter(x => x < Math.ceil(i / 50)).reduce((sum, x) => sum + x, 0);
+    const sub = nums
+      .filter(x => x < Math.ceil(i / 50))
+      .reduce((sum, x) => sum + x, 0);
     if (!part1 && sum * 10 >= input) {
       part1 = i;
     }
@@ -26,7 +29,7 @@ function day(input, part1Only = false) {
       part2 = i;
     }
   }
-  return {part1, part2};
+  return { part1, part2 };
 }
 
-module.exports = {day};
+module.exports = { day };

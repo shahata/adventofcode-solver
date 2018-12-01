@@ -1,12 +1,14 @@
-const {part1, part2} = require('./day06');
-const {expect} = require('chai');
+const { part1, part2 } = require('./day06');
+const { expect } = require('chai');
 const readInput = require('../utils/read-input');
+
 const input = readInput(__filename);
 
 describe('day06 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(part1(`eedadn
+      expect(
+        part1(`eedadn
 drvtee
 eandsr
 raavrd
@@ -21,7 +23,8 @@ tesnvt
 vntsnd
 vrdear
 dvrsen
-enarar`)).to.equal('easter');
+enarar`),
+      ).to.equal('easter');
     });
 
     it('should work for part 1 input', () => {
@@ -31,7 +34,8 @@ enarar`)).to.equal('easter');
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(part2(`eedadn
+      expect(
+        part2(`eedadn
 drvtee
 eandsr
 raavrd
@@ -46,7 +50,8 @@ tesnvt
 vntsnd
 vrdear
 dvrsen
-enarar`)).to.equal('advent');
+enarar`),
+      ).to.equal('advent');
     });
 
     it('should work for part 2 input', () => {

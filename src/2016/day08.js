@@ -44,7 +44,10 @@ function parseCommand(command) {
 
 function solve(input, width, height) {
   const screen = init(width, height);
-  return input.split('\n').map(parseCommand).reduce((state, fn) => fn(state), screen);
+  return input
+    .split('\n')
+    .map(parseCommand)
+    .reduce((state, fn) => fn(state), screen);
 }
 
 function part1(input, width = 50, height = 6) {
@@ -54,7 +57,9 @@ function part1(input, width = 50, height = 6) {
 
 function part2(input, width = 50, height = 6) {
   const final = solve(input, width, height);
-  return `\n${final.map(row => row.map(x => x ? '#' : '.').join('')).join('\n')}`;
+  return `\n${final
+    .map(row => row.map(x => (x ? '#' : '.')).join(''))
+    .join('\n')}`;
 }
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

@@ -1,11 +1,25 @@
-const part1 = input => input.split('\n').filter(x => {
-  const words = x.split(/\s+/).sort();
-  return words.length === words.filter((x, i, arr) => x !== arr[i + 1]).length;
-}).length;
+const part1 = input =>
+  input.split('\n').filter(x => {
+    const words = x.split(/\s+/).sort();
+    return (
+      words.length === words.filter((x, i, arr) => x !== arr[i + 1]).length
+    );
+  }).length;
 
-const part2 = input => input.split('\n').filter(x => {
-  const words = x.split(/\s+/).map(x => x.split('').sort().join('')).sort();
-  return words.length === words.filter((x, i, arr) => x !== arr[i + 1]).length;
-}).length;
+const part2 = input =>
+  input.split('\n').filter(x => {
+    const words = x
+      .split(/\s+/)
+      .map(x =>
+        x
+          .split('')
+          .sort()
+          .join(''),
+      )
+      .sort();
+    return (
+      words.length === words.filter((x, i, arr) => x !== arr[i + 1]).length
+    );
+  }).length;
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

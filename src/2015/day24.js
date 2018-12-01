@@ -5,14 +5,16 @@ function f(boxes, total, part) {
   const product = x => x.reduce((p, x) => p * x);
 
   for (let i = 1; i <= boxes.length; i++) {
-    const options = Combinatorics.combination(boxes, i)
-                               .filter(a => a.reduce((s, x) => s + x) === total);
+    const options = Combinatorics.combination(boxes, i).filter(
+      a => a.reduce((s, x) => s + x) === total,
+    );
     if (options.length) {
       if (part === 1) {
         return true;
       } else {
-        const good = options.sort((a, b) => product(a) - product(b))
-                          .find(x => f(rest(boxes, x), total, part - 1));
+        const good = options
+          .sort((a, b) => product(a) - product(b))
+          .find(x => f(rest(boxes, x), total, part - 1));
         return product(good);
       }
     }
@@ -28,4 +30,4 @@ function solve(input, x) {
 const part1 = input => solve(input, 3);
 const part2 = input => solve(input, 4);
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

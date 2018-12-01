@@ -27,7 +27,8 @@ function calcOptions() {
                   Defense +2   40     0       2
                   Defense +3   80     0       3`;
 
-  const items = table.split('\n')
+  const items = table
+    .split('\n')
     .filter(x => !x.match(/^\s*$/))
     .map(x => x.match(/^\s*([^:]+):?\s+([^\s]+)\s+([^\s]+)\s+([^\s]+)\s*$/))
     .reduce((state, x) => {
@@ -39,14 +40,14 @@ function calcOptions() {
           name: x[1].trim().toLowerCase(),
           cost: parseInt(x[2], 10),
           damage: parseInt(x[3], 10),
-          armor: parseInt(x[4], 10)
+          armor: parseInt(x[4], 10),
         });
       }
       return state;
     }, {});
 
-  items.armor.push({name: 'nothing', cost: 0, damage: 0, armor: 0});
-  items.rings.push({name: 'nothing', cost: 0, damage: 0, armor: 0});
+  items.armor.push({ name: 'nothing', cost: 0, damage: 0, armor: 0 });
+  items.rings.push({ name: 'nothing', cost: 0, damage: 0, armor: 0 });
 
   options = [];
 
@@ -60,30 +61,42 @@ function calcOptions() {
     });
   });
 
-  return options = options.map(x => x.reduce((sum, x) => ({
-    cost: sum.cost + x.cost,
-    damage: sum.damage + x.damage,
-    armor: sum.armor + x.armor
-  }))).sort((a, b) => a.cost - b.cost);
+  return (options = options
+    .map(x =>
+      x.reduce((sum, x) => ({
+        cost: sum.cost + x.cost,
+        damage: sum.damage + x.damage,
+        armor: sum.armor + x.armor,
+      })),
+    )
+    .sort((a, b) => a.cost - b.cost));
 }
 
 function parse(input) {
   const [hit, damage, armor] = input.match(/\d+/g).map(x => parseInt(x, 10));
-  return {hit, damage, armor};
+  return { hit, damage, armor };
 }
 
 function part1(input) {
   const boss = parse(input);
   const options = calcOptions();
-  const win = options.filter(x => Math.ceil(100 / Math.max(1, boss.damage - x.armor)) >= Math.ceil(boss.hit / Math.max(1, x.damage - boss.armor)));
+  const win = options.filter(
+    x =>
+      Math.ceil(100 / Math.max(1, boss.damage - x.armor)) >=
+      Math.ceil(boss.hit / Math.max(1, x.damage - boss.armor)),
+  );
   return win.shift().cost;
 }
 
 function part2(input) {
   const boss = parse(input);
   const options = calcOptions();
-  const lose = options.filter(x => Math.ceil(100 / Math.max(1, boss.damage - x.armor)) < Math.ceil(boss.hit / Math.max(1, x.damage - boss.armor)));
+  const lose = options.filter(
+    x =>
+      Math.ceil(100 / Math.max(1, boss.damage - x.armor)) <
+      Math.ceil(boss.hit / Math.max(1, x.damage - boss.armor)),
+  );
   return lose.pop().cost;
 }
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

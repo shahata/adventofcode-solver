@@ -16,15 +16,22 @@ const ops = {
     }
   },
   jnz: (register, distance) => state => {
-    if ((state[register] !== undefined && state[register] !== 0) || (state[register] === undefined && register !== '0')) {
-      distance = state[distance] === undefined ? parseInt(distance, 10) : state[distance];
+    if (
+      (state[register] !== undefined && state[register] !== 0) ||
+      (state[register] === undefined && register !== '0')
+    ) {
+      distance =
+        state[distance] === undefined
+          ? parseInt(distance, 10)
+          : state[distance];
       state.index += distance - 1;
     }
   },
   tgl: distance => (state, commands) => {
-    distance = state[distance] === undefined ? parseInt(distance, 10) : state[distance];
+    distance =
+      state[distance] === undefined ? parseInt(distance, 10) : state[distance];
     toggle(commands[state.index + distance]);
-  }
+  },
 };
 
 function toggle(command) {
@@ -33,7 +40,7 @@ function toggle(command) {
     inc: 'dec',
     dec: 'inc',
     jnz: 'cpy',
-    tgl: 'inc'
+    tgl: 'inc',
   };
   if (command) {
     command.name = dic[command.name];
@@ -42,13 +49,19 @@ function toggle(command) {
 
 function toReducer(str) {
   const params = str.split(/\s+/);
-  const cmd = {name: params.shift(), params};
+  const cmd = { name: params.shift(), params };
   return cmd;
 }
 
 function run(commands, state) {
   while (commands.length > state.index) {
-    if (state.index === 4 && commands.slice(4, 10).map(x => x.name).join(' ') === 'cpy inc dec jnz dec jnz') {
+    if (
+      state.index === 4 &&
+      commands
+        .slice(4, 10)
+        .map(x => x.name)
+        .join(' ') === 'cpy inc dec jnz dec jnz'
+    ) {
       state.a += state.b * state.d;
       state.c = 0;
       state.d = 0;
@@ -62,14 +75,14 @@ function run(commands, state) {
   return state;
 }
 
-function part1(input, state = {a: 7, b: 0, c: 0, d: 0, index: 0}) {
+function part1(input, state = { a: 7, b: 0, c: 0, d: 0, index: 0 }) {
   const commands1 = input.split('\n').map(toReducer);
   return run(commands1, state).a;
 }
 
-function part2(input, state = {a: 12, b: 0, c: 0, d: 0, index: 0}) {
+function part2(input, state = { a: 12, b: 0, c: 0, d: 0, index: 0 }) {
   const commands2 = input.split('\n').map(toReducer);
   return run(commands2, state).a;
 }
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

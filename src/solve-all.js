@@ -6,38 +6,43 @@ const inquirer = require('inquirer');
 const dayName = num => `day${num.length === 1 ? '0' : ''}${num}`;
 
 async function downloadText(url, session) {
-  const response = await fetch(url, {
-    headers: {
-      Cookie: `session=${session}`
-    }
-  });
+  const headers = { Cookie: `session=${session}` };
+  const response = await fetch(url, { headers });
   return await response.text();
 }
 
 async function getDayInput(year, day, session) {
   const index = parseInt(day.slice(-2));
-  return await downloadText(`http://adventofcode.com/${year}/day/${index}/input`, session);
+  const url = `http://adventofcode.com/${year}/day/${index}/input`;
+  return await downloadText(url, session);
 }
 
 async function getDayQuestion(year, day, session) {
   const index = parseInt(day.slice(-2));
-  const text = await downloadText(`http://adventofcode.com/${year}/day/${index}`, session);
+  const url = `http://adventofcode.com/${year}/day/${index}`;
+  const text = await downloadText(url, session);
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return question.replace(`/${year}`, 'index.html').replace(/\d+\/input/, `${day}.txt`)
-    .replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`).replace(/action="[^"]*"/g, 'action="end.html"');
+  return question
+    .replace(`/${year}`, 'index.html')
+    .replace(/\d+\/input/, `${day}.txt`)
+    .replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`)
+    .replace(/action="[^"]*"/g, 'action="end.html"');
 }
 
 async function getYearPage(year, session) {
   const text = await downloadText(`http://adventofcode.com/${year}`, session);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return page.replace(/href="\/\d+\/day\/(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`);
+  return page.replace(
+    /href="\/\d+\/day\/(\d+)"/g,
+    (full, num) => `href="${dayName(num)}.html"`,
+  );
 }
 
 function dayFunction(module) {
   return input => {
     input = input.trimRight();
     if (module.day) {
-      const {part1, part2} = module.day(input);
+      const { part1, part2 } = module.day(input);
       console.log(`Part1: ${part1}`);
       console.log(`Part2: ${part2}`);
     } else {
@@ -59,12 +64,20 @@ function getSolvers(year) {
   try {
     const folder = path.join(__dirname, year);
     const days = fs.readdirSync(folder).filter(x => x.match(/^day\d+\.js$/));
-    return days.reduce((obj, day) => Object.assign(obj, {
-      [day.split('.').shift()]: dayFunction(require(`./${path.join(`${year}`, day)}`))
-    }), {});
+    return days.reduce(
+      (obj, day) =>
+        Object.assign(obj, {
+          [day.split('.').shift()]: dayFunction(
+            require(`./${path.join(`${year}`, day)}`),
+          ),
+        }),
+      {},
+    );
   } catch (e) {
     console.error(e);
-    console.error(`must pass year in first argument. ${year} is not a valid year`);
+    console.error(
+      `must pass year in first argument. ${year} is not a valid year`,
+    );
     process.exit(1);
   }
 }
@@ -77,13 +90,25 @@ function render(path, model) {
 }
 
 async function createSolver(year, day, session) {
-  const answers = await inquirer.prompt([{type: 'confirm', name: 'create', message: `Create solver ${year}/${day}?`}]);
+  const answers = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'create',
+      message: `Create solver ${year}/${day}?`,
+    },
+  ]);
   if (answers.create) {
     const prefix = path.join(__dirname, year, day);
     const template = path.join(__dirname, 'template', 'day');
-    fs.writeFileSync(`${prefix}.js`, render(`${template}.js.template`, {year, day}));
+    fs.writeFileSync(
+      `${prefix}.js`,
+      render(`${template}.js.template`, { year, day }),
+    );
     console.log(`Created ${prefix}.js`);
-    fs.writeFileSync(`${prefix}.spec.js`, render(`${template}.spec.js.template`, {year, day}));
+    fs.writeFileSync(
+      `${prefix}.spec.js`,
+      render(`${template}.spec.js.template`, { year, day }),
+    );
     console.log(`Created ${prefix}.spec.js`);
     fs.writeFileSync(`${prefix}.txt`, await getDayInput(year, day, session));
     console.log(`Created ${prefix}.txt`);
@@ -94,14 +119,24 @@ async function downloadQuestion(year, day, session) {
   const question = await getDayQuestion(year, day, session);
   const prefix = path.join(__dirname, year, day);
   const template = path.join(__dirname, 'template', 'day');
-  fs.writeFileSync(`${prefix}.html`, render(`${template}.html.template`, {question, year, number: parseInt(day.slice(-2), 10)}));
+  fs.writeFileSync(
+    `${prefix}.html`,
+    render(`${template}.html.template`, {
+      question,
+      year,
+      number: parseInt(day.slice(-2), 10),
+    }),
+  );
 }
 
 async function downloadYearPage(year, session) {
   const page = await getYearPage(year, session);
   const prefix = path.join(__dirname, year, 'index');
   const template = path.join(__dirname, 'template', 'index');
-  fs.writeFileSync(`${prefix}.html`, render(`${template}.html.template`, {page, year}));
+  fs.writeFileSync(
+    `${prefix}.html`,
+    render(`${template}.html.template`, { page, year }),
+  );
 }
 
 async function solveAll(session) {

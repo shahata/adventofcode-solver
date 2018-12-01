@@ -1,11 +1,11 @@
 function positionAfter(p, v, a, t) {
-  return p + (t * ((2 * (v + a)) + ((t - 1) * a)) / 2);
+  return p + (t * (2 * (v + a) + (t - 1) * a)) / 2;
 }
 
 function particleAfter(particle, t) {
-  let {i, p, v, a} = particle;
-  p = p.map((x, i) => positionAfter(p[i], v[i], a[i], t));
-  return {i, p, v, a};
+  const { i, p, v, a } = particle;
+  const pAfter = p.map((x, i) => positionAfter(p[i], v[i], a[i], t));
+  return { i, p: pAfter, v, a };
 }
 
 function byPosition(a, b) {
@@ -28,19 +28,31 @@ function byPosition(a, b) {
 
 function findCollisions(particles) {
   const collide = (a, b) => b && a.p.every((x, i) => x === b.p[i]);
-  return particles.sort(byPosition).filter((x, i, a) => collide(x, a[i - 1]) || collide(x, a[i + 1]));
+  return particles
+    .sort(byPosition)
+    .filter((x, i, a) => collide(x, a[i - 1]) || collide(x, a[i + 1]));
 }
 
 function parse(input) {
   return input.split('\n').map((line, i) => {
     const parser = /^p=<(-?\d+),(-?\d+),(-?\d+)>, v=<(-?\d+),(-?\d+),(-?\d+)>, a=<(-?\d+),(-?\d+),(-?\d+)>$/;
-    const numbers = line.match(parser).slice(1).map(x => parseInt(x, 10));
-    return {i, p: numbers.slice(0, 3), v: numbers.slice(3, 6), a: numbers.slice(6, 9)};
+    const numbers = line
+      .match(parser)
+      .slice(1)
+      .map(x => parseInt(x, 10));
+    return {
+      i,
+      p: numbers.slice(0, 3),
+      v: numbers.slice(3, 6),
+      a: numbers.slice(6, 9),
+    };
   });
 }
 
 function closest(particles) {
-  const distances = particles.map(x => Math.abs(x.p[0]) + Math.abs(x.p[1]) + Math.abs(x.p[2]));
+  const distances = particles.map(
+    x => Math.abs(x.p[0]) + Math.abs(x.p[1]) + Math.abs(x.p[2]),
+  );
   const min = Math.min(...distances);
   return distances.indexOf(min);
 }
@@ -63,4 +75,4 @@ function part2(input) {
   return particles.filter(x => x).length;
 }
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

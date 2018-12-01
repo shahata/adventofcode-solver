@@ -1,6 +1,7 @@
-const {part1, part2} = require('./day22');
-const {expect} = require('chai');
+const { part1, part2 } = require('./day22');
+const { expect } = require('chai');
 const readInput = require('../utils/read-input');
+
 const input = readInput(__filename);
 
 describe('day22 2016', () => {
@@ -12,7 +13,8 @@ describe('day22 2016', () => {
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(part2(`root@ebhq-gridcenter# df -h
+      expect(
+        part2(`root@ebhq-gridcenter# df -h
 Filesystem            Size  Used  Avail  Use%
 /dev/grid/node-x0-y0   10T    8T     2T   80%
 /dev/grid/node-x0-y1   11T    6T     5T   54%
@@ -22,7 +24,8 @@ Filesystem            Size  Used  Avail  Use%
 /dev/grid/node-x1-y2   11T    7T     4T   63%
 /dev/grid/node-x2-y0   10T    6T     4T   60%
 /dev/grid/node-x2-y1    9T    8T     1T   88%
-/dev/grid/node-x2-y2    9T    6T     3T   66%`)).to.equal(7);
+/dev/grid/node-x2-y2    9T    6T     3T   66%`),
+      ).to.equal(7);
     });
 
     it('should work for part 2 input', () => {

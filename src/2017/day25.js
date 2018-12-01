@@ -23,13 +23,14 @@ function parse(input) {
       states[currentState][currentValue].next = param;
     }
   }
-  return {initial, diagnostic, states};
+  return { initial, diagnostic, states };
 }
 
 function part1(input) {
-  const {initial, diagnostic, states} = parse(input);
+  const { initial, diagnostic, states } = parse(input);
   const tape = {};
-  let position = 0, currentState = initial;
+  let position = 0,
+    currentState = initial;
   for (let i = 0; i < diagnostic; i++) {
     const currentValue = tape[position] || '0';
     tape[position] = states[currentState][currentValue].write;
@@ -39,4 +40,4 @@ function part1(input) {
   return Object.values(tape).filter(x => x === '1').length;
 }
 
-module.exports = {part1, part2: () => undefined};
+module.exports = { part1, part2: () => undefined };

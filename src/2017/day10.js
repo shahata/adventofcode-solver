@@ -1,16 +1,25 @@
-function step({chain, skip, current}, length) {
+function step({ chain, skip, current }, length) {
   const currentIsFirst = chain.slice(current).concat(chain.slice(0, current));
-  const lengthReversed = currentIsFirst.slice(0, length).reverse().concat(currentIsFirst.slice(length));
-  const currentRotatedBack = lengthReversed.slice(-1 * current).concat(lengthReversed.slice(0, -1 * current));
-  return {chain: currentRotatedBack, skip: skip + 1, current: (current + length + skip) % chain.length};
+  const lengthReversed = currentIsFirst
+    .slice(0, length)
+    .reverse()
+    .concat(currentIsFirst.slice(length));
+  const currentRotatedBack = lengthReversed
+    .slice(-1 * current)
+    .concat(lengthReversed.slice(0, -1 * current));
+  return {
+    chain: currentRotatedBack,
+    skip: skip + 1,
+    current: (current + length + skip) % chain.length,
+  };
 }
 
 function solve(chain, lengths) {
-  return lengths.reduce(step, {chain, skip: 0, current: 0});
+  return lengths.reduce(step, { chain, skip: 0, current: 0 });
 }
 
 function solve2(chain, lengths) {
-  let result = {chain, skip: 0, current: 0};
+  let result = { chain, skip: 0, current: 0 };
   for (let i = 0; i < 64; i++) {
     result = lengths.reduce(step, result);
   }
@@ -36,14 +45,21 @@ function parse(input) {
 }
 
 function parse2(input) {
-  return input.split('').map(x => x.charCodeAt(0)).concat([17, 31, 73, 47, 23]);
+  return input
+    .split('')
+    .map(x => x.charCodeAt(0))
+    .concat([17, 31, 73, 47, 23]);
 }
 
 function list(size) {
   return new Array(size).fill().map((x, i) => i);
 }
 
-const part1 = (input, size = 256) => solve(list(size), parse(input)).chain.slice(0, 2).reduce((a, b) => a * b);
-const part2 = (input, size = 256) => encode(dense(solve2(list(size), parse2(input))));
+const part1 = (input, size = 256) =>
+  solve(list(size), parse(input))
+    .chain.slice(0, 2)
+    .reduce((a, b) => a * b);
+const part2 = (input, size = 256) =>
+  encode(dense(solve2(list(size), parse2(input))));
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

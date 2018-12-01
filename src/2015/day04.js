@@ -12,4 +12,4 @@ function solve(input, prefix) {
 const part1 = input => solve(input, '00000');
 const part2 = input => solve(input, '000000');
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

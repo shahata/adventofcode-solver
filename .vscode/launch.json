@@ -5,13 +5,13 @@
     "type": "node",
     "request": "launch",
     "program": "${workspaceRoot}/src/index.js",
-    "args": ["2017", "1"],
+    "args": ["2018", "1"],
     "cwd": "${workspaceRoot}"
   }, {
     "name": "Launch Mocha",
     "type": "node",
     "request": "launch",
-    "program": "${workspaceRoot}/node_modules/haste-preset-yoshi/debug/mocha.js",
+    "program": "${workspaceRoot}/node_modules/yoshi/debug/mocha.js",
     "cwd": "${workspaceRoot}"
   }]
 }

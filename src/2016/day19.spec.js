@@ -1,6 +1,7 @@
-const {part1, part2} = require('./day19');
-const {expect} = require('chai');
+const { part1, part2 } = require('./day19');
+const { expect } = require('chai');
 const readInput = require('../utils/read-input');
+
 const input = readInput(__filename);
 
 describe('day19 2016', () => {
@@ -16,17 +17,17 @@ describe('day19 2016', () => {
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(part2('1')).to.equal(1);// 3 ** 0
+      expect(part2('1')).to.equal(1); // 3 ** 0
 
       expect(part2('2')).to.equal(1);
-      expect(part2('3')).to.equal(3);// 3 ** 1
+      expect(part2('3')).to.equal(3); // 3 ** 1
 
       expect(part2('4')).to.equal(1);
       expect(part2('5')).to.equal(2);
-      expect(part2('6')).to.equal(3);// (3 ** 1) * 2
+      expect(part2('6')).to.equal(3); // (3 ** 1) * 2
       expect(part2('7')).to.equal(5);
       expect(part2('8')).to.equal(7);
-      expect(part2('9')).to.equal(9);// 3 ** 2
+      expect(part2('9')).to.equal(9); // 3 ** 2
 
       expect(part2('10')).to.equal(1);
       expect(part2('11')).to.equal(2);
@@ -36,7 +37,7 @@ describe('day19 2016', () => {
       expect(part2('15')).to.equal(6);
       expect(part2('16')).to.equal(7);
       expect(part2('17')).to.equal(8);
-      expect(part2('18')).to.equal(9);// (3 ** 2) * 2
+      expect(part2('18')).to.equal(9); // (3 ** 2) * 2
       expect(part2('19')).to.equal(11);
       expect(part2('20')).to.equal(13);
       expect(part2('21')).to.equal(15);
@@ -45,7 +46,7 @@ describe('day19 2016', () => {
       expect(part2('24')).to.equal(21);
       expect(part2('25')).to.equal(23);
       expect(part2('26')).to.equal(25);
-      expect(part2('27')).to.equal(27);// 3 ** 3
+      expect(part2('27')).to.equal(27); // 3 ** 3
 
       expect(part2('28')).to.equal(1);
       expect(part2('29')).to.equal(2);
@@ -73,7 +74,7 @@ describe('day19 2016', () => {
       expect(part2('51')).to.equal(24);
       expect(part2('52')).to.equal(25);
       expect(part2('53')).to.equal(26);
-      expect(part2('54')).to.equal(27);// (3 ** 3) * 2
+      expect(part2('54')).to.equal(27); // (3 ** 3) * 2
       expect(part2('55')).to.equal(29);
       expect(part2('56')).to.equal(31);
       expect(part2('57')).to.equal(33);
@@ -100,7 +101,7 @@ describe('day19 2016', () => {
       expect(part2('78')).to.equal(75);
       expect(part2('79')).to.equal(77);
       expect(part2('80')).to.equal(79);
-      expect(part2('81')).to.equal(81);// 3 ** 4
+      expect(part2('81')).to.equal(81); // 3 ** 4
 
       expect(part2('82')).to.equal(1);
       expect(part2('83')).to.equal(2);

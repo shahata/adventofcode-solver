@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node src/index.js",
-    "test": "yoshi test --jest",
+    "test": "SKIP_HEAVY=1 yoshi test --jest",
     "posttest": "yoshi lint",
     "precommit": "yoshi lint"
   },
@@ -14,11 +14,14 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "describe-heavy": "^1.0.12",
+    "describe-heavy": "^1.0.14",
     "husky": "^0.14.3",
     "yoshi": "^3.21.0"
   },
   "eslintConfig": {
-    "extends": "yoshi"
+    "extends": "yoshi",
+    "rules": {
+      "no-shadow": 0
+    }
   }
 }

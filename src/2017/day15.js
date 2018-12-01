@@ -24,4 +24,4 @@ function parse(input) {
 const part1 = (input, times = 4e7) => judge(...parse(input), [1, 1], times);
 const part2 = (input, times = 5e6) => judge(...parse(input), [4, 8], times);
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

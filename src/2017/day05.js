@@ -15,6 +15,6 @@ function parse(input) {
 }
 
 const part1 = input => solve(parse(input), x => x + 1);
-const part2 = input => solve(parse(input), x => x >= 3 ? x - 1 : x + 1);
+const part2 = input => solve(parse(input), x => (x >= 3 ? x - 1 : x + 1));
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

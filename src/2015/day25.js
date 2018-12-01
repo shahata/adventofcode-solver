@@ -18,8 +18,11 @@ function part1(input) {
     return x;
   }
 
-  const [row, col] = input.match(/row (\d+), column (\d+).$/).slice(1).map(x => parseInt(x, 10));
+  const [row, col] = input
+    .match(/row (\d+), column (\d+).$/)
+    .slice(1)
+    .map(x => parseInt(x, 10));
   return calcPosition(calcIndex(row, col));
 }
 
-module.exports = {part1, part2: () => undefined};
+module.exports = { part1, part2: () => undefined };

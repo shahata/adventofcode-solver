@@ -1,7 +1,8 @@
 const md5 = require('../utils/md5');
 
 function day(input) {
-  let hash, count = 0;
+  let hash,
+    count = 0;
   let password1 = '';
   const password2 = [];
   let index = -1;
@@ -21,7 +22,7 @@ function day(input) {
   }
   const part1 = password1.slice(0, 8);
   const part2 = password2.join('');
-  return {part1, part2};
+  return { part1, part2 };
 }
 
-module.exports = {day};
+module.exports = { day };

@@ -2,12 +2,15 @@ const Combinatorics = require('js-combinatorics');
 
 function parse(input) {
   let pieces = [];
-  const state = {elevator: 0, floors: input.split('\n').map(x => {
-    const generators = x.match(/[^\s]+(?=\s*generator)/g) || [];
-    const microchips = x.match(/[^\s]+(?=-compatible microchip)/g) || [];
-    pieces = pieces.concat(generators).concat(microchips);
-    return {generators, microchips};
-  })};
+  const state = {
+    elevator: 0,
+    floors: input.split('\n').map(x => {
+      const generators = x.match(/[^\s]+(?=\s*generator)/g) || [];
+      const microchips = x.match(/[^\s]+(?=-compatible microchip)/g) || [];
+      pieces = pieces.concat(generators).concat(microchips);
+      return { generators, microchips };
+    }),
+  };
   state.pieces = pieces;
   return state;
 }
@@ -20,43 +23,68 @@ function select(arr, num) {
   return selected;
 }
 
-function applyMove({elevator, floors, pieces}, diff, move) {
+function applyMove({ elevator, floors, pieces }, diff, move) {
   return {
-    elevator: elevator + diff, pieces, floors: floors.map((floor, i) => {
+    elevator: elevator + diff,
+    pieces,
+    floors: floors.map((floor, i) => {
       if (i === elevator) {
         return {
-          generators: floor.generators.filter(x => !move.generators.includes(x)),
-          microchips: floor.microchips.filter(x => !move.microchips.includes(x))
+          generators: floor.generators.filter(
+            x => !move.generators.includes(x),
+          ),
+          microchips: floor.microchips.filter(
+            x => !move.microchips.includes(x),
+          ),
         };
       } else if (i === elevator + diff) {
         return {
           generators: floor.generators.concat(move.generators),
-          microchips: floor.microchips.concat(move.microchips)
+          microchips: floor.microchips.concat(move.microchips),
         };
       } else {
         return floor;
       }
-    })
+    }),
   };
 }
 
 function legal(state) {
   return state.floors.every(floor => {
-    return floor.generators.length === 0 || floor.microchips.every(m => floor.generators.includes(m));
+    return (
+      floor.generators.length === 0 ||
+      floor.microchips.every(m => floor.generators.includes(m))
+    );
   });
 }
 
 function getMoves(state, diff) {
   const src = state.floors[state.elevator];
   const pairs = src.generators.filter(x => src.microchips.includes(x));
-  return pairs.map(x => ({generators: [x], microchips: [x]}))
-    .concat(select(src.microchips, 2).map(x => ({microchips: x, generators: []})))
-    .concat(select(src.generators, 2).map(x => ({generators: x, microchips: []})))
-    .map(move => applyMove(state, diff, move)).filter(legal);
+  return pairs
+    .map(x => ({ generators: [x], microchips: [x] }))
+    .concat(
+      select(src.microchips, 2).map(x => ({ microchips: x, generators: [] })),
+    )
+    .concat(
+      select(src.generators, 2).map(x => ({ generators: x, microchips: [] })),
+    )
+    .map(move => applyMove(state, diff, move))
+    .filter(legal);
 }
 
-function score({state, distance}) {
-  return distance + (state.floors.reduce((sum, x, i) => sum + (2 * (state.floors.length - i - 1) * (x.generators.length + x.microchips.length)), 0));
+function score({ state, distance }) {
+  return (
+    distance +
+    state.floors.reduce(
+      (sum, x, i) =>
+        sum +
+        2 *
+          (state.floors.length - i - 1) *
+          (x.generators.length + x.microchips.length),
+      0,
+    )
+  );
 }
 
 function getNeighbors(state) {
@@ -64,14 +92,20 @@ function getNeighbors(state) {
   if (state.elevator < state.floors.length - 1) {
     neighbors = neighbors.concat(getMoves(state, 1));
   }
-  if (state.elevator > 0 && state.floors.some((x, i) => i < state.elevator && x.generators.length + x.microchips.length > 0)) {
+  if (
+    state.elevator > 0 &&
+    state.floors.some(
+      (x, i) =>
+        i < state.elevator && x.generators.length + x.microchips.length > 0,
+    )
+  ) {
     neighbors = neighbors.concat(getMoves(state, -1));
   }
   return neighbors;
 }
 
 function done(state) {
-  const {generators, microchips} = state.floors[state.floors.length - 1];
+  const { generators, microchips } = state.floors[state.floors.length - 1];
   return state.pieces.length === generators.length + microchips.length;
 }
 
@@ -99,21 +133,30 @@ function done(state) {
 //   return str;
 // }
 
-function stringify({elevator, floors}) {
-  return JSON.stringify({elevator, floors: floors.map((floor, i) => {
-    return {
-      generators: floor.generators.map(x => i - floors.findIndex(f => f.microchips.includes(x))).sort(),
-      microchips: floor.microchips.map(x => i - floors.findIndex(f => f.generators.includes(x))).sort()
-    };
-  })});
+function stringify({ elevator, floors }) {
+  return JSON.stringify({
+    elevator,
+    floors: floors.map((floor, i) => {
+      return {
+        generators: floor.generators
+          .map(x => i - floors.findIndex(f => f.microchips.includes(x)))
+          .sort(),
+        microchips: floor.microchips
+          .map(x => i - floors.findIndex(f => f.generators.includes(x)))
+          .sort(),
+      };
+    }),
+  });
 }
 
 function solve(state) {
-  const queue = [{distance: 0, state, path: [state]}];
+  const queue = [{ distance: 0, state, path: [state] }];
   const visited = new Set().add(stringify(state));
   while (queue.length > 0) {
-    const {state, distance, path} = queue.shift();
-    const neighbors = getNeighbors(state).filter(x => !visited.has(stringify(x)));
+    const { state, distance, path } = queue.shift();
+    const neighbors = getNeighbors(state).filter(
+      x => !visited.has(stringify(x)),
+    );
     for (const x of neighbors) {
       const json = stringify(x);
       if (done(x)) {
@@ -121,7 +164,7 @@ function solve(state) {
         return distance + 1;
       } else if (!visited.has(json)) {
         visited.add(json);
-        queue.push({distance: distance + 1, state: x, path: path.concat(x)});
+        queue.push({ distance: distance + 1, state: x, path: path.concat(x) });
       }
     }
     queue.sort((a, b) => score(a) - score(b));
@@ -140,4 +183,4 @@ function part2(input) {
   return solve(state);
 }
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

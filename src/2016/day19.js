@@ -42,11 +42,11 @@ function solve2(count) {
   } else if (count <= pow * 2) {
     return count - pow;
   } else {
-    return (count - pow) + (count - (pow * 2));
+    return count - pow + (count - pow * 2);
   }
 }
 
 const part1 = input => solve1(parseInt(input, 10));
 const part2 = input => solve2(parseInt(input, 10));
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

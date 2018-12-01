@@ -1,13 +1,14 @@
 function parse(input) {
-  return input.split('\n')
-              .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))
-              .map(x => ({
-                speed: parseInt(x[1], 10),
-                fly: parseInt(x[2], 10),
-                rest: parseInt(x[3], 10),
-                distance: 0,
-                points: 0
-              }));
+  return input
+    .split('\n')
+    .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))
+    .map(x => ({
+      speed: parseInt(x[1], 10),
+      fly: parseInt(x[2], 10),
+      rest: parseInt(x[3], 10),
+      distance: 0,
+      points: 0,
+    }));
 }
 
 function run(race, seconds) {
@@ -34,4 +35,4 @@ function part2(input, seconds = 2503) {
   return race.reduce((prev, x) => Math.max(prev, x.points), 0);
 }
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

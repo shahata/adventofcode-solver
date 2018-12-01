@@ -9,35 +9,51 @@ const expect1 = {
   goldfish: 5,
   trees: 3,
   cars: 2,
-  perfumes: 1
+  perfumes: 1,
 };
 
 const expect2 = Object.assign({}, expect1, {
   cats: x => x > expect1.cats,
   trees: x => x > expect1.trees,
   pomeranians: x => x < expect1.pomeranians,
-  goldfish: x => x < expect1.goldfish
+  goldfish: x => x < expect1.goldfish,
 });
 
 function parseMap(s, p1, p2) {
-  return s.split(p1).map(x => x.split(p2))
-          .reduce((obj, pair) => Object.assign(obj, {[pair[0]]: parseInt(pair[1], 10)}), {});
+  return s
+    .split(p1)
+    .map(x => x.split(p2))
+    .reduce(
+      (obj, pair) => Object.assign(obj, { [pair[0]]: parseInt(pair[1], 10) }),
+      {},
+    );
 }
 
 function matches(x, expect) {
   return Object.keys(x).every(key => {
-    return typeof expect[key] === 'function' ? expect[key](x[key]) : expect[key] === x[key];
+    return typeof expect[key] === 'function'
+      ? expect[key](x[key])
+      : expect[key] === x[key];
   });
 }
 
 function parse(input) {
-  return input.split('\n')
-              .map(x => x.match(/^Sue ([^:]*): (.*)/))
-              .map(x => [x[1], parseMap(x[2], ', ', ': ')])
-              .map(x => Object.assign({id: parseInt(x[0], 10)}, x[1]));
+  return input
+    .split('\n')
+    .map(x => x.match(/^Sue ([^:]*): (.*)/))
+    .map(x => [x[1], parseMap(x[2], ', ', ': ')])
+    .map(x => Object.assign({ id: parseInt(x[0], 10) }, x[1]));
 }
 
-const part1 = input => parse(input).filter(x => matches(x, expect1)).map(x => x.id).shift();
-const part2 = input => parse(input).filter(x => matches(x, expect2)).map(x => x.id).shift();
+const part1 = input =>
+  parse(input)
+    .filter(x => matches(x, expect1))
+    .map(x => x.id)
+    .shift();
+const part2 = input =>
+  parse(input)
+    .filter(x => matches(x, expect2))
+    .map(x => x.id)
+    .shift();
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

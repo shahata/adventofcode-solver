@@ -8,22 +8,31 @@ function parse(input, length) {
       const [i, j] = [str.indexOf(a), str.indexOf(b)].sort((a, b) => a - b);
       return rebuild(str.match(swap(i, j)).slice(1));
     },
-    s: (str, regexp) => str.match(regexp).slice(1).reverse().join('')
+    s: (str, regexp) =>
+      str
+        .match(regexp)
+        .slice(1)
+        .reverse()
+        .join(''),
   };
   const params = {
-    x: (a, b) => swap(...[parseInt(a, 10), parseInt(b, 10)].sort((a, b) => a - b)),
+    x: (a, b) =>
+      swap(...[parseInt(a, 10), parseInt(b, 10)].sort((a, b) => a - b)),
     p: (a, b) => [a, b],
-    s: a => new RegExp(`^(.*)(.{${parseInt(a, 10) % length}})$`)
+    s: a => new RegExp(`^(.*)(.{${parseInt(a, 10) % length}})$`),
   };
-  return input.split(',').map(x => x.match(regexp).slice(1)).map(cmd => {
-    const op = ops[cmd[0]];
-    const args = params[cmd[0]](cmd[1], cmd[2]);
-    return {op, args};
-  });
+  return input
+    .split(',')
+    .map(x => x.match(regexp).slice(1))
+    .map(cmd => {
+      const op = ops[cmd[0]];
+      const args = params[cmd[0]](cmd[1], cmd[2]);
+      return { op, args };
+    });
 }
 
 function dance(order, commands) {
-  return commands.reduce((x, {op, args}) => op(x, args), order);
+  return commands.reduce((x, { op, args }) => op(x, args), order);
 }
 
 function part1(input, order = 'abcdefghijklmnop') {
@@ -49,4 +58,4 @@ function part2(input, order = 'abcdefghijklmnop', times = 1e9) {
   return order;
 }
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

@@ -13,10 +13,18 @@ function parse(input) {
     '>=': (a, b) => a >= b,
     '<=': (a, b) => a <= b,
     '==': (a, b) => a === b,
-    '!=': (a, b) => a !== b
+    '!=': (a, b) => a !== b,
   };
   return input.split('\n').map(x => {
-    const [variable, operator, param, , compVariable, compOperator, compParam] = x.split(/\s+/);
+    const [
+      variable,
+      operator,
+      param,
+      ,
+      compVariable,
+      compOperator,
+      compParam,
+    ] = x.split(/\s+/);
     return state => {
       state[variable] = state[variable] || 0;
       state[compVariable] = state[compVariable] || 0;
@@ -38,10 +46,12 @@ function executeMax(commands) {
 }
 
 function max(registers) {
-  return Object.values(registers).sort((a, b) => a - b).pop();
+  return Object.values(registers)
+    .sort((a, b) => a - b)
+    .pop();
 }
 
 const part1 = input => max(execute(parse(input)));
 const part2 = input => max(executeMax(parse(input)));
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };

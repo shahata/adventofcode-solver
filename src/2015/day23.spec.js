@@ -1,15 +1,18 @@
-const {part1, part2} = require('./day23');
-const {expect} = require('chai');
+const { part1, part2 } = require('./day23');
+const { expect } = require('chai');
 const readInput = require('../utils/read-input');
+
 const input = readInput(__filename);
 
 describe('day23 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(part1(`inc b
+      expect(
+        part1(`inc b
 jio b, +2
 tpl b
-inc b`)).to.equal(2);
+inc b`),
+      ).to.equal(2);
     });
 
     it('should work for part 1 input', () => {

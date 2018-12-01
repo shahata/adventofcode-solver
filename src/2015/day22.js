@@ -3,48 +3,48 @@ const spells = {
     mana: 53,
     effect: game => {
       return Object.assign({}, game, {
-        boss: Object.assign({}, game.boss, {hit: game.boss.hit - 4})
+        boss: Object.assign({}, game.boss, { hit: game.boss.hit - 4 }),
       });
     },
-    turns: 1
+    turns: 1,
   },
   Drain: {
     mana: 73,
     effect: game => {
       return Object.assign({}, game, {
-        boss: Object.assign({}, game.boss, {hit: game.boss.hit - 2}),
-        hero: Object.assign({}, game.hero, {hit: game.hero.hit + 2})
+        boss: Object.assign({}, game.boss, { hit: game.boss.hit - 2 }),
+        hero: Object.assign({}, game.hero, { hit: game.hero.hit + 2 }),
       });
     },
-    turns: 1
+    turns: 1,
   },
   Shield: {
     mana: 113,
     effect: game => {
       return Object.assign({}, game, {
-        hero: Object.assign({}, game.hero, {armor: 7})
+        hero: Object.assign({}, game.hero, { armor: 7 }),
       });
     },
-    turns: 6
+    turns: 6,
   },
   Poison: {
     mana: 173,
     effect: game => {
       return Object.assign({}, game, {
-        boss: Object.assign({}, game.boss, {hit: game.boss.hit - 3})
+        boss: Object.assign({}, game.boss, { hit: game.boss.hit - 3 }),
       });
     },
-    turns: 6
+    turns: 6,
   },
   Recharge: {
     mana: 229,
     effect: game => {
       return Object.assign({}, game, {
-        hero: Object.assign({}, game.hero, {mana: game.hero.mana + 101})
+        hero: Object.assign({}, game.hero, { mana: game.hero.mana + 101 }),
       });
     },
-    turns: 5
-  }
+    turns: 5,
+  },
 };
 
 function canSpell(spell, game) {
@@ -53,13 +53,15 @@ function canSpell(spell, game) {
 
 function runSpells(game) {
   game = Object.assign({}, game, {
-    hero: Object.assign({}, game.hero, {armor: 0})
+    hero: Object.assign({}, game.hero, { armor: 0 }),
   });
   for (const spell in game.active) {
     if (game.active[spell] > 0) {
       game = spells[spell].effect(game);
       game = Object.assign({}, game, {
-        active: Object.assign({}, game.active, {[spell]: game.active[spell] - 1})
+        active: Object.assign({}, game.active, {
+          [spell]: game.active[spell] - 1,
+        }),
       });
     }
   }
@@ -68,20 +70,24 @@ function runSpells(game) {
 
 function castSpell(spell, game) {
   return Object.assign({}, game, {
-    hero: Object.assign({}, game.hero, {mana: game.hero.mana - spells[spell].mana}),
-    active: Object.assign({}, game.active, {[spell]: spells[spell].turns})
+    hero: Object.assign({}, game.hero, {
+      mana: game.hero.mana - spells[spell].mana,
+    }),
+    active: Object.assign({}, game.active, { [spell]: spells[spell].turns }),
   });
 }
 
 function playBoss(game) {
   return Object.assign({}, game, {
-    hero: Object.assign({}, game.hero, {hit: game.hero.hit - Math.max(1, game.boss.damage - game.hero.armor)})
+    hero: Object.assign({}, game.hero, {
+      hit: game.hero.hit - Math.max(1, game.boss.damage - game.hero.armor),
+    }),
   });
 }
 
 function memoize(fn) {
   const memo = {};
-  return function (x) {
+  return function(x) {
     const s = JSON.stringify(x);
     if (!memo[s]) {
       memo[s] = fn(x);
@@ -111,10 +117,17 @@ const play = memoize(game => {
 
 function parse(input, initialHit, initialMana) {
   const [hit, damage] = input.match(/\d+/g);
-  const hero = {hit: initialHit, mana: initialMana, armor: 0};
-  const boss = {hit: parseInt(hit, 10), damage: parseInt(damage, 10), armor: 0};
-  const active = Object.keys(spells).reduce((obj, spell) => Object.assign(obj, {[spell]: 0}), {});
-  return {hero, boss, active};
+  const hero = { hit: initialHit, mana: initialMana, armor: 0 };
+  const boss = {
+    hit: parseInt(hit, 10),
+    damage: parseInt(damage, 10),
+    armor: 0,
+  };
+  const active = Object.keys(spells).reduce(
+    (obj, spell) => Object.assign(obj, { [spell]: 0 }),
+    {},
+  );
+  return { hero, boss, active };
 }
 
 function part1(input, initialHit = 50, initialMana = 500) {
@@ -128,4 +141,4 @@ function part2(input, initialHit = 50, initialMana = 500) {
   return play(state);
 }
 
-module.exports = {part1, part2};
+module.exports = { part1, part2 };
