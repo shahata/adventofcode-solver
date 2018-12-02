@@ -6,7 +6,7 @@ function part1(input) {
       .split('')
       .sort()
       .join('');
-    if (s.match(/([a-z])\1\1/)) {
+    if (s.match(/([a-z])\1\1+/)) {
       counts.triple++;
       s = s.replace(/([a-z])\1\1+/g, '');
     }
@@ -20,18 +20,17 @@ function part1(input) {
 function part2(input) {
   const ids = input.split('\n');
   const memory = new Set();
-  for (const id in ids) {
-    const arr = ids[id].split('');
+  for (const id of ids) {
+    const arr = id.split('');
     for (let i = 0; i < arr.length; i++) {
-      const without = arr.filter((x, index) => index !== i).join('') + `-${i}`;
+      const without = arr.map((x, index) => (index === i ? '*' : x)).join('');
       if (memory.has(without)) {
-        return without.split('-').shift();
+        return without.replace('*', '');
       } else {
         memory.add(without);
       }
     }
   }
-  return undefined;
 }
 
 module.exports = { part1, part2 };
