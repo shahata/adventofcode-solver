@@ -6,8 +6,8 @@ const { execSync } = require('child_process');
 
 const dayName = num => `day${num.padStart(2, '0')}`;
 
-async function downloadText(url, session) {
-  const headers = { Cookie: `session=${session}` };
+async function downloadText(url) {
+  const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
   const response = await fetch(url, { headers });
   if (response.status >= 400) {
     throw new Error(
@@ -19,26 +19,24 @@ async function downloadText(url, session) {
   return await response.text();
 }
 
-async function getDayInput(year, day, session) {
-  const index = parseInt(day.slice(-2));
-  const url = `http://adventofcode.com/${year}/day/${index}/input`;
-  return await downloadText(url, session);
+async function getDayInput(year, day) {
+  const url = `http://adventofcode.com/${year}/day/${day}/input`;
+  return await downloadText(url);
 }
 
-async function getDayQuestion(year, day, session) {
-  const index = parseInt(day.slice(-2));
-  const url = `http://adventofcode.com/${year}/day/${index}`;
-  const text = await downloadText(url, session);
+async function getDayQuestion(year, day) {
+  const url = `http://adventofcode.com/${year}/day/${day}`;
+  const text = await downloadText(url);
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return question
     .replace(`/${year}`, 'index.html')
-    .replace(/\d+\/input/, `${day}.txt`)
+    .replace(/\d+\/input/, `${dayName(day)}.txt`)
     .replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`)
     .replace(/action="[^"]*"/g, 'action="end.html"');
 }
 
-async function getYearPage(year, session) {
-  const text = await downloadText(`http://adventofcode.com/${year}`, session);
+async function getYearPage(year) {
+  const text = await downloadText(`http://adventofcode.com/${year}`);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return page.replace(
     /href="\/\d+\/day\/(\d+)"/g,
@@ -60,9 +58,9 @@ function dayFunction(module) {
   };
 }
 
-async function solveDay(year, day, fn, session) {
-  const input = await getDayInput(year, day, session);
-  console.log(`Solution for ${year}/${day}!!!`);
+async function solveDay(year, day, fn) {
+  const input = await getDayInput(year, day);
+  console.log(`Solution for ${year}/${dayName(day)}!!!`);
   console.log('----------------------------');
   fn(input.trimRight());
   console.log('');
@@ -73,11 +71,11 @@ function getSolvers(year, day) {
     const folder = path.join(__dirname, year);
     const days = fs
       .readdirSync(folder)
-      .filter(x => x.match(/^day\d+\.js$/) && (!day || x.includes(day)));
+      .filter(x => x.match(new RegExp(`^day0*${day || '\\d+'}\\.js$`)));
     return days.reduce(
       (obj, day) => ({
         ...obj,
-        [day.split('.').shift()]: dayFunction(
+        [parseInt(day.match(/\d+/).shift())]: dayFunction(
           require(`./${path.join(`${year}`, day)}`),
         ),
       }),
@@ -99,50 +97,52 @@ function render(path, model) {
   }, str);
 }
 
-async function createSolver(year, day, session) {
+function renderDayTemplate(year, day, extension, model) {
+  const prefix = path.join(__dirname, year, dayName(day));
+  const template = path.join(__dirname, 'template', 'day');
+  const fileName = `${prefix}.${extension}`;
+  fs.writeFileSync(
+    fileName,
+    render(`${template}.${extension}.template`, model),
+  );
+  return fileName;
+}
+
+async function createSolver(year, day) {
   const answers = await inquirer.prompt([
     {
       type: 'confirm',
       name: 'create',
-      message: `Create solver ${year}/${day}?`,
+      message: `Create solver ${year}/${dayName(day)}?`,
     },
   ]);
   if (answers.create) {
-    const prefix = path.join(__dirname, year, day);
-    const template = path.join(__dirname, 'template', 'day');
-    await downloadQuestion(year, day, session);
-    fs.writeFileSync(
-      `${prefix}.js`,
-      render(`${template}.js.template`, { year, day }),
+    const htmlFileName = await downloadQuestion(year, day);
+    const jsFileName = renderDayTemplate(year, day, 'js', {});
+    const specFileName = renderDayTemplate(year, day, 'spec.js', {
+      year,
+      day: dayName(day),
+    });
+    const txtFileName = renderDayTemplate(year, day, 'txt', {
+      input: await getDayInput(year, day),
+    });
+    [htmlFileName, jsFileName, specFileName, txtFileName].forEach(fn =>
+      console.log(`Created ${fn}`),
     );
-    console.log(`Created ${prefix}.js`);
-    fs.writeFileSync(
-      `${prefix}.spec.js`,
-      render(`${template}.spec.js.template`, { year, day }),
-    );
-    console.log(`Created ${prefix}.spec.js`);
-    fs.writeFileSync(`${prefix}.txt`, await getDayInput(year, day, session));
-    console.log(`Created ${prefix}.txt`);
     console.log('');
   }
 }
 
-async function downloadQuestion(year, day, session) {
-  const question = await getDayQuestion(year, day, session);
-  const prefix = path.join(__dirname, year, day);
-  const template = path.join(__dirname, 'template', 'day');
-  fs.writeFileSync(
-    `${prefix}.html`,
-    render(`${template}.html.template`, {
-      question,
-      year,
-      number: parseInt(day.slice(-2), 10),
-    }),
-  );
+async function downloadQuestion(year, day) {
+  return renderDayTemplate(year, day, 'html', {
+    question: await getDayQuestion(year, day),
+    year,
+    number: day,
+  });
 }
 
-async function downloadYearPage(year, session) {
-  const page = await getYearPage(year, session);
+async function downloadYearPage(year) {
+  const page = await getYearPage(year);
   const prefix = path.join(__dirname, year, 'index');
   const template = path.join(__dirname, 'template', 'index');
   fs.writeFileSync(
@@ -151,24 +151,22 @@ async function downloadYearPage(year, session) {
   );
 }
 
-async function solveAll(session) {
-  const year = process.argv[2];
-  const day = process.argv[3] && dayName(process.argv[3]);
+async function solveAll(year, day) {
   const solvers = getSolvers(year, day);
   if (day) {
     if (solvers[day]) {
-      await downloadQuestion(year, day, session);
-      await solveDay(year, day, solvers[day], session);
-      execSync(`npm test -- ${year}/${day} --colors`);
+      await downloadQuestion(year, day);
+      await solveDay(year, day, solvers[day]);
+      execSync(`npm test -- ${year}/${dayName(day)} --colors`);
     } else {
-      await createSolver(year, day, session);
+      await createSolver(year, day);
     }
   } else {
-    await downloadYearPage(year, session);
+    await downloadYearPage(year);
     await Object.keys(solvers).reduce(async (prev, day) => {
       await prev;
-      await downloadQuestion(year, day, session);
-      await solveDay(year, day, solvers[day], session);
+      await downloadQuestion(year, day);
+      await solveDay(year, day, solvers[day]);
     }, Promise.resolve());
   }
 }
