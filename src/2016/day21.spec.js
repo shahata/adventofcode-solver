@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day21');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -19,11 +18,11 @@ rotate based on position of letter b
 rotate based on position of letter d`,
           'abcde',
         ),
-      ).to.equal('decab');
+      ).toEqual('decab');
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal('fdhbcgea');
+      expect(part1(input)).toEqual('fdhbcgea');
     });
   });
 
@@ -41,11 +40,11 @@ rotate based on position of letter b
 rotate based on position of letter d`,
           'decab',
         ),
-      ).to.equal('abcde');
+      ).toEqual('abcde');
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal('egfbcadh');
+      expect(part2(input)).toEqual('egfbcadh');
     });
   });
 });

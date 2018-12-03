@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day22');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -7,7 +6,7 @@ const input = readInput(__filename);
 describe('day22 2016', () => {
   describe('part1', () => {
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal(937);
+      expect(part1(input)).toEqual(937);
     });
   });
 
@@ -25,11 +24,11 @@ Filesystem            Size  Used  Avail  Use%
 /dev/grid/node-x2-y0   10T    6T     4T   60%
 /dev/grid/node-x2-y1    9T    8T     1T   88%
 /dev/grid/node-x2-y2    9T    6T     3T   66%`),
-      ).to.equal(7);
+      ).toEqual(7);
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal(188);
+      expect(part2(input)).toEqual(188);
     });
   });
 });

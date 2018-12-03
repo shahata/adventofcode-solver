@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day02');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -19,11 +18,11 @@ describe('day02 2018', () => {
             'ababab',
           ].join('\n'),
         ),
-      ).to.equal(12);
+      ).toEqual(12);
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal(7221);
+      expect(part1(input)).toEqual(7221);
     });
   });
 
@@ -35,11 +34,11 @@ describe('day02 2018', () => {
             '\n',
           ),
         ),
-      ).to.equal('fgij');
+      ).toEqual('fgij');
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal('mkcdflathzwsvjxrevymbdpoq');
+      expect(part2(input)).toEqual('mkcdflathzwsvjxrevymbdpoq');
     });
   });
 });

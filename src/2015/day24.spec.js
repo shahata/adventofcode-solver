@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day24');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -18,11 +17,11 @@ describe('day24 2015', () => {
 9
 10
 11`),
-      ).to.equal(99);
+      ).toEqual(99);
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal(10723906903);
+      expect(part1(input)).toEqual(10723906903);
     });
   });
 
@@ -39,11 +38,11 @@ describe('day24 2015', () => {
 9
 10
 11`),
-      ).to.equal(44);
+      ).toEqual(44);
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal(74850409);
+      expect(part2(input)).toEqual(74850409);
     });
   });
 });

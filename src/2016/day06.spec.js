@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day06');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -24,11 +23,11 @@ vntsnd
 vrdear
 dvrsen
 enarar`),
-      ).to.equal('easter');
+      ).toEqual('easter');
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal('qzedlxso');
+      expect(part1(input)).toEqual('qzedlxso');
     });
   });
 
@@ -51,11 +50,11 @@ vntsnd
 vrdear
 dvrsen
 enarar`),
-      ).to.equal('advent');
+      ).toEqual('advent');
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal('ucmifjae');
+      expect(part2(input)).toEqual('ucmifjae');
     });
   });
 });

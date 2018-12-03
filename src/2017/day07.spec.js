@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day07');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -21,11 +20,11 @@ jptl (61)
 ugml (68) -> gyxo, ebii, jptl
 gyxo (61)
 cntj (57)`),
-      ).to.equal('tknk');
+      ).toEqual('tknk');
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal('aapssr');
+      expect(part1(input)).toEqual('aapssr');
     });
   });
 
@@ -45,11 +44,11 @@ jptl (61)
 ugml (68) -> gyxo, ebii, jptl
 gyxo (61)
 cntj (57)`),
-      ).to.equal(60);
+      ).toEqual(60);
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal(1458);
+      expect(part2(input)).toEqual(1458);
     });
   });
 });

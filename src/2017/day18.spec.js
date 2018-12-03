@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day18');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -18,21 +17,21 @@ rcv a
 jgz a -1
 set a 1
 jgz a -2`),
-      ).to.equal(4);
+      ).toEqual(4);
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal(4601);
+      expect(part1(input)).toEqual(4601);
     });
   });
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      // expect(part2('1')).to.equal('1');
+      // expect(part2('1')).toEqual('1');
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal(6858);
+      expect(part2(input)).toEqual(6858);
     });
   });
 });

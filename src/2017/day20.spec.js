@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day20');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -10,11 +9,11 @@ describe('day20 2017', () => {
       expect(
         part1(`p=<3,0,0>, v=<2,0,0>, a=<-1,0,0>
 p=<4,0,0>, v=<0,0,0>, a=<-2,0,0>`),
-      ).to.equal(0);
+      ).toEqual(0);
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal(376);
+      expect(part1(input)).toEqual(376);
     });
   });
 
@@ -25,11 +24,11 @@ p=<4,0,0>, v=<0,0,0>, a=<-2,0,0>`),
 p=<-4,0,0>, v=<2,0,0>, a=<0,0,0>
 p=<-2,0,0>, v=<1,0,0>, a=<0,0,0>
 p=<3,0,0>, v=<-100,0,0>, a=<0,0,0>`),
-      ).to.equal(1);
+      ).toEqual(1);
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal(574);
+      expect(part2(input)).toEqual(574);
     });
   });
 });

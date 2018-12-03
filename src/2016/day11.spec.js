@@ -1,5 +1,4 @@
 const { part1, part2 } = require('./day11');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -12,17 +11,17 @@ describe('day11 2016', () => {
 The second floor contains a hydrogen generator.
 The third floor contains a lithium generator.
 The fourth floor contains nothing relevant.`),
-      ).to.equal(11);
+      ).toEqual(11);
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal(33);
+      expect(part1(input)).toEqual(33);
     });
   });
 
   describe('part2', () => {
     it('should work for part 2 input', () => {
-      expect(part2(input)).to.equal(57);
+      expect(part2(input)).toEqual(57);
     });
   });
 });

@@ -1,6 +1,5 @@
 const { part1, part2 } = require('./day19');
 const { itHeavy } = require('describe-heavy');
-const { expect } = require('chai');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -14,18 +13,18 @@ H => OH
 O => HH
 
 HOH`),
-      ).to.equal(4);
+      ).toEqual(4);
       expect(
         part1(`H => HO
 H => OH
 O => HH
 
 HOHOHO`),
-      ).to.equal(7);
+      ).toEqual(7);
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).to.equal(576);
+      expect(part1(input)).toEqual(576);
     });
   });
 
@@ -39,7 +38,7 @@ H => OH
 O => HH
 
 HOH`),
-      ).to.equal(3);
+      ).toEqual(3);
       expect(
         part2(`e => H
 e => O
@@ -48,11 +47,11 @@ H => OH
 O => HH
 
 HOHOHO`),
-      ).to.equal(6);
+      ).toEqual(6);
     });
 
     itHeavy('should work for part 2 input', () => {
-      expect(part2(input)).to.equal(207);
+      expect(part2(input)).toEqual(207);
     });
   });
 });
