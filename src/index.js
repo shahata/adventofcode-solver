@@ -1,4 +1,4 @@
-const solveAll = require('./solve-all');
+const solveAll = require('./utils/solver');
 
 if (process.env.ADVENT_SESSION) {
   let year, day;
