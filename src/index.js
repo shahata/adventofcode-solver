@@ -1,23 +1,18 @@
 const solveAll = require('./utils/solver');
 
 if (process.env.ADVENT_SESSION) {
-  let year, day;
+  let year = process.argv[2];
+  let day = process.argv[3];
   if (process.argv[2].includes('/')) {
     const clean = process.argv[2].split('/').slice(-2);
-    year = clean[0];
-    day = clean[1].replace('day', '');
-    if (!Number.isNaN(parseInt(year)) && !Number.isNaN(parseInt(day))) {
-      process.argv[2] = `${year}`;
-      process.argv[3] = `${day}`;
-    } else {
+    year = parseInt(clean[0]);
+    day = parseInt(clean[1].replace('day', ''));
+    if (Number.isNaN(year) || Number.isNaN(day)) {
       console.error('Invalid arguments');
       process.exit(1);
     }
-  } else {
-    year = process.argv[2];
-    day = process.argv[3];
   }
-  solveAll(year, day).catch(err => console.error(err.stack));
+  solveAll(`${year}`, day && `${day}`).catch(err => console.error(err.stack));
 } else {
   console.error('************************************************************');
   console.error('************************************************************');
