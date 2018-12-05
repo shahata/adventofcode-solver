@@ -1,10 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const dayName = require('./day-name');
 const { getDayInput } = require('./scraper');
 const { downloadQuestion, downloadIndex, createSolver } = require('./renderer');
-
-const dayName = num => `day${num.padStart(2, '0')}`;
 
 function solverFunction(year, day) {
   try {
@@ -36,11 +35,8 @@ function getSolvers(year) {
       .filter(x => x.match(/^day\d+\.js$/))
       .map(x => solverFunction(year, `${parseInt(x.match(/\d+/).shift())}`));
   } catch (e) {
-    console.error(e);
-    console.error(
-      `must pass year in first argument. ${year} is not a valid year`,
-    );
-    process.exit(1);
+    console.error(`must pass valid year in first argument`);
+    process.exit(0);
   }
 }
 

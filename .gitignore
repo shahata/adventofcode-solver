@@ -4,3 +4,4 @@ node_modules
 target
 maven
 coverage
+.DS_Store

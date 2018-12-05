@@ -1,6 +1,5 @@
 const fetch = require('node-fetch');
-
-const dayName = num => `day${num.padStart(2, '0')}`;
+const dayName = require('./day-name');
 
 async function downloadText(url) {
   const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };

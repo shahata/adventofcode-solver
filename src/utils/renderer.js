@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
+const dayName = require('./day-name');
 const { getDayInput, getQuestionPage, getYearPage } = require('./scraper');
-
-const dayName = num => `day${num.padStart(2, '0')}`;
 
 async function downloadQuestion(year, day) {
   const question = await getQuestionPage(year, day);
