@@ -15,12 +15,18 @@ function blastSource(cell, points) {
 }
 
 function calcBlastSize(points, size) {
+  const infinite = [];
   const result = points.map(() => 0);
-  for (let x = 0; x < size.x; x++) {
-    for (let y = 0; y < size.y; y++) {
-      result[blastSource({ x, y }, points)]++;
+  for (let x = -1; x <= size.x; x++) {
+    for (let y = -1; y <= size.y; y++) {
+      if (x < 0 || y < 0 || x === size.x || y === size.y) {
+        infinite.push(blastSource({ x, y }, points));
+      } else {
+        result[blastSource({ x, y }, points)]++;
+      }
     }
   }
+  infinite.forEach(x => (result[x] = 0));
   return result;
 }
 
@@ -38,12 +44,8 @@ function parseInput(input) {
 
 function part1(input) {
   const { points, size } = parseInput(input);
-  const points2 = points.map(({ x, y }) => ({ x: x + 1, y: y + 1 }));
-  const size2 = { x: size.x + 2, y: size.y + 2 };
-  const a = calcBlastSize(points, size);
-  const b = calcBlastSize(points2, size2);
-  const finite = a.filter((x, i) => x === b[i]);
-  return finite.sort((a, b) => a - b).pop();
+  const result = calcBlastSize(points, size);
+  return result.sort((a, b) => a - b).pop();
 }
 
 function part2(input, limit = 10000) {
