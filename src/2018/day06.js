@@ -10,24 +10,22 @@ function blastSource(cell, points) {
   const distances = points
     .map((p, i) => ({ i, distance: distance(cell, p) }))
     .sort((a, b) => a.distance - b.distance);
-  const closest = distances.filter(x => x.distance === distances[0].distance);
-  return closest.length === 1 && closest[0].i;
+  return distances[0].distance < distances[1].distance ? distances[0].i : -1;
 }
 
 function calcBlastSize(points, size) {
-  const infinite = [];
-  const result = points.map(() => 0);
+  const result = new Map([[-1, Infinity]]);
   for (let x = -1; x <= size.x; x++) {
     for (let y = -1; y <= size.y; y++) {
+      const src = blastSource({ x, y }, points);
       if (x < 0 || y < 0 || x === size.x || y === size.y) {
-        infinite.push(blastSource({ x, y }, points));
+        result.set(src, Infinity);
       } else {
-        result[blastSource({ x, y }, points)]++;
+        result.set(src, (result.get(src) || 0) + 1);
       }
     }
   }
-  infinite.forEach(x => (result[x] = 0));
-  return result;
+  return Array.from(result.values()).filter(x => x < Infinity);
 }
 
 function parseInput(input) {
