@@ -1,23 +1,21 @@
-function metadata(arr, part2 = false) {
-  let result = [];
-  const [childNum, metaNum] = arr.splice(0, 2);
-  for (let i = 0; i < childNum; i++) {
-    result.push(metadata(arr, part2));
-  }
-  result = result.concat(arr.splice(0, metaNum));
-  if (part2 && childNum > 0) {
-    const children = result.slice(0, childNum);
-    result = result.slice(childNum).map(x => children[x - 1] || 0);
+function value(arr, part1 = false) {
+  const [childCount, metaCount] = arr.splice(0, 2);
+  const children = new Array(childCount).fill().map(() => value(arr, part1));
+  let result = arr.splice(0, metaCount);
+  if (part1) {
+    result = result.concat(children);
+  } else if (childCount > 0) {
+    result = result.map(x => children[x - 1] || 0);
   }
   return result.reduce((sum, x) => sum + x, 0);
 }
 
 function part1(input) {
-  return metadata(input.split(' ').map(x => parseInt(x)));
+  return value(input.split(' ').map(x => parseInt(x)), true);
 }
 
 function part2(input) {
-  return metadata(input.split(' ').map(x => parseInt(x)), true);
+  return value(input.split(' ').map(x => parseInt(x)));
 }
 
 module.exports = { part1, part2 };
