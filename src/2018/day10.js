@@ -5,8 +5,8 @@ function move(points, seconds) {
   }));
 }
 
-function print(points) {
-  const { start, end } = points.reduce(
+function size(points) {
+  return points.reduce(
     ({ start, end }, p) => ({
       start: { x: Math.min(start.x, p.x), y: Math.min(start.y, p.y) },
       end: { x: Math.max(end.x, p.x + 1), y: Math.max(end.y, p.y + 1) },
@@ -16,17 +16,14 @@ function print(points) {
       end: { x: -Infinity, y: -Infinity },
     },
   );
-  // avoid allocating arrays bigger than 1K. this is quite arbitrary heuristic I added
-  // in order to ignore results that are not dense enough to contain the text
-  if ((end.y - start.y) * (end.x - start.x) < 1000) {
-    const arr = (size, fill) => new Array(size).fill(fill);
-    const banner = arr(end.y - start.y).map(() => arr(end.x - start.x, '.'));
-    points.forEach(p => (banner[p.y - start.y][p.x - start.x] = '#'));
-    const result = banner.map(x => x.join('')).join('\n');
-    // again arbitrary heuristic. we take the first dense result that contains
-    // five consecutive dashes (or in other words, something that might resemble a letter)
-    return result.includes('#####') && result;
-  }
+}
+
+function print(points) {
+  const { start, end } = size(points);
+  const arr = (size, fill) => new Array(size).fill(fill);
+  const banner = arr(end.y - start.y).map(() => arr(end.x - start.x, '.'));
+  points.forEach(p => (banner[p.y - start.y][p.x - start.x] = '#'));
+  return banner.map(x => x.join('')).join('\n');
 }
 
 function day(input) {
@@ -35,11 +32,17 @@ function day(input) {
     const [, x, y, xDiff, yDiff] = line.match(regex).map(x => parseInt(x));
     return { x, y, xDiff, yDiff };
   });
-  let result, secs;
-  for (secs = 0; !result; secs++) {
-    result = print(move(points, secs));
-  }
-  return { part1: '\n' + result, part2: secs - 1 };
+
+  let secs = -1;
+  let currentHeight, nextHeight;
+  const height = ({ start, end }) => end.y - start.y;
+  do {
+    secs++;
+    currentHeight = nextHeight || height(size(move(points, secs)));
+    nextHeight = height(size(move(points, secs + 1)));
+  } while (currentHeight > nextHeight); //text visible in minimal height
+
+  return { part1: '\n' + print(move(points, secs)), part2: secs };
 }
 
 module.exports = { day };
