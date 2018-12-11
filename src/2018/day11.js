@@ -5,31 +5,22 @@ function powerLevel({ x, y }, serial) {
 }
 
 function calc(serial, size, state) {
-  debugger;
   const results = new Map();
-  results.set(state.max.point, state.max);
   for (let x = 0; x < 300 - (size - 1); x++) {
     for (let y = 0; y < 300 - (size - 1); y++) {
       let { sum } = state.results.get(`${x},${y},${size - 1}`) || { sum: 0 };
-      for (let i = size - 1; i < size; i++) {
-        for (let j = 0; j < size; j++) {
-          sum += powerLevel({ x: x + i, y: y + j }, serial);
-        }
-      }
       for (let i = 0; i < size; i++) {
-        for (let j = size - 1; j < size; j++) {
-          sum += powerLevel({ x: x + i, y: y + j }, serial);
-        }
+        sum += powerLevel({ x: x + i, y: y + size - 1 }, serial);
+        sum += powerLevel({ x: x + size - 1, y: y + i }, serial);
       }
       sum -= powerLevel({ x: x + size - 1, y: y + size - 1 }, serial);
       results.set(`${x},${y},${size}`, { point: `${x},${y},${size}`, sum });
     }
   }
+  const values = Array.from(results.values()).concat(state.max);
   return {
     results,
-    max: Array.from(results.values())
-      .sort((a, b) => a.sum - b.sum)
-      .pop(),
+    max: values.sort((a, b) => a.sum - b.sum).pop(),
   };
 }
 
@@ -46,7 +37,6 @@ function part2(input) {
   const serial = parseInt(input);
   let state = { results: new Map(), max: { sum: -Infinity } };
   for (let i = 1; i <= 300; i++) {
-    // console.log(i);
     state = calc(serial, i, state);
   }
   return state.max.point;
