@@ -58,7 +58,7 @@ function part1(input, generations = 20) {
     if (next.loop) {
       const { diff, size } = next.loop;
       next.start += diff * Math.floor((generations - i - 1) / size);
-      i += Math.floor(generations - i - 1 / size) * size;
+      i += Math.floor((generations - i - 1) / size) * size;
     }
   }
 
