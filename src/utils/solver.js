@@ -1,9 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const { performance, PerformanceObserver } = require('perf_hooks');
+
 const dayName = require('./day-name');
 const { getDayInput } = require('./scraper');
 const { downloadQuestion, downloadIndex, createSolver } = require('./renderer');
+
+let duration;
+const obs = new PerformanceObserver(list => {
+  duration = `(${Math.round(list.getEntries().shift().duration)}ms)`;
+});
+obs.observe({ entryTypes: ['function'] });
 
 function solverFunction(year, day) {
   try {
@@ -14,12 +22,18 @@ function solverFunction(year, day) {
       console.log(`Solution for ${year}/${dayName(day)}!!!`);
       console.log('----------------------------');
       if (module.day) {
-        const { part1, part2 } = module.day(input);
+        const { part1, part2 } = performance.timerify(module.day)(input);
         console.log(`Part1: ${part1}`);
-        console.log(`Part2: ${part2}`);
+        console.log(`Part2: ${part2}`, duration);
       } else {
-        console.log(`Part1: ${module.part1(input)}`);
-        console.log(`Part2: ${module.part2(input)}`);
+        console.log(
+          `Part1: ${performance.timerify(module.part1)(input)}`,
+          duration,
+        );
+        console.log(
+          `Part2: ${performance.timerify(module.part2)(input)}`,
+          duration,
+        );
       }
       console.log('');
     };

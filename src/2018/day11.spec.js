@@ -1,4 +1,5 @@
 const { part1, part2 } = require('./day11');
+const { describeHeavy } = require('describe-heavy');
 const readInput = require('../utils/read-input');
 
 const input = readInput(__filename);
@@ -15,7 +16,7 @@ describe('day11 2018', () => {
     });
   });
 
-  describe('part2', () => {
+  describeHeavy('part2', () => {
     it('should work for part 2 examples', () => {
       expect(part2('18')).toEqual('90,269,16');
       expect(part2('42')).toEqual('232,251,12');
