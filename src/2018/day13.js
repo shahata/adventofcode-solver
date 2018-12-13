@@ -1,67 +1,29 @@
-const position = cart => `${cart.position.x},${cart.position.y}`;
-
-const onMove = {
-  '>': cart => cart.position.x++,
-  '<': cart => cart.position.x--,
-  '^': cart => cart.position.y--,
-  v: cart => cart.position.y++,
-};
-
-const onSlash = {
-  '>': '^',
-  '<': 'v',
-  '^': '>',
-  v: '<',
-};
-
-const onBackSlash = {
-  '>': 'v',
-  '<': '^',
-  '^': '<',
-  v: '>',
-};
-
+const position = cart => `${cart.x},${cart.y}`;
+const nextTurn = { left: 'straight', straight: 'right', right: 'left' };
+const onSlash = { '>': '^', '<': 'v', '^': '>', v: '<' };
+const onBackSlash = { '>': 'v', '<': '^', '^': '<', v: '>' };
 const onTurn = {
-  left: {
-    '>': '^',
-    '<': 'v',
-    '^': '<',
-    v: '>',
-  },
-  right: {
-    '>': 'v',
-    '<': '^',
-    '^': '>',
-    v: '<',
-  },
-  straight: {
-    '>': '>',
-    '<': '<',
-    '^': '^',
-    v: 'v',
-  },
+  left: { '>': '^', '<': 'v', '^': '<', v: '>' },
+  right: { '>': 'v', '<': '^', '^': '>', v: '<' },
+  straight: { '>': '>', '<': '<', '^': '^', v: 'v' },
 };
-
-const nextTurn = {
-  left: 'straight',
-  straight: 'right',
-  right: 'left',
+const onMove = {
+  '>': c => c.x++,
+  '<': c => c.x--,
+  '^': c => c.y--,
+  v: c => c.y++,
 };
 
 function tick(map, carts) {
-  carts.sort((a, b) =>
-    a.position.y === b.position.y
-      ? a.position.x - b.position.x
-      : a.position.y - b.position.y,
-  );
   const collisions = [];
-  for (const cart of carts) {
+  carts.sort((a, b) => a.y - b.y || a.x - b.x);
+  carts.forEach(cart => {
     onMove[cart.direction](cart);
-    if (map[cart.position.y][cart.position.x] === '/') {
+    if (map[cart.y][cart.x] === '/') {
       cart.direction = onSlash[cart.direction];
-    } else if (map[cart.position.y][cart.position.x] === '\\') {
+    } else if (map[cart.y][cart.x] === '\\') {
       cart.direction = onBackSlash[cart.direction];
-    } else if (map[cart.position.y][cart.position.x] === '+') {
+    } else if (map[cart.y][cart.x] === '+') {
       cart.direction = onTurn[cart.nextTurn][cart.direction];
       cart.nextTurn = nextTurn[cart.nextTurn];
     }
@@ -69,24 +31,20 @@ function tick(map, carts) {
     if (other) {
       collisions.push(cart, other);
     }
-  }
+  });
   return collisions;
 }
 
 function parse(input) {
+  const carts = [];
   const map = input
     .replace(/[v^]/g, '|')
     .replace(/[<>]/g, '-')
     .split('\n');
-  const carts = [];
   input.split('\n').forEach((row, y) =>
     row.split('').forEach((cell, x) => {
       if ('v^<>'.includes(cell)) {
-        carts.push({
-          direction: cell,
-          nextTurn: 'left',
-          position: { x, y },
-        });
+        carts.push({ direction: cell, nextTurn: 'left', x, y });
       }
     }),
   );
