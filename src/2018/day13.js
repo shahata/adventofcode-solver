@@ -1,7 +1,7 @@
 const position = cart => `${cart.x},${cart.y}`;
-const nextTurn = { left: 'straight', straight: 'right', right: 'left' };
 const onSlash = { '>': '^', '<': 'v', '^': '>', v: '<' };
 const onBackSlash = { '>': 'v', '<': '^', '^': '<', v: '>' };
+const nextTurn = { left: 'straight', straight: 'right', right: 'left' };
 const onTurn = {
   left: { '>': '^', '<': 'v', '^': '<', v: '>' },
   right: { '>': 'v', '<': '^', '^': '>', v: '<' },
