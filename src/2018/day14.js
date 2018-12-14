@@ -22,7 +22,7 @@ function part2(input) {
     suffix = board.slice(-1 * input.length - 1).join('');
     return !suffix.includes(input);
   });
-  return board.length - input.length - (1 - suffix.indexOf(input));
+  return board.length - input.length + suffix.indexOf(input) - 1;
 }
 
 module.exports = { part1, part2 };
