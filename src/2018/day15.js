@@ -34,21 +34,31 @@ function neighbors(map, units, next, type) {
 }
 
 function find(map, units, unit) {
+  const solutions = [];
   const queue = [{ x: unit.x, y: unit.y, path: [] }];
-  const visited = new Set();
+  const visited = new Set(`${unit.x},${unit.y}`);
   while (queue.length) {
     const next = queue.shift();
+    if (solutions.length > 0 && solutions[0].path.length < next.path.length) {
+      break;
+    }
     if (
       next.path.length > 0 &&
       units.find(u => u.x === next.x && u.y === next.y)
     ) {
-      return next.path.shift();
+      solutions.push(next);
     }
     const options = neighbors(map, units, next, unit.type).filter(
       n => !visited.has(`${n.x},${n.y}`),
     );
     options.forEach(n => visited.add(`${n.x},${n.y}`));
     queue.push(...options);
+  }
+  if (solutions.length > 0) {
+    return solutions
+      .sort((a, b) => a.y - b.y || a.x - b.x)
+      .shift()
+      .path.shift();
   }
 }
 
@@ -81,42 +91,48 @@ function turn(map, units) {
   return true;
 }
 
-function parse(input) {
+function parse(input, elfBoost = 0) {
   const units = [];
-  const map = input
-    .replace(/[EG]/g, '.')
-    .split('\n')
-    .map(x => x.split(''));
+  const map = input.replace(/[EG]/g, '.').split('\n');
   input.split('\n').forEach((row, y) =>
     row.split('').forEach((cell, x) => {
-      if ('EG'.includes(cell)) {
-        units.push({ type: cell, attack: 3, hit: 200, x, y });
+      if (cell === 'E') {
+        units.push({ type: 'E', hit: 200, attack: 3 + elfBoost, x, y });
+      } else if (cell === 'G') {
+        units.push({ type: 'G', hit: 200, attack: 3, x, y });
       }
     }),
   );
   return { map, units };
 }
 
-function print(map, units) {
-  const result = map.map(row => row.map(x => x));
-  units.forEach(u => (result[u.y][u.x] = u.type));
-  console.log(result.map(x => x.join('')).join('\n'));
-  console.log(units);
-}
-
 function part1(input) {
   let i = 0;
   const { map, units } = parse(input);
   while (turn(map, units)) {
-    print(map, units);
     i++;
   }
-  console.log(i);
   return i * units.reduce((sum, u) => (sum += u.hit), 0);
 }
 
+function play({ map, units }) {
+  let i = 0;
+  const elfCount = units.filter(x => x.type === 'E').length;
+  while (turn(map, units)) {
+    i++;
+  }
+  if (elfCount === units.filter(x => x.type === 'E').length) {
+    return i * units.reduce((sum, u) => (sum += u.hit), 0);
+  }
+}
+
 function part2(input) {
-  return 0;
+  let result;
+  let elfBoost = 1;
+  while (!(result = play(parse(input, elfBoost)))) {
+    elfBoost++;
+  }
+  return result;
 }
 
 module.exports = { part1, part2 };
