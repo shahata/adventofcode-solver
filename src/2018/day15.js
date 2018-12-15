@@ -24,7 +24,7 @@ function neighbors(map, units, next, type, forbidden) {
     { x: next.x, y: next.y + 1 },
   ]
     .filter(p => map[p.y] && map[p.y][p.x] === '.' && !forbidden.has(pos(p)))
-    .map(p => ({ ...p, path: next.path.concat(p) }));
+    .map(p => ({ ...p, move: next.move || p, length: next.length + 1 }));
   result.forEach(n => forbidden.add(pos(n)));
   return result;
 }
@@ -32,21 +32,19 @@ function neighbors(map, units, next, type, forbidden) {
 function moveIfPossible(map, units, unit) {
   let solutionLength = Infinity;
   const solutions = [];
-  const queue = [{ x: unit.x, y: unit.y, path: [] }];
+  const queue = [{ x: unit.x, y: unit.y, length: 0 }];
   const forbidden = new Set(units.filter(u => u.type === unit.type).map(pos));
-  while (queue.length > 0 && queue[0].path.length <= solutionLength) {
+  while (queue.length > 0 && queue[0].length <= solutionLength) {
     const next = queue.shift();
     if (units.find(u => pos(u) === pos(next) && u.type !== unit.type)) {
       solutions.push(next);
-      solutionLength = next.path.length;
+      solutionLength = next.length;
     }
     queue.push(...neighbors(map, units, next, unit.type, forbidden));
   }
   if (solutions.length > 0) {
-    const solution = solutions.sort((a, b) => a.y - b.y || a.x - b.x).shift();
-    const move = solution.path.shift();
-    unit.x = move.x;
-    unit.y = move.y;
+    solutions.sort((a, b) => a.y - b.y || a.x - b.x);
+    Object.assign(unit, solutions.shift().move);
   }
 }
 
