@@ -19,21 +19,20 @@ const ops = {
 const numbers = arr => arr.map(x => parseInt(x));
 
 function parseSamples(input) {
-  const [instructions] = input.split('\n\n\n\n');
-  const cases = instructions.split('\n\n');
-  return cases.map(expression => {
-    const [before, instruction, after] = expression.split('\n');
+  const samples = input.split('\n\n\n\n')[0].split('\n\n');
+  return samples.map(sample => {
+    const [before, instruction, after] = sample.split('\n');
     const regex = /\[(\d+), (\d+), (\d+), (\d+)\]/;
     const [, r1, r2, r3, r4] = numbers(before.match(regex));
     const [, o1, o2, o3, o4] = numbers(after.match(regex));
-    const params = numbers(instruction.split(' '));
+    const [op, ...params] = numbers(instruction.split(' '));
     const options = Object.keys(ops).filter(op => {
       const r = [r1, r2, r3, r4];
       const o = [o1, o2, o3, o4];
-      ops[op](r, params[1], params[2], params[3]);
+      ops[op](r, ...params);
       return r.join(',') === o.join(',');
     });
-    return { op: params[0], options };
+    return { op, options };
   });
 }
 
@@ -49,16 +48,14 @@ function part2(input) {
     dic[op] = dic[op].filter(x => options.includes(x));
   });
   while (dic.some(x => x.length > 1)) {
-    const resolved = dic.filter(x => x.length === 1).map(x => x[0]);
-    dic = dic.map(x =>
-      x.length === 1 ? x : x.filter(op => !resolved.includes(op)),
-    );
+    const done = dic.filter(x => x.length === 1).map(x => x[0]);
+    dic = dic.map(x => (x.length > 1 ? x.filter(op => !done.includes(op)) : x));
   }
 
-  const [, program] = input.split('\n\n\n\n');
+  const program = input.split('\n\n\n\n').pop();
   const commands = program.split('\n').map(x => numbers(x.split(' ')));
   const r = [0, 0, 0, 0];
-  commands.forEach(x => ops[dic[x[0]][0]](r, x[1], x[2], x[3]));
+  commands.forEach(([op, ...params]) => ops[dic[op][0]](r, ...params));
   return r[0];
 }
 
