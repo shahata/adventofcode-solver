@@ -43,10 +43,10 @@ function drop(pit, x, y) {
 }
 
 function fill(pit, base) {
-  let count,
+  let count = {dry: -1, wet: -1},
     newCount = { wet: 0, dry: 0 };
-  while (count !== newCount.wet + newCount.dry) {
-    count = newCount.wet + newCount.dry;
+  while (count.dry !== newCount.dry || count.wet !== newCount.wet) {
+    count = {...newCount};
     pit.forEach(
       (line, i) =>
         (pit[i] = line
