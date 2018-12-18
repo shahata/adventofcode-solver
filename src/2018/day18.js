@@ -25,13 +25,12 @@ function transform(yard, x, y) {
 const memo = {};
 function next(yard, minute) {
   const hash = yard.map(x => x.join('')).join('\n');
-  if (memo[hash]) {
-    return memo[hash];
+  if (!memo[hash]) {
+    const result = yard.map((line, y) =>
+      line.map((cell, x) => transform(yard, x, y)),
+    );
+    memo[hash] = { result, minute };
   }
-  const result = yard.map((line, y) =>
-    line.map((cell, x) => transform(yard, x, y)),
-  );
-  memo[hash] = { result, minute };
   return memo[hash];
 }
 
