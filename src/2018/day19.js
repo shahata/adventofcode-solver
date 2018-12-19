@@ -32,13 +32,10 @@ function part1(input, reg0 = 0) {
   });
   const r = [reg0, 0, 0, 0, 0, 0];
   while (commands[r[ip]]) {
-    // if (reg0 === 1 && r[ip] === 2) {
-    //   r[2] = Math.floor(r[5] / r[1]);
-    // } else if (reg0 === 1 && r[ip] === 8) {
-    //   r[2] = 10551277;
-    // } else {
+    if (reg0 === 1 && r[ip] === 2) {
+      return r[5];
+    }
     ops[commands[r[ip]].op](r, ...commands[r[ip]].params);
-    // }
     r[ip]++;
   }
   return r[0];
@@ -58,9 +55,8 @@ function divisors(x) {
   return result;
 }
 
-function part2() {
-  // return part1(input, 1);
-  return divisors(10551276).reduce((sum, x) => sum + x, 0);
+function part2(input) {
+  return divisors(part1(input, 1)).reduce((sum, x) => sum + x, 0);
 }
 
 module.exports = { part1, part2 };
