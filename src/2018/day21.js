@@ -1,22 +1,22 @@
 const vm = require('vm');
 
 const ops = {
-  addr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} + r${i2}; break;`,
-  addi: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} + ${i2}; break;`,
-  mulr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} * r${i2}; break;`,
-  muli: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} * ${i2}; break;`,
-  banr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} & r${i2}; break;`,
-  bani: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} & ${i2}; break;`,
-  borr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} | r${i2}; break;`,
-  bori: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} | ${i2}; break;`,
-  setr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1}; break;`,
-  seti: (r, i1, i2, o) => `case ${r}: r${o} = ${i1}; break;`,
-  gtir: (r, i1, i2, o) => `case ${r}: r${o} = ${i1} > r${i2} ? 1 : 0; break;`,
-  gtri: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} > ${i2} ? 1 : 0; break;`,
-  gtrr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} > r${i2} ? 1 : 0; break;`,
-  eqir: (r, i1, i2, o) => `case ${r}: r${o} = ${i1} === r${i2} ? 1 : 0; break;`,
-  eqri: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} === ${i2} ? 1 : 0; break;`,
-  eqrr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} === r${i2} ?1 : 0; break;`,
+  addr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + r${i2}; break;`,
+  addi: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + ${i2}; break;`,
+  mulr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} * r${i2}; break;`,
+  muli: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} * ${i2}; break;`,
+  banr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} & r${i2}; break;`,
+  bani: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} & ${i2}; break;`,
+  borr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} | r${i2}; break;`,
+  bori: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} | ${i2}; break;`,
+  setr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1}; break;`,
+  seti: (l, i1, i2, o) => `case ${l}: r${o} = ${i1}; break;`,
+  gtir: (l, i1, i2, o) => `case ${l}: r${o} = ${i1} > r${i2} ? 1 : 0; break;`,
+  gtri: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} > ${i2} ? 1 : 0; break;`,
+  gtrr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} > r${i2} ? 1 : 0; break;`,
+  eqir: (l, i1, i2, o) => `case ${l}: r${o} = ${i1} === r${i2} ? 1 : 0; break;`,
+  eqri: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} === ${i2} ? 1 : 0; break;`,
+  eqrr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} === r${i2} ?1 : 0; break;`,
 };
 
 const numbers = arr => arr.map(x => parseInt(x));
