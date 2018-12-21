@@ -1,21 +1,24 @@
+const vm = require('vm');
+
 const ops = {
-  addr: (r, i1, i2, o) => (r[o] = r[i1] + r[i2]),
-  addi: (r, i1, i2, o) => (r[o] = r[i1] + i2),
-  mulr: (r, i1, i2, o) => (r[o] = r[i1] * r[i2]),
-  muli: (r, i1, i2, o) => (r[o] = r[i1] * i2),
-  banr: (r, i1, i2, o) => (r[o] = r[i1] & r[i2]),
-  bani: (r, i1, i2, o) => (r[o] = r[i1] & i2),
-  borr: (r, i1, i2, o) => (r[o] = r[i1] | r[i2]),
-  bori: (r, i1, i2, o) => (r[o] = r[i1] | i2),
-  setr: (r, i1, i2, o) => (r[o] = r[i1]),
-  seti: (r, i1, i2, o) => (r[o] = i1),
-  gtir: (r, i1, i2, o) => (r[o] = i1 > r[i2] ? 1 : 0),
-  gtri: (r, i1, i2, o) => (r[o] = r[i1] > i2 ? 1 : 0),
-  gtrr: (r, i1, i2, o) => (r[o] = r[i1] > r[i2] ? 1 : 0),
-  eqir: (r, i1, i2, o) => (r[o] = i1 === r[i2] ? 1 : 0),
-  eqri: (r, i1, i2, o) => (r[o] = r[i1] === i2 ? 1 : 0),
-  eqrr: (r, i1, i2, o) => (r[o] = r[i1] === r[i2] ? 1 : 0),
+  addr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} + r${i2}; break;`,
+  addi: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} + ${i2}; break;`,
+  mulr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} * r${i2}; break;`,
+  muli: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} * ${i2}; break;`,
+  banr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} & r${i2}; break;`,
+  bani: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} & ${i2}; break;`,
+  borr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} | r${i2}; break;`,
+  bori: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} | ${i2}; break;`,
+  setr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1}; break;`,
+  seti: (r, i1, i2, o) => `case ${r}: r${o} = ${i1}; break;`,
+  gtir: (r, i1, i2, o) => `case ${r}: r${o} = ${i1} > r${i2} ? 1 : 0; break;`,
+  gtri: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} > ${i2} ? 1 : 0; break;`,
+  gtrr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} > r${i2} ? 1 : 0; break;`,
+  eqir: (r, i1, i2, o) => `case ${r}: r${o} = ${i1} === r${i2} ? 1 : 0; break;`,
+  eqri: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} === ${i2} ? 1 : 0; break;`,
+  eqrr: (r, i1, i2, o) => `case ${r}: r${o} = r${i1} === r${i2} ?1 : 0; break;`,
 };
+
 const numbers = arr => arr.map(x => parseInt(x));
 
 function run(input, tap, cb) {
@@ -26,21 +29,26 @@ function run(input, tap, cb) {
       .split(' ')
       .pop(),
   );
-  const commands = lines.map(x => {
+  const commands = lines.map((x, i) => {
     const [op, ...params] = x.split(' ');
-    return { op, params: numbers(params) };
+    return ops[op](i, ...numbers(params));
   });
-  const r = [0, 0, 0, 0, 0, 0];
-  while (commands[r[ip]]) {
-    if (r[ip] === tap) {
-      const result = cb(r);
-      if (result !== undefined) {
-        return result;
+  const script = `(tap, cb) => {
+    let r0 = 0, r1 = 0, r2 = 0, r3 = 0, r4 = 0, r5 = 0;
+    while (true) {
+      switch (r${ip}) {
+        ${commands.join('\n')}
+        default: return null;
+      }
+      r${ip}++;
+      if (r${ip} === tap) {
+        const result = cb([r0, r1, r2, r3, r4, r5]);
+        if (result) return result;
       }
     }
-    ops[commands[r[ip]].op](r, ...commands[r[ip]].params);
-    r[ip]++;
-  }
+  }`;
+  const exec = vm.runInThisContext(script);
+  return exec(tap, cb);
 }
 
 function part1(input) {
