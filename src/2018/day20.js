@@ -5,6 +5,11 @@ const walk = {
   S: ({ x, y }) => ({ x: x + 0, y: y + 1 }),
 };
 const pos = ({ x, y }) => `${x},${y}`;
+const unique = arr =>
+  arr
+    .reduce((all, p) => all.concat(p), [])
+    .sort((a, b) => a.x - b.x || a.y - b.y)
+    .filter((p, i, a) => !a[i - 1] || pos(p) !== pos(a[i - 1]));
 
 function traverse(current, path, map) {
   let next;
@@ -35,27 +40,17 @@ function traverse(current, path, map) {
         option.push(next);
       }
     }
-    options.forEach(option => traverse(current, option.concat(path), map));
+    const ends = unique(options.map(option => traverse(current, option, map)));
+    return unique(ends.map(end => traverse(end, path.slice(0), map)));
+  } else {
+    return [current];
   }
-}
-
-function minimize(input) {
-  return input.replace(/\(([NESW]+)\|\)/g, (s, p1) => {
-    if (
-      p1.match(/W/g).length === p1.match(/E/g).length &&
-      p1.match(/N/g).length === p1.match(/S/g).length
-    ) {
-      return p1;
-    } else {
-      return s;
-    }
-  });
 }
 
 function calc(input) {
   const start = { x: 0, y: 0 };
   const map = new Map([[pos(start), '.']]);
-  traverse(start, minimize(input.slice(1, input.length - 1)).split(''), map);
+  traverse(start, input.slice(1, input.length - 1).split(''), map);
 
   const queue = [{ distance: 0, point: start }];
   const visited = new Set([pos(start)]);
