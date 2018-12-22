@@ -84,7 +84,7 @@ function part2(input) {
     const options = neighbors(current, depth, target);
     options.forEach(o => {
       const v = visited.get(`${o.position.x},${o.position.y},${o.equip}`);
-      if (!v || v > o.time) {
+      if (!v || o.time < v) {
         visited.set(`${o.position.x},${o.position.y},${o.equip}`, o.time);
         queue.push(o);
       }

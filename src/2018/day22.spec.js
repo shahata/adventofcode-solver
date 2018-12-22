@@ -20,7 +20,7 @@ describe('day22 2018', () => {
     });
 
     it('should work for part 2 input', () => {
-      // expect(part2(input)).toEqual(0);
+      expect(part2(input)).toEqual(973);
     });
   });
 });
