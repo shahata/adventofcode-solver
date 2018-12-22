@@ -6,23 +6,20 @@ function findEntryPoint(route) {
   return { x: route[0].indexOf('|'), y: 0 };
 }
 
-function next({ x, y }, direction) {
-  switch (direction) {
-    case 'down':
-      return { x, y: y + 1 };
-    case 'up':
-      return { x, y: y - 1 };
-    case 'left':
-      return { x: x - 1, y };
-    case 'right':
-      return { x: x + 1, y };
-    default:
-      return { x, y };
-  }
-}
+const next = {
+  down: ({ x, y }) => ({ x, y: y + 1 }),
+  up: ({ x, y }) => ({ x, y: y - 1 }),
+  left: ({ x, y }) => ({ x: x - 1, y }),
+  right: ({ x, y }) => ({ x: x + 1, y }),
+};
 
 function valueAt(route, { x, y }) {
   return route[y] && route[y][x];
+}
+
+function road(value, direction) {
+  const roads = { right: '|', left: '|', up: '-', down: '-' };
+  return !['.', ' ', undefined, roads[direction]].includes(value);
 }
 
 function walk(route) {
@@ -35,40 +32,27 @@ function walk(route) {
   while (state.direction !== 'done') {
     if (valueAt(route, state.point) === '+') {
       if (state.direction === 'down' || state.direction === 'up') {
-        if (
-          !['.', ' ', '|'].includes(valueAt(route, next(state.point, 'right')))
-        ) {
+        if (road(valueAt(route, next.right(state.point)), 'right')) {
           state.direction = 'right';
-        } else if (
-          !['.', ' ', '|'].includes(valueAt(route, next(state.point, 'left')))
-        ) {
-          state.direction = 'left';
         } else {
-          state.direction = 'done';
+          state.direction = 'left';
         }
-      } else if (
-        !['.', ' ', '-'].includes(valueAt(route, next(state.point, 'up')))
-      ) {
-        state.direction = 'up';
-      } else if (
-        !['.', ' ', '-'].includes(valueAt(route, next(state.point, 'down')))
-      ) {
-        state.direction = 'down';
       } else {
-        state.direction = 'done';
+        if (road(valueAt(route, next.up(state.point)), 'up')) {
+          state.direction = 'up';
+        } else {
+          state.direction = 'down';
+        }
       }
     }
-    if (!['.', ' ', '|', '-', '+'].includes(valueAt(route, state.point))) {
+    if (valueAt(route, state.point).match(/[A-Z]/)) {
       state.message += valueAt(route, state.point);
     }
-    if (
-      ['.', ' ', undefined].includes(
-        valueAt(route, next(state.point, state.direction)),
-      )
-    ) {
+    if (!road(valueAt(route, next[state.direction](state.point)))) {
       state.direction = 'done';
+    } else {
+      state.point = next[state.direction](state.point);
     }
-    state.point = next(state.point, state.direction);
     state.steps++;
   }
   return state;
