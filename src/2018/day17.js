@@ -43,10 +43,10 @@ function drop(pit, x, y) {
 }
 
 function fill(pit, base) {
-  let count,
+  let count = {},
     newCount = { wet: 0, dry: 0 };
-  while (count !== newCount.wet + newCount.dry) {
-    count = newCount.wet + newCount.dry;
+  while (count.wet !== newCount.wet || count.dry !== newCount.dry) {
+    count = newCount;
     pit.forEach(
       (line, i) =>
         (pit[i] = line
@@ -96,6 +96,7 @@ function day(input) {
     }
   });
   const result = fill(pit, base, end);
+  // console.log(pit.map(x => x.join('')).join('\n'));
   return { part1: result.wet + result.dry, part2: result.dry };
 }
 
