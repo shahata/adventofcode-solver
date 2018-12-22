@@ -2,6 +2,6 @@ module.exports = function(wallaby) {
   const wallabyCommon = require('yoshi/config/wallaby-jest')(wallaby);
   delete wallabyCommon.workers;
   delete wallabyCommon.compilers;
-  wallabyCommon.tests = [{ pattern: 'src/2018/day21.spec.js' }];
+  wallabyCommon.tests = [{ pattern: 'src/2018/day22.spec.js' }];
   return wallabyCommon;
 };
