@@ -33,7 +33,7 @@ function part1(input, reg0 = 0) {
   const r = [reg0, 0, 0, 0, 0, 0];
   while (commands[r[ip]]) {
     if (reg0 === 1 && r[ip] === 2) {
-      return r[5];
+      return Math.max(...r);
     }
     ops[commands[r[ip]].op](r, ...commands[r[ip]].params);
     r[ip]++;
