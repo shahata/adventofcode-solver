@@ -12,22 +12,21 @@
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
 <style>
+.calendar .calendar-color-g { color:#009900; }
 .calendar .calendar-color-r { color:#ff0000; }
-.calendar .calendar-color-s { color:#999999; }
 .calendar .calendar-color-y { color:#ffff66; text-shadow:0 0  5px #ffff66, 0 0 10px #ffff66, 0 0 15px #ffff66; }
+.calendar .calendar-color-s { color:#999999; }
 .calendar .calendar-color-d { color:#880000; }
 .calendar .calendar-color-w { color:#cccccc; }
-.calendar .calendar-color-g { color:#009900; }
 .calendar .calendar-color-b { color:#0066ff; }
 </style>
-<pre class="calendar"><span class="calendar-day25">                         .        .                <span class="calendar-day">25</span></span>
-<span class="calendar-day24">                             .          /      .   <span class="calendar-day">24</span></span>
-<span class="calendar-day23">                        .           \ \  /         <span class="calendar-day">23</span><span id="calendar-countdown"></span><script>
+<pre class="calendar"><span class="calendar-day25">               .         .        .        .       <span class="calendar-day">25</span></span>
+<span class="calendar-day24">                    .        .       \  /      .   <span class="calendar-day">24</span><span id="calendar-countdown"></span><script>
 (function(){
 var countdown = document.getElementById("calendar-countdown");
 if (!countdown) return;
-var server_eta = 72376;
-var key = "2018-23-"+server_eta;
+var server_eta = 75175;
+var key = "2018-24-"+server_eta;
 var now = Math.floor(new Date().getTime()/1000);
 var target = server_eta + now;
 if (sessionStorage) {
@@ -50,8 +49,8 @@ function update_countdown() {
     countdown.textContent = "";
 
     var a = document.createElement("a");
-    a[String.fromCharCode(104,114,101,102)] = "/2018" + String.fromCharCode(47,100,97,121,47) + "23";
-    a.className = "calendar-day23 calendar-day-new";
+    a[String.fromCharCode(104,114,101,102)] = "/2018" + String.fromCharCode(47,100,97,121,47) + "24";
+    a.className = "calendar-day24 calendar-day-new";
     var span = countdown.parentNode;
     while (span.firstChild) {
       a.appendChild(span.firstChild);
@@ -73,10 +72,11 @@ interval = setInterval(update_countdown,1000);
 update_countdown();
 })();
 </script></span>
-<a href="day22.html" class="calendar-day22 calendar-verycomplete">                 .            .     /.()_ - -  -   <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day21.html" class="calendar-day21 calendar-verycomplete">                        <span class="calendar-color-y">*</span>         \_               <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day23.html" class="calendar-day23 calendar-verycomplete">              .         .         \ \ \  /_ /      <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day22.html" class="calendar-day22 calendar-verycomplete">                 .            .  o-_/.()_ - -- -   <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day21.html" class="calendar-day21 calendar-verycomplete">           .            <span class="calendar-color-y">*</span>         \_ _             <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day20.html" class="calendar-day20 calendar-verycomplete">               .       <span class="calendar-color-r">|</span><span class="calendar-color-w">\|</span>            \  _  _   /  <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day19.html" class="calendar-day19 calendar-verycomplete">                       <span class="calendar-color-w">|</span><span class="calendar-color-r">\|</span>                |    |   <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day19.html" class="calendar-day19 calendar-verycomplete">       .               <span class="calendar-color-w">|</span><span class="calendar-color-r">\|</span>                |    |   <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day18.html" class="calendar-day18 calendar-verycomplete">              <span class="calendar-color-b">_________</span><span class="calendar-color-r">|</span><span class="calendar-color-w">\|</span><span class="calendar-color-b">_________</span>    /      |    <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day17.html" class="calendar-day17 calendar-verycomplete">      <span class="calendar-color-b">___-----</span>  <span class="calendar-color-w">###########</span>  <span class="calendar-color-w">#####</span> <span class="calendar-color-b">-----___</span>        <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day16.html" class="calendar-day16 calendar-verycomplete"><span class="calendar-color-b">___---</span>  <span class="calendar-color-w">###</span>  <span class="calendar-color-w">#####</span>    <span class="calendar-color-w">#########</span>  <span class="calendar-color-w">#####</span>     <span class="calendar-color-b">---___</span>  <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
