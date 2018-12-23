@@ -2,7 +2,7 @@ function parse(input) {
   return input
     .split('\n')
     .map(x =>
-      x.match(/pos=<(-?\d+),(-?\d+),(-?\d+)>, r=(-?\d+)/).map(x => parseInt(x)),
+      x.match(/(-?\d+),(-?\d+),(-?\d+)>, r=(-?\d+)/).map(x => parseInt(x)),
     )
     .map(([, x, y, z, r]) => ({ x, y, z, r }));
 }
@@ -41,7 +41,8 @@ function max(bots, x, y, z, best) {
 function part2(input) {
   const bots = parse(input);
   let scale = Math.pow(2, 25);
-  let ranges = scaled(bots, scale).reduce(
+  let scaledBots = scaled(bots, scale);
+  let ranges = scaledBots.reduce(
     (r, b) => ({
       x: { min: Math.min(r.x.min, b.x), max: Math.max(r.x.max, b.x) },
       y: { min: Math.min(r.y.min, b.y), max: Math.max(r.y.max, b.y) },
@@ -56,7 +57,6 @@ function part2(input) {
 
   let best;
   while (scale >= 1) {
-    const scaledBots = scaled(bots, scale);
     best = { count: 0 };
     for (let x = ranges.x.min; x <= ranges.x.max; x++) {
       for (let y = ranges.y.min; y <= ranges.y.max; y++) {
@@ -71,6 +71,7 @@ function part2(input) {
       z: { min: (best.z - 1) * 2, max: (best.z + 1) * 2 },
     };
     scale = scale / 2;
+    scaledBots = scaled(bots, scale);
   }
   return distance(best, { x: 0, y: 0, z: 0 });
 }
