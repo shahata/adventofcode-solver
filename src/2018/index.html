@@ -12,91 +12,86 @@
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
 <style>
-.calendar .calendar-color-g { color:#009900; }
-.calendar .calendar-color-w { color:#cccccc; }
+.calendar .calendar-color-r { color:#ff0000; }
 .calendar .calendar-color-d { color:#880000; }
 .calendar .calendar-color-s { color:#999999; }
-.calendar .calendar-color-r { color:#ff0000; }
 .calendar .calendar-color-k { color:#cccccc; }
-.calendar .calendar-color-b { color:#0066ff; }
 .calendar .calendar-color-y { color:#ffff66; text-shadow:0 0  5px #ffff66, 0 0 10px #ffff66, 0 0 15px #ffff66; }
+.calendar .calendar-color-g { color:#009900; }
+.calendar .calendar-color-i { color:#ff0000; text-shadow:0 0  5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000; }
+.calendar .calendar-color-w { color:#cccccc; }
+.calendar .calendar-color-t { color:#cccccc; }
+.calendar .calendar-color-n { color:#886655; }
+.calendar .calendar-color-e { color:#cccccc; }
+.calendar .calendar-color-b { color:#0066ff; }
+@keyframes spin { 100% { transform:rotate(360deg); } }
+@keyframes smoke {
+    0% {transform:translate( 1px,  0px); opacity:0.6;}
+   25% {transform:translate( 0px,  1px); opacity:1.0;}
+   50% {transform:translate(-1px,  0px); opacity:0.6;}
+   75% {transform:translate( 0px, -1px); opacity:0.2;}
+  100% {transform:translate( 1px,  0px); opacity:0.6;}
+}
+@keyframes sparkle {
+    0% { opacity:1.0; }
+   90% { opacity:1.0; }
+   95% { opacity:0.3; }
+  100% { opacity:1.0; }
+}
+@keyframes blink {
+    0.00% { opacity:1.0; }
+   96.00% { opacity:1.0; }
+   96.01% { opacity:0.3; }
+   97.33% { opacity:0.3; }
+   97.34% { opacity:1.0; }
+   98.66% { opacity:1.0; }
+   98.67% { opacity:0.3; }
+   99.99% { opacity:0.3; }
+  100.00% { opacity:1.0; }
+}
+@keyframes sleigh {
+  0% { transform:translate(1em, 0); }
+  100% { transform:translate(-1em, 0); }
+}
+.calendar .calendar-color-y { display:inline-block; animation:spin 10s linear infinite; }
+main { position:relative; }
+#spacemug { position:absolute; left:18em; top:8em; color:#0066ff; font-size:33%; animation:spin 33s linear infinite; }
+.calendar .calendar-color-k { display:inline-block; animation:smoke 2s linear infinite; }
+.calendar .calendar-color-t { animation:sparkle 2s linear infinite; }
+.calendar .calendar-sleigh { display: inline-block; animation:sleigh 5s ease-in-out alternate infinite; }
+.calendar .calendar-color-e { animation:blink 15s linear infinite; animation-delay:-12s; }
 </style>
-<pre class="calendar"><span class="calendar-day25">     .         .         .        .        .       <span class="calendar-day">25</span><span id="calendar-countdown"></span><script>
-(function(){
-var countdown = document.getElementById("calendar-countdown");
-if (!countdown) return;
-var server_eta = 77623;
-var key = "2018-25-"+server_eta;
-var now = Math.floor(new Date().getTime()/1000);
-var target = server_eta + now;
-if (sessionStorage) {
-  // if you navigate away and hit the back button, this makes sure the countdown doesn't start from the wrong time
-  var prev_target = sessionStorage.getItem("calendar-target");
-  try { prev_target = JSON.parse(prev_target); } catch(e){}
-  if (prev_target && typeof prev_target === 'object' && prev_target.key === key) {
-    target = prev_target.target;
-  } else {
-    sessionStorage.setItem("calendar-target", JSON.stringify({key:key, target:target+1}));
-  }
-}
-
-var interval = null;
-function update_countdown() {
-  var remaining = Math.ceil(target - new Date().getTime()/1000);
-  if (remaining <= 0) {
-    clearInterval(interval);
-    interval = null;
-    countdown.textContent = "";
-
-    var a = document.createElement("a");
-    a[String.fromCharCode(104,114,101,102)] = "/2018" + String.fromCharCode(47,100,97,121,47) + "25";
-    a.className = "calendar-day25 calendar-day-new";
-    var span = countdown.parentNode;
-    while (span.firstChild) {
-      a.appendChild(span.firstChild);
-    }
-    a.appendChild(document.createTextNode("   "));
-    span.parentNode.insertBefore(a, span);
-    span.parentNode.removeChild(span);
-    countdown.parentNode.removeChild(countdown);
-  } else {
-    var hours = Math.floor(remaining/60/60);
-    remaining -= hours * 60 * 60;
-    var minutes = Math.floor(remaining/60);
-    remaining -= minutes * 60;
-    var seconds = remaining;
-    countdown.textContent = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-  }
-}
-interval = setInterval(update_countdown,1000);
-update_countdown();
-})();
-</script></span>
-<a href="day24.html" class="calendar-day24 calendar-verycomplete"> .        .         .        .       \  /      .   <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day23.html" class="calendar-day23 calendar-verycomplete">              .         .         \_\_\|_/__/      <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day22.html" class="calendar-day22 calendar-verycomplete">       .         .            .  o-_/.()__-------  <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day21.html" class="calendar-day21 calendar-verycomplete">   .       .            <span class="calendar-color-y">*</span>         \____            <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day20.html" class="calendar-day20 calendar-verycomplete">               .       <span class="calendar-color-r">|</span><span class="calendar-color-w">\|</span>            \_\_ ___  /  <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day19.html" class="calendar-day19 calendar-verycomplete">       .               <span class="calendar-color-w">|</span><span class="calendar-color-r">\|</span>              / |   ||   <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day18.html" class="calendar-day18 calendar-verycomplete">  .           <span class="calendar-color-b">_________</span><span class="calendar-color-r">|</span><span class="calendar-color-w">\|</span><span class="calendar-color-b">_________</span>    /  |   ||   <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<pre class="calendar calendar-perfect"><a href="day25.html" class="calendar-day25 calendar-verycomplete">     <span class="calendar-color-t" style="animation-delay:-1.7016328035781s;">.</span>         <span class="calendar-color-t" style="animation-delay:-0.237127698565359s;">.</span>         <span class="calendar-color-t" style="animation-delay:-1.3848766159435s;">.</span>        <span class="calendar-color-t" style="animation-delay:-1.91557421873297s;">.</span>        <span class="calendar-color-t" style="animation-delay:-1.23419856024552s;">.</span>       <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day24.html" class="calendar-day24 calendar-verycomplete"> <span class="calendar-color-t" style="animation-delay:-1.09062054021379s;">.</span>        <span class="calendar-color-t" style="animation-delay:-1.39738480628545s;">.</span>         <span class="calendar-color-t" style="animation-delay:-1.5633166197441s;">.</span>        <span class="calendar-color-t" style="animation-delay:-0.696705788937841s;">.</span>       <span class="calendar-color-n">\</span>  <span class="calendar-color-n">/</span>      <span class="calendar-color-t" style="animation-delay:-0.485341394735713s;">.</span>   <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day23.html" class="calendar-day23 calendar-verycomplete">              <span class="calendar-color-t" style="animation-delay:-1.2037624014031s;">.</span>         <span class="calendar-color-t" style="animation-delay:-0.27644995427535s;">.</span>         <span class="calendar-color-n">\_\_\|_/__/</span>      <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day22.html" class="calendar-day22 calendar-verycomplete">       <span class="calendar-color-t" style="animation-delay:-0.911988474316026s;">.</span>         <span class="calendar-color-t" style="animation-delay:-1.29000749462463s;">.</span>            <span class="calendar-color-t" style="animation-delay:-1.16999099837874s;">.</span>  <span class="calendar-color-i">o</span><span class="calendar-color-n">-_/</span><span class="calendar-color-e">.</span><span class="calendar-color-w">()</span><span class="calendar-color-n">__-------</span>  <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day21.html" class="calendar-day21 calendar-verycomplete">   <span class="calendar-color-t" style="animation-delay:-1.87492115639559s;">.</span>       <span class="calendar-color-t" style="animation-delay:-0.465250277184914s;">.</span>            <span class="calendar-color-y">*</span>         <span class="calendar-color-n">\____</span>            <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day20.html" class="calendar-day20 calendar-verycomplete">               <span class="calendar-color-t" style="animation-delay:-0.575231214464566s;">.</span>       <span class="calendar-color-r">|</span><span class="calendar-color-w">\|</span>            <span class="calendar-color-w">\_</span><span class="calendar-color-n">\_</span> <span class="calendar-color-w">___</span>  <span class="calendar-color-w">/</span>  <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day19.html" class="calendar-day19 calendar-verycomplete">       <span class="calendar-color-t" style="animation-delay:-0.783244977062701s;">.</span>               <span class="calendar-color-w">|</span><span class="calendar-color-r">\|</span>              <span class="calendar-color-n">/</span> <span class="calendar-color-n">|</span>   <span class="calendar-color-n">||</span>   <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day18.html" class="calendar-day18 calendar-verycomplete">  <span class="calendar-color-t" style="animation-delay:-0.108869503249437s;">.</span>           <span class="calendar-color-b">_________</span><span class="calendar-color-r">|</span><span class="calendar-color-w">\|</span><span class="calendar-color-b">_________</span>    <span class="calendar-color-n">/</span>  <span class="calendar-color-n">|</span>   <span class="calendar-color-n">||</span>   <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day17.html" class="calendar-day17 calendar-verycomplete">      <span class="calendar-color-b">___-----</span>  <span class="calendar-color-w">###########</span>  <span class="calendar-color-w">#####</span> <span class="calendar-color-b">-----___</span>        <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day16.html" class="calendar-day16 calendar-verycomplete"><span class="calendar-color-b">___---</span>  <span class="calendar-color-w">###</span>  <span class="calendar-color-w">#####</span>    <span class="calendar-color-w">#########</span>  <span class="calendar-color-w">#####</span>     <span class="calendar-color-b">---___</span>  <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day15.html" class="calendar-day15 calendar-verycomplete">      <span class="calendar-color-k">)</span> <span class="calendar-color-k">))</span>          <span class="calendar-color-k">)</span> <span class="calendar-color-k">)</span>         <span class="calendar-color-k">))</span>         <span class="calendar-color-w">__</span><span class="calendar-color-r">__</span>    <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day14.html" class="calendar-day14 calendar-verycomplete">   <span class="calendar-color-r">.-</span><span class="calendar-color-k">(</span><span class="calendar-color-r">-</span><span class="calendar-color-k">((</span><span class="calendar-color-r">-.</span>     <span class="calendar-color-g">.--</span><span class="calendar-color-k">(</span><span class="calendar-color-g">-</span><span class="calendar-color-k">(</span><span class="calendar-color-g">-.</span>     <span class="calendar-color-b">.-</span><span class="calendar-color-k">((</span><span class="calendar-color-b">---.</span>     <span class="calendar-color-r">/</span> <span class="calendar-color-w">_</span><span class="calendar-color-r">\</span> <span class="calendar-color-w">\</span>   <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day13.html" class="calendar-day13 calendar-verycomplete">   <span class="calendar-color-r">'------'_</span>    <span class="calendar-color-g">'------'_</span>    <span class="calendar-color-b">'------'_</span>   <span class="calendar-color-r">|</span><span class="calendar-color-w">/|</span>  <span class="calendar-color-w">|/</span><span class="calendar-color-r">|</span>  <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day12.html" class="calendar-day12 calendar-verycomplete">   <span class="calendar-color-r">|</span>      <span class="calendar-color-r">|</span> <span class="calendar-color-r">)</span>   <span class="calendar-color-g">|</span>      <span class="calendar-color-g">|</span> <span class="calendar-color-g">)</span>   <span class="calendar-color-b">|</span>      <span class="calendar-color-b">|</span> <span class="calendar-color-b">)</span>  <span class="calendar-color-w">|_|</span>  <span class="calendar-color-r">|/</span><span class="calendar-color-w">|</span>  <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day11.html" class="calendar-day11 calendar-verycomplete">   <span class="calendar-color-r">|</span>      <span class="calendar-color-r">|/</span>    <span class="calendar-color-g">|</span>      <span class="calendar-color-g">|/</span>    <span class="calendar-color-b">|</span>      <span class="calendar-color-b">|/</span>        <span class="calendar-color-w">|/</span><span class="calendar-color-r">|</span>  <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day10.html" class="calendar-day10 calendar-verycomplete">   <span class="calendar-color-r">'------'</span>     <span class="calendar-color-g">'------'</span>     <span class="calendar-color-b">'------'</span>         <span class="calendar-color-r">|/</span><span class="calendar-color-w">|</span>  <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day09.html" class="calendar-day9 calendar-verycomplete">                                   <span class="calendar-color-r">_</span>     <span class="calendar-color-r">__</span>   <span class="calendar-color-w">|/</span><span class="calendar-color-r">|</span>  <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day08.html" class="calendar-day8 calendar-verycomplete">        <span class="calendar-color-r">.---_</span>             <span class="calendar-color-r">_</span>       <span class="calendar-color-d">|</span> <span class="calendar-color-r">|\__</span><span class="calendar-color-d">/</span><span class="calendar-color-r">_/)</span>  <span class="calendar-color-r">|/</span><span class="calendar-color-w">|</span>  <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day07.html" class="calendar-day7 calendar-verycomplete">       <span class="calendar-color-r">/</span> <span class="calendar-color-d">/</span> <span class="calendar-color-r">/\|</span>      <span class="calendar-color-s">__</span>   <span class="calendar-color-d">)</span> <span class="calendar-color-r">)__</span>   <span class="calendar-color-d">_|</span><span class="calendar-color-r">_|</span>     <span class="calendar-color-r">/</span>   <span class="calendar-color-w">|/</span><span class="calendar-color-r">|</span>  <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day06.html" class="calendar-day6 calendar-verycomplete">     <span class="calendar-color-r">/</span> <span class="calendar-color-d">/</span> <span class="calendar-color-d">|</span> <span class="calendar-color-r">\</span> <span class="calendar-color-y">*</span>    <span class="calendar-color-s">/</span> <span class="calendar-color-s">/</span> <span class="calendar-color-s">\</span> <span class="calendar-color-d">(</span> <span class="calendar-color-r">(</span>   <span class="calendar-color-r">\_</span><span class="calendar-color-d">/</span><span class="calendar-color-r">_/</span>      <span class="calendar-color-r">/</span>    <span class="calendar-color-r">|/</span><span class="calendar-color-w">|</span>  <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day05.html" class="calendar-day5 calendar-verycomplete">    <span class="calendar-color-r">/</span>  <span class="calendar-color-d">/</span>  <span class="calendar-color-d">\</span> <span class="calendar-color-r">\</span>    <span class="calendar-color-s">|</span> <span class="calendar-color-s">|</span> <span class="calendar-color-s">\/</span>  <span class="calendar-color-d">\_</span><span class="calendar-color-r">\____________/</span>     <span class="calendar-color-w">|_|</span>  <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a href="day04.html" class="calendar-day4 calendar-verycomplete">   <span class="calendar-color-r">/</span> <span class="calendar-color-d">/</span>  <span class="calendar-color-d">/</span> <span class="calendar-color-d">\</span>  <span class="calendar-color-r">\</span>    <span class="calendar-color-s">\_\______X_____X_____X_,</span>         <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day15.html" class="calendar-day15 calendar-verycomplete">      <span class="calendar-color-k" style="animation-delay:-1.92607616957319s;">)</span> <span class="calendar-color-k" style="animation-delay:-0.611279772614154s;">)</span><span class="calendar-color-k" style="animation-delay:-0.871492738219779s;">)</span>          <span class="calendar-color-k" style="animation-delay:-0.574950353229937s;">)</span> <span class="calendar-color-k" style="animation-delay:-1.7380758449541s;">)</span>                    <span class="calendar-color-w">__</span><span class="calendar-color-r">__</span>    <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day14.html" class="calendar-day14 calendar-verycomplete">   <span class="calendar-color-r">.-</span><span class="calendar-color-k" style="animation-delay:-0.976306211319809s;">(</span><span class="calendar-color-r">-</span><span class="calendar-color-k" style="animation-delay:-1.99927869180728s;">(</span><span class="calendar-color-k" style="animation-delay:-1.22611589751979s;">(</span><span class="calendar-color-r">-.</span>     <span class="calendar-color-g">.--</span><span class="calendar-color-k" style="animation-delay:-1.06772622919906s;">(</span><span class="calendar-color-g">-</span><span class="calendar-color-k" style="animation-delay:-0.915021004165368s;">(</span><span class="calendar-color-g">-.</span>                  <span class="calendar-color-r">/</span> <span class="calendar-color-w">_</span><span class="calendar-color-r">\</span> <span class="calendar-color-w">\</span>   <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day13.html" class="calendar-day13 calendar-verycomplete">   <span class="calendar-color-r">'------'_</span>    <span class="calendar-color-g">'------'_</span>                <span class="calendar-color-r">|</span><span class="calendar-color-w">/|</span>  <span class="calendar-color-w">|/</span><span class="calendar-color-r">|</span>  <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day12.html" class="calendar-day12 calendar-verycomplete">   <span class="calendar-color-r">|</span>      <span class="calendar-color-r">|</span> <span class="calendar-color-r">)</span>   <span class="calendar-color-g">|</span>      <span class="calendar-color-g">|</span> <span class="calendar-color-g">)</span>               <span class="calendar-color-w">|_|</span>  <span class="calendar-color-r">|/</span><span class="calendar-color-w">|</span>  <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day11.html" class="calendar-day11 calendar-verycomplete">   <span class="calendar-color-r">|</span>      <span class="calendar-color-r">|/</span>    <span class="calendar-color-g">|</span>      <span class="calendar-color-g">|/</span>                     <span class="calendar-color-w">|/</span><span class="calendar-color-r">|</span>  <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day10.html" class="calendar-day10 calendar-verycomplete">   <span class="calendar-color-r">'------'</span>     <span class="calendar-color-g">'------'</span>                      <span class="calendar-color-r">|/</span><span class="calendar-color-w">|</span>  <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day09.html" class="calendar-day9 calendar-verycomplete">                 <span class="calendar-sleigh">                  <span class="calendar-color-r">_</span>     <span class="calendar-color-r">__</span> </span>  <span class="calendar-color-w">|/</span><span class="calendar-color-r">|</span>  <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day08.html" class="calendar-day8 calendar-verycomplete">        <span class="calendar-color-r">.---_</span>    <span class="calendar-sleigh">         <span class="calendar-color-r">_</span>       <span class="calendar-color-d">|</span> <span class="calendar-color-r">|\__</span><span class="calendar-color-d">/</span><span class="calendar-color-r">_/)</span></span>  <span class="calendar-color-r">|/</span><span class="calendar-color-w">|</span>  <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day07.html" class="calendar-day7 calendar-verycomplete">       <span class="calendar-color-r">/</span> <span class="calendar-color-d">/</span> <span class="calendar-color-r">/\|</span>   <span class="calendar-sleigh">   <span class="calendar-color-s">__</span>   <span class="calendar-color-d">)</span> <span class="calendar-color-r">)__</span>   <span class="calendar-color-d">_|</span><span class="calendar-color-r">_|</span>     <span class="calendar-color-r">/</span> </span>  <span class="calendar-color-w">|/</span><span class="calendar-color-r">|</span>  <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day06.html" class="calendar-day6 calendar-verycomplete">     <span class="calendar-color-r">/</span> <span class="calendar-color-d">/</span> <span class="calendar-color-d">|</span> <span class="calendar-color-r">\</span> <span class="calendar-color-y">*</span>   <span class="calendar-sleigh"> <span class="calendar-color-s">/</span> <span class="calendar-color-s">/</span> <span class="calendar-color-s">\</span> <span class="calendar-color-d">(</span> <span class="calendar-color-r">(</span>   <span class="calendar-color-r">\_</span><span class="calendar-color-d">/</span><span class="calendar-color-r">_/</span>      <span class="calendar-color-r">/</span>  </span>  <span class="calendar-color-r">|/</span><span class="calendar-color-w">|</span>  <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day05.html" class="calendar-day5 calendar-verycomplete">    <span class="calendar-color-r">/</span>  <span class="calendar-color-d">/</span>  <span class="calendar-color-d">\</span> <span class="calendar-color-r">\</span>    <span class="calendar-sleigh"><span class="calendar-color-s">|</span> <span class="calendar-color-s">|</span> <span class="calendar-color-s">\/</span>  <span class="calendar-color-d">\_</span><span class="calendar-color-r">\____________/</span>   </span>  <span class="calendar-color-w">|_|</span>  <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a href="day04.html" class="calendar-day4 calendar-verycomplete">   <span class="calendar-color-r">/</span> <span class="calendar-color-d">/</span>  <span class="calendar-color-d">/</span> <span class="calendar-color-d">\</span>  <span class="calendar-color-r">\</span>   <span class="calendar-sleigh"> <span class="calendar-color-s">\_\______X_____X_____X_,</span>  </span>       <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day03.html" class="calendar-day3 calendar-verycomplete"> <span class="calendar-color-w">./~~~~~~~~~~~\.</span>                                   <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day02.html" class="calendar-day2 calendar-verycomplete"><span class="calendar-color-w">(</span> <span class="calendar-color-w">.&quot;,^.</span> <span class="calendar-color-w">-&quot;.</span> <span class="calendar-color-w">'.~</span> <span class="calendar-color-w">)</span>                                  <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a href="day01.html" class="calendar-day1 calendar-verycomplete"><span class="calendar-color-w">_'~~~~~~~~~~~~~'_________</span> <span class="calendar-color-w">___</span> <span class="calendar-color-w">__</span> <span class="calendar-color-w">_</span>  <span class="calendar-color-w">_</span>   <span class="calendar-color-w">_</span>    <span class="calendar-color-w">_</span>     <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 </pre>
+<pre id="spacemug" style="animation-delay:-1.09904351987054s;">.------.  
+'------'_ 
+|      | )
+|      |/ 
+'------'  </pre>
 </main>
 </body>
 </html>
