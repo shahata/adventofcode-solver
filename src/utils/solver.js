@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-// const { execSync } = require('child_process');
 const { performance, PerformanceObserver } = require('perf_hooks');
 
-const dayName = require('./day-name');
+const { dayName } = require('./day-name');
 const { getDayInput } = require('./scraper');
 const { downloadQuestion, downloadIndex, createSolver } = require('./renderer');
 
@@ -59,7 +58,6 @@ async function solveAll(year, day) {
     const solver = solverFunction(year, day);
     if (solver) {
       await solver();
-      // execSync(`npm test -- ${year}/${dayName(day)} --colors`);
     } else {
       await createSolver(year, day);
     }

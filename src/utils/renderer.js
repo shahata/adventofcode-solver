@@ -1,23 +1,28 @@
 const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
-const dayName = require('./day-name');
-const { getDayInput, getQuestionPage, getYearPage } = require('./scraper');
+const { dayName, isDayName } = require('./day-name');
+const { getDayInput, getQuestionPage } = require('./scraper');
+const { getYearPage, getEndPage } = require('./scraper');
 
 async function downloadQuestion(year, day) {
   const question = await getQuestionPage(year, day);
-  return renderTemplate(year, day, 'html', { question, year, day });
+  return renderTemplate(year, dayName(day), 'html', { question, year, day });
 }
 
 async function downloadIndex(year) {
   const page = await getYearPage(year);
-  renderTemplate(year, undefined, 'html', { year, page });
+  renderTemplate(year, 'index', 'html', { year, page });
+  const end = await getEndPage(year).catch(() => undefined);
+  if (end) {
+    renderTemplate(year, 'end', 'html', { year, page: end });
+  }
 }
 
-function renderTemplate(year, day, extension, model) {
+function renderTemplate(year, name, extension, model) {
   const src = path.resolve(__dirname, '..');
-  const prefix = path.join(src, year, day ? dayName(day) : 'index');
-  const template = path.join(src, 'template', day ? 'day' : 'index');
+  const prefix = path.join(src, year, isDayName(name) ? name : name);
+  const template = path.join(src, 'template', isDayName(name) ? 'day' : name);
   const fileName = `${prefix}.${extension}`;
   const result = Object.keys(model).reduce((result, key) => {
     return result.replace(new RegExp(`{{${key}}}`, 'g'), model[key]);
@@ -36,12 +41,12 @@ async function createSolver(year, day) {
   ]);
   if (answers.create) {
     const htmlFileName = await downloadQuestion(year, day);
-    const jsFileName = renderTemplate(year, day, 'js', {});
-    const specFileName = renderTemplate(year, day, 'spec.js', {
+    const jsFileName = renderTemplate(year, dayName(day), 'js', {});
+    const specFileName = renderTemplate(year, dayName(day), 'spec.js', {
       year,
       day: dayName(day),
     });
-    const txtFileName = renderTemplate(year, day, 'txt', {
+    const txtFileName = renderTemplate(year, dayName(day), 'txt', {
       input: await getDayInput(year, day),
     });
     [htmlFileName, jsFileName, specFileName, txtFileName].forEach(fn =>

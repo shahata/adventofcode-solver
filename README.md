@@ -1,6 +1,6 @@
 # Advent of Code - Solver [![Build Status](https://travis-ci.org/shahata/adventofcode-solver.svg?branch=master)](https://travis-ci.org/shahata/adventofcode-solver)
 
-This repository contains solutions for advent of code (http://adventofcode.com)
+This repository contains solutions for advent of code (https://adventofcode.com)
 
 Go ahead and try to solve the challenge on your own before using this spoiler!
 
