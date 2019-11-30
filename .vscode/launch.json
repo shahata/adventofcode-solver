@@ -1,19 +1,27 @@
 {
   "version": "0.2.0",
-  "configurations": [{
-    "name": "Launch Day",
-    "type": "node",
-    "request": "launch",
-    "program": "${workspaceRoot}/src/index.js",
-    "args": ["${relativeFile}"],
-    "cwd": "${workspaceRoot}"
-  }, {
-    "name": "Launch Tests",
-    "type": "node",
-    "request": "launch",
-    "port" : 9229,
-    "program": "${workspaceFolder}/node_modules/.bin/yoshi",
-    "args": ["test", "--jest", "--debug-brk", "--findRelatedTests", "${relativeFile}"],
-    "cwd": "${workspaceRoot}"
-  }]
+  "configurations": [
+    {
+      "name": "Launch Day",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/src/index.js",
+      "args": [
+        "${relativeFile}"
+      ],
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Launch Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "--runInBand",
+        "--findRelatedTests",
+        "${relativeFile}"
+      ],
+      "cwd": "${workspaceRoot}"
+    }
+  ]
 }

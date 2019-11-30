@@ -6,7 +6,7 @@ if (process.env.ADVENT_SESSION) {
   if (process.argv[2] && process.argv[2].includes('/')) {
     const clean = process.argv[2].split('/').slice(-2);
     year = parseInt(clean[0]);
-    day = parseInt(clean[1].replace('day', ''));
+    day = parseInt(clean[1].match(/\d+/).pop());
     if (Number.isNaN(year) || Number.isNaN(day)) {
       console.error('Invalid arguments');
       process.exit(0);
