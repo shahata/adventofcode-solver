@@ -13,7 +13,14 @@ const obs = new PerformanceObserver(list => {
 });
 obs.observe({ entryTypes: ['function'] });
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 function solverFunction(year, day) {
+  const solver = path.resolve(__dirname, '..', year, `${dayName(day)}.js`);
+  if (!fs.existsSync(solver)) {
+    return undefined;
+  }
   return async () => {
     const module = await import(`../${year}/${dayName(day)}.js`);
     const input = (await getDayInput(year, day)).trimRight();
@@ -40,8 +47,6 @@ function solverFunction(year, day) {
 
 function getSolvers(year) {
   try {
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
     return fs
       .readdirSync(path.resolve(__dirname, '..', year))
       .filter(x => x.match(/^day\d+\.js$/))
