@@ -1,7 +1,5 @@
 dist
 node_modules
 *npm-debug.log
-target
-maven
 coverage
 .DS_Store
