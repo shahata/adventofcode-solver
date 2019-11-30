@@ -1,4 +1,4 @@
-function day(input, low = 17, high = 61) {
+export function day(input, low = 17, high = 61) {
   let part1;
 
   function assign(state, dest, index, value) {
@@ -61,5 +61,3 @@ function day(input, low = 17, high = 61) {
   const part2 = state.outputs[0] * state.outputs[1] * state.outputs[2];
   return { part1, part2 };
 }
-
-module.exports = { day };

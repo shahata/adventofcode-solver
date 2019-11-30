@@ -4,7 +4,7 @@ function add1({ steps, current, state }, number) {
   return { steps, current, state };
 }
 
-function part1(input, lookFor = 2017) {
+export function part1(input, lookFor = 2017) {
   let spinner = {
     steps: parseInt(input, 10),
     current: 0,
@@ -28,7 +28,7 @@ function add2({ steps, current, zeroPosition, result }, number) {
   return { steps, current, zeroPosition, result };
 }
 
-function part2(input, times = 5e7) {
+export function part2(input, times = 5e7) {
   let spinner = {
     steps: parseInt(input, 10),
     current: 0,
@@ -40,5 +40,3 @@ function part2(input, times = 5e7) {
   }
   return spinner.result;
 }
-
-module.exports = { part1, part2 };

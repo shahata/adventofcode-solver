@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+import { execSync } from 'child_process';
 
 function parse(input) {
   return input
@@ -13,7 +13,7 @@ function distance(a, b = { x: 0, y: 0, z: 0 }) {
   return Math.abs(a.x - b.x) + Math.abs(a.y - b.y) + Math.abs(a.z - b.z);
 }
 
-function part1(input) {
+export function part1(input) {
   const bots = parse(input);
   const strong = bots.sort((a, b) => b.r - a.r)[0];
   const inRange = bots.filter(a => distance(a, strong) <= strong.r);
@@ -21,7 +21,7 @@ function part1(input) {
 }
 
 // brew install z3
-function part2(input) {
+export function part2(input) {
   const bots = parse(input);
   const smt = `
 (declare-const x Int)
@@ -41,5 +41,3 @@ function part2(input) {
   const output = execSync('z3 -in', { input: smt }).toString();
   return parseInt(output.match(/\d+/g).pop(), 10);
 }
-
-module.exports = { part1, part2 };

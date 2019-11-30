@@ -25,12 +25,16 @@ function solve(input, keypad, start) {
     .join('');
 }
 
-function part1(input) {
-  const keypad1 = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9']];
+export function part1(input) {
+  const keypad1 = [
+    ['1', '2', '3'],
+    ['4', '5', '6'],
+    ['7', '8', '9'],
+  ];
   return solve(input, keypad1, { x: 1, y: 1 });
 }
 
-function part2(input) {
+export function part2(input) {
   const keypad2 = [
     [NaN, NaN, '1', NaN, NaN],
     [NaN, '2', '3', '4', NaN],
@@ -40,5 +44,3 @@ function part2(input) {
   ];
   return solve(input, keypad2, { x: 0, y: 2 });
 }
-
-module.exports = { part1, part2 };

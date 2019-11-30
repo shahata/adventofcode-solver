@@ -43,7 +43,7 @@ function transform(current, transformations, memo, i) {
   return remember(trim(next), trim(current), memo, i);
 }
 
-function part1(input, generations = 20) {
+export function part1(input, generations = 20) {
   const lines = input.split('\n');
   const [, initialState] = lines.shift().match(/([#.]+)/);
   const transformations = lines
@@ -68,8 +68,6 @@ function part1(input, generations = 20) {
     .reduce((sum, x) => sum + x, 0);
 }
 
-function part2(input) {
+export function part2(input) {
   return part1(input, 50000000000);
 }
-
-module.exports = { part1, part2 };

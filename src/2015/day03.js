@@ -13,7 +13,7 @@ function parse(input) {
   return input.split('').map(x => steps[x]);
 }
 
-function part1(input) {
+export function part1(input) {
   return parse(input).reduce(
     (state, next) => {
       const pos = (state.pos = next(state.pos));
@@ -24,7 +24,7 @@ function part1(input) {
   ).visited.size;
 }
 
-function part2(input) {
+export function part2(input) {
   return parse(input).reduce(
     (state, next, index) => {
       const turn = index % 2 === 0 ? 'santa' : 'robot';
@@ -38,5 +38,3 @@ function part2(input) {
     },
   ).visited.size;
 }
-
-module.exports = { part1, part2 };

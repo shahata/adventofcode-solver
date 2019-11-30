@@ -1,4 +1,4 @@
-const vm = require('vm');
+import vm from 'vm';
 
 const ops = {
   addr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + r${i2}; break;`,
@@ -53,17 +53,15 @@ function run(input, tap, cb) {
   return exec(tap, cb);
 }
 
-function part1(input) {
+export function part1(input) {
   let result;
   run(input, r => (result = r));
   return result;
 }
 
-function part2(input) {
+export function part2(input) {
   let prev;
   const all = new Set();
   run(input, r => (all.has(r) ? r : all.add((prev = r)) && undefined));
   return prev;
 }
-
-module.exports = { part1, part2 };

@@ -24,14 +24,14 @@ function getConflicts(fabric) {
   return Array.from(fabric.values()).filter(x => x.length >= 2);
 }
 
-function part1(input) {
+export function part1(input) {
   const claims = parseClaims(input);
   const fabric = resolveClaims(claims);
   const conflicts = getConflicts(fabric);
   return conflicts.length;
 }
 
-function part2(input) {
+export function part2(input) {
   const claims = parseClaims(input);
   const fabric = resolveClaims(claims);
   const conflicts = getConflicts(fabric);
@@ -39,5 +39,3 @@ function part2(input) {
   conflicts.forEach(x => x.forEach(id => ok.delete(id)));
   return Array.from(ok).shift();
 }
-
-module.exports = { part1, part2 };

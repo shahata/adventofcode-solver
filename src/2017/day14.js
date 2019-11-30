@@ -1,4 +1,4 @@
-const { part2: knot } = require('./day10');
+import { part2 as knot } from './day10.js';
 
 function parse(input) {
   return new Array(128).fill().map((x, y) => {
@@ -61,7 +61,5 @@ function countRegions(disk) {
   return regions;
 }
 
-const part1 = input => countUsed(parse(input));
-const part2 = input => countRegions(parse(input));
-
-module.exports = { part1, part2 };
+export const part1 = input => countUsed(parse(input));
+export const part2 = input => countRegions(parse(input));

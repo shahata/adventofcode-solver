@@ -68,12 +68,10 @@ function calc(input) {
   return Array.from(map.values()).filter(x => typeof x === 'number');
 }
 
-function part1(input) {
+export function part1(input) {
   return Math.max(...calc(input).values());
 }
 
-function part2(input) {
+export function part2(input) {
   return calc(input).filter(x => x >= 1000).length;
 }
-
-module.exports = { part1, part2 };

@@ -18,7 +18,7 @@ const ops = {
 };
 const numbers = arr => arr.map(x => parseInt(x));
 
-function part1(input, reg0 = 0) {
+export function part1(input, reg0 = 0) {
   const lines = input.split('\n');
   const ip = parseInt(
     lines
@@ -55,8 +55,6 @@ function divisors(x) {
   return result;
 }
 
-function part2(input) {
+export function part2(input) {
   return divisors(part1(input, 1)).reduce((sum, x) => sum + x, 0);
 }
-
-module.exports = { part1, part2 };

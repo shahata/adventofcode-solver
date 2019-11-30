@@ -1,4 +1,4 @@
-const Combinatorics = require('js-combinatorics');
+import Combinatorics from 'js-combinatorics';
 
 function parse(input) {
   return input
@@ -69,15 +69,13 @@ function shortest(map, source, destination) {
   return 0;
 }
 
-function part1(input) {
+export function part1(input) {
   const nodes = parse(input);
   return solve1(nodes).length;
 }
 
-function part2(input) {
+export function part2(input) {
   const nodes = parse(input);
   const { map, start, data } = build(nodes);
   return shortest(map, start, { x: data.x - 1, y: 0 }) + 1 + 5 * (data.x - 1);
 }
-
-module.exports = { part1, part2 };

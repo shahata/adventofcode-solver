@@ -34,7 +34,7 @@ function next(yard, minute) {
   return memo[hash];
 }
 
-function part1(input, minutes = 10) {
+export function part1(input, minutes = 10) {
   let yard = input.split('\n').map(x => x.split(''));
   for (let i = 0; i < minutes; i++) {
     const { result, minute } = next(yard, i);
@@ -54,8 +54,6 @@ function part1(input, minutes = 10) {
   return total.trees * total.lumberyards;
 }
 
-function part2(input) {
+export function part2(input) {
   return part1(input, 1000000000);
 }
-
-module.exports = { part1, part2 };

@@ -1,4 +1,4 @@
-function part1(input) {
+export function part1(input) {
   function calcIndex(row, column) {
     let index = 0;
     for (let i = 1; i <= column; i++) {
@@ -25,4 +25,4 @@ function part1(input) {
   return calcPosition(calcIndex(row, col));
 }
 
-module.exports = { part1, part2: () => undefined };
+export const part2 = () => undefined;

@@ -1,4 +1,4 @@
-const solveAll = require('./utils/solver');
+import solveAll from './utils/solver.js';
 
 if (process.env.ADVENT_SESSION) {
   let year = process.argv[2];

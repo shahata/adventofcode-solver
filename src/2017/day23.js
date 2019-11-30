@@ -1,4 +1,4 @@
-const { parse, getter } = require('./day18');
+import { parse, getter } from './day18.js';
 
 function parseDebug(input, debug) {
   return parse(
@@ -15,7 +15,7 @@ function parseDebug(input, debug) {
   );
 }
 
-function part1(input) {
+export function part1(input) {
   const debug = {};
   const commands = parseDebug(input, x => (debug[x] = (debug[x] || 0) + 1));
   const state = { instruction: 0 };
@@ -36,7 +36,7 @@ function isPrime(num) {
   return true;
 }
 
-function part2(input) {
+export function part2(input) {
   const num =
     parseInt(
       input
@@ -56,5 +56,3 @@ function part2(input) {
   }
   return count;
 }
-
-module.exports = { part1, part2 };

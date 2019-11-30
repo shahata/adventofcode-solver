@@ -1,4 +1,4 @@
-const part1 = input =>
+export const part1 = input =>
   input
     .split('\n')
     .map(line => {
@@ -10,7 +10,7 @@ const part1 = input =>
     })
     .reduce((sum, x) => sum + x, 0);
 
-const part2 = input =>
+export const part2 = input =>
   input
     .split('\n')
     .map(line => {
@@ -27,5 +27,3 @@ const part2 = input =>
       return a / b;
     })
     .reduce((sum, x) => sum + x, 0);
-
-module.exports = { part1, part2 };

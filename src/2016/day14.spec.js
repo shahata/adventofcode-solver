@@ -1,6 +1,6 @@
-const { part1, part2 } = require('./day14');
-const { describeHeavy } = require('describe-heavy');
-const readInput = require('../utils/read-input');
+import { part1, part2 } from './day14.js';
+import { describeHeavy } from 'describe-heavy';
+import readInput from '../utils/read-input';
 
 const input = readInput(__filename);
 

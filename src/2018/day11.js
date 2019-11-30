@@ -24,7 +24,7 @@ function calc(serial, size, state) {
   };
 }
 
-function part1(input) {
+export function part1(input) {
   const serial = parseInt(input);
   let state = { results: new Map(), max: { sum: -Infinity } };
   state = calc(serial, 1, { ...state, max: { sum: -Infinity } });
@@ -33,7 +33,7 @@ function part1(input) {
   return state.max.point.replace(/,3$/, '');
 }
 
-function part2(input) {
+export function part2(input) {
   const serial = parseInt(input);
   let state = { results: new Map(), max: { sum: -Infinity } };
   for (let i = 1; i <= 300; i++) {
@@ -41,5 +41,3 @@ function part2(input) {
   }
   return state.max.point;
 }
-
-module.exports = { part1, part2 };

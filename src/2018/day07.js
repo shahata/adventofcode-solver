@@ -48,7 +48,7 @@ function parse(input) {
   return prerequisites;
 }
 
-function part1(input) {
+export function part1(input) {
   const done = [];
   const prerequisites = parse(input);
   const steps = Array.from(prerequisites.keys()).length;
@@ -58,7 +58,7 @@ function part1(input) {
   return done.join('');
 }
 
-function part2(input, workers = 5, base = 60) {
+export function part2(input, workers = 5, base = 60) {
   const done = [];
   const pending = [];
   const prerequisites = parse(input);
@@ -68,5 +68,3 @@ function part2(input, workers = 5, base = 60) {
   }
   return done.pop().time;
 }
-
-module.exports = { part1, part2 };

@@ -1,4 +1,4 @@
-const Combinatorics = require('js-combinatorics');
+import Combinatorics from 'js-combinatorics';
 
 function f(boxes, total, part) {
   const rest = (all, sub) => all.filter(x => sub.indexOf(x) === -1);
@@ -27,7 +27,5 @@ function solve(input, x) {
   return f(boxes, total / x, x);
 }
 
-const part1 = input => solve(input, 3);
-const part2 = input => solve(input, 4);
-
-module.exports = { part1, part2 };
+export const part1 = input => solve(input, 3);
+export const part2 = input => solve(input, 4);

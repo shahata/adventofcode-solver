@@ -83,12 +83,12 @@ function fight(input, elfBoost = 0) {
   return { i, units };
 }
 
-function part1(input) {
+export function part1(input) {
   const { i, units } = fight(input);
   return i * units.reduce((sum, u) => (sum += u.hit), 0);
 }
 
-function part2(input) {
+export function part2(input) {
   const elfCount = input.match(/E/g).length;
   for (let elfBoost = 1; true; elfBoost++) {
     const { i, units } = fight(input, elfBoost);
@@ -97,5 +97,3 @@ function part2(input) {
     }
   }
 }
-
-module.exports = { part1, part2 };

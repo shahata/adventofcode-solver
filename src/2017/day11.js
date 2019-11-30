@@ -42,7 +42,5 @@ function distance({ x, y }) {
   return diagonal + straight;
 }
 
-const part1 = input => distance(parse(input));
-const part2 = input => parse2(input).furthest;
-
-module.exports = { part1, part2 };
+export const part1 = input => distance(parse(input));
+export const part2 = input => parse2(input).furthest;

@@ -51,7 +51,7 @@ function parse(input) {
   return { map, carts };
 }
 
-function part1(input) {
+export function part1(input) {
   const { map, carts } = parse(input);
   let collisions = [];
   while (collisions.length === 0) {
@@ -60,7 +60,7 @@ function part1(input) {
   return position(collisions[0]);
 }
 
-function part2(input) {
+export function part2(input) {
   const { map, carts } = parse(input);
   while (carts.length > 1) {
     const collisions = tick(map, carts);
@@ -68,5 +68,3 @@ function part2(input) {
   }
   return position(carts[0]);
 }
-
-module.exports = { part1, part2 };

@@ -35,8 +35,6 @@ function makeCircuit(input) {
     }, {});
 }
 
-const part1 = input => makeCircuit(input.split('\n')).a();
-const part2 = input =>
+export const part1 = input => makeCircuit(input.split('\n')).a();
+export const part2 = input =>
   makeCircuit(input.split('\n').concat(`${part1(input)} -> b`)).a();
-
-module.exports = { part1, part2 };

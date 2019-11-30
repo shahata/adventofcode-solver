@@ -21,7 +21,5 @@ function next(password) {
   return s.toString(36);
 }
 
-const part1 = input => next(input);
-const part2 = input => next(next(input));
-
-module.exports = { part1, part2 };
+export const part1 = input => next(input);
+export const part2 = input => next(next(input));

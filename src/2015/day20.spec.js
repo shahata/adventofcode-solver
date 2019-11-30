@@ -1,5 +1,5 @@
-const { day } = require('./day20');
-const readInput = require('../utils/read-input');
+import { day } from './day20.js';
+import readInput from '../utils/read-input';
 
 const input = readInput(__filename);
 

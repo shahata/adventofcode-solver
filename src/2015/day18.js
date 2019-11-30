@@ -26,7 +26,7 @@ function life(grid, stuck) {
   );
 }
 
-function part1(input, steps = 100) {
+export function part1(input, steps = 100) {
   const grid1 = input.split('\n').map(x => x.split('').map(c => c === '#'));
   const result = new Array(steps)
     .fill(undefined)
@@ -34,7 +34,7 @@ function part1(input, steps = 100) {
   return result.reduce((prev, row) => prev.concat(row)).filter(x => x).length;
 }
 
-function part2(input, steps = 100) {
+export function part2(input, steps = 100) {
   const grid1 = input.split('\n').map(x => x.split('').map(c => c === '#'));
   const corner = (i, j) =>
     (i === 0 || i === grid1.length - 1) && (j === 0 || j === grid1.length - 1);
@@ -46,5 +46,3 @@ function part2(input, steps = 100) {
     .reduce(x => life(x, corner), grid2);
   return result.reduce((prev, row) => prev.concat(row)).filter(x => x).length;
 }
-
-module.exports = { part1, part2 };

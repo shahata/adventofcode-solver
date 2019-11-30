@@ -59,7 +59,7 @@ function fill(pit, base) {
   return newCount;
 }
 
-function day(input) {
+export function day(input) {
   const base = { x: Infinity, y: Infinity };
   const end = { x: -Infinity, y: -Infinity };
   const lines = input.split('\n').map(x => {
@@ -99,5 +99,3 @@ function day(input) {
   // console.log(pit.map(x => x.join('')).join('\n'));
   return { part1: result.wet + result.dry, part2: result.dry };
 }
-
-module.exports = { day };

@@ -1,4 +1,4 @@
-function day(input, fill = 150) {
+export function day(input, fill = 150) {
   const boxes = input.split('\n').map(x => parseInt(x, 10));
   const result = new Array(boxes.length).fill(0);
   const pad = result.join('');
@@ -20,5 +20,3 @@ function day(input, fill = 150) {
   const part2 = result.filter(x => x).shift();
   return { part1, part2 };
 }
-
-module.exports = { day };

@@ -77,7 +77,7 @@ function parse(input) {
   return { hit, damage, armor };
 }
 
-function part1(input) {
+export function part1(input) {
   const boss = parse(input);
   const options = calcOptions();
   const win = options.filter(
@@ -88,7 +88,7 @@ function part1(input) {
   return win.shift().cost;
 }
 
-function part2(input) {
+export function part2(input) {
   const boss = parse(input);
   const options = calcOptions();
   const lose = options.filter(
@@ -98,5 +98,3 @@ function part2(input) {
   );
   return lose.pop().cost;
 }
-
-module.exports = { part1, part2 };

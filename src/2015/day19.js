@@ -49,7 +49,5 @@ function parse(input) {
   return { molecule, replacements };
 }
 
-const part1 = input => calcNeighbors(parse(input)).length;
-const part2 = input => calcDistance('e', parse(input));
-
-module.exports = { part1, part2 };
+export const part1 = input => calcNeighbors(parse(input)).length;
+export const part2 = input => calcDistance('e', parse(input));

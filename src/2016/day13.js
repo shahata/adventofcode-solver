@@ -42,14 +42,12 @@ function solveMaze(input, source, destination) {
   }
 }
 
-function part1(input, destination = { x: 31, y: 39 }) {
+export function part1(input, destination = { x: 31, y: 39 }) {
   const maze = solveMaze(input, { x: 1, y: 1 }, destination);
   return maze[cellId(destination)].distance;
 }
 
-function part2(input, destination = { x: 31, y: 39 }) {
+export function part2(input, destination = { x: 31, y: 39 }) {
   const maze = solveMaze(input, { x: 1, y: 1 }, destination);
   return Object.values(maze).filter(x => x.distance <= 50 && x.open).length;
 }
-
-module.exports = { part1, part2 };

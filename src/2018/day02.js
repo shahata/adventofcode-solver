@@ -1,4 +1,4 @@
-function part1(input) {
+export function part1(input) {
   const ids = input.split('\n');
   const counts = { double: 0, triple: 0 };
   ids.forEach(id => {
@@ -17,7 +17,7 @@ function part1(input) {
   return counts.triple * counts.double;
 }
 
-function part2(input) {
+export function part2(input) {
   const ids = input.split('\n');
   const memory = new Set();
   for (const id of ids) {
@@ -32,5 +32,3 @@ function part2(input) {
     }
   }
 }
-
-module.exports = { part1, part2 };

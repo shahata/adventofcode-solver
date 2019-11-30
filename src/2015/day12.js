@@ -9,7 +9,5 @@ function deepSum(obj, ignore) {
   }
 }
 
-const part1 = input => deepSum(JSON.parse(input));
-const part2 = input => deepSum(JSON.parse(input), 'red');
-
-module.exports = { part1, part2 };
+export const part1 = input => deepSum(JSON.parse(input));
+export const part2 = input => deepSum(JSON.parse(input), 'red');

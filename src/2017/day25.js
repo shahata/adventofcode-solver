@@ -26,7 +26,7 @@ function parse(input) {
   return { initial, diagnostic, states };
 }
 
-function part1(input) {
+export function part1(input) {
   const { initial, diagnostic, states } = parse(input);
   const tape = {};
   let position = 0,
@@ -40,4 +40,4 @@ function part1(input) {
   return Object.values(tape).filter(x => x === '1').length;
 }
 
-module.exports = { part1, part2: () => undefined };
+export const part2 = () => undefined;

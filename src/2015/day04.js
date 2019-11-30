@@ -1,4 +1,4 @@
-const md5 = require('../utils/md5');
+import md5 from '../utils/md5.js';
 
 function solve(input, prefix) {
   let result = 1;
@@ -9,7 +9,5 @@ function solve(input, prefix) {
 }
 
 /* eslint no-bitwise: "off" */
-const part1 = input => solve(input, '00000');
-const part2 = input => solve(input, '000000');
-
-module.exports = { part1, part2 };
+export const part1 = input => solve(input, '00000');
+export const part2 = input => solve(input, '000000');

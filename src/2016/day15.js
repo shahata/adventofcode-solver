@@ -21,15 +21,13 @@ function solve(discs) {
   return time;
 }
 
-function part1(input) {
+export function part1(input) {
   return solve(parse(input));
 }
 
-function part2(input) {
+export function part2(input) {
   const discs = parse(input);
   return solve(
     discs.concat([{ index: discs.length + 1, positions: 11, initial: 0 }]),
   );
 }
-
-module.exports = { part1, part2 };

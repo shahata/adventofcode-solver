@@ -10,12 +10,13 @@ function value(arr, part1 = false) {
   return result.reduce((sum, x) => sum + x, 0);
 }
 
-function part1(input) {
-  return value(input.split(' ').map(x => parseInt(x)), true);
+export function part1(input) {
+  return value(
+    input.split(' ').map(x => parseInt(x)),
+    true,
+  );
 }
 
-function part2(input) {
+export function part2(input) {
   return value(input.split(' ').map(x => parseInt(x)));
 }
-
-module.exports = { part1, part2 };

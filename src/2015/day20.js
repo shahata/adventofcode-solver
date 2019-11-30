@@ -12,7 +12,7 @@ function divisors(x) {
   return nums;
 }
 
-function day(input, part1Only = false) {
+export function day(input, part1Only = false) {
   input = parseInt(input);
   let part1,
     part2 = part1Only;
@@ -31,5 +31,3 @@ function day(input, part1Only = false) {
   }
   return { part1, part2 };
 }
-
-module.exports = { day };

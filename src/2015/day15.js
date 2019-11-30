@@ -1,4 +1,4 @@
-function day(input) {
+export function day(input) {
   function add(digits, param, i) {
     i = i || 0;
     if (i < digits.length) {
@@ -55,5 +55,3 @@ function day(input) {
 
   return { part1, part2 };
 }
-
-module.exports = { day };

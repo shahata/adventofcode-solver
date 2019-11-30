@@ -34,7 +34,7 @@ function run(commands, state) {
   return state;
 }
 
-function part1(input) {
+export function part1(input) {
   const commands = input.split('\n').map(toReducer);
   let a = 0;
   while (
@@ -46,4 +46,4 @@ function part1(input) {
   return a;
 }
 
-module.exports = { part1, part2: () => undefined };
+export const part2 = () => undefined;

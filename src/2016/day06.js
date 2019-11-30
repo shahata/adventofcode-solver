@@ -17,13 +17,11 @@ function solve(input) {
     });
 }
 
-const part1 = input =>
+export const part1 = input =>
   solve(input)
     .map(x => x.shift())
     .join('');
-const part2 = input =>
+export const part2 = input =>
   solve(input)
     .map(x => x.pop())
     .join('');
-
-module.exports = { part1, part2 };

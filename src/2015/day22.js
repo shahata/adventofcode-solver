@@ -121,15 +121,13 @@ function parse(input, initialHit, initialMana) {
   return { hero, boss, active };
 }
 
-function part1(input, initialHit = 50, initialMana = 500) {
+export function part1(input, initialHit = 50, initialMana = 500) {
   return play(parse(input, initialHit, initialMana));
 }
 
-function part2(input, initialHit = 50, initialMana = 500) {
+export function part2(input, initialHit = 50, initialMana = 500) {
   const state = parse(input, initialHit, initialMana);
   state.hero.hit--;
   state.boss.damage++;
   return play(state);
 }
-
-module.exports = { part1, part2 };

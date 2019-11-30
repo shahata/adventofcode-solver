@@ -1,4 +1,4 @@
-function day(input) {
+export function day(input) {
   const banks = input.split(/\s+/).map(x => parseInt(x, 10));
   const memory = {};
   let rounds = 0;
@@ -25,5 +25,3 @@ function day(input) {
   const part2 = rounds - memory[banks.join('-')];
   return { part1, part2 };
 }
-
-module.exports = { day };

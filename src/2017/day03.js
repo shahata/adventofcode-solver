@@ -78,7 +78,5 @@ function solve2(destination) {
   return current;
 }
 
-const part1 = input => solve1(parseInt(input, 10));
-const part2 = input => solve2(parseInt(input, 10));
-
-module.exports = { part1, part2 };
+export const part1 = input => solve1(parseInt(input, 10));
+export const part2 = input => solve2(parseInt(input, 10));

@@ -32,7 +32,5 @@ function process(input) {
     .reduce(parse, { score: 0, level: 0, removed: 0, mode: 'read' });
 }
 
-const part1 = input => process(input).score;
-const part2 = input => process(input).removed;
-
-module.exports = { part1, part2 };
+export const part1 = input => process(input).score;
+export const part2 = input => process(input).removed;

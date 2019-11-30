@@ -1,4 +1,4 @@
-function getter(state, p) {
+export function getter(state, p) {
   if (typeof p === 'string') {
     if (state[p] === undefined) {
       state[p] = 0;
@@ -9,7 +9,7 @@ function getter(state, p) {
   }
 }
 
-function parse(input, ops2 = {}, debug) {
+export function parse(input, ops2 = {}, debug) {
   const ops = {
     snd: p1 => state => (state.sound = getter(state, p1)),
     set: (p1, p2) => state => (state[p1] = getter(state, p2)),
@@ -52,7 +52,7 @@ function parse2(input) {
   });
 }
 
-function part1(input) {
+export function part1(input) {
   const commands = parse(input);
   const state = { instruction: 0 };
   while (state.instruction < commands.length && !state.recovered) {
@@ -74,7 +74,7 @@ function execute(commands, state) {
   return run;
 }
 
-function part2(input) {
+export function part2(input) {
   const commands = parse2(input);
   const state1 = { instruction: 0, queue: [], sent: 0, p: 0 };
   const state2 = { instruction: 0, queue: [], sent: 0, p: 1 };
@@ -87,5 +87,3 @@ function part2(input) {
   }
   return state2.sent;
 }
-
-module.exports = { part1, part2, parse, getter };

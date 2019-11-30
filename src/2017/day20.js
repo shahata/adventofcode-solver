@@ -2,7 +2,7 @@ function positionAfter(p, v, a, t) {
   return p + (t * (2 * (v + a) + (t - 1) * a)) / 2;
 }
 
-function particleAfter(particle, t) {
+export function particleAfter(particle, t) {
   const { i, p, v, a } = particle;
   const pAfter = p.map((x, i) => positionAfter(p[i], v[i], a[i], t));
   return { i, p: pAfter, v, a };
@@ -61,12 +61,12 @@ function after(particles, t) {
   return particles.map(x => particleAfter(x, t));
 }
 
-function part1(input) {
+export function part1(input) {
   const particles = after(parse(input), 1000);
   return closest(particles);
 }
 
-function part2(input) {
+export function part2(input) {
   const particles = parse(input);
   for (let t = 0; t < 1000; t++) {
     const collisions = findCollisions(after(particles, t));
@@ -74,5 +74,3 @@ function part2(input) {
   }
   return particles.filter(x => x).length;
 }
-
-module.exports = { part1, part2 };

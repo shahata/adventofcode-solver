@@ -50,16 +50,14 @@ function solve(input, width, height) {
     .reduce((state, fn) => fn(state), screen);
 }
 
-function part1(input, width = 50, height = 6) {
+export function part1(input, width = 50, height = 6) {
   const final = solve(input, width, height);
   return flatten(final).filter(x => x).length;
 }
 
-function part2(input, width = 50, height = 6) {
+export function part2(input, width = 50, height = 6) {
   const final = solve(input, width, height);
   return `\n${final
     .map(row => row.map(x => (x ? '#' : '.')).join(''))
     .join('\n')}`;
 }
-
-module.exports = { part1, part2 };

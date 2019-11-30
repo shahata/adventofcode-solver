@@ -17,7 +17,7 @@ function parse(input) {
   return { depth, target: { x, y } };
 }
 
-function part1(input) {
+export function part1(input) {
   const { depth, target } = parse(input);
   let risk = 0;
   cache = { [pos(target)]: 0 };
@@ -60,7 +60,7 @@ function neighbors({ point, equip, time }, depth, target) {
   return options;
 }
 
-function part2(input) {
+export function part2(input) {
   const { depth, target } = parse(input);
   const visited = new Map();
   const queue = [{ point: { x: 0, y: 0 }, equip: 'torch', time: 0 }];
@@ -83,5 +83,3 @@ function part2(input) {
     queue.sort((a, b) => score(a) - score(b));
   }
 }
-
-module.exports = { part1, part2 };

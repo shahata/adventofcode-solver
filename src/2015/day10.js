@@ -5,11 +5,9 @@ function transform(s) {
     .join('');
 }
 
-const part1 = (input, times = 40) =>
+export const part1 = (input, times = 40) =>
   new Array(times).fill(undefined).reduce(prev => transform(prev), input)
     .length;
-const part2 = (input, times = 50) =>
+export const part2 = (input, times = 50) =>
   new Array(times).fill(undefined).reduce(prev => transform(prev), input)
     .length;
-
-module.exports = { part1, part2 };

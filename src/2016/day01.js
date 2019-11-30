@@ -4,7 +4,7 @@ const directions = [
   { y: -1, x: 0 },
   { y: 0, x: -1 },
 ];
-function day(input) {
+export function day(input) {
   const destination = input
     .split(', ')
     .map(x => {
@@ -40,5 +40,3 @@ function day(input) {
   const part2 = Math.abs(destination.twice.x) + Math.abs(destination.twice.y);
   return { part1, part2 };
 }
-
-module.exports = { day };

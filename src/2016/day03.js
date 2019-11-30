@@ -23,10 +23,8 @@ function parse(input) {
   });
 }
 
-const part1 = input => parse(input).filter(validTriangle).length;
-const part2 = input =>
+export const part1 = input => parse(input).filter(validTriangle).length;
+export const part2 = input =>
   parse(input)
     .map(rotate)
     .filter(validTriangle).length;
-
-module.exports = { part1, part2 };

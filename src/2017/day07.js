@@ -38,7 +38,7 @@ function rightWeight(programs, name) {
   }
 }
 
-function part1(input) {
+export function part1(input) {
   const programs = parse(input);
   const children = Object.values(programs)
     .filter(x => x.children)
@@ -48,7 +48,7 @@ function part1(input) {
     .find(x => !children.includes(x.name)).name;
 }
 
-function part2(input) {
+export function part2(input) {
   const programs = parse(input);
   try {
     rightWeight(programs, part1(input));
@@ -56,5 +56,3 @@ function part2(input) {
     return parseInt(e.message);
   }
 }
-
-module.exports = { part1, part2 };

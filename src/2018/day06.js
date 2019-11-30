@@ -40,13 +40,13 @@ function parseInput(input) {
   return { points, size };
 }
 
-function part1(input) {
+export function part1(input) {
   const { points, size } = parseInput(input);
   const result = calcBlastSize(points, size);
   return result.sort((a, b) => a - b).pop();
 }
 
-function part2(input, limit = 10000) {
+export function part2(input, limit = 10000) {
   const { points, size } = parseInput(input);
   let result = 0;
   for (let x = 0; x < size.x; x++) {
@@ -58,5 +58,3 @@ function part2(input, limit = 10000) {
   }
   return result;
 }
-
-module.exports = { part1, part2 };

@@ -1,4 +1,4 @@
-const part1 = input =>
+export const part1 = input =>
   input.split('\n').filter(x => {
     const words = x.split(/\s+/).sort();
     return (
@@ -6,7 +6,7 @@ const part1 = input =>
     );
   }).length;
 
-const part2 = input =>
+export const part2 = input =>
   input.split('\n').filter(x => {
     const words = x
       .split(/\s+/)
@@ -21,5 +21,3 @@ const part2 = input =>
       words.length === words.filter((x, i, arr) => x !== arr[i + 1]).length
     );
   }).length;
-
-module.exports = { part1, part2 };

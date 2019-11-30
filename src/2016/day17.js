@@ -1,4 +1,4 @@
-const md5 = require('../utils/md5');
+import md5 from '../utils/md5.js';
 
 function getNeighbors(point, [U, D, L, R]) {
   return [
@@ -31,7 +31,5 @@ function solve(input, shortest = true) {
   return max;
 }
 
-const part1 = input => solve(input, true);
-const part2 = input => solve(input, false);
-
-module.exports = { part1, part2 };
+export const part1 = input => solve(input, true);
+export const part2 = input => solve(input, false);

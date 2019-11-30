@@ -36,11 +36,11 @@ function parseSamples(input) {
   });
 }
 
-function part1(input) {
+export function part1(input) {
   return parseSamples(input).filter(s => s.options.length >= 3).length;
 }
 
-function part2(input) {
+export function part2(input) {
   const result = parseSamples(input);
   let dic = new Array(Object.keys(ops).length).fill();
   dic = dic.map(() => Object.keys(ops));
@@ -58,5 +58,3 @@ function part2(input) {
   commands.forEach(([op, ...params]) => ops[dic[op][0]](r, ...params));
   return r[0];
 }
-
-module.exports = { part1, part2 };

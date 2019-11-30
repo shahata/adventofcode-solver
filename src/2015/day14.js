@@ -25,14 +25,12 @@ function run(race, seconds) {
   return race;
 }
 
-function part1(input, seconds = 2503) {
+export function part1(input, seconds = 2503) {
   const race = run(parse(input), seconds);
   return race.reduce((prev, x) => Math.max(prev, x.distance), 0);
 }
 
-function part2(input, seconds = 2503) {
+export function part2(input, seconds = 2503) {
   const race = run(parse(input), seconds);
   return race.reduce((prev, x) => Math.max(prev, x.points), 0);
 }
-
-module.exports = { part1, part2 };

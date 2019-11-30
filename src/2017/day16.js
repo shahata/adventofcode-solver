@@ -35,11 +35,11 @@ function dance(order, commands) {
   return commands.reduce((x, { op, args }) => op(x, args), order);
 }
 
-function part1(input, order = 'abcdefghijklmnop') {
+export function part1(input, order = 'abcdefghijklmnop') {
   return dance(order, parse(input, order.length));
 }
 
-function part2(input, order = 'abcdefghijklmnop', times = 1e9) {
+export function part2(input, order = 'abcdefghijklmnop', times = 1e9) {
   const commands = parse(input, order.length);
   const memory = {};
   let i;
@@ -57,5 +57,3 @@ function part2(input, order = 'abcdefghijklmnop', times = 1e9) {
   }
   return order;
 }
-
-module.exports = { part1, part2 };

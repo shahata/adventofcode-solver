@@ -26,7 +26,7 @@ function print(points) {
   return banner.map(x => x.join('')).join('\n');
 }
 
-function day(input) {
+export function day(input) {
   const regex = /([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)+/;
   const points = input.split('\n').map(line => {
     const [, x, y, xDiff, yDiff] = line.match(regex).map(x => parseInt(x));
@@ -44,5 +44,3 @@ function day(input) {
 
   return { part1: '\n' + print(move(points, secs)), part2: secs };
 }
-
-module.exports = { day };

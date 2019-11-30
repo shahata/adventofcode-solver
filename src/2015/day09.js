@@ -33,7 +33,5 @@ function parse(input) {
   return graph;
 }
 
-const part1 = input => shortest(parse(input), '$$start', []);
-const part2 = input => longest(parse(input), '$$start', []);
-
-module.exports = { part1, part2 };
+export const part1 = input => shortest(parse(input), '$$start', []);
+export const part2 = input => longest(parse(input), '$$start', []);

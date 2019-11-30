@@ -46,12 +46,10 @@ function checksum(input, fn) {
   return min[0] * sleepy[0];
 }
 
-function part1(input) {
+export function part1(input) {
   return checksum(input, (a, b) => a.total - b.total);
 }
 
-function part2(input) {
+export function part2(input) {
   return checksum(input, (a, b) => sleepyMin(a)[1] - sleepyMin(b)[1]);
 }
-
-module.exports = { part1, part2 };

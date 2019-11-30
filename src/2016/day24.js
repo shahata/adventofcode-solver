@@ -1,4 +1,4 @@
-const Combinatorics = require('js-combinatorics');
+import Combinatorics from 'js-combinatorics';
 
 function parse(input) {
   const targets = [];
@@ -94,7 +94,5 @@ function solve({ maze, targets }, andBack) {
   }, Infinity);
 }
 
-const part1 = input => solve(parse(input), false);
-const part2 = input => solve(parse(input), true);
-
-module.exports = { part1, part2 };
+export const part1 = input => solve(parse(input), false);
+export const part2 = input => solve(parse(input), true);

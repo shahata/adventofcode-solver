@@ -1,4 +1,4 @@
-const md5 = require('../utils/md5');
+import md5 from '../utils/md5.js';
 
 function findRepeatingCharacters(str, num) {
   return (str.match(new RegExp(`(.)\\1{${num - 1}}`, 'g')) || []).map(
@@ -38,7 +38,5 @@ function md5times(str, count) {
   return str;
 }
 
-const part1 = input => generateKeys(input, x => md5times(x, 1)).pop();
-const part2 = input => generateKeys(input, x => md5times(x, 2017)).pop();
-
-module.exports = { part1, part2 };
+export const part1 = input => generateKeys(input, x => md5times(x, 1)).pop();
+export const part2 = input => generateKeys(input, x => md5times(x, 2017)).pop();

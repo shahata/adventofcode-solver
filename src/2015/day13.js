@@ -30,14 +30,12 @@ function parse(input) {
   return graph;
 }
 
-function part1(input) {
+export function part1(input) {
   const graph = parse(input);
   return longest(graph, Object.keys(graph).shift(), []);
 }
 
-function part2(input) {
+export function part2(input) {
   const graph = parse(input);
   return longest(graph, '$$me', []);
 }
-
-module.exports = { part1, part2 };

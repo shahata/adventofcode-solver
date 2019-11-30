@@ -18,7 +18,5 @@ function solve(input, rows) {
   return count;
 }
 
-const part1 = (input, rows = 40) => solve(input, rows);
-const part2 = (input, rows = 4e5) => solve(input, rows);
-
-module.exports = { part1, part2 };
+export const part1 = (input, rows = 40) => solve(input, rows);
+export const part2 = (input, rows = 4e5) => solve(input, rows);

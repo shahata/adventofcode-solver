@@ -46,12 +46,12 @@ function solve(components, compare) {
   return max.strength;
 }
 
-function part1(input) {
+export function part1(input) {
   const components = parse(input);
   return solve(components, (current, max) => current.strength > max.strength);
 }
 
-function part2(input) {
+export function part2(input) {
   const components = parse(input);
   return solve(components, (current, max) => {
     return (
@@ -61,5 +61,3 @@ function part2(input) {
     );
   });
 }
-
-module.exports = { part1, part2 };

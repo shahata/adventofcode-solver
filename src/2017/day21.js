@@ -77,7 +77,7 @@ function mutate(pattern, rules) {
   );
 }
 
-function part1(input, count = 5) {
+export function part1(input, count = 5) {
   const rules = parse(input);
   let result = pattern;
   for (let i = 0; i < count; i++) {
@@ -89,8 +89,6 @@ function part1(input, count = 5) {
     .filter(x => x === '#').length;
 }
 
-function part2(input) {
+export function part2(input) {
   return part1(input, 18);
 }
-
-module.exports = { part1, part2 };

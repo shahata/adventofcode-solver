@@ -10,13 +10,13 @@ function cook(check) {
   return board;
 }
 
-function part1(input) {
+export function part1(input) {
   const count = parseInt(input);
   const board = cook(board => board.length < count + 10);
   return board.slice(count, count + 10).join('');
 }
 
-function part2(input) {
+export function part2(input) {
   let suffix = '';
   const board = cook(board => {
     suffix = board.slice(-1 * input.length - 1).join('');
@@ -24,5 +24,3 @@ function part2(input) {
   });
   return board.length - input.length + suffix.indexOf(input) - 1;
 }
-
-module.exports = { part1, part2 };

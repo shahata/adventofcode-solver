@@ -1,4 +1,4 @@
-const Combinatorics = require('js-combinatorics');
+import Combinatorics from 'js-combinatorics';
 
 function parse(input) {
   let pieces = [];
@@ -171,16 +171,14 @@ function solve(state) {
   }
 }
 
-function part1(input) {
+export function part1(input) {
   return solve(parse(input));
 }
 
-function part2(input) {
+export function part2(input) {
   const state = parse(input);
   state.floors[0].generators.push('elerium', 'dilithium');
   state.floors[0].microchips.push('elerium', 'dilithium');
   state.pieces.push('elerium', 'dilithium', 'elerium', 'dilithium');
   return solve(state);
 }
-
-module.exports = { part1, part2 };

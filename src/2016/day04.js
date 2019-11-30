@@ -48,17 +48,15 @@ function parse(input) {
     .filter(room => room.checksum === checksum(room.name));
 }
 
-function part1(input) {
+export function part1(input) {
   const rooms = parse(input);
   return rooms.reduce((sum, room) => sum + room.sector, 0);
 }
 
-function part2(input) {
+export function part2(input) {
   const rooms = parse(input);
   const room = rooms
     .map(room => decrypt(room.name, room.sector))
     .findIndex(x => x === 'northpole object storage');
   return rooms[room] && rooms[room].sector;
 }
-
-module.exports = { part1, part2 };

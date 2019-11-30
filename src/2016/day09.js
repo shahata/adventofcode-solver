@@ -13,7 +13,5 @@ function decodeLength(s, v2) {
   }
 }
 
-const part1 = input => decodeLength(input);
-const part2 = input => decodeLength(input, true);
-
-module.exports = { part1, part2 };
+export const part1 = input => decodeLength(input);
+export const part2 = input => decodeLength(input, true);

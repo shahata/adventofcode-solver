@@ -43,15 +43,13 @@ function parse(input) {
     .map(x => ({ id: parseInt(x[0], 10), ...x[1] }));
 }
 
-const part1 = input =>
+export const part1 = input =>
   parse(input)
     .filter(x => matches(x, expect1))
     .map(x => x.id)
     .shift();
-const part2 = input =>
+export const part2 = input =>
   parse(input)
     .filter(x => matches(x, expect2))
     .map(x => x.id)
     .shift();
-
-module.exports = { part1, part2 };

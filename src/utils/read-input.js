@@ -1,6 +1,6 @@
-const fs = require('fs');
+import fs from 'fs';
 
-function readInput(filename) {
+export default function readInput(filename) {
   const inputFile = filename.replace(/\.[^/\\]*$/, '.txt');
   const input = fs
     .readFileSync(inputFile)
@@ -8,5 +8,3 @@ function readInput(filename) {
     .trimRight();
   return input;
 }
-
-module.exports = readInput;

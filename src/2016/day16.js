@@ -18,7 +18,6 @@ function checksum(data) {
   return data;
 }
 
-const part1 = (input, size = 272) => checksum(generate(input, size));
-const part2 = (input, size = 35651584) => checksum(generate(input, size));
-
-module.exports = { part1, part2 };
+export const part1 = (input, size = 272) => checksum(generate(input, size));
+export const part2 = (input, size = 35651584) =>
+  checksum(generate(input, size));

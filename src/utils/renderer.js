@@ -1,27 +1,19 @@
-const fs = require('fs');
-const path = require('path');
-const inquirer = require('inquirer');
-const { dayName, isDayName } = require('./day-name');
-const { getDayInput, getQuestionPage } = require('./scraper');
-const { getYearPage, getEventsPage, getEndPage } = require('./scraper');
-
-async function downloadQuestion(year, day) {
-  const question = await getQuestionPage(year, day);
-  return renderTemplate(year, dayName(day), 'html', { question, year, day });
-}
-
-async function downloadIndex(year) {
-  const page = await getYearPage(year);
-  renderTemplate(year, 'index', 'html', { year, page });
-  const events = await getEventsPage(year);
-  renderTemplate(year, 'events', 'html', { year, page: events });
-  const end = await getEndPage(year).catch(() => undefined);
-  if (end) {
-    renderTemplate(year, 'end', 'html', { year, page: end });
-  }
-}
+import fs from 'fs';
+import path from 'path';
+import inquirer from 'inquirer';
+import { fileURLToPath } from 'url';
+import { dayName, isDayName } from './day-name.js';
+import {
+  getDayInput,
+  getQuestionPage,
+  getYearPage,
+  getEventsPage,
+  getEndPage,
+} from './scraper.js';
 
 function renderTemplate(year, name, extension, model) {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
   const src = path.resolve(__dirname, '..');
   const prefix = path.join(src, year, isDayName(name) ? name : name);
   const template = path.join(src, 'template', isDayName(name) ? 'day' : name);
@@ -33,7 +25,23 @@ function renderTemplate(year, name, extension, model) {
   return fileName;
 }
 
-async function createSolver(year, day) {
+export async function downloadQuestion(year, day) {
+  const question = await getQuestionPage(year, day);
+  return renderTemplate(year, dayName(day), 'html', { question, year, day });
+}
+
+export async function downloadIndex(year) {
+  const page = await getYearPage(year);
+  renderTemplate(year, 'index', 'html', { year, page });
+  const events = await getEventsPage(year);
+  renderTemplate(year, 'events', 'html', { year, page: events });
+  const end = await getEndPage(year).catch(() => undefined);
+  if (end) {
+    renderTemplate(year, 'end', 'html', { year, page: end });
+  }
+}
+
+export async function createSolver(year, day) {
   const answers = await inquirer.prompt([
     {
       type: 'confirm',
@@ -57,5 +65,3 @@ async function createSolver(year, day) {
     console.log('');
   }
 }
-
-module.exports = { downloadQuestion, downloadIndex, createSolver };

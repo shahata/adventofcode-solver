@@ -84,7 +84,7 @@ function battle(groups) {
   return groups;
 }
 
-function part1(input) {
+export function part1(input) {
   const groups = parse(input);
   return battle(groups).reduce((sum, group) => sum + group.units, 0);
 }
@@ -123,8 +123,6 @@ function binarySearch(cb) {
   }
 }
 
-function part2(input) {
+export function part2(input) {
   return binarySearch(i => attempt(input, i));
 }
-
-module.exports = { part1, part2 };

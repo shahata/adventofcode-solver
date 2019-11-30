@@ -21,7 +21,7 @@ function parse(input) {
   return input.split('\n').map(x => parseInt(x.match(/\d+$/).pop(), 10));
 }
 
-const part1 = (input, times = 4e7) => judge(...parse(input), [1, 1], times);
-const part2 = (input, times = 5e6) => judge(...parse(input), [4, 8], times);
-
-module.exports = { part1, part2 };
+export const part1 = (input, times = 4e7) =>
+  judge(...parse(input), [1, 1], times);
+export const part2 = (input, times = 5e6) =>
+  judge(...parse(input), [4, 8], times);

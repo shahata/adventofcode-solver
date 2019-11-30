@@ -1,6 +1,7 @@
 {
   "name": "adventofcode-solver",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "postinstall": "yoshi lint",
     "start": "node src/index.js",

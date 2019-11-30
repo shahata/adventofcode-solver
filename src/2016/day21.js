@@ -92,11 +92,9 @@ function undo(x) {
   }
 }
 
-const part1 = (input, password = 'abcdefgh') =>
+export const part1 = (input, password = 'abcdefgh') =>
   parse(input, x => x).reduce((x, f) => f(x), password);
-const part2 = (input, encoded = 'fbgdceah') =>
+export const part2 = (input, encoded = 'fbgdceah') =>
   parse(input, undo)
     .reverse()
     .reduce((x, f) => f(x), encoded);
-
-module.exports = { part1, part2 };

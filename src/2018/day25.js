@@ -2,7 +2,7 @@ function distance(a, b) {
   return a.reduce((sum, x, i) => sum + Math.abs(x - b[i]), 0);
 }
 
-function part1(input) {
+export function part1(input) {
   let constellations = 0;
   const lines = input.split('\n');
   const points = lines.map(line => line.split(',').map(x => parseInt(x)));
@@ -25,4 +25,4 @@ function part1(input) {
   return constellations;
 }
 
-module.exports = { part1, part2: () => undefined };
+export const part2 = () => undefined;

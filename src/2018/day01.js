@@ -1,8 +1,8 @@
-function part1(input) {
+export function part1(input) {
   return input.split('\n').reduce((prev, x) => prev + parseInt(x), 0);
 }
 
-function part2(input) {
+export function part2(input) {
   const numbers = input.split('\n').map(x => parseInt(x));
   const visited = new Set();
   let current = 0;
@@ -14,5 +14,3 @@ function part2(input) {
   }
   return frequency;
 }
-
-module.exports = { part1, part2 };

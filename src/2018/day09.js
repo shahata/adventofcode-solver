@@ -15,7 +15,7 @@ function remove(position) {
   return position;
 }
 
-function part1(input) {
+export function part1(input) {
   const [, players, lastMarble] = input
     .match(/(\d+) players; last marble is worth (\d+)/)
     .map(x => parseInt(x));
@@ -39,11 +39,9 @@ function part1(input) {
   return Math.max(...Array.from(score.values()));
 }
 
-function part2(input) {
+export function part2(input) {
   const [, players, lastMarble] = input
     .match(/(\d+) players; last marble is worth (\d+)/)
     .map(x => parseInt(x));
   return part1(`${players} players; last marble is worth ${lastMarble * 100}`);
 }
-
-module.exports = { part1, part2 };

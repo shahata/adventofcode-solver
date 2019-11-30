@@ -1,6 +1,6 @@
-const md5 = require('../utils/md5');
+import md5 from '../utils/md5.js';
 
-function day(input) {
+export function day(input) {
   let hash,
     count = 0;
   let password1 = '';
@@ -24,5 +24,3 @@ function day(input) {
   const part2 = password2.join('');
   return { part1, part2 };
 }
-
-module.exports = { day };

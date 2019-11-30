@@ -58,12 +58,10 @@ function walk(route) {
   return state;
 }
 
-function part1(input) {
+export function part1(input) {
   return walk(parse(input)).message;
 }
 
-function part2(input) {
+export function part2(input) {
   return walk(parse(input)).steps;
 }
-
-module.exports = { part1, part2 };

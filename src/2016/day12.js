@@ -22,9 +22,7 @@ function run(commands, state) {
   return state;
 }
 
-const part1 = input =>
+export const part1 = input =>
   run(input.split('\n').map(toReducer), { a: 0, b: 0, c: 0, d: 0, index: 0 }).a;
-const part2 = input =>
+export const part2 = input =>
   run(input.split('\n').map(toReducer), { a: 0, b: 0, c: 1, d: 0, index: 0 }).a;
-
-module.exports = { part1, part2 };

@@ -1,5 +1,5 @@
-const fetch = require('node-fetch');
-const { dayName } = require('./day-name');
+import fetch from 'node-fetch';
+import { dayName } from './day-name.js';
 
 async function downloadText(url, postPayload) {
   const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
@@ -24,12 +24,12 @@ async function downloadText(url, postPayload) {
   return await response.text();
 }
 
-async function getDayInput(year, day) {
+export async function getDayInput(year, day) {
   const url = `https://adventofcode.com/${year}/day/${day}/input`;
   return await downloadText(url);
 }
 
-async function getQuestionPage(year, day) {
+export async function getQuestionPage(year, day) {
   const url = `https://adventofcode.com/${year}/day/${day}`;
   const text = await downloadText(url);
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
@@ -40,7 +40,7 @@ async function getQuestionPage(year, day) {
     .replace(/action="[^"]*"/g, 'action="end.html"');
 }
 
-async function getYearPage(year) {
+export async function getYearPage(year) {
   const text = await downloadText(`https://adventofcode.com/${year}`);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return page.replace(
@@ -49,7 +49,7 @@ async function getYearPage(year) {
   );
 }
 
-async function getEventsPage(year) {
+export async function getEventsPage(year) {
   const text = await downloadText(`https://adventofcode.com/${year}/events`);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return page
@@ -57,17 +57,9 @@ async function getEventsPage(year) {
     .replace(/href="\/(\d+)"/g, (full, num) => `href="../${num}/index.html"`);
 }
 
-async function getEndPage(year) {
+export async function getEndPage(year) {
   const url = `https://adventofcode.com/${year}/day/25/answer`;
   const text = await downloadText(url, 'level=2&answer=0');
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return question.replace(/href="\/\d+"/g, 'href="index.html"');
 }
-
-module.exports = {
-  getDayInput,
-  getQuestionPage,
-  getYearPage,
-  getEventsPage,
-  getEndPage,
-};
