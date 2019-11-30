@@ -3,7 +3,7 @@ const path = require('path');
 const inquirer = require('inquirer');
 const { dayName, isDayName } = require('./day-name');
 const { getDayInput, getQuestionPage } = require('./scraper');
-const { getYearPage, getEndPage } = require('./scraper');
+const { getYearPage, getEventsPage, getEndPage } = require('./scraper');
 
 async function downloadQuestion(year, day) {
   const question = await getQuestionPage(year, day);
@@ -13,6 +13,8 @@ async function downloadQuestion(year, day) {
 async function downloadIndex(year) {
   const page = await getYearPage(year);
   renderTemplate(year, 'index', 'html', { year, page });
+  const events = await getEventsPage(year);
+  renderTemplate(year, 'events', 'html', { year, page: events });
   const end = await getEndPage(year).catch(() => undefined);
   if (end) {
     renderTemplate(year, 'end', 'html', { year, page: end });

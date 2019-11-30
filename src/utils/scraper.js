@@ -34,8 +34,8 @@ async function getQuestionPage(year, day) {
   const text = await downloadText(url);
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return question
-    .replace(`"/${year}"`, '"index.html"')
-    .replace(/\d+\/input/, `${dayName(day)}.txt`)
+    .replace(/href="\/\d+"/g, 'href="index.html"')
+    .replace(/href="\d+\/input"/g, `href="${dayName(day)}.txt"`)
     .replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`)
     .replace(/action="[^"]*"/g, 'action="end.html"');
 }
@@ -49,11 +49,25 @@ async function getYearPage(year) {
   );
 }
 
+async function getEventsPage(year) {
+  const text = await downloadText(`https://adventofcode.com/${year}/events`);
+  const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
+  return page
+    .replace(/href="\/"/g, `href="../${new Date().getFullYear()}/index.html"`)
+    .replace(/href="\/(\d+)"/g, (full, num) => `href="../${num}/index.html"`);
+}
+
 async function getEndPage(year) {
   const url = `https://adventofcode.com/${year}/day/25/answer`;
   const text = await downloadText(url, 'level=2&answer=0');
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return question.replace(`"/${year}"`, '"index.html"');
+  return question.replace(/href="\/\d+"/g, 'href="index.html"');
 }
 
-module.exports = { getDayInput, getQuestionPage, getYearPage, getEndPage };
+module.exports = {
+  getDayInput,
+  getQuestionPage,
+  getYearPage,
+  getEventsPage,
+  getEndPage,
+};

@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="../static/favicon.ico"/>
 </head>
 <body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
 <p>The first puzzles will unlock on December 1st at midnight Eastern Time.  See you then!</p>
 <style>
@@ -43,7 +43,7 @@
 (function(){
 var countdown = document.getElementById("calendar-countdown");
 if (!countdown) return;
-var server_eta = 57612;
+var server_eta = 55878;
 var key = "2019-1-"+server_eta;
 var now = Math.floor(new Date().getTime()/1000);
 var target = server_eta + now;
