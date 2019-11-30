@@ -12,8 +12,7 @@ import {
 } from './scraper.js';
 
 function renderTemplate(year, name, extension, model) {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const src = path.resolve(__dirname, '..');
   const prefix = path.join(src, year, isDayName(name) ? name : name);
   const template = path.join(src, 'template', isDayName(name) ? 'day' : name);

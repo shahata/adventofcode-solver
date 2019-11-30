@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { performance, PerformanceObserver } from 'perf_hooks';
 
+import readInput from './read-input.js';
 import { dayName } from './day-name.js';
 import { getDayInput } from './scraper.js';
 import { downloadQuestion, downloadIndex, createSolver } from './renderer.js';
@@ -13,8 +14,7 @@ const obs = new PerformanceObserver(list => {
 });
 obs.observe({ entryTypes: ['function'] });
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function solverFunction(year, day) {
   const solver = path.resolve(__dirname, '..', year, `${dayName(day)}.js`);
@@ -23,7 +23,8 @@ function solverFunction(year, day) {
   }
   return async () => {
     const module = await import(`../${year}/${dayName(day)}.js`);
-    const input = (await getDayInput(year, day)).trimRight();
+    const txtFile = path.resolve(__dirname, '..', year, `${dayName(day)}.txt`);
+    const input = readInput(txtFile);
     await downloadQuestion(year, day);
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log('----------------------------');
