@@ -11,7 +11,7 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<article class="day-desc"><h2>--- Day 19: Go With The Flow ---</h2><p>With the Elves well on their way constructing the North Pole base, you turn your attention back to understanding the inner workings of programming the device.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 19: Go With The Flow ---</h2><p>With the Elves well on their way constructing the North Pole base, you turn your attention back to understanding the inner workings of programming the device.</p>
 <p>You can't help but notice that the <a href="day16.html">device's opcodes</a> don't contain any <em>flow control</em> like jump instructions. The device's <a href="day16.html">manual</a> goes on to explain:</p>
 <p>"In programs where flow control is required, the <a href="https://en.wikipedia.org/wiki/Program_counter">instruction pointer</a> can be <em>bound to a register</em> so that it can be manipulated directly. This way, <code>setr</code>/<code>seti</code> can function as absolute jumps, <code>addr</code>/<code>addi</code> can function as relative jumps, and other opcodes can cause <span title="Good luck maintaining a program that uses a bitwise operation on its instruction pointer, though.">truly fascinating</span> effects."</p>
 <p>This mechanism is achieved through a declaration like <code>#ip 1</code>, which would modify register <code>1</code> so that accesses to it let the program indirectly access the instruction pointer itself. To compensate for this kind of binding, there are now <em>six</em> registers (numbered <code>0</code> through <code>5</code>); the five not bound to the instruction pointer behave as normal. Otherwise, the same rules apply as <a href="day16.html">the last time you worked with this device</a>.</p>
@@ -50,7 +50,7 @@ ip=6 [6, 5, 6, 0, 0, 0] seti 9 0 5 [6, 5, 6, 0, 0, 9]
 <p><em>What value is left in register <code>0</code></em> when this new background process halts?</p>
 </article>
 <p>Your puzzle answer was <code>27578880</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, you should <a href="index.html">return to your advent calendar</a> and try another puzzle.</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
 <p>If you still want to see it, you can <a href="day19.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Go+With+The+Flow%22+%2D+Day+19+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F19&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>

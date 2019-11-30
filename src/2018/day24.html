@@ -11,7 +11,7 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<article class="day-desc"><h2>--- Day 24: Immune System Simulator 20XX ---</h2><p>After <a href="https://www.youtube.com/watch?v=NDVjLt_QHL8&t=7" target="_blank">a weird buzzing noise</a>, you appear back at the man's cottage. He seems relieved to see his friend, but quickly notices that the little reindeer caught some kind of cold while out exploring.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 24: Immune System Simulator 20XX ---</h2><p>After <a href="https://www.youtube.com/watch?v=NDVjLt_QHL8&t=7" target="_blank">a weird buzzing noise</a>, you appear back at the man's cottage. He seems relieved to see his friend, but quickly notices that the little reindeer caught some kind of cold while out exploring.</p>
 <p>The portly man explains that this reindeer's immune system isn't similar to regular reindeer immune systems:</p>
 <p>The <em>immune system</em> and the <em>infection</em> each have <span title="On second thought, it's pretty similar to regular reindeer immune systems.">an army</span> made up of several <em>groups</em>; each <em>group</em> consists of one or more identical <em>units</em>.  The armies repeatedly <em>fight</em> until only one army has units remaining.</p>
 <p><em>Units</em> within a group all have the same <em>hit points</em> (amount of damage a unit can take before it is destroyed), <em>attack damage</em> (the amount of damage each unit deals), an <em>attack type</em>, an <em>initiative</em> (higher initiative units attack first and win ties), and sometimes <em>weaknesses</em> or <em>immunities</em>. Here is an example group:</p>
@@ -160,8 +160,7 @@ Group 2 contains 4434 units
 <p>In the example above, the winning army ends up with <code>782 + 4434 = <em>5216</em></code> units.</p>
 <p>You scan the reindeer's condition (your puzzle input); the white-bearded man looks nervous.  As it stands now, <em>how many units would the winning army have</em>?</p>
 </article>
-<p>Your puzzle answer was <code>26753</code>.</p><p class="day-success">The first half of this puzzle is complete! It provides one gold star: *</p>
-<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Things aren't looking good for the reindeer. The man asks whether more milk and cookies would help you think.</p>
+<p>Your puzzle answer was <code>26753</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Things aren't looking good for the reindeer. The man asks whether more milk and cookies would help you think.</p>
 <p>If only you could give the reindeer's immune system a boost, you might be able to change the outcome of the combat.</p>
 <p>A <em>boost</em> is an integer increase in immune system units' attack damage. For example, if you were to boost the above example's immune system's units by <code>1570</code>, the armies would instead look like this:</p>
 <pre><code>Immune System:
@@ -296,11 +295,12 @@ No groups remain.
 <p>You don't even know <em>how</em> you could boost the reindeer's immune system or what effect it might have, so you need to be cautious and find the <em>smallest boost</em> that would allow the immune system to win.</p>
 <p><em>How many units does the immune system have left</em> after getting the smallest boost it needs to win?</p>
 </article>
-<p>Although it hasn't changed, you can still <a href="day24.txt" target="_blank">get your puzzle input</a>.</p>
-<form method="post" action="end.html"><input type="hidden" name="level" value="2"/><p>Answer: <input type="text" name="answer" autocomplete="off"/> <input type="submit" value="[Submit]"/></p></form>
+<p>Your puzzle answer was <code>1852</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day24.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+Part+One+of+%22Immune+System+Simulator+20XX%22+%2D+Day+24+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F24&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F24&amp;title=I%27ve+completed+Part+One+of+%22Immune+System+Simulator+20XX%22+%2D+Day+24+%2D+Advent+of+Code+2018" target="_blank">Reddit</a
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Immune+System+Simulator+20XX%22+%2D+Day+24+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F24&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F24&amp;title=I%27ve+completed+%22Immune+System+Simulator+20XX%22+%2D+Day+24+%2D+Advent+of+Code+2018" target="_blank">Reddit</a
 ></span>]</span> this puzzle.</p>
 </main>
 </body>

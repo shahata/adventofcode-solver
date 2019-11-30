@@ -11,7 +11,7 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<article class="day-desc"><h2>--- Day 22: Mode Maze ---</h2><p>This is it, your final stop: the year <span title="Yes, really: there is no year zero.">-483</span>. It's snowing and dark outside; the only light you can see is coming from a small cottage in the distance. You make your way there and knock on the door.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 22: Mode Maze ---</h2><p>This is it, your final stop: the year <span title="Yes, really: there is no year zero.">-483</span>. It's snowing and dark outside; the only light you can see is coming from a small cottage in the distance. You make your way there and knock on the door.</p>
 <p>A portly man with a large, white beard answers the door and invites you inside. For someone living near the North Pole in -483, he must not get many visitors, but he doesn't act surprised to see you. Instead, he offers you some milk and cookies.</p>
 <p>After talking for a while, he asks a favor of you. His friend hasn't come back in a few hours, and he's not sure where he is.  Scanning the region briefly, you discover one life signal in a cave system nearby; his friend must have taken shelter there.  The man asks if you can go there to retrieve his friend.</p>
 <p>The cave is divided into square <em>regions</em> which are either dominantly <em>rocky</em>, <em>narrow</em>, or <em>wet</em> (called its <em>type</em>). Each region occupies exactly one <em>coordinate</em> in <code>X,Y</code> format where <code>X</code> and <code>Y</code> are integers and zero or greater. (Adjacent regions can be the same type.)</p>
@@ -56,7 +56,7 @@
 |=.=||===.|||===
 ||.|==.|.|.||=||
 </code></pre>
-<p>Before you go in, you should determine the <em>risk level</em> of the area. For the the rectangle that has a top-left corner of region <code>0,0</code> and a bottom-right corner of the region containing the target, add up the risk level of each individual region: <code>0</code> for rocky regions, <code>1</code> for wet regions, and <code>2</code> for narrow regions.</p>
+<p>Before you go in, you should determine the <em>risk level</em> of the area. For the rectangle that has a top-left corner of region <code>0,0</code> and a bottom-right corner of the region containing the target, add up the risk level of each individual region: <code>0</code> for rocky regions, <code>1</code> for wet regions, and <code>2</code> for narrow regions.</p>
 <p>In the cave system above, because the mouth is at <code>0,0</code> and the target is at <code>10,10</code>, adding up the risk level of all regions with an <code>X</code> coordinate from <code>0</code> to <code>10</code> and a <code>Y</code> coordinate from <code>0</code> to <code>10</code>, this total is <code><em>114</em></code>.</p>
 <p><em>What is the total risk level for the smallest rectangle that includes <code>0,0</code> and the target's coordinates?</em></p>
 </article>
@@ -329,7 +329,7 @@ M=.|=.|.|=.|=|=.
 <p><em>What is the fewest number of minutes you can take to reach the target?</em></p>
 </article>
 <p>Your puzzle answer was <code>973</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, you should <a href="index.html">return to your advent calendar</a> and try another puzzle.</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
 <p>If you still want to see it, you can <a href="day22.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Mode+Maze%22+%2D+Day+22+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>

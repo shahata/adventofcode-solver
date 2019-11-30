@@ -11,80 +11,55 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 25: Four-Dimensional Adventure ---</h2><p>The reindeer's symptoms are getting worse, and neither you nor the white-bearded man have a solution. At least the reindeer has a warm place to rest: a small bed near where you're sitting.</p>
-<p>As you reach down, the reindeer looks up at you, <span title="It was not an accident.">accidentally</span> bumping a button on your wrist-mounted device with its nose in the process - a button labeled <em>"help"</em>.</p>
-<p>"Hello, and welcome to the Time Travel Support Hotline! If you are lost in time and space, press 1. If you are trapped in a time paradox, press 2. If you need help caring for a sick reindeer, press 3. If you--"</p>
-<p><em>Beep.</em></p>
-<p>A few seconds later, you hear a new voice. "Hello; please state the nature of your reindeer." You try to describe the situation.</p>
-<p>"Just a moment, I think I can remotely run a diagnostic scan." A beam of light projects from the device and sweeps over the reindeer a few times.</p>
-<p>"Okay, it looks like your reindeer is very low on magical energy; it should fully recover if we can fix that.  Let me check your timeline for a source.... Got one. There's actually a powerful source of magical energy about 1000 years forward from you, and at roughly your position, too!  It looks like... hot chocolate?  Anyway, you should be able to travel there to pick some up; just don't forget a mug!  Is there anything else I can help you with today?"</p>
-<p>You explain that your device isn't capable of going forward in time.  "I... see. That's tricky. Well, according to this information, your device should have the necessary hardware to open a small portal and send some hot chocolate back to you. You'll need a list of <em>fixed points in spacetime</em>; I'm transmitting it to you now."</p>
-<p>"You just need to align your device to the constellations of fixed points so that it can lock on to the destination and open the portal. Let me look up how much hot chocolate that breed of reindeer needs."</p>
-<p>"It says here that your particular reindeer is-- this can't be right, it says there's only one like that in the universe!  But THAT means that you're--" You disconnect the call.</p>
-<p>The list of fixed points in spacetime (your puzzle input) is a set of four-dimensional coordinates. To align your device, acquire the hot chocolate, and save the reindeer, you just need to find the <em>number of constellations</em> of points in the list.</p>
-<p>Two points are in the same <em>constellation</em> if their manhattan distance apart is <em>no more than 3</em> or if they can form a chain of points, each a manhattan distance no more than 3 from the last, between the two of them. (That is, if a point is close enough to a constellation, it "joins" that constellation.) For example:</p>
-<pre><code> 0,0,0,0
- 3,0,0,0
- 0,3,0,0
- 0,0,3,0
- 0,0,0,3
- 0,0,0,6
- 9,0,0,0
-12,0,0,0
-</code></pre>
-<p>In the above list, the first six points form a single constellation: <code>0,0,0,0</code> is exactly distance <code>3</code> from the next four, and the point at <code>0,0,0,6</code> is connected to the others by being <code>3</code> away from <code>0,0,0,3</code>, which is already in the constellation. The bottom two points, <code>9,0,0,0</code> and <code>12,0,0,0</code> are in a separate constellation because no point is close enough to connect them to the first constellation.  So, in the above list, the number of constellations is <code><em>2</em></code>.  (If a point at <code>6,0,0,0</code> were present, it would connect <code>3,0,0,0</code> and <code>9,0,0,0</code>, merging all of the points into a single giant constellation instead.)</p>
-<p>In this example, the number of constellations is <code>4</code>:</p>
-<pre><code>-1,2,2,0
-0,0,2,-2
-0,0,0,-2
--1,2,0,0
--2,-2,-2,2
-3,0,2,-1
--1,3,2,2
--1,0,-1,0
-0,2,1,-2
-3,0,0,0
-</code></pre>
-<p>In this one, it's <code>3</code>:</p>
-<pre><code>1,-1,0,1
-2,0,-1,0
-3,2,-1,0
-0,0,3,1
-0,0,-1,-1
-2,3,-2,0
--2,2,0,0
-2,-2,0,-1
-1,-1,0,-1
-3,2,0,2
-</code></pre>
-<p>Finally, in this one, it's <code>8</code>:</p>
-<pre><code>1,-1,-1,-2
--2,-2,0,1
-0,2,1,3
--2,3,-2,1
-0,2,3,-2
--1,-1,1,-2
-0,-2,-1,0
--2,2,3,-1
-1,2,2,0
--1,-2,0,-2
-</code></pre>
-<p>The portly man nervously strokes his white beard. It's time to get that hot chocolate.</p>
-<p><em>How many constellations are formed by the fixed points in spacetime?</em></p>
+<article>
+<p>You use all <span class="day-success">fifty stars</span> to activate the underflow. As you begin to fall, the little reindeer looks up at you; its nose begins to glow red.</p><p>You go back in time so far that you wrap around and end up back in your own time again! Oddly, history books contain some new details that you don't recognize...</p>
+<p class="aside">Congratulations!  You've finished every puzzle in Advent of Code 2018!  I hope you had as much fun solving them as I had making them for you.  I'd love to hear about your adventure; you can get in touch with me via contact info on <a href="http://was.tl/" target="_blank">my website</a> or through <a href="https://twitter.com/ericwastl" target="_blank">Twitter</a>.</p>
+<p class="aside">If you'd like to see more things like this in the future, please consider <a href="index.html/support" target="_blank">supporting</a> Advent of Code and sharing it with others.</p>
+<p class="aside">To hear about future projects, you can follow me on <a href="https://twitter.com/ericwastl" target="_blank">Twitter</a>.</p>
+<p class="aside">I've <span style="border-bottom:1px dotted #ffff66;" title="Yep, just like that.  There's one in the description for each day.">highlighted</span> the easter eggs in each puzzle, just in case you missed any.  Hover your mouse over them, and the easter egg will appear.</p>
+<p>You can <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I+just+completed+all+25+days+of+Advent+of+Code+2018%21&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F&amp;title=I+just+completed+all+25+days+of+Advent+of+Code+2018%21" target="_blank">Reddit</a
+></span>]</span> this moment with your friends, or <a href="/2018">[Go Check on Your Calendar]</a>.
 </article>
-<p>Your puzzle answer was <code>375</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>A small glowing portal opens above the mug you prepared and just enough hot chocolate streams in to fill it. You suspect the reindeer has never encountered hot chocolate before, but seems to enjoy it anyway. You hope it works.</p>
-<p>It's time to start worrying about that <em>integer underflow in time itself</em> you <a href="21">set up a few days ago</a>. You check the status of the device: "Insufficient chronal energy for activation. Energy required: <em class="star">50 stars</em>."</p>
-<p>The reindeer bumps the device with its nose.</p>
-<p>"Energy required: <em class="star">49 stars</em>."</p>
-</article>
-<form method="post" action="25/answer"><input type="hidden" name="level" value="2"/><input type="hidden" name="answer" value="0"/><p>If you like, you can <input type="submit" value="[Trigger the Underflow again]"/>.</p></form>
-<p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="25/input" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Four%2DDimensional+Adventure%22+%2D+Day+25+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F25&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F25&amp;title=I%27ve+completed+%22Four%2DDimensional+Adventure%22+%2D+Day+25+%2D+Advent+of+Code+2018" target="_blank">Reddit</a
-></span>]</span> this puzzle.</p>
+<style>
+.calendar-bkg {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 100%);
+}
+.sf {
+  position: fixed;
+  animation: anim-sf0 linear 20s infinite;
+  z-index: -1;
+}
+.sf:before {
+  content: "*";
+}
+.sf.sf0 { color: #ffffff; }
+.sf.sf1 { color: #cccccc; animation-name: anim-sf1; }
+.sf.sf2 { color: #999999; animation-name: anim-sf2; }
+.sf.sf3 { color: #666666; animation-name: anim-sf3; }
+@keyframes anim-sf0 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(8em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(8em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf1 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(6em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(6em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf2 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(4em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(4em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf3 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(2em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(2em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+</style>
+<div class="sf sf3" style="top:-4.51em; left:56.27vw; animation-delay:-8.77s;"></div><div class="sf sf1" style="top:-2.82em; left:6.44vw; animation-delay:-13.77s;"></div><div class="sf sf3" style="top:-4.74em; left:7.97vw; animation-delay:-12.21s;"></div><div class="sf sf0" style="top:-1.31em; left:25.76vw; animation-delay:-2.19s;"></div><div class="sf sf2" style="top:-3.80em; left:90.12vw; animation-delay:-5.67s;"></div><div class="sf sf0" style="top:-1.51em; left:10.32vw; animation-delay:-11.05s;"></div><div class="sf sf3" style="top:-5.00em; left:1.92vw; animation-delay:-1.37s;"></div><div class="sf sf2" style="top:-3.89em; left:15.03vw; animation-delay:-9.97s;"></div><div class="sf sf3" style="top:-4.26em; left:63.74vw; animation-delay:-1.33s;"></div><div class="sf sf1" style="top:-2.35em; left:1.17vw; animation-delay:-13.11s;"></div><div class="sf sf2" style="top:-3.50em; left:67.71vw; animation-delay:-14.54s;"></div><div class="sf sf0" style="top:-1.63em; left:94.12vw; animation-delay:-4.55s;"></div><div class="sf sf2" style="top:-3.61em; left:6.99vw; animation-delay:-15.44s;"></div><div class="sf sf2" style="top:-3.43em; left:63.81vw; animation-delay:-12.68s;"></div><div class="sf sf2" style="top:-3.08em; left:12.44vw; animation-delay:-0.31s;"></div><div class="sf sf0" style="top:-1.94em; left:83.17vw; animation-delay:-1.47s;"></div><div class="sf sf1" style="top:-2.22em; left:92.10vw; animation-delay:-4.83s;"></div><div class="sf sf3" style="top:-4.41em; left:95.71vw; animation-delay:-14.31s;"></div><div class="sf sf3" style="top:-4.25em; left:23.39vw; animation-delay:-0.88s;"></div><div class="sf sf2" style="top:-3.06em; left:45.22vw; animation-delay:-12.91s;"></div><div class="sf sf2" style="top:-3.58em; left:75.05vw; animation-delay:-13.43s;"></div><div class="sf sf1" style="top:-2.74em; left:22.32vw; animation-delay:-17.67s;"></div><div class="sf sf3" style="top:-4.42em; left:51.60vw; animation-delay:-9.73s;"></div><div class="sf sf2" style="top:-3.02em; left:35.19vw; animation-delay:-19.11s;"></div><div class="sf sf3" style="top:-4.30em; left:91.03vw; animation-delay:-11.65s;"></div><div class="sf sf3" style="top:-4.44em; left:4.70vw; animation-delay:-10.14s;"></div><div class="sf sf1" style="top:-2.79em; left:48.05vw; animation-delay:-9.91s;"></div><div class="sf sf3" style="top:-4.59em; left:7.66vw; animation-delay:-8.28s;"></div><div class="sf sf3" style="top:-4.03em; left:49.36vw; animation-delay:-13.77s;"></div><div class="sf sf0" style="top:-1.93em; left:75.67vw; animation-delay:-13.43s;"></div><div class="sf sf3" style="top:-4.20em; left:19.60vw; animation-delay:-13.85s;"></div><div class="sf sf1" style="top:-2.30em; left:91.49vw; animation-delay:-2.34s;"></div><div class="sf sf0" style="top:-2.00em; left:26.98vw; animation-delay:-6.79s;"></div><div class="sf sf0" style="top:-1.00em; left:89.63vw; animation-delay:-13.90s;"></div><div class="sf sf1" style="top:-3.00em; left:35.71vw; animation-delay:-10.89s;"></div><div class="sf sf2" style="top:-3.38em; left:38.21vw; animation-delay:-10.63s;"></div><div class="sf sf0" style="top:-1.87em; left:93.37vw; animation-delay:-9.29s;"></div><div class="sf sf0" style="top:-1.15em; left:39.76vw; animation-delay:-11.55s;"></div><div class="sf sf3" style="top:-4.58em; left:55.75vw; animation-delay:-13.42s;"></div><div class="sf sf2" style="top:-3.30em; left:95.00vw; animation-delay:-18.93s;"></div><div class="sf sf3" style="top:-4.35em; left:18.53vw; animation-delay:-3.85s;"></div><div class="sf sf2" style="top:-3.60em; left:60.28vw; animation-delay:-7.16s;"></div><div class="sf sf2" style="top:-3.29em; left:40.29vw; animation-delay:-17.59s;"></div><div class="sf sf0" style="top:-1.03em; left:66.49vw; animation-delay:-6.08s;"></div><div class="sf sf0" style="top:-1.73em; left:4.45vw; animation-delay:-11.46s;"></div><div class="sf sf2" style="top:-3.84em; left:24.96vw; animation-delay:-12.64s;"></div><div class="sf sf3" style="top:-4.78em; left:73.66vw; animation-delay:-19.85s;"></div><div class="sf sf3" style="top:-4.34em; left:3.80vw; animation-delay:-5.40s;"></div><div class="sf sf1" style="top:-2.01em; left:89.06vw; animation-delay:-1.50s;"></div><div class="sf sf1" style="top:-2.61em; left:7.02vw; animation-delay:-14.10s;"></div><div class="sf sf0" style="top:-1.96em; left:58.86vw; animation-delay:-15.04s;"></div><div class="sf sf2" style="top:-3.72em; left:92.46vw; animation-delay:-13.21s;"></div><div class="sf sf1" style="top:-2.69em; left:75.66vw; animation-delay:-15.78s;"></div><div class="sf sf3" style="top:-4.50em; left:39.19vw; animation-delay:-2.66s;"></div><div class="sf sf0" style="top:-1.26em; left:89.41vw; animation-delay:-7.24s;"></div><div class="sf sf0" style="top:-1.81em; left:90.23vw; animation-delay:-11.72s;"></div><div class="sf sf0" style="top:-1.11em; left:59.38vw; animation-delay:-10.21s;"></div><div class="sf sf1" style="top:-2.69em; left:11.48vw; animation-delay:-12.49s;"></div><div class="sf sf0" style="top:-1.81em; left:61.70vw; animation-delay:-9.31s;"></div><div class="sf sf2" style="top:-3.33em; left:18.99vw; animation-delay:-18.54s;"></div><div class="sf sf2" style="top:-3.95em; left:31.10vw; animation-delay:-2.48s;"></div><div class="sf sf3" style="top:-4.40em; left:93.01vw; animation-delay:-11.06s;"></div><div class="sf sf3" style="top:-4.56em; left:60.26vw; animation-delay:-12.23s;"></div><div class="sf sf0" style="top:-1.92em; left:38.95vw; animation-delay:-0.07s;"></div><div class="sf sf0" style="top:-1.38em; left:7.79vw; animation-delay:-19.46s;"></div><div class="sf sf3" style="top:-4.26em; left:92.94vw; animation-delay:-11.31s;"></div><div class="sf sf3" style="top:-4.77em; left:31.53vw; animation-delay:-10.07s;"></div><div class="sf sf2" style="top:-3.42em; left:22.26vw; animation-delay:-11.09s;"></div><div class="sf sf1" style="top:-2.91em; left:72.46vw; animation-delay:-2.66s;"></div><div class="sf sf3" style="top:-4.49em; left:94.30vw; animation-delay:-0.41s;"></div><div class="sf sf0" style="top:-1.17em; left:41.42vw; animation-delay:-11.84s;"></div><div class="sf sf1" style="top:-2.41em; left:31.44vw; animation-delay:-7.73s;"></div><div class="sf sf3" style="top:-4.93em; left:14.95vw; animation-delay:-15.34s;"></div><div class="sf sf1" style="top:-2.60em; left:63.24vw; animation-delay:-5.04s;"></div><div class="sf sf1" style="top:-2.76em; left:59.61vw; animation-delay:-16.05s;"></div><div class="sf sf3" style="top:-4.22em; left:82.32vw; animation-delay:-6.15s;"></div><div class="sf sf0" style="top:-1.41em; left:94.23vw; animation-delay:-19.83s;"></div><div class="sf sf0" style="top:-1.20em; left:55.11vw; animation-delay:-17.77s;"></div><div class="sf sf3" style="top:-4.09em; left:43.30vw; animation-delay:-9.11s;"></div><div class="sf sf3" style="top:-4.57em; left:64.51vw; animation-delay:-4.17s;"></div><div class="sf sf1" style="top:-2.40em; left:1.21vw; animation-delay:-18.48s;"></div><div class="sf sf0" style="top:-1.88em; left:2.35vw; animation-delay:-14.52s;"></div><div class="sf sf0" style="top:-1.48em; left:71.08vw; animation-delay:-13.49s;"></div><div class="sf sf0" style="top:-1.46em; left:51.37vw; animation-delay:-8.14s;"></div><div class="sf sf3" style="top:-4.28em; left:59.96vw; animation-delay:-16.81s;"></div><div class="sf sf3" style="top:-4.43em; left:88.00vw; animation-delay:-17.64s;"></div><div class="sf sf3" style="top:-4.47em; left:16.83vw; animation-delay:-16.73s;"></div><div class="sf sf1" style="top:-2.33em; left:20.24vw; animation-delay:-12.24s;"></div><div class="sf sf1" style="top:-2.72em; left:83.88vw; animation-delay:-12.41s;"></div><div class="sf sf3" style="top:-4.81em; left:72.41vw; animation-delay:-4.55s;"></div><div class="sf sf1" style="top:-2.54em; left:82.11vw; animation-delay:-17.33s;"></div><div class="sf sf1" style="top:-2.22em; left:22.24vw; animation-delay:-2.64s;"></div><div class="sf sf0" style="top:-1.02em; left:67.34vw; animation-delay:-18.01s;"></div><div class="sf sf0" style="top:-1.49em; left:49.51vw; animation-delay:-6.61s;"></div><div class="sf sf3" style="top:-4.84em; left:14.26vw; animation-delay:-8.43s;"></div><div class="sf sf2" style="top:-3.67em; left:59.93vw; animation-delay:-3.52s;"></div><div class="sf sf3" style="top:-4.18em; left:76.80vw; animation-delay:-12.34s;"></div><div class="sf sf0" style="top:-1.38em; left:2.55vw; animation-delay:-8.04s;"></div><div class="sf sf0" style="top:-1.46em; left:86.25vw; animation-delay:-5.42s;"></div><div class="sf sf0" style="top:-1.56em; left:94.65vw; animation-delay:-7.55s;"></div>
 </main>
 </body>
 </html>

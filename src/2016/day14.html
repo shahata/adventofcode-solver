@@ -29,7 +29,7 @@
 <p>So, using our example salt of <code>abc</code>, index <code>22728</code> produces the <code>64</code>th key.</p>
 <p>Given the actual salt in your puzzle input, <em>what index</em> produces your <code>64</code>th one-time pad key?</p>
 </article>
-<p>Your puzzle answer was <code>23769</code>.</p><article class="day-desc"><h2>--- Part Two ---</h2><p>Of course, in order to make this process <a href="https://en.wikipedia.org/wiki/MD5#Security">even more secure</a>, you've also implemented <a href="https://en.wikipedia.org/wiki/Key_stretching">key stretching</a>.</p>
+<p>Your puzzle answer was <code>23769</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Of course, in order to make this process <a href="https://en.wikipedia.org/wiki/MD5#Security">even more secure</a>, you've also implemented <a href="https://en.wikipedia.org/wiki/Key_stretching">key stretching</a>.</p>
 <p>Key stretching forces attackers to spend more time generating hashes. Unfortunately, it forces everyone else to spend more time, too.</p>
 <p>To implement key stretching, whenever you generate a hash, before you use it, you first find the MD5 hash of that hash, then the MD5 hash of <em>that</em> hash, and so on, a total of <em><code>2016</code> additional hashings</em>. Always use lowercase hexadecimal representations of hashes.</p>
 <p>For example, to find the stretched hash for index <code>0</code> and salt <code>abc</code>:</p>
@@ -50,12 +50,11 @@
 <p>Given the actual salt in your puzzle input and using <code>2016</code> extra MD5 calls of key stretching, <em>what index</em> now produces your <code>64</code>th one-time pad key?</p>
 </article>
 <p>Your puzzle answer was <code>20606</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your advent calendar</a>.</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
 <p>Your puzzle input was <code class="puzzle-input">cuanljph</code>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22One%2DTime+Pad%22+%2D+Day+14+%2D+Advent+of+Code+2016&amp;url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="https://plus.google.com/share?url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14" target="_blank">Google+</a>
-  <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14&amp;title=I%27ve+completed+%22One%2DTime+Pad%22+%2D+Day+14+%2D+Advent+of+Code+2016" target="_blank">Reddit</a
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22One%2DTime+Pad%22+%2D+Day+14+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14&amp;title=I%27ve+completed+%22One%2DTime+Pad%22+%2D+Day+14+%2D+Advent+of+Code+2016" target="_blank">Reddit</a
 ></span>]</span> this puzzle.</p>
 </main>
 </body>
