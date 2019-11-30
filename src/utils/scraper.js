@@ -17,7 +17,7 @@ async function downloadText(url, postPayload) {
   if (response.status >= 400) {
     throw new Error(
       `Failed to download from ${url} (${
-        response.status
+      response.status
       })\nDescription: ${await response.text()}`,
     );
   }
@@ -34,7 +34,7 @@ async function getQuestionPage(year, day) {
   const text = await downloadText(url);
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return question
-    .replace(`/${year}`, 'index.html')
+    .replace(`"/${year}"`, '"index.html"')
     .replace(/\d+\/input/, `${dayName(day)}.txt`)
     .replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`)
     .replace(/action="[^"]*"/g, 'action="end.html"');
@@ -53,7 +53,7 @@ async function getEndPage(year) {
   const url = `https://adventofcode.com/${year}/day/25/answer`;
   const text = await downloadText(url, 'level=2&answer=0');
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return question.replace(`/${year}`, 'index.html');
+  return question.replace(`"/${year}"`, '"index.html"');
 }
 
 module.exports = { getDayInput, getQuestionPage, getYearPage, getEndPage };
