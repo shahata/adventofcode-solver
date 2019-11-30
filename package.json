@@ -41,13 +41,6 @@
   },
   "wallaby": {
     "autoDetect": true,
-    "tests": [
-      "src/2018/day25.spec.js"
-    ],
-    "env": {
-      "params": {
-        "env": "SKIP_HEAVY=true"
-      }
-    }
+    "runSelectedTestsOnly": true
   }
 }
