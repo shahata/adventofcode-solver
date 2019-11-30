@@ -17,7 +17,7 @@ async function downloadText(url, postPayload) {
   if (response.status >= 400) {
     throw new Error(
       `Failed to download from ${url} (${
-      response.status
+        response.status
       })\nDescription: ${await response.text()}`,
     );
   }
