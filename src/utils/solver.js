@@ -20,7 +20,7 @@ const obs = new PerformanceObserver(list => {
 });
 obs.observe({ entryTypes: ['function'] });
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 function solverFunction(year, day) {
   const solver = path.resolve(__dirname, '..', year, `${dayName(day)}.js`);
