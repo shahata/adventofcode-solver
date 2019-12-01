@@ -498,3 +498,4 @@ Sue 497: trees: 2, akitas: 4, vizslas: 6
 Sue 498: akitas: 8, pomeranians: 7, trees: 0
 Sue 499: perfumes: 6, goldfish: 3, vizslas: 7
 Sue 500: cars: 1, perfumes: 6, vizslas: 1
+

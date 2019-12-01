@@ -29,6 +29,11 @@ export async function downloadQuestion(year, day) {
   return renderTemplate(year, dayName(day), 'html', { question, year, day });
 }
 
+export async function downloadInput(year, day) {
+  const input = await getDayInput(year, day);
+  return renderTemplate(year, dayName(day), 'txt', { input });
+}
+
 export async function downloadIndex(year) {
   const page = await getYearPage(year);
   renderTemplate(year, 'index', 'html', { year, page });
@@ -55,9 +60,7 @@ export async function createSolver(year, day) {
       year,
       day: dayName(day),
     });
-    const txtFileName = renderTemplate(year, dayName(day), 'txt', {
-      input: await getDayInput(year, day),
-    });
+    const txtFileName = await downloadInput(year, day);
     [htmlFileName, jsFileName, specFileName, txtFileName].forEach(fn =>
       console.log(`Created ${fn}`),
     );

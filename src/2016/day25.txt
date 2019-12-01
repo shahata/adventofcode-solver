@@ -28,3 +28,4 @@ jnz 0 0
 out b
 jnz a -19
 jnz 1 -21
+

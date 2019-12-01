@@ -26,3 +26,4 @@ Faerun to Arbre = 144
 Norrath to Straylight = 115
 Norrath to Arbre = 135
 Straylight to Arbre = 127
+

@@ -1,12 +1,18 @@
 import fs from 'fs';
 import path from 'path';
+import ProgressBar from 'progress';
 import { fileURLToPath } from 'url';
 import { performance, PerformanceObserver } from 'perf_hooks';
 
 import readInput from './read-input.js';
 import { dayName } from './day-name.js';
 import { getDayInput } from './scraper.js';
-import { downloadQuestion, downloadIndex, createSolver } from './renderer.js';
+import {
+  downloadQuestion,
+  downloadIndex,
+  downloadInput,
+  createSolver,
+} from './renderer.js';
 
 let duration;
 const obs = new PerformanceObserver(list => {
@@ -25,7 +31,6 @@ function solverFunction(year, day) {
     const module = await import(`../${year}/${dayName(day)}.js`);
     const txtFile = path.resolve(__dirname, '..', year, `${dayName(day)}.txt`);
     const input = readInput(txtFile);
-    await downloadQuestion(year, day);
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log('----------------------------');
     if (module.day) {
@@ -46,12 +51,12 @@ function solverFunction(year, day) {
   };
 }
 
-function getSolvers(year) {
+function getDays(year) {
   try {
     return fs
       .readdirSync(path.resolve(__dirname, '..', year))
       .filter(x => x.match(/^day\d+\.js$/))
-      .map(x => solverFunction(year, `${parseInt(x.match(/\d+/).shift())}`));
+      .map(x => `${parseInt(x.match(/\d+/).shift())}`);
   } catch (e) {
     console.error(`must pass valid year in first argument`);
     process.exit(0);
@@ -67,9 +72,24 @@ export default async function solveAll(year, day) {
       await createSolver(year, day);
     }
   } else {
-    const solvers = getSolvers(year, day);
+    console.log('Downloading questions...');
+    const days = getDays(year, day);
+    var bar = new ProgressBar('[:bar] :percent', {
+      total: days.length * 2 + 1,
+      width: 40,
+    });
     await downloadIndex(year);
-    for (const solver of solvers) {
+    bar.tick();
+    for (const day of days) {
+      await downloadQuestion(year, day);
+      bar.tick();
+      await downloadInput(year, day);
+      bar.tick();
+    }
+    console.log('');
+
+    for (const day of days) {
+      const solver = solverFunction(year, day);
       await solver();
     }
   }

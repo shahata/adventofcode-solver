@@ -60,3 +60,4 @@ In state F:
     - Write the value 1.
     - Move one slot to the right.
     - Continue with state C.
+
