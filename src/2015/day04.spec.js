@@ -2,7 +2,7 @@ import { part1, part2 } from './day04.js';
 import { itHeavy } from 'describe-heavy';
 import readInput from '../utils/read-input';
 
-const input = readInput(__filename);
+const input = readInput(import.meta.url);
 
 describe('day04 2015', () => {
   describe('part1', () => {

@@ -1,7 +1,7 @@
 import fs from 'fs';
+import url from 'url';
 import path from 'path';
 import ProgressBar from 'progress';
-import { fileURLToPath } from 'url';
 import { performance, PerformanceObserver } from 'perf_hooks';
 
 import readInput from './read-input.js';
@@ -29,8 +29,9 @@ function solverFunction(year, day) {
   }
   return async () => {
     const module = await import(`../${year}/${dayName(day)}.js`);
-    const txtFile = path.resolve(__dirname, '..', year, `${dayName(day)}.txt`);
-    const input = readInput(txtFile);
+    const input = readInput(
+      url.resolve(import.meta.url, `../${year}/${dayName(day)}.js`),
+    );
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log('----------------------------');
     if (module.day) {
