@@ -7,9 +7,13 @@ describe('day09 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`London to Dublin = 464
-London to Belfast = 518
-Dublin to Belfast = 141`),
+        part1(
+          [
+            'London to Dublin = 464',
+            'London to Belfast = 518',
+            'Dublin to Belfast = 141',
+          ].join('\n'),
+        ),
       ).toEqual(605);
     });
 
@@ -21,9 +25,13 @@ Dublin to Belfast = 141`),
   describe('part2', () => {
     it('should work for part 2 examples', () => {
       expect(
-        part2(`London to Dublin = 464
-London to Belfast = 518
-Dublin to Belfast = 141`),
+        part2(
+          [
+            'London to Dublin = 464',
+            'London to Belfast = 518',
+            'Dublin to Belfast = 141',
+          ].join('\n'),
+        ),
       ).toEqual(982);
     });
 

@@ -8,25 +8,28 @@ describe('day23 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`cpy 41 a
-inc a
-inc a
-dec a
-jnz a 2
-dec a`),
+        part1(
+          ['cpy 41 a', 'inc a', 'inc a', 'dec a', 'jnz a 2', 'dec a'].join(
+            '\n',
+          ),
+        ),
       ).toEqual(42);
       expect(part1(oldInput, { a: 0, b: 0, c: 0, d: 0, index: 0 })).toEqual(
         317993,
       );
       // expect(day(oldInput, {a: 0, b: 0, c: 1, d: 0, index: 0}).part2).toEqual(9227647);
       expect(
-        part1(`cpy 2 a
-tgl a
-tgl a
-tgl a
-cpy 1 a
-dec a
-dec a`),
+        part1(
+          [
+            'cpy 2 a',
+            'tgl a',
+            'tgl a',
+            'tgl a',
+            'cpy 1 a',
+            'dec a',
+            'dec a',
+          ].join('\n'),
+        ),
       ).toEqual(3);
     });
 

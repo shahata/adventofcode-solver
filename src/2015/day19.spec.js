@@ -8,18 +8,10 @@ describe('day19 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`H => HO
-H => OH
-O => HH
-
-HOH`),
+        part1(['H => HO', 'H => OH', 'O => HH', '', 'HOH'].join('\n')),
       ).toEqual(4);
       expect(
-        part1(`H => HO
-H => OH
-O => HH
-
-HOHOHO`),
+        part1(['H => HO', 'H => OH', 'O => HH', '', 'HOHOHO'].join('\n')),
       ).toEqual(7);
     });
 
@@ -31,22 +23,24 @@ HOHOHO`),
   describe('part2', () => {
     it('should work for part 2 examples', () => {
       expect(
-        part2(`e => H
-e => O
-H => HO
-H => OH
-O => HH
-
-HOH`),
+        part2(
+          ['e => H', 'e => O', 'H => HO', 'H => OH', 'O => HH', '', 'HOH'].join(
+            '\n',
+          ),
+        ),
       ).toEqual(3);
       expect(
-        part2(`e => H
-e => O
-H => HO
-H => OH
-O => HH
-
-HOHOHO`),
+        part2(
+          [
+            'e => H',
+            'e => O',
+            'H => HO',
+            'H => OH',
+            'O => HH',
+            '',
+            'HOHOHO',
+          ].join('\n'),
+        ),
       ).toEqual(6);
     });
 

@@ -7,14 +7,9 @@ describe('day24 2017', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`0/2
-2/2
-2/3
-3/4
-3/5
-0/1
-10/1
-9/10`),
+        part1(
+          ['0/2', '2/2', '2/3', '3/4', '3/5', '0/1', '10/1', '9/10'].join('\n'),
+        ),
       ).toEqual(31);
     });
 
@@ -26,14 +21,9 @@ describe('day24 2017', () => {
   describe('part2', () => {
     it('should work for part 2 examples', () => {
       expect(
-        part2(`0/2
-2/2
-2/3
-3/4
-3/5
-0/1
-10/1
-9/10`),
+        part2(
+          ['0/2', '2/2', '2/3', '3/4', '3/5', '0/1', '10/1', '9/10'].join('\n'),
+        ),
       ).toEqual(19);
     });
 

@@ -7,22 +7,26 @@ describe('day06 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`eedadn
-drvtee
-eandsr
-raavrd
-atevrs
-tsrnev
-sdttsa
-rasrtv
-nssdts
-ntnada
-svetve
-tesnvt
-vntsnd
-vrdear
-dvrsen
-enarar`),
+        part1(
+          [
+            'eedadn',
+            'drvtee',
+            'eandsr',
+            'raavrd',
+            'atevrs',
+            'tsrnev',
+            'sdttsa',
+            'rasrtv',
+            'nssdts',
+            'ntnada',
+            'svetve',
+            'tesnvt',
+            'vntsnd',
+            'vrdear',
+            'dvrsen',
+            'enarar',
+          ].join('\n'),
+        ),
       ).toEqual('easter');
     });
 
@@ -34,22 +38,26 @@ enarar`),
   describe('part2', () => {
     it('should work for part 2 examples', () => {
       expect(
-        part2(`eedadn
-drvtee
-eandsr
-raavrd
-atevrs
-tsrnev
-sdttsa
-rasrtv
-nssdts
-ntnada
-svetve
-tesnvt
-vntsnd
-vrdear
-dvrsen
-enarar`),
+        part2(
+          [
+            'eedadn',
+            'drvtee',
+            'eandsr',
+            'raavrd',
+            'atevrs',
+            'tsrnev',
+            'sdttsa',
+            'rasrtv',
+            'nssdts',
+            'ntnada',
+            'svetve',
+            'tesnvt',
+            'vntsnd',
+            'vrdear',
+            'dvrsen',
+            'enarar',
+          ].join('\n'),
+        ),
       ).toEqual('advent');
     });
 

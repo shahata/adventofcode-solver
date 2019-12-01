@@ -7,10 +7,14 @@ describe('day08 2017', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`b inc 5 if a > 1
-a inc 1 if b < 5
-c dec -10 if a >= 1
-c inc -20 if c == 10`),
+        part1(
+          [
+            'b inc 5 if a > 1',
+            'a inc 1 if b < 5',
+            'c dec -10 if a >= 1',
+            'c inc -20 if c == 10',
+          ].join('\n'),
+        ),
       ).toEqual(1);
     });
 
@@ -22,10 +26,14 @@ c inc -20 if c == 10`),
   describe('part2', () => {
     it('should work for part 2 examples', () => {
       expect(
-        part2(`b inc 5 if a > 1
-a inc 1 if b < 5
-c dec -10 if a >= 1
-c inc -20 if c == 10`),
+        part2(
+          [
+            'b inc 5 if a > 1',
+            'a inc 1 if b < 5',
+            'c dec -10 if a >= 1',
+            'c inc -20 if c == 10',
+          ].join('\n'),
+        ),
       ).toEqual(10);
     });
 

@@ -7,9 +7,13 @@ describe('day06 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`turn on 0,0 through 999,999
-toggle 0,0 through 999,0
-turn off 499,499 through 500,500`),
+        part1(
+          [
+            'turn on 0,0 through 999,999',
+            'toggle 0,0 through 999,0',
+            'turn off 499,499 through 500,500',
+          ].join('\n'),
+        ),
       ).toEqual(1e6 - 1e3 - 4);
     });
 

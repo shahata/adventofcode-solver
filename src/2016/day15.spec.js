@@ -7,8 +7,12 @@ describe('day15 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`Disc #1 has 5 positions; at time=0, it is at position 4.
-Disc #2 has 2 positions; at time=0, it is at position 1.`),
+        part1(
+          [
+            'Disc #1 has 5 positions; at time=0, it is at position 4.',
+            'Disc #2 has 2 positions; at time=0, it is at position 1.',
+          ].join('\n'),
+        ),
       ).toEqual(5);
     });
 

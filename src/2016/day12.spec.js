@@ -7,12 +7,11 @@ describe('day12 2016', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`cpy 41 a
-inc a
-inc a
-dec a
-jnz a 2
-dec a`),
+        part1(
+          ['cpy 41 a', 'inc a', 'inc a', 'dec a', 'jnz a 2', 'dec a'].join(
+            '\n',
+          ),
+        ),
       ).toEqual(42);
     });
 

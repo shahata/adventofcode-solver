@@ -6,12 +6,7 @@ const input = readInput(import.meta.url);
 describe('day13 2017', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
-      expect(
-        part1(`0: 3
-1: 2
-4: 4
-6: 4`),
-      ).toEqual(24);
+      expect(part1(['0: 3', '1: 2', '4: 4', '6: 4'].join('\n'))).toEqual(24);
     });
 
     it('should work for part 1 input', () => {
@@ -21,12 +16,7 @@ describe('day13 2017', () => {
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(
-        part2(`0: 3
-1: 2
-4: 4
-6: 4`),
-      ).toEqual(10);
+      expect(part2(['0: 3', '1: 2', '4: 4', '6: 4'].join('\n'))).toEqual(10);
     });
 
     it('should work for part 2 input', () => {

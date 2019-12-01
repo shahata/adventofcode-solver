@@ -7,10 +7,7 @@ describe('day23 2015', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
-        part1(`inc b
-jio b, +2
-tpl b
-inc b`),
+        part1(['inc b', 'jio b, +2', 'tpl b', 'inc b'].join('\n')),
       ).toEqual(2);
     });
 
