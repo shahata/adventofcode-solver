@@ -3,7 +3,7 @@ import readInput from '../utils/read-input';
 
 const input = readInput(__filename);
 
-describe.only('day01 2019', () => {
+describe('day01 2019', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(part1('12')).toEqual(2);
