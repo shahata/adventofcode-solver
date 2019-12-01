@@ -2,6 +2,10 @@
   "name": "adventofcode-solver",
   "version": "1.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shahata/adventofcode-solver.git"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi ;};f",
