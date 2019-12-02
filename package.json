@@ -48,7 +48,6 @@
     ],
     "rules": {
       "jest/no-focused-tests": "error",
-      "jest/no-standalone-expect": "off",
       "jest/expect-expect": "off"
     },
     "extends": [
