@@ -10,6 +10,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '${{ steps.nvm.outputs.NVMRC }}'
+    - run: sudo apt-get install z3
     - run: npm ci
     - run: npm test
       env:

@@ -90,10 +90,11 @@ export function part1(input) {
 
 export function part2(input) {
   const elfCount = input.match(/E/g).length;
-  for (let elfBoost = 1; true; elfBoost++) {
-    const { i, units } = fight(input, elfBoost);
-    if (elfCount === count(units, 'E')) {
-      return i * units.reduce((sum, u) => (sum += u.hit), 0);
-    }
-  }
+  let elfBoost = 1;
+  let i, units;
+  do {
+    ({ i, units } = fight(input, elfBoost));
+    elfBoost++;
+  } while (elfCount !== count(units, 'E'));
+  return i * units.reduce((sum, u) => (sum += u.hit), 0);
 }
