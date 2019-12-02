@@ -1,4 +1,4 @@
-# Advent of Code - Solver [![Build Status](https://github.com/shahata/adventofcode-solver/workflows/build/badge.svg)](#)
+# Advent of Code - Solver <a>![Build Status](https://github.com/shahata/adventofcode-solver/workflows/build/badge.svg)</a>
 
 This repository contains solutions for advent of code (https://adventofcode.com)
 
