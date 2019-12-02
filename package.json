@@ -8,8 +8,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi ;};f",
-    "precommit": "eslint src/**/*.js"
+    "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi ;};f"
   },
   "dependencies": {
     "inquirer": "^4.0.1",
@@ -37,10 +36,6 @@
       "@babel/plugin-transform-modules-commonjs"
     ]
   },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "all"
-  },
   "eslintConfig": {
     "parser": "babel-eslint",
     "plugins": [
@@ -52,6 +47,15 @@
     "extends": [
       "plugin:prettier/recommended"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint src/**/*.js"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
   },
   "wallaby": {
     "autoDetect": true,
