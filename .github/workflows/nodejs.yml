@@ -1,0 +1,13 @@
+name: Node CI
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+    - run: npm ci
+    - run: npm test
+      env:
+        CI: true
+        SKIP_HEAVY: true
