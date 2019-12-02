@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi ;};f"
+    "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi ;};f",
+    "lint": "eslint src/**/*.js"
   },
   "dependencies": {
     "inquirer": "^4.0.1",
@@ -38,19 +39,27 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
+    "env": {
+      "node": true,
+      "es2020": true
+    },
     "plugins": [
       "jest"
     ],
     "rules": {
-      "jest/no-focused-tests": "error"
+      "jest/no-focused-tests": "error",
+      "jest/no-standalone-expect": "off",
+      "jest/expect-expect": "off"
     },
     "extends": [
+      "eslint:recommended",
+      "plugin:jest/recommended",
       "plugin:prettier/recommended"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint src/**/*.js"
+      "pre-commit": "npm run lint"
     }
   },
   "prettier": {

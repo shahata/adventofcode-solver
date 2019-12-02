@@ -1,10 +1,9 @@
 import { part1, part2 } from './day23.js';
-import { describeHeavy } from 'describe-heavy';
 import readInput from '../utils/read-input';
 
 const input = readInput(import.meta.url);
 
-describeHeavy('day23 2018', () => {
+describe('day23 2018', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(

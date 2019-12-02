@@ -6,7 +6,6 @@ import { performance, PerformanceObserver } from 'perf_hooks';
 
 import readInput from './read-input.js';
 import { dayName } from './day-name.js';
-import { getDayInput } from './scraper.js';
 import {
   downloadQuestion,
   downloadIndex,
