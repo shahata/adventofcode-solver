@@ -61,9 +61,6 @@
       "pre-commit": "npm run lint"
     }
   },
-  "jest": {
-    "cacheDirectory": "./.jest"
-  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all"
