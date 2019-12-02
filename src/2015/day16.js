@@ -24,7 +24,7 @@ function parseMap(s, p1, p2) {
   return s
     .split(p1)
     .map(x => x.split(p2))
-    .reduce((obj, pair) => ({ ...obj, [pair[0]]: parseInt(pair[1], 10) }), {});
+    .reduce((obj, pair) => ({ ...obj, [pair[0]]: parseInt(pair[1]) }), {});
 }
 
 function matches(x, expect) {
@@ -40,7 +40,7 @@ function parse(input) {
     .split('\n')
     .map(x => x.match(/^Sue ([^:]*): (.*)/))
     .map(x => [x[1], parseMap(x[2], ', ', ': ')])
-    .map(x => ({ id: parseInt(x[0], 10), ...x[1] }));
+    .map(x => ({ id: parseInt(x[0]), ...x[1] }));
 }
 
 export const part1 = input =>

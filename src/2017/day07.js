@@ -7,7 +7,7 @@ function parse(input) {
       ...programs,
       [name]: {
         name,
-        weight: parseInt(weight, 10),
+        weight: parseInt(weight),
         children: children && children.replace(/\s+/g, '').split(','),
       },
     };

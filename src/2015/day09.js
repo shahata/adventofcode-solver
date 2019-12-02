@@ -20,7 +20,7 @@ function parse(input) {
   const graph = input
     .split('\n')
     .map(x => x.match(/^(.*) to (.*) = (\d+)$/))
-    .map(x => ({ p1: x[1], p2: x[2], d: parseInt(x[3], 10) }))
+    .map(x => ({ p1: x[1], p2: x[2], d: parseInt(x[3]) }))
     .reduce((graph, edge) => {
       graph[edge.p1] = { ...graph[edge.p1], [edge.p2]: edge.d };
       graph[edge.p2] = { ...graph[edge.p2], [edge.p1]: edge.d };

@@ -16,7 +16,7 @@ function parse(input) {
     .map(x =>
       x.match(/^(.*) would (gain|lose) (\d+) happiness .* next to (.*)\.$/),
     )
-    .map(x => ({ p1: x[1], p2: x[4], d: signs[x[2]] * parseInt(x[3], 10) }))
+    .map(x => ({ p1: x[1], p2: x[4], d: signs[x[2]] * parseInt(x[3]) }))
     .reduce((graph, edge) => {
       const prev = (graph[edge.p1] && graph[edge.p1][edge.p2]) || 0;
       graph[edge.p1] = { ...graph[edge.p1], [edge.p2]: edge.d + prev };

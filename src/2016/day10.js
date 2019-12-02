@@ -26,13 +26,13 @@ export function day(input, low = 17, high = 61) {
         state = assign(
           state,
           `${lowDest}s`,
-          parseInt(lowIndex, 10),
+          parseInt(lowIndex),
           state.bots[bot][0],
         );
         state = assign(
           state,
           `${highDest}s`,
-          parseInt(highIndex, 10),
+          parseInt(highIndex),
           state.bots[bot][1],
         );
         delete state.bots[bot];
@@ -45,7 +45,7 @@ export function day(input, low = 17, high = 61) {
     return lines.reduce(
       (state, line) => {
         const [, value, bot] = line.match(/^value (\d+) goes to bot (\d+)$/);
-        return assign(state, 'bots', parseInt(bot, 10), parseInt(value, 10));
+        return assign(state, 'bots', parseInt(bot), parseInt(value));
       },
       { bots: {}, outputs: {} },
     );

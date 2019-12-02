@@ -2,7 +2,7 @@ function parse(input, fn) {
   const regexp = /^(swap position|swap letter|rotate based|rotate|reverse positions|move position) ([^\s]+)\s.*\s([^\s]+)$/;
   const ops = {
     'swap position': (a, b) => str => {
-      [a, b] = [parseInt(a, 10), parseInt(b, 10)].sort((a, b) => a - b);
+      [a, b] = [parseInt(a), parseInt(b)].sort((a, b) => a - b);
       const arr = str
         .match(new RegExp(`^(.{${a}})(.)(.{${b - a - 1}})(.)(.*)$`))
         .slice(1);
@@ -38,7 +38,7 @@ function parse(input, fn) {
         .pop();
     },
     rotate: (a, b) => str => {
-      b = parseInt(b, 10) % str.length;
+      b = parseInt(b) % str.length;
       const regexp = a === 'left' ? `^(.{${b}})(.*)$` : `^(.*)(.{${b}})$`;
       return str
         .match(new RegExp(regexp))
@@ -47,7 +47,7 @@ function parse(input, fn) {
         .join('');
     },
     'reverse positions': (a, b) => str => {
-      [a, b] = [parseInt(a, 10), parseInt(b, 10)].sort((a, b) => a - b);
+      [a, b] = [parseInt(a), parseInt(b)].sort((a, b) => a - b);
       const arr = str
         .match(new RegExp(`^(.{${a}})(.)(.{${b - a - 1}})(.)(.*)$`))
         .slice(1);
@@ -61,8 +61,8 @@ function parse(input, fn) {
     },
     'move position': (a, b) => str => {
       const arr = str.split('');
-      const moved = arr.splice(parseInt(a, 10), 1).pop();
-      arr.splice(parseInt(b, 10), 0, moved);
+      const moved = arr.splice(parseInt(a), 1).pop();
+      arr.splice(parseInt(b), 0, moved);
       return arr.join('');
     },
   };

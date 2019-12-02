@@ -3,7 +3,7 @@ function parse(input) {
     const matches = x.match(
       /^Disc #(\d+) has (\d+) positions; at time=0, it is at position (\d+)\./,
     );
-    const [, index, positions, initial] = matches.map(x => parseInt(x, 10));
+    const [, index, positions, initial] = matches.map(x => parseInt(x));
     return { index, positions, initial };
   });
 }

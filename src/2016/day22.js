@@ -33,7 +33,7 @@ function build(nodes) {
     const [x, y] = node.name
       .match(/x(\d+)-y(\d+)$/)
       .slice(1)
-      .map(x => parseInt(x, 10));
+      .map(x => parseInt(x));
     map[cellId({ x, y })] = { wall: Math.floor(Math.log10(node.used)) === big };
     start = node.used === 0 ? { x, y } : start;
     data = y === 0 && x > data.x ? { x, y } : data;

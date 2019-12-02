@@ -1,5 +1,5 @@
 function parse(input) {
-  return input.split('\n').map(x => x.split('/').map(n => parseInt(n, 10)));
+  return input.split('\n').map(x => x.split('/').map(n => parseInt(n)));
 }
 
 function toKey(item) {

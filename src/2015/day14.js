@@ -3,9 +3,9 @@ function parse(input) {
     .split('\n')
     .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))
     .map(x => ({
-      speed: parseInt(x[1], 10),
-      fly: parseInt(x[2], 10),
-      rest: parseInt(x[3], 10),
+      speed: parseInt(x[1]),
+      fly: parseInt(x[2]),
+      rest: parseInt(x[3]),
       distance: 0,
       points: 0,
     }));

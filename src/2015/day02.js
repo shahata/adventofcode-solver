@@ -1,5 +1,5 @@
 const parse = input =>
-  input.split('\n').map(x => x.split('x').map(x => parseInt(x, 10)));
+  input.split('\n').map(x => x.split('x').map(x => parseInt(x)));
 
 export const part1 = input =>
   parse(input)

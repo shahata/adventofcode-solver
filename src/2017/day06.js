@@ -1,5 +1,5 @@
 export function day(input) {
-  const banks = input.split(/\s+/).map(x => parseInt(x, 10));
+  const banks = input.split(/\s+/).map(x => parseInt(x));
   const memory = {};
   let rounds = 0;
   while (memory[banks.join('-')] === undefined) {

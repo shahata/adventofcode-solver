@@ -1,6 +1,6 @@
 function parse(input) {
   return input.split('\n').map(line => {
-    const [depth, range] = line.split(': ').map(x => parseInt(x, 10));
+    const [depth, range] = line.split(': ').map(x => parseInt(x));
     return { depth, range };
   });
 }

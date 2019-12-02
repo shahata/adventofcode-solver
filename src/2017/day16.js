@@ -16,10 +16,9 @@ function parse(input, length) {
         .join(''),
   };
   const params = {
-    x: (a, b) =>
-      swap(...[parseInt(a, 10), parseInt(b, 10)].sort((a, b) => a - b)),
+    x: (a, b) => swap(...[parseInt(a), parseInt(b)].sort((a, b) => a - b)),
     p: (a, b) => [a, b],
-    s: a => new RegExp(`^(.*)(.{${parseInt(a, 10) % length}})$`),
+    s: a => new RegExp(`^(.*)(.{${parseInt(a) % length}})$`),
   };
   return input
     .split(',')

@@ -2,11 +2,11 @@ function toReducer(str) {
   const params = str.split(/\s+/);
   const ops = {
     cpy: (src, register) => state =>
-      (state[register] = src.match(/^\d+$/) ? parseInt(src, 10) : state[src]),
+      (state[register] = src.match(/^\d+$/) ? parseInt(src) : state[src]),
     inc: register => state => state[register]++,
     dec: register => state => state[register]--,
     jnz: (register, distance) => state =>
-      (state.index += state[register] === 0 ? 0 : parseInt(distance, 10) - 1),
+      (state.index += state[register] === 0 ? 0 : parseInt(distance) - 1),
   };
   const cmd = ops[params.shift()](...params);
   return state => {

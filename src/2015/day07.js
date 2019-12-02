@@ -11,7 +11,7 @@ const ops = {
 function getter(id) {
   return id && id.match(/^[a-z]+$/)
     ? circuit => circuit[id]()
-    : () => parseInt(id, 10);
+    : () => parseInt(id);
 }
 
 function makeCircuit(input) {

@@ -1,7 +1,7 @@
 export function part1(input) {
   return input
     .split('\n')
-    .map(x => parseInt(x, 10))
+    .map(x => parseInt(x))
     .map(x => Math.floor(x / 3) - 2)
     .reduce((a, b) => a + b);
 }
@@ -9,7 +9,7 @@ export function part1(input) {
 export function part2(input) {
   return input
     .split('\n')
-    .map(x => parseInt(x, 10))
+    .map(x => parseInt(x))
     .map(x => {
       let fuel = Math.floor(x / 3) - 2;
       let extra = fuel;

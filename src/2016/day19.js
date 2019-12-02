@@ -46,5 +46,5 @@ function solve2(count) {
   }
 }
 
-export const part1 = input => solve1(parseInt(input, 10));
-export const part2 = input => solve2(parseInt(input, 10));
+export const part1 = input => solve1(parseInt(input));
+export const part2 = input => solve2(parseInt(input));

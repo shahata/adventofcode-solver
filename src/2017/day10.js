@@ -41,7 +41,7 @@ function encode(arr) {
 }
 
 function parse(input) {
-  return input.split(',').map(x => parseInt(x, 10));
+  return input.split(',').map(x => parseInt(x));
 }
 
 function parse2(input) {

@@ -9,7 +9,7 @@ export function day(input) {
     .split(', ')
     .map(x => {
       const [, turn, count] = x.match(/^(R|L)(\d+)$/);
-      return { turn: turn === 'R' ? 1 : -1, count: parseInt(count, 10) };
+      return { turn: turn === 'R' ? 1 : -1, count: parseInt(count) };
     })
     .reduce(
       (state, next) => {

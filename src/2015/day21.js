@@ -38,9 +38,9 @@ function calcOptions() {
       } else {
         state[state.currentCategory].push({
           name: x[1].trim().toLowerCase(),
-          cost: parseInt(x[2], 10),
-          damage: parseInt(x[3], 10),
-          armor: parseInt(x[4], 10),
+          cost: parseInt(x[2]),
+          damage: parseInt(x[3]),
+          armor: parseInt(x[4]),
         });
       }
       return state;
@@ -73,7 +73,7 @@ function calcOptions() {
 }
 
 function parse(input) {
-  const [hit, damage, armor] = input.match(/\d+/g).map(x => parseInt(x, 10));
+  const [hit, damage, armor] = input.match(/\d+/g).map(x => parseInt(x));
   return { hit, damage, armor };
 }
 

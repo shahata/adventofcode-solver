@@ -24,7 +24,7 @@ function cellId({ x, y }) {
 }
 
 function solveMaze(input, source, destination) {
-  const magicNumber = parseInt(input, 10);
+  const magicNumber = parseInt(input);
   let queue = [source];
   const maze = { [cellId(source)]: { distance: 0, open: true } };
   while (queue.length) {
