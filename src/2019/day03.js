@@ -10,12 +10,11 @@ function mark(map, current, direction, times) {
       current.x++;
     }
     current.track++;
-    map[`${current.x},${current.y}`] = map[`${current.x},${current.y}`] || {
-      ids: 0,
-      tracks: 0,
-    };
-    map[`${current.x},${current.y}`].ids += current.id;
-    map[`${current.x},${current.y}`].tracks += current.track;
+    const value = map.get(`${current.x},${current.y}`) || { ids: 0, tracks: 0 };
+    map.set(`${current.x},${current.y}`, {
+      ids: value.ids + current.id,
+      tracks: value.tracks + current.track,
+    });
   }
 }
 
@@ -30,13 +29,13 @@ function draw(map, line, id) {
 
 export function part1(input) {
   const [line1, line2] = input.split('\n');
-  const map = {};
+  const map = new Map();
   draw(map, line1, 1);
   draw(map, line2, 2);
-  const distances = Object.keys(map)
-    .filter(k => map[k].ids === 3)
-    .map(k => {
-      return k
+  const distances = Array.from(map.entries())
+    .filter(entry => entry[1].ids === 3)
+    .map(entry => {
+      return entry[0]
         .split(',')
         .map(x => Math.abs(parseInt(x)))
         .reduce((a, b) => a + b);
@@ -46,10 +45,10 @@ export function part1(input) {
 
 export function part2(input) {
   const [line1, line2] = input.split('\n');
-  const map = {};
+  const map = new Map();
   draw(map, line1, 1);
   draw(map, line2, 2);
-  const distances = Object.values(map)
+  const distances = Array.from(map.values())
     .filter(x => x.ids === 3)
     .map(x => x.tracks);
   return Math.min(...distances);
