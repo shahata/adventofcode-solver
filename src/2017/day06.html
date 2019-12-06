@@ -11,7 +11,8 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 6: Memory Reallocation ---</h2><p>A debugger program here is having an issue: it is trying to repair a memory reallocation routine, but it keeps getting stuck in an infinite loop.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
+<article class="day-desc"><h2>--- Day 6: Memory Reallocation ---</h2><p>A debugger program here is having an issue: it is trying to repair a memory reallocation routine, but it keeps getting stuck in an infinite loop.</p>
 <p>In this area, there are <span title="There are also five currency banks, two river banks, three airplanes banking, a banked billards shot, and a left bank.">sixteen memory banks</span>; each memory bank can hold any number of <em>blocks</em>. The goal of the reallocation routine is to balance the blocks between the memory banks.</p>
 <p>The reallocation routine operates in cycles. In each cycle, it finds the memory bank with the most blocks (ties won by the lowest-numbered memory bank) and redistributes those blocks among the banks. To do this, it removes all of the blocks from the selected bank, then moves to the next (by index) memory bank and inserts one of the blocks. It continues doing this until it runs out of blocks; if it reaches the last memory bank, it wraps around to the first one.</p>
 <p>The debugger would like to know how many redistributions can be done before a blocks-in-banks configuration is produced that <em>has been seen before</em>.</p>
@@ -36,7 +37,7 @@
 <p>If you still want to see it, you can <a href="day06.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Memory+Reallocation%22+%2D+Day+6+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F6&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F6&amp;title=I%27ve+completed+%22Memory+Reallocation%22+%2D+Day+6+%2D+Advent+of+Code+2017" target="_blank">Reddit</a
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Memory+Reallocation%22+%2D+Day+6+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F6'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 </body>

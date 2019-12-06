@@ -1,5 +1,15 @@
+import fs from 'fs';
+import url from 'url';
+import path from 'path';
 import solveAll from './utils/solver.js';
 
+async function solveAllYears() {
+  const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+  const years = fs.readdirSync(__dirname).filter(x => x.match(/^\d\d\d\d$/));
+  for (const year of years) {
+    await solveAll(year, undefined, false);
+  }
+}
 if (process.env.ADVENT_SESSION) {
   let year = process.argv[2];
   let day = process.argv[3];
@@ -12,7 +22,11 @@ if (process.env.ADVENT_SESSION) {
       process.exit(0);
     }
   }
-  solveAll(`${year}`, day && `${day}`).catch(err => console.error(err.stack));
+  if (year) {
+    solveAll(`${year}`, day && `${day}`).catch(err => console.error(err.stack));
+  } else {
+    solveAllYears().catch(err => console.error(err.stack));
+  }
 } else {
   console.error('************************************************************');
   console.error('************************************************************');

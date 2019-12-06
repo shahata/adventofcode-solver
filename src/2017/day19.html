@@ -11,7 +11,8 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 19: A Series of Tubes ---</h2><p>Somehow, a network packet got <span title="I know how fast it's going, but I don't know where it is.">lost</span> and ended up here.  It's trying to follow a routing diagram (your puzzle input), but it's confused about where to go.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
+<article class="day-desc"><h2>--- Day 19: A Series of Tubes ---</h2><p>Somehow, a network packet got <span title="I know how fast it's going, but I don't know where it is.">lost</span> and ended up here.  It's trying to follow a routing diagram (your puzzle input), but it's confused about where to go.</p>
 <p>Its starting point is just off the top of the diagram. Lines (drawn with <code>|</code>, <code>-</code>, and <code>+</code>) show the path it needs to take, starting by going down onto the only line connected to the top of the diagram. It needs to follow this path until it reaches the end (located somewhere within the diagram) and stop there.</p>
 <p>Sometimes, the lines cross over each other; in these cases, it needs to continue going the same direction, and only turn left or right when there's no other option.  In addition, someone has left <em>letters</em> on the line; these also don't change its direction, but it can use them to keep track of where it's been. For example:</p>
 <pre><code>     |          
@@ -61,7 +62,7 @@
 <p>If you still want to see it, you can <a href="day19.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22A+Series+of+Tubes%22+%2D+Day+19+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F19&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F19&amp;title=I%27ve+completed+%22A+Series+of+Tubes%22+%2D+Day+19+%2D+Advent+of+Code+2017" target="_blank">Reddit</a
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22A+Series+of+Tubes%22+%2D+Day+19+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F19'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 </body>

@@ -11,7 +11,8 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2015</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 13: Knights of the Dinner Table ---</h2><p>In years past, the holiday feast with your family hasn't gone so well.  Not everyone gets along!  This year, you resolve, will be different.  You're going to find the <em>optimal seating arrangement</em> and avoid all those awkward conversations.</p>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
+<article class="day-desc"><h2>--- Day 13: Knights of the Dinner Table ---</h2><p>In years past, the holiday feast with your family hasn't gone so well.  Not everyone gets along!  This year, you resolve, will be different.  You're going to find the <em>optimal seating arrangement</em> and avoid all those awkward conversations.</p>
 <p>You start by writing up a list of everyone invited and the amount their happiness would increase or decrease if they were to find themselves sitting next to each other person.  You have a circular table that will be just big enough to fit everyone comfortably, and so each person will have exactly two neighbors.</p>
 <p>For example, suppose you have only four attendees planned, and you <span title="Finding a method to calculate happiness units is left as an exercise for the reader.">calculate</span> their potential happiness as follows:</p>
 <pre><code>Alice would gain 54 happiness units by sitting next to Bob.
@@ -47,7 +48,7 @@ Carol       Alice
 <p>If you still want to see it, you can <a href="day13.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Knights+of+the+Dinner+Table%22+%2D+Day+13+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F13&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="http://www.reddit.com/submit?url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F13&amp;title=I%27ve+completed+%22Knights+of+the+Dinner+Table%22+%2D+Day+13+%2D+Advent+of+Code+2015" target="_blank">Reddit</a
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Knights+of+the+Dinner+Table%22+%2D+Day+13+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F13'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
 </main>
 </body>

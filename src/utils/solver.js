@@ -63,7 +63,7 @@ function getDays(year) {
   }
 }
 
-export default async function solveAll(year, day) {
+export default async function solveAll(year, day, run = true) {
   if (day) {
     const solver = solverFunction(year, day);
     if (solver) {
@@ -72,7 +72,7 @@ export default async function solveAll(year, day) {
       await createSolver(year, day);
     }
   } else {
-    console.log('Downloading questions...');
+    console.log(`Downloading questions (${year})...`);
     const days = getDays(year, day);
     var bar = new ProgressBar('[:bar] :percent', {
       total: days.length * 2 + 1,
@@ -88,9 +88,11 @@ export default async function solveAll(year, day) {
     }
     console.log('');
 
-    for (const day of days) {
-      const solver = solverFunction(year, day);
-      await solver();
+    if (run) {
+      for (const day of days) {
+        const solver = solverFunction(year, day);
+        await solver();
+      }
     }
   }
 }
