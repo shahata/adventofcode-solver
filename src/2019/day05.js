@@ -3,7 +3,7 @@ function get(ops, ip, offset) {
   return mode === 0 ? ops[ops[ip + offset]] : ops[ip + offset];
 }
 
-function process(ops, ip, user) {
+export function execute(ops, ip, user) {
   switch (ops[ip] % 100) {
     case 1:
       ops[ops[ip + 3]] = get(ops, ip, 1) + get(ops, ip, 2);
@@ -12,7 +12,7 @@ function process(ops, ip, user) {
       ops[ops[ip + 3]] = get(ops, ip, 1) * get(ops, ip, 2);
       return ip + 4;
     case 3:
-      ops[ops[ip + 1]] = user.input;
+      ops[ops[ip + 1]] = user.input.shift();
       return ip + 2;
     case 4:
       user.output = get(ops, ip, 1);
@@ -31,12 +31,12 @@ function process(ops, ip, user) {
 }
 
 export function part1(input, inputValue = 1) {
-  const user = { input: inputValue, output: undefined };
+  const user = { input: [inputValue], output: undefined };
   const ops = input.split(',').map(x => parseInt(x));
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {
-    ip = process(ops, ip, user);
+    ip = execute(ops, ip, user);
   }
   return user.output;
 }
