@@ -12,6 +12,9 @@ export function execute(ops, ip, user) {
       ops[ops[ip + 3]] = get(ops, ip, 1) * get(ops, ip, 2);
       return ip + 4;
     case 3:
+      if (user.input.length === 0) {
+        throw 'waiting for input';
+      }
       ops[ops[ip + 1]] = user.input.shift();
       return ip + 2;
     case 4:
