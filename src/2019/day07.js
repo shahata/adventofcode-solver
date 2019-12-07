@@ -2,7 +2,7 @@ import Combinatorics from 'js-combinatorics';
 import { execute } from './day05.js';
 
 function run(input, inputValues, state) {
-  const user = state ? state.user : { input: inputValues, output: undefined };
+  const user = { input: inputValues, output: undefined };
   const ops = state ? state.ops : input.split(',').map(x => parseInt(x));
   let ip = state ? state.ip : 0;
 
@@ -35,26 +35,11 @@ export function part2(input) {
   const results = permutations.map(permutation => {
     let A, B, C, D, E;
     do {
-      if (A) {
-        A.user = { input: [E.user.output] };
-      }
-      A = run(input, [permutation[0], 0], A);
-      if (B) {
-        B.user = { input: [A.user.output] };
-      }
-      B = run(input, [permutation[1], A.user.output], B);
-      if (C) {
-        C.user = { input: [B.user.output] };
-      }
-      C = run(input, [permutation[2], B.user.output], C);
-      if (D) {
-        D.user = { input: [C.user.output] };
-      }
-      D = run(input, [permutation[3], C.user.output], D);
-      if (E) {
-        E.user = { input: [D.user.output] };
-      }
-      E = run(input, [permutation[4], D.user.output], E);
+      A = run(input, A ? [E.user.output] : [permutation[0], 0], A);
+      B = run(input, B ? [A.user.output] : [permutation[1], A.user.output], B);
+      C = run(input, C ? [B.user.output] : [permutation[2], B.user.output], C);
+      D = run(input, D ? [C.user.output] : [permutation[3], C.user.output], D);
+      E = run(input, E ? [D.user.output] : [permutation[4], D.user.output], E);
     } while (!E.done);
     return E.user.output;
   });
