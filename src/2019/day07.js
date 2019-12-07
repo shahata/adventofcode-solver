@@ -11,27 +11,14 @@ function run(input, inputValues, state) {
       ip = execute(ops, ip, user);
     } catch {
       //waiting for input
-      break;
+      return { user, ops, ip, done: false };
     }
   }
-  return { user, ops, ip, done: ops[ip] % 100 === 99 };
+  return { user, ops, ip, done: true };
 }
 
-export function part1(input) {
-  const permutations = Combinatorics.permutation([0, 1, 2, 3, 4]).toArray();
-  const results = permutations.map(permutation => {
-    const A = run(input, [permutation[0], 0]).user.output;
-    const B = run(input, [permutation[1], A]).user.output;
-    const C = run(input, [permutation[2], B]).user.output;
-    const D = run(input, [permutation[3], C]).user.output;
-    const E = run(input, [permutation[4], D]).user.output;
-    return E;
-  });
-  return Math.max(...results);
-}
-
-export function part2(input) {
-  const permutations = Combinatorics.permutation([5, 6, 7, 8, 9]).toArray();
+export function part1(input, phases = [0, 1, 2, 3, 4]) {
+  const permutations = Combinatorics.permutation(phases).toArray();
   const results = permutations.map(permutation => {
     let A, B, C, D, E;
     do {
@@ -44,4 +31,8 @@ export function part2(input) {
     return E.user.output;
   });
   return Math.max(...results);
+}
+
+export function part2(input) {
+  return part1(input, [5, 6, 7, 8, 9]);
 }
