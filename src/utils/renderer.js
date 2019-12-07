@@ -3,11 +3,13 @@ import path from 'path';
 import inquirer from 'inquirer';
 import { fileURLToPath } from 'url';
 import { dayName, isDayName } from './day-name.js';
+import { calcLeaderboard } from './calc-leaderboard.js';
 import {
   getDayInput,
   getQuestionPage,
   getYearPage,
   getEventsPage,
+  getLeaderboardJsons,
   getEndPage,
 } from './scraper.js';
 
@@ -39,6 +41,11 @@ export async function downloadIndex(year) {
   renderTemplate(year, 'index', 'html', { year, page });
   const events = await getEventsPage(year);
   renderTemplate(year, 'events', 'html', { year, page: events });
+  const leaderboards = await getLeaderboardJsons(year);
+  renderTemplate(year, 'leaderboard', 'html', {
+    year,
+    page: calcLeaderboard(leaderboards),
+  });
   const end = await getEndPage(year).catch(() => undefined);
   if (end) {
     renderTemplate(year, 'end', 'html', { year, page: end });

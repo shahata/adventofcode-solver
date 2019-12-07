@@ -16,9 +16,10 @@ async function downloadText(url, postPayload) {
   const response = await fetch(url, options);
   if (response.status >= 400) {
     throw new Error(
-      `Failed to download from ${url} (${
-        response.status
-      })\nDescription: ${await response.text()}`,
+      [
+        `Failed to download from ${url} (${response.status})`,
+        `Description: ${await response.text()}`,
+      ].join('\n'),
     );
   }
   return await response.text();
@@ -62,4 +63,20 @@ export async function getEndPage(year) {
   const text = await downloadText(url, 'level=2&answer=0');
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return question.replace(/href="\/\d+"/g, 'href="index.html"');
+}
+
+export async function getLeaderboardJsons(year) {
+  const url = `https://adventofcode.com/${year}/leaderboard/private`;
+  const text = await downloadText(url);
+  const jsons = [];
+  for (const [, id] of text.matchAll(/\/leaderboard\/private\/view\/(\d+)/g)) {
+    jsons.push(
+      JSON.parse(
+        await downloadText(
+          `https://adventofcode.com/${year}/leaderboard/private/view/${id}.json`,
+        ),
+      ),
+    );
+  }
+  return jsons;
 }
