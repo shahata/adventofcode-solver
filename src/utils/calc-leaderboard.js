@@ -49,13 +49,16 @@ export function calcLeaderboard(jsons) {
         })),
     ),
   );
-  let output = [];
+  let output = [''];
   const spans = [
     '<span class="leaderboard-daydesc-both">both stars</span>',
     'the <span class="leaderboard-daydesc-first">first star</span>',
   ];
-  sorted.forEach((day, index) =>
+  output.push('<table>');
+  sorted.forEach((day, index) => {
+    output.push('<tr style="vertical-align: top;">');
     day.forEach((stars, starIndex) => {
+      output.push('<td style="padding-right: 50px;">');
       if (stars.length) {
         output.push(
           `<p>First to get ${spans[starIndex]} on Day ${25 - index}:</p>`,
@@ -74,7 +77,10 @@ export function calcLeaderboard(jsons) {
           );
         });
       }
-    }),
-  );
+      output.push('</td>');
+    });
+    output.push('</tr>');
+  });
+  output.push('</table>');
   return output.join('\n');
 }
