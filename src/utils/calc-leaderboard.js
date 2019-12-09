@@ -50,9 +50,15 @@ export function calcLeaderboard(jsons) {
         })),
     ),
   );
-  const colors = ['red', 'blue', 'green', 'white', 'rgb(255, 205, 86)'];
   const config = {
     type: 'line',
+    options: {
+      plugins: {
+        colorschemes: {
+          scheme: 'brewer.Paired12',
+        },
+      },
+    },
     data: {
       labels: new Array(25).fill().map((x, i) => `Day ${i + 1}`),
       datasets: members
@@ -80,14 +86,14 @@ export function calcLeaderboard(jsons) {
             fill: false,
           };
         })
-        .sort((a, b) => Math.max(...b.data) - Math.max(...a.data))
-        // .slice(0, 10)
-        .map((x, i) => ({ ...x, borderColor: colors[i % colors.length] })),
+        .sort((a, b) => Math.max(...b.data) - Math.max(...a.data)),
+      // .slice(0, 10),
     },
   };
   let output = [''];
   output.push(
     '<script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>',
+    '<script src="https://unpkg.com/chartjs-plugin-colorschemes" crossorigin="anonymous"></script>',
   );
   output.push(
     [
