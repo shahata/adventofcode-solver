@@ -1,14 +1,12 @@
 function at(ops, ip, user, offset) {
   const mode = Math.floor(ops[ip] / Math.pow(10, offset + 1)) % 10;
-  let index;
   if (mode === 0) {
-    index = ops[ip + offset];
+    return ops[ip + offset];
   } else if (mode === 1) {
-    index = ip + offset;
+    return ip + offset;
   } else if (mode === 2) {
-    index = user.base + ops[ip + offset];
+    return user.base + ops[ip + offset];
   }
-  return index;
 }
 
 function get(ops, ip, user, offset) {
