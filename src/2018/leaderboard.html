@@ -12,6 +12,14 @@
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
 
+<script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>
+<canvas id="canvas"></canvas>
+<script>
+window.onload = function() {
+  var ctx = document.getElementById("canvas").getContext("2d");
+  window.myLine = new Chart(ctx, {"type":"line","data":{"labels":["Day 1","Day 2","Day 3","Day 4","Day 5","Day 6","Day 7","Day 8","Day 9","Day 10","Day 11","Day 12","Day 13","Day 14","Day 15","Day 16","Day 17","Day 18","Day 19","Day 20","Day 21","Day 22","Day 23","Day 24","Day 25"],"datasets":[{"label":"Shahar Talmi","data":[344,693,1045,1395,1743,2091,2439,2791,3142,3492,3837,4181,4531,4881,5231,5579,5931,6282,6631,6975,7327,7678,8028,8377,8729],"fill":false,"borderColor":"red"},{"label":"Audrius Kovalenko","data":[314,660,1009,1357,1702,2053,2395,2741,3076,3422,3770,4121,4473,4819,5167,5515,5863,6211,6559,6909,7253,7602,7949,8298,8648],"fill":false,"borderColor":"blue"},{"label":"Gabriel Grinberg","data":[352,704,1036,1388,1740,2082,2434,2759,3087,3429,3778,4126,4462,4813,5151,5503,5847,6198,6547,6885,7234,7582,7934,8282,8628],"fill":false,"borderColor":"green"},{"label":"Nadav Nuni","data":[337,655,992,1330,1676,2014,2362,2704,3051,3395,3738,4082,4429,4772,5118,5464,5814,6160,6506,6858,7205,7553,7900,8250,8594],"fill":false,"borderColor":"white"},{"label":"Tzachi Azo","data":[332,674,1007,1346,1668,2008,2348,2693,3031,3371,3709,4043,4388,4734,5074,5410,5744,6082,6421,6757,7098,7437,7778,8118,8459],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Tzachi Azo","data":[332,674,1007,1346,1668,2008,2348,2693,3031,3371,3709,4043,4388,4734,5074,5410,5744,6082,6421,6757,7098,7437,7778,8118,8459],"fill":false,"borderColor":"red"},{"label":"Maor Yosef","data":[348,643,959,1297,1622,1966,2289,2625,2968,3306,3643,3979,4321,4651,4984,5325,5667,6006,6345,6691,7032,7374,7714,8051,8388],"fill":false,"borderColor":"blue"},{"label":"Yair Haimovitch","data":[320,651,963,1275,1615,1949,2285,2598,2924,3250,3588,3927,4265,4603,4943,5286,5626,5967,6309,6643,6981,7322,7666,8008,8356],"fill":false,"borderColor":"green"},{"label":"Oded Soffrin","data":[309,640,963,1284,1606,1934,2262,2602,2947,3282,3622,3970,4313,4651,4979,5313,5659,6002,6335,6675,7011,7346,7682,8016,8351],"fill":false,"borderColor":"white"},{"label":"Donatas Petrauskas","data":[268,551,847,1188,1515,1833,2156,2503,2842,3190,3527,3857,4189,4515,4845,5180,5518,5853,6198,6530,6863,7194,7530,7867,8206],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Stanislav Prokopiv","data":[222,461,713,993,1271,1567,1868,2172,2486,2798,3106,3423,3746,4068,4394,4720,5050,5376,5705,6035,6366,6695,7027,7359,7692],"fill":false,"borderColor":"red"},{"label":"Aviad Hadad","data":[342,647,992,1320,1654,2000,2345,2666,3008,3328,3653,3973,4301,4625,4967,5295,5627,5960,6293,6641,6989,7329,7496],"fill":false,"borderColor":"blue"},{"label":"Shmulik Flint","data":[312,623,934,1252,1595,1931,2273,2589,2931,3253,3587,3926,4268,4610,4943,5284,5620,5957,6296,6638,6805,6971],"fill":false,"borderColor":"green"},{"label":"Vytenis Butkevicius","data":[266,545,835,1135,1451,1755,2061,2372,2700,3035,3365,3694,4024,4364,4696,5024,5189,5526,5695,6039,6210],"fill":false,"borderColor":"white"},{"label":"Vytenis Urbonavičius","data":[248,518,822,1165,1513,1864,2199,2549,2892,3244,3595,3942,4277,4607,4947,5283],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Ronny Ringel","data":[350,674,973,1291,1588,1903,2225,2557,2878,3194,3507,3829,4155,4489],"fill":false,"borderColor":"red"},{"label":"Eddie Erlich","data":[334,671,991,1310,1611,1941,2262,2599,2936,3264,3589,3914],"fill":false,"borderColor":"blue"},{"label":"oriprice","data":[300,611,903,1201,1506,1816,2128,2456,2781,3105,3423,3752,3914],"fill":false,"borderColor":"green"},{"label":"silyevsk","data":[298,579,912,1168,1432,1722,2017,2313,2621,2927,3231,3546,3867],"fill":false,"borderColor":"white"},{"label":"Yael Hermon","data":[245,505,793,1087,1379,1694,2012,2335,2492,2806,3116,3274],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Yakir Narkis","data":[237,491,747,1021,1296,1590,1889,2191,2503,2813,3119],"fill":false,"borderColor":"red"},{"label":"Yakir Narkis","data":[237,491,747,1021,1296,1590,1889,2191,2503,2813,3119],"fill":false,"borderColor":"blue"},{"label":"Ophir Gross","data":[318,642,965,1295,1606,1927,2236,2563,2883],"fill":false,"borderColor":"green"},{"label":"Tadas Obolevicius","data":[346,635,914,1206,1506,1829,1984,2141,2458,2780],"fill":false,"borderColor":"white"},{"label":"Jonathan Avinor","data":[224,466,728,992,1259,1551,1848,2146,2456,2764],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Jonathan Avinor","data":[224,466,728,992,1259,1551,1848,2146,2456,2764],"fill":false,"borderColor":"red"},{"label":"Ehab Sharif","data":[261,531,800,1088,1375,1536,1854,2015,2347,2699],"fill":false,"borderColor":"blue"},{"label":"Gal Elmalah","data":[304,648,987,1302,1639,1962,2296,2625],"fill":false,"borderColor":"green"},{"label":"Alon Yehezkel","data":[332,656,996,1330,1661,1993,2144,2476],"fill":false,"borderColor":"white"},{"label":"Alon Yehezkel","data":[332,656,996,1330,1661,1993,2144,2476],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Joseph DSCS","data":[283,553,830,1126,1426,1734,2073,2391],"fill":false,"borderColor":"red"},{"label":"Lior Arbel","data":[281,592,852,1156,1465,1795,2122,2287],"fill":false,"borderColor":"blue"},{"label":"Noam Neeman","data":[288,637,986,1296,1625,1923,2253],"fill":false,"borderColor":"green"},{"label":"Dovydas Mikalauskas","data":[316,616,924,1269,1604,1929,2250],"fill":false,"borderColor":"white"},{"label":"Dvir Cooper","data":[306,592,874,1176,1485,1791,1944,2250],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Dovydas Mikalauskas","data":[316,616,924,1269,1604,1929,2250],"fill":false,"borderColor":"red"},{"label":"Arnoldas Šeščila","data":[292,632,975,1309,1637,1949,2115],"fill":false,"borderColor":"blue"},{"label":"Lieron Schalew","data":[248,510,785,1093,1395,1713,2030],"fill":false,"borderColor":"green"},{"label":"Oded Gefen","data":[243,489,759,1049,1338,1640,1793],"fill":false,"borderColor":"white"},{"label":"Aviv Rosental","data":[241,497,763,1049,1334,1634,1782],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Reut Svr","data":[291,588,915,1219,1511,1667],"fill":false,"borderColor":"red"},{"label":"Roy Sommer","data":[328,658,987,1313,1631],"fill":false,"borderColor":"blue"},{"label":"Ben Benhorin","data":[220,459,713,996,1279,1611],"fill":false,"borderColor":"green"},{"label":"Shilo Magen","data":[333,609,908,1214,1522],"fill":false,"borderColor":"white"},{"label":"Or Ben Ari (wixcode support)","data":[235,483,741,1024,1164,1481],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #413390)","data":[295,611,894,1160,1429],"fill":false,"borderColor":"red"},{"label":"hadar geva","data":[279,590,840,1118,1398],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #185199)","data":[201,422,660,930,1203],"fill":false,"borderColor":"green"},{"label":"Leon Fedotov","data":[191,404,638,898,1198],"fill":false,"borderColor":"white"},{"label":"Itai Pelles","data":[199,418,654,922,1193],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Guillaume Laudet","data":[262,536,842,1165],"fill":false,"borderColor":"red"},{"label":"Jonathan Adler","data":[277,577,879,1154],"fill":false,"borderColor":"blue"},{"label":"Jonathan Adler","data":[277,577,879,1154],"fill":false,"borderColor":"green"},{"label":"Arye Lukashevski","data":[206,436,680,953,1090],"fill":false,"borderColor":"white"},{"label":"Donatas Remeika","data":[187,396,626,888,1019],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"cheloveq","data":[254,521,834,996],"fill":false,"borderColor":"red"},{"label":"Oded Cagan","data":[321,656,994],"fill":false,"borderColor":"blue"},{"label":"Emilis Baliukonis","data":[239,497,783,934],"fill":false,"borderColor":"green"},{"label":"(anonymous user #403820)","data":[313,611,924],"fill":false,"borderColor":"white"},{"label":"Shalev Shalit","data":[325,627,921],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Shalev Shalit","data":[325,627,921],"fill":false,"borderColor":"red"},{"label":"Alon Bar Tur","data":[274,569,887],"fill":false,"borderColor":"blue"},{"label":"ranyitz","data":[183,390,618,876],"fill":false,"borderColor":"green"},{"label":"DaQuirm","data":[298,586,850],"fill":false,"borderColor":"white"},{"label":"Aleksei Efimov","data":[258,522,800],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Andrius Stanaitis","data":[260,519,790],"fill":false,"borderColor":"red"},{"label":"Serhii Muryhin","data":[181,383,609,771],"fill":false,"borderColor":"blue"},{"label":"Eli Ponyatovski","data":[228,472,720],"fill":false,"borderColor":"green"},{"label":"Dor Duchovni","data":[216,452,698],"fill":false,"borderColor":"white"},{"label":"felixmosh","data":[211,440,682],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"bolshchikov","data":[218,441,681],"fill":false,"borderColor":"red"},{"label":"gavrielco","data":[339,659],"fill":false,"borderColor":"blue"},{"label":"Itai Ben David","data":[320,644],"fill":false,"borderColor":"green"},{"label":"Mor Shemesh","data":[193,408,573],"fill":false,"borderColor":"white"},{"label":"Roman","data":[254,353,516],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Maksym Petruk","data":[264,489],"fill":false,"borderColor":"red"},{"label":"Bohdan Lyzanets","data":[230,480],"fill":false,"borderColor":"blue"},{"label":"Karin Agan","data":[212,445],"fill":false,"borderColor":"green"},{"label":"bt4R9","data":[213,445],"fill":false,"borderColor":"white"},{"label":"(anonymous user #417516)","data":[286,435],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"gilisho","data":[274,426],"fill":false,"borderColor":"red"},{"label":"Guy Rotem","data":[196,413],"fill":false,"borderColor":"blue"},{"label":"Oleksii Kaliuzhnyi","data":[205,369],"fill":false,"borderColor":"green"},{"label":"Amit Dahan","data":[215,326],"fill":false,"borderColor":"white"},{"label":"ShaharR","data":[141,310],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #413239)","data":[293],"fill":false,"borderColor":"red"},{"label":"BrooklynKing","data":[126,260],"fill":false,"borderColor":"blue"},{"label":"David Perlman","data":[233],"fill":false,"borderColor":"green"},{"label":"David Perlman","data":[233],"fill":false,"borderColor":"white"},{"label":"Guy Kori","data":[229],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Guy Kori","data":[229],"fill":false,"borderColor":"red"},{"label":"Yaara Cohen","data":[227],"fill":false,"borderColor":"blue"},{"label":"Guy Warzager","data":[206],"fill":false,"borderColor":"green"},{"label":"Karolina Zarankaitė","data":[185],"fill":false,"borderColor":"white"},{"label":"Omri Gotlieb","data":[144],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Schniz","data":[134],"fill":false,"borderColor":"red"},{"label":"Sela Marjan Almog","data":[101],"fill":false,"borderColor":"blue"},{"label":"Boris Dichter","data":[96],"fill":false,"borderColor":"green"},{"label":"lirancr","data":[94],"fill":false,"borderColor":"white"},{"label":"Vadym Holoveichuk","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #177019)","data":[],"fill":false,"borderColor":"red"},{"label":"Lior Ur","data":[],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #194639)","data":[],"fill":false,"borderColor":"green"},{"label":"Tzvika Farber","data":[],"fill":false,"borderColor":"white"},{"label":"Wo1v3r","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Yevhen Kutishchev","data":[],"fill":false,"borderColor":"red"},{"label":"(anonymous user #207760)","data":[],"fill":false,"borderColor":"blue"},{"label":"Niкitа Shulipа","data":[],"fill":false,"borderColor":"green"},{"label":"Mantas Miliukas","data":[],"fill":false,"borderColor":"white"},{"label":"Boris Litvinsky","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Amit Marx","data":[],"fill":false,"borderColor":"red"},{"label":"Salick Cogan","data":[],"fill":false,"borderColor":"blue"},{"label":"Vladislav Zhuk","data":[],"fill":false,"borderColor":"green"},{"label":"(anonymous user #271558)","data":[],"fill":false,"borderColor":"white"},{"label":"(anonymous user #272341)","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"boriskor","data":[],"fill":false,"borderColor":"red"},{"label":"(anonymous user #277695)","data":[],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #306836)","data":[],"fill":false,"borderColor":"green"},{"label":"Andrius Kripaitis","data":[],"fill":false,"borderColor":"white"},{"label":"Raviv Gurtenstein","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Erez Paperny","data":[],"fill":false,"borderColor":"red"},{"label":"Ronen Erez","data":[],"fill":false,"borderColor":"blue"},{"label":"Matan Asraf","data":[],"fill":false,"borderColor":"green"},{"label":"viktoriianosova","data":[],"fill":false,"borderColor":"white"},{"label":"Florent Bécart","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Yaron Shavit","data":[],"fill":false,"borderColor":"red"},{"label":"Aaron Vinestock","data":[],"fill":false,"borderColor":"blue"},{"label":"Maxim Novak","data":[],"fill":false,"borderColor":"green"},{"label":"(anonymous user #516628)","data":[],"fill":false,"borderColor":"white"},{"label":"Mosh Feu","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Gil Eckstein","data":[],"fill":false,"borderColor":"red"},{"label":"Ori Price","data":[],"fill":false,"borderColor":"blue"},{"label":"Tatiana Podolskaya","data":[],"fill":false,"borderColor":"green"},{"label":"Lior Hai","data":[],"fill":false,"borderColor":"white"},{"label":"summercrane","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #631628)","data":[],"fill":false,"borderColor":"red"},{"label":"Haim Houri","data":[],"fill":false,"borderColor":"blue"},{"label":"Gerda Simoliunaite","data":[],"fill":false,"borderColor":"green"},{"label":"Yonatan Hattav","data":[],"fill":false,"borderColor":"white"},{"label":"Nikita Shulipa","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Eran Egozi","data":[],"fill":false,"borderColor":"red"},{"label":"Roi Berlin","data":[],"fill":false,"borderColor":"blue"},{"label":"Meir Cohen","data":[],"fill":false,"borderColor":"green"},{"label":"​Vytautas Jakutis","data":[],"fill":false,"borderColor":"white"},{"label":"Mantas Sakalauskas","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Linas Medžiūnas","data":[],"fill":false,"borderColor":"red"},{"label":"Antanas Bastys","data":[],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #640434)","data":[],"fill":false,"borderColor":"green"},{"label":"Tadas Kundelis","data":[],"fill":false,"borderColor":"white"},{"label":"Yaniv Chekroun","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Tomas Eglinskas","data":[],"fill":false,"borderColor":"red"},{"label":"Vytautas Traškevičius","data":[],"fill":false,"borderColor":"blue"},{"label":"Anton Podolsky","data":[],"fill":false,"borderColor":"green"},{"label":"(anonymous user #665896)","data":[],"fill":false,"borderColor":"white"},{"label":"shtutman","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #671444)","data":[],"fill":false,"borderColor":"red"},{"label":"Amit Leshem","data":[],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #692105)","data":[],"fill":false,"borderColor":"green"},{"label":"tomershk","data":[],"fill":false,"borderColor":"white"},{"label":"Carl M. Lane","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"jurasm","data":[],"fill":false,"borderColor":"red"},{"label":"Ron Ohana","data":[],"fill":false,"borderColor":"blue"},{"label":"Vladas Tamosiunas","data":[],"fill":false,"borderColor":"green"},{"label":"kornholio84","data":[],"fill":false,"borderColor":"white"},{"label":"Hadar Raab","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Vyacheslav Miroshko","data":[],"fill":false,"borderColor":"red"},{"label":"Anton Verinov","data":[],"fill":false,"borderColor":"blue"},{"label":"Dmytro Teleha","data":[],"fill":false,"borderColor":"green"},{"label":"Andrii Koretskyi","data":[],"fill":false,"borderColor":"white"},{"label":"Kristina Lyba","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Domas Martisius","data":[],"fill":false,"borderColor":"red"},{"label":"Lior Erez","data":[],"fill":false,"borderColor":"blue"},{"label":"Marius Jurgelenas","data":[],"fill":false,"borderColor":"green"},{"label":"Maya Lavie Levkovits","data":[],"fill":false,"borderColor":"white"},{"label":"(anonymous user #804650)","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"michalavraham","data":[],"fill":false,"borderColor":"red"}]}});
+};
+</script>
 <table>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
@@ -437,6 +445,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">Dec 13, 2018, 18:02:30</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">Dec 14, 2018, 09:57:57</span> Ronny Ringel</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">Dec 19, 2018, 12:40:58</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">Dec 08, 2019, 23:57:08</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 13:</p>
@@ -456,6 +465,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">Dec 14, 2018, 09:57:15</span> Ronny Ringel</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">Dec 14, 2018, 15:13:11</span> oriprice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">Dec 19, 2018, 12:28:29</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">Dec 08, 2019, 18:18:34</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -478,6 +488,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">Dec 13, 2018, 14:13:34</span> Ronny Ringel</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">Dec 13, 2018, 19:58:07</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">Dec 17, 2018, 19:07:05</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">Dec 08, 2019, 16:35:54</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 12:</p>
@@ -501,6 +512,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">Dec 13, 2018, 19:27:37</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">Dec 17, 2018, 02:22:43</span> Yael Hermon</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">Dec 17, 2018, 18:45:31</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">Dec 08, 2019, 15:36:04</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1136,16 +1148,17 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">Dec 11, 2018, 08:54:51</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">Dec 13, 2018, 03:48:53</span> hadar geva</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">Dec 13, 2018, 04:41:23</span> Eli Ponyatovski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">Dec 14, 2018, 15:49:46</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">Dec 15, 2018, 04:48:41</span> felixmosh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">Dec 20, 2018, 08:36:06</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">Dec 24, 2018, 16:10:22</span> (anonymous user #185199)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">Jan 26, 2019, 19:29:59</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">Nov 28, 2019, 10:03:56</span> Leon Fedotov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">Nov 29, 2019, 12:40:07</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">Nov 29, 2019, 17:07:42</span> Donatas Remeika</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">Dec 01, 2019, 17:10:01</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 06, 2019, 16:30:54</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">Dec 13, 2018, 05:05:35</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">Dec 14, 2018, 15:49:46</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">Dec 15, 2018, 04:48:41</span> felixmosh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">Dec 20, 2018, 08:36:06</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">Dec 24, 2018, 16:10:22</span> (anonymous user #185199)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">Jan 26, 2019, 19:29:59</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">Nov 28, 2019, 10:03:56</span> Leon Fedotov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">Nov 29, 2019, 12:40:07</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">Nov 29, 2019, 17:07:42</span> Donatas Remeika</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 01, 2019, 17:10:01</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">Dec 06, 2019, 16:30:54</span> Serhii Muryhin</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 3:</p>
@@ -1202,16 +1215,17 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">Dec 11, 2018, 08:47:02</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">Dec 13, 2018, 03:45:09</span> hadar geva</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">Dec 13, 2018, 04:29:58</span> Eli Ponyatovski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">Dec 13, 2018, 09:39:50</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">Dec 15, 2018, 03:59:25</span> felixmosh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">Dec 20, 2018, 05:59:02</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">Dec 24, 2018, 16:03:49</span> (anonymous user #185199)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">Jan 26, 2019, 19:16:07</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">Nov 28, 2019, 09:38:35</span> Leon Fedotov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">Nov 29, 2019, 12:13:31</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">Nov 29, 2019, 16:29:45</span> Donatas Remeika</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">Dec 01, 2019, 16:43:27</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 06, 2019, 16:28:35</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">Dec 13, 2018, 04:53:01</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">Dec 13, 2018, 09:39:50</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">Dec 15, 2018, 03:59:25</span> felixmosh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">Dec 20, 2018, 05:59:02</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">Dec 24, 2018, 16:03:49</span> (anonymous user #185199)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">Jan 26, 2019, 19:16:07</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">Nov 28, 2019, 09:38:35</span> Leon Fedotov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">Nov 29, 2019, 12:13:31</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">Nov 29, 2019, 16:29:45</span> Donatas Remeika</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 01, 2019, 16:43:27</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">Dec 06, 2019, 16:28:35</span> Serhii Muryhin</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1273,22 +1287,23 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">Dec 08, 2018, 14:41:14</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">Dec 10, 2018, 11:12:50</span> Ben Benhorin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">Dec 10, 2018, 16:10:41</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">Dec 13, 2018, 05:54:04</span> Karin Agan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">Dec 13, 2018, 08:22:42</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">Dec 13, 2018, 08:58:18</span> bt4R9</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">Dec 13, 2018, 12:48:50</span> felixmosh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">Dec 14, 2018, 11:16:41</span> Maksym Petruk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">Dec 19, 2018, 10:19:29</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 24, 2018, 15:39:20</span> (anonymous user #185199)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">Jan 26, 2019, 18:51:18</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">Nov 25, 2019, 19:47:15</span> Guy Rotem</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">Nov 26, 2019, 03:36:39</span> Mor Shemesh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">Nov 27, 2019, 10:08:20</span> Leon Fedotov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">Nov 29, 2019, 10:25:33</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">Nov 29, 2019, 15:36:33</span> Donatas Remeika</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">Dec 01, 2019, 15:15:51</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">Dec 05, 2019, 10:04:41</span> Oleksii Kaliuzhnyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">Dec 06, 2019, 16:12:35</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">Dec 13, 2018, 04:31:01</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">Dec 13, 2018, 05:54:04</span> Karin Agan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">Dec 13, 2018, 08:22:42</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">Dec 13, 2018, 08:58:18</span> bt4R9</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">Dec 13, 2018, 12:48:50</span> felixmosh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">Dec 14, 2018, 11:16:41</span> Maksym Petruk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 19, 2018, 10:19:29</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">Dec 24, 2018, 15:39:20</span> (anonymous user #185199)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">Jan 26, 2019, 18:51:18</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">Nov 25, 2019, 19:47:15</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">Nov 26, 2019, 03:36:39</span> Mor Shemesh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">Nov 27, 2019, 10:08:20</span> Leon Fedotov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">Nov 29, 2019, 10:25:33</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">Nov 29, 2019, 15:36:33</span> Donatas Remeika</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">Dec 01, 2019, 15:15:51</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">Dec 05, 2019, 10:04:41</span> Oleksii Kaliuzhnyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">Dec 06, 2019, 16:12:35</span> Serhii Muryhin</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
@@ -1352,24 +1367,25 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">Dec 08, 2018, 07:01:07</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">Dec 09, 2018, 06:21:39</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">Dec 10, 2018, 10:43:28</span> Ben Benhorin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">Dec 13, 2018, 04:54:34</span> bt4R9</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">Dec 13, 2018, 05:00:34</span> Karin Agan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 13, 2018, 05:11:40</span> felixmosh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">Dec 13, 2018, 07:11:07</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">Dec 13, 2018, 10:12:27</span> Amit Dahan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">Dec 14, 2018, 10:28:45</span> Maksym Petruk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">Dec 19, 2018, 05:47:05</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">Dec 24, 2018, 12:42:05</span> (anonymous user #185199)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">Jan 26, 2019, 18:38:01</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">Nov 25, 2019, 19:27:04</span> Guy Rotem</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">Nov 26, 2019, 03:28:18</span> Mor Shemesh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">Nov 27, 2019, 09:31:31</span> Leon Fedotov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">Nov 28, 2019, 10:36:41</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">Nov 29, 2019, 15:23:04</span> Donatas Remeika</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">Dec 01, 2019, 14:38:08</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">Dec 05, 2019, 09:50:06</span> Oleksii Kaliuzhnyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">Dec 05, 2019, 10:08:10</span> Roman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">Dec 06, 2019, 15:56:31</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">Dec 13, 2018, 04:11:51</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">Dec 13, 2018, 04:54:34</span> bt4R9</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 13, 2018, 05:00:34</span> Karin Agan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">Dec 13, 2018, 05:11:40</span> felixmosh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">Dec 13, 2018, 07:11:07</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">Dec 13, 2018, 10:12:27</span> Amit Dahan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">Dec 14, 2018, 10:28:45</span> Maksym Petruk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">Dec 19, 2018, 05:47:05</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">Dec 24, 2018, 12:42:05</span> (anonymous user #185199)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">Jan 26, 2019, 18:38:01</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">Nov 25, 2019, 19:27:04</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">Nov 26, 2019, 03:28:18</span> Mor Shemesh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">Nov 27, 2019, 09:31:31</span> Leon Fedotov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">Nov 28, 2019, 10:36:41</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">Nov 29, 2019, 15:23:04</span> Donatas Remeika</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">Dec 01, 2019, 14:38:08</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">Dec 05, 2019, 09:50:06</span> Oleksii Kaliuzhnyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">Dec 05, 2019, 10:08:10</span> Roman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">Dec 06, 2019, 15:56:31</span> Serhii Muryhin</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1440,23 +1456,24 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">Dec 09, 2018, 06:00:04</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">Dec 10, 2018, 10:19:40</span> Ben Benhorin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">Dec 10, 2018, 13:14:26</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">Dec 13, 2018, 04:23:32</span> Karin Agan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">Dec 13, 2018, 04:36:11</span> bt4R9</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">Dec 13, 2018, 04:38:32</span> felixmosh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">Dec 13, 2018, 07:36:21</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">Dec 13, 2018, 08:14:39</span> Guy Warzager</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">Dec 13, 2018, 09:55:58</span> Amit Dahan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">Dec 18, 2018, 09:42:22</span> Yaara Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">Dec 23, 2018, 18:03:01</span> (anonymous user #185199)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">Jan 26, 2019, 18:30:00</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">Nov 25, 2019, 19:02:20</span> Guy Rotem</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">Nov 26, 2019, 03:17:45</span> Mor Shemesh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">Nov 27, 2019, 08:08:53</span> Leon Fedotov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">Nov 28, 2019, 05:22:40</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">Nov 29, 2019, 15:04:57</span> Donatas Remeika</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">Dec 01, 2019, 02:38:26</span> Karolina Zarankaitė</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">Dec 01, 2019, 14:11:30</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">Dec 06, 2019, 15:43:43</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">Dec 13, 2018, 04:01:00</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">Dec 13, 2018, 04:23:32</span> Karin Agan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">Dec 13, 2018, 04:36:11</span> bt4R9</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">Dec 13, 2018, 04:38:32</span> felixmosh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">Dec 13, 2018, 07:36:21</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">Dec 13, 2018, 08:14:39</span> Guy Warzager</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">Dec 13, 2018, 09:55:58</span> Amit Dahan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">Dec 18, 2018, 09:42:22</span> Yaara Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">Dec 23, 2018, 18:03:01</span> (anonymous user #185199)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">Jan 26, 2019, 18:30:00</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">Nov 25, 2019, 19:02:20</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">Nov 26, 2019, 03:17:45</span> Mor Shemesh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">Nov 27, 2019, 08:08:53</span> Leon Fedotov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">Nov 28, 2019, 05:22:40</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">Nov 29, 2019, 15:04:57</span> Donatas Remeika</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">Dec 01, 2019, 02:38:26</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">Dec 01, 2019, 14:11:30</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">Dec 06, 2019, 15:43:43</span> Serhii Muryhin</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
@@ -1531,24 +1548,25 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">Dec 08, 2018, 11:42:05</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">Dec 10, 2018, 09:21:31</span> Ben Benhorin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">Dec 10, 2018, 12:14:53</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">Dec 13, 2018, 04:00:00</span> bt4R9</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">Dec 13, 2018, 04:04:38</span> felixmosh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">Dec 13, 2018, 04:05:53</span> Karin Agan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">Dec 13, 2018, 04:11:33</span> Sela Marjan Almog</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">Dec 13, 2018, 04:11:56</span> Guy Warzager</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">Dec 13, 2018, 04:20:54</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">Dec 23, 2018, 12:08:38</span> (anonymous user #185199)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">Jan 26, 2019, 18:20:19</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">Nov 01, 2019, 04:37:12</span> Boris Dichter</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">Nov 25, 2019, 17:18:59</span> Guy Rotem</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">Nov 26, 2019, 01:07:19</span> lirancr</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">Nov 26, 2019, 03:04:31</span> Mor Shemesh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">Nov 27, 2019, 07:04:18</span> Leon Fedotov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">85)</span> <span class="leaderboard-time">Nov 28, 2019, 04:08:06</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">86)</span> <span class="leaderboard-time">Nov 29, 2019, 14:50:42</span> Donatas Remeika</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">87)</span> <span class="leaderboard-time">Nov 30, 2019, 09:24:18</span> Karolina Zarankaitė</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">Dec 01, 2019, 13:58:26</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">89)</span> <span class="leaderboard-time">Dec 06, 2019, 15:34:31</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">Dec 13, 2018, 03:50:27</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">Dec 13, 2018, 04:00:00</span> bt4R9</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">Dec 13, 2018, 04:04:38</span> felixmosh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">Dec 13, 2018, 04:05:53</span> Karin Agan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">Dec 13, 2018, 04:11:33</span> Sela Marjan Almog</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">Dec 13, 2018, 04:11:56</span> Guy Warzager</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">Dec 13, 2018, 04:20:54</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">Dec 23, 2018, 12:08:38</span> (anonymous user #185199)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">Jan 26, 2019, 18:20:19</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">Nov 01, 2019, 04:37:12</span> Boris Dichter</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">Nov 25, 2019, 17:18:59</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">Nov 26, 2019, 01:07:19</span> lirancr</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">Nov 26, 2019, 03:04:31</span> Mor Shemesh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">85)</span> <span class="leaderboard-time">Nov 27, 2019, 07:04:18</span> Leon Fedotov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">86)</span> <span class="leaderboard-time">Nov 28, 2019, 04:08:06</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">87)</span> <span class="leaderboard-time">Nov 29, 2019, 14:50:42</span> Donatas Remeika</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">Nov 30, 2019, 09:24:18</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">89)</span> <span class="leaderboard-time">Dec 01, 2019, 13:58:26</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">90)</span> <span class="leaderboard-time">Dec 06, 2019, 15:34:31</span> Serhii Muryhin</div> 
 </td>
 </tr>
 </table>

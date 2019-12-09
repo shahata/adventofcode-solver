@@ -12,6 +12,14 @@
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
 
+<script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>
+<canvas id="canvas"></canvas>
+<script>
+window.onload = function() {
+  var ctx = document.getElementById("canvas").getContext("2d");
+  window.myLine = new Chart(ctx, {"type":"line","data":{"labels":["Day 1","Day 2","Day 3","Day 4","Day 5","Day 6","Day 7","Day 8","Day 9","Day 10","Day 11","Day 12","Day 13","Day 14","Day 15","Day 16","Day 17","Day 18","Day 19","Day 20","Day 21","Day 22","Day 23","Day 24","Day 25"],"datasets":[{"label":"Shahar Talmi","data":[342,694,1044,1396,1748,2100,2450,2782,3124,3470,3822,4170,4514,4865,5208,5555,5907,6257,6606,6953,7303,7655,8004,8345,8693],"fill":false,"borderColor":"red"},{"label":"Alon Yehezkel","data":[337,682,1014,1347,1683,2017,2369,2721,3073,3421,3765,4117,4468,4815,5167,5518,5866,6213,6560,6899,7247,7595,7944,8290,8634],"fill":false,"borderColor":"blue"},{"label":"Alon Yehezkel","data":[337,682,1014,1347,1683,2017,2369,2721,3073,3421,3765,4117,4468,4815,5167,5518,5866,6213,6560,6899,7247,7595,7944,8290,8634],"fill":false,"borderColor":"green"},{"label":"Yair Haimovitch","data":[321,643,973,1303,1637,1975,2323,2669,3013,3363,3713,4057,4406,4754,5103,5450,5796,6143,6488,6838,7190,7540,7892,8242,8594],"fill":false,"borderColor":"white"},{"label":"David Perlman","data":[352,693,1042,1391,1739,2085,2426,2764,3087,3413,3751,4087,4421,4765,5114,5443,5771,6105,6437,6777,7120,7466,7801,8137,8477],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"David Perlman","data":[352,693,1042,1391,1739,2085,2426,2764,3087,3413,3751,4087,4421,4765,5114,5443,5771,6105,6437,6777,7120,7466,7801,8137,8477],"fill":false,"borderColor":"red"},{"label":"Mantas Miliukas","data":[344,679,1024,1370,1716,2060,2404,2754,3094,3437,3783,4114,4444,4770,5092,5415,5746,6078,6407,6740,7080,7420,7762,8101,8443],"fill":false,"borderColor":"blue"},{"label":"Maor Yosef","data":[337,683,1025,1364,1708,2058,2393,2733,3063,3391,3715,4044,4370,4699,5031,5368,5700,6043,6381,6720,7066,7410,7755,8089,8435],"fill":false,"borderColor":"green"},{"label":"Aviad Hadad","data":[340,672,1023,1367,1717,2065,2399,2735,3073,3409,3749,4075,4414,4746,5070,5396,5733,6069,6405,6740,7078,7412,7747,8090,8424],"fill":false,"borderColor":"white"},{"label":"Noam Neeman","data":[315,633,955,1276,1596,1915,2238,2586,2932,3268,3616,3962,4307,4649,4992,5329,5672,6014,6361,6707,7050,7392,7732,8080,8418],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Gabriel Grinberg","data":[301,607,925,1242,1558,1873,2192,2516,2864,3216,3534,3884,4234,4584,4920,5271,5607,5959,6311,6663,6999,7337,7675,8027,8377],"fill":false,"borderColor":"red"},{"label":"Itai Pelles","data":[304,618,937,1263,1590,1911,2232,2552,2878,3210,3546,3884,4221,4556,4894,5220,5560,5901,6241,6572,6904,7236,7568,7900,8232],"fill":false,"borderColor":"blue"},{"label":"Dvir Cooper","data":[291,585,889,1191,1495,1801,2112,2424,2738,3052,3368,3686,4009,4333,4667,5009,5352,5688,6030,6375,6709,7045,7390,7731,8067],"fill":false,"borderColor":"green"},{"label":"Dovydas Mikalauskas","data":[319,625,929,1233,1541,1852,2196,2538,2858,3190,3521,3855,4189,4522,4862,5197,5532,5862,6196,6531],"fill":false,"borderColor":"white"},{"label":"Dovydas Mikalauskas","data":[319,625,929,1233,1541,1852,2196,2538,2858,3190,3521,3855,4189,4522,4862,5197,5532,5862,6196,6531],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Tzvika Farber","data":[313,623,943,1262,1580,1897,2220,2554,2904,3234,3567,3891,4221,4561,4891,5217,5545,5872,6037],"fill":false,"borderColor":"red"},{"label":"Salick Cogan","data":[307,619,944,1267,1589,1918,2252,2580,2914,3255,3584,3924,4265,4603,4949,5288,5631,5793],"fill":false,"borderColor":"blue"},{"label":"Arnoldas Šeščila","data":[307,617,918,1228,1540,1861,2194,2524,2852,3179,3510,3840,4176,4507,4835,5179,5507,5673],"fill":false,"borderColor":"green"},{"label":"Bohdan Lyzanets","data":[325,652,986,1321,1661,2001,2320,2638,2956,3276,3598,3920,4082],"fill":false,"borderColor":"white"},{"label":"Aviv Rosental","data":[329,662,1002,1339,1681,2016,2346,2672,2995,3313,3655,3997],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Jonathan Avinor","data":[287,579,878,1178,1478,1782,2091,2401,2713,3025,3182],"fill":false,"borderColor":"red"},{"label":"Jonathan Avinor","data":[287,579,878,1178,1478,1782,2091,2401,2713,3025,3182],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #277695)","data":[299,602,918,1233,1547,1860,2177,2499,2835,3177],"fill":false,"borderColor":"green"},{"label":"Vytenis Butkevicius","data":[333,672,983,1291,1601,1910,2223,2537,2853,3169],"fill":false,"borderColor":"white"},{"label":"Wo1v3r","data":[350,700,1045,1386,1718,2049,2383,2727,3059],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Lior Ur","data":[284,574,871,1168,1466,1768,2075,2381,2691,2846],"fill":false,"borderColor":"red"},{"label":"Niкitа Shulipа","data":[346,693,1031,1380,1706,2031,2193,2509],"fill":false,"borderColor":"blue"},{"label":"Audrius Kovalenko","data":[277,561,854,1145,1437,1735,2040,2344],"fill":false,"borderColor":"green"},{"label":"Oded Cagan","data":[293,589,896,1216,1536,1862,2194],"fill":false,"borderColor":"white"},{"label":"bolshchikov","data":[312,464,770,1072,1380,1696,1856,2184],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Shalev Shalit","data":[320,642,810,1147,1485,1827,1999],"fill":false,"borderColor":"red"},{"label":"Shalev Shalit","data":[320,642,810,1147,1485,1827,1999],"fill":false,"borderColor":"blue"},{"label":"Oded Soffrin","data":[311,627,789,1115,1440,1767,1933],"fill":false,"borderColor":"green"},{"label":"boriskor","data":[296,594,905,1217,1540,1866],"fill":false,"borderColor":"white"},{"label":"(anonymous user #207760)","data":[348,688,1016,1180,1510,1833],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Jonathan Adler","data":[327,653,976,1282,1588],"fill":false,"borderColor":"red"},{"label":"Jonathan Adler","data":[327,653,976,1282,1588],"fill":false,"borderColor":"blue"},{"label":"Shmulik Flint","data":[282,570,865,1160,1456],"fill":false,"borderColor":"green"},{"label":"Ronny Ringel","data":[280,566,859,1153,1453],"fill":false,"borderColor":"white"},{"label":"(anonymous user #185199)","data":[304,605,760],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Tadas Kundelis","data":[274,556],"fill":false,"borderColor":"red"},{"label":"Boris Litvinsky","data":[164,330],"fill":false,"borderColor":"blue"},{"label":"Amit Marx","data":[163,327],"fill":false,"borderColor":"green"},{"label":"Arye Lukashevski","data":[162,325],"fill":false,"borderColor":"white"},{"label":"Maksym Petruk","data":[309],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #306836)","data":[289],"fill":false,"borderColor":"red"},{"label":"silyevsk","data":[277],"fill":false,"borderColor":"blue"},{"label":"Guy Kori","data":[145],"fill":false,"borderColor":"green"},{"label":"Guy Kori","data":[145],"fill":false,"borderColor":"white"},{"label":"Vadym Holoveichuk","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #177019)","data":[],"fill":false,"borderColor":"red"},{"label":"Eddie Erlich","data":[],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #194639)","data":[],"fill":false,"borderColor":"green"},{"label":"Omri Gotlieb","data":[],"fill":false,"borderColor":"white"},{"label":"Yevhen Kutishchev","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Serhii Muryhin","data":[],"fill":false,"borderColor":"red"},{"label":"Karolina Zarankaitė","data":[],"fill":false,"borderColor":"blue"},{"label":"Oded Gefen","data":[],"fill":false,"borderColor":"green"},{"label":"Joseph DSCS","data":[],"fill":false,"borderColor":"white"},{"label":"Vladislav Zhuk","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #271558)","data":[],"fill":false,"borderColor":"red"},{"label":"(anonymous user #272341)","data":[],"fill":false,"borderColor":"blue"},{"label":"Shilo Magen","data":[],"fill":false,"borderColor":"green"},{"label":"Yael Hermon","data":[],"fill":false,"borderColor":"white"},{"label":"ShaharR","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"DaQuirm","data":[],"fill":false,"borderColor":"red"},{"label":"Tadas Obolevicius","data":[],"fill":false,"borderColor":"blue"},{"label":"gavrielco","data":[],"fill":false,"borderColor":"green"},{"label":"Nadav Nuni","data":[],"fill":false,"borderColor":"white"},{"label":"Ophir Gross","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Tzachi Azo","data":[],"fill":false,"borderColor":"red"},{"label":"Roy Sommer","data":[],"fill":false,"borderColor":"blue"},{"label":"Andrius Kripaitis","data":[],"fill":false,"borderColor":"green"},{"label":"(anonymous user #403820)","data":[],"fill":false,"borderColor":"white"},{"label":"Amit Dahan","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Reut Svr","data":[],"fill":false,"borderColor":"red"},{"label":"oriprice","data":[],"fill":false,"borderColor":"blue"},{"label":"Gal Elmalah","data":[],"fill":false,"borderColor":"green"},{"label":"(anonymous user #413239)","data":[],"fill":false,"borderColor":"white"},{"label":"(anonymous user #413390)","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #417516)","data":[],"fill":false,"borderColor":"red"},{"label":"Raviv Gurtenstein","data":[],"fill":false,"borderColor":"blue"},{"label":"Lior Arbel","data":[],"fill":false,"borderColor":"green"},{"label":"Erez Paperny","data":[],"fill":false,"borderColor":"white"},{"label":"Ronen Erez","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"gilisho","data":[],"fill":false,"borderColor":"red"},{"label":"Matan Asraf","data":[],"fill":false,"borderColor":"blue"},{"label":"hadar geva","data":[],"fill":false,"borderColor":"green"},{"label":"Alon Bar Tur","data":[],"fill":false,"borderColor":"white"},{"label":"Schniz","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Ehab Sharif","data":[],"fill":false,"borderColor":"red"},{"label":"Donatas Petrauskas","data":[],"fill":false,"borderColor":"blue"},{"label":"cheloveq","data":[],"fill":false,"borderColor":"green"},{"label":"Vytenis Urbonavičius","data":[],"fill":false,"borderColor":"white"},{"label":"Guillaume Laudet","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Andrius Stanaitis","data":[],"fill":false,"borderColor":"red"},{"label":"viktoriianosova","data":[],"fill":false,"borderColor":"blue"},{"label":"Aleksei Efimov","data":[],"fill":false,"borderColor":"green"},{"label":"BrooklynKing","data":[],"fill":false,"borderColor":"white"},{"label":"Roman","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Yaara Cohen","data":[],"fill":false,"borderColor":"red"},{"label":"Lieron Schalew","data":[],"fill":false,"borderColor":"blue"},{"label":"Emilis Baliukonis","data":[],"fill":false,"borderColor":"green"},{"label":"Yakir Narkis","data":[],"fill":false,"borderColor":"white"},{"label":"Or Ben Ari (wixcode support)","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Eli Ponyatovski","data":[],"fill":false,"borderColor":"red"},{"label":"Florent Bécart","data":[],"fill":false,"borderColor":"blue"},{"label":"Yaron Shavit","data":[],"fill":false,"borderColor":"green"},{"label":"Stanislav Prokopiv","data":[],"fill":false,"borderColor":"white"},{"label":"Aaron Vinestock","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Ben Benhorin","data":[],"fill":false,"borderColor":"red"},{"label":"Maxim Novak","data":[],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #516628)","data":[],"fill":false,"borderColor":"green"},{"label":"Dor Duchovni","data":[],"fill":false,"borderColor":"white"},{"label":"Mosh Feu","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Sela Marjan Almog","data":[],"fill":false,"borderColor":"red"},{"label":"Karin Agan","data":[],"fill":false,"borderColor":"blue"},{"label":"Guy Warzager","data":[],"fill":false,"borderColor":"green"},{"label":"felixmosh","data":[],"fill":false,"borderColor":"white"},{"label":"bt4R9","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Gil Eckstein","data":[],"fill":false,"borderColor":"red"},{"label":"Itai Ben David","data":[],"fill":false,"borderColor":"blue"},{"label":"Boris Dichter","data":[],"fill":false,"borderColor":"green"},{"label":"Ori Price","data":[],"fill":false,"borderColor":"white"},{"label":"Tatiana Podolskaya","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Guy Rotem","data":[],"fill":false,"borderColor":"red"},{"label":"lirancr","data":[],"fill":false,"borderColor":"blue"},{"label":"Lior Hai","data":[],"fill":false,"borderColor":"green"},{"label":"summercrane","data":[],"fill":false,"borderColor":"white"},{"label":"Mor Shemesh","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #631628)","data":[],"fill":false,"borderColor":"red"},{"label":"Haim Houri","data":[],"fill":false,"borderColor":"blue"},{"label":"Gerda Simoliunaite","data":[],"fill":false,"borderColor":"green"},{"label":"Yonatan Hattav","data":[],"fill":false,"borderColor":"white"},{"label":"Yakir Narkis","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Nikita Shulipa","data":[],"fill":false,"borderColor":"red"},{"label":"Eran Egozi","data":[],"fill":false,"borderColor":"blue"},{"label":"Roi Berlin","data":[],"fill":false,"borderColor":"green"},{"label":"Leon Fedotov","data":[],"fill":false,"borderColor":"white"},{"label":"Meir Cohen","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"​Vytautas Jakutis","data":[],"fill":false,"borderColor":"red"},{"label":"Mantas Sakalauskas","data":[],"fill":false,"borderColor":"blue"},{"label":"Linas Medžiūnas","data":[],"fill":false,"borderColor":"green"},{"label":"Donatas Remeika","data":[],"fill":false,"borderColor":"white"},{"label":"Antanas Bastys","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"(anonymous user #640434)","data":[],"fill":false,"borderColor":"red"},{"label":"Tzachi Azo","data":[],"fill":false,"borderColor":"blue"},{"label":"Yaniv Chekroun","data":[],"fill":false,"borderColor":"green"},{"label":"ranyitz","data":[],"fill":false,"borderColor":"white"},{"label":"Tomas Eglinskas","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Vytautas Traškevičius","data":[],"fill":false,"borderColor":"red"},{"label":"Anton Podolsky","data":[],"fill":false,"borderColor":"blue"},{"label":"(anonymous user #665896)","data":[],"fill":false,"borderColor":"green"},{"label":"shtutman","data":[],"fill":false,"borderColor":"white"},{"label":"(anonymous user #671444)","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Amit Leshem","data":[],"fill":false,"borderColor":"red"},{"label":"(anonymous user #692105)","data":[],"fill":false,"borderColor":"blue"},{"label":"tomershk","data":[],"fill":false,"borderColor":"green"},{"label":"Carl M. Lane","data":[],"fill":false,"borderColor":"white"},{"label":"jurasm","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Ron Ohana","data":[],"fill":false,"borderColor":"red"},{"label":"Vladas Tamosiunas","data":[],"fill":false,"borderColor":"blue"},{"label":"kornholio84","data":[],"fill":false,"borderColor":"green"},{"label":"Hadar Raab","data":[],"fill":false,"borderColor":"white"},{"label":"Vyacheslav Miroshko","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Anton Verinov","data":[],"fill":false,"borderColor":"red"},{"label":"Oleksii Kaliuzhnyi","data":[],"fill":false,"borderColor":"blue"},{"label":"Dmytro Teleha","data":[],"fill":false,"borderColor":"green"},{"label":"Andrii Koretskyi","data":[],"fill":false,"borderColor":"white"},{"label":"Kristina Lyba","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"Domas Martisius","data":[],"fill":false,"borderColor":"red"},{"label":"Lior Erez","data":[],"fill":false,"borderColor":"blue"},{"label":"Marius Jurgelenas","data":[],"fill":false,"borderColor":"green"},{"label":"Maya Lavie Levkovits","data":[],"fill":false,"borderColor":"white"},{"label":"(anonymous user #804650)","data":[],"fill":false,"borderColor":"rgb(255, 205, 86)"},{"label":"michalavraham","data":[],"fill":false,"borderColor":"red"}]}});
+};
+</script>
 <table>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
@@ -603,6 +611,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">Dec 16, 2017, 08:44:47</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">Dec 17, 2017, 16:27:08</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">Dec 26, 2017, 11:05:08</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Mar 03, 2018, 07:56:23</span> Lior Ur</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -629,6 +638,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">Dec 16, 2017, 05:18:44</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">Dec 17, 2017, 14:46:40</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">Dec 26, 2017, 10:32:50</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Mar 02, 2018, 17:38:03</span> Lior Ur</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 9:</p>
@@ -653,6 +663,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">Dec 16, 2017, 05:04:00</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">Dec 17, 2017, 14:32:55</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">Dec 26, 2017, 10:28:21</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Mar 02, 2018, 17:27:33</span> Lior Ur</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -681,7 +692,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">Dec 17, 2017, 08:29:46</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Dec 26, 2017, 10:10:08</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">Feb 17, 2018, 08:29:37</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Feb 27, 2019, 15:55:34</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Mar 02, 2018, 16:14:53</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Feb 27, 2019, 15:55:34</span> Audrius Kovalenko</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 8:</p>
@@ -708,7 +720,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">Dec 17, 2017, 08:28:42</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Dec 26, 2017, 10:06:32</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">Feb 17, 2018, 08:17:35</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Feb 27, 2019, 15:52:57</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Mar 02, 2018, 16:13:14</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Feb 27, 2019, 15:52:57</span> Audrius Kovalenko</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -735,7 +748,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">Dec 15, 2017, 01:36:56</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">Dec 16, 2017, 04:48:38</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">Dec 25, 2017, 22:17:44</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Jan 02, 2019, 00:24:23</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Mar 01, 2018, 09:46:49</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">Jan 02, 2019, 00:24:23</span> Audrius Kovalenko</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 7:</p>
@@ -763,7 +777,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Dec 12, 2017, 16:10:30</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">Dec 15, 2017, 08:50:54</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Dec 25, 2017, 21:38:19</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Jan 01, 2019, 15:19:15</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Mar 01, 2018, 02:49:26</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Jan 01, 2019, 15:19:15</span> Audrius Kovalenko</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -794,8 +809,9 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">Dec 13, 2017, 15:11:32</span> Arnoldas Šeščila</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Dec 14, 2017, 20:43:39</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Dec 25, 2017, 21:10:01</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Dec 15, 2018, 10:36:38</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 30, 2018, 15:28:42</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Mar 01, 2018, 01:44:10</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 15, 2018, 10:36:38</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Dec 30, 2018, 15:28:42</span> Audrius Kovalenko</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 6:</p>
@@ -824,8 +840,9 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">Dec 12, 2017, 15:10:21</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Dec 14, 2017, 20:39:29</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Dec 25, 2017, 21:05:06</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Dec 15, 2018, 10:28:13</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 30, 2018, 15:17:23</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Mar 01, 2018, 01:39:12</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 15, 2018, 10:28:13</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Dec 30, 2018, 15:17:23</span> Audrius Kovalenko</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -858,9 +875,10 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Dec 14, 2017, 19:59:59</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Dec 23, 2017, 08:07:15</span> bolshchikov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 25, 2017, 20:51:31</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Sep 24, 2018, 19:53:35</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Dec 15, 2018, 10:00:56</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Dec 30, 2018, 06:13:13</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Feb 27, 2018, 11:42:39</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Sep 24, 2018, 19:53:35</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Dec 15, 2018, 10:00:56</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 30, 2018, 06:13:13</span> Audrius Kovalenko</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 5:</p>
@@ -891,9 +909,10 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Dec 14, 2017, 19:56:05</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Dec 23, 2017, 06:23:41</span> bolshchikov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 25, 2017, 20:49:17</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Sep 24, 2018, 19:49:39</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Dec 15, 2018, 09:53:20</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Dec 30, 2018, 06:10:54</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Feb 27, 2018, 11:40:57</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Sep 24, 2018, 19:49:39</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Dec 15, 2018, 09:53:20</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 30, 2018, 06:10:54</span> Audrius Kovalenko</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -926,9 +945,10 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Dec 14, 2017, 18:47:17</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Dec 25, 2017, 20:36:07</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Jan 06, 2018, 05:47:38</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Sep 23, 2018, 08:27:02</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Dec 15, 2018, 04:06:52</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Dec 29, 2018, 17:54:26</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Feb 27, 2018, 11:30:57</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Sep 23, 2018, 08:27:02</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Dec 15, 2018, 04:06:52</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 29, 2018, 17:54:26</span> Audrius Kovalenko</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 4:</p>
@@ -960,9 +980,10 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Dec 12, 2017, 16:11:07</span> Dovydas Mikalauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 14, 2017, 18:40:48</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Dec 25, 2017, 20:31:06</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Sep 23, 2018, 08:14:27</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Dec 15, 2018, 04:01:56</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 29, 2018, 17:45:52</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Feb 27, 2018, 09:29:06</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Sep 23, 2018, 08:14:27</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 15, 2018, 04:01:56</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">Dec 29, 2018, 17:45:52</span> Audrius Kovalenko</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -994,8 +1015,9 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Dec 14, 2017, 18:24:47</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Dec 15, 2017, 15:48:30</span> Arnoldas Šeščila</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">Dec 25, 2017, 17:21:07</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Sep 22, 2018, 18:30:12</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Dec 29, 2018, 07:58:13</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Feb 26, 2018, 18:36:10</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Sep 22, 2018, 18:30:12</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Dec 29, 2018, 07:58:13</span> Audrius Kovalenko</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 3:</p>
@@ -1028,8 +1050,9 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 14, 2017, 16:33:45</span> Dovydas Mikalauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Dec 15, 2017, 15:13:20</span> Arnoldas Šeščila</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Dec 25, 2017, 14:11:15</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Sep 22, 2018, 16:31:38</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 29, 2018, 07:34:15</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Feb 26, 2018, 14:15:19</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Sep 22, 2018, 16:31:38</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">Dec 29, 2018, 07:34:15</span> Audrius Kovalenko</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1064,10 +1087,11 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">Dec 11, 2017, 19:31:54</span> Oded Cagan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">Dec 13, 2017, 12:49:04</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">Dec 21, 2017, 03:04:49</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Sep 18, 2018, 15:38:57</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 15, 2018, 03:45:44</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">Dec 28, 2018, 07:54:36</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">Nov 29, 2019, 13:09:28</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Feb 26, 2018, 07:56:19</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Sep 18, 2018, 15:38:57</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">Dec 15, 2018, 03:45:44</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">Dec 28, 2018, 07:54:36</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">Nov 29, 2019, 13:09:28</span> Tadas Kundelis</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
@@ -1104,10 +1128,11 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 11, 2017, 19:24:36</span> Oded Cagan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">Dec 13, 2017, 12:30:21</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">Dec 20, 2017, 13:58:33</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">Sep 18, 2018, 02:20:47</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">Dec 15, 2018, 03:38:33</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">Dec 28, 2018, 07:34:01</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">Nov 29, 2019, 13:01:37</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">Feb 26, 2018, 07:32:56</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">Sep 18, 2018, 02:20:47</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">Dec 15, 2018, 03:38:33</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">Dec 28, 2018, 07:34:01</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">Nov 29, 2019, 13:01:37</span> Tadas Kundelis</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1145,11 +1170,12 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">Dec 20, 2017, 13:03:42</span> (anonymous user #306836)</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">Dec 20, 2017, 13:38:29</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">Dec 23, 2017, 09:44:17</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">Sep 15, 2018, 17:51:03</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">Dec 01, 2018, 08:12:27</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">Dec 28, 2018, 06:36:38</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">Nov 29, 2019, 05:03:45</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">Nov 29, 2019, 12:52:35</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">Feb 26, 2018, 07:22:21</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">Sep 15, 2018, 17:51:03</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">Dec 01, 2018, 08:12:27</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">Dec 28, 2018, 06:36:38</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">Nov 29, 2019, 05:03:45</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">Nov 29, 2019, 12:52:35</span> Tadas Kundelis</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
@@ -1189,11 +1215,12 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">Dec 13, 2017, 11:07:01</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">Dec 20, 2017, 12:45:21</span> (anonymous user #306836)</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">Dec 20, 2017, 13:25:15</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">Sep 15, 2018, 17:43:01</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">Dec 01, 2018, 08:03:17</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">Dec 01, 2018, 15:56:00</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">Dec 27, 2018, 13:14:21</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">Nov 29, 2019, 12:46:27</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">Feb 26, 2018, 07:17:23</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">Sep 15, 2018, 17:43:01</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">Dec 01, 2018, 08:03:17</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">Dec 01, 2018, 15:56:00</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">Dec 27, 2018, 13:14:21</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">Nov 29, 2019, 12:46:27</span> Tadas Kundelis</div> 
 </td>
 </tr>
 </table>

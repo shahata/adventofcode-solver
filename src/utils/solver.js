@@ -11,6 +11,7 @@ import {
   downloadIndex,
   downloadInput,
   createSolver,
+  tempLeaderboard,
 } from './renderer.js';
 
 let duration;
@@ -65,6 +66,7 @@ function getDays(year) {
 
 export default async function solveAll(year, day, run = true) {
   if (day) {
+    tempLeaderboard(year);
     const solver = solverFunction(year, day);
     if (solver) {
       await solver();

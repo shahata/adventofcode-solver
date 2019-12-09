@@ -36,6 +36,13 @@ export async function downloadInput(year, day) {
   return renderTemplate(year, dayName(day), 'txt', { input });
 }
 
+export function tempLeaderboard(year) {
+  renderTemplate(year, 'leaderboard', 'html', {
+    year,
+    page: calcLeaderboard(),
+  });
+}
+
 export async function downloadIndex(year) {
   const page = await getYearPage(year);
   renderTemplate(year, 'index', 'html', { year, page });
