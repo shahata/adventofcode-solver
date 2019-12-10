@@ -32,31 +32,24 @@ export function part1(input) {
 export function part2(input) {
   const astroids = parse(input);
   const base = bestBase(astroids);
-  const targets = astroids.filter(a => a !== base);
+  const targets = astroids.filter(x => x !== base);
   targets.forEach(target => {
     target.angle =
       (Math.atan2(base.y - target.y, base.x - target.x) * 180) / Math.PI;
     target.angle = (target.angle + 360) % 360;
     target.distance = Math.abs(base.y - target.y) + Math.abs(base.x - target.x);
   });
+  targets.sort((a, b) =>
+    a.angle === b.angle ? a.distance - b.distance : a.angle - b.angle,
+  );
 
   const killed = [];
   let angle = 90;
   while (killed.length !== 200) {
-    const results = targets
-      .filter(t => t.angle - angle >= 0)
-      .sort((a, b) => a.angle - b.angle);
-    const next = results
-      .filter(t => t.angle === results[0].angle)
-      .sort((a, b) => a.distance - b.distance)
-      .shift();
+    const next = targets.filter(t => t.angle - angle >= 0)[0];
     targets.splice(targets.indexOf(next), 1);
     killed.push(next);
-
-    ({ angle } = targets
-      .filter(t => t.angle - angle > 0)
-      .sort((a, b) => a.angle - b.angle)
-      .shift() || { angle: 0 });
+    angle = targets.filter(t => t.angle - angle > 0).map(t => t.angle)[0] || 0;
   }
   return killed[killed.length - 1].x * 100 + killed[killed.length - 1].y;
 }
