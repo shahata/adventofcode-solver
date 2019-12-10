@@ -11,45 +11,34 @@ function parse(input) {
   return astroids;
 }
 
-function bestBase(astroids) {
-  astroids.map(astroid => {
-    astroid.m = new Set();
-    astroids.forEach(point => {
-      if (astroid !== point) {
-        astroid.m.add(Math.atan2(point.y - astroid.y, point.x - astroid.x));
-      }
-    });
+function popBase(astroids) {
+  astroids.forEach(base => {
+    const angles = astroids
+      .filter(x => x !== base)
+      .map(target => calcAngle(base, target));
+    base.count = new Set(angles).size;
   });
-  const max = Math.max(...astroids.map(astroid => astroid.m.size));
-  return astroids.find(x => x.m.size === max);
+  return astroids.sort((a, b) => a.count - b.count).pop();
 }
 
-export function part1(input) {
-  const astroids = parse(input);
-  return bestBase(astroids).m.size;
-}
+const calcAngle = (a, b) => (Math.atan2(a.y - b.y, a.x - b.x) * 180) / Math.PI;
+
+export const part1 = input => popBase(parse(input)).count;
 
 export function part2(input) {
   const astroids = parse(input);
-  const base = bestBase(astroids);
-  const targets = astroids.filter(x => x !== base);
-  targets.forEach(target => {
-    target.angle =
-      (Math.atan2(base.y - target.y, base.x - target.x) * 180) / Math.PI;
-    target.angle = (target.angle + 360) % 360;
-    target.distance = Math.abs(base.y - target.y) + Math.abs(base.x - target.x);
-  });
-  targets.sort((a, b) =>
-    a.angle === b.angle ? a.distance - b.distance : a.angle - b.angle,
-  );
-
-  const killed = [];
-  let angle = 90;
-  while (killed.length !== 200) {
-    const next = targets.filter(t => t.angle - angle >= 0)[0];
-    targets.splice(targets.indexOf(next), 1);
-    killed.push(next);
-    angle = targets.filter(t => t.angle - angle > 0).map(t => t.angle)[0] || 0;
-  }
-  return killed[killed.length - 1].x * 100 + killed[killed.length - 1].y;
+  const base = popBase(astroids);
+  const angles = new Map();
+  return astroids
+    .map(target => ({
+      score: target.x * 100 + target.y,
+      angle: (calcAngle(base, target) + 270) % 360,
+      distance: Math.abs(base.y - target.y) + Math.abs(base.x - target.x),
+    }))
+    .sort((a, b) => a.distance - b.distance)
+    .map(target => {
+      angles.set(target.angle, (angles.get(target.angle) || 0) + 1);
+      return { ...target, round: angles.get(target.angle) };
+    })
+    .sort((a, b) => a.round - b.round || a.angle - b.angle)[199].score;
 }
