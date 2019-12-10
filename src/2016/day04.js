@@ -13,10 +13,9 @@ function checksum(s) {
     }, {});
   return Object.keys(occurences)
     .map(x => ({ letter: x, times: occurences[x] }))
-    .sort((a, b) =>
-      a.times === b.times
-        ? a.letter.charCodeAt(0) - b.letter.charCodeAt(0)
-        : b.times - a.times,
+    .sort(
+      (a, b) =>
+        b.times - a.times || a.letter.charCodeAt(0) - b.letter.charCodeAt(0),
     )
     .map(x => x.letter)
     .join('')
