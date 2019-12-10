@@ -39,7 +39,8 @@ export function part2(input) {
     target.angle = (target.angle + 360) % 360;
     target.distance = Math.abs(base.y - target.y) + Math.abs(base.x - target.x);
   });
-  let killed = [];
+
+  const killed = [];
   let angle = 90;
   while (killed.length !== 200) {
     const results = targets
@@ -52,10 +53,10 @@ export function part2(input) {
     targets.splice(targets.indexOf(next), 1);
     killed.push(next);
 
-    const possible = targets
+    ({ angle } = targets
       .filter(t => t.angle - angle > 0)
-      .sort((a, b) => a.angle - b.angle);
-    angle = possible.length > 0 ? possible[0].angle : 0;
+      .sort((a, b) => a.angle - b.angle)
+      .shift() || { angle: 0 });
   }
   return killed[killed.length - 1].x * 100 + killed[killed.length - 1].y;
 }
