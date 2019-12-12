@@ -63,21 +63,19 @@ export function part1(input, rotations = 1000) {
 export function part2(input) {
   const moons = parse(input);
   const history = [new Set(), new Set(), new Set()];
-  const result = [0, 0, 0];
   for (let i = 0; i < Infinity; i++) {
     rotate(moons);
     history.forEach((h, axis) => {
-      const s = JSON.stringify([
-        moons.map(m => m.position[axis]),
-        moons.map(m => m.velocity[axis]),
-      ]);
-      if (!result[axis] && h.has(s)) {
-        result[axis] = i;
+      if (h.size === i) {
+        const s = JSON.stringify([
+          moons.map(m => m.position[axis]),
+          moons.map(m => m.velocity[axis]),
+        ]);
+        h.add(s);
       }
-      h.add(s);
     });
-    if (result.every(r => r > 0)) {
-      return lcm(...result);
+    if (history.every(h => h.size <= i)) {
+      return lcm(...history.map(h => h.size));
     }
   }
 }
