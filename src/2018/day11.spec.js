@@ -1,5 +1,4 @@
 import { part1, part2 } from './day11.js';
-import { describeHeavy } from 'describe-heavy';
 import readInput from '../utils/read-input';
 
 const input = readInput(import.meta.url);
@@ -16,7 +15,7 @@ describe('day11 2018', () => {
     });
   });
 
-  describeHeavy('part2', () => {
+  describe('part2', () => {
     it('should work for part 2 examples', () => {
       expect(part2('18')).toEqual('90,269,16');
       expect(part2('42')).toEqual('232,251,12');
