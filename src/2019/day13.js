@@ -1,4 +1,4 @@
-import { execute } from './day11.js';
+import { execute } from './day09.js';
 
 export function part1(input) {
   const output = [];

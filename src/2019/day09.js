@@ -22,13 +22,10 @@ export function execute(ops, ip, user) {
       ops[at(ops, ip, user, 3)] = get(ops, ip, user, 1) * get(ops, ip, user, 2);
       return ip + 4;
     case 3:
-      if (user.input.length === 0) {
-        throw 'waiting for input';
-      }
-      ops[at(ops, ip, user, 1)] = user.input.shift();
+      ops[at(ops, ip, user, 1)] = user.input();
       return ip + 2;
     case 4:
-      user.output = get(ops, ip, user, 1);
+      user.output(get(ops, ip, user, 1));
       return ip + 2;
     case 5:
       return get(ops, ip, user, 1) !== 0 ? get(ops, ip, user, 2) : ip + 3;
@@ -49,14 +46,15 @@ export function execute(ops, ip, user) {
 }
 
 export function part1(input, inputValue = 1) {
-  const user = { input: [inputValue], output: undefined, base: 0 };
+  let output;
+  const user = { input: () => inputValue, output: x => (output = x), base: 0 };
   const ops = input.split(',').map(x => parseInt(x));
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {
     ip = execute(ops, ip, user);
   }
-  return user.output;
+  return output;
 }
 
 export function part2(input) {
