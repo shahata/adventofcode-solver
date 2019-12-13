@@ -27,7 +27,6 @@ function solve2(chain, lengths) {
 }
 
 function dense(arr) {
-  /* eslint no-bitwise: "off" */
   const result = [];
   while (arr.length > 0) {
     result.push(arr.slice(0, 16).reduce((a, b) => a ^ b, 0));

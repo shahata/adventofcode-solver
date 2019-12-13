@@ -10,7 +10,6 @@ export function day(input) {
     do {
       index++;
       hash = md5(input + index);
-      /* eslint no-bitwise: "off" */
     } while (!hash.startsWith('00000'));
 
     const i = parseInt(hash[5]);

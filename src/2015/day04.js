@@ -8,6 +8,5 @@ function solve(input, prefix) {
   return result;
 }
 
-/* eslint no-bitwise: "off" */
 export const part1 = input => solve(input, '00000');
 export const part2 = input => solve(input, '000000');

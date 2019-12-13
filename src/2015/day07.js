@@ -1,4 +1,3 @@
-/* eslint no-bitwise: "off" */
 const ops = {
   AND: (p1, p2) => (Math.pow(2, 16) + (p1 & p2)) % Math.pow(2, 16),
   OR: (p1, p2) => (Math.pow(2, 16) + (p1 | p2)) % Math.pow(2, 16),

@@ -26,7 +26,6 @@ function calcDistance(src, { molecule: dest, replacements }) {
     if (molecule === src) {
       return cost[src];
     }
-    /* eslint no-loop-func: "off" */
     calcNeighbors({ molecule, replacements }).forEach(next => {
       const newCost = cost[molecule] + 1;
       if (!cost[next] || newCost < cost[next]) {

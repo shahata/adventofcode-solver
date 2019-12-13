@@ -1,4 +1,3 @@
-/* eslint no-eval: "off" */
 export const part1 = input =>
   input
     .split('\n')
