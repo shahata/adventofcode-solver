@@ -1,41 +1,22 @@
 function calcNeighbors({ molecule, replacements }) {
-  return replacements
-    .reduce((result, pair) => {
-      const regexp = new RegExp(pair.from, 'g');
-      while (regexp.exec(molecule)) {
-        result.push(
-          molecule.slice(0, regexp.lastIndex - pair.from.length) +
-            pair.to +
-            molecule.slice(regexp.lastIndex),
-        );
-      }
-      return result;
-    }, [])
-    .sort()
-    .filter((x, index, arr) => x !== arr[index - 1]);
+  const results = new Set();
+  replacements.forEach(pair => {
+    const regexp = new RegExp(pair.from, 'g');
+    while (regexp.exec(molecule)) {
+      const a = molecule.slice(0, regexp.lastIndex - pair.from.length);
+      const b = molecule.slice(regexp.lastIndex);
+      results.add(a + pair.to + b);
+    }
+  });
+  return results;
 }
 
-function calcDistance(src, { molecule: dest, replacements }) {
-  let queue = [dest];
-  const cost = { [dest]: 0 };
-  const heuristic = p => cost[p] + p.length - src.length;
-  replacements = replacements.map(x => ({ from: x.to, to: x.from }));
-
-  while (queue.length) {
-    const molecule = queue.shift();
-    if (molecule === src) {
-      return cost[src];
-    }
-    calcNeighbors({ molecule, replacements }).forEach(next => {
-      const newCost = cost[molecule] + 1;
-      if (!cost[next] || newCost < cost[next]) {
-        cost[next] = newCost;
-        queue.push(next);
-      }
-    });
-    queue = queue.sort().filter((x, index, arr) => x !== arr[index - 1]);
-    queue = queue.sort((a, b) => heuristic(a) - heuristic(b)); //A* priority queue
-  }
+function calcDistance({ molecule, replacements }) {
+  const elements = molecule.match(/[A-Z]/g).length;
+  const wrappers = (molecule.match(/(Rn|Ar)/g) || { length: 0 }).length;
+  const separators = (molecule.match(/Y/g) || { length: 0 }).length;
+  const last = replacements.find(x => x.from === 'e').to.length - 1;
+  return elements - wrappers - separators * 2 - last;
 }
 
 function parse(input) {
@@ -48,5 +29,5 @@ function parse(input) {
   return { molecule, replacements };
 }
 
-export const part1 = input => calcNeighbors(parse(input)).length;
-export const part2 = input => calcDistance('e', parse(input));
+export const part1 = input => calcNeighbors(parse(input)).size;
+export const part2 = input => calcDistance(parse(input));
