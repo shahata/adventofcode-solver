@@ -16,7 +16,10 @@ export function calcLeaderboard(jsons) {
   }
 
   const members = Object.values(
-    jsons.map(x => x.members).reduce((a, b) => ({ ...a, ...b }), {}),
+    jsons
+      .reverse()
+      .map(x => x.members)
+      .reduce((a, b) => ({ ...a, ...b }), {}),
   );
   const days = new Array(25).fill().map(() => [[], []]);
   members.forEach(member => {
@@ -53,7 +56,8 @@ export function calcLeaderboard(jsons) {
   );
   const leaders = members
     .sort((a, b) => b.local_score - a.local_score)
-    .filter((m, i, a) => a[0].stars - m.stars <= 2)
+    .filter((m, i, a) => a[0].stars === m.stars)
+    // .slice(0, 10)
     .map(member => {
       const pointsPerDay = [];
       sorted.forEach(day => {
@@ -82,7 +86,7 @@ export function calcLeaderboard(jsons) {
         p -
         leaders
           .filter(m => m.pointsPerDay[i])
-          .sort((a, b) => b.pointsPerDay[i] - a.pointsPerDay[i])[0]
+          .sort((a, b) => a.pointsPerDay[i] - b.pointsPerDay[i])[0]
           .pointsPerDay[i],
     );
   });
@@ -99,7 +103,7 @@ export function calcLeaderboard(jsons) {
       labels: new Array(50)
         .fill()
         .map((x, i) => `Day ${Math.floor(i / 2) + 1}-${Math.floor(i % 2) + 1}`),
-      datasets: leaders.reverse().map(member => {
+      datasets: leaders.map(member => {
         return {
           label: member.label,
           data: member.leadPerDay,
