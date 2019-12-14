@@ -54,9 +54,9 @@ export function calcLeaderboard(jsons) {
         })),
     ),
   );
+  members.sort((a, b) => b.local_score - a.local_score);
   const leaders = members
-    .sort((a, b) => b.local_score - a.local_score)
-    .filter((m, i, a) => a[0].stars === m.stars)
+    .filter((m, i, a) => a[0].stars - m.stars <= 2)
     // .slice(0, 10)
     .map(member => {
       const pointsPerDay = [];
@@ -65,7 +65,7 @@ export function calcLeaderboard(jsons) {
           const star = stars.find(x => x.name === member.label);
           return star ? members.length - stars.indexOf(star) : 0;
         });
-        pointsPerDay.push(...pointsPerStar);
+        pointsPerDay.push(...pointsPerStar.reverse());
       });
       const data = pointsPerDay.reduce((prev, today) => {
         return prev.concat([
@@ -78,14 +78,14 @@ export function calcLeaderboard(jsons) {
       ) {
         data.pop();
       }
-      return { label: member.label, pointsPerDay: data };
+      return { label: member.label, pointsPerDay: data, stars: member.stars };
     });
   leaders.forEach(member => {
     member.leadPerDay = member.pointsPerDay.map(
       (p, i) =>
         p -
         leaders
-          .filter(m => m.pointsPerDay[i])
+          .filter(m => m.stars === members[0].stars)
           .sort((a, b) => a.pointsPerDay[i] - b.pointsPerDay[i])[0]
           .pointsPerDay[i],
     );
