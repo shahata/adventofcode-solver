@@ -21,6 +21,7 @@ export function calcLeaderboard(jsons) {
   const days = new Array(25).fill().map(() => [[], []]);
   members.forEach(member => {
     const name = member.name || `(anonymous user #${member.id})`;
+    member.label = name;
     for (const [day, stars] of Object.entries(member.completion_day_level)) {
       const index = parseInt(day) - 1;
       if (stars['1']) {
@@ -50,6 +51,41 @@ export function calcLeaderboard(jsons) {
         })),
     ),
   );
+  const leaders = members
+    .sort((a, b) => b.local_score - a.local_score)
+    .filter((m, i, a) => a[0].stars - m.stars <= 2)
+    .map(member => {
+      const pointsPerDay = [];
+      sorted.forEach(day => {
+        const pointsPerStar = day.map(stars => {
+          const star = stars.find(x => x.name === member.label);
+          return star ? members.length - stars.indexOf(star) : 0;
+        });
+        pointsPerDay.push(...pointsPerStar);
+      });
+      const data = pointsPerDay.reduce((prev, today) => {
+        return prev.concat([
+          today + (prev.length === 0 ? 0 : prev[prev.length - 1]),
+        ]);
+      }, []);
+      while (
+        data.length > 1 &&
+        data[data.length - 1] === data[data.length - 2]
+      ) {
+        data.pop();
+      }
+      return { label: member.label, pointsPerDay: data };
+    });
+  leaders.forEach(member => {
+    member.leadPerDay = member.pointsPerDay.map(
+      (p, i) =>
+        p -
+        leaders
+          .filter(m => m.pointsPerDay[i])
+          .sort((a, b) => b.pointsPerDay[i] - a.pointsPerDay[i])[0]
+          .pointsPerDay[i],
+    );
+  });
   const config = {
     type: 'line',
     options: {
@@ -60,34 +96,16 @@ export function calcLeaderboard(jsons) {
       },
     },
     data: {
-      labels: new Array(25).fill().map((x, i) => `Day ${i + 1}`),
-      datasets: members
-        .map(member => {
-          const label = member.name || `(anonymous user #${member.id})`;
-          const pointsPerDay = sorted.map(day => {
-            const pointsPerStar = day.map(stars => {
-              const star = stars.find(x => x.name === label);
-              return star ? members.length - stars.indexOf(star) : 0;
-            });
-            return pointsPerStar.reduce((a, b) => a + b, 0);
-          });
-          const data = pointsPerDay.reduce((prev, today) => {
-            if (today === 0) {
-              return prev;
-            } else {
-              return prev.concat([
-                today + (prev.length === 0 ? 0 : prev[prev.length - 1]),
-              ]);
-            }
-          }, []);
-          return {
-            label,
-            data,
-            fill: false,
-          };
-        })
-        .sort((a, b) => Math.max(...b.data) - Math.max(...a.data)),
-      // .slice(0, 10),
+      labels: new Array(50)
+        .fill()
+        .map((x, i) => `Day ${Math.floor(i / 2) + 1}-${Math.floor(i % 2) + 1}`),
+      datasets: leaders.reverse().map(member => {
+        return {
+          label: member.label,
+          data: member.leadPerDay,
+          fill: false,
+        };
+      }),
     },
   };
   let output = [''];
