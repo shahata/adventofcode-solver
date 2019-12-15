@@ -1,24 +1,11 @@
 import { execute } from './day09.js';
 
-function step(current) {
-  switch (current.direction) {
-    case 1:
-      return { ...current, x: current.x, y: current.y + 1 };
-    case 2:
-      return { ...current, x: current.x, y: current.y - 1 };
-    case 3:
-      return { ...current, x: current.x - 1, y: current.y };
-    case 4:
-      return { ...current, x: current.x + 1, y: current.y };
-  }
-}
-
-function getNeighbors(next) {
+function getNeighbors(current) {
   return [
-    { x: next.x, y: next.y + 1, distance: next.distance + 1 },
-    { x: next.x, y: next.y - 1, distance: next.distance + 1 },
-    { x: next.x + 1, y: next.y, distance: next.distance + 1 },
-    { x: next.x - 1, y: next.y, distance: next.distance + 1 },
+    { ...current, x: current.x, y: current.y + 1 }, //north=1
+    { ...current, x: current.x, y: current.y - 1 }, //south=2
+    { ...current, x: current.x - 1, y: current.y }, //west=3
+    { ...current, x: current.x + 1, y: current.y }, //east=4
   ];
 }
 
@@ -34,7 +21,7 @@ function solve(map, src, dest) {
     if (next.x === dest.x && next.y === dest.y) {
       return { max, distance: next.distance, complete };
     }
-    const neighbors = getNeighbors(next);
+    const neighbors = getNeighbors({ ...next, distance: next.distance + 1 });
     if (neighbors.some(p => map[`${p.x},${p.y}`] === undefined)) {
       complete = false;
     }
@@ -49,13 +36,12 @@ function solve(map, src, dest) {
 function createMap(input, map = {}) {
   let output = 1;
   let current = { x: 0, y: -1, direction: 1 };
+  const step = current => getNeighbors(current)[current.direction - 1];
 
   function move() {
     const next = step(current);
     map[`${next.x},${next.y}`] = output;
-    if (output >= 1) {
-      current = next;
-    }
+    current = output === 0 ? current : next;
     current.direction = Math.floor(Math.random() * 4) + 1;
     return current.direction;
   }
