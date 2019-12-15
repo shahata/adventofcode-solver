@@ -66,8 +66,8 @@ export function part2(input) {
   const map = {};
   let result;
   do {
-    const dest = createMap(input, map);
-    result = solve(map, dest, { x: Infinity, y: Infinity });
+    const src = createMap(input, map);
+    result = solve(map, src, { x: Infinity, y: Infinity });
   } while (!result.complete);
   return result.max;
 }
