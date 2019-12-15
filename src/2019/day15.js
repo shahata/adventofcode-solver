@@ -22,9 +22,7 @@ function solve(map, src, dest) {
       return { max, distance: next.distance, complete };
     }
     const neighbors = getNeighbors({ ...next, distance: next.distance + 1 });
-    if (neighbors.some(p => map[`${p.x},${p.y}`] === undefined)) {
-      complete = false;
-    }
+    complete = complete && neighbors.every(p => map[`${p.x},${p.y}`] >= 0);
     const filtered = neighbors
       .filter(p => map[`${p.x},${p.y}`] > 0)
       .filter(p => !visited.has(`${p.x},${p.y}`));
@@ -33,7 +31,7 @@ function solve(map, src, dest) {
   return { max, distance: Infinity, complete };
 }
 
-function createMap(input, map = {}) {
+function createMap(input, map) {
   let output = 1;
   let current = { x: 0, y: -1, direction: 1 };
   const step = current => getNeighbors(current)[current.direction - 1];
@@ -50,13 +48,12 @@ function createMap(input, map = {}) {
   const ops = input.split(',').map(x => parseInt(x));
   let ip = 0;
 
-  while (output !== 2 && ops[ip] % 100 !== 99) {
+  while (output !== 2) {
     ip = execute(ops, ip, user);
   }
 
-  const dest = step(current);
-  map[`${dest.x},${dest.y}`] = 2;
-  return dest;
+  move();
+  return current;
 }
 
 export function part1(input) {
