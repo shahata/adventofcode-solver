@@ -29,12 +29,8 @@ export function part1(input, phases = 100) {
 }
 
 export function part2(input) {
-  let digits = input
-    .repeat(10000)
-    .split('')
-    .map(x => parseInt(x));
-  const offset = parseInt(digits.slice(0, 7).join(''));
-  digits = digits.slice(offset);
+  input = input.repeat(10000).slice(parseInt(input.slice(0, 7)));
+  let digits = input.split('').map(x => parseInt(x));
 
   for (let i = 0; i < 100; i++) {
     digits = fft2(digits);

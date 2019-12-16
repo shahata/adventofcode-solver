@@ -4,15 +4,16 @@ import { fileURLToPath } from 'url';
 
 export function calcLeaderboard(jsons) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const jsonPath = path.resolve(__dirname, 'leaderboards.json');
+  const debugMode = false;
   if (jsons) {
-    fs.writeFileSync(
-      path.resolve(__dirname, 'leaderboards.json'),
-      JSON.stringify(jsons),
-    );
+    if (debugMode) {
+      fs.writeFileSync(jsonPath, JSON.stringify(jsons));
+    }
+  } else if (debugMode) {
+    jsons = JSON.parse(fs.readFileSync(jsonPath).toString(jsonPath));
   } else {
-    jsons = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, 'leaderboards.json')).toString(),
-    );
+    return;
   }
 
   const members = Object.values(
