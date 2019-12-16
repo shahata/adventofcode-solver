@@ -75,7 +75,7 @@ export default async function solveAll(year, day, run = true) {
     }
   } else {
     console.log(`Downloading questions (${year})...`);
-    const days = getDays(year, day);
+    const days = getDays(year);
     var bar = new ProgressBar('[:bar] :percent', {
       total: days.length * 2 + 1,
       width: 40,
