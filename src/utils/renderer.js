@@ -37,10 +37,10 @@ export async function downloadInput(year, day) {
 }
 
 export function tempLeaderboard(year) {
-  renderTemplate(year, 'leaderboard', 'html', {
-    year,
-    page: calcLeaderboard(),
-  });
+  const page = calcLeaderboard();
+  if (page) {
+    renderTemplate(year, 'leaderboard', 'html', { year, page });
+  }
 }
 
 export async function downloadIndex(year) {
