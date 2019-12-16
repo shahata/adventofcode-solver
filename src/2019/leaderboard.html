@@ -18,7 +18,7 @@
 <script>
 window.onload = function() {
   var ctx = document.getElementById("canvas").getContext("2d");
-  window.myLine = new Chart(ctx, {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[54,104,158,208,248,285,326,368,402,434,468,500,529,556,568,592,609,625,631,634,645,654,662,674,679,686,693,699,707,713],"fill":false},{"label":"silyevsk","data":[52,105,160,209,245,279,319,360,393,424,456,489,516,542,553,579,595,610,614,616,625,633,643,656,658,666,674,679,686,691],"fill":false},{"label":"Gabriel Grinberg","data":[55,109,161,209,251,290,319,352,378,403,438,473,499,524,537,559,570,568,576,580,590,600,611,607,611,614,623,627,632,635],"fill":false},{"label":"Stanislav Prokopiv","data":[33,67,102,135,176,212,250,287,316,346,379,413,437,461,476,501,509,517,524,525,530,536,545,553,556,562,568,570,574,578],"fill":false},{"label":"Lior Hai","data":[43,79,124,165,194,222,246,270,292,313,340,367,388,395,401,418,417,416,412,408,410,411,416,419,420,416,417,412,413,412],"fill":false},{"label":"Antanas Bastys","data":[8,15,52,87,122,155,187,218,248,276,304,332,330,333,329,337,351,364,355,348,361,372,378,389,377,370,373,365,367,369],"fill":false},{"label":"Maor Yosef","data":[50,99,146,188,225,260,290,320,345,371,395,421,443,465,473,491,504,516,518,515,522,529,532,542,534,538,536,532,531],"fill":false},{"label":"Vytenis Urbonavičius","data":[44,88,130,167,185,202,222,245,266,286,297,314,328,349,346,355,359,363,361,349,348,347,346,352,349,346,350,351,354,355],"fill":false},{"label":"Leon Fedotov","data":[27,54,94,126,152,176,207,241,258,276,301,326,344,364,365,377,382,387,382,380,386,391,392,401,395,394,393,391,397],"fill":false},{"label":"Karolina Zarankaitė","data":[35,70,116,156,188,218,253,293,316,338,364,373,386,397,402,418,411,403,392,383,380,377,368,367,360,361,363,362],"fill":false},{"label":"Yonatan Hattav","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Oded Soffrin","data":[26,46,68,87,101,113,134,155,170,184,206,216,222,228,223,230,240,250,242,236,229,221,211,208,203,205,210,213],"fill":false},{"label":"Vadym Holoveichuk","data":[28,56,77,95,110,124,136,149,162,175,189,207,214,227,225,235,236,237,222,204,202,200,192,193,182,177,170,161],"fill":false},{"label":"tomershk","data":[4,8,19,27,36,45,67,92,103,112,135,159,178,187,190,204,201,197,196,181,184,179,176,174,172,163,157,150],"fill":false},{"label":"Anton Podolsky","data":[21,43,60,75,86,97,102,109,119,127,139,155,159,167,159,163,159,154,140,123,124,126,114,109,99,97,94,91],"fill":false},{"label":"Aviad Hadad","data":[23,47,51,53,44,36,50,66,74,80,83,87,92,104,95,98,92,85,69,50,40,29,15,6,-10,-20,-25,-31],"fill":false}]}});
+  window.myLine = new Chart(ctx, {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[46,89,106,121,126,130,139,150,154,158,164,168,199,223,239,255,258,261,276,286,284,282,284,285,302,316,320,334,340,344,345,346],"fill":false},{"label":"silyevsk","data":[44,90,108,122,123,124,132,142,145,148,152,157,186,209,224,242,244,246,259,268,264,261,265,267,281,296,301,314,319,322,321],"fill":false},{"label":"Gabriel Grinberg","data":[47,94,109,122,129,135,132,134,130,127,134,141,169,191,208,222,219,204,221,232,229,228,233,218,234,244,250,262,265,266,268],"fill":false},{"label":"Stanislav Prokopiv","data":[25,52,50,48,54,57,63,69,68,70,75,81,107,128,147,164,158,153,169,177,169,164,167,164,179,192,195,205,207,209,206],"fill":false},{"label":"Antanas Bastys","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Maor Yosef","data":[42,84,94,101,103,105,103,102,97,95,91,89,113,132,144,154,153,152,163,167,161,157,154,153,157,168,163,167,164,159,155],"fill":false},{"label":"Lior Hai","data":[35,64,72,78,72,67,59,52,44,37,36,35,58,62,72,81,66,52,57,60,49,39,38,30,43,46,44,47,46,43],"fill":false},{"label":"Oded Soffrin","data":[18,31,16,0,-21,-42,-53,-63,-78,-92,-98,-116,-108,-105,-106,-107,-111,-114,-113,-112,-132,-151,-167,-181,-174,-165,-163,-152,-158,-164,-169],"fill":false},{"label":"Vytenis Urbonavičius","data":[36,73,78,80,63,47,35,27,18,10,-7,-18,-2,16,17,18,8,-1,6,1,-13,-25,-32,-37,-28,-24,-23,-14,-13,-14],"fill":false},{"label":"Yonatan Hattav","data":[-8,-15,-52,-87,-122,-155,-187,-218,-248,-276,-304,-332,-330,-333,-329,-337,-351,-364,-355,-348,-361,-372,-378,-389,-377,-370,-373,-365,-367,-369,-371],"fill":false},{"label":"Anton Podolsky","data":[13,28,8,-12,-36,-58,-85,-109,-129,-149,-165,-177,-171,-166,-170,-174,-192,-210,-215,-225,-237,-246,-264,-280,-278,-273,-279,-274,-278,-282],"fill":false}]}});
 };
 </script>
 <table>
@@ -78,21 +78,36 @@ window.onload = function() {
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
+<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 16:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">Dec 16, 2019, 01:31:26</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">Dec 16, 2019, 02:26:00</span> Antanas Bastys</div> 
 </td>
 <td style="padding-right: 50px;">
+<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 16:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">Dec 16, 2019, 00:25:48</span> Gabriel Grinberg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">Dec 16, 2019, 00:27:33</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">Dec 16, 2019, 01:00:41</span> Antanas Bastys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">Dec 16, 2019, 01:21:06</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">Dec 16, 2019, 01:29:06</span> Yonatan Hattav</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">Dec 16, 2019, 01:50:19</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">Dec 16, 2019, 01:56:38</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span class="leaderboard-time">Dec 16, 2019, 02:17:58</span> Oded Soffrin</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 15:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">Dec 15, 2019, 01:37:09</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">Dec 15, 2019, 02:42:16</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">Dec 15, 2019, 03:28:21</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">Dec 15, 2019, 04:34:20</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">Dec 15, 2019, 06:33:11</span> Antanas Bastys</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">Dec 15, 2019, 07:23:30</span> Vytenis Urbonavičius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">Dec 15, 2019, 13:23:34</span> Yonatan Hattav</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span class="leaderboard-time">Dec 15, 2019, 15:05:25</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">Dec 15, 2019, 01:37:09</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">Dec 15, 2019, 02:42:16</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">Dec 15, 2019, 03:28:21</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">Dec 15, 2019, 04:34:20</span> Gabriel Grinberg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">Dec 15, 2019, 06:33:11</span> Antanas Bastys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">Dec 15, 2019, 07:23:30</span> Vytenis Urbonavičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">Dec 15, 2019, 13:23:34</span> Yonatan Hattav</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">Dec 15, 2019, 15:05:25</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">Dec 15, 2019, 16:33:47</span> Anton Podolsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">Dec 15, 2019, 17:25:31</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">Dec 16, 2019, 01:22:34</span> Oded Soffrin</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 15:</p>
@@ -106,6 +121,9 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">Dec 15, 2019, 09:53:39</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">Dec 15, 2019, 11:07:47</span> Yonatan Hattav</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">Dec 15, 2019, 15:33:10</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">Dec 15, 2019, 16:05:14</span> Anton Podolsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">Dec 15, 2019, 16:10:08</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">Dec 16, 2019, 00:44:57</span> Oded Soffrin</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -228,6 +246,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">Dec 14, 2019, 05:36:23</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">Dec 14, 2019, 11:43:32</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">Dec 15, 2019, 02:29:36</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">Dec 15, 2019, 18:44:50</span> Guy Rotem</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 12:</p>
