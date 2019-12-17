@@ -8,7 +8,7 @@
     <script type="importmap-shim" src="../static/importmap.json"></script>
     <script type="module-shim">
       import { solveAll } from '../static/main.js';
-      solveAll('2018');
+      solveAll('{{year}}');
     </script>
   </head>
   <body>

@@ -53,6 +53,7 @@ export async function downloadIndex(year) {
     year,
     page: calcLeaderboard(leaderboards),
   });
+  renderTemplate(year, 'solver', 'html', { year });
   const end = await getEndPage(year).catch(() => undefined);
   if (end) {
     renderTemplate(year, 'end', 'html', { year, page: end });

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="module">
+    <script defer src="https://unpkg.com/es-module-shims@0.4.6/dist/es-module-shims.js"
+      crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/js-combinatorics@0.5.4/combinatorics.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/node-forge@0.9.1/dist/forge.min.js" crossorigin="anonymous"></script>
+    <script type="importmap-shim" src="../static/importmap.json"></script>
+    <script type="module-shim">
       import { solveAll } from '../static/main.js';
       solveAll('2017');
     </script>

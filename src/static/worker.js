@@ -1,9 +1,9 @@
-/* global document, performance, fetch */
+/* global performance, fetch, self */
 import { dayName } from '../utils/day-name.js';
 
 console.log = (...args) => {
   const str = args.map(x => `${x}`).join(' ');
-  document.getElementById('output').innerText += str + '\n';
+  self.postMessage(str + '\n');
 };
 
 let duration;
@@ -51,7 +51,7 @@ function getDays() {
   return new Array(25).fill().map((x, i) => `${i + 1}`);
 }
 
-export async function solveAll(year) {
+async function solveAll(year) {
   const days = getDays();
   for (const day of days) {
     try {
@@ -65,3 +65,7 @@ export async function solveAll(year) {
     }
   }
 }
+
+self.onmessage = e => {
+  solveAll(e.data.year);
+};
