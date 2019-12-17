@@ -6,7 +6,7 @@ const steps = {
   '<': step(-1, 0),
   '>': step(1, 0),
   '^': step(0, -1),
-  v: step(0, 1),
+  'v': step(0, 1),
 };
 
 function parse(input) {

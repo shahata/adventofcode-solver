@@ -1,17 +1,17 @@
 const position = cart => `${cart.x},${cart.y}`;
-const onSlash = { '>': '^', '<': 'v', '^': '>', v: '<' };
-const onBackSlash = { '>': 'v', '<': '^', '^': '<', v: '>' };
+const onSlash = { '>': '^', '<': 'v', '^': '>', 'v': '<' };
+const onBackSlash = { '>': 'v', '<': '^', '^': '<', 'v': '>' };
 const nextTurn = { left: 'straight', straight: 'right', right: 'left' };
 const onTurn = {
-  left: { '>': '^', '<': 'v', '^': '<', v: '>' },
-  right: { '>': 'v', '<': '^', '^': '>', v: '<' },
-  straight: { '>': '>', '<': '<', '^': '^', v: 'v' },
+  left: { '>': '^', '<': 'v', '^': '<', 'v': '>' },
+  right: { '>': 'v', '<': '^', '^': '>', 'v': '<' },
+  straight: { '>': '>', '<': '<', '^': '^', 'v': 'v' },
 };
 const onMove = {
   '>': c => c.x++,
   '<': c => c.x--,
   '^': c => c.y--,
-  v: c => c.y++,
+  'v': c => c.y++,
 };
 
 function tick(map, carts) {

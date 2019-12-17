@@ -25,12 +25,12 @@ export const part1 = input =>
   countLights(input, {
     'turn on': () => 1,
     'turn off': () => 0,
-    toggle: val => (val === 0 ? 1 : 0),
+    'toggle': val => (val === 0 ? 1 : 0),
   });
 
 export const part2 = input =>
   countLights(input, {
     'turn on': val => val + 1,
     'turn off': val => Math.max(val - 1, 0),
-    toggle: val => val + 2,
+    'toggle': val => val + 2,
   });

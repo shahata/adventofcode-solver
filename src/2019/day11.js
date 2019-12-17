@@ -18,14 +18,14 @@ function move(position, direction) {
 const left = {
   '^': '<',
   '<': 'v',
-  v: '>',
+  'v': '>',
   '>': '^',
 };
 
 const right = {
   '^': '>',
   '>': 'v',
-  v: '<',
+  'v': '<',
   '<': '^',
 };
 

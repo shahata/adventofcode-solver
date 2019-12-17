@@ -37,7 +37,7 @@ function parse(input, fn) {
         .filter((x, i) => x.indexOf(b) === i)
         .pop();
     },
-    rotate: (a, b) => str => {
+    'rotate': (a, b) => str => {
       b = parseInt(b) % str.length;
       const regexp = a === 'left' ? `^(.{${b}})(.*)$` : `^(.*)(.{${b}})$`;
       return str

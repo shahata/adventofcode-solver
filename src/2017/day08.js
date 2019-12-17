@@ -6,8 +6,8 @@
 
 function parse(input) {
   const dic = {
-    inc: (a, b) => a + b,
-    dec: (a, b) => a - b,
+    'inc': (a, b) => a + b,
+    'dec': (a, b) => a - b,
     '>': (a, b) => a > b,
     '<': (a, b) => a < b,
     '>=': (a, b) => a >= b,
