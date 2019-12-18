@@ -1,8 +1,5 @@
 function calcKey(point, keys) {
-  return `${point.x},${point.y},${keys
-    .slice(0)
-    .sort()
-    .join('')}`;
+  return `${point.x},${point.y},${keys.sort().join('')}`;
 }
 
 function getNeighbors(map, next, visited) {
@@ -52,7 +49,28 @@ function calcTotalKeys(map, current) {
   const keys = new Set();
   visited.filter(p => p.c.match(/[a-z]/)).forEach(p => keys.add(p.c));
   visited.filter(p => !keys.has(p.c.toLowerCase())).forEach(p => (p.c = '.'));
+  current.c = '@';
   return keys.size;
+}
+
+function blockDeadEnds(map, current, visited = []) {
+  visited.push(current);
+  const neighbors = [
+    map[current.y - 1] && map[current.y - 1][current.x],
+    map[current.y + 1] && map[current.y + 1][current.x],
+    map[current.y][current.x - 1],
+    map[current.y][current.x + 1],
+  ].filter(p => p && p.c !== '#');
+  const filtered = neighbors.filter(p => !visited.includes(p));
+  const blocked = filtered.filter(p => blockDeadEnds(map, p, visited));
+  if (
+    filtered.length + 1 === neighbors.length &&
+    blocked.length === filtered.length &&
+    current.c === '.'
+  ) {
+    current.c = '#';
+    return true;
+  }
 }
 
 export function part1(input) {
@@ -62,6 +80,8 @@ export function part1(input) {
   const line = map.find(line => line.find(p => p.c === '@'));
   const current = line.find(p => p.c === '@');
   const totalKeys = calcTotalKeys(map, current);
+  blockDeadEnds(map, current);
+
   let queue = [{ point: current, keys: [], distance: 0 }];
   const visited = new Set();
   while (queue.length) {
@@ -69,8 +89,7 @@ export function part1(input) {
     if (next.keys.length === totalKeys) {
       return next.distance;
     }
-    const neighbors = getNeighbors(map, next, visited);
-    queue = queue.concat(neighbors);
+    queue = queue.concat(getNeighbors(map, next, visited));
   }
   return 0;
 }
@@ -99,7 +118,7 @@ export function part2(input) {
     .map((line, y) => line.split('').map((c, x) => ({ c, x, y })));
   const currents = mutate(map);
 
-  //nasty tricks, will work only with inputs with only one path to reach a key
+  //nasty trick, will work only with inputs with only one path to reach a key
   const steps = currents.map(current => {
     current.c = '@';
     const section = map
@@ -123,7 +142,7 @@ export function part2(input) {
 //   return result;
 // }
 
-// export function part2a(input) {
+// export function part2(input) {
 //   const totalKeys = input.match(/[a-z]/g).length;
 //   const map = input
 //     .split('\n')
@@ -136,14 +155,7 @@ export function part2(input) {
 //     if (next.keys.length === totalKeys) {
 //       return next.distance;
 //     }
-//     const neighbors = getNeighbors2(map, next, visited);
-//     if (
-//       next.keys.length === totalKeys - 1 &&
-//       neighbors.find(p => p.keys.length === totalKeys)
-//     ) {
-//       return next.distance + 1;
-//     }
-//     queue = queue.concat(neighbors);
+//     queue = queue.concat(getNeighbors2(map, next, visited));
 //   }
 //   return 0;
 // }
