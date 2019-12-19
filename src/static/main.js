@@ -17,15 +17,25 @@ performance.timerify = fn => {
   };
 };
 
-async function readInput(url) {
-  const result = await fetch(url);
+async function readInput(url, session) {
+  const result = await fetch(url, {
+    mode: 'no-cors',
+    credentials: 'include',
+    headers: { Cookie: `session=${session}` },
+  });
+  if (result.status !== 200) {
+    throw 'Could not download input!';
+  }
   return (await result.text()).trimRight();
 }
 
 function solverFunction(year, day) {
-  return async () => {
+  return async session => {
     const module = await import(`../${year}/${dayName(day)}.js`);
-    const input = await readInput(`../${year}/${dayName(day)}.txt`);
+    const input = await readInput(
+      `https://adventofcode.com/${year}/day/${day}/input`,
+      session,
+    );
 
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log('----------------------------');
@@ -51,12 +61,12 @@ function getDays() {
   return new Array(25).fill().map((x, i) => `${i + 1}`);
 }
 
-export async function solveAll(year) {
+export async function solveAll(year, session) {
   const days = getDays();
   for (const day of days) {
     try {
       const solver = solverFunction(year, day);
-      await solver();
+      await solver(session);
     } catch (e) {
       console.log(`Exception in ${year}/${dayName(day)}!!!`);
       console.log('----------------------------');

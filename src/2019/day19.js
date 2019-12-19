@@ -1,13 +1,13 @@
 import { execute } from './day09.js';
 
 function check(input, { x, y }) {
+  let output;
   let current = 0;
   function read() {
     current++;
     return current % 2 === 1 ? x : y;
   }
 
-  let output;
   const user = { input: read, output: x => (output = x), base: 0 };
   const ops = input.split(',').map(x => parseInt(x));
   let ip = 0;
@@ -15,14 +15,13 @@ function check(input, { x, y }) {
   while (ops[ip] % 100 !== 99) {
     ip = execute(ops, ip, user);
   }
-
   return output === 1;
 }
 
 export function part1(input) {
   let count = 0;
-  for (let y = 0; y < 50; y++) {
-    for (let x = 0; x < 50; x++) {
+  for (let x = 0; x < 50; x++) {
+    for (let y = 0; y < 50; y++) {
       if (check(input, { x, y })) {
         count++;
       }
@@ -38,13 +37,13 @@ export function part2(input) {
       point.x++;
     }
 
-    let first = point.x;
+    const next = { x: point.x, y: point.y + 1 };
     while (check(input, point)) {
       point.x++;
     }
     if (point.x >= 100 && check(input, { x: point.x - 100, y: point.y + 99 })) {
       return (point.x - 100) * 10000 + point.y;
     }
-    point = { x: first, y: point.y + 1 };
+    point = next;
   }
 }

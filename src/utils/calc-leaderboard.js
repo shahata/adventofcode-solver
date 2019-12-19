@@ -11,7 +11,7 @@ export function calcLeaderboard(jsons) {
       fs.writeFileSync(jsonPath, JSON.stringify(jsons));
     }
   } else if (debugMode) {
-    jsons = JSON.parse(fs.readFileSync(jsonPath).toString(jsonPath));
+    jsons = JSON.parse(fs.readFileSync(jsonPath).toString());
   } else {
     return;
   }
@@ -57,7 +57,7 @@ export function calcLeaderboard(jsons) {
   );
   members.sort((a, b) => b.local_score - a.local_score);
   const leaders = members
-    .filter((m, i, a) => a[0].stars - m.stars <= 2)
+    .filter((m, i, a) => a[0].stars - m.stars <= 4)
     // .slice(0, 10)
     .map(member => {
       const pointsPerDay = [];
@@ -116,7 +116,7 @@ export function calcLeaderboard(jsons) {
   let output = [''];
   output.push(
     '<script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>',
-    '<script src="https://unpkg.com/chartjs-plugin-colorschemes" crossorigin="anonymous"></script>',
+    '<script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js" crossorigin="anonymous"></script>',
   );
   output.push(
     [

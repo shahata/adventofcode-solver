@@ -8,10 +8,17 @@
     <script type="importmap-shim" src="../static/importmap.json"></script>
     <script type="module-shim">
       import { solveAll } from '../static/main.js';
-      solveAll('2019');
+      document.getElementById('solver').onsubmit = function(e) {
+        const session = document.getElementById('session').value;
+        e.preventDefault();
+        solveAll('2019', session);
+      };
     </script>
   </head>
   <body>
+    <form id="solver" action="#">
+      Session: <input id="session" type="text" />
+    </form>
     <pre id="output"></pre>
   </body>
 </html>
