@@ -17,12 +17,8 @@ performance.timerify = fn => {
   };
 };
 
-async function readInput(url, session) {
-  const result = await fetch(url, {
-    mode: 'no-cors',
-    credentials: 'include',
-    headers: { Cookie: `session=${session}` },
-  });
+async function readInput(url) {
+  const result = await fetch(url);
   if (result.status !== 200) {
     throw 'Could not download input!';
   }
@@ -33,8 +29,7 @@ function solverFunction(year, day) {
   return async session => {
     const module = await import(`../${year}/${dayName(day)}.js`);
     const input = await readInput(
-      `https://adventofcode.com/${year}/day/${day}/input`,
-      session,
+      `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`,
     );
 
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
