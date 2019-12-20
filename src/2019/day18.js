@@ -1,4 +1,13 @@
-function calcKey(points, keys) {
+function getNeighbors(map, { x, y }) {
+  return [
+    map[y][x - 1],
+    map[y][x + 1],
+    map[y - 1] && map[y - 1][x],
+    map[y + 1] && map[y + 1][x],
+  ].filter(x => x);
+}
+
+function calcMemoKey(points, keys) {
   return [
     points.map(p => `(${p.x},${p.y})`).join(','),
     keys.sort().join(''),
@@ -7,12 +16,7 @@ function calcKey(points, keys) {
 
 function blockDeadEnds(map, current, visited = []) {
   visited.push(current);
-  const neighbors = [
-    map[current.y - 1] && map[current.y - 1][current.x],
-    map[current.y + 1] && map[current.y + 1][current.x],
-    map[current.y][current.x - 1],
-    map[current.y][current.x + 1],
-  ].filter(p => p && p.c !== '#');
+  const neighbors = getNeighbors(map, current).filter(p => p && p.c !== '#');
   const filtered = neighbors.filter(p => !visited.includes(p));
   const blocked = filtered.filter(p => blockDeadEnds(map, p, visited));
   if (
@@ -32,12 +36,7 @@ function findNextKeys(map, point, keys) {
   while (queue.length) {
     const next = queue.shift();
     visited.add(next.point);
-    [
-      map[next.point.y - 1] && map[next.point.y - 1][next.point.x],
-      map[next.point.y + 1] && map[next.point.y + 1][next.point.x],
-      map[next.point.y][next.point.x - 1],
-      map[next.point.y][next.point.x + 1],
-    ]
+    getNeighbors(map, next.point)
       .filter(p => p && p.c !== '#' && !visited.has(p))
       .filter(p => !p.c.match(/[A-Z]/) || keys.includes(p.c.toLowerCase()))
       .forEach(p => {
@@ -52,7 +51,7 @@ function findNextKeys(map, point, keys) {
 }
 
 function minimumDistance(map, points, keys = [], memo = {}) {
-  const memoKey = calcKey(points, keys);
+  const memoKey = calcMemoKey(points, keys);
   if (!memo[memoKey]) {
     const nextKeysPerPoint = points.map(point =>
       findNextKeys(map, point, keys),
@@ -79,20 +78,15 @@ function minimumDistance(map, points, keys = [], memo = {}) {
 function mutate(map) {
   const line = map.find(line => line.find(p => p.c === '@'));
   const current = line.find(p => p.c === '@');
-  [
-    map[current.y][current.x],
-    map[current.y + 1][current.x],
-    map[current.y - 1][current.x],
-    map[current.y][current.x + 1],
-    map[current.y][current.x - 1],
-  ].forEach(p => (p.c = '#'));
   const currents = [
     map[current.y + 1][current.x + 1],
     map[current.y + 1][current.x - 1],
     map[current.y - 1][current.x + 1],
     map[current.y - 1][current.x - 1],
   ];
+  getNeighbors(map, current).forEach(p => (p.c = '#'));
   currents.forEach(p => (p.c = '.'));
+  map[current.y][current.x].c = '#';
   return currents;
 }
 
@@ -102,7 +96,6 @@ export function part1(input) {
     .map((line, y) => line.split('').map((c, x) => ({ c, x, y })));
   const line = map.find(line => line.find(p => p.c === '@'));
   const current = line.find(p => p.c === '@');
-
   blockDeadEnds(map, current);
   return minimumDistance(map, [current]);
 }
@@ -112,7 +105,6 @@ export function part2(input) {
     .split('\n')
     .map((line, y) => line.split('').map((c, x) => ({ c, x, y })));
   const currents = mutate(map);
-
   currents.forEach(point => blockDeadEnds(map, point));
   return minimumDistance(map, currents);
 }
