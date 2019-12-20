@@ -20,46 +20,36 @@ async function readInput(url) {
   return (await result.text()).trimRight();
 }
 
-function solverFunction(year, day) {
-  return async session => {
-    const input = await readInput(
-      `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`,
+async function solver(year, day, session) {
+  console.log(`Solution for ${year}/${dayName(day)}!!!`);
+  console.log('----------------------------');
+  const module = await import(`../${year}/${dayName(day)}.js`);
+  const input = await readInput(
+    `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`,
+  );
+  if (module.day) {
+    const { part1, part2 } = performance.timerify(module.day)(input);
+    console.log(`Part1: ${part1}`);
+    console.log(`Part2: ${part2}`, duration);
+  } else {
+    console.log(
+      `Part1: ${performance.timerify(module.part1)(input)}`,
+      duration,
     );
-    const module = await import(`../${year}/${dayName(day)}.js`);
-
-    console.log(`Solution for ${year}/${dayName(day)}!!!`);
-    console.log('----------------------------');
-    if (module.day) {
-      const { part1, part2 } = performance.timerify(module.day)(input);
-      console.log(`Part1: ${part1}`);
-      console.log(`Part2: ${part2}`, duration);
-    } else {
-      console.log(
-        `Part1: ${performance.timerify(module.part1)(input)}`,
-        duration,
-      );
-      console.log(
-        `Part2: ${performance.timerify(module.part2)(input)}`,
-        duration,
-      );
-    }
-    console.log('');
-  };
-}
-
-function getDays() {
-  return new Array(25).fill().map((x, i) => `${i + 1}`);
+    console.log(
+      `Part2: ${performance.timerify(module.part2)(input)}`,
+      duration,
+    );
+  }
+  console.log('');
 }
 
 export async function solveAll(year, session) {
-  const days = getDays();
+  const days = new Array(25).fill().map((x, i) => `${i + 1}`);
   for (const day of days) {
     try {
-      const solver = solverFunction(year, day);
-      await solver(session);
+      await solver(year, day, session);
     } catch (e) {
-      console.log(`Exception in ${year}/${dayName(day)}!!!`);
-      console.log('----------------------------');
       console.log(e);
       console.log('');
     }

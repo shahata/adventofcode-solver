@@ -12,7 +12,7 @@
 <script type="importmap-shim" src="../static/importmap.json"></script>
 <script type="module-shim">
       import { run } from '../static/create.js';
-      document.getElementById('solver').onsubmit = () => run('2016');
+      document.getElementById('solver').onsubmit = () => run('2016') && false;
 </script>
 <script src="https://unpkg.com/es-module-shims@0.4.6/dist/es-module-shims.js" crossorigin="anonymous"></script>
 </head>
@@ -28,6 +28,7 @@
 <p>Session: <input id="session" type="text" autocomplete="off"> <input type="submit" value="[Submit]"></p>
 </form>
 <pre id="output"></pre>
+<img id="loader" style="width: 20%; height: 20%; transform: translate(-175px, -60px); pointer-events: none; display: none" src="../static/loading.gif" />
 </main>
 </body>
 </html>
