@@ -13,9 +13,9 @@ function createWorker(year, session) {
     importMap: {
       imports: {
         'js-combinatorics': u('../static/combinatorics.js'),
-        'child_process': u('./child_process.js'),
-        'crypto': u('./crypto.js'),
-        'vm': u('./vm.js'),
+        'child_process': u('../static/child_process.js'),
+        'crypto': u('../static/crypto.js'),
+        'vm': u('../static/vm.js'),
       },
       scopes: {},
     },
