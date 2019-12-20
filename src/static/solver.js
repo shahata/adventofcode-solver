@@ -1,10 +1,5 @@
-/* global document, performance, fetch */
+/* global performance, fetch */
 import { dayName } from '../utils/day-name.js';
-
-console.log = (...args) => {
-  const str = args.map(x => `${x}`).join(' ');
-  document.getElementById('output').innerText += str + '\n';
-};
 
 let duration;
 performance.timerify = fn => {
