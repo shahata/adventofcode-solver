@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script defer src="https://unpkg.com/es-module-shims@0.4.6/dist/es-module-shims.js"
-      crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/js-combinatorics@0.5.4/combinatorics.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/node-forge@0.9.1/dist/forge.min.js" crossorigin="anonymous"></script>
-    <script type="importmap-shim" src="../static/importmap.json"></script>
-    <script type="module-shim">
-      import { solveAll } from '../static/main.js';
-      solveAll('2015');
-    </script>
-  </head>
-  <body>
-    <pre id="output"></pre>
-  </body>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Solver - Advent of Code 2015</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.ico"/>
+<script defer src="https://unpkg.com/es-module-shims@0.4.6/dist/es-module-shims.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/js-combinatorics@0.5.4/combinatorics.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/node-forge@0.9.1/dist/forge.min.js" crossorigin="anonymous"></script>
+<script type="importmap-shim" src="../static/importmap.json"></script>
+<script type="module-shim">
+  import { solveAll } from '../static/main.js';
+  document.getElementById('solver').onsubmit = () => {
+    const session = document.getElementById('session').value;
+    document.getElementById('session').value = '';
+    document.getElementById('output').innerText = '';
+    solveAll('2015', session);
+    return false;
+  }
+</script>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2015</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<article class="day-desc">
+<h2>--- Automatic Solver ---</h2>
+<p>Go to the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> site and open the "Application" tab in <a href="https://developers.google.com/web/tools/chrome-devtools/storage/cookies" target="_blank">Chrome DevTools</a>. Copy the value of the "session" cookie and paste it here to see the answers for your puzzle inputs.</p>
+</article>
+<form id="solver" action="#">
+<p>Session: <input id="session" type="text" autocomplete="off"> <input type="submit" value="[Submit]"></p>
+</form>
+<pre id="output"></pre>
+</main>
+</body>
 </html>

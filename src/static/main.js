@@ -20,17 +20,17 @@ performance.timerify = fn => {
 async function readInput(url) {
   const result = await fetch(url);
   if (result.status !== 200) {
-    throw 'Could not download input!';
+    throw `Could not download input!\n${await result.text()}`;
   }
   return (await result.text()).trimRight();
 }
 
 function solverFunction(year, day) {
   return async session => {
-    const module = await import(`../${year}/${dayName(day)}.js`);
     const input = await readInput(
       `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`,
     );
+    const module = await import(`../${year}/${dayName(day)}.js`);
 
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log('----------------------------');

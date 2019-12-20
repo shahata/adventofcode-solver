@@ -69,12 +69,12 @@ export async function createSolver(year, day) {
     },
   ]);
   if (answers.create) {
+    const txtFileName = await downloadInput(year, day);
     const jsFileName = renderTemplate(year, dayName(day), 'js', {});
     const specFileName = renderTemplate(year, dayName(day), 'spec.js', {
       year,
       day: dayName(day),
     });
-    const txtFileName = await downloadInput(year, day);
     [jsFileName, specFileName, txtFileName].forEach(fn =>
       console.log(`Created ${fn}`),
     );
