@@ -6,6 +6,9 @@ export function part1(input) {
       .split('')
       .sort()
       .join('');
+    if (s.match(/([a-z])\1\1\1+/)) {
+      s = s.replace(/([a-z])\1\1\1+/g, '');
+    }
     if (s.match(/([a-z])\1\1+/)) {
       counts.triple++;
       s = s.replace(/([a-z])\1\1+/g, '');
