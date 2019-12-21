@@ -100,12 +100,11 @@ export function part1(input) {
 
 export function part2(input) {
   const map = createMap(input);
-  const route = findRoute(map);
-  const A = route.slice(0, 8).join(','); // this is probably specific to my input
-  const B = route.slice(8, 16).join(','); // this is probably specific to my input
-  const C = route.slice(24, 30).join(','); // this is probably specific to my input
+  const route = findRoute(map).join(',');
+  const [, A, B, C] = (route + ',').match(
+    /^(.{1,20}),(?:\1,)*(.{1,20}),(?:\1,|\2,)*(.{1,20}),(?:\1,|\2,|\3,)*$/,
+  );
   const main = route
-    .join(',')
     .replace(new RegExp(A, 'g'), 'A')
     .replace(new RegExp(B, 'g'), 'B')
     .replace(new RegExp(C, 'g'), 'C');
