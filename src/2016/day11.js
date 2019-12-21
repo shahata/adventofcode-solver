@@ -73,20 +73,6 @@ function getMoves(state, diff) {
     .filter(legal);
 }
 
-function score({ state, distance }) {
-  return (
-    distance +
-    state.floors.reduce(
-      (sum, x, i) =>
-        sum +
-        2 *
-          (state.floors.length - i - 1) *
-          (x.generators.length + x.microchips.length),
-      0,
-    )
-  );
-}
-
 function getNeighbors(state) {
   let neighbors = [];
   if (state.elevator < state.floors.length - 1) {
@@ -167,7 +153,6 @@ function solve(state) {
         queue.push({ distance: distance + 1, state: x, path: path.concat(x) });
       }
     }
-    queue.sort((a, b) => score(a) - score(b));
   }
 }
 
