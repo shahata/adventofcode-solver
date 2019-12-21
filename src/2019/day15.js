@@ -32,6 +32,7 @@ function solve(map, src, dest) {
 }
 
 function createMap(input, map) {
+  let oxygen, done;
   let output = 1;
   let current = { x: 0, y: -1, direction: 1 };
   const step = current => getNeighbors(current)[current.direction - 1];
@@ -40,6 +41,8 @@ function createMap(input, map) {
     const next = step(current);
     map[`${next.x},${next.y}`] = output;
     current = output === 0 ? current : next;
+    done = oxygen ? true : false; //make one more move after oxygen discovered
+    oxygen = output === 2 ? current : oxygen;
     current.direction = Math.floor(Math.random() * 4) + 1;
     return current.direction;
   }
@@ -48,12 +51,10 @@ function createMap(input, map) {
   const ops = input.split(',').map(x => parseInt(x));
   let ip = 0;
 
-  while (output !== 2) {
+  while (!done) {
     ip = execute(ops, ip, user);
   }
-
-  move();
-  return current;
+  return oxygen;
 }
 
 export function part1(input) {
