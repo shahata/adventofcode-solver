@@ -19,10 +19,11 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
+<script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
 <article class="day-desc">
 <h2>--- Automatic Solver ---</h2>
-<p>Go to the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> site and open the <code>Application</code> tab in <a href="https://developers.google.com/web/tools/chrome-devtools/storage/cookies" target="_blank">Chrome DevTools</a>. Copy the value of the <code>session</code> cookie and paste it here to see the answers for your puzzle inputs.</p>
-<p>It is highly recommended to enable the following Chrome flag for smoother experience. Paste the following URL in your Chrome address bar and choose "Enabled": <code>chrome://flags/#enable-experimental-web-platform-features</code>. This will allow for the solver to run in a web worker instead of the main thread.</p>
+<p>Go to the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> site and open the <em>Application</em> tab in <a href="https://developers.google.com/web/tools/chrome-devtools/storage/cookies" target="_blank">Chrome DevTools</a>. Copy the value of the <em>session</em> cookie and paste it here to see the answers for your puzzle inputs.</p>
+<p>It is highly recommended to enable the following Chrome flag for smoother experience. Paste the following URL in your Chrome address bar and choose <em>Enabled</em>: <em class="star"><code>chrome://flags/#enable-experimental-web-platform-features</code></em>. This will allow for the solver to run in a web worker instead of the main thread.</p>
 </article>
 <form id="solver" action="#">
 <p>Session: <input id="session" type="text" autocomplete="off"> <input type="submit" value="[Submit]"></p>

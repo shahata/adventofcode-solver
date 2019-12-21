@@ -43,21 +43,26 @@ export function tempLeaderboard(year) {
   }
 }
 
-export async function downloadIndex(year) {
+export async function downloadIndex(year, bar) {
+  renderTemplate(year, 'solver', 'html', { year });
+  bar.tick();
   const page = await getYearPage(year);
   renderTemplate(year, 'index', 'html', { year, page });
+  bar.tick();
   const events = await getEventsPage(year);
   renderTemplate(year, 'events', 'html', { year, page: events });
+  bar.tick();
   const leaderboards = await getLeaderboardJsons(year);
   renderTemplate(year, 'leaderboard', 'html', {
     year,
     page: calcLeaderboard(leaderboards),
   });
-  renderTemplate(year, 'solver', 'html', { year });
+  bar.tick();
   const end = await getEndPage(year).catch(() => undefined);
   if (end) {
     renderTemplate(year, 'end', 'html', { year, page: end });
   }
+  bar.tick();
 }
 
 export async function createSolver(year, day) {

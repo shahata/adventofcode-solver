@@ -77,11 +77,10 @@ export default async function solveAll(year, day, run = true) {
     console.log(`Downloading questions (${year})...`);
     const days = getDays(year);
     var bar = new ProgressBar('[:bar] :percent', {
-      total: days.length * 2 + 1,
+      total: days.length * 2 + 5,
       width: 40,
     });
-    await downloadIndex(year);
-    bar.tick();
+    await downloadIndex(year, bar);
     for (const day of days) {
       await downloadQuestion(year, day);
       bar.tick();
