@@ -1,17 +1,16 @@
 function pow(base, power, mod) {
   let result = BigInt(1);
   while (power > 0) {
-    if (power % BigInt(2) == 1) {
+    if (power % BigInt(2) === BigInt(1)) {
       result = (result * base) % mod;
-      power = power - BigInt(1);
     }
-    power = power / BigInt(2);
+    power = (power - (power % BigInt(2))) / BigInt(2);
     base = (base * base) % mod;
   }
   return result;
 }
 
-function modinv(a, m) {
+function modInverse(a, m) {
   return pow(a, m - BigInt(2), m);
 }
 
@@ -29,14 +28,14 @@ function cut({ length, offset }, count, undo) {
 
 function increment({ length, offset }, count, undo) {
   if (undo) {
-    const big = BigInt(offset) * modinv(BigInt(count), BigInt(length));
+    const big = BigInt(offset) * modInverse(BigInt(count), BigInt(length));
     return { length, offset: Number(big % BigInt(length)) };
   } else {
     return { length, offset: (offset * count) % length };
   }
 }
 
-export function part1(input, length = 10007, offset = 2019, undo, times = 1) {
+export function part1(input, length = 10007, offset = 2019, undo) {
   const shuffles = input.split('\n').map(l => {
     const match = l.match(/(increment|cut) (-?\d+)/);
     if (match) {
@@ -51,24 +50,22 @@ export function part1(input, length = 10007, offset = 2019, undo, times = 1) {
 
   let cards = { length, offset };
   if (undo) shuffles.reverse();
-  for (let i = 0; i < times; i++) {
-    shuffles.forEach(({ method, count }) => {
-      cards = method(cards, count, undo);
-    });
-  }
+  shuffles.forEach(({ method, count }) => {
+    cards = method(cards, count, undo);
+  });
   return cards.offset;
 }
 
 export function part2(input, length, times, offset = 2020) {
-  length = BigInt(length || 119315717514047);
-  times = BigInt(times || 101741582076661);
+  const m = BigInt(length || 119315717514047);
+  const n = BigInt(times || 101741582076661);
 
   //x = offset after all shuffles
   //y = offset after 1st un-shuffle
   //z = offset after 2nd un-shuffle
   const x = BigInt(offset);
-  const y = BigInt(part1(input, Number(length), Number(x), true));
-  const z = BigInt(part1(input, Number(length), Number(y), true));
+  const y = BigInt(part1(input, Number(m), Number(x), true));
+  const z = BigInt(part1(input, Number(m), Number(y), true));
 
   //y = a * x + b
   //z = a * y + b
@@ -76,8 +73,8 @@ export function part2(input, length, times, offset = 2020) {
   //y - z = a * x - a * y
   //y - z = a * (x - y)
   //a = (y - z) / (x - y)
-  //a = (y - z) * modinv(x - y)
-  const a = (y - z) * modinv(x - y, length);
+  //a = (y - z) * modInverse(x - y)
+  const a = (y - z) * modInverse(x - y, m);
 
   //y = a * x + b
   //b = y - a * x
@@ -89,8 +86,8 @@ export function part2(input, length, times, offset = 2020) {
   //nth un-shuffle -> a^n * x + (a^(n-1) + a^(n-2) + ... + 1) * b
   //-------------------------------------------------------------
   //a^n * x + ((a^n - 1) / (a - 1)) * b
-  //a^n * x + ((a^n - 1) * modinv(a - 1)) * b
-  const an = pow(a, times, length);
-  const result = an * x + (an - BigInt(1)) * modinv(a - BigInt(1), length) * b;
-  return Number((length + (result % length)) % length);
+  //a^n * x + ((a^n - 1) * modInverse(a - 1)) * b
+  const an = pow(a, n, m);
+  const result = an * x + (an - BigInt(1)) * modInverse(a - BigInt(1), m) * b;
+  return Number((m + (result % m)) % m);
 }
