@@ -1,37 +1,34 @@
 import { execute } from './day09.js';
 
 function run(input, network, id) {
+  const next = { id: 'x', x: 'y', y: 'id' };
   let outputState = 'id';
   let inputState = 'id';
   let sendId;
-  const next = {
-    id: 'x',
-    x: 'y',
-    y: 'id',
-  };
-  const user = {
-    input: () => {
-      const packet = network.packets[id].shift();
-      if (packet) {
-        inputState = next[packet.type];
-        return packet.value;
-      } else {
-        network.idle[id]++;
-        return -1;
-      }
-    },
-    output: x => {
-      network.idle[id] = 0;
-      if (outputState === 'id') {
-        sendId = x;
-        network.packets[sendId] = network.packets[sendId] || [];
-      } else {
-        network.packets[sendId].push({ type: outputState, value: x });
-      }
-      outputState = next[outputState];
-    },
-    base: 0,
-  };
+
+  function read() {
+    const packet = network[id].packets.shift();
+    if (packet) {
+      inputState = next[packet.type];
+      return packet.value;
+    } else {
+      network[id].idle++;
+      return -1;
+    }
+  }
+
+  function write(x) {
+    network[id].idle = 0;
+    if (outputState === 'id') {
+      sendId = x;
+      network[sendId] = network[sendId] || { packets: [] };
+    } else {
+      network[sendId].packets.push({ type: outputState, value: x });
+    }
+    outputState = next[outputState];
+  }
+
+  const user = { input: read, output: write, base: 0 };
   const ops = input.split(',').map(x => parseInt(x));
   let ip = 0;
   return () => {
@@ -42,28 +39,21 @@ function run(input, network, id) {
 }
 
 function init(input) {
-  const network = {
-    computers: [],
-    packets: [],
-    idle: [],
-  };
-
-  for (let i = 0; i < 50; i++) {
-    network.packets[i] = [{ type: 'id', value: i }];
-    network.idle[i] = 0;
-    network.computers[i] = run(input, network, i);
-  }
+  const network = new Array(50).fill().map((x, i) => {
+    return { packets: [{ type: 'id', value: i }], idle: 0 };
+  });
+  network.forEach((x, i) => (x.cpu = run(input, network, i)));
   return network;
 }
 
 export function part1(input) {
   const network = init(input);
-  while (!network.packets[255]) {
+  while (!network[255]) {
     for (let i = 0; i < 50; i++) {
-      network.computers[i]();
+      network[i].cpu();
     }
   }
-  return network.packets[255][1].value;
+  return network[255].packets.pop().value;
 }
 
 export function part2(input) {
@@ -71,13 +61,13 @@ export function part2(input) {
   const network = init(input);
   while (prev2 === undefined || prev1 !== prev2) {
     for (let i = 0; i < 50; i++) {
-      network.computers[i]();
+      network[i].cpu();
     }
-    if (network.idle.every(x => x > 100) && network.packets[255]) {
-      const retransmit = network.packets[255].slice(-2);
-      network.packets[0].push(...retransmit);
-      network.idle[0] = false;
-      delete network.packets[255];
+    if (network[255] && network.every((x, i) => i === 255 || x.idle > 100)) {
+      const retransmit = network[255].packets.slice(-2);
+      network[0].packets.push(...retransmit);
+      network[0].idle = 0;
+      delete network[255];
       prev2 = prev1;
       prev1 = retransmit[1].value;
     }
