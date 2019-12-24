@@ -11,7 +11,7 @@ function getBugs2(lifez, x, y, z) {
   const up = lifez[z - 1];
   const down = lifez[z + 1];
   const result = [];
-  if ((x === 2) & (y === 2)) return 0;
+  if (x === 2 && y === 2) return 0;
   if (up) {
     if (x === 0) result.push(up[2][1]);
     if (y === 0) result.push(up[1][2]);
@@ -38,10 +38,10 @@ function calc(c, bugs) {
 
 export function part1(input) {
   let life = input.split('\n').map(line => line.split(''));
-  const memo = {};
+  const memo = new Set();
 
-  while (!memo[life.map(line => line.join('')).join('')]) {
-    memo[life.map(line => line.join('')).join('')] = true;
+  while (!memo.has(life.map(line => line.join('')).join(''))) {
+    memo.add(life.map(line => line.join('')).join(''));
     life = life.map((line, y) =>
       line.map((c, x) => calc(c, getBugs(life, x, y))),
     );
@@ -67,9 +67,7 @@ export function part2(input, minutes = 200) {
     );
   }
 
-  let count = 0;
-  lifez.forEach(life =>
-    life.forEach(line => (count += line.filter(c => c === '#').length)),
-  );
-  return count;
+  const lines = lifez.reduce((prev, life) => prev.concat(life), []);
+  const chars = lines.reduce((prev, line) => prev.concat(line), []);
+  return chars.filter(c => c === '#').length;
 }
