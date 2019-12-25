@@ -11,7 +11,7 @@
 <body>
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
-<script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
 <article class="day-desc"><h2>--- Day 12: The N-Body Problem ---</h2><p>The space near Jupiter is not a very safe place; you need to be careful of a <a href="https://en.wikipedia.org/wiki/Great_Red_Spot">big distracting red spot</a>, extreme <a href="https://en.wikipedia.org/wiki/Magnetosphere_of_Jupiter">radiation</a>, and a <a href="https://en.wikipedia.org/wiki/Moons_of_Jupiter#List">whole lot of moons</a> swirling around.  You decide to start by tracking the four largest moons: <em>Io</em>, <em>Europa</em>, <em>Ganymede</em>, and <em>Callisto</em>.</p>
 <p>After a brief scan, you calculate the <em>position of each moon</em> (your puzzle input). You just need to <em>simulate their motion</em> so you can <span title="Or you could just leave, but where's the fun in that?">avoid them</span>.</p>
 <p>Each moon has a 3-dimensional position (<code>x</code>, <code>y</code>, and <code>z</code>) and a 3-dimensional velocity.  The position of each moon is given in your scan; the <code>x</code>, <code>y</code>, and <code>z</code> velocity of each moon starts at <code>0</code>.</p>
@@ -219,7 +219,7 @@ pos=&lt;x=  3, y=  5, z= -1&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
 <p><em>How many steps does it take</em> to reach the first state that exactly matches a previous state?</p>
 </article>
 <p>Your puzzle answer was <code>326489627728984</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, you should <a href="index.html">return to your Advent calendar</a> and try another puzzle.</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
 <p>If you still want to see it, you can <a href="day12.txt" target="_blank">get your puzzle input</a>.</p>
 <p>You can also <span class="share">[Share<span class="share-content">on
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22The+N%2DBody+Problem%22+%2D+Day+12+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F12&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
