@@ -10,7 +10,7 @@ describe('day25 2019', () => {
     });
 
     it('should work for part 1 input', () => {
-      expect(part1(input)).toEqual(2228740);
+      expect(part1(input)).toEqual('2228740');
     });
   });
 
