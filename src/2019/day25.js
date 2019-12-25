@@ -2,7 +2,7 @@ import { execute } from './day09.js';
 import Combinatorics from 'js-combinatorics';
 
 export function part1(input) {
-  let mode, doors, items, name, permutations, exit, result;
+  let mode, doors, items, name, combinations, exit, result;
   const map = {};
   let output = [];
   let commands = [];
@@ -12,30 +12,33 @@ export function part1(input) {
     commands = commands.concat(`${cmd}\n`.split('').map(x => x.charCodeAt(0)));
   }
 
+  function initCombinations(items) {
+    let combinations = [];
+    for (let num = items.length; num > 0; num--) {
+      combinations = combinations.concat(
+        Combinatorics.combination(items, num).toArray(),
+      );
+    }
+    return combinations;
+  }
+
+  function readyForChecks(map, name) {
+    return (
+      name === '== Security Checkpoint ==' &&
+      Object.values(map).every(x => x.doors.length === x.walked.size)
+    );
+  }
+
   function nextCommand() {
-    map[name] = map[name] || { doors, walked: new Set() };
     if (items.length) {
       const x = items.shift();
       pushCommand(`take ${x}`);
       allItems.push(x);
-    } else if (
-      name === '== Security Checkpoint ==' &&
-      !Object.values(map).find(x => x.doors.length > x.walked.size)
-    ) {
-      if (!permutations) {
-        permutations = [];
-        for (let num = allItems.length; num > 0; num--) {
-          permutations = permutations.concat(
-            Combinatorics.combination(allItems, num).toArray(),
-          );
-        }
-      }
-      const next = permutations[0];
-      if (
-        next.length === allItems.length &&
-        allItems.every(x => next.includes(x))
-      ) {
-        permutations.shift();
+    } else if (readyForChecks(map, name)) {
+      combinations = combinations || initCombinations(allItems);
+      const next = combinations[0];
+      if (next.length === allItems.length) {
+        combinations.shift();
         pushCommand(exit);
       } else {
         const remove = allItems.find(x => !next.includes(x));
@@ -96,6 +99,7 @@ export function part1(input) {
       [, result] = line.match(/You should be able to get in by typing (\d+)/);
     }
     if (line === 'Command?') {
+      map[name] = map[name] || { doors, walked: new Set() };
       nextCommand();
     }
   }
