@@ -6,6 +6,8 @@ Go ahead and try to solve the challenge on your own before using this spoiler!
 
 In order to use this solver simply go to: https://shahata.github.io/adventofcode-solver/src/2019/solver.html and follow the instructions.
 
+[![Solver](src/static/solver.png)](https://shahata.github.io/adventofcode-solver/src/2019/solver.html)
+
 Alternatively, if you don't want to share your cookie value online or if some solutions fail to run in the browser, simply clone this git and run the following commands. Note this requires node@13 or newer.
 
 ```sh
