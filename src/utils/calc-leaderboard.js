@@ -82,14 +82,13 @@ export function calcLeaderboard(jsons) {
       return { label: member.label, pointsPerDay: data, stars: member.stars };
     });
   leaders.forEach(member => {
-    member.leadPerDay = member.pointsPerDay.map(
-      (p, i) =>
-        p -
-        leaders
-          .filter(m => m.stars === members[0].stars)
-          .sort((a, b) => a.pointsPerDay[i] - b.pointsPerDay[i])[0]
-          .pointsPerDay[i],
-    );
+    member.leadPerDay = member.pointsPerDay.map((p, i) => {
+      const comparable = leaders
+        .filter(m => m.stars === members[0].stars)
+        .sort((a, b) => a.pointsPerDay[i] - b.pointsPerDay[i]);
+      const median = comparable[Math.floor(comparable.length / 2)];
+      return p - median.pointsPerDay[i];
+    });
   });
   const config = {
     type: 'line',
