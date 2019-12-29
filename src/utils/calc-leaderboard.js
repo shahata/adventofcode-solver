@@ -57,7 +57,7 @@ export function calcLeaderboard(jsons) {
   );
   members.sort((a, b) => b.local_score - a.local_score);
   const leaders = members
-    .filter((m, i, a) => a[0].stars - m.stars <= 6)
+    .filter((m, i, a) => a[0].stars - m.stars <= 4)
     // .slice(0, 10)
     .map(member => {
       const pointsPerDay = [];
