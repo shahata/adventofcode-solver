@@ -20,7 +20,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.7.4",
     "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.9.0",
+    "babel-jest": "^25.0.0",
     "babel-plugin-transform-import-meta": "^1.0.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
