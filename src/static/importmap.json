@@ -1,8 +1,0 @@
-{
-  "imports": {
-    "js-combinatorics": "./combinatorics.js",
-    "child_process": "./child_process.js",
-    "crypto": "./crypto.js",
-    "vm": "./vm.js"
-  }
-}

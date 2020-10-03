@@ -1,5 +1,4 @@
 /*global document, window, WorkerShim */
-import { solveAll } from './solver.js';
 
 function runWorker(year, session) {
   return new Promise(resolve => {
@@ -27,12 +26,6 @@ function runWorker(year, session) {
       } else if (e.data.type === 'ready') {
         worker.postMessage({ type: 'solveAll', year, session });
       } else if (e.data.type === 'done') {
-        resolve();
-      }
-    };
-    worker.onerror = async e => {
-      if (e.message.includes('https://crbug.com/680046')) {
-        await solveAll(year, session);
         resolve();
       }
     };

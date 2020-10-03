@@ -9,7 +9,6 @@
 <link rel="shortcut icon" href="../static/favicon.ico"/>
 <script src="https://unpkg.com/js-combinatorics@0.5.4/combinatorics.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/node-forge@0.9.1/dist/forge.min.js" crossorigin="anonymous"></script>
-<script type="importmap-shim" src="../static/importmap.json"></script>
 <script type="module-shim">
       import { run } from '../static/create.js';
       document.getElementById('solver').onsubmit = () => run('2018') && false;
@@ -23,7 +22,6 @@
 <article class="day-desc">
 <h2>--- Automatic Solver ---</h2>
 <p>Go to the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> site and open the <em>Application</em> tab in <a href="https://developers.google.com/web/tools/chrome-devtools/storage/cookies" target="_blank">Chrome DevTools</a>. Copy the value of the <em>session</em> cookie and paste it here to see the answers for your puzzle inputs.</p>
-<p>It is highly recommended to enable the following Chrome flag for smoother experience. Paste the following URL in your Chrome address bar and choose <em>Enabled</em>: <em class="star"><code>chrome://flags/#enable-experimental-web-platform-features</code></em>. This will allow for the solver to run in a web worker instead of the main thread.</p>
 </article>
 <form id="solver" action="#">
 <p>Session: <input id="session" type="text" autocomplete="off"> <input type="submit" value="[Submit]"></p>

@@ -42,7 +42,7 @@ export function calcLeaderboard(jsons) {
         .sort((a, b) => a.ts - b.ts)
         .map(star => ({
           name: star.name,
-          ts: new Date(star.ts * 1000).toLocaleString('en-US', {
+          ts: new Date(star.ts * 1000).toLocaleString('en-GB', {
             hour12: false,
             second: '2-digit',
             minute: '2-digit',
