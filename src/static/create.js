@@ -5,7 +5,7 @@ function runWorker(year, session) {
     if (window.SolverWorker) {
       window.SolverWorker.terminate();
     }
-    document.getElementById('output').innerText = '';
+    document.getElementById('output').innerHTML = '';
 
     const u = s => new URL(s, window.location);
     const worker = new WorkerShim('../static/worker.js', {
@@ -44,5 +44,5 @@ export async function run(year) {
 
 console.log = (...args) => {
   const str = args.map(x => `${x}`).join(' ') + '\n';
-  document.getElementById('output').innerText += str;
+  document.getElementById('output').innerHTML += str;
 };

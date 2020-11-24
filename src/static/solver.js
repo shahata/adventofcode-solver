@@ -21,9 +21,13 @@ async function readInput(url) {
 }
 
 async function solver(year, day, session) {
-  console.log(`Solution for ${year}/${dayName(day)}!!!`);
+  const fileName = `${year}/${dayName(day)}`;
+  const url = `https://github.com/shahata/adventofcode-solver/blob/master/src/${fileName}.js`;
+  console.log(
+    `<a href="${url}" target="_blank">Solution for ${fileName}!!!</a>`,
+  );
   console.log('----------------------------');
-  const module = await import(`../${year}/${dayName(day)}.js`);
+  const module = await import(`../${fileName}.js`);
   const input = await readInput(
     `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`,
   );
