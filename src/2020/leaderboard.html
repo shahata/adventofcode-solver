@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Leaderboard - Advent of Code 2020</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.ico"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2020</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+
+<script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js" crossorigin="anonymous"></script>
+<canvas id="canvas"></canvas>
+<script>
+window.onload = function() {
+  var ctx = document.getElementById("canvas").getContext("2d");
+  window.myLine = new Chart(ctx, {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[0],"fill":false},{"label":"Vadym Holoveichuk","data":[0],"fill":false},{"label":"Lior Ur","data":[0],"fill":false},{"label":"Eddie Erlich","data":[0],"fill":false},{"label":"(anonymous user #185199)","data":[0],"fill":false},{"label":"Alon Yehezkel","data":[0],"fill":false},{"label":"Arye Lukashevski","data":[0],"fill":false},{"label":"Oded Soffrin","data":[0],"fill":false},{"label":"(anonymous user #194639)","data":[0],"fill":false},{"label":"Tzvika Farber","data":[0],"fill":false},{"label":"Omri Gotlieb","data":[0],"fill":false},{"label":"David Perlman","data":[0],"fill":false},{"label":"Wo1v3r","data":[0],"fill":false},{"label":"Yevhen Kutishchev","data":[0],"fill":false},{"label":"(anonymous user #207760)","data":[0],"fill":false},{"label":"Serhii Muryhin","data":[0],"fill":false},{"label":"bolshchikov","data":[0],"fill":false},{"label":"Niкitа Shulipа","data":[0],"fill":false},{"label":"Arnoldas Šeščila","data":[0],"fill":false},{"label":"Karolina Zarankaitė","data":[0],"fill":false},{"label":"Mantas Miliukas","data":[0],"fill":false},{"label":"Aviad Hadad","data":[0],"fill":false},{"label":"Vytenis Butkevicius","data":[0],"fill":false},{"label":"Maor Yosef","data":[0],"fill":false},{"label":"Aviv Rosental","data":[0],"fill":false},{"label":"Boris Litvinsky","data":[0],"fill":false},{"label":"Amit Marx","data":[0],"fill":false},{"label":"Jonathan Adler","data":[0],"fill":false},{"label":"Oded Gefen","data":[0],"fill":false},{"label":"Bohdan Lyzanets","data":[0],"fill":false},{"label":"Shalev Shalit","data":[0],"fill":false},{"label":"Yair Haimovitch","data":[0],"fill":false},{"label":"Dovydas Mikalauskas","data":[0],"fill":false},{"label":"Salick Cogan","data":[0],"fill":false},{"label":"Noam Neeman","data":[0],"fill":false},{"label":"Joseph DSCS","data":[0],"fill":false},{"label":"Vladyslav Zhuk","data":[0],"fill":false},{"label":"(anonymous user #271558)","data":[0],"fill":false},{"label":"Maksym Petruk","data":[0],"fill":false},{"label":"Itai Pelles","data":[0],"fill":false},{"label":"(anonymous user #272341)","data":[0],"fill":false},{"label":"Gabriel Grinberg","data":[0],"fill":false},{"label":"boriskor","data":[0],"fill":false},{"label":"(anonymous user #277695)","data":[0],"fill":false},{"label":"Oded Cagan","data":[0],"fill":false},{"label":"Guy Kori","data":[0],"fill":false},{"label":"Shilo Magen","data":[0],"fill":false},{"label":"Dvir Cooper","data":[0],"fill":false},{"label":"Jonathan Avinor","data":[0],"fill":false},{"label":"(anonymous user #306836)","data":[0],"fill":false},{"label":"Jonathan Avinor","data":[0],"fill":false},{"label":"Yael Hermon","data":[0],"fill":false},{"label":"Shmulik Flint","data":[0],"fill":false},{"label":"ShaharR","data":[0],"fill":false},{"label":"Ronny Ringel","data":[0],"fill":false},{"label":"DaQuirm","data":[0],"fill":false},{"label":"Tadas Obolevicius","data":[0],"fill":false},{"label":"gavrielco","data":[0],"fill":false},{"label":"Nadav Nuni","data":[0],"fill":false},{"label":"Ophir Gross","data":[0],"fill":false},{"label":"Tzachi Azo","data":[0],"fill":false},{"label":"Alon Yehezkel","data":[0],"fill":false},{"label":"Roy Sommer","data":[0],"fill":false},{"label":"Shalev Shalit","data":[0],"fill":false},{"label":"Andrius Kripaitis","data":[0],"fill":false},{"label":"(anonymous user #403820)","data":[0],"fill":false},{"label":"Dovydas Mikalauskas","data":[0],"fill":false},{"label":"Audrius Kovalenko","data":[0],"fill":false},{"label":"Amit Dahan","data":[0],"fill":false},{"label":"Reut Svr","data":[0],"fill":false},{"label":"oriprice","data":[0],"fill":false},{"label":"Gal Elmalah","data":[0],"fill":false},{"label":"silyevsk","data":[0],"fill":false},{"label":"(anonymous user #413239)","data":[0],"fill":false},{"label":"(anonymous user #413390)","data":[0],"fill":false},{"label":"(anonymous user #417516)","data":[0],"fill":false},{"label":"Raviv Gurtenstein","data":[0],"fill":false},{"label":"Lior Arbel","data":[0],"fill":false},{"label":"Erez Paperny","data":[0],"fill":false},{"label":"Jonathan Adler","data":[0],"fill":false},{"label":"Ronen Erez","data":[0],"fill":false},{"label":"gilisho","data":[0],"fill":false},{"label":"Matan Asraf","data":[0],"fill":false},{"label":"hadar geva","data":[0],"fill":false},{"label":"David Perlman","data":[0],"fill":false},{"label":"Alon Bar Tur","data":[0],"fill":false},{"label":"Schniz","data":[0],"fill":false},{"label":"Ehab Sharif","data":[0],"fill":false},{"label":"Donatas Petrauskas","data":[0],"fill":false},{"label":"cheloveq","data":[0],"fill":false},{"label":"Vytenis Urbonavičius","data":[0],"fill":false},{"label":"Guillaume Laudet","data":[0],"fill":false},{"label":"Andrius Stanaitis","data":[0],"fill":false},{"label":"viktoriianosova","data":[0],"fill":false},{"label":"Aleksei Efimov","data":[0],"fill":false},{"label":"BrooklynKing","data":[0],"fill":false},{"label":"Roman","data":[0],"fill":false},{"label":"Yaara Cohen","data":[0],"fill":false},{"label":"Lieron Schalew","data":[0],"fill":false},{"label":"Emilis Baliukonis","data":[0],"fill":false},{"label":"Yakir Narkis","data":[0],"fill":false},{"label":"Or Ben Ari (wixcode support)","data":[0],"fill":false},{"label":"Guy Kori","data":[0],"fill":false},{"label":"Eli Ponyatovski","data":[0],"fill":false},{"label":"Florent Bécart","data":[0],"fill":false},{"label":"Yaron Shavit","data":[0],"fill":false},{"label":"Stanislav Prokopiv","data":[0],"fill":false},{"label":"Aaron Vinestock","data":[0],"fill":false},{"label":"Ben Benhorin","data":[0],"fill":false},{"label":"Maxim Novak","data":[0],"fill":false},{"label":"(anonymous user #516628)","data":[0],"fill":false},{"label":"Dor Duchovni","data":[0],"fill":false},{"label":"Mosh Feu","data":[0],"fill":false},{"label":"Sela Marjan Almog","data":[0],"fill":false},{"label":"Karin Agan","data":[0],"fill":false},{"label":"Guy Warzager","data":[0],"fill":false},{"label":"felixmosh","data":[0],"fill":false},{"label":"bt4R9","data":[0],"fill":false},{"label":"Gil Eckstein","data":[0],"fill":false},{"label":"Itai Ben David","data":[0],"fill":false},{"label":"Boris Dichter","data":[0],"fill":false},{"label":"Ori Price","data":[0],"fill":false},{"label":"Tatiana Podolskaya","data":[0],"fill":false},{"label":"Guy Rotem","data":[0],"fill":false},{"label":"lirancr","data":[0],"fill":false},{"label":"Lior Hai","data":[0],"fill":false},{"label":"summercrane","data":[0],"fill":false},{"label":"Mor Shemesh","data":[0],"fill":false},{"label":"(anonymous user #631628)","data":[0],"fill":false},{"label":"Haim Houri","data":[0],"fill":false},{"label":"Gerda Simoliunaite","data":[0],"fill":false},{"label":"Yonatan Hattav","data":[0],"fill":false},{"label":"Dor Mitzafon","data":[0],"fill":false},{"label":"Yakir Narkis","data":[0],"fill":false},{"label":"Nikita Shulipa","data":[0],"fill":false},{"label":"Eran Egozi","data":[0],"fill":false},{"label":"Roi Berlin","data":[0],"fill":false},{"label":"Leon Fedotov","data":[0],"fill":false},{"label":"Meir Cohen","data":[0],"fill":false},{"label":"​Vytautas Jakutis","data":[0],"fill":false},{"label":"Mantas Sakalauskas","data":[0],"fill":false},{"label":"Linas Medžiūnas","data":[0],"fill":false},{"label":"Donatas Remeika","data":[0],"fill":false},{"label":"Antanas Bastys","data":[0],"fill":false},{"label":"(anonymous user #640434)","data":[0],"fill":false},{"label":"Tadas Kundelis","data":[0],"fill":false},{"label":"Tzachi Azo","data":[0],"fill":false},{"label":"Yaniv Chekroun","data":[0],"fill":false},{"label":"Alexandra Seriachenko","data":[0],"fill":false},{"label":"ranyitz","data":[0],"fill":false},{"label":"Tomas Eglinskas","data":[0],"fill":false},{"label":"Vytautas Traškevičius","data":[0],"fill":false},{"label":"Anton Podolsky","data":[0],"fill":false},{"label":"(anonymous user #665896)","data":[0],"fill":false},{"label":"shtutman","data":[0],"fill":false},{"label":"(anonymous user #671444)","data":[0],"fill":false},{"label":"Amit Leshem","data":[0],"fill":false},{"label":"(anonymous user #692105)","data":[0],"fill":false},{"label":"tomershk","data":[0],"fill":false},{"label":"Carl M. Lane","data":[0],"fill":false},{"label":"jurasm","data":[0],"fill":false},{"label":"Ron Ohana","data":[0],"fill":false},{"label":"Vladas Tamosiunas","data":[0],"fill":false},{"label":"kornholio84","data":[0],"fill":false},{"label":"Hadar Raab","data":[0],"fill":false},{"label":"Vyacheslav Miroshko","data":[0],"fill":false},{"label":"Anton Verinov","data":[0],"fill":false},{"label":"Oleksii Kaliuzhnyi","data":[0],"fill":false},{"label":"Dmytro Teleha","data":[0],"fill":false},{"label":"Andrii Koretskyi","data":[0],"fill":false},{"label":"Kristina Lyba","data":[0],"fill":false},{"label":"Domas Martisius","data":[0],"fill":false},{"label":"Lior Erez","data":[0],"fill":false},{"label":"Marius Jurgelenas","data":[0],"fill":false},{"label":"Maya Lavie Levkovits","data":[0],"fill":false},{"label":"(anonymous user #804650)","data":[0],"fill":false},{"label":"michalavraham","data":[0],"fill":false},{"label":"Nachshon Schwartz","data":[0],"fill":false},{"label":"TalZa1810","data":[0],"fill":false},{"label":"Yam Ben-Tzvi","data":[0],"fill":false},{"label":"Boris Litvinsky","data":[0],"fill":false},{"label":"Nachshon Schwartz","data":[0],"fill":false},{"label":"Gal Elmalah","data":[0],"fill":false},{"label":"etaiso","data":[0],"fill":false},{"label":"Omer Burshtein","data":[0],"fill":false},{"label":"Guy S","data":[0],"fill":false},{"label":"Lena Zhukova","data":[0],"fill":false},{"label":"Oleg Gordeev","data":[0],"fill":false}]}});
+};
+</script>
+<table>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+</table>
+</main>
+</body>
+</html>
