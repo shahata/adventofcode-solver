@@ -9,10 +9,7 @@ function parse(input) {
 }
 
 function solve(discs) {
-  const biggest = discs
-    .slice(0)
-    .sort()
-    .shift();
+  const biggest = discs.slice(0).sort().shift();
   let time = biggest.positions - biggest.initial - biggest.index;
   const fit = disc => (time + disc.initial + disc.index) % disc.positions !== 0;
   while (discs.some(fit)) {

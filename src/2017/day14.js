@@ -5,9 +5,7 @@ function parse(input) {
     return knot(`${input}-${y}`)
       .split('')
       .map(x => {
-        return parseInt(x, 16)
-          .toString(2)
-          .padStart(4, '0');
+        return parseInt(x, 16).toString(2).padStart(4, '0');
       })
       .join('')
       .split('')

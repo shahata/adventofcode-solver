@@ -8,12 +8,7 @@ function parse(input, length) {
       const [i, j] = [str.indexOf(a), str.indexOf(b)].sort((a, b) => a - b);
       return rebuild(str.match(swap(i, j)).slice(1));
     },
-    s: (str, regexp) =>
-      str
-        .match(regexp)
-        .slice(1)
-        .reverse()
-        .join(''),
+    s: (str, regexp) => str.match(regexp).slice(1).reverse().join(''),
   };
   const params = {
     x: (a, b) => swap(...[parseInt(a), parseInt(b)].sort((a, b) => a - b)),

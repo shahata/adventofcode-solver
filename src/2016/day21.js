@@ -40,11 +40,7 @@ function parse(input, fn) {
     'rotate': (a, b) => str => {
       b = parseInt(b) % str.length;
       const regexp = a === 'left' ? `^(.{${b}})(.*)$` : `^(.*)(.{${b}})$`;
-      return str
-        .match(new RegExp(regexp))
-        .slice(1)
-        .reverse()
-        .join('');
+      return str.match(new RegExp(regexp)).slice(1).reverse().join('');
     },
     'reverse positions': (a, b) => str => {
       [a, b] = [parseInt(a), parseInt(b)].sort((a, b) => a - b);

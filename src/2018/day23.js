@@ -38,6 +38,8 @@ export function part2(input) {
 (minimize distance)
 (check-sat)
 (get-model)`;
-  const output = execSync('z3 -in', { input: smt }).toString();
-  return parseInt(output.match(/\d+/g).pop(), 10);
+  const output = execSync('z3 -in', { input: smt }).toString().split('\n');
+  const line =
+    output[output.findIndex(line => line.includes('define-fun distance')) + 1];
+  return parseInt(line.match(/\d+/g).pop(), 10);
 }

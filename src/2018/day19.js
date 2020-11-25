@@ -20,12 +20,7 @@ const numbers = arr => arr.map(x => parseInt(x));
 
 export function part1(input, reg0 = 0) {
   const lines = input.split('\n');
-  const ip = parseInt(
-    lines
-      .shift()
-      .split(' ')
-      .pop(),
-  );
+  const ip = parseInt(lines.shift().split(' ').pop());
   const commands = lines.map(x => {
     const [op, ...params] = x.split(' ');
     return { op, params: numbers(params) };

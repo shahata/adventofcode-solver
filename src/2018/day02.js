@@ -2,10 +2,7 @@ export function part1(input) {
   const ids = input.split('\n');
   const counts = { double: 0, triple: 0 };
   ids.forEach(id => {
-    let s = id
-      .split('')
-      .sort()
-      .join('');
+    let s = id.split('').sort().join('');
     if (s.match(/([a-z])\1\1\1+/)) {
       s = s.replace(/([a-z])\1\1\1+/g, '');
     }

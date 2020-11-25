@@ -25,6 +25,4 @@ function parse(input) {
 
 export const part1 = input => parse(input).filter(validTriangle).length;
 export const part2 = input =>
-  parse(input)
-    .map(rotate)
-    .filter(validTriangle).length;
+  parse(input).map(rotate).filter(validTriangle).length;

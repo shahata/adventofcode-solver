@@ -18,7 +18,7 @@
 <script>
 window.onload = function() {
   var ctx = document.getElementById("canvas").getContext("2d");
-  window.myLine = new Chart(ctx, {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[7,12,25,38,47,53,59,65,64,75,79,83,86,91,95,98,101,111,116,121,125,128,134,138,141,143,144,147,150,157,161,169,178,187,190,200,205,210,214,218,223,229,234,241,246,250,256,259,265,270],"fill":false},{"label":"Audrius Kovalenko","data":[-9,-18,-6,5,12,17,22,27,24,34,40,45,46,47,49,48,42,45,48,51,54,61,69,78,82,85,84,85,87,93,95,105,112,119,121,129,131,138,145,152,153,155,157,165,168,171,176,180,185,189],"fill":false},{"label":"Gabriel Grinberg","data":[11,20,35,49,50,44,51,58,60,72,73,74,80,86,76,66,59,56,57,58,64,69,76,83,80,74,77,79,75,77,82,93,98,103,107,116,122,126,127,128,131,136,139,145,151,156,159,164,167,169],"fill":false},{"label":"Nadav Nuni","data":[3,5,2,0,0,0,0,0,0,8,7,6,10,14,13,11,12,20,22,24,23,29,33,39,40,41,39,38,39,44,45,54,62,70,71,78,79,85,93,101,103,107,111,116,120,122,126,132,134,135],"fill":false},{"label":"Tzachi Azo","data":[0,0,10,19,17,15,19,16,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Maor Yosef","data":[9,16,0,-12,-21,-33,-34,-33,-45,-46,-44,-42,-52,-59,-64,-68,-69,-63,-64,-65,-68,-66,-65,-64,-65,-67,-76,-83,-89,-90,-91,-85,-81,-77,-80,-76,-77,-76,-71,-66,-67,-66,-67,-63,-62,-64,-65,-67,-69,-71],"fill":false},{"label":"Oded Soffrin","data":[-12,-23,-18,-15,-21,-29,-38,-46,-60,-62,-68,-74,-81,-86,-88,-91,-93,-84,-86,-89,-91,-87,-78,-73,-71,-75,-78,-83,-91,-95,-98,-97,-91,-85,-86,-80,-84,-86,-84,-82,-85,-87,-90,-91,-93,-96,-99,-102,-105,-108],"fill":false},{"label":"Yair Haimovitch","data":[-6,-12,-8,-4,-14,-29,-42,-55,-59,-53,-56,-59,-61,-63,-79,-95,-105,-107,-114,-121,-120,-121,-119,-116,-120,-123,-128,-131,-134,-131,-128,-124,-121,-118,-120,-115,-111,-112,-113,-114,-116,-117,-116,-115,-113,-112,-111,-110,-106,-103],"fill":false},{"label":"Donatas Petrauskas","data":[-33,-64,-86,-104,-123,-145,-144,-142,-153,-153,-164,-175,-181,-192,-191,-190,-194,-189,-185,-181,-179,-182,-183,-186,-192,-199,-209,-219,-226,-229,-233,-230,-228,-226,-231,-229,-226,-223,-225,-227,-232,-235,-241,-243,-247,-248,-250,-251,-252,-253],"fill":false},{"label":"Stanislav Prokopiv","data":[-57,-110,-153,-194,-235,-279,-308,-337,-373,-397,-419,-441,-464,-480,-501,-521,-537,-545,-559,-573,-589,-603,-613,-620,-631,-642,-654,-666,-675,-680,-688,-690,-692,-694,-703,-706,-712,-716,-719,-722,-728,-732,-739,-742,-747,-751,-755,-759,-763,-767],"fill":false}]}});
+  window.myLine = new Chart(ctx, {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[13,24,31,42,61,82,93,98,109,121,123,125,138,150,159,166,170,174,180,186,193,194,199,202,206,210,220,230,239,247,252,254,259,264,270,276,282,286,285,284,290,295,301,304,308,314,321,326,334,341],"fill":false},{"label":"Audrius Kovalenko","data":[-3,-6,0,9,26,46,56,60,69,80,84,87,98,106,113,116,111,108,112,116,122,127,134,142,147,152,160,168,176,183,186,190,193,196,201,205,208,214,216,218,220,221,224,228,230,235,241,247,254,260],"fill":false},{"label":"Gabriel Grinberg","data":[17,32,41,53,64,73,85,91,105,118,117,116,132,145,140,134,128,119,121,123,132,135,141,147,145,141,153,162,164,167,173,178,179,180,187,192,199,202,198,194,198,202,206,208,213,220,224,231,236,240],"fill":false},{"label":"Nadav Nuni","data":[9,17,8,4,14,29,34,33,45,54,51,48,62,73,77,79,81,83,86,89,91,95,98,103,105,108,115,121,128,134,136,139,143,147,151,154,156,161,164,167,170,173,178,179,182,186,191,199,203,206],"fill":false},{"label":"Tzachi Azo","data":[6,12,16,23,31,44,53,49,48,46,44,42,52,59,64,68,69,63,64,65,68,66,65,64,65,67,76,83,89,90,91,85,81,77,80,76,77,76,71,66,67,66,67,63,62,64,65,67,69,71],"fill":false},{"label":"Maor Yosef","data":[15,28,6,-8,-7,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Oded Soffrin","data":[-6,-11,-12,-11,-7,0,-4,-13,-15,-16,-24,-32,-29,-27,-24,-23,-24,-21,-22,-24,-23,-21,-13,-9,-6,-8,-2,0,-2,-5,-7,-12,-10,-8,-6,-4,-7,-10,-13,-16,-18,-21,-23,-28,-31,-32,-34,-35,-36,-37],"fill":false},{"label":"Yair Haimovitch","data":[0,0,-2,0,0,0,-8,-22,-14,-7,-12,-17,-9,-4,-15,-27,-36,-44,-50,-56,-52,-55,-54,-52,-55,-56,-52,-48,-45,-41,-37,-39,-40,-41,-40,-39,-34,-36,-42,-48,-49,-51,-49,-52,-51,-48,-46,-43,-37,-32],"fill":false},{"label":"Donatas Petrauskas","data":[-27,-52,-80,-100,-109,-116,-110,-109,-108,-107,-120,-133,-129,-133,-127,-122,-125,-126,-121,-116,-111,-116,-118,-122,-127,-132,-133,-136,-137,-139,-142,-145,-147,-149,-151,-153,-149,-147,-154,-161,-165,-169,-174,-180,-185,-184,-185,-184,-183,-182],"fill":false},{"label":"silyevsk","data":[-11,-22,-51,-72,-63,-51,-87,-129,-161,-190,-217,-244,-260,-272,-292,-312,-330,-347,-363,-379,-394,-412,-424,-433,-444,-454,-459,-466,-470,-475,-483,-492,-499,-506,-514,-523,-529,-535,-544,-553,-559,-565,-572,-580,-587,-590,-594,-597,-605,-608],"fill":false},{"label":"Stanislav Prokopiv","data":[-51,-98,-147,-190,-221,-250,-274,-304,-328,-351,-375,-399,-412,-421,-437,-453,-468,-482,-495,-508,-521,-537,-548,-556,-566,-575,-578,-583,-586,-590,-597,-605,-611,-617,-623,-630,-635,-640,-648,-656,-661,-666,-672,-679,-685,-687,-690,-692,-694,-696],"fill":false}]}});
 };
 </script>
 <table>
@@ -35,6 +35,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">29 Dec 2018, 14:29:33</span> Maor Yosef</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">05 Jan 2019, 17:10:01</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">11 Jan 2019, 10:50:45</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">20 Nov 2020, 11:52:54</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 25:</p>
@@ -54,6 +55,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">05 Dec 2019, 09:42:34</span> Roman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">05 Dec 2019, 09:55:38</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">21 Dec 2019, 22:52:00</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">20 Nov 2020, 11:52:13</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -70,6 +72,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">29 Dec 2018, 11:54:48</span> Maor Yosef</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">05 Jan 2019, 14:13:55</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">11 Jan 2019, 09:57:14</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">20 Nov 2020, 11:20:30</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 24:</p>
@@ -84,6 +87,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">27 Dec 2018, 20:36:13</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">05 Jan 2019, 13:47:14</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">11 Jan 2019, 09:36:46</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">20 Nov 2020, 04:43:19</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -99,6 +103,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">29 Dec 2018, 13:06:19</span> Maor Yosef</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">05 Jan 2019, 17:09:09</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">10 Jan 2019, 04:22:41</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">18 Nov 2020, 19:04:52</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 23:</p>
@@ -114,6 +119,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">23 Dec 2018, 04:19:14</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">25 Dec 2018, 15:59:05</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">05 Jan 2019, 06:02:35</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">16 Nov 2020, 15:37:44</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -131,6 +137,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">23 Dec 2018, 03:43:44</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">25 Dec 2018, 15:22:08</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">05 Jan 2019, 04:20:09</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">16 Nov 2020, 01:51:41</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 22:</p>
@@ -147,6 +154,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">22 Dec 2018, 23:29:41</span> Shmulik Flint</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">23 Dec 2018, 16:51:10</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">01 Jan 2019, 16:12:02</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">15 Nov 2020, 16:28:33</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -163,6 +171,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">21 Dec 2018, 17:28:02</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">23 Dec 2018, 16:19:38</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">03 Jan 2019, 18:55:21</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">13 Nov 2020, 17:13:54</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 21:</p>
@@ -178,6 +187,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">22 Dec 2018, 15:52:56</span> Shmulik Flint</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">23 Dec 2018, 03:35:03</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">28 Dec 2018, 09:08:39</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">13 Nov 2020, 16:40:19</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -195,6 +205,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">21 Dec 2018, 09:43:26</span> Yair Haimovitch</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">23 Dec 2018, 02:41:01</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">03 Jan 2019, 10:01:03</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">13 Nov 2020, 16:18:26</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 20:</p>
@@ -210,6 +221,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">21 Dec 2018, 09:40:41</span> Yair Haimovitch</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">22 Dec 2018, 01:43:07</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">01 Jan 2019, 07:42:05</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">13 Nov 2020, 16:16:59</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -227,6 +239,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">19 Dec 2018, 17:30:21</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">19 Dec 2018, 18:09:36</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">24 Dec 2018, 13:00:51</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">13 Nov 2020, 05:43:56</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 19:</p>
@@ -243,6 +256,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">19 Dec 2018, 12:26:15</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">19 Dec 2018, 16:30:45</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">23 Dec 2018, 05:03:15</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">13 Nov 2020, 02:30:25</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -263,6 +277,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">18 Dec 2018, 13:01:30</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">25 Dec 2018, 11:43:25</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2019, 08:33:11</span> Itai Ben David</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">12 Nov 2020, 18:16:01</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 18:</p>
@@ -281,6 +296,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">18 Dec 2018, 12:10:16</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">25 Dec 2018, 11:28:17</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2019, 08:04:09</span> Itai Ben David</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">12 Nov 2020, 17:52:46</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -298,6 +314,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">17 Dec 2018, 18:45:41</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">17 Dec 2018, 19:53:44</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">25 Dec 2018, 10:14:35</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">11 Nov 2020, 18:17:47</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 17:</p>
@@ -313,6 +330,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">17 Dec 2018, 18:44:47</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">17 Dec 2018, 19:53:33</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">25 Dec 2018, 08:40:29</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">11 Nov 2020, 18:16:08</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -332,6 +350,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">16 Dec 2018, 09:40:46</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">16 Dec 2018, 16:27:36</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">22 Dec 2018, 06:25:01</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">10 Nov 2020, 17:41:25</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 16:</p>
@@ -349,6 +368,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">16 Dec 2018, 05:09:31</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">16 Dec 2018, 08:00:11</span> Aviad Hadad</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">21 Dec 2018, 18:36:53</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">10 Nov 2020, 17:11:30</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -368,6 +388,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">15 Dec 2018, 17:41:49</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">16 Dec 2018, 07:37:58</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">26 Dec 2018, 04:55:01</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">10 Nov 2020, 01:53:26</span> silyevsk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 15:</p>
@@ -385,6 +406,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">15 Dec 2018, 17:28:27</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">16 Dec 2018, 01:41:58</span> Oded Soffrin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">25 Dec 2018, 12:45:09</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">10 Nov 2020, 01:41:06</span> silyevsk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">

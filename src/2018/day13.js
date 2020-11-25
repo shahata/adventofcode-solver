@@ -37,10 +37,7 @@ function tick(map, carts) {
 
 function parse(input) {
   const carts = [];
-  const map = input
-    .replace(/[v^]/g, '|')
-    .replace(/[<>]/g, '-')
-    .split('\n');
+  const map = input.replace(/[v^]/g, '|').replace(/[<>]/g, '-').split('\n');
   input.split('\n').forEach((row, y) =>
     row.split('').forEach((cell, x) => {
       if ('v^<>'.includes(cell)) {

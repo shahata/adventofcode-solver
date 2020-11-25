@@ -48,11 +48,7 @@ function fill(pit, base) {
   while (count.wet !== newCount.wet || count.dry !== newCount.dry) {
     count = newCount;
     pit.forEach(
-      (line, i) =>
-        (pit[i] = line
-          .join('')
-          .replace(/\|/g, '.')
-          .split('')),
+      (line, i) => (pit[i] = line.join('').replace(/\|/g, '.').split('')),
     );
     newCount = drop(pit, 500 - base.x, 0);
   }
