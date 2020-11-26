@@ -35,11 +35,7 @@
       "node": true,
       "es2020": true
     },
-    "plugins": [
-      "jest"
-    ],
     "rules": {
-      "jest/no-focused-tests": "error",
       "jest/expect-expect": "off"
     },
     "extends": [
@@ -61,6 +57,11 @@
   },
   "wallaby": {
     "autoDetect": true,
-    "runSelectedTestsOnly": true
+    "runSelectedTestsOnly": true,
+    "env": {
+      "params": {
+        "runner": "--experimental-vm-modules"
+      }
+    }
   }
 }

@@ -21,6 +21,9 @@
         "--findRelatedTests",
         "${relativeFile}"
       ],
+      "runtimeArgs": [
+        "--experimental-vm-modules"
+      ],
       "cwd": "${workspaceRoot}"
     }
   ]
