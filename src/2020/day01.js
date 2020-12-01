@@ -1,23 +1,17 @@
+import Combinatorics from 'js-combinatorics';
+
 export function part1(input) {
   const items = input.split('\n').map(x => parseInt(x));
-  for (let i = 0; i < items.length; i++) {
-    for (let j = i + 1; j < items.length; j++) {
-      if (items[i] + items[j] === 2020) {
-        return items[i] * items[j];
-      }
-    }
-  }
+  const result = Combinatorics.bigCombination(items, 2).find(
+    x => x[0] + x[1] === 2020,
+  );
+  return result[0] * result[1];
 }
 
 export function part2(input) {
   const items = input.split('\n').map(x => parseInt(x));
-  for (let i = 0; i < items.length; i++) {
-    for (let j = i + 1; j < items.length; j++) {
-      for (let k = j + 1; k < items.length; k++) {
-        if (items[i] + items[j] + items[k] === 2020) {
-          return items[i] * items[j] * items[k];
-        }
-      }
-    }
-  }
+  const result = Combinatorics.bigCombination(items, 3).find(
+    x => x[0] + x[1] + x[2] === 2020,
+  );
+  return result[0] * result[1] * result[2];
 }
