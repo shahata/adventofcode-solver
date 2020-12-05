@@ -1,5 +1,5 @@
 /* global performance, fetch */
-import { dayName } from '../utils/day-name.js';
+import { dayName } from '../../../utils/day-name.js';
 
 let duration;
 performance.timerify = fn => {
