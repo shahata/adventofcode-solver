@@ -11,6 +11,7 @@ import {
   getEventsPage,
   getLeaderboardJsons,
   getEndPage,
+  getStatics,
 } from './scraper.js';
 
 function renderTemplate(year, name, extension, model) {
@@ -24,6 +25,16 @@ function renderTemplate(year, name, extension, model) {
   }, fs.readFileSync(`${template}.${extension}.template`).toString());
   fs.writeFileSync(fileName, result);
   return fileName;
+}
+
+async function downloadStatics(statics, done) {
+  return getStatics(statics, ({ name, content }) => {
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const src = path.resolve(__dirname, '..');
+    const fileName = path.join(src, 'static', name);
+    fs.writeFileSync(fileName, content);
+    done();
+  });
 }
 
 export async function downloadQuestion(year, day) {
@@ -43,6 +54,7 @@ export function tempLeaderboard(year) {
   }
 }
 
+export const downloadIndexTicks = 7;
 export async function downloadIndex(year, bar) {
   renderTemplate(year, 'solver', 'html', { year });
   bar.tick();
@@ -63,6 +75,7 @@ export async function downloadIndex(year, bar) {
     renderTemplate(year, 'end', 'html', { year, page: end });
   }
   bar.tick();
+  await downloadStatics(['style.css', 'highcontrast.css'], () => bar.tick());
 }
 
 export async function createSolver(year, day) {

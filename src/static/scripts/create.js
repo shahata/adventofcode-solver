@@ -8,14 +8,14 @@ function runWorker(year, session) {
     document.getElementById('output').innerHTML = '';
 
     const u = s => new URL(s, window.location);
-    const worker = new WorkerShim('../static/worker.js', {
+    const worker = new WorkerShim('../static/scripts/worker.js', {
       type: 'module',
       importMap: {
         imports: {
-          'js-combinatorics': u('../static/combinatorics.js'),
-          'child_process': u('../static/child_process.js'),
-          'crypto': u('../static/crypto.js'),
-          'vm': u('../static/vm.js'),
+          'js-combinatorics': u('../static/polyfills/combinatorics.js'),
+          'child_process': u('../static/polyfills/child_process.js'),
+          'crypto': u('../static/polyfills/crypto.js'),
+          'vm': u('../static/polyfills/vm.js'),
         },
         scopes: {},
       },

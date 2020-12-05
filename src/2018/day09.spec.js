@@ -28,10 +28,6 @@ describe('day09 2018', () => {
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
-      // expect(part2('1')).toEqual(0);
-    });
-
     it('should work for part 2 input', () => {
       expect(part2(input)).toEqual(3668541094);
     });

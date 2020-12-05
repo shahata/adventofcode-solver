@@ -94,6 +94,9 @@ p.wrap {
   opacity: 1;
 }
 
+.star-count {
+  color: #ffff66;
+}
 .supporter-badge {
   color: #ffff66;
 }
@@ -148,9 +151,6 @@ header h1.title-event .title-event-wrap {
 header .user {
   display: inline-block;
   padding-left: 1em;
-}
-header .user .star-count {
-  color: #ffff66;
 }
 header nav {
   display: inline-block;
@@ -398,6 +398,10 @@ form#settings input[type="checkbox"] ~ span {
   100% { color: #cccccc; text-shadow: 0 0 5px transparent; }
 }
 
+.eventlist-event {
+  white-space: pre;
+}
+
 .stats > span, .stats > span .stats-firstonly, .stats > span .stats-both {
   color: #666666;
 }
@@ -458,9 +462,6 @@ form#settings input[type="checkbox"] ~ span {
 
 .privboard-row {
   white-space: pre;
-}
-.privboard-row .star-count {
-  color: #ffff66;
 }
 .privboard-name {
   vertical-align: text-bottom;

@@ -12,6 +12,7 @@ jobs:
         node-version: '${{ steps.nvm.outputs.NVMRC }}'
     - run: sudo apt-get install z3
     - run: npm ci
+    - run: npm run lint
     - run: npm test
       env:
         CI: true

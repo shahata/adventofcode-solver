@@ -81,3 +81,12 @@ export async function getLeaderboardJsons(year) {
   }
   return jsons;
 }
+
+export async function getStatics(statics, write) {
+  for (const name of statics) {
+    write({
+      name,
+      content: await downloadText(`https://adventofcode.com/static/${name}`),
+    });
+  }
+}

@@ -5,10 +5,6 @@ const input = readInput(import.meta.url);
 
 describe('day24 2019', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
-      // expect(part1('1')).toEqual(0);
-    });
-
     it('should work for part 1 input', () => {
       expect(part1(input)).toEqual(14539258);
     });

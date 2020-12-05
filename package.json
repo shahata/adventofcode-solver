@@ -35,9 +35,6 @@
       "node": true,
       "es2020": true
     },
-    "rules": {
-      "jest/expect-expect": "off"
-    },
     "extends": [
       "eslint:recommended",
       "plugin:jest/recommended",

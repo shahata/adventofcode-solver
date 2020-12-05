@@ -12,6 +12,7 @@ import {
   downloadInput,
   createSolver,
   tempLeaderboard,
+  downloadIndexTicks,
 } from './renderer.js';
 
 let duration;
@@ -77,7 +78,7 @@ export default async function solveAll(year, day, run = true) {
     console.log(`Downloading questions (${year})...`);
     const days = getDays(year);
     var bar = new ProgressBar('[:bar] :percent', {
-      total: days.length * 2 + 5,
+      total: days.length * 2 + downloadIndexTicks,
       width: 40,
     });
     await downloadIndex(year, bar);
