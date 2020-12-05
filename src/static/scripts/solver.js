@@ -1,5 +1,5 @@
 /* global performance, fetch */
-import { dayName } from '../../../utils/day-name.js';
+import { dayName } from '../../utils/day-name.js';
 
 let duration;
 performance.timerify = fn => {
@@ -27,7 +27,7 @@ async function solver(year, day, session) {
     `<a href="${url}" target="_blank">Solution for ${fileName}!!!</a>`,
   );
   console.log('----------------------------');
-  const module = await import(`../${fileName}.js`);
+  const module = await import(`../../${fileName}.js`);
   const input = await readInput(
     `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`,
   );
