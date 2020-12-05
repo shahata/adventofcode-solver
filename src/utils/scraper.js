@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { dayName } from './day-name.js';
 
-async function downloadText(url, postPayload) {
+export async function downloadContent(url, postPayload) {
   const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
   const options = { headers };
   if (postPayload) {
@@ -22,17 +22,21 @@ async function downloadText(url, postPayload) {
       ].join('\n'),
     );
   }
-  return await response.text();
+  if (response.headers.get('Content-Type') === 'image/png') {
+    return Buffer.from(await response.arrayBuffer());
+  } else {
+    return await response.text();
+  }
 }
 
 export async function getDayInput(year, day) {
   const url = `https://adventofcode.com/${year}/day/${day}/input`;
-  return await downloadText(url);
+  return await downloadContent(url);
 }
 
 export async function getQuestionPage(year, day) {
   const url = `https://adventofcode.com/${year}/day/${day}`;
-  const text = await downloadText(url);
+  const text = await downloadContent(url);
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return question
     .replace(/href="\/\d+"/g, 'href="index.html"')
@@ -42,7 +46,7 @@ export async function getQuestionPage(year, day) {
 }
 
 export async function getYearPage(year) {
-  const text = await downloadText(`https://adventofcode.com/${year}`);
+  const text = await downloadContent(`https://adventofcode.com/${year}`);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return page.replace(
     /href="\/\d+\/day\/(\d+)"/g,
@@ -51,7 +55,7 @@ export async function getYearPage(year) {
 }
 
 export async function getEventsPage(year) {
-  const text = await downloadText(`https://adventofcode.com/${year}/events`);
+  const text = await downloadContent(`https://adventofcode.com/${year}/events`);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return page.replace(
     /href="[^"]*">\[(\d+)\]/g,
@@ -61,32 +65,23 @@ export async function getEventsPage(year) {
 
 export async function getEndPage(year) {
   const url = `https://adventofcode.com/${year}/day/25/answer`;
-  const text = await downloadText(url, 'level=2&answer=0');
+  const text = await downloadContent(url, 'level=2&answer=0');
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return question.replace(/href="\/\d+"/g, 'href="index.html"');
 }
 
 export async function getLeaderboardJsons(year) {
   const url = `https://adventofcode.com/${year}/leaderboard/private`;
-  const text = await downloadText(url);
+  const text = await downloadContent(url);
   const jsons = [];
   for (const [, id] of text.matchAll(/\/leaderboard\/private\/view\/(\d+)/g)) {
     jsons.push(
       JSON.parse(
-        await downloadText(
+        await downloadContent(
           `https://adventofcode.com/${year}/leaderboard/private/view/${id}.json`,
         ),
       ),
     );
   }
   return jsons;
-}
-
-export async function getStatics(statics, write) {
-  for (const name of statics) {
-    write({
-      name,
-      content: await downloadText(`https://adventofcode.com/static/${name}`),
-    });
-  }
 }

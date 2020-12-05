@@ -11,7 +11,7 @@ import {
   getEventsPage,
   getLeaderboardJsons,
   getEndPage,
-  getStatics,
+  downloadContent,
 } from './scraper.js';
 
 function renderTemplate(year, name, extension, model) {
@@ -27,14 +27,11 @@ function renderTemplate(year, name, extension, model) {
   return fileName;
 }
 
-async function downloadStatics(statics, done) {
-  return getStatics(statics, ({ name, content }) => {
-    const __dirname = path.dirname(fileURLToPath(import.meta.url));
-    const src = path.resolve(__dirname, '..');
-    const fileName = path.join(src, 'static', name);
-    fs.writeFileSync(fileName, content);
-    done();
-  });
+async function downloadStatic(url) {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const src = path.resolve(__dirname, '..', 'static');
+  const fileName = path.join(src, url.split('/').pop());
+  fs.writeFileSync(fileName, await downloadContent(url));
 }
 
 export async function downloadQuestion(year, day) {
@@ -75,7 +72,12 @@ export async function downloadIndex(year, bar) {
     renderTemplate(year, 'end', 'html', { year, page: end });
   }
   bar.tick();
-  await downloadStatics(['style.css', 'highcontrast.css'], () => bar.tick());
+  downloadStatic('https://adventofcode.com/static/style.css');
+  bar.tick();
+  downloadStatic('https://adventofcode.com/static/highcontrast.css');
+  bar.tick();
+  downloadStatic('https://adventofcode.com/favicon.png');
+  bar.tick();
 }
 
 export async function createSolver(year, day) {
