@@ -1,22 +1,17 @@
 function parse(input) {
-  const numbers = input.split('\n').map(x => {
-    return parseInt(
-      x
-        .split('')
-        .map(c => (c === 'F' || c === 'L' ? '0' : '1'))
-        .join(''),
-      2,
-    );
-  });
-  return numbers.sort((a, b) => a - b);
+  return input
+    .split('\n')
+    .map(x => parseInt(x.replace(/[FL]/g, '0').replace(/[BR]/g, '1'), 2));
 }
 
 export function part1(input) {
-  const numbers = parse(input);
-  return numbers[numbers.length - 1];
+  return Math.max(...parse(input));
 }
 
 export function part2(input) {
-  const numbers = parse(input);
-  return numbers.find((n, i) => n - numbers[0] !== i) - 1;
+  return (
+    parse(input)
+      .sort((a, b) => a - b)
+      .find((n, i, a) => n - a[0] !== i) - 1
+  );
 }
