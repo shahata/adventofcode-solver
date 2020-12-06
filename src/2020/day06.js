@@ -11,9 +11,7 @@ export function part2(input) {
     .map(x => {
       const merged = x.split('\n').join('').split('').sort().join('');
       const count = x.split('\n').length;
-      return new Set(
-        merged.match(new RegExp(`(.)\\1{${count - 1}}`, 'g')) || [],
-      ).size;
+      return merged.match(new RegExp(`(.)\\1{${count - 1}}`, 'g'))?.length || 0;
     })
     .reduce((a, b) => a + b);
 }
