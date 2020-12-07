@@ -13,13 +13,12 @@ function parse(input) {
   });
 }
 
-function walk1(graph, color, total) {
-  if (graph[color]) {
-    graph[color].forEach(c => {
-      total.push(c);
-      walk1(graph, c, total);
-    });
-  }
+function walk1(graph, color, total = []) {
+  graph[color]?.forEach(c => {
+    total.push(c);
+    walk1(graph, c, total);
+  });
+  return total;
 }
 
 export function part1(input) {
@@ -30,9 +29,7 @@ export function part1(input) {
       graph[color] = (graph[color] || []).concat(bag.color);
     });
   });
-  const total = [];
-  walk1(graph, 'shiny gold', total);
-  return new Set(total).size;
+  return new Set(walk1(graph, 'shiny gold')).size;
 }
 
 function walk2(graph, color) {
