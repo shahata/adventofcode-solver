@@ -23,19 +23,19 @@ function run(ops) {
 }
 
 export function part1(input) {
-  const ops = parse(input);
-  return run(ops).acc;
+  const { acc } = run(parse(input));
+  return acc;
 }
 
 export function part2(input) {
-  const badOps = parse(input);
+  const bad = parse(input);
 
-  for (let toggle = 0; toggle < badOps.length; toggle++) {
-    const ops = badOps.map((line, index) => {
-      if (index === toggle && line.op !== 'acc') {
-        return { op: line.op === 'jmp' ? 'nop' : 'jmp', param: line.param };
+  for (let toggle = 0; toggle < bad.length; toggle++) {
+    const ops = bad.map(({ op, param }, index) => {
+      if (index === toggle && op !== 'acc') {
+        return { op: op === 'jmp' ? 'nop' : 'jmp', param };
       } else {
-        return line;
+        return { op, param };
       }
     });
 
