@@ -5,10 +5,8 @@ export function part1(input, preamble = 25) {
   let stack = [];
   for (let i = 0; i < numbers.length; i++) {
     if (stack.length === preamble) {
-      const result = Combinatorics.bigCombination(stack, 2).map(
-        x => x[0] + x[1],
-      );
-      if (!result.includes(numbers[i])) {
+      const sums = Combinatorics.combination(stack, 2).map(x => x[0] + x[1]);
+      if (!sums.includes(numbers[i])) {
         return numbers[i];
       }
       stack.pop();
