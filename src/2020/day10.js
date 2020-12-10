@@ -4,7 +4,7 @@ export function part1(input) {
     .map(x => +x)
     .concat(0)
     .sort((a, b) => a - b);
-  let map = new Map([
+  const map = new Map([
     [1, 0],
     [2, 0],
     [3, 1],
@@ -30,5 +30,5 @@ export function part2(input) {
       (map.get(numbers[i] - 3) || 0);
     map.set(numbers[i], ways);
   }
-  return map.get(numbers[numbers.length - 1]);
+  return map.get(numbers.pop());
 }
