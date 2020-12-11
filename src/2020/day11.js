@@ -9,56 +9,45 @@ const directions = [
   ({ x, y }) => ({ y: y + 1, x: x + 1 }),
 ];
 
-function neighbors(seats, x, y) {
+function neighbors(seats, current, far) {
   return directions
     .map(direction => {
-      const point = direction({ x, y });
+      let point = current;
+      do {
+        point = direction(point);
+      } while (far && seats[point.y] && seats[point.y][point.x] === '.');
       return seats[point.y] && seats[point.y][point.x] === '#' ? 1 : 0;
     })
     .reduce((a, b) => a + b);
 }
 
-function neighbors2(seats, x, y) {
-  return directions
-    .map(direction => {
-      let point = { x, y };
-      let value;
-      do {
-        point = direction(point);
-        value = seats[point.y] && seats[point.y][point.x];
-      } while (value === '.');
-      return value === '#' ? 1 : 0;
-    })
-    .reduce((a, b) => a + b);
-}
-
-function life(input, neighborsFn, neighborsCount) {
+function life(input, count, far) {
   let seats = input.split('\n').map(x => x.split(''));
-  let count = 0;
+  let occupied = 0;
   let prev = 0;
   do {
-    seats = seats.map((line, y) => {
-      return line.map((seat, x) => {
+    seats = seats.map((line, y) =>
+      line.map((seat, x) => {
         if (seat !== '.') {
-          const occupied = neighborsFn(seats, x, y);
-          if (seat === 'L' && occupied === 0) return '#';
-          if (seat === '#' && occupied >= neighborsCount) return 'L';
+          const n = neighbors(seats, { x, y }, far);
+          if (seat === 'L' && n === 0) return '#';
+          if (seat === '#' && n >= count) return 'L';
         }
         return seat;
-      });
-    });
-    prev = count;
-    count = seats
+      }),
+    );
+    prev = occupied;
+    occupied = seats
       .map(line => line.map(x => (x === '#' ? 1 : 0)).reduce((a, b) => a + b))
       .reduce((a, b) => a + b);
-  } while (count !== prev);
-  return count;
+  } while (occupied !== prev);
+  return occupied;
 }
 
 export function part1(input) {
-  return life(input, neighbors, 4);
+  return life(input, 4, false);
 }
 
 export function part2(input) {
-  return life(input, neighbors2, 5);
+  return life(input, 5, true);
 }
