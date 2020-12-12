@@ -6,8 +6,6 @@ function transform(s) {
 }
 
 export const part1 = (input, times = 40) =>
-  new Array(times).fill(undefined).reduce(prev => transform(prev), input)
-    .length;
+  new Array(times).fill().reduce(prev => transform(prev), input).length;
 export const part2 = (input, times = 50) =>
-  new Array(times).fill(undefined).reduce(prev => transform(prev), input)
-    .length;
+  new Array(times).fill().reduce(prev => transform(prev), input).length;

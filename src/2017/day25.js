@@ -3,12 +3,12 @@ function parse(input) {
   const lines = input.split('\n');
   const states = {};
   for (const line of lines) {
-    const word = (line.match(/\w+/) || [])[0];
-    const param = (line.match(/([^\s]*).$/) || [])[1];
+    const [word] = line.match(/\w+/) || [];
+    const [, param] = line.match(/([^\s]*).$/) || [];
     if (word === 'Begin') {
       initial = param;
     } else if (word === 'Perform') {
-      diagnostic = +line.match(/(\d+) steps.$/)[1];
+      [, diagnostic] = line.match(/(\d+) steps.$/);
     } else if (word === 'In') {
       currentState = param;
       states[currentState] = [];
@@ -23,7 +23,7 @@ function parse(input) {
       states[currentState][currentValue].next = param;
     }
   }
-  return { initial, diagnostic, states };
+  return { initial, diagnostic: +diagnostic, states };
 }
 
 export function part1(input) {

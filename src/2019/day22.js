@@ -41,7 +41,7 @@ export function part1(input, length = 10007, offset = 2019, undo) {
     if (match) {
       return {
         method: match[1] === 'increment' ? increment : cut,
-        count: +match[2],
+        count: parseInt(match[2]),
       };
     } else {
       return { method: reverse };

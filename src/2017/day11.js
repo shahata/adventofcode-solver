@@ -1,23 +1,15 @@
 function step({ x, y }, direction) {
-  switch (direction) {
-    case 's':
-      return { x: x + 0, y: y - 2 };
-    case 'n':
-      return { x: x + 0, y: y + 2 };
-    case 'w':
-      return { x: x - 2, y: y + 0 };
-    case 'e':
-      return { x: x + 2, y: y + 0 };
-    case 'sw':
-      return { x: x - 1, y: y - 1 };
-    case 'se':
-      return { x: x + 1, y: y - 1 };
-    case 'nw':
-      return { x: x - 1, y: y + 1 };
-    case 'ne':
-      return { x: x + 1, y: y + 1 };
-    default:
-  }
+  const directions = {
+    s: { x: x + 0, y: y - 2 },
+    n: { x: x + 0, y: y + 2 },
+    w: { x: x - 2, y: y + 0 },
+    e: { x: x + 2, y: y + 0 },
+    sw: { x: x - 1, y: y - 1 },
+    se: { x: x + 1, y: y - 1 },
+    nw: { x: x - 1, y: y + 1 },
+    ne: { x: x + 1, y: y + 1 },
+  };
+  return directions[direction];
 }
 
 function parse(input) {

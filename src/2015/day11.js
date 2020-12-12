@@ -1,5 +1,5 @@
 const abc = 'abcdefghijklmnopqrstuvwxyz';
-const substrs = abc
+const subStrings = abc
   .split('')
   .map((x, i) => abc.substr(i, 3))
   .filter(x => x.length === 3);
@@ -9,7 +9,7 @@ function ok(s) {
     s.match(/^[a-z]*$/) &&
     s.match(/^[^iol]*$/) &&
     s.match(/(.)\1.*(.)\2/) &&
-    substrs.some(sub => s.indexOf(sub) > -1)
+    subStrings.some(sub => s.indexOf(sub) > -1)
   );
 }
 

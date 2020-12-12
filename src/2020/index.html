@@ -12,12 +12,12 @@
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2020</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
 <style>
-.calendar .calendar-color-g { color:#00cc00; }
-.calendar .calendar-color-a { color:#cccccc; }
 .calendar .calendar-color-w { color:#ffffff; }
-.calendar .calendar-color-r { color:#ff0000; }
 .calendar .calendar-color-b { color:#333399; }
+.calendar .calendar-color-r { color:#ff0000; }
 .calendar .calendar-color-l { color:#ccccff; }
+.calendar .calendar-color-a { color:#cccccc; }
+.calendar .calendar-color-g { color:#00cc00; }
 </style>
 <pre class="calendar"><a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete">              <span class="calendar-color-l">..........</span><span class="calendar-color-r">|</span><span class="calendar-color-l">..........</span>                <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 2, two stars" href="day02.html" class="calendar-day2 calendar-verycomplete">   <span class="calendar-color-l">.....''''''</span> <span class="calendar-color-w">.'</span>  <span class="calendar-color-w">-</span>  <span class="calendar-color-w">-</span>  <span class="calendar-color-a">\</span><span class="calendar-color-w">-</span> <span class="calendar-color-w">.''</span><span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span> <span class="calendar-color-l">''''''.....</span>     <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
@@ -41,7 +41,7 @@
 (function(){
 var countdown = document.getElementById("calendar-countdown");
 if (!countdown) return;
-var server_eta = 78711;
+var server_eta = 56197;
 var key = "2020-13-"+server_eta;
 var now = Math.floor(new Date().getTime()/1000);
 var target = server_eta + now;

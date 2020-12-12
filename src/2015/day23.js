@@ -29,7 +29,7 @@ function parse(input) {
         .match(/^(\w+) ([\w+-]+)(?:, ([\w+-]+))?$/)
         .map(x => (x && x.match(/^[+-]/) ? +x : x));
     })
-    .map(x => ({ op: x[1], p1: x[2], p2: x[3] }));
+    .map(([, op, p1, p2]) => ({ op, p1, p2 }));
 }
 
 export const part1 = input => run({ a: 0, b: 0, next: 0 }, parse(input)).b;

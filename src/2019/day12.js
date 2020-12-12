@@ -1,13 +1,8 @@
 function parse(input) {
   return input
     .split('\n')
-    .map(s =>
-      s
-        .match(/<x=([^,]*), y=([^,]*), z=([^>]*)>/)
-        .slice(1)
-        .map(x => +x),
-    )
-    .map(([x, y, z]) => ({
+    .map(s => s.match(/<x=([^,]*), y=([^,]*), z=([^>]*)>/).map(x => +x))
+    .map(([, x, y, z]) => ({
       position: [x, y, z],
       velocity: [0, 0, 0],
     }));

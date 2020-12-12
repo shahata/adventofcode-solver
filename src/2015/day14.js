@@ -2,10 +2,10 @@ function parse(input) {
   return input
     .split('\n')
     .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))
-    .map(x => ({
-      speed: +x[1],
-      fly: +x[2],
-      rest: +x[3],
+    .map(([, speed, fly, rest]) => ({
+      speed: +speed,
+      fly: +fly,
+      rest: +rest,
       distance: 0,
       points: 0,
     }));

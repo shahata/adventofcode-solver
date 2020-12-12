@@ -25,7 +25,7 @@ function parse(input) {
   input.pop();
   const replacements = input
     .map(x => x.match(/^(\w+) => (\w+)$/))
-    .map(x => ({ from: x[1], to: x[2] }));
+    .map(([, from, to]) => ({ from, to }));
   return { molecule, replacements };
 }
 

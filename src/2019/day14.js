@@ -14,17 +14,16 @@ export function part1(input, fuelAmount = 1) {
   const reactions = input
     .split('\n')
     .map(x => {
-      const [compounds, amount, element] = x
-        .match(/^(.*) => (\d+) ([A-Z]+)$/)
-        .slice(1)
-        .map((x, i) => (i === 1 ? +x : x));
+      const [, compounds, amount, element] = x.match(
+        /^(.*) => (\d+) ([A-Z]+)$/,
+      );
       const elements = compounds.split(', ').map(x =>
         x
           .match(/(\d+) ([A-Z]+)/)
           .slice(1)
           .map((x, i) => (i === 0 ? +x : x)),
       );
-      return { element, amount, elements };
+      return { element, amount: +amount, elements };
     })
     .reduce((prev, next) => Object.assign(prev, { [next.element]: next }), {});
 

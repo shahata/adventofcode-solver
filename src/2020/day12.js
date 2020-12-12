@@ -4,13 +4,13 @@ function turn(direction, count) {
   return reverse[(compass[direction] + count) % 360];
 }
 
-function turn2(waypoint, count) {
+function turn2(position, count) {
   const rotations = {
     90: ({ x, y }) => ({ x: -1 * y, y: x }),
     180: ({ x, y }) => ({ x: -1 * x, y: -1 * y }),
     270: ({ x, y }) => ({ x: y, y: -1 * x }),
   };
-  return rotations[count](waypoint);
+  return rotations[count](position);
 }
 
 const operations = {

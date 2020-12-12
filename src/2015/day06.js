@@ -16,7 +16,7 @@ function countLights(input, operations) {
         }
         return state;
       },
-      new Array(1000).fill(undefined).map(() => new Array(1000).fill(0)),
+      new Array(1000).fill().map(() => new Array(1000).fill(0)),
     )
     .reduce((sum, row) => sum + row.reduce((sum, x) => sum + x), 0);
 }

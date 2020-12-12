@@ -25,7 +25,7 @@ export function day(input) {
   const ingredients = input
     .split('\n')
     .map(x => x.match(/^.*: (.*)$/))
-    .map(x => parseMap(x[1], ', ', ' '));
+    .map(([, s]) => parseMap(s, ', ', ' '));
 
   let part1 = 0,
     part2 = 0;

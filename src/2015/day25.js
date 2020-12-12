@@ -18,10 +18,7 @@ export function part1(input) {
     return x;
   }
 
-  const [row, col] = input
-    .match(/row (\d+), column (\d+).$/)
-    .slice(1)
-    .map(x => +x);
+  const [, row, col] = input.match(/row (\d+), column (\d+).$/).map(x => +x);
   return calcPosition(calcIndex(row, col));
 }
 

@@ -1,56 +1,35 @@
-function turnLeft(direction) {
-  switch (direction) {
-    case 'U':
-      return 'L';
-    case 'D':
-      return 'R';
-    case 'L':
-      return 'D';
-    case 'R':
-      return 'U';
-    default:
-  }
-}
+const turnLeft = {
+  U: 'L',
+  D: 'R',
+  L: 'D',
+  R: 'U',
+};
 
-function turnRight(direction) {
-  switch (direction) {
-    case 'U':
-      return 'R';
-    case 'D':
-      return 'L';
-    case 'L':
-      return 'U';
-    case 'R':
-      return 'D';
-    default:
-  }
-}
+const turnRight = {
+  U: 'R',
+  D: 'L',
+  L: 'U',
+  R: 'D',
+};
 
-function turnBackward(direction) {
-  switch (direction) {
-    case 'U':
-      return 'D';
-    case 'D':
-      return 'U';
-    case 'L':
-      return 'R';
-    case 'R':
-      return 'L';
-    default:
-  }
-}
+const turnBackward = {
+  U: 'D',
+  D: 'U',
+  L: 'R',
+  R: 'L',
+};
 
 function turn(state) {
   const node = state.nodes[toKey(state.position)];
   switch (node) {
     case '#':
-      return turnRight(state.direction);
+      return turnRight[state.direction];
     case 'W':
       return state.direction;
     case 'F':
-      return turnBackward(state.direction);
+      return turnBackward[state.direction];
     default:
-      return turnLeft(state.direction);
+      return turnLeft[state.direction];
   }
 }
 
@@ -68,17 +47,13 @@ function next(node, evolved) {
 }
 
 function move({ x, y }, direction) {
-  switch (direction) {
-    case 'U':
-      return { x, y: y - 1 };
-    case 'D':
-      return { x, y: y + 1 };
-    case 'L':
-      return { x: x - 1, y };
-    case 'R':
-      return { x: x + 1, y };
-    default:
-  }
+  const directions = {
+    U: { x, y: y - 1 },
+    D: { x, y: y + 1 },
+    L: { x: x - 1, y },
+    R: { x: x + 1, y },
+  };
+  return directions[direction];
 }
 
 function toKey({ x, y }) {

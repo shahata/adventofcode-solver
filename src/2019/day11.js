@@ -1,18 +1,13 @@
 import { execute } from './day09.js';
 
-function move(position, direction) {
-  switch (direction) {
-    case '^':
-      return { x: position.x, y: position.y - 1 };
-    case 'v':
-      return { x: position.x, y: position.y + 1 };
-    case '<':
-      return { x: position.x - 1, y: position.y };
-    case '>':
-      return { x: position.x + 1, y: position.y };
-    default:
-      console.log(direction);
-  }
+function move({ x, y }, direction) {
+  const directions = {
+    '^': { x, y: y - 1 },
+    'v': { x, y: y + 1 },
+    '<': { x: x - 1, y },
+    '>': { x: x + 1, y },
+  };
+  return directions[direction];
 }
 
 const left = {

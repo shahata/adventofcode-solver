@@ -39,8 +39,7 @@ function parse(input) {
   return input
     .split('\n')
     .map(x => x.match(/^Sue ([^:]*): (.*)/))
-    .map(x => [x[1], parseMap(x[2], ', ', ': ')])
-    .map(x => ({ id: +x[0], ...x[1] }));
+    .map(([, id, s]) => ({ id: +id, ...parseMap(s, ', ', ': ') }));
 }
 
 export const part1 = input =>

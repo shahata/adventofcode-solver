@@ -20,19 +20,14 @@ function toKey({ x, y }) {
   return `${x}-${y}`;
 }
 
-function next({ position, direction }) {
-  const { x, y } = position;
-  switch (direction) {
-    case 'R':
-      return { x: x + 1, y };
-    case 'L':
-      return { x: x - 1, y };
-    case 'U':
-      return { x, y: y - 1 };
-    case 'D':
-      return { x, y: y + 1 };
-    default:
-  }
+function next({ position: { x, y }, direction }) {
+  const directions = {
+    R: { x: x + 1, y },
+    L: { x: x - 1, y },
+    U: { x, y: y - 1 },
+    D: { x, y: y + 1 },
+  };
+  return directions[direction];
 }
 
 function calc({ position, map }) {
