@@ -110,8 +110,8 @@ function parse(input, initialHit, initialMana) {
   const [hit, damage] = input.match(/\d+/g);
   const hero = { hit: initialHit, mana: initialMana, armor: 0 };
   const boss = {
-    hit: parseInt(hit),
-    damage: parseInt(damage),
+    hit: +hit,
+    damage: +damage,
     armor: 0,
   };
   const active = Object.keys(spells).reduce(

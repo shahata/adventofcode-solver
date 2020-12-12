@@ -54,7 +54,7 @@ export function part1(input, map = {}) {
   }
 
   const user = { input: read, output: write, base: 0 };
-  const ops = input.split(',').map(x => parseInt(x));
+  const ops = input.split(',').map(x => +x);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {
@@ -68,7 +68,7 @@ export function part2(input) {
   part1(input, map);
 
   const coordinates = Object.keys(map)
-    .map(k => k.split(',').map(i => parseInt(i)))
+    .map(k => k.split(',').map(i => +i))
     .sort((a, b) => a[1] - b[1] || a[0] - b[0]);
   const first = coordinates[0];
   const last = coordinates[coordinates.length - 1];

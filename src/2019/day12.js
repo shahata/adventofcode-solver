@@ -5,7 +5,7 @@ function parse(input) {
       s
         .match(/<x=([^,]*), y=([^,]*), z=([^>]*)>/)
         .slice(1)
-        .map(x => parseInt(x)),
+        .map(x => +x),
     )
     .map(([x, y, z]) => ({
       position: [x, y, z],

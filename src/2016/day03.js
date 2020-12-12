@@ -19,7 +19,7 @@ function parse(input) {
     return x
       .replace(/^\s*/, '')
       .split(/\s+/)
-      .map(x => parseInt(x));
+      .map(x => +x);
   });
 }
 

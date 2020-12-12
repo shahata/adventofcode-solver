@@ -6,7 +6,7 @@ function add1({ steps, current, state }, number) {
 
 export function part1(input, lookFor = 2017) {
   let spinner = {
-    steps: parseInt(input),
+    steps: +input,
     current: 0,
     state: [0],
   };
@@ -30,7 +30,7 @@ function add2({ steps, current, zeroPosition, result }, number) {
 
 export function part2(input, times = 5e7) {
   let spinner = {
-    steps: parseInt(input),
+    steps: +input,
     current: 0,
     zeroPosition: 0,
     result: undefined,

@@ -7,7 +7,7 @@ function parse(input) {
       ...programs,
       [name]: {
         name,
-        weight: parseInt(weight),
+        weight: +weight,
         children: children && children.replace(/\s+/g, '').split(','),
       },
     };
@@ -53,6 +53,6 @@ export function part2(input) {
   try {
     rightWeight(programs, part1(input));
   } catch (e) {
-    return parseInt(e.message);
+    return +e.message;
   }
 }

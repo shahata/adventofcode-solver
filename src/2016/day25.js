@@ -2,7 +2,7 @@ function toReducer(str) {
   const params = str.split(/\s+/);
   const ops = {
     cpy: (src, register) => state =>
-      (state[register] = state[src] === undefined ? parseInt(src) : state[src]),
+      (state[register] = state[src] === undefined ? +src : state[src]),
     inc: register => state => state[register]++,
     dec: register => state => state[register]--,
     jnz: (register, distance) => state => {
@@ -10,8 +10,7 @@ function toReducer(str) {
         (state[register] !== undefined && state[register] !== 0) ||
         (state[register] === undefined && register !== '0')
       ) {
-        distance =
-          state[distance] === undefined ? parseInt(distance) : state[distance];
+        distance = state[distance] === undefined ? +distance : state[distance];
         state.index += distance - 1;
       }
     },

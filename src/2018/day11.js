@@ -28,7 +28,7 @@ function calc(serial, size, state) {
 }
 
 export function part1(input) {
-  const serial = parseInt(input);
+  const serial = +input;
   let state = { results: new Map(), lines: new Map(), max: { sum: -Infinity } };
   state = calc(serial, 1, { ...state, max: { sum: -Infinity } });
   state = calc(serial, 2, { ...state, max: { sum: -Infinity } });
@@ -37,7 +37,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const serial = parseInt(input);
+  const serial = +input;
   let state = { results: new Map(), lines: new Map(), max: { sum: -Infinity } };
   for (let i = 1; i <= 300; i++) {
     state = calc(serial, i, state);

@@ -16,11 +16,11 @@ const ops = {
   eqri: (r, i1, i2, o) => (r[o] = r[i1] === i2 ? 1 : 0),
   eqrr: (r, i1, i2, o) => (r[o] = r[i1] === r[i2] ? 1 : 0),
 };
-const numbers = arr => arr.map(x => parseInt(x));
+const numbers = arr => arr.map(x => +x);
 
 export function part1(input, reg0 = 0) {
   const lines = input.split('\n');
-  const ip = parseInt(lines.shift().split(' ').pop());
+  const ip = +lines.shift().split(' ').pop();
   const commands = lines.map(x => {
     const [op, ...params] = x.split(' ');
     return { op, params: numbers(params) };

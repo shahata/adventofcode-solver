@@ -12,13 +12,13 @@ function parse(input) {
       );
       const group = {
         army,
-        units: parseInt(units),
-        hit: parseInt(hit),
+        units: +units,
+        hit: +hit,
         immune: [],
         weak: [],
-        attack: parseInt(attack),
+        attack: +attack,
         type,
-        initiative: parseInt(initiative),
+        initiative: +initiative,
       };
       if (properties) {
         properties.split('; ').forEach(property => {

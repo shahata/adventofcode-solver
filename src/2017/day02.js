@@ -4,7 +4,7 @@ export const part1 = input =>
     .map(line => {
       const numbers = line
         .split(/\s+/)
-        .map(x => parseInt(x))
+        .map(x => +x)
         .sort((a, b) => a - b);
       return numbers.pop() - numbers.shift();
     })
@@ -16,7 +16,7 @@ export const part2 = input =>
     .map(line => {
       const numbers = line
         .split(/\s+/)
-        .map(x => parseInt(x))
+        .map(x => +x)
         .sort((a, b) => a - b);
       const divisible = a => b => a % b === 0;
       let a, b;

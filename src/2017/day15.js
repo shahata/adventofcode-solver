@@ -18,7 +18,7 @@ function judge(a, b, validators, times) {
 }
 
 function parse(input) {
-  return input.split('\n').map(x => parseInt(x.match(/\d+$/).pop(), 10));
+  return input.split('\n').map(x => +x.match(/\d+$/).pop());
 }
 
 export const part1 = (input, times = 4e7) =>

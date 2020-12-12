@@ -35,7 +35,7 @@ export function execute(ops, ip, user) {
 
 export function part1(input, inputValue = 1) {
   const user = { input: [inputValue], output: undefined };
-  const ops = input.split(',').map(x => parseInt(x));
+  const ops = input.split(',').map(x => +x);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {

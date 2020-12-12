@@ -17,12 +17,12 @@ export function part1(input, fuelAmount = 1) {
       const [compounds, amount, element] = x
         .match(/^(.*) => (\d+) ([A-Z]+)$/)
         .slice(1)
-        .map((x, i) => (i === 1 ? parseInt(x) : x));
+        .map((x, i) => (i === 1 ? +x : x));
       const elements = compounds.split(', ').map(x =>
         x
           .match(/(\d+) ([A-Z]+)/)
           .slice(1)
-          .map((x, i) => (i === 0 ? parseInt(x) : x)),
+          .map((x, i) => (i === 0 ? +x : x)),
       );
       return { element, amount, elements };
     })

@@ -3,9 +3,7 @@ import { execSync } from 'child_process';
 function parse(input) {
   return input
     .split('\n')
-    .map(x =>
-      x.match(/(-?\d+),(-?\d+),(-?\d+)>, r=(-?\d+)/).map(x => parseInt(x)),
-    )
+    .map(x => x.match(/(-?\d+),(-?\d+),(-?\d+)>, r=(-?\d+)/).map(x => +x))
     .map(([, x, y, z, r]) => ({ x, y, z, r }));
 }
 
@@ -41,5 +39,5 @@ export function part2(input) {
   const output = execSync('z3 -in', { input: smt }).toString().split('\n');
   const line =
     output[output.findIndex(line => line.includes('define-fun distance')) + 1];
-  return parseInt(line.match(/\d+/g).pop(), 10);
+  return +line.match(/\d+/g).pop();
 }

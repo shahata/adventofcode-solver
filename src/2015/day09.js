@@ -4,7 +4,7 @@ function shortest(graph, curr, visited) {
     .map(
       node => graph[curr][node] + shortest(graph, node, visited.concat(curr)),
     );
-  return paths.length ? Math.min.apply(Math, paths) : 0;
+  return paths.length ? Math.min(...paths) : 0;
 }
 
 function longest(graph, curr, visited) {
@@ -13,14 +13,14 @@ function longest(graph, curr, visited) {
     .map(
       node => graph[curr][node] + longest(graph, node, visited.concat(curr)),
     );
-  return paths.length ? Math.max.apply(Math, paths) : 0;
+  return paths.length ? Math.max(...paths) : 0;
 }
 
 function parse(input) {
   const graph = input
     .split('\n')
     .map(x => x.match(/^(.*) to (.*) = (\d+)$/))
-    .map(x => ({ p1: x[1], p2: x[2], d: parseInt(x[3]) }))
+    .map(x => ({ p1: x[1], p2: x[2], d: +x[3] }))
     .reduce((graph, edge) => {
       graph[edge.p1] = { ...graph[edge.p1], [edge.p2]: edge.d };
       graph[edge.p2] = { ...graph[edge.p2], [edge.p1]: edge.d };

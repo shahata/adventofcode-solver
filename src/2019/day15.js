@@ -48,7 +48,7 @@ function createMap(input, map) {
   }
 
   const user = { input: move, output: x => (output = x), base: 0 };
-  const ops = input.split(',').map(x => parseInt(x));
+  const ops = input.split(',').map(x => +x);
   let ip = 0;
 
   while (!done) {

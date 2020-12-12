@@ -30,8 +30,8 @@ export function parse(input, ops2 = {}, debug) {
 
   return input.split('\n').map(str => {
     const [cmd, p1Str, p2Str] = str.split(' ');
-    const p1 = p1Str.match(/^-?\d+$/) ? parseInt(p1Str) : p1Str;
-    const p2 = p2Str && p2Str.match(/^-?\d+$/) ? parseInt(p2Str) : p2Str;
+    const p1 = p1Str.match(/^-?\d+$/) ? +p1Str : p1Str;
+    const p2 = p2Str && p2Str.match(/^-?\d+$/) ? +p2Str : p2Str;
     return state => (!debug || debug(cmd)) && ops[cmd](p1, p2)(state);
   });
 }

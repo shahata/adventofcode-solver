@@ -28,8 +28,8 @@ function parse(input) {
     return state => {
       state[variable] = state[variable] || 0;
       state[compVariable] = state[compVariable] || 0;
-      if (dic[compOperator](state[compVariable], parseInt(compParam))) {
-        state[variable] = dic[operator](state[variable], parseInt(param));
+      if (dic[compOperator](state[compVariable], +compParam)) {
+        state[variable] = dic[operator](state[variable], +param);
       }
       return state;
     };

@@ -4,8 +4,8 @@ function countLights(input, operations) {
     .map(x => x.match(/^(.*) (\d+),(\d+) through (\d+),(\d+)$/))
     .map(x => ({
       op: operations[x[1]],
-      start: { x: parseInt(x[2]), y: parseInt(x[3]) },
-      end: { x: parseInt(x[4]), y: parseInt(x[5]) },
+      start: { x: +x[2], y: +x[3] },
+      end: { x: +x[4], y: +x[5] },
     }))
     .reduce(
       (state, next) => {

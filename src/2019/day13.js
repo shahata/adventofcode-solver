@@ -3,7 +3,7 @@ import { execute } from './day09.js';
 export function part1(input) {
   const output = [];
   const user = { input: [], output: x => output.push(x), base: 0 };
-  const ops = input.split(',').map(x => parseInt(x));
+  const ops = input.split(',').map(x => +x);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {
@@ -33,7 +33,7 @@ export function part2(input) {
   }
 
   const user = { input: move, output: x => output.push(x), base: 0 };
-  const ops = input.split(',').map(x => parseInt(x));
+  const ops = input.split(',').map(x => +x);
   let ip = 0;
   ops[0] = 2;
 

@@ -1,13 +1,10 @@
 function isOpen({ x, y }, magicNumber) {
   const num = x * x + 3 * x + 2 * x * y + y + y * y + magicNumber;
-  return (
-    num
-      .toString(2)
-      .split('')
-      .filter(x => x === '1').length %
-      2 ===
-    0
-  );
+  const ones = num
+    .toString(2)
+    .split('')
+    .filter(x => x === '1').length;
+  return ones % 2 === 0;
 }
 
 function getNeighbors(point) {
@@ -24,7 +21,7 @@ function cellId({ x, y }) {
 }
 
 function solveMaze(input, source, destination) {
-  const magicNumber = parseInt(input);
+  const magicNumber = +input;
   let queue = [source];
   const maze = { [cellId(source)]: { distance: 0, open: true } };
   while (queue.length) {

@@ -13,7 +13,7 @@ function erosion({ x, y }, depth) {
 }
 
 function parse(input) {
-  const [depth, x, y] = input.match(/\d+/g).map(x => parseInt(x));
+  const [depth, x, y] = input.match(/\d+/g).map(x => +x);
   return { depth, target: { x, y } };
 }
 

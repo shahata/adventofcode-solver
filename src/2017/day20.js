@@ -39,7 +39,7 @@ function parse(input) {
     const numbers = line
       .match(parser)
       .slice(1)
-      .map(x => parseInt(x));
+      .map(x => +x);
     return {
       i,
       p: numbers.slice(0, 3),

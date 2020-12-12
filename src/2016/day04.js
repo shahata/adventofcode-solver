@@ -1,18 +1,18 @@
 function parseRoom(s) {
   const [, name, sector, checksum] = s.match(/^(.*)-(\d+)\[(.*)\]$/);
-  return { name, sector: parseInt(sector), checksum };
+  return { name, sector: +sector, checksum };
 }
 
 function checksum(s) {
-  const occurences = s
+  const occurrences = s
     .replace(/-/g, '')
     .split('')
     .sort()
     .reduce((obj, c) => {
       return { ...obj, [c]: (obj[c] || 0) + 1 };
     }, {});
-  return Object.keys(occurences)
-    .map(x => ({ letter: x, times: occurences[x] }))
+  return Object.keys(occurrences)
+    .map(x => ({ letter: x, times: occurrences[x] }))
     .sort(
       (a, b) =>
         b.times - a.times || a.letter.charCodeAt(0) - b.letter.charCodeAt(0),

@@ -5,13 +5,13 @@ function cook(check) {
     elf1 = (elf1 + board[elf1] + 1) % board.length;
     elf2 = (elf2 + board[elf2] + 1) % board.length;
     const newRecipes = String(board[elf1] + board[elf2]).split('');
-    board.push(...newRecipes.map(x => parseInt(x)));
+    board.push(...newRecipes.map(x => +x));
   }
   return board;
 }
 
 export function part1(input) {
-  const count = parseInt(input);
+  const count = +input;
   const board = cook(board => board.length < count + 10);
   return board.slice(count, count + 10).join('');
 }

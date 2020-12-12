@@ -13,7 +13,7 @@ function divisors(x) {
 }
 
 export function day(input, part1Only = false) {
-  input = parseInt(input);
+  input = +input;
   let part1,
     part2 = part1Only;
   for (let i = 1; !part1 || !part2; i++) {

@@ -32,13 +32,13 @@ function flatten(screen) {
 function parseCommand(command) {
   if (command.startsWith('rect')) {
     const [, x, y] = command.match(/^rect (\d+)x(\d+)$/);
-    return state => rect(state, parseInt(x), parseInt(y));
+    return state => rect(state, +x, +y);
   } else if (command.startsWith('rotate row')) {
     const [, y, x] = command.match(/^rotate row y=(\d+) by (\d+)$/);
-    return state => rotateRow(state, parseInt(x), parseInt(y));
+    return state => rotateRow(state, +x, +y);
   } else if (command.startsWith('rotate column')) {
     const [, x, y] = command.match(/^rotate column x=(\d+) by (\d+)$/);
-    return state => rotateColumn(state, parseInt(x), parseInt(y));
+    return state => rotateColumn(state, +x, +y);
   }
 }
 

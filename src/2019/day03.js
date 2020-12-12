@@ -23,7 +23,7 @@ function draw(map, line, id) {
   let current = { x: 0, y: 0, track: 0, id };
   steps.forEach(s => {
     const [, direction, times] = s.match(/^(.)(\d+)$/);
-    mark(map, current, direction, parseInt(times));
+    mark(map, current, direction, +times);
   });
 }
 
@@ -37,7 +37,7 @@ export function part1(input) {
     .map(entry => {
       return entry[0]
         .split(',')
-        .map(x => Math.abs(parseInt(x)))
+        .map(x => Math.abs(+x))
         .reduce((a, b) => a + b);
     });
   return Math.min(...distances);

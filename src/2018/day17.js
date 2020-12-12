@@ -63,10 +63,10 @@ export function day(input) {
     const [, axis, num, rangeAxis, from, to] = result;
     return {
       axis,
-      num: parseInt(num),
+      num: +num,
       rangeAxis,
-      from: parseInt(from),
-      to: parseInt(to),
+      from: +from,
+      to: +to,
     };
   });
   lines.forEach(line => {

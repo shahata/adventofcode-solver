@@ -27,7 +27,7 @@ function parse(input) {
     .map(x => {
       return x
         .match(/^(\w+) ([\w+-]+)(?:, ([\w+-]+))?$/)
-        .map(x => (x && x.match(/^[+-]/) ? parseInt(x) : x));
+        .map(x => (x && x.match(/^[+-]/) ? +x : x));
     })
     .map(x => ({ op: x[1], p1: x[2], p2: x[3] }));
 }

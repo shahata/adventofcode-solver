@@ -1,5 +1,5 @@
 export function day(input, fill = 150) {
-  const boxes = input.split('\n').map(x => parseInt(x));
+  const boxes = input.split('\n').map(x => +x);
   const result = new Array(boxes.length).fill(0);
   const pad = result.join('');
 
@@ -7,7 +7,7 @@ export function day(input, fill = 150) {
     const select = (pad + i.toString(2))
       .slice(-boxes.length)
       .split('')
-      .map(x => parseInt(x));
+      .map(x => +x);
     if (
       select.map((x, index) => x * boxes[index]).reduce((sum, x) => sum + x) ===
       fill

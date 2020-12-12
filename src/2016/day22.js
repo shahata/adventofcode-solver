@@ -5,7 +5,7 @@ function parse(input) {
     .split('\n')
     .slice(2)
     .map(x => {
-      const fix = x => parseInt(x.replace(/.$/, ''), 10);
+      const fix = x => +x.replace(/.$/, '');
       const [name, size, used, avail, use] = x.split(/\s+/);
       return { name, size: fix(size), used: fix(used), avail: fix(avail), use };
     });
@@ -33,7 +33,7 @@ function build(nodes) {
     const [x, y] = node.name
       .match(/x(\d+)-y(\d+)$/)
       .slice(1)
-      .map(x => parseInt(x));
+      .map(x => +x);
     map[cellId({ x, y })] = { wall: Math.floor(Math.log10(node.used)) === big };
     start = node.used === 0 ? { x, y } : start;
     data = y === 0 && x > data.x ? { x, y } : data;

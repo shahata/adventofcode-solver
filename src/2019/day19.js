@@ -9,7 +9,7 @@ function check(input, { x, y }) {
   }
 
   const user = { input: read, output: x => (output = x), base: 0 };
-  const ops = input.split(',').map(x => parseInt(x));
+  const ops = input.split(',').map(x => +x);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {

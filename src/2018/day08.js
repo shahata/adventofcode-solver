@@ -12,11 +12,11 @@ function value(arr, part1 = false) {
 
 export function part1(input) {
   return value(
-    input.split(' ').map(x => parseInt(x)),
+    input.split(' ').map(x => +x),
     true,
   );
 }
 
 export function part2(input) {
-  return value(input.split(' ').map(x => parseInt(x)));
+  return value(input.split(' ').map(x => +x));
 }

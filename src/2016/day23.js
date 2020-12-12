@@ -1,7 +1,7 @@
 const ops = {
   cpy: (src, register) => state => {
     if (state[register] !== undefined) {
-      src = state[src] === undefined ? parseInt(src) : state[src];
+      src = state[src] === undefined ? +src : state[src];
       state[register] = src;
     }
   },
@@ -20,14 +20,12 @@ const ops = {
       (state[register] !== undefined && state[register] !== 0) ||
       (state[register] === undefined && register !== '0')
     ) {
-      distance =
-        state[distance] === undefined ? parseInt(distance) : state[distance];
+      distance = state[distance] === undefined ? +distance : state[distance];
       state.index += distance - 1;
     }
   },
   tgl: distance => (state, commands) => {
-    distance =
-      state[distance] === undefined ? parseInt(distance) : state[distance];
+    distance = state[distance] === undefined ? +distance : state[distance];
     toggle(commands[state.index + distance]);
   },
 };

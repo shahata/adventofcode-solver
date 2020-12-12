@@ -1,17 +1,15 @@
 export function part1(input) {
   return input
     .split('\n')
-    .map(x => parseInt(x))
-    .map(x => Math.floor(x / 3) - 2)
+    .map(x => Math.floor(+x / 3) - 2)
     .reduce((a, b) => a + b);
 }
 
 export function part2(input) {
   return input
     .split('\n')
-    .map(x => parseInt(x))
     .map(x => {
-      let fuel = Math.floor(x / 3) - 2;
+      let fuel = Math.floor(+x / 3) - 2;
       let extra = fuel;
       while (extra > 0) {
         extra = Math.max(Math.floor(extra / 3) - 2, 0);

@@ -8,9 +8,7 @@ const ops = {
 };
 
 function getter(id) {
-  return id && id.match(/^[a-z]+$/)
-    ? circuit => circuit[id]()
-    : () => parseInt(id);
+  return id && id.match(/^[a-z]+$/) ? circuit => circuit[id]() : () => +id;
 }
 
 function makeCircuit(input) {

@@ -12,7 +12,7 @@ export function day(input) {
       hash = md5(input + index);
     } while (!hash.startsWith('00000'));
 
-    const i = parseInt(hash[5]);
+    const i = +hash[5];
     password1 += hash[5];
     if (i >= 0 && i <= 7 && !password2[i]) {
       password2[i] = hash[6];

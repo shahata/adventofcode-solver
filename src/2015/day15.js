@@ -13,7 +13,7 @@ export function day(input) {
     return s
       .split(p1)
       .map(x => x.split(p2))
-      .reduce((obj, pair) => ({ ...obj, [pair[0]]: parseInt(pair[1]) }), {});
+      .reduce((obj, pair) => ({ ...obj, [pair[0]]: +pair[1] }), {});
   }
 
   function objMap(obj, fn) {

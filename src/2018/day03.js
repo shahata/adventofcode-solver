@@ -2,7 +2,7 @@ function parseClaims(input) {
   return input.split('\n').map(claim => {
     const [, id, x, y, w, h] = claim
       .match(/^#(\d+) @ (\d+),(\d+): (\d+)x(\d+)$/)
-      .map(x => parseInt(x));
+      .map(x => +x);
     return { id, x, y, w, h };
   });
 }

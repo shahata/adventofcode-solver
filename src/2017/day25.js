@@ -8,7 +8,7 @@ function parse(input) {
     if (word === 'Begin') {
       initial = param;
     } else if (word === 'Perform') {
-      diagnostic = parseInt(line.match(/(\d+) steps.$/)[1], 10);
+      diagnostic = +line.match(/(\d+) steps.$/)[1];
     } else if (word === 'In') {
       currentState = param;
       states[currentState] = [];

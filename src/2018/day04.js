@@ -5,7 +5,7 @@ function calcSleep(input) {
     .map(x => {
       const regex = /^\[[\d-]+ \d+:([\d]+)\] .* (#|asleep|up)(\d+)?/;
       const [, time, verb, id] = x.match(regex);
-      return { time: parseInt(time), verb, id };
+      return { time: +time, verb, id };
     });
   const sleep = new Map();
   const initial = () => ({ total: 0, mins: new Map() });

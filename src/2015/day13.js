@@ -4,9 +4,7 @@ function longest(graph, curr, visited) {
     .map(
       node => graph[curr][node] + longest(graph, node, visited.concat(curr)),
     );
-  return paths.length
-    ? Math.max.apply(Math, paths)
-    : graph[curr][visited[0]] || 0;
+  return paths.length ? Math.max(...paths) : graph[curr][visited[0]] || 0;
 }
 
 function parse(input) {
@@ -16,7 +14,7 @@ function parse(input) {
     .map(x =>
       x.match(/^(.*) would (gain|lose) (\d+) happiness .* next to (.*)\.$/),
     )
-    .map(x => ({ p1: x[1], p2: x[4], d: signs[x[2]] * parseInt(x[3]) }))
+    .map(x => ({ p1: x[1], p2: x[4], d: signs[x[2]] * +x[3] }))
     .reduce((graph, edge) => {
       const prev = (graph[edge.p1] && graph[edge.p1][edge.p2]) || 0;
       graph[edge.p1] = { ...graph[edge.p1], [edge.p2]: edge.d + prev };

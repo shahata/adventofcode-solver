@@ -9,7 +9,7 @@ function parse(input) {
       } else if (c === '.') {
         return { x, y, wall: false };
       } else {
-        const point = { x, y, wall: false, target: parseInt(c) };
+        const point = { x, y, wall: false, target: +c };
         targets.push(point);
         return point;
       }

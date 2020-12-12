@@ -21,7 +21,7 @@ export function part1(input) {
   const [row, col] = input
     .match(/row (\d+), column (\d+).$/)
     .slice(1)
-    .map(x => parseInt(x));
+    .map(x => +x);
   return calcPosition(calcIndex(row, col));
 }
 

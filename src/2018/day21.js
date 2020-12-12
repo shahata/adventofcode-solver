@@ -29,7 +29,7 @@ const ops = {
 
 function run(input, tap, cb) {
   const lines = input.split('\n');
-  const ip = parseInt(lines.shift().split(' ').pop());
+  const ip = +lines.shift().split(' ').pop();
   const commands = lines.map((x, i) => {
     const [op, ...params] = x.split(' ');
     return ops[op](i, ...params);
