@@ -4,6 +4,15 @@ function turn(direction, count) {
   return reverse[(compass[direction] + count) % 360];
 }
 
+function turn2(waypoint, count) {
+  const rotations = {
+    90: ({ x, y }) => ({ x: -1 * y, y: x }),
+    180: ({ x, y }) => ({ x: -1 * x, y: -1 * y }),
+    270: ({ x, y }) => ({ x: y, y: -1 * x }),
+  };
+  return rotations[count](waypoint);
+}
+
 const operations = {
   N: ({ position: { x, y } }, count) => ({ position: { x, y: y - count } }),
   S: ({ position: { x, y } }, count) => ({ position: { x, y: y + count } }),
@@ -14,8 +23,19 @@ const operations = {
   F: (state, count) => operations[state.direction](state, count),
 };
 
-export function part1(input) {
-  let state = { direction: 'E', position: { x: 0, y: 0 } };
+const operations2 = {
+  ...operations,
+  L: ({ position }, count) => ({ position: turn2(position, 360 - count) }),
+  R: ({ position }, count) => ({ position: turn2(position, count) }),
+  F: ({ position, ship }, count) => ({
+    ship: {
+      x: ship.x + count * position.x,
+      y: ship.y + count * position.y,
+    },
+  }),
+};
+
+function solve(input, state, operations) {
   const steps = input
     .split('\n')
     .map(x => x.match(/^(.)(\d+)$/))
@@ -23,40 +43,17 @@ export function part1(input) {
   steps.forEach(({ step, count }) => {
     state = { ...state, ...operations[step](state, count) };
   });
+  return state;
+}
+
+export function part1(input) {
+  let state = { direction: 'E', position: { x: 0, y: 0 } };
+  state = solve(input, state, operations);
   return Math.abs(state.position.x) + Math.abs(state.position.y);
 }
 
-function turn2(waypoint, count) {
-  const rotations = {
-    90: ({ x, y }) => ({ x: -1 * y, y: x }),
-    180: ({ x, y }) => ({ x: -1 * x, y: -1 * y }),
-    270: ({ x, y }) => ({ x: y, y: -1 * x }),
-  };
-  return rotations[count](waypoint);
-}
-
-const operations2 = {
-  N: ({ waypoint: { x, y } }, count) => ({ waypoint: { x, y: y - count } }),
-  S: ({ waypoint: { x, y } }, count) => ({ waypoint: { x, y: y + count } }),
-  W: ({ waypoint: { x, y } }, count) => ({ waypoint: { x: x - count, y } }),
-  E: ({ waypoint: { x, y } }, count) => ({ waypoint: { x: x + count, y } }),
-  L: ({ waypoint }, count) => ({ waypoint: turn2(waypoint, 360 - count) }),
-  R: ({ waypoint }, count) => ({ waypoint: turn2(waypoint, count) }),
-  F: ({ position, waypoint }, count) => ({
-    position: {
-      x: position.x + count * waypoint.x,
-      y: position.y + count * waypoint.y,
-    },
-  }),
-};
 export function part2(input) {
-  let state = { waypoint: { x: 10, y: -1 }, position: { x: 0, y: 0 } };
-  const steps = input
-    .split('\n')
-    .map(x => x.match(/^(.)(\d+)$/))
-    .map(([, step, count]) => ({ step, count: +count }));
-  steps.forEach(({ step, count }) => {
-    state = { ...state, ...operations2[step](state, count) };
-  });
-  return Math.abs(state.position.x) + Math.abs(state.position.y);
+  let state = { position: { x: 10, y: -1 }, ship: { x: 0, y: 0 } };
+  state = solve(input, state, operations2);
+  return Math.abs(state.ship.x) + Math.abs(state.ship.y);
 }
