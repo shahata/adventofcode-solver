@@ -29,8 +29,8 @@ function rotate(moons) {
 }
 
 //lcm = a*b/gcd(a,b)
-function lcm(...args) {
-  return args
+function lcm(numbers) {
+  return numbers
     .map(x => Math.abs(x))
     .reduce((a, b) => {
       const m = a * b;
@@ -70,7 +70,7 @@ export function part2(input) {
       }
     });
     if (history.every(h => h.size <= i)) {
-      return lcm(...history.map(h => h.size));
+      return lcm(history.map(h => h.size));
     }
   }
 }

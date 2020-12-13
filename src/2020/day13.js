@@ -17,7 +17,7 @@ export function part1(input) {
   return (time - timestamp) * buses[next.indexOf(time)];
 }
 
-export function part2(input, base = 100000000000000) {
+export function part2(input) {
   let buses = input
     .split('\n')
     .pop()
@@ -25,13 +25,13 @@ export function part2(input, base = 100000000000000) {
     .map((x, i) => ({ id: +x, offset: i }))
     .filter(({ id }) => !isNaN(id));
 
-  let timestamp = base;
+  let result = 0;
   let step = 1;
   buses.forEach(({ id, offset }) => {
-    while ((timestamp + offset) % id !== 0) {
-      timestamp += step;
+    while ((result + offset) % id !== 0) {
+      result += step;
     }
-    step *= id;
+    step *= id; //assumes bus numbers do not have common divisors
   });
-  return timestamp;
+  return result;
 }

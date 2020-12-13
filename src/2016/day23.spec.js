@@ -1,5 +1,5 @@
 import { part1, part2 } from './day23.js';
-import readInput from '../utils/read-input';
+import readInput from '../utils/read-input.js';
 
 const input = readInput(import.meta.url);
 const oldInput = readInput(import.meta.url.toString().replace(/23/g, '12'));

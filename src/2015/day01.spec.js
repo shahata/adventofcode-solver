@@ -1,5 +1,5 @@
-import { part1, part2 } from './day01';
-import readInput from '../utils/read-input';
+import { part1, part2 } from './day01.js';
+import readInput from '../utils/read-input.js';
 
 const input = readInput(import.meta.url);
 

@@ -1,25 +1,13 @@
-function divisors(x) {
-  const nums = [];
-  const sqrt = Math.sqrt(x);
-  for (let i = 1; i <= sqrt; i++) {
-    if (x % i === 0) {
-      nums.push(i);
-      if (i !== sqrt) {
-        nums.push(x / i);
-      }
-    }
-  }
-  return nums;
-}
+import { divisors } from '../utils/divisors.js';
 
 export function day(input, part1Only = false) {
   input = +input;
   let part1,
     part2 = part1Only;
   for (let i = 1; !part1 || !part2; i++) {
-    const nums = divisors(i);
-    const sum = nums.reduce((sum, x) => sum + x, 0);
-    const sub = nums
+    const numbers = divisors(i);
+    const sum = numbers.reduce((sum, x) => sum + x, 0);
+    const sub = numbers
       .filter(x => x < Math.ceil(i / 50))
       .reduce((sum, x) => sum + x, 0);
     if (!part1 && sum * 10 >= input) {

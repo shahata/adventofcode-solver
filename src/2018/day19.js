@@ -1,3 +1,5 @@
+import { divisors } from '../utils/divisors.js';
+
 const ops = {
   addr: (r, i1, i2, o) => (r[o] = r[i1] + r[i2]),
   addi: (r, i1, i2, o) => (r[o] = r[i1] + i2),
@@ -34,20 +36,6 @@ export function part1(input, reg0 = 0) {
     r[ip]++;
   }
   return r[0];
-}
-
-function divisors(x) {
-  const result = [];
-  const sqrt = Math.sqrt(x);
-  for (let i = 1; i <= sqrt; i++) {
-    if (x % i === 0) {
-      result.push(i);
-      if (i !== sqrt) {
-        result.push(x / i);
-      }
-    }
-  }
-  return result;
 }
 
 export function part2(input) {
