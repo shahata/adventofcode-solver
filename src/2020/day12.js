@@ -35,15 +35,14 @@ const operations2 = {
   }),
 };
 
-function solve(input, state, operations) {
+function solve(input, initial, operations) {
   const steps = input
     .split('\n')
     .map(x => x.match(/^(.)(\d+)$/))
-    .map(([, step, count]) => ({ step, count: +count }));
-  steps.forEach(({ step, count }) => {
-    state = { ...state, ...operations[step](state, count) };
-  });
-  return state;
+    .map(([, operation, count]) => ({ operation, count: +count }));
+  return steps.reduce((state, { operation, count }) => {
+    return { ...state, ...operations[operation](state, count) };
+  }, initial);
 }
 
 export function part1(input) {
