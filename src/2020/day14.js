@@ -16,20 +16,19 @@ export function part1(input) {
 
 export function part2(input) {
   const commands = input.split('\n').map(cmd => cmd.split(' = '));
+  let floating = [];
   const map = {};
   let mask;
   commands.forEach(([address, value]) => {
     if (address === 'mask') {
+      floating = [];
       mask = value.split('');
+      mask.forEach((x, i) => x === 'X' && floating.push(i));
     } else {
-      const floating = [];
-      [, address] = address.match(/^mem\[(\d+)\]/);
+      address = +address.match(/^mem\[(\d+)\]/).pop();
       address = Number(address).toString(2).padStart(36, 0).split('');
-      mask.forEach((x, i) => {
-        x === 'X' && floating.push(i);
-        x !== '0' && (address[i] = x);
-      });
-      const combinations = Number(Math.pow(2, floating.length));
+      mask.forEach((x, i) => x === '1' && (address[i] = x));
+      const combinations = Math.pow(2, floating.length);
       for (let i = 0; i < combinations; i++) {
         const fill = Number(i).toString(2).padStart(floating.length, 0);
         floating.forEach((x, i) => (address[x] = fill[i]));
