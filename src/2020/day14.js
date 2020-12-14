@@ -19,25 +19,22 @@ export function part2(input) {
   let masks;
   commands.forEach(([address, value]) => {
     if (address === 'mask') {
-      const floating = [...value.matchAll('X')].map(({ index }) => 35 - index);
+      const floating = [...value.matchAll('X')].map(m => 35n - BigInt(m.index));
       const orMask = BigInt(parseInt(value.replaceAll('X', '0'), 2));
-      masks = new Array(Math.pow(2, floating.length)).fill().map((x, i) => {
-        return floating.reduce(
-          ({ orMask, andMask }, x, bit) => {
+      masks = new Array(Math.pow(2, floating.length))
+        .fill({ orMask, andMask: 0n })
+        .map((x, i) => {
+          return floating.reduce(({ orMask, andMask }, position, bit) => {
             if ((i >> bit) & 1) {
-              return { orMask: orMask | (1n << BigInt(x)), andMask };
+              return { orMask: orMask | (1n << position), andMask };
             } else {
-              return { orMask, andMask: andMask | (1n << BigInt(x)) };
+              return { orMask, andMask: andMask | (1n << position) };
             }
-          },
-          { orMask, andMask: 0n },
-        );
-      });
+          }, x);
+        });
     } else {
       address = BigInt(+address.match(/\d+/).pop());
-      masks.forEach(
-        ({ orMask, andMask }) => (map[(address | orMask) & ~andMask] = +value),
-      );
+      masks.forEach(x => (map[(address | x.orMask) & ~x.andMask] = +value));
     }
   });
   return Object.values(map).reduce((a, b) => a + b, 0);
