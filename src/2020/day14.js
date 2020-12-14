@@ -16,9 +16,8 @@ export function part1(input) {
 
 export function part2(input) {
   const commands = input.split('\n').map(cmd => cmd.split(' = '));
-  let floating = [];
+  let mask, floating;
   const map = {};
-  let mask;
   commands.forEach(([address, value]) => {
     if (address === 'mask') {
       floating = [];
