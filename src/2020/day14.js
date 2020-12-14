@@ -1,14 +1,13 @@
 export function part1(input) {
   const commands = input.split('\n').map(cmd => cmd.split(' = '));
   const map = {};
-  let mask;
+  let orMask, andMask;
   commands.forEach(([address, value]) => {
     if (address === 'mask') {
-      mask = value.split('');
+      orMask = BigInt(parseInt(value.replaceAll('X', '0'), 2));
+      andMask = BigInt(parseInt(value.replaceAll('X', '1'), 2));
     } else {
-      value = Number(value).toString(2).padStart(36, 0).split('');
-      mask.forEach((x, i) => x !== 'X' && (value[i] = x));
-      map[address] = parseInt(value.join(''), 2);
+      map[address] = Number((BigInt(+value) | orMask) & andMask);
     }
   });
   return Object.values(map).reduce((a, b) => a + b, 0);
@@ -16,23 +15,29 @@ export function part1(input) {
 
 export function part2(input) {
   const commands = input.split('\n').map(cmd => cmd.split(' = '));
-  let mask, floating;
   const map = {};
+  let masks;
   commands.forEach(([address, value]) => {
     if (address === 'mask') {
-      floating = [];
-      mask = value.split('');
-      mask.forEach((x, i) => x === 'X' && floating.push(i));
+      const floating = [...value.matchAll('X')].map(({ index }) => 35 - index);
+      const orMask = BigInt(parseInt(value.replaceAll('X', '0'), 2));
+      masks = new Array(Math.pow(2, floating.length)).fill().map((x, i) => {
+        return floating.reduce(
+          ({ orMask, andMask }, x, bit) => {
+            if ((i >> bit) & 1) {
+              return { orMask: orMask | (1n << BigInt(x)), andMask };
+            } else {
+              return { orMask, andMask: andMask | (1n << BigInt(x)) };
+            }
+          },
+          { orMask, andMask: 0n },
+        );
+      });
     } else {
-      address = +address.match(/^mem\[(\d+)\]/).pop();
-      address = Number(address).toString(2).padStart(36, 0).split('');
-      mask.forEach((x, i) => x === '1' && (address[i] = x));
-      const combinations = Math.pow(2, floating.length);
-      for (let i = 0; i < combinations; i++) {
-        const fill = Number(i).toString(2).padStart(floating.length, 0);
-        floating.forEach((x, i) => (address[x] = fill[i]));
-        map[address.join('')] = +value;
-      }
+      address = BigInt(+address.match(/\d+/).pop());
+      masks.forEach(
+        ({ orMask, andMask }) => (map[(address | orMask) & ~andMask] = +value),
+      );
     }
   });
   return Object.values(map).reduce((a, b) => a + b, 0);
