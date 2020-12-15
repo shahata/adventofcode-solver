@@ -1,16 +1,15 @@
 export function part1(input, count = 2020) {
   const start = input.split(',').map(x => +x);
-  const map = new Map();
+  const map = new Map(start.map((x, i) => [x, i]));
 
-  let curr = 0;
-  let prev = undefined;
-  start.forEach((x, i) => map.set(x, i));
+  let next = 0;
+  let curr;
   for (let i = start.length; i < count; i++) {
-    prev = curr;
-    curr = map.has(prev) ? i - map.get(prev) : 0;
-    map.set(prev, i);
+    curr = next;
+    next = map.has(curr) ? i - map.get(curr) : 0;
+    map.set(curr, i);
   }
-  return prev;
+  return curr;
 }
 
 export function part2(input) {
