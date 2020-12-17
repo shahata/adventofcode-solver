@@ -1,14 +1,12 @@
+const cache = [];
 function offsets(dimensions) {
   if (dimensions === 0) {
     return [[]];
-  } else {
+  } else if (!cache[dimensions]) {
     const rest = offsets(dimensions - 1);
-    return [
-      ...rest.map(x => [-1, ...x]),
-      ...rest.map(x => [0, ...x]),
-      ...rest.map(x => [1, ...x]),
-    ];
+    cache[dimensions] = rest.flatMap(x => [-1, 0, 1].map(n => [n, ...x]));
   }
+  return cache[dimensions];
 }
 
 function neighbors(key) {
