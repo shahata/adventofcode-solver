@@ -40,7 +40,7 @@ result: 00000000000000000000000000000<em>1</em>0000<em>0</em>0  (decimal 64)
 </code></pre>
 <p><code>64</code> is written to address <code>8</code> instead, overwriting the value that was there previously.</p>
 <p>To initialize your ferry's docking program, you need the sum of all values left in memory after the initialization program completes. (The entire 36-bit address space begins initialized to the value <code>0</code> at every address.) In the above example, only two values in memory are not zero - <code>101</code> (at address <code>7</code>) and <code>64</code> (at address <code>8</code>) - producing a sum of <em><code>165</code></em>.</p>
-<p>Execute the initialization program. <em>What is the sum of all values left in memory after it completes?</em></p>
+<p>Execute the initialization program. <em>What is the sum of all values left in memory after it completes?</em> (Do not truncate the sum to 36 bits.)</p>
 </article>
 <p>Your puzzle answer was <code>11179633149677</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>For some reason, the sea port's computer system still can't communicate with your ferry's docking program. It must be using <em>version 2</em> of the decoder chip!</p>
 <p>A version 2 decoder chip doesn't modify the values being written at all.  Instead, it acts as a <a href="https://www.youtube.com/watch?v=PvfhANgLrm4" target="_blank">memory address decoder</a>. Immediately before a value is written to memory, each bit in the bitmask modifies the corresponding bit of the destination <em>memory address</em> in the following way:</p>
