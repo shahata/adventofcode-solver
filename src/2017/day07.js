@@ -1,5 +1,7 @@
+import { lines, sum } from '../utils/commons.js';
+
 function parse(input) {
-  return input.split('\n').reduce((programs, x) => {
+  return lines(input).reduce((programs, x) => {
     const [, name, weight, children] = x.match(
       /^([^\s]+)\s+\((\d+)\)(?:\s+->\s+(.*))?$/,
     );
@@ -22,9 +24,7 @@ function rightWeight(programs, name) {
     rightWeight(programs, x),
   );
   if (childrenWeight.every(x => x === childrenWeight[0])) {
-    return (
-      childrenWeight.reduce((sum, x) => sum + x, 0) + programs[name].weight
-    );
+    return sum(childrenWeight) + programs[name].weight;
   } else {
     const unbalanced = childrenWeight.findIndex(
       x => childrenWeight.filter(y => x === y).length === 1,

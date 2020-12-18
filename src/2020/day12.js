@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function turn(direction, count) {
   const compass = { N: 0, E: 90, S: 180, W: 270 };
   const reverse = { 0: 'N', 90: 'E', 180: 'S', 270: 'W' };
@@ -36,8 +38,7 @@ const operations2 = {
 };
 
 function solve(input, initial, operations) {
-  const steps = input
-    .split('\n')
+  const steps = lines(input)
     .map(x => x.match(/^(.)(\d+)$/))
     .map(([, operation, count]) => ({ operation, count: +count }));
   return steps.reduce((state, { operation, count }) => {

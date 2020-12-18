@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 function parse(input) {
-  return input.split('\n').map(line => {
+  return lines(input).map(line => {
     let [color, content] = line.split(' contain ');
     color = color.replace(/ bags?\.?/, '');
     content = content.split(', ').map(x => x.replace(/ bags?\.?/, ''));

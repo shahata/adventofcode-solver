@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 export function part1(input) {
-  const ids = input.split('\n');
+  const ids = lines(input);
   const counts = { double: 0, triple: 0 };
   ids.forEach(id => {
     let s = id.split('').sort().join('');
@@ -18,7 +20,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const ids = input.split('\n');
+  const ids = lines(input);
   const memory = new Set();
   for (const id of ids) {
     const arr = id.split('');

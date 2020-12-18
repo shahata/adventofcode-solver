@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function init(width, height) {
   return new Array(height).fill().map(() => new Array(width).fill(false));
 }
@@ -44,8 +46,7 @@ function parseCommand(command) {
 
 function solve(input, width, height) {
   const screen = init(width, height);
-  return input
-    .split('\n')
+  return lines(input)
     .map(parseCommand)
     .reduce((state, fn) => fn(state), screen);
 }

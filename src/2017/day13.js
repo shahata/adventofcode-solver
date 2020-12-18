@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 function parse(input) {
-  return input.split('\n').map(line => {
+  return lines(input).map(line => {
     const [depth, range] = line.split(': ').map(x => +x);
     return { depth, range };
   });

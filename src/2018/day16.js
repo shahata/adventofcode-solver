@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const ops = {
   addr: (r, i1, i2, o) => (r[o] = r[i1] + r[i2]),
   addi: (r, i1, i2, o) => (r[o] = r[i1] + i2),
@@ -21,7 +23,7 @@ const numbers = arr => arr.map(x => +x);
 function parseSamples(input) {
   const samples = input.split('\n\n\n\n')[0].split('\n\n');
   return samples.map(sample => {
-    const [before, instruction, after] = sample.split('\n');
+    const [before, instruction, after] = lines(sample);
     const regex = /\[(\d+), (\d+), (\d+), (\d+)\]/;
     const [, r1, r2, r3, r4] = numbers(before.match(regex));
     const [, o1, o2, o3, o4] = numbers(after.match(regex));
@@ -53,7 +55,7 @@ export function part2(input) {
   }
 
   const program = input.split('\n\n\n\n').pop();
-  const commands = program.split('\n').map(x => numbers(x.split(' ')));
+  const commands = lines(program).map(x => numbers(x.split(' ')));
   const r = [0, 0, 0, 0];
   commands.forEach(([op, ...params]) => ops[dic[op][0]](r, ...params));
   return r[0];

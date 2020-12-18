@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 function parseClaims(input) {
-  return input.split('\n').map(claim => {
+  return lines(input).map(claim => {
     const [, id, x, y, w, h] = claim
       .match(/^#(\d+) @ (\d+),(\d+): (\d+)x(\d+)$/)
       .map(x => +x);

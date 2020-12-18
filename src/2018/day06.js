@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function distance(a, b) {
   return Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 }
@@ -29,8 +31,7 @@ function calcBlastSize(points, size) {
 }
 
 function parseInput(input) {
-  const points = input
-    .split('\n')
+  const points = lines(input)
     .map(x => x.split(', ').map(x => +x))
     .map(([x, y]) => ({ x, y }));
   const size = points.reduce(

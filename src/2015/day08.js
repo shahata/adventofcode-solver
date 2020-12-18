@@ -1,11 +1,11 @@
-export const part1 = input =>
-  input
-    .split('\n')
-    .map(x => x.length - eval(x).length)
-    .reduce((sum, x) => sum + x);
+import { lines, sum } from '../utils/commons.js';
 
-export const part2 = input =>
-  input
-    .split('\n')
-    .map(x => JSON.stringify(x).length - x.length)
-    .reduce((sum, x) => sum + x);
+export const part1 = input => {
+  const results = lines(input).map(x => x.length - eval(x).length);
+  return sum(results);
+};
+
+export const part2 = input => {
+  const results = lines(input).map(x => JSON.stringify(x).length - x.length);
+  return sum(results);
+};

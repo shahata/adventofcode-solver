@@ -1,8 +1,9 @@
 import Combinatorics from 'js-combinatorics';
+import { lines } from '../utils/commons.js';
 
 function parse(input) {
   const targets = [];
-  const maze = input.split('\n').map((line, y) =>
+  const maze = lines(input).map((line, y) =>
     line.split('').map((c, x) => {
       if (c === '#') {
         return { x, y, wall: true };

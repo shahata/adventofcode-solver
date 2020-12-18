@@ -4,6 +4,8 @@
 // d inc -971 if k >= -9
 // k inc 303 if k > -8
 
+import { lines } from '../utils/commons.js';
+
 function parse(input) {
   const dic = {
     'inc': (a, b) => a + b,
@@ -15,7 +17,7 @@ function parse(input) {
     '==': (a, b) => a === b,
     '!=': (a, b) => a !== b,
   };
-  return input.split('\n').map(x => {
+  return lines(input).map(x => {
     const [
       variable,
       operator,

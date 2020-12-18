@@ -1,5 +1,7 @@
+import { lines, sum } from '../utils/commons.js';
+
 export function day(input, fill = 150) {
-  const boxes = input.split('\n').map(x => +x);
+  const boxes = lines(input).map(x => +x);
   const result = new Array(boxes.length).fill(0);
   const pad = result.join('');
 
@@ -8,15 +10,13 @@ export function day(input, fill = 150) {
       .slice(-boxes.length)
       .split('')
       .map(x => +x);
-    if (
-      select.map((x, index) => x * boxes[index]).reduce((sum, x) => sum + x) ===
-      fill
-    ) {
+    const results = select.map((x, index) => x * boxes[index]);
+    if (sum(results) === fill) {
       result[select.filter(x => x).length - 1]++;
     }
   }
 
-  const part1 = result.reduce((sum, x) => sum + x);
+  const part1 = sum(result);
   const part2 = result.filter(x => x).shift();
   return { part1, part2 };
 }

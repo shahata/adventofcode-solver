@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const abc = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function next(prerequisites, done) {
@@ -38,8 +40,7 @@ function next2(prerequisites, done, pending, workers, base) {
 
 function parse(input) {
   const prerequisites = new Map();
-  input
-    .split('\n')
+  lines(input)
     .map(x => x.match(/([A-Z]) must be finished before step ([A-Z])/))
     .forEach(([, required, step]) => {
       prerequisites.set(step, (prerequisites.get(step) || []).concat(required));

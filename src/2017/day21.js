@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const pattern = ['.#.', '..#', '###'];
 const permutations2 = [
   [1, 2, 3, 4],
@@ -32,7 +34,7 @@ function permute(str) {
 }
 
 function parse(input) {
-  return input.split('\n').reduce((rules, line) => {
+  return lines(input).reduce((rules, line) => {
     const [from, to] = line.split(' => ');
     const keys = permute(from.replace(/\//g, ''));
     const value = to.split('/');

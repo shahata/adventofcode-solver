@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 function parse(input) {
-  return input.split('\n').reduce((obj, line) => {
+  return lines(input).reduce((obj, line) => {
     const [key, neighbors] = line.split(' <-> ');
     return { ...obj, [key]: neighbors.split(', ') };
   }, {});

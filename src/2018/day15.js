@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const pos = ({ x, y }) => `${x},${y}`;
 const count = (units, type) => units.filter(u => u.type === type).length;
 
@@ -67,8 +69,8 @@ function turn(map, units) {
 function fight(input, elfBoost = 0) {
   let i = 0;
   const units = [];
-  const map = input.replace(/[EG]/g, '.').split('\n');
-  input.split('\n').forEach((row, y) =>
+  const map = lines(input.replace(/[EG]/g, '.'));
+  lines(input).forEach((row, y) =>
     row.split('').forEach((cell, x) => {
       if (cell === 'E') {
         units.push({ type: 'E', hit: 200, attack: 3 + elfBoost, x, y });

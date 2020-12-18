@@ -1,3 +1,5 @@
+import { sum } from '../utils/commons.js';
+
 function solve1(destination) {
   let radius = 0;
   let multiplier = 0;
@@ -32,7 +34,7 @@ function next({ position: { x, y }, direction }) {
 
 function calc({ position, map }) {
   const { x, y } = position;
-  return [
+  return sum([
     map[toKey({ x: x - 1, y: y - 1 })] || 0,
     map[toKey({ x: x + 0, y: y - 1 })] || 0,
     map[toKey({ x: x + 1, y: y - 1 })] || 0,
@@ -41,7 +43,7 @@ function calc({ position, map }) {
     map[toKey({ x: x - 1, y: y + 1 })] || 0,
     map[toKey({ x: x + 0, y: y + 1 })] || 0,
     map[toKey({ x: x + 1, y: y + 1 })] || 0,
-  ].reduce((sum, x) => sum + x);
+  ]);
 }
 
 function direction({ position, direction, map }) {

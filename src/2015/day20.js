@@ -1,4 +1,4 @@
-import { divisors } from '../utils/divisors.js';
+import { sum, divisors } from '../utils/commons.js';
 
 export function day(input, part1Only = false) {
   input = +input;
@@ -6,14 +6,12 @@ export function day(input, part1Only = false) {
     part2 = part1Only;
   for (let i = 1; !part1 || !part2; i++) {
     const numbers = divisors(i);
-    const sum = numbers.reduce((sum, x) => sum + x, 0);
-    const sub = numbers
-      .filter(x => x < Math.ceil(i / 50))
-      .reduce((sum, x) => sum + x, 0);
-    if (!part1 && sum * 10 >= input) {
+    const total = sum(numbers);
+    const sub = sum(numbers.filter(x => x < Math.ceil(i / 50)));
+    if (!part1 && total * 10 >= input) {
       part1 = i;
     }
-    if (!part2 && (sum - sub) * 11 >= input) {
+    if (!part2 && (total - sub) * 11 >= input) {
       part2 = i;
     }
   }

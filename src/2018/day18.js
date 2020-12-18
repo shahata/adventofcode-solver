@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function transform(yard, x, y) {
   const current = yard[y][x];
   const neighbors = [
@@ -35,7 +37,7 @@ function next(yard, minute) {
 }
 
 export function part1(input, minutes = 10) {
-  let yard = input.split('\n').map(x => x.split(''));
+  let yard = lines(input).map(x => x.split(''));
   for (let i = 0; i < minutes; i++) {
     const { result, minute } = next(yard, i);
     const diff = i - minute;

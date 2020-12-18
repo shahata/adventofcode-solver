@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function need(amount, element, reactions, spare) {
   if (spare[element]) {
     const take = Math.min(amount, spare[element]);
@@ -11,8 +13,7 @@ function need(amount, element, reactions, spare) {
 }
 
 export function part1(input, fuelAmount = 1) {
-  const reactions = input
-    .split('\n')
+  const reactions = lines(input)
     .map(x => {
       const [, compounds, amount, element] = x.match(
         /^(.*) => (\d+) ([A-Z]+)$/,

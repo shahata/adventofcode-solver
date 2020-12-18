@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function next(x, factor, validator) {
   do {
     x = (x * factor) % 2147483647;
@@ -18,7 +20,7 @@ function judge(a, b, validators, times) {
 }
 
 function parse(input) {
-  return input.split('\n').map(x => +x.match(/\d+$/).pop());
+  return lines(input).map(x => +x.match(/\d+$/).pop());
 }
 
 export const part1 = (input, times = 4e7) =>

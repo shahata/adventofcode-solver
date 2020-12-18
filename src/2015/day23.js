@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const operations = {
   hlf: (state, p1) => ({ ...state, [p1]: state[p1] / 2, next: state.next + 1 }),
   tpl: (state, p1) => ({ ...state, [p1]: state[p1] * 3, next: state.next + 1 }),
@@ -22,8 +24,7 @@ function run(state, instructions) {
 }
 
 function parse(input) {
-  return input
-    .split('\n')
+  return lines(input)
     .map(x => {
       return x
         .match(/^(\w+) ([\w+-]+)(?:, ([\w+-]+))?$/)

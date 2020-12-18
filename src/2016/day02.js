@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const directions = {
   D: { y: 1, x: 0 },
   R: { y: 0, x: 1 },
@@ -11,8 +13,7 @@ function move(keypad, position, step) {
 }
 
 function solve(input, keypad, start) {
-  return input
-    .split('\n')
+  return lines(input)
     .map(line => line.split(''))
     .reduce((code, line) => {
       return code.concat(

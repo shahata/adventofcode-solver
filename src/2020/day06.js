@@ -1,17 +1,17 @@
+import { lines, sum } from '../utils/commons.js';
+
 export function part1(input) {
-  return input
+  const results = input
     .split('\n\n')
-    .map(x => new Set(x.replace(/\n/g, '').split('')).size)
-    .reduce((a, b) => a + b);
+    .map(x => new Set(x.replace(/\n/g, '').split('')).size);
+  return sum(results);
 }
 
 export function part2(input) {
-  return input
-    .split('\n\n')
-    .map(x => {
-      const merged = x.replace(/\n/g, '').split('').sort().join('');
-      const count = x.split('\n').length;
-      return merged.match(new RegExp(`(.)\\1{${count - 1}}`, 'g'))?.length || 0;
-    })
-    .reduce((a, b) => a + b);
+  const results = input.split('\n\n').map(x => {
+    const merged = x.replace(/\n/g, '').split('').sort().join('');
+    const count = lines(x).length;
+    return merged.match(new RegExp(`(.)\\1{${count - 1}}`, 'g'))?.length || 0;
+  });
+  return sum(results);
 }

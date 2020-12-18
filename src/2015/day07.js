@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const ops = {
   AND: (p1, p2) => (Math.pow(2, 16) + (p1 & p2)) % Math.pow(2, 16),
   OR: (p1, p2) => (Math.pow(2, 16) + (p1 | p2)) % Math.pow(2, 16),
@@ -32,6 +34,6 @@ function makeCircuit(input) {
     }, {});
 }
 
-export const part1 = input => makeCircuit(input.split('\n')).a();
+export const part1 = input => makeCircuit(lines(input)).a();
 export const part2 = input =>
-  makeCircuit(input.split('\n').concat(`${part1(input)} -> b`)).a();
+  makeCircuit(lines(input).concat(`${part1(input)} -> b`)).a();

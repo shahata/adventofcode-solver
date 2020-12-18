@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 export function day(input, low = 17, high = 61) {
   let part1;
 
@@ -41,9 +43,9 @@ export function day(input, low = 17, high = 61) {
     );
   }
 
-  const lines = input.split('\n');
-  const state = init(lines.filter(x => x.startsWith('value')));
-  const instructions = lines.filter(x => x.startsWith('bot')).map(parse);
+  input = lines(input);
+  const state = init(input.filter(x => x.startsWith('value')));
+  const instructions = input.filter(x => x.startsWith('bot')).map(parse);
   while (instructions.some(update => update(state))) {
     /**/
   }

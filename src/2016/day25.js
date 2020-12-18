@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function toReducer(str) {
   const params = str.split(/\s+/);
   const ops = {
@@ -31,7 +33,7 @@ function run(commands, state) {
 }
 
 export function part1(input) {
-  const commands = input.split('\n').map(toReducer);
+  const commands = lines(input).map(toReducer);
   let a = 0;
   while (
     run(commands, { a, b: 0, c: 0, d: 0, index: 0, out: '' }).out !==

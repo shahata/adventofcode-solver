@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function parseRoom(s) {
   const [, name, sector, checksum] = s.match(/^(.*)-(\d+)\[(.*)\]$/);
   return { name, sector: +sector, checksum };
@@ -41,8 +43,7 @@ function decrypt(name, sector) {
 }
 
 function parse(input) {
-  return input
-    .split('\n')
+  return lines(input)
     .map(parseRoom)
     .filter(room => room.checksum === checksum(room.name));
 }

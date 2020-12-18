@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 function parse(input) {
-  return input.split('\n').map(x => {
+  return lines(input).map(x => {
     const [op, param] = x.split(' ');
     return { op, param };
   });

@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 export function part1(input) {
-  let [timestamp, buses] = input.split('\n');
+  let [timestamp, buses] = lines(input);
   timestamp = +timestamp;
   buses = buses
     .split(',')
@@ -18,8 +20,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  let buses = input
-    .split('\n')
+  let buses = lines(input)
     .pop()
     .split(',')
     .map((x, i) => ({ id: +x, offset: i }))

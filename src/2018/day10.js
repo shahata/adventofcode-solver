@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function move(points, seconds) {
   return points.map(p => ({
     x: p.x + p.xDiff * seconds,
@@ -28,7 +30,7 @@ function print(points) {
 
 export function day(input) {
   const regex = /([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)+/;
-  const points = input.split('\n').map(line => {
+  const points = lines(input).map(line => {
     const [, x, y, xDiff, yDiff] = line.match(regex).map(x => +x);
     return { x, y, xDiff, yDiff };
   });

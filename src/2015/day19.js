@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function calcNeighbors({ molecule, replacements }) {
   const results = new Set();
   replacements.forEach(pair => {
@@ -20,7 +22,7 @@ function calcDistance({ molecule, replacements }) {
 }
 
 function parse(input) {
-  input = input.split('\n');
+  input = lines(input);
   const molecule = input.pop();
   input.pop();
   const replacements = input

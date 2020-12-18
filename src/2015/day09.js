@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function shortest(graph, curr, visited) {
   const paths = Object.keys(graph[curr])
     .filter(node => visited.indexOf(node) === -1)
@@ -17,8 +19,7 @@ function longest(graph, curr, visited) {
 }
 
 function parse(input) {
-  const graph = input
-    .split('\n')
+  const graph = lines(input)
     .map(x => x.match(/^(.*) to (.*) = (\d+)$/))
     .map(([, p1, p2, d]) => ({ p1, p2, d: +d }))
     .reduce((graph, edge) => {

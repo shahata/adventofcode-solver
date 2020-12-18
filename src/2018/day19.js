@@ -1,4 +1,4 @@
-import { divisors } from '../utils/divisors.js';
+import { sum, divisors } from '../utils/commons.js';
 
 const ops = {
   addr: (r, i1, i2, o) => (r[o] = r[i1] + r[i2]),
@@ -39,5 +39,5 @@ export function part1(input, reg0 = 0) {
 }
 
 export function part2(input) {
-  return divisors(part1(input, 1)).reduce((sum, x) => sum + x, 0);
+  return sum(divisors(part1(input, 1)));
 }

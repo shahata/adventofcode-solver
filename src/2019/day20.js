@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 function getNeighbors(map, { x, y }) {
   return [
     map[y][x - 1],
@@ -41,9 +43,9 @@ function parse(input) {
   const portals = {};
   let counter = 0;
   let current;
-  const map = input
-    .split('\n')
-    .map((line, y) => line.split('').map((p, x) => ({ x, y, c: p })));
+  const map = lines(input).map((line, y) =>
+    line.split('').map((p, x) => ({ x, y, c: p })),
+  );
   map.forEach(line =>
     line.forEach(p => {
       if (p.c.match(/[A-Z]/)) {

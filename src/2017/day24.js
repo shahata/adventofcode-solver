@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 function parse(input) {
-  return input.split('\n').map(x => x.split('/').map(n => +n));
+  return lines(input).map(x => x.split('/').map(n => +n));
 }
 
 function toKey(item) {

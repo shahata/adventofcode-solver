@@ -1,5 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 export function part1(input) {
-  const result = input.split('\n').filter(x => {
+  const result = lines(input).filter(x => {
     const [, start, end, character, password] = x.match(
       /^(\d+)-(\d+) (.): (.*)$/,
     );
@@ -10,7 +12,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const result = input.split('\n').filter(x => {
+  const result = lines(input).filter(x => {
     const [, start, end, character, password] = x.match(
       /^(\d+)-(\d+) (.): (.*)$/,
     );

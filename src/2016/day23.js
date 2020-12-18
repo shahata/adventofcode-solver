@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const ops = {
   cpy: (src, register) => state => {
     if (state[register] !== undefined) {
@@ -72,11 +74,11 @@ function run(commands, state) {
 }
 
 export function part1(input, state = { a: 7, b: 0, c: 0, d: 0, index: 0 }) {
-  const commands1 = input.split('\n').map(toReducer);
+  const commands1 = lines(input).map(toReducer);
   return run(commands1, state).a;
 }
 
 export function part2(input, state = { a: 12, b: 0, c: 0, d: 0, index: 0 }) {
-  const commands2 = input.split('\n').map(toReducer);
+  const commands2 = lines(input).map(toReducer);
   return run(commands2, state).a;
 }

@@ -1,3 +1,5 @@
+import { lines } from '../utils/commons.js';
+
 const MAX_IP = 4294967295;
 
 function merge(ranges) {
@@ -17,7 +19,7 @@ function merge(ranges) {
 }
 
 function parse(input) {
-  return input.split('\n').map(x =>
+  return lines(input).map(x =>
     x
       .match(/^(\d+)-(\d+)$/)
       .slice(1)

@@ -1,6 +1,7 @@
+import { lines } from '../utils/commons.js';
+
 function solve(input) {
-  return input
-    .split('\n')
+  return lines(input)
     .map(x => x.split(''))
     .reduce((commons, word) => {
       return word.map((c, i) => {

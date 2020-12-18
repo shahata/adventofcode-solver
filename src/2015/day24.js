@@ -1,4 +1,5 @@
 import Combinatorics from 'js-combinatorics';
+import { lines, sum } from '../utils/commons.js';
 
 function f(boxes, total, part) {
   const rest = (all, sub) => all.filter(x => sub.indexOf(x) === -1);
@@ -22,8 +23,8 @@ function f(boxes, total, part) {
 }
 
 function solve(input, x) {
-  const boxes = input.split('\n').map(x => +x);
-  const total = boxes.reduce((sum, x) => sum + x);
+  const boxes = lines(input).map(x => +x);
+  const total = sum(boxes);
   return f(boxes, total / x, x);
 }
 
