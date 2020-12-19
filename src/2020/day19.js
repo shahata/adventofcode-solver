@@ -18,11 +18,9 @@ export function part1(input) {
 }
 
 export function part2(input) {
+  const rule = new Array(10).fill().map((x, i) => `42{${i + 1}} 31{${i + 1}}`);
   input = input
-    .replace('8: 42', '8: 42 +')
-    .replace(
-      '11: 42 31',
-      '11: 42 {1} 31 {1} | 42 {2} 31 {2} | 42 {3} 31 {3} | 42 {4} 31 {4} | 42 {5} 31 {5} | 42 {6} 31 {6}',
-    );
+    .replace('8: 42', '8: 42+')
+    .replace('11: 42 31', `11: ${rule.join(' | ')}`);
   return part1(input);
 }
