@@ -14,13 +14,14 @@ function parse(rules) {
 
 export function part1(input) {
   const [rules, messages] = input.split('\n\n').map(x => x.split('\n'));
-  return messages.filter(message => message.match(parse(rules))).length;
+  const pattern = parse(rules);
+  return messages.filter(message => message.match(pattern)).length;
 }
 
 export function part2(input) {
   const rule = new Array(10).fill().map((x, i) => `42{${i + 1}} 31{${i + 1}}`);
   input = input
-    .replace('8: 42', '8: 42+')
-    .replace('11: 42 31', `11: ${rule.join('|')}`);
+    .replace(/^8: 42$/m, '8: 42+')
+    .replace(/^11: 42 31$/m, `11: ${rule.join('|')}`);
   return part1(input);
 }
