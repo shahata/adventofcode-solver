@@ -1,7 +1,5 @@
-import { lines } from '../utils/commons.js';
-
 function parse(input) {
-  return lines(input).map(x => {
+  return input.split('\n').map(x => {
     const matches = x.match(
       /^Disc #(\d+) has (\d+) positions; at time=0, it is at position (\d+)\./,
     );

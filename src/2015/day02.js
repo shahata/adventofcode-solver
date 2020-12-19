@@ -1,6 +1,4 @@
-import { lines } from '../utils/commons.js';
-
-const parse = input => lines(input).map(x => x.split('x').map(x => +x));
+const parse = input => input.split('\n').map(x => x.split('x').map(x => +x));
 
 export const part1 = input =>
   parse(input)

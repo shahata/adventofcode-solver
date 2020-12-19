@@ -11,11 +11,3 @@ export function divisors(x) {
   }
   return result;
 }
-
-export function sum(numbers) {
-  return numbers.reduce((a, b) => a + b, 0);
-}
-
-export function lines(input) {
-  return input.split('\n');
-}

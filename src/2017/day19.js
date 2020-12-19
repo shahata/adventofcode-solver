@@ -1,7 +1,5 @@
-import { lines } from '../utils/commons.js';
-
 function parse(input) {
-  return lines(input).map(line => line.split(''));
+  return input.split('\n').map(line => line.split(''));
 }
 
 function findEntryPoint(route) {

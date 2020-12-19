@@ -1,5 +1,3 @@
-import { lines, sum } from '../utils/commons.js';
-
 const directions = [
   ({ x, y }) => ({ y: y - 1, x: x - 1 }),
   ({ x, y }) => ({ y: y - 1, x: x }),
@@ -12,18 +10,19 @@ const directions = [
 ];
 
 function neighbors(seats, current, far) {
-  const results = directions.map(direction => {
-    let point = current;
-    do {
-      point = direction(point);
-    } while (far && seats[point.y] && seats[point.y][point.x] === '.');
-    return seats[point.y] && seats[point.y][point.x] === '#' ? 1 : 0;
-  });
-  return sum(results);
+  return directions
+    .map(direction => {
+      let point = current;
+      do {
+        point = direction(point);
+      } while (far && seats[point.y] && seats[point.y][point.x] === '.');
+      return seats[point.y] && seats[point.y][point.x] === '#' ? 1 : 0;
+    })
+    .reduce((a, b) => a + b);
 }
 
 function life(input, count, far) {
-  let seats = lines(input).map(x => x.split(''));
+  let seats = input.split('\n').map(x => x.split(''));
   let occupied = 0;
   let prev = 0;
   do {
@@ -38,7 +37,9 @@ function life(input, count, far) {
       }),
     );
     prev = occupied;
-    occupied = sum(seats.map(line => sum(line.map(x => (x === '#' ? 1 : 0)))));
+    occupied = seats
+      .map(line => line.map(x => (x === '#' ? 1 : 0)).reduce((a, b) => a + b))
+      .reduce((a, b) => a + b);
   } while (occupied !== prev);
   return occupied;
 }

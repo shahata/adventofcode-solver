@@ -1,5 +1,3 @@
-import { lines, sum } from '../utils/commons.js';
-
 function mark(map, current, direction, times) {
   for (let i = 0; i < times; i++) {
     if (direction === 'U') {
@@ -30,21 +28,23 @@ function draw(map, line, id) {
 }
 
 export function part1(input) {
-  const [line1, line2] = lines(input);
+  const [line1, line2] = input.split('\n');
   const map = new Map();
   draw(map, line1, 1);
   draw(map, line2, 2);
   const distances = Array.from(map.entries())
     .filter(entry => entry[1].ids === 3)
     .map(entry => {
-      const results = entry[0].split(',').map(x => Math.abs(+x));
-      return sum(results);
+      return entry[0]
+        .split(',')
+        .map(x => Math.abs(+x))
+        .reduce((a, b) => a + b);
     });
   return Math.min(...distances);
 }
 
 export function part2(input) {
-  const [line1, line2] = lines(input);
+  const [line1, line2] = input.split('\n');
   const map = new Map();
   draw(map, line1, 1);
   draw(map, line2, 2);

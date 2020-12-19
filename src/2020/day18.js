@@ -1,5 +1,3 @@
-import { lines, sum } from '../utils/commons.js';
-
 function simple(formula) {
   let result = 0;
   let operation = '+';
@@ -29,11 +27,11 @@ function solve(formula, precedence) {
 }
 
 export function part1(input) {
-  const results = lines(input).map(x => solve(x));
-  return sum(results);
+  const formulas = input.split('\n');
+  return formulas.map(x => solve(x)).reduce((a, b) => a + b);
 }
 
 export function part2(input) {
-  const results = lines(input).map(x => solve(x, true));
-  return sum(results);
+  const formulas = input.split('\n');
+  return formulas.map(x => solve(x, true)).reduce((a, b) => a + b);
 }

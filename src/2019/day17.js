@@ -1,4 +1,3 @@
-import { lines } from '../utils/commons.js';
 import { execute } from './day09.js';
 
 function createMap(input, commands) {
@@ -21,7 +20,7 @@ function createMap(input, commands) {
   if (commands) {
     return output[output.length - 1];
   } else {
-    return lines(map).map(l => l.split(''));
+    return map.split('\n').map(l => l.split(''));
   }
 }
 

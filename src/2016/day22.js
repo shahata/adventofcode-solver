@@ -1,8 +1,8 @@
 import Combinatorics from 'js-combinatorics';
-import { lines } from '../utils/commons.js';
 
 function parse(input) {
-  return lines(input)
+  return input
+    .split('\n')
     .slice(2)
     .map(x => {
       const fix = x => +x.replace(/.$/, '');

@@ -1,14 +1,14 @@
-import { lines, sum } from '../utils/commons.js';
-
 function parse(input) {
   let [rules, ticket, tickets] = input.split('\n\n');
-  rules = lines(rules)
+  rules = rules
+    .split('\n')
     .map(x => x.match(/^(.*): (\d+)-(\d+) or (\d+)-(\d+)$/))
     .map(([, field, a, b, c, d]) => ({ field, a: +a, b: +b, c: +c, d: +d }));
 
-  ticket = lines(ticket).pop();
+  ticket = ticket.split('\n').pop();
 
-  tickets = lines(tickets)
+  tickets = tickets
+    .split('\n')
     .slice(1)
     .concat([ticket])
     .map(x => x.split(',').map(x => +x));
@@ -26,7 +26,7 @@ function validate(ticket, rules) {
 
 export function part1(input) {
   let { rules, tickets } = parse(input);
-  return sum(tickets.map(x => validate(x, rules)));
+  return tickets.map(x => validate(x, rules)).reduce((a, b) => a + b);
 }
 
 export function part2(input) {

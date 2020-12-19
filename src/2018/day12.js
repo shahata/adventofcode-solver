@@ -1,5 +1,3 @@
-import { sum } from '../utils/commons.js';
-
 function trim(next) {
   const prefix = next.state.match(/^\.*/).pop().length;
   next.start += prefix;
@@ -64,10 +62,10 @@ export function part1(input, generations = 20) {
     }
   }
 
-  const results = next.state
+  return next.state
     .split('')
-    .map((x, i) => (x === '#' ? next.start + i : 0));
-  return sum(results);
+    .map((x, i) => (x === '#' ? next.start + i : 0))
+    .reduce((sum, x) => sum + x, 0);
 }
 
 export function part2(input) {

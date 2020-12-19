@@ -1,7 +1,6 @@
-import { lines } from '../utils/commons.js';
-
 export function part1(input) {
-  const numbers = lines(input)
+  const numbers = input
+    .split('\n')
     .map(x => +x)
     .concat(0)
     .sort((a, b) => a - b);
@@ -18,7 +17,8 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const numbers = lines(input)
+  const numbers = input
+    .split('\n')
     .map(x => +x)
     .concat(0)
     .sort((a, b) => a - b);

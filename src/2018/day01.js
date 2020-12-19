@@ -1,11 +1,9 @@
-import { lines } from '../utils/commons.js';
-
 export function part1(input) {
-  return lines(input).reduce((prev, x) => prev + +x, 0);
+  return input.split('\n').reduce((prev, x) => prev + +x, 0);
 }
 
 export function part2(input) {
-  const numbers = lines(input).map(x => +x);
+  const numbers = input.split('\n').map(x => +x);
   const visited = new Set();
   let current = 0;
   let frequency = 0;

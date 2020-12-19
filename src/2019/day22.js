@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 function pow(base, power, mod) {
   let result = BigInt(1);
   while (power > 0) {
@@ -38,7 +36,7 @@ function increment({ length, offset }, count, undo) {
 }
 
 export function part1(input, length = 10007, offset = 2019, undo) {
-  const shuffles = lines(input).map(l => {
+  const shuffles = input.split('\n').map(l => {
     const match = l.match(/(increment|cut) (-?\d+)/);
     if (match) {
       return {

@@ -1,9 +1,7 @@
-import { lines } from '../utils/commons.js';
-
 function parse(input) {
-  return lines(input).map(x =>
-    parseInt(x.replace(/[FL]/g, '0').replace(/[BR]/g, '1'), 2),
-  );
+  return input
+    .split('\n')
+    .map(x => parseInt(x.replace(/[FL]/g, '0').replace(/[BR]/g, '1'), 2));
 }
 
 export function part1(input) {

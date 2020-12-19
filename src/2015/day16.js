@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 const expect1 = {
   id: () => true,
   children: 3,
@@ -38,7 +36,8 @@ function matches(x, expect) {
 }
 
 function parse(input) {
-  return lines(input)
+  return input
+    .split('\n')
     .map(x => x.match(/^Sue ([^:]*): (.*)/))
     .map(([, id, s]) => ({ id: +id, ...parseMap(s, ', ', ': ') }));
 }

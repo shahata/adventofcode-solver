@@ -1,7 +1,6 @@
-import { lines } from '../utils/commons.js';
-
 function parse(input) {
-  return lines(input)
+  return input
+    .split('\n')
     .map(s => s.match(/<x=([^,]*), y=([^,]*), z=([^>]*)>/).map(x => +x))
     .map(([, x, y, z]) => ({
       position: [x, y, z],

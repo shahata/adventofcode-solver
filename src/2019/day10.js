@@ -1,24 +1,24 @@
 function parse(input) {
   const lines = input.split('\n').map(line => line.split(''));
-  const asteroids = [];
+  const astroids = [];
   lines.forEach((line, y) => {
     line.forEach((point, x) => {
       if (point === '#') {
-        asteroids.push({ x, y });
+        astroids.push({ x, y });
       }
     });
   });
-  return asteroids;
+  return astroids;
 }
 
-function popBase(asteroids) {
-  asteroids.forEach(base => {
-    const angles = asteroids
+function popBase(astroids) {
+  astroids.forEach(base => {
+    const angles = astroids
       .filter(x => x !== base)
       .map(target => calcAngle(base, target));
     base.count = new Set(angles).size;
   });
-  return asteroids.sort((a, b) => a.count - b.count).pop();
+  return astroids.sort((a, b) => a.count - b.count).pop();
 }
 
 const calcAngle = (a, b) => (Math.atan2(a.y - b.y, a.x - b.x) * 180) / Math.PI;
@@ -26,10 +26,10 @@ const calcAngle = (a, b) => (Math.atan2(a.y - b.y, a.x - b.x) * 180) / Math.PI;
 export const part1 = input => popBase(parse(input)).count;
 
 export function part2(input) {
-  const asteroids = parse(input);
-  const base = popBase(asteroids);
+  const astroids = parse(input);
+  const base = popBase(astroids);
   const angles = new Map();
-  return asteroids
+  return astroids
     .map(target => ({
       score: target.x * 100 + target.y,
       angle: (calcAngle(base, target) + 270) % 360,

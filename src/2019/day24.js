@@ -1,5 +1,3 @@
-import { sum } from '../utils/commons.js';
-
 function getBugs(life, x, y) {
   return [
     life[y - 1] && life[y - 1][x],
@@ -51,7 +49,7 @@ export function part1(input) {
 
   const chars = life.reduce((prev, line) => prev.concat(line), []);
   const ratings = chars.map((x, i) => (x === '.' ? 0 : Math.pow(2, i)));
-  return sum(ratings);
+  return ratings.reduce((a, b) => a + b);
 }
 
 export function part2(input, minutes = 200) {

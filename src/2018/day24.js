@@ -1,9 +1,7 @@
-import { lines } from '../utils/commons.js';
-
 function parse(input) {
   const groups = [];
   let army;
-  lines(input).forEach(line => {
+  input.split('\n').forEach(line => {
     if (line === 'Immune System:') {
       army = 'Immune System';
     } else if (line === 'Infection:') {

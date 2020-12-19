@@ -1,7 +1,6 @@
-import { lines, sum } from '../utils/commons.js';
-
 function countLights(input, operations) {
-  return lines(input)
+  return input
+    .split('\n')
     .map(x => x.match(/^(.*) (\d+),(\d+) through (\d+),(\d+)$/))
     .map(x => ({
       op: operations[x[1]],
@@ -19,7 +18,7 @@ function countLights(input, operations) {
       },
       new Array(1000).fill().map(() => new Array(1000).fill(0)),
     )
-    .reduce((prev, row) => prev + sum(row), 0);
+    .reduce((sum, row) => sum + row.reduce((sum, x) => sum + x), 0);
 }
 
 export const part1 = input =>

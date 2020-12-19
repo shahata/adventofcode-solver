@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 function validTriangle(sides) {
   return (
     sides[0] + sides[1] > sides[2] &&
@@ -17,7 +15,7 @@ function rotate(sides, index, lines) {
 }
 
 function parse(input) {
-  return lines(input).map(x => {
+  return input.split('\n').map(x => {
     return x
       .replace(/^\s*/, '')
       .split(/\s+/)

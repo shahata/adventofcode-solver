@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 function longest(graph, curr, visited) {
   const paths = Object.keys(graph[curr])
     .filter(node => visited.indexOf(node) === -1)
@@ -11,7 +9,8 @@ function longest(graph, curr, visited) {
 
 function parse(input) {
   const signs = { gain: +1, lose: -1 };
-  const graph = lines(input)
+  const graph = input
+    .split('\n')
     .map(x =>
       x.match(/^(.*) would (gain|lose) (\d+) happiness .* next to (.*)\.$/),
     )

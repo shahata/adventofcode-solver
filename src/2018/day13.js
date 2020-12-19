@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 const position = cart => `${cart.x},${cart.y}`;
 const onSlash = { '>': '^', '<': 'v', '^': '>', 'v': '<' };
 const onBackSlash = { '>': 'v', '<': '^', '^': '<', 'v': '>' };
@@ -39,8 +37,8 @@ function tick(map, carts) {
 
 function parse(input) {
   const carts = [];
-  const map = lines(input.replace(/[v^]/g, '|').replace(/[<>]/g, '-'));
-  lines(input).forEach((row, y) =>
+  const map = input.replace(/[v^]/g, '|').replace(/[<>]/g, '-').split('\n');
+  input.split('\n').forEach((row, y) =>
     row.split('').forEach((cell, x) => {
       if ('v^<>'.includes(cell)) {
         carts.push({ direction: cell, nextTurn: 'left', x, y });

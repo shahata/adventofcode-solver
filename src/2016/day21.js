@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 function parse(input, fn) {
   const regexp = /^(swap position|swap letter|rotate based|rotate|reverse positions|move position) ([^\s]+)\s.*\s([^\s]+)$/;
   const ops = {
@@ -64,7 +62,8 @@ function parse(input, fn) {
       return arr.join('');
     },
   };
-  return lines(input)
+  return input
+    .split('\n')
     .map(x =>
       fn(
         x

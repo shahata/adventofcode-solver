@@ -1,11 +1,10 @@
 import Combinatorics from 'js-combinatorics';
-import { lines } from '../utils/commons.js';
 
 function parse(input) {
   let pieces = [];
   const state = {
     elevator: 0,
-    floors: lines(input).map(x => {
+    floors: input.split('\n').map(x => {
       const generators = x.match(/[^\s]+(?=\s*generator)/g) || [];
       const microchips = x.match(/[^\s]+(?=-compatible microchip)/g) || [];
       pieces = pieces.concat(generators).concat(microchips);

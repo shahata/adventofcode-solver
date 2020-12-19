@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 const cache = [];
 function offsets(dimensions) {
   if (dimensions === 0) {
@@ -20,7 +18,7 @@ function neighbors(key) {
 
 export function part1(input, dimensions = 3) {
   let map = new Map();
-  lines(input).map((line, y) => {
+  input.split('\n').map((line, y) => {
     line.split('').map((char, x) => {
       const coordinates = new Array(dimensions - 2).fill(0);
       map.set([x, y, ...coordinates].join(','), char === '#');

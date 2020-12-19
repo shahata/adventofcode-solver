@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 function solve(maze, mutate) {
   let current = 0;
   let steps = 0;
@@ -13,7 +11,7 @@ function solve(maze, mutate) {
 }
 
 function parse(input) {
-  return lines(input).map(x => +x);
+  return input.split('\n').map(x => +x);
 }
 
 export const part1 = input => solve(parse(input), x => x + 1);

@@ -1,5 +1,3 @@
-import { lines, sum } from '../utils/commons.js';
-
 function calc(map, x) {
   if (map[x] === undefined) {
     return 0;
@@ -10,17 +8,18 @@ function calc(map, x) {
 }
 
 export function part1(input) {
-  const orbits = lines(input).map(x => x.split(')'));
+  const orbits = input.split('\n').map(x => x.split(')'));
   const map = {};
   orbits.forEach(orbit => {
     map[orbit[1]] = { orbiting: orbit[0] };
   });
-  const results = Object.keys(map).map(x => calc(map, x));
-  return sum(results);
+  return Object.keys(map)
+    .map(x => calc(map, x))
+    .reduce((a, b) => a + b);
 }
 
 export function part2(input) {
-  const orbits = lines(input).map(x => x.split(')'));
+  const orbits = input.split('\n').map(x => x.split(')'));
   const map = {};
   let start, destination;
   orbits.forEach(orbit => {

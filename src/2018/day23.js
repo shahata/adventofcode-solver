@@ -1,8 +1,8 @@
 import { execSync } from 'child_process';
-import { lines } from '../utils/commons.js';
 
 function parse(input) {
-  return lines(input)
+  return input
+    .split('\n')
     .map(x => x.match(/(-?\d+),(-?\d+),(-?\d+)>, r=(-?\d+)/).map(x => +x))
     .map(([, x, y, z, r]) => ({ x, y, z, r }));
 }
@@ -36,7 +36,7 @@ export function part2(input) {
 (minimize distance)
 (check-sat)
 (get-model)`;
-  const output = lines(execSync('z3 -in', { input: smt }).toString());
+  const output = execSync('z3 -in', { input: smt }).toString().split('\n');
   const line =
     output[output.findIndex(line => line.includes('define-fun distance')) + 1];
   return +line.match(/\d+/g).pop();

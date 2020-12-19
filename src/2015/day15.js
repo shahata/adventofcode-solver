@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 export function day(input) {
   function add(digits, param, i) {
     i = i || 0;
@@ -24,7 +22,8 @@ export function day(input) {
     }, {});
   }
 
-  const ingredients = lines(input)
+  const ingredients = input
+    .split('\n')
     .map(x => x.match(/^.*: (.*)$/))
     .map(([, s]) => parseMap(s, ', ', ' '));
 

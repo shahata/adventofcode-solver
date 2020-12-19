@@ -1,7 +1,5 @@
-import { lines } from '../utils/commons.js';
-
 export function part1(input) {
-  const commands = lines(input).map(cmd => cmd.split(' = '));
+  const commands = input.split('\n').map(cmd => cmd.split(' = '));
   const map = {};
   let orMask, andMask;
   commands.forEach(([address, value]) => {
@@ -16,7 +14,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const commands = lines(input).map(cmd => cmd.split(' = '));
+  const commands = input.split('\n').map(cmd => cmd.split(' = '));
   const map = {};
   let masks;
   commands.forEach(([address, value]) => {

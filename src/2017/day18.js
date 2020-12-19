@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 export function getter(state, p) {
   if (typeof p === 'string') {
     if (state[p] === undefined) {
@@ -30,7 +28,7 @@ export function parse(input, ops2 = {}, debug) {
     ...ops2,
   };
 
-  return lines(input).map(str => {
+  return input.split('\n').map(str => {
     const [cmd, p1Str, p2Str] = str.split(' ');
     const p1 = p1Str.match(/^-?\d+$/) ? +p1Str : p1Str;
     const p2 = p2Str && p2Str.match(/^-?\d+$/) ? +p2Str : p2Str;

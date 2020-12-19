@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 function getNeighbors(map, { x, y }) {
   return [
     map[y][x - 1],
@@ -93,9 +91,9 @@ function mutate(map) {
 }
 
 export function part1(input) {
-  const map = lines(input).map((line, y) =>
-    line.split('').map((c, x) => ({ c, x, y })),
-  );
+  const map = input
+    .split('\n')
+    .map((line, y) => line.split('').map((c, x) => ({ c, x, y })));
   const line = map.find(line => line.find(p => p.c === '@'));
   const current = line.find(p => p.c === '@');
   blockDeadEnds(map, current);
@@ -103,9 +101,9 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const map = lines(input).map((line, y) =>
-    line.split('').map((c, x) => ({ c, x, y })),
-  );
+  const map = input
+    .split('\n')
+    .map((line, y) => line.split('').map((c, x) => ({ c, x, y })));
   const currents = mutate(map);
   currents.forEach(point => blockDeadEnds(map, point));
   return minimumDistance(map, currents);

@@ -1,5 +1,3 @@
-import { lines } from '../utils/commons.js';
-
 function positionAfter(p, v, a, t) {
   return p + (t * (2 * (v + a) + (t - 1) * a)) / 2;
 }
@@ -36,7 +34,7 @@ function findCollisions(particles) {
 }
 
 function parse(input) {
-  return lines(input).map((line, i) => {
+  return input.split('\n').map((line, i) => {
     const parser = /^p=<(-?\d+),(-?\d+),(-?\d+)>, v=<(-?\d+),(-?\d+),(-?\d+)>, a=<(-?\d+),(-?\d+),(-?\d+)>$/;
     const numbers = line
       .match(parser)
