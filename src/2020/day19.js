@@ -6,9 +6,9 @@ function parse(rules) {
   });
   let pattern = map.get('0');
   while (pattern.match(/\d+(?!})/)) {
-    pattern = pattern.replace(/\d+(?!})/g, x => `( ${map.get(x)} )`);
+    pattern = pattern.replace(/\d+(?!})/g, x => `(${map.get(x)})`);
   }
-  pattern = pattern.replaceAll(' ', '').replaceAll(/\("([^"]*)"\)/g, '$1');
+  pattern = pattern.replace(/\("([^"]*)"\)/g, '$1').replace(/[\s"]/g, '');
   return new RegExp(`^${pattern}$`);
 }
 
@@ -21,6 +21,6 @@ export function part2(input) {
   const rule = new Array(10).fill().map((x, i) => `42{${i + 1}} 31{${i + 1}}`);
   input = input
     .replace('8: 42', '8: 42+')
-    .replace('11: 42 31', `11: ${rule.join(' | ')}`);
+    .replace('11: 42 31', `11: ${rule.join('|')}`);
   return part1(input);
 }
