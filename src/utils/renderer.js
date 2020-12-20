@@ -13,6 +13,7 @@ import {
   getEndPage,
   downloadContent,
 } from './scraper.js';
+import TimeoutConfirm from '@zonda/inquirer-timeout-confirm-prompt';
 
 function renderTemplate(year, name, extension, model) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -81,9 +82,11 @@ export async function downloadIndex(year, bar) {
 }
 
 export async function createSolver(year, day) {
+  inquirer.registerPrompt('timeout-confirm', TimeoutConfirm);
   const answers = await inquirer.prompt([
     {
-      type: 'confirm',
+      type: 'timeout-confirm',
+      timeout: 60,
       name: 'create',
       message: `Create solver ${year}/${dayName(day)}?`,
     },
