@@ -5,6 +5,7 @@ const rightBorder = t => t.map(x => x[x.length - 1]).join('');
 const mirror = t => t.map(line => line.split('').reverse().join(''));
 const rotate = t =>
   t.map((_, i) => t.map(x => x[i]).reverse()).map(x => x.join(''));
+const findRotation = (tile, fn) => tile && allRotations(tile).find(fn);
 
 function allRotations(image) {
   return [
@@ -12,11 +13,7 @@ function allRotations(image) {
     rotate(image),
     rotate(rotate(image)),
     rotate(rotate(rotate(image))),
-    mirror(image),
-    rotate(mirror(image)),
-    rotate(rotate(mirror(image))),
-    rotate(rotate(rotate(mirror(image)))),
-  ];
+  ].flatMap(x => [x, mirror(x)]);
 }
 
 function parse(rows) {
@@ -29,11 +26,13 @@ function parse(rows) {
 }
 
 function countMonsters(image) {
-  const pattern = [
-    /^..................#./,
-    /^#....##....##....###/,
-    /^.#..#..#..#..#..#.../,
+  const monster = [
+    '                  # ',
+    '#    ##    ##    ###',
+    ' #  #  #  #  #  #   ',
   ];
+  const pattern = monster.map(x => new RegExp(`^${x.replaceAll(' ', '.')}`));
+  const size = monster.join('').match(/#/g).length;
   let count = 0;
   for (let i = 0; i < image.length - (pattern.length - 1); i++) {
     for (let j = 0; j < image.length; j++) {
@@ -42,39 +41,26 @@ function countMonsters(image) {
       }
     }
   }
-  return count * 15;
+  return count * size;
 }
 
-function findRotation(tiles, borderFn, border) {
-  const found = tiles.find(x => x.borders.includes(border));
+function spliceTile(tiles, fn) {
+  const found = tiles.find(fn);
   if (found) {
     tiles.splice(tiles.indexOf(found), 1);
-    return allRotations(found.tile).find(x => borderFn(x) === border);
+    return found.tile;
   }
 }
 
 function findCorners(tiles) {
-  const borderToIds = new Map();
-  tiles.forEach(({ id, borders }) => {
-    borders.forEach(x => {
-      borderToIds.set(x, (borderToIds.get(x) || []).concat(id));
+  tiles.forEach(tile => {
+    tile.borders.forEach(border => {
+      if (tiles.find(x => x !== tile && x.borders.includes(border))) {
+        tile.neighbors = (tile.neighbors || 0) + 1;
+      }
     });
   });
-  const idToNeighbors = new Map();
-  for (let [, ids] of borderToIds.entries()) {
-    if (ids.length === 2) {
-      const neighbors = ids.map(id => idToNeighbors.get(id) || new Set());
-      idToNeighbors.set(ids[0], neighbors[0].add(ids[1]));
-      idToNeighbors.set(ids[1], neighbors[1].add(ids[0]));
-    }
-  }
-  const corners = [];
-  for (let [id, neighbors] of idToNeighbors.entries()) {
-    if (neighbors.size == 2) {
-      corners.push(id);
-    }
-  }
-  return corners;
+  return tiles.filter(tile => tile.neighbors === 4).map(tile => tile.id);
 }
 
 export function part1(input) {
@@ -86,45 +72,51 @@ export function part2(input) {
   let tiles = input.split('\n\n').map(x => parse(x));
   const corners = findCorners(tiles);
 
-  //position first corner
-  let next = tiles.find(x => x.id === corners[0])?.tile;
-  tiles = tiles.filter(x => x.tile !== next);
-  next = allRotations(next).find(tile => {
-    const top = topBorder(tile);
-    const left = leftBorder(tile);
-    const matching = tiles.filter(
-      tile => tile.borders.includes(top) || tile.borders.includes(left),
-    );
-    return matching.length === 0;
-  });
+  //choose the first corner
+  let next = findRotation(
+    spliceTile(tiles, x => x.id === corners[0]),
+    tile =>
+      tiles.filter(
+        x =>
+          x.borders.includes(topBorder(tile)) ||
+          x.borders.includes(leftBorder(tile)),
+      ).length === 0,
+  );
 
-  //position tiles one by one
+  //position tiles left to right line by line
   const map = [];
   for (let j = 0; next; j++) {
     map[j] = [next];
     for (let i = 0; next; i++) {
       map[j][i] = next;
-      next = findRotation(tiles, leftBorder, rightBorder(map[j][i]));
+      const right = rightBorder(map[j][i]);
+      next = findRotation(
+        spliceTile(tiles, x => x.borders.includes(right)),
+        x => leftBorder(x) === right,
+      );
     }
-    next = findRotation(tiles, topBorder, bottomBorder(map[j][0]));
+    const bottom = bottomBorder(map[j][0]);
+    next = findRotation(
+      spliceTile(tiles, x => x.borders.includes(bottom)),
+      x => topBorder(x) === bottom,
+    );
   }
 
-  //convert to image
-  const image = map.reduce((complete, row) => {
-    return complete.concat(
-      row.reduce((combine, tile) => {
-        tile = tile.slice(1, -1).map(line => line.slice(1, -1));
-        return combine.map((line, i) => line + tile[i]);
-      }, new Array(row[0].length - 2).fill('')),
-    );
-  }, []);
+  //remove borders
+  let image = map.map(row =>
+    row.map(tile => tile.slice(1, -1).map(line => line.slice(1, -1))),
+  );
+
+  //merge image
+  image = image.flatMap(row =>
+    row.reduce((combine, tile) => combine.map((line, i) => line + tile[i])),
+  );
 
   //find monsters
-  const count = allRotations(image).map(x => countMonsters(x));
+  const count = allRotations(image)
+    .map(x => countMonsters(x))
+    .find(x => x !== 0);
 
   //calculate roughness
-  const sum = image
-    .map(line => line.split('').filter(c => c === '#').length)
-    .reduce((a, b) => a + b);
-  return sum - count.find(x => x !== 0);
+  return image.join('').match(/#/g).length - count;
 }
