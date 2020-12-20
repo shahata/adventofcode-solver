@@ -13,13 +13,13 @@
 <main>
 <style>
 .calendar .calendar-color-g { color:#00cc00; }
-.calendar .calendar-color-a { color:#cccccc; }
-.calendar .calendar-color-w { color:#ffffff; }
+.calendar .calendar-color-b { color:#333399; }
 .calendar .calendar-color-r { color:#ff0000; }
 .calendar .calendar-color-o { color:#ffcc99; }
 .calendar .calendar-color-p { color:#9900ff; }
-.calendar .calendar-color-b { color:#333399; }
+.calendar .calendar-color-a { color:#cccccc; }
 .calendar .calendar-color-l { color:#ccccff; }
+.calendar .calendar-color-w { color:#ffffff; }
 </style>
 <pre class="calendar"><a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete">              <span class="calendar-color-l">..........</span><span class="calendar-color-r">|</span><span class="calendar-color-l">..........</span>                <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 2, two stars" href="day02.html" class="calendar-day2 calendar-verycomplete">   <span class="calendar-color-l">.....''''''</span> <span class="calendar-color-w">.'</span>  <span class="calendar-color-w">-</span>  <span class="calendar-color-w">-</span>  <span class="calendar-color-a">\</span><span class="calendar-color-w">-</span> <span class="calendar-color-w">.''</span><span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span> <span class="calendar-color-l">''''''.....</span>     <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
@@ -44,7 +44,7 @@
 (function(){
 var countdown = document.getElementById("calendar-countdown");
 if (!countdown) return;
-var server_eta = 75554;
+var server_eta = 60112;
 var key = "2020-21-"+server_eta;
 var now = Math.floor(new Date().getTime()/1000);
 var target = server_eta + now;
