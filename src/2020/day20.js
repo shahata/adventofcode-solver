@@ -1,19 +1,13 @@
-function toBorder(line) {
-  return parseInt(line.replaceAll('.', '0').replaceAll('#', '1'), 2);
-}
-const reverse = line => line.split('').reverse().join('');
-const topBorder = tile => tile[0];
-const bottomBorder = tile => tile[tile.length - 1];
-const leftBorder = tile => tile.map(x => x[0]).join('');
-const rightBorder = tile => tile.map(x => x[x.length - 1]).join('');
-const rotate = tile =>
-  tile.map((row, i) =>
-    [...tile]
-      .reverse()
-      .map(x => x[i])
-      .join(''),
-  );
-const mirror = tile => tile.map(line => line.split('').reverse().join(''));
+const toBorder = line =>
+  parseInt(line.replaceAll('.', '0').replaceAll('#', '1'), 2);
+const topBorder = t => t[0];
+const bottomBorder = t => t[t.length - 1];
+const leftBorder = t => t.map(x => x[0]).join('');
+const rightBorder = t => t.map(x => x[x.length - 1]).join('');
+const reverse = str => str.split('').reverse().join('');
+const mirror = t => t.map(line => line.split('').reverse().join(''));
+const rotate = t =>
+  t.map((_, i) => t.map(x => x[i]).reverse()).map(x => x.join(''));
 
 function getBorders(tile) {
   return [
@@ -52,6 +46,19 @@ function countMonsters(image) {
     }
   }
   return count * 15;
+}
+
+function allRotations(image) {
+  return [
+    image,
+    rotate(image),
+    rotate(rotate(image)),
+    rotate(rotate(rotate(image))),
+    mirror(image),
+    rotate(mirror(image)),
+    rotate(rotate(mirror(image))),
+    rotate(rotate(rotate(mirror(image)))),
+  ];
 }
 
 function findCorners(tiles) {
@@ -107,39 +114,23 @@ export function part2(input) {
   for (let j = 0; next; j++) {
     map[j] = [next.tile];
     for (let i = 0; next; i++) {
+      map[j][i] = next.tile;
       const right = toBorder(rightBorder(map[j][i]));
       next = tiles.find(x => x.borders.includes(right));
       tiles = tiles.filter(x => x !== next);
       if (next) {
-        if (next.borders.indexOf(right) > 3) {
-          next.borders = next.borders.slice(4);
-          next.tile = rotate(rotate(next.tile));
-        }
-        if (next.borders[0] === right) {
-          next.tile = mirror(rotate(next.tile));
-        } else if (next.borders[1] === right) {
-          next.tile = rotate(next.tile);
-        } else if (next.borders[3] === right) {
-          next.tile = mirror(next.tile);
-        }
-        map[j][i + 1] = next.tile;
+        next.tile = allRotations(next.tile).find(
+          x => toBorder(leftBorder(x)) === right,
+        );
       }
     }
     const bottom = toBorder(bottomBorder(map[j][0]));
     next = tiles.find(x => x.borders.includes(bottom));
     tiles = tiles.filter(x => x !== next);
     if (next) {
-      if (next.borders.indexOf(bottom) > 3) {
-        next.borders = next.borders.slice(4);
-        next.tile = rotate(rotate(next.tile));
-      }
-      if (next.borders[1] === bottom) {
-        next.tile = rotate(rotate(mirror(next.tile)));
-      } else if (next.borders[2] === bottom) {
-        next.tile = mirror(rotate(next.tile));
-      } else if (next.borders[3] === bottom) {
-        next.tile = rotate(rotate(rotate(next.tile)));
-      }
+      next.tile = allRotations(next.tile).find(
+        x => toBorder(topBorder(x)) === bottom,
+      );
     }
   }
 
@@ -152,19 +143,9 @@ export function part2(input) {
     );
   }, []);
 
-  const count = [
-    image,
-    rotate(image),
-    rotate(rotate(image)),
-    rotate(rotate(rotate(image))),
-    mirror(image),
-    rotate(mirror(image)),
-    rotate(rotate(mirror(image))),
-    rotate(rotate(rotate(mirror(image)))),
-  ].map(x => countMonsters(x));
-
   const sum = image
     .map(line => line.split('').filter(c => c === '#').length)
     .reduce((a, b) => a + b);
+  const count = allRotations(image).map(x => countMonsters(x));
   return sum - count.find(x => x !== 0);
 }
