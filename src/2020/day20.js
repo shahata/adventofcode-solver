@@ -1,32 +1,19 @@
 function toBorder(line) {
   return parseInt(line.replaceAll('.', '0').replaceAll('#', '1'), 2);
 }
-function reverse(line) {
-  return line.split('').reverse().join('');
-}
-function topBorder(tile) {
-  return tile[0];
-}
-function bottomBorder(tile) {
-  return tile[tile.length - 1];
-}
-function leftBorder(tile) {
-  return tile.map(x => x[0]).join('');
-}
-function rightBorder(tile) {
-  return tile.map(x => x[x.length - 1]).join('');
-}
-function rotateRight(tile) {
-  return tile.map((row, i) =>
+const reverse = line => line.split('').reverse().join('');
+const topBorder = tile => tile[0];
+const bottomBorder = tile => tile[tile.length - 1];
+const leftBorder = tile => tile.map(x => x[0]).join('');
+const rightBorder = tile => tile.map(x => x[x.length - 1]).join('');
+const rotate = tile =>
+  tile.map((row, i) =>
     [...tile]
       .reverse()
       .map(x => x[i])
       .join(''),
   );
-}
-function mirrorHorizontal(tile) {
-  return tile.map(line => line.split('').reverse().join(''));
-}
+const mirror = tile => tile.map(line => line.split('').reverse().join(''));
 
 function getBorders(tile) {
   return [
@@ -43,10 +30,8 @@ function getBorders(tile) {
 
 function parse(tile) {
   let [id, ...rest] = tile.split('\n');
-  [, id] = id.match(/^Tile (\d+):$/);
-  id = +id;
   return {
-    id,
+    id: +id.match(/^Tile (\d+):$/).pop(),
     tile: rest,
     borders: getBorders([...rest]),
   };
@@ -59,18 +44,14 @@ function countMonsters(image) {
     /^.#..#..#..#..#..#.../,
   ];
   let count = 0;
-  for (let index = 0; index < image.length - 2; index++) {
-    for (let i = 0; i < image.length; i++) {
-      if (
-        image[index].slice(i).match(pattern[0]) &&
-        image[index + 1].slice(i).match(pattern[1]) &&
-        image[index + 2].slice(i).match(pattern[2])
-      ) {
+  for (let i = 0; i < image.length - (pattern.length - 1); i++) {
+    for (let j = 0; j < image.length; j++) {
+      if (pattern.every((line, k) => image[i + k].slice(j).match(line))) {
         count++;
       }
     }
   }
-  return count;
+  return count * 15;
 }
 
 function findCorners(tiles) {
@@ -91,7 +72,7 @@ function findCorners(tiles) {
   const corners = [];
   for (let [id, neighbors] of idToNeighbors.entries()) {
     if (neighbors.size == 2) {
-      corners.push(+id);
+      corners.push(id);
     }
   }
   return corners;
@@ -99,8 +80,7 @@ function findCorners(tiles) {
 
 export function part1(input) {
   const tiles = input.split('\n\n').map(x => parse(x));
-  const corners = findCorners(tiles);
-  return corners.reduce((a, b) => a * b, 1);
+  return findCorners(tiles).reduce((a, b) => a * b);
 }
 
 export function part2(input) {
@@ -108,86 +88,62 @@ export function part2(input) {
   const corners = findCorners(tiles);
 
   //0:top 1:bottom 2:left 3:right
-  let image = [];
+  const map = [];
   const corner = tiles.find(x => x.id === corners[0]);
   const sides = corner.borders.map(x => {
     return tiles.filter(tile => tile.borders.includes(x)).length;
   });
   tiles = tiles.filter(x => x !== corner);
-  if (sides[0] === 1 && sides[2] === 1) {
-    //top left
-  } else if (sides[0] === 1 && sides[3] === 1) {
-    //top right
-    corner.tile = mirrorHorizontal(corner.tile);
+  if (sides[0] === 1 && sides[3] === 1) {
+    corner.tile = mirror(corner.tile);
   } else if (sides[1] === 1 && sides[2] === 1) {
-    //bottom left
-    corner.tile = rotateRight(corner.tile);
+    corner.tile = rotate(corner.tile);
   } else if (sides[1] === 1 && sides[3] === 1) {
-    //bottom right
-    corner.tile = rotateRight(corner.tile);
-    corner.tile = rotateRight(corner.tile);
+    corner.tile = rotate(corner.tile);
+    corner.tile = rotate(corner.tile);
   }
 
-  let j = 0;
-  let i = 0;
-  image[0] = [corner.tile];
-  while (j >= 0) {
-    while (i >= 0) {
-      const r = toBorder(rightBorder(image[j][i]));
-      const next = tiles.find(x => x.borders.includes(r));
+  let next = corner;
+  for (let j = 0; next; j++) {
+    map[j] = [next.tile];
+    for (let i = 0; next; i++) {
+      const right = toBorder(rightBorder(map[j][i]));
+      next = tiles.find(x => x.borders.includes(right));
       tiles = tiles.filter(x => x !== next);
-      if (!next) {
-        break;
+      if (next) {
+        if (next.borders.indexOf(right) > 3) {
+          next.borders = next.borders.slice(4);
+          next.tile = rotate(rotate(next.tile));
+        }
+        if (next.borders[0] === right) {
+          next.tile = mirror(rotate(next.tile));
+        } else if (next.borders[1] === right) {
+          next.tile = rotate(next.tile);
+        } else if (next.borders[3] === right) {
+          next.tile = mirror(next.tile);
+        }
+        map[j][i + 1] = next.tile;
       }
-      if (next.borders.indexOf(r) > 3) {
-        next.borders = next.borders.slice(4);
-        next.tile = rotateRight(next.tile);
-        next.tile = rotateRight(next.tile);
-      }
-      if (next.borders[0] === r) {
-        next.tile = rotateRight(next.tile);
-        next.tile = mirrorHorizontal(next.tile);
-      }
-      if (next.borders[1] === r) {
-        next.tile = rotateRight(next.tile);
-      }
-      if (next.borders[3] === r) {
-        next.tile = mirrorHorizontal(next.tile);
-      }
-      image[j][i + 1] = next.tile;
-      i++;
     }
-    i = 0;
-    const b = toBorder(bottomBorder(image[j][i]));
-    const next = tiles.find(x => x.borders.includes(b));
+    const bottom = toBorder(bottomBorder(map[j][0]));
+    next = tiles.find(x => x.borders.includes(bottom));
     tiles = tiles.filter(x => x !== next);
-    if (!next) {
-      break;
+    if (next) {
+      if (next.borders.indexOf(bottom) > 3) {
+        next.borders = next.borders.slice(4);
+        next.tile = rotate(rotate(next.tile));
+      }
+      if (next.borders[1] === bottom) {
+        next.tile = rotate(rotate(mirror(next.tile)));
+      } else if (next.borders[2] === bottom) {
+        next.tile = mirror(rotate(next.tile));
+      } else if (next.borders[3] === bottom) {
+        next.tile = rotate(rotate(rotate(next.tile)));
+      }
     }
-    if (next.borders.indexOf(b) > 3) {
-      next.borders = next.borders.slice(4);
-      next.tile = rotateRight(next.tile);
-      next.tile = rotateRight(next.tile);
-    }
-    if (next.borders[1] === b) {
-      next.tile = rotateRight(next.tile);
-      next.tile = rotateRight(next.tile);
-      next.tile = mirrorHorizontal(next.tile);
-    }
-    if (next.borders[2] === b) {
-      next.tile = rotateRight(next.tile);
-      next.tile = mirrorHorizontal(next.tile);
-    }
-    if (next.borders[3] === b) {
-      next.tile = rotateRight(next.tile);
-      next.tile = rotateRight(next.tile);
-      next.tile = rotateRight(next.tile);
-    }
-    image[j + 1] = [next.tile];
-    j++;
   }
-  j;
-  image = image.reduce((complete, row) => {
+
+  const image = map.reduce((complete, row) => {
     return complete.concat(
       row.reduce((combine, tile) => {
         tile = tile.slice(1, -1).map(line => line.slice(1, -1));
@@ -198,17 +154,17 @@ export function part2(input) {
 
   const count = [
     image,
-    rotateRight(image),
-    rotateRight(rotateRight(image)),
-    rotateRight(rotateRight(rotateRight(image))),
-    mirrorHorizontal(image),
-    rotateRight(mirrorHorizontal(image)),
-    rotateRight(rotateRight(mirrorHorizontal(image))),
-    rotateRight(rotateRight(rotateRight(mirrorHorizontal(image)))),
+    rotate(image),
+    rotate(rotate(image)),
+    rotate(rotate(rotate(image))),
+    mirror(image),
+    rotate(mirror(image)),
+    rotate(rotate(mirror(image))),
+    rotate(rotate(rotate(mirror(image)))),
   ].map(x => countMonsters(x));
 
   const sum = image
     .map(line => line.split('').filter(c => c === '#').length)
     .reduce((a, b) => a + b);
-  return sum - count.find(x => x !== 0) * 15;
+  return sum - count.find(x => x !== 0);
 }
