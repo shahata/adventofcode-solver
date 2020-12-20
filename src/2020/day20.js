@@ -5,7 +5,7 @@ const rightBorder = t => t.map(x => x[x.length - 1]).join('');
 const mirror = t => t.map(line => line.split('').reverse().join(''));
 const rotate = t =>
   t.map((_, i) => t.map(x => x[i]).reverse()).map(x => x.join(''));
-const findRotation = (tile, fn) => tile && allRotations(tile).find(fn);
+const findRotation = (tile, fn) => tile && tile.rotations.find(fn);
 
 function allRotations(image) {
   return [
@@ -21,6 +21,8 @@ function parse(rows) {
   return {
     id: +id.match(/^Tile (\d+):$/).pop(),
     tile,
+    neighbors: 0,
+    rotations: allRotations(tile),
     borders: allRotations(tile).map(tile => topBorder(tile)),
   };
 }
@@ -48,7 +50,7 @@ function spliceTile(tiles, fn) {
   const found = tiles.find(fn);
   if (found) {
     tiles.splice(tiles.indexOf(found), 1);
-    return found.tile;
+    return found;
   }
 }
 
@@ -58,7 +60,7 @@ function findCorners(tiles) {
       .filter((x, i) => i % 2 === 0) //skip mirrors
       .forEach(border => {
         if (tiles.find(x => x !== tile && x.borders.includes(border))) {
-          tile.neighbors = (tile.neighbors || 0) + 1;
+          tile.neighbors++;
         }
       });
   });
