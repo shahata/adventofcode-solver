@@ -65,18 +65,10 @@ function findCorners(tiles) {
   return tiles.filter(tile => tile.neighbors === 2).map(tile => tile.id);
 }
 
-export function part1(input) {
-  const tiles = input.split('\n\n').map(x => parse(x));
-  return findCorners(tiles).reduce((a, b) => a * b);
-}
-
-export function part2(input) {
-  let tiles = input.split('\n\n').map(x => parse(x));
-  const corners = findCorners(tiles);
-
+function solvePuzzle(tiles, first) {
   //rotate the first corner to the right position
   let next = findRotation(
-    spliceTile(tiles, x => x.id === corners[0]),
+    spliceTile(tiles, x => x.id === first),
     tile =>
       tiles.filter(
         x =>
@@ -86,31 +78,50 @@ export function part2(input) {
   );
 
   //position tiles left to right line by line
-  const map = [];
-  for (let j = 0; next; j++) {
-    map[j] = [next];
-    for (let i = 0; next; i++) {
-      map[j][i] = next;
-      const right = rightBorder(map[j][i]);
+  const map = [[]];
+  while (next) {
+    //place part to the right of the previous part
+    //(left border of new part connects to the right border of previous part)
+    const right = rightBorder(next);
+    map[map.length - 1].push(next);
+    next = findRotation(
+      spliceTile(tiles, x => x.borders.includes(right)),
+      x => leftBorder(x) === right,
+    );
+
+    //if no more parts to the right, place leftmost part in next row
+    //(top border of new part connects to the bottom border of previous line)
+    if (!next) {
+      const bottom = bottomBorder(map[map.length - 1][0]);
+      map.push([]);
       next = findRotation(
-        spliceTile(tiles, x => x.borders.includes(right)),
-        x => leftBorder(x) === right,
+        spliceTile(tiles, x => x.borders.includes(bottom)),
+        x => topBorder(x) === bottom,
       );
     }
-    const bottom = bottomBorder(map[j][0]);
-    next = findRotation(
-      spliceTile(tiles, x => x.borders.includes(bottom)),
-      x => topBorder(x) === bottom,
-    );
   }
+  map.pop();
+
+  return map;
+}
+
+export function part1(input) {
+  const tiles = input.split('\n\n').map(x => parse(x));
+  return findCorners(tiles).reduce((a, b) => a * b);
+}
+
+export function part2(input) {
+  const tiles = input.split('\n\n').map(x => parse(x));
+  const corners = findCorners(tiles);
+  const map = solvePuzzle(tiles, corners[0]);
 
   //remove borders
-  let image = map.map(row =>
+  const stripped = map.map(row =>
     row.map(tile => tile.slice(1, -1).map(line => line.slice(1, -1))),
   );
 
   //merge image
-  image = image.flatMap(row =>
+  const image = stripped.flatMap(row =>
     row.reduce((combine, tile) => combine.map((line, i) => line + tile[i])),
   );
 
