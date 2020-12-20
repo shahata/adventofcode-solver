@@ -54,13 +54,15 @@ function spliceTile(tiles, fn) {
 
 function findCorners(tiles) {
   tiles.forEach(tile => {
-    tile.borders.forEach(border => {
-      if (tiles.find(x => x !== tile && x.borders.includes(border))) {
-        tile.neighbors = (tile.neighbors || 0) + 1;
-      }
-    });
+    tile.borders
+      .filter((x, i) => i % 2 === 0) //skip mirrors
+      .forEach(border => {
+        if (tiles.find(x => x !== tile && x.borders.includes(border))) {
+          tile.neighbors = (tile.neighbors || 0) + 1;
+        }
+      });
   });
-  return tiles.filter(tile => tile.neighbors === 4).map(tile => tile.id);
+  return tiles.filter(tile => tile.neighbors === 2).map(tile => tile.id);
 }
 
 export function part1(input) {
@@ -72,7 +74,7 @@ export function part2(input) {
   let tiles = input.split('\n\n').map(x => parse(x));
   const corners = findCorners(tiles);
 
-  //choose the first corner
+  //rotate the first corner to the right position
   let next = findRotation(
     spliceTile(tiles, x => x.id === corners[0]),
     tile =>
