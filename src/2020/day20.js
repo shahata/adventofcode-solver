@@ -3,8 +3,7 @@ const bottomBorder = t => t[t.length - 1];
 const leftBorder = t => t.map(x => x[0]).join('');
 const rightBorder = t => t.map(x => x[x.length - 1]).join('');
 const mirror = t => t.map(line => line.split('').reverse().join(''));
-const rotate = t =>
-  t.map((_, i) => t.map(x => x[i]).reverse()).map(x => x.join(''));
+const rotate = t => mirror(t.map((_, i) => t.map(x => x[i]).join('')));
 const findRotation = (tile, fn) => tile && tile.rotations.find(fn);
 
 function allRotations(image) {
@@ -21,7 +20,6 @@ function parse(rows) {
   return {
     id: +id.match(/^Tile (\d+):$/).pop(),
     tile,
-    neighbors: 0,
     rotations: allRotations(tile),
     borders: allRotations(tile).map(tile => topBorder(tile)),
   };
@@ -55,28 +53,25 @@ function spliceTile(tiles, fn) {
 }
 
 function findCorners(tiles) {
-  tiles.forEach(tile => {
-    tile.borders
-      .filter((x, i) => i % 2 === 0) //skip mirrors
-      .forEach(border => {
-        if (tiles.find(x => x !== tile && x.borders.includes(border))) {
-          tile.neighbors++;
-        }
-      });
+  const corners = tiles.filter(tile => {
+    const matching = tiles
+      .filter(({ id }) => tile.id !== id)
+      .filter(({ borders }) => borders.some(x => tile.borders.includes(x)));
+    return new Set(matching).size === 2;
   });
-  return tiles.filter(tile => tile.neighbors === 2).map(tile => tile.id);
+  return corners.map(tile => tile.id);
 }
 
 function solvePuzzle(tiles, first) {
-  //rotate the first corner to the right position
+  //rotate the first corner so its free sides are on the top and left
   let next = findRotation(
     spliceTile(tiles, x => x.id === first),
-    tile =>
-      tiles.filter(
-        x =>
-          x.borders.includes(topBorder(tile)) ||
-          x.borders.includes(leftBorder(tile)),
-      ).length === 0,
+    tile => {
+      const matching = tiles.filter(({ borders }) =>
+        borders.some(x => x === topBorder(tile) || x === leftBorder(tile)),
+      );
+      return matching.length === 0;
+    },
   );
 
   //position tiles left to right line by line
@@ -103,7 +98,6 @@ function solvePuzzle(tiles, first) {
     }
   }
   map.pop();
-
   return map;
 }
 
