@@ -62,10 +62,10 @@ function allRotations(image) {
 }
 
 function findRotation(tiles, borderFn, border) {
-  const found = tiles.find(x => x.borders.includes(border))?.tile;
+  const found = tiles.find(x => x.borders.includes(border));
   if (found) {
-    tiles = tiles.filter(x => x.tile !== found);
-    return allRotations(found).find(x => toBorder(borderFn(x)) === border);
+    tiles.splice(tiles.indexOf(found), 1);
+    return allRotations(found.tile).find(x => toBorder(borderFn(x)) === border);
   }
 }
 
