@@ -1,33 +1,30 @@
-const toBorder = line =>
-  parseInt(line.replaceAll('.', '0').replaceAll('#', '1'), 2);
 const topBorder = t => t[0];
 const bottomBorder = t => t[t.length - 1];
 const leftBorder = t => t.map(x => x[0]).join('');
 const rightBorder = t => t.map(x => x[x.length - 1]).join('');
-const reverse = str => str.split('').reverse().join('');
 const mirror = t => t.map(line => line.split('').reverse().join(''));
 const rotate = t =>
   t.map((_, i) => t.map(x => x[i]).reverse()).map(x => x.join(''));
 
-function getBorders(tile) {
+function allRotations(image) {
   return [
-    toBorder(topBorder(tile)),
-    toBorder(bottomBorder(tile)),
-    toBorder(leftBorder(tile)),
-    toBorder(rightBorder(tile)),
-    toBorder(reverse(bottomBorder(tile))),
-    toBorder(reverse(topBorder(tile))),
-    toBorder(reverse(rightBorder(tile))),
-    toBorder(reverse(leftBorder(tile))),
+    image,
+    rotate(image),
+    rotate(rotate(image)),
+    rotate(rotate(rotate(image))),
+    mirror(image),
+    rotate(mirror(image)),
+    rotate(rotate(mirror(image))),
+    rotate(rotate(rotate(mirror(image)))),
   ];
 }
 
-function parse(tile) {
-  let [id, ...rest] = tile.split('\n');
+function parse(rows) {
+  let [id, ...tile] = rows.split('\n');
   return {
     id: +id.match(/^Tile (\d+):$/).pop(),
-    tile: rest,
-    borders: getBorders([...rest]),
+    tile,
+    borders: allRotations(tile).map(tile => topBorder(tile)),
   };
 }
 
@@ -48,24 +45,11 @@ function countMonsters(image) {
   return count * 15;
 }
 
-function allRotations(image) {
-  return [
-    image,
-    rotate(image),
-    rotate(rotate(image)),
-    rotate(rotate(rotate(image))),
-    mirror(image),
-    rotate(mirror(image)),
-    rotate(rotate(mirror(image))),
-    rotate(rotate(rotate(mirror(image)))),
-  ];
-}
-
 function findRotation(tiles, borderFn, border) {
   const found = tiles.find(x => x.borders.includes(border));
   if (found) {
     tiles.splice(tiles.indexOf(found), 1);
-    return allRotations(found.tile).find(x => toBorder(borderFn(x)) === border);
+    return allRotations(found.tile).find(x => borderFn(x) === border);
   }
 }
 
@@ -106,8 +90,8 @@ export function part2(input) {
   let next = tiles.find(x => x.id === corners[0])?.tile;
   tiles = tiles.filter(x => x.tile !== next);
   next = allRotations(next).find(tile => {
-    const top = toBorder(topBorder(tile));
-    const left = toBorder(leftBorder(tile));
+    const top = topBorder(tile);
+    const left = leftBorder(tile);
     const matching = tiles.filter(
       tile => tile.borders.includes(top) || tile.borders.includes(left),
     );
@@ -120,9 +104,9 @@ export function part2(input) {
     map[j] = [next];
     for (let i = 0; next; i++) {
       map[j][i] = next;
-      next = findRotation(tiles, leftBorder, toBorder(rightBorder(map[j][i])));
+      next = findRotation(tiles, leftBorder, rightBorder(map[j][i]));
     }
-    next = findRotation(tiles, topBorder, toBorder(bottomBorder(map[j][0])));
+    next = findRotation(tiles, topBorder, bottomBorder(map[j][0]));
   }
 
   //convert to image
