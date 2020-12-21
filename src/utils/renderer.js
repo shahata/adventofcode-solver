@@ -83,10 +83,12 @@ export async function downloadIndex(year, bar) {
 
 export async function createSolver(year, day) {
   inquirer.registerPrompt('timeout-confirm', TimeoutConfirm);
+  const page = await getYearPage(year);
+  const [, eta] = page.match(/server_eta = (\d+)/);
   const answers = await inquirer.prompt([
     {
       type: 'timeout-confirm',
-      timeout: 60,
+      timeout: eta,
       name: 'create',
       message: `Create solver ${year}/${dayName(day)}?`,
     },
