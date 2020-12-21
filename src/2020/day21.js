@@ -26,9 +26,7 @@ function parse(input) {
   foods.forEach(food => {
     allIngredients.forEach(ingredient => {
       if (!food.ingredients.includes(ingredient.name)) {
-        food.allergens.forEach(x => {
-          ingredient.mightContain.delete(x);
-        });
+        food.allergens.forEach(x => ingredient.mightContain.delete(x));
       }
     });
   });
@@ -36,15 +34,12 @@ function parse(input) {
 }
 
 export function part1(input) {
-  const allIngredients = parse(input);
-  return allIngredients
-    .filter(x => x.mightContain.size === 0)
-    .reduce((sum, { count }) => sum + count, 0);
+  const allIngredients = parse(input).filter(x => x.mightContain.size === 0);
+  return allIngredients.reduce((sum, { count }) => sum + count, 0);
 }
 
 export function part2(input) {
-  let allIngredients = parse(input);
-  allIngredients = allIngredients.filter(x => x.mightContain.size !== 0);
+  const allIngredients = parse(input).filter(x => x.mightContain.size !== 0);
   let done;
   while (done !== allIngredients.length) {
     done = 0;

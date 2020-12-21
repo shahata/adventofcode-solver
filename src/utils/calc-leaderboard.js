@@ -2,6 +2,21 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+function removeIgnoredDays(jsons) {
+  jsons.forEach(json => {
+    if (json.event === '2020') {
+      Object.values(json.members).forEach(member => {
+        delete member.completion_day_level['1'];
+      });
+    }
+    if (json.event === '2018') {
+      Object.values(json.members).forEach(member => {
+        delete member.completion_day_level['6'];
+      });
+    }
+  });
+}
+
 export function calcLeaderboard(jsons) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const jsonPath = path.resolve(__dirname, 'leaderboards.json');
@@ -15,6 +30,7 @@ export function calcLeaderboard(jsons) {
   } else {
     return;
   }
+  removeIgnoredDays(jsons);
 
   const members = Object.values(
     jsons
