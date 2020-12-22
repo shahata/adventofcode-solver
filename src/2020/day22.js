@@ -46,11 +46,11 @@ function parse(input) {
 export function part1(input) {
   const players = parse(input);
   const results = subGame(players, check1);
-  return results[0] + results[1];
+  return results.reduce((a, b) => a + b, 0);
 }
 
 export function part2(input) {
   const players = parse(input);
   const results = subGame(players, check2);
-  return results[0] + results[1];
+  return results.reduce((a, b) => a + b, 0);
 }
