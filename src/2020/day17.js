@@ -1,3 +1,5 @@
+import { gol } from '../utils/game-of-life.js';
+
 const cache = [];
 function offsets(dimensions) {
   if (dimensions === 0) {
@@ -25,29 +27,12 @@ export function part1(input, dimensions = 3) {
     });
   });
 
-  let count;
-  for (let i = 0; i < 6; i++) {
-    let next = new Map();
-    let missing = [];
-    count = 0;
-
-    for (let key of map.keys()) {
-      if (map.get(key)) {
-        missing = missing.concat(neighbors(key).filter(key => !map.has(key)));
-      }
-    }
-    missing.forEach(key => map.set(key, false));
-
-    for (let key of map.keys()) {
-      const active = neighbors(key).filter(key => map.get(key)).length;
-      next.set(key, (map.get(key) && active === 2) || active === 3);
-      if (next.get(key)) {
-        count++;
-      }
-    }
-    map = next;
-  }
-  return count;
+  return gol(
+    map,
+    neighbors,
+    (current, active) => (current && active === 2) || active === 3,
+    6,
+  ).count;
 }
 
 export function part2(input) {

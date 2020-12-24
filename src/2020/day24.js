@@ -1,3 +1,5 @@
+import { gol } from '../utils/game-of-life.js';
+
 const go = {
   w: ({ x, y }) => ({ x: x - 1, y }),
   e: ({ x, y }) => ({ x: x + 1, y }),
@@ -35,26 +37,10 @@ function neighbors(key) {
 
 export function part2(input) {
   let map = parse(input);
-  let count;
-  for (let i = 0; i < 100; i++) {
-    let next = new Map();
-    let missing = [];
-    count = 0;
-    for (let key of map.keys()) {
-      if (map.get(key)) {
-        missing = missing.concat(neighbors(key).filter(key => !map.has(key)));
-      }
-    }
-    missing.forEach(key => map.set(key, false));
-
-    for (let key of map.keys()) {
-      const active = neighbors(key).filter(key => map.get(key)).length;
-      next.set(key, (map.get(key) && active === 1) || active === 2);
-      if (next.get(key)) {
-        count++;
-      }
-    }
-    map = next;
-  }
-  return count;
+  return gol(
+    map,
+    neighbors,
+    (current, active) => (current && active === 1) || active === 2,
+    100,
+  ).count;
 }
