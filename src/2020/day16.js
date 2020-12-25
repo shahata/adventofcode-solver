@@ -31,7 +31,9 @@ export function part1(input) {
 
 export function part2(input) {
   let { rules, ticket, tickets } = parse(input);
-  tickets = tickets.filter(x => validate(x, rules) === 0);
+  tickets = tickets.filter(ticket =>
+    ticket.every(n => rules.some(x => valid(n, x))),
+  );
 
   const done = [];
   while (done.length < ticket.length) {
