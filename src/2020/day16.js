@@ -35,27 +35,22 @@ export function part2(input) {
     ticket.every(n => rules.some(x => valid(n, x))),
   );
 
-  const done = [];
-  while (done.length < ticket.length) {
+  let remaining = ticket.map((x, i) => i);
+  while (remaining.length > 0) {
     rules
       .filter(x => x.position === undefined)
       .forEach(x => {
-        const found = [];
-        for (let i = 0; i < ticket.length; i++) {
-          if (!done.includes(i) && tickets.every(t => valid(t[i], x))) {
-            found.push(i);
-          }
-        }
+        const found = remaining.filter(i => tickets.every(t => valid(t[i], x)));
         if (found.length === 1) {
-          x.position = found[0];
-          done.push(x.position);
+          x.position = found.pop();
+          x.value = ticket[x.position];
+          remaining = remaining.filter(i => i !== x.position);
         }
       });
   }
 
   return rules
-    .sort((a, b) => a.position - b.position)
-    .map((x, i) => ({ ...x, value: ticket[i] }))
     .filter(x => x.field.startsWith('departure'))
+    .sort((a, b) => a.position - b.position)
     .reduce((mul, x) => mul * x.value, 1);
 }
