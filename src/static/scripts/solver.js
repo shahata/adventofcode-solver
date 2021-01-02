@@ -12,7 +12,8 @@ performance.timerify = fn => {
   };
 };
 
-async function readInput(url) {
+async function readInput(year, day, session) {
+  const url = `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`;
   const result = await fetch(url);
   if (result.status !== 200) {
     throw `Could not download input!\n${await result.text()}`;
@@ -20,32 +21,55 @@ async function readInput(url) {
   return (await result.text()).trimRight();
 }
 
+async function readAnswers(year, day, session) {
+  const url = `https://www.wix.com/_serverless/adventofcode/question/${year}/${day}?session=${session}`;
+  const result = await fetch(url);
+  return result.status === 200 ? await result.json() : [];
+}
+
+async function form(session, year, day, level, answer, duration) {
+  const answers = await readAnswers(year, day, session);
+  let submitter = '<input type="submit" value="[Submit]">';
+  if (answers[level - 1] === `${answer}`) {
+    submitter = '';
+  } else if (answers[level - 1] !== undefined) {
+    submitter = `However, you've apparently entered ${answers[level - 1]} :/`;
+  } else if (level === 2 && answers.length === 0) {
+    submitter = '<input type="submit" value="[Submit]" disabled="disabled">';
+  }
+  return [
+    '<form id="submitter" action="#">',
+    `<input id="session" type="hidden" value="${session}">`,
+    `<input id="year" type="hidden" value="${year}">`,
+    `<input id="day" type="hidden" value="${day}">`,
+    `<input id="level" type="hidden" value="${level}">`,
+    `<input id="answer" type="hidden" value="${answer}">`,
+    `Part${level}: <code>${answer}</code> ${duration} ${submitter}`,
+    '</form>',
+  ].join('');
+}
+
 async function solver(year, day, session) {
+  const submit = (level, answer, duration = '') =>
+    form(session, year, day, level, answer, duration);
   const fileName = `${year}/${dayName(day)}`;
   const url = `https://github.com/shahata/adventofcode-solver/blob/master/src/${fileName}.js`;
   console.log(
-    `<a href="${url}" target="_blank">Solution for ${fileName}!!!</a>`,
+    `<br><span><a href="${url}" target="_blank">Solution for ${fileName}!!!</a></span><br>`,
   );
   console.log('----------------------------');
   const module = await import(`../../${fileName}.js`);
-  const input = await readInput(
-    `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`,
-  );
+  const input = await readInput(year, day, session);
   if (module.day) {
     const { part1, part2 } = performance.timerify(module.day)(input);
-    console.log(`Part1: ${part1}`);
-    console.log(`Part2: ${part2}`, duration);
+    console.log(await submit(1, part1));
+    console.log(await submit(2, part2, duration));
   } else {
-    console.log(
-      `Part1: ${performance.timerify(module.part1)(input)}`,
-      duration,
-    );
-    console.log(
-      `Part2: ${performance.timerify(module.part2)(input)}`,
-      duration,
-    );
+    const part1 = performance.timerify(module.part1)(input);
+    console.log(await submit(1, part1, duration));
+    const part2 = performance.timerify(module.part2)(input);
+    console.log(await submit(2, part2, duration));
   }
-  console.log('');
 }
 
 export async function solveAll(year, session) {
@@ -55,7 +79,6 @@ export async function solveAll(year, session) {
       await solver(year, day, session);
     } catch (e) {
       console.log(e);
-      console.log('');
     }
   }
 }
