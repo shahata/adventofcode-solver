@@ -12,7 +12,7 @@ performance.timerify = fn => {
   };
 };
 
-async function readInput(year, day, session) {
+async function readInput(session, year, day) {
   const url = `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`;
   const result = await fetch(url);
   if (result.status !== 200) {
@@ -21,14 +21,14 @@ async function readInput(year, day, session) {
   return (await result.text()).trimRight();
 }
 
-async function readAnswers(year, day, session) {
+async function readAnswers(session, year, day) {
   const url = `https://www.wix.com/_serverless/adventofcode/question/${year}/${day}?session=${session}`;
   const result = await fetch(url);
   return result.status === 200 ? await result.json() : [];
 }
 
 async function form(session, year, day, level, answer, duration) {
-  const answers = await readAnswers(year, day, session);
+  const answers = await readAnswers(session, year, day);
   let submitter = '<input type="submit" value="[Submit]">';
   if (answers[level - 1] === `${answer}`) {
     submitter = '';
@@ -49,7 +49,7 @@ async function form(session, year, day, level, answer, duration) {
   ].join('');
 }
 
-async function solver(year, day, session) {
+export async function solver(session, year, day) {
   const submit = (level, answer, duration = '') =>
     form(session, year, day, level, answer, duration);
   const fileName = `${year}/${dayName(day)}`;
@@ -59,7 +59,7 @@ async function solver(year, day, session) {
   );
   console.log('----------------------------');
   const module = await import(`../../${fileName}.js`);
-  const input = await readInput(year, day, session);
+  const input = await readInput(session, year, day);
   if (module.day) {
     const { part1, part2 } = performance.timerify(module.day)(input);
     console.log(await submit(1, part1));
@@ -69,16 +69,5 @@ async function solver(year, day, session) {
     console.log(await submit(1, part1, duration));
     const part2 = performance.timerify(module.part2)(input);
     console.log(await submit(2, part2, duration));
-  }
-}
-
-export async function solveAll(year, session) {
-  const days = new Array(25).fill().map((x, i) => `${i + 1}`);
-  for (const day of days) {
-    try {
-      await solver(year, day, session);
-    } catch (e) {
-      console.log(e);
-    }
   }
 }

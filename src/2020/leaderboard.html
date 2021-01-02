@@ -18,7 +18,7 @@
 <script>
 window.onload = function() {
   var ctx = document.getElementById("canvas").getContext("2d");
-  window.myLine = new Chart(ctx, {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"silyevsk","data":[0,0,3,9,16,18,17,22,20,21,30,34,41,46,48,60,67,74,71,73,77,83,87,92,97,92,101,102,97,99,103,98,99,101,98,95,105,124,129,138,160,182,179,176,182,209,210,215,221,227],"fill":false},{"label":"Gabriel Grinberg","data":[0,0,7,17,22,30,32,34,35,38,48,53,58,62,61,72,78,81,75,73,78,86,93,100,109,103,113,116,114,102,110,112,109,107,99,97,103,111,115,133,153,174,175,180,177,201,189,185,194,203],"fill":false},{"label":"Shahar Talmi","data":[0,0,4,11,13,18,14,21,20,22,26,25,28,29,25,33,36,38,33,36,44,51,54,56,44,41,47,49,45,42,47,45,43,42,44,46,55,75,78,99,127,152,147,149,150,171,168,167,174,181],"fill":false},{"label":"Gal Elmalah","data":[0,0,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,10,27,26,46,75,101,100,101,103,129,128,132,133,135],"fill":false},{"label":"Serhii Muryhin","data":[0,0,6,15,19,17,18,26,21,15,22,25,31,34,32,42,44,48,44,43,39,36,44,48,54,35,42,47,46,47,49,48,42,36,34,29,24,37,30,49,75,102,95,89,93,115,111,114,118,122],"fill":false},{"label":"Almog Adziashvili","data":[0,0,2,7,16,23,21,25,27,31,36,38,40,39,36,29,33,39,37,42,43,47,57,65,72,71,79,83,80,78,84,81,72,63,43,26,20,29,14,22,47,71,69,64,67,80,78,80,85,90],"fill":false},{"label":"ShaharR","data":[0,0,5,13,14,13,10,13,7,5,4,5,13,15,16,25,30,35,36,40,34,30,31,28,36,21,26,22,15,7,14,10,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"ranyitz","data":[0,0,0,-1,-4,-8,-15,-16,-24,-29,-28,-31,-33,-39,-47,-49,-52,-56,-68,-72,-65,-63,-57,-61,-59,-66,-65,-70,-80,-95,-92,-99,-111,-122,-129,-139,-149,-143,-141,-140,-113,-85,-93,-89,-102,-88,-94,-99,-101,-103],"fill":false},{"label":"Maor Yosef","data":[0,0,-4,-4,-11,-18,-38,-45,-72,-96,-108,-117,-127,-139,-155,-158,-164,-167,-182,-199,-201,-202,-200,-199,-205,-216,-213,-219,-232,-241,-246,-257,-268,-278,-282,-289,-285,-275,-277,-279,-260,-241,-254,-265,-267,-265,-275,-289,-281,-273],"fill":false},{"label":"Tzachi Azo","data":[0,0,-10,-16,-36,-53,-70,-84,-100,-114,-125,-138,-144,-149,-159,-160,-165,-172,-186,-189,-196,-213,-222,-233,-235,-237,-245,-275,-294,-308,-310,-320,-328,-335,-351,-364,-368,-354,-360,-366,-370,-375,-381,-383,-384,-359,-366,-369,-372,-375],"fill":false},{"label":"Yonatan Hattav","data":[0,0,-7,-10,-14,-19,-57,-86,-89,-92,-97,-115,-123,-130,-145,-153,-157,-159,-170,-186,-194,-199,-206,-214,-211,-244,-248,-258,-264,-291,-301,-314,-346,-376,-385,-393,-421,-437,-436,-445,-430,-416,-426,-427,-434,-423,-431,-449,-446,-443],"fill":false},{"label":"Noam Neeman","data":[0,0,-32,-62,-89,-116,-126,-138,-157,-173,-165,-182,-191,-201,-235,-258,-270,-290,-317,-338,-358,-378,-402,-426,-435,-444,-453,-466,-483,-496,-500,-508,-518,-526,-536,-542,-541,-537,-540,-533,-515,-495,-514,-528,-533,-510,-526,-539,-543,-547],"fill":false},{"label":"Dor Ben Baruch","data":[0,0,-49,-95,-139,-185,-206,-219,-228,-237,-247,-261,-295,-337,-357,-386,-394,-408,-415,-437,-446,-459,-464,-471,-470,-483,-481,-483,-501,-512,-521,-547,-573,-599,-614,-626,-627,-624,-638,-639,-638,-637,-648,-656,-676,-667,-678,-686,-684,-683],"fill":false},{"label":"Audrius Kovalenko","data":[0,0,-23,-42,-55,-69,-93,-108,-123,-133,-139,-143,-161,-181,-200,-205,-226,-242,-260,-273,-291,-309,-311,-312,-317,-325,-328,-336,-350,-355,-371,-389,-409,-427,-438,-447,-449,-437,-446,-433,-426,-419,-431,-441,-459,-452,-465,-472],"fill":false},{"label":"daliusd","data":[0,0,-78,-152,-226,-300,-379,-451,-525,-597,-661,-729,-785,-842,-897,-937,-954,-981,-1001,-1008,-1006,-1003,-998,-992,-993,-997,-993,-994,-1002,-1003,-1004,-1003,-1004,-1004,-1005,-1006,-998,-980,-985,-968,-944,-921,-925,-922,-917,-897,-902,-901,-902,-903],"fill":false},{"label":"Lior Hai","data":[0,0,-12,-21,-35,-50,-63,-66,-84,-99,-102,-124,-138,-156,-181,-196,-220,-241,-265,-284,-294,-301,-305,-314,-343,-364,-371,-397,-420,-436,-461,-490,-519,-546,-573,-598,-619,-626,-636,-633,-619,-604,-620,-629,-637,-618,-635,-644],"fill":false},{"label":"Gerda Simoliunaite","data":[0,0,-27,-51,-86,-122,-162,-196,-206,-214,-218,-226,-230,-238,-250,-246,-256,-261,-271,-270,-271,-273,-274,-276,-308,-331,-332,-335,-344,-348,-355,-376,-406,-434,-466,-496,-516,-520,-541,-531,-529,-527,-560,-587,-614,-609,-632,-647],"fill":false},{"label":"Nachshon Schwartz","data":[0,0,-18,-31,-56,-79,-105,-131,-185,-235,-258,-293,-305,-320,-346,-359,-385,-413,-435,-446,-460,-474,-503,-532,-543,-571,-599,-630,-665,-696,-713,-732,-746,-758,-771,-782,-806,-814,-818,-814,-797,-781,-798,-810,-819,-802,-811,-813],"fill":false},{"label":"Andrey Nikitin","data":[0,0,-19,-35,-53,-72,-100,-122,-143,-160,-169,-180,-212,-243,-276,-300,-328,-353,-384,-398,-424,-449,-466,-481,-499,-513,-524,-536,-570,-599,-617,-640,-659,-678,-699,-721,-730,-731,-755,-753,-750,-752,-775,-803,-825,-826,-853,-876],"fill":false},{"label":"Jonathan Avinor","data":[0,0,-11,-19,-29,-39,-92,-134,-164,-191,-239,-291,-319,-351,-401,-435,-476,-517,-543,-549,-561,-569,-588,-607,-628,-646,-661,-680,-700,-720,-732,-749,-773,-796,-819,-838,-845,-838,-860,-855,-849,-844,-873,-894,-911,-899,-913,-923],"fill":false},{"label":"Aviran Huga","data":[0,0,-3,-2,-4,-7,-16,-18,-31,-44,-52,-59,-82,-104,-132,-149,-181,-214,-252,-275,-311,-354,-374,-394,-408,-428,-448,-477,-516,-551,-573,-607,-646,-684,-721,-757,-776,-779,-812,-825,-826,-827,-855,-881,-904,-908,-938,-958],"fill":false},{"label":"Asaf Yonay","data":[0,0,-43,-84,-121,-158,-202,-250,-310,-367,-406,-445,-460,-476,-513,-538,-575,-611,-646,-661,-677,-687,-709,-727,-749,-761,-774,-789,-825,-857,-880,-902,-919,-935,-960,-981,-984,-969,-980,-969,-953,-942,-968,-986,-997,-979,-998,-1009],"fill":false},{"label":"Dovile Lapinskaite","data":[0,0,-73,-143,-210,-277,-344,-405,-469,-530,-565,-601,-626,-649,-685,-707,-734,-758,-787,-797,-812,-823,-826,-831,-846,-856,-873,-891,-913,-930,-945,-959,-974,-987,-999,-1013,-1011,-1000,-1025,-1019,-1006,-994,-1016,-1032,-1038,-1034,-1059,-1083],"fill":false},{"label":"Guy Rotem","data":[0,0,-38,-73,-65,-62,-104,-132,-174,-213,-241,-268,-298,-327,-381,-426,-476,-526,-568,-593,-628,-657,-673,-689,-708,-733,-760,-792,-824,-852,-882,-915,-953,-988,-1016,-1043,-1066,-1075,-1087,-1072,-1063,-1055,-1064,-1084,-1103,-1108,-1123,-1135],"fill":false},{"label":"Doron Zavelevsky","data":[0,0,-52,-101,-113,-125,-162,-187,-242,-294,-338,-393,-417,-445,-466,-477,-493,-506,-539,-584,-625,-662,-696,-730,-765,-796,-822,-850,-888,-922,-951,-982,-1009,-1034,-1068,-1099,-1114,-1116,-1134,-1120,-1123,-1127,-1141,-1145,-1166,-1158,-1187,-1212],"fill":false},{"label":"Gongreg","data":[0,0,-33,-62,-110,-159,-194,-215,-258,-299,-342,-387,-426,-465,-522,-565,-607,-649,-683,-703,-727,-751,-783,-813,-846,-873,-887,-904,-941,-974,-1001,-1028,-1051,-1073,-1095,-1113,-1125,-1130,-1147,-1135,-1131,-1128,-1155,-1177,-1192,-1182,-1206,-1223],"fill":false},{"label":"Inbal Langer","data":[0,0,-58,-113,-142,-171,-218,-254,-306,-354,-381,-410,-439,-469,-507,-533,-563,-593,-629,-656,-687,-717,-742,-777,-797,-834,-856,-881,-907,-932,-953,-981,-1014,-1048,-1078,-1106,-1120,-1133,-1159,-1163,-1158,-1154,-1175,-1194,-1206,-1203,-1224,-1245],"fill":false},{"label":"yonifra","data":[0,0,-66,-129,-187,-246,-300,-345,-404,-459,-492,-532,-580,-626,-666,-714,-769,-823,-878,-917,-944,-980,-1008,-1034,-1057,-1093,-1124,-1157,-1184,-1205,-1219,-1231,-1247,-1261,-1285,-1305,-1302,-1286,-1294,-1278,-1266,-1253,-1277,-1292,-1306,-1290,-1308,-1314],"fill":false},{"label":"Stanislav Prokopiv","data":[0,0,-34,-65,-107,-149,-188,-219,-244,-266,-303,-340,-378,-416,-465,-498,-557,-614,-673,-721,-742,-761,-800,-842,-880,-923,-944,-964,-992,-1015,-1043,-1073,-1104,-1133,-1139,-1143,-1154,-1152,-1175,-1182,-1188,-1195,-1226,-1251,-1281,-1284,-1306,-1328],"fill":false},{"label":"Domas Maksimas","data":[0,0,-26,-49,-81,-121,-152,-175,-226,-282,-335,-398,-438,-478,-513,-540,-571,-602,-646,-679,-702,-725,-760,-801,-840,-884,-902,-923,-954,-978,-997,-1021,-1043,-1064,-1082,-1098,-1124,-1134,-1153,-1158,-1148,-1139,-1159,-1172,-1182,-1167,-1193],"fill":false},{"label":"Tadas Kundelis","data":[0,0,-79,-154,-229,-304,-384,-457,-533,-607,-673,-744,-805,-868,-929,-976,-999,-1018,-1043,-1055,-1066,-1078,-1088,-1101,-1125,-1151,-1163,-1179,-1200,-1222,-1248,-1290,-1331,-1370,-1406,-1440,-1453,-1452,-1482,-1490,-1492,-1495,-1525,-1549,-1574,-1568,-1596,-1615],"fill":false},{"label":"Mantas Miliukas","data":[0,0,-70,-137,-199,-262,-319,-366,-377,-384,-399,-414,-466,-518,-545,-557,-608,-659,-721,-775,-823,-870,-903,-939,-970,-994,-1031,-1070,-1111,-1149,-1188,-1231,-1274,-1316,-1358,-1398,-1427,-1442,-1473,-1483,-1490,-1498,-1533,-1565,-1589,-1588,-1608,-1624],"fill":false},{"label":"Oleg Gordeev","data":[0,0,-50,-97,-153,-210,-282,-347,-413,-475,-525,-575,-597,-618,-663,-700,-748,-796,-850,-887,-921,-949,-989,-1029,-1065,-1105,-1138,-1175,-1218,-1258,-1292,-1328,-1362,-1393,-1424,-1453,-1478,-1490,-1518,-1521,-1526,-1532,-1566,-1596,-1624,-1626,-1657,-1683],"fill":false}]}});
+  window.myLine = new Chart(ctx, {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"silyevsk","data":[0,0,22,44,71,90,117,153,177,212,248,260,286,335,360,367,395,427,455,471,501,532,551,563,567,575,582,594,613,650,676,705,745,779,797,816,835,855,884,891,910,934,954,979,1001,1011,1021,1028,1039,1050],"fill":false},{"label":"Gabriel Grinberg","data":[0,0,26,52,77,102,132,165,192,229,266,279,303,351,373,379,406,434,459,471,502,535,557,571,579,586,594,608,630,653,683,719,755,785,798,818,833,842,870,886,903,926,950,983,996,1003,1000,998,1012,1026],"fill":false},{"label":"Shahar Talmi","data":[0,0,23,46,68,90,114,152,177,213,244,251,273,318,337,340,364,391,417,434,468,500,518,527,514,524,528,541,561,593,620,652,689,720,743,767,785,806,833,852,877,904,922,952,969,973,979,980,992,1004],"fill":false},{"label":"Gal Elmalah","data":[0,0,17,35,55,72,100,131,157,191,218,226,245,289,312,307,328,353,384,398,424,449,464,471,470,483,481,492,516,551,573,607,646,679,701,724,740,758,781,799,825,853,875,904,922,931,939,945,951,958],"fill":false},{"label":"Serhii Muryhin","data":[0,0,25,50,74,89,118,157,178,206,240,251,276,323,344,349,372,401,428,441,463,485,508,519,524,518,523,539,562,598,622,655,688,714,733,750,754,768,785,802,825,854,870,892,912,917,922,927,936,945],"fill":false},{"label":"Almog Adziashvili","data":[0,0,21,42,71,95,121,156,184,222,254,264,285,328,348,336,361,392,421,440,467,496,521,536,542,554,560,575,596,629,657,688,718,741,742,747,750,760,769,775,797,823,844,867,886,882,889,893,903,913],"fill":false},{"label":"ShaharR","data":[0,0,24,48,69,85,110,144,164,196,222,231,258,304,328,332,358,388,420,438,458,479,495,499,506,504,507,514,531,558,587,617,651,678,699,721,730,731,755,753,750,752,775,803,819,802,811,813,818,823],"fill":false},{"label":"ranyitz","data":[0,0,19,34,51,64,85,115,133,162,190,195,212,250,265,258,276,297,316,326,359,386,407,410,411,417,416,422,436,456,481,508,535,556,570,582,581,588,614,613,637,667,682,714,717,714,717,714,717,720],"fill":false},{"label":"Maor Yosef","data":[0,0,15,31,44,54,62,86,85,95,110,109,118,150,157,149,164,186,202,199,223,247,264,272,265,267,268,273,284,310,327,350,378,400,417,432,445,456,478,474,490,511,521,538,552,537,536,524,537,550],"fill":false},{"label":"Tzachi Azo","data":[0,0,9,19,19,19,30,47,57,77,93,88,101,140,153,147,163,181,198,209,228,236,242,238,235,246,236,217,222,243,263,287,318,343,348,357,362,377,395,387,380,377,394,420,435,443,445,444,446,448],"fill":false},{"label":"Yonatan Hattav","data":[0,0,12,25,41,53,43,45,68,99,121,111,122,159,167,154,171,194,214,212,230,250,258,257,259,239,233,234,252,260,272,293,300,302,314,328,309,294,319,308,320,336,349,376,385,379,380,364,372,380],"fill":false},{"label":"Audrius Kovalenko","data":[0,0,-4,-7,0,3,7,23,34,58,79,83,84,108,112,102,102,111,124,125,133,140,153,159,153,158,153,156,166,196,202,218,237,251,261,274,281,294,309,320,324,333,344,362,360,350,346,341,338,335],"fill":false},{"label":"Noam Neeman","data":[0,0,-13,-27,-34,-44,-26,-7,0,18,53,44,54,88,77,49,58,63,67,60,66,71,62,45,35,39,28,26,33,55,73,99,128,152,163,179,189,194,215,220,235,257,261,275,286,292,285,274,275,276],"fill":false},{"label":"Gerda Simoliunaite","data":[0,0,-8,-16,-31,-50,-62,-65,-49,-23,0,0,15,51,62,61,72,92,113,128,153,176,190,195,162,152,149,157,172,203,218,231,240,244,233,225,214,211,214,222,221,225,215,216,205,193,179,166,161,156],"fill":false},{"label":"Lior Hai","data":[0,0,7,14,20,22,37,65,73,92,116,102,107,133,131,111,108,112,119,114,130,148,159,157,127,119,110,95,96,115,112,117,127,132,126,123,111,105,119,120,131,148,155,174,182,184,176,169,161,153],"fill":false},{"label":"Dor Ben Baruch","data":[0,0,-30,-60,-84,-113,-106,-88,-71,-46,-29,-35,-50,-48,-45,-79,-66,-55,-31,-39,-22,-10,0,0,0,0,0,9,15,39,52,60,73,79,85,95,103,107,117,114,112,115,127,147,143,135,133,127,134,140],"fill":false},{"label":"GuyPerkal","data":[0,0,10,21,35,46,45,56,59,74,94,72,84,119,136,137,145,159,177,167,176,179,186,187,190,187,183,187,195,224,247,272,298,313,329,319,333,323,320,303,290,281,266,260,244,219,194,166,156,135],"fill":false},{"label":"Donatas Petrauskas","data":[0,0,-35,-70,-89,-110,-90,-69,-63,-47,-33,-37,-38,-18,0,0,19,38,68,48,55,64,68,63,55,36,11,0,12,28,47,75,110,139,143,150,151,157,168,150,170,190,198,219,206,182,158,131,115,98],"fill":false},{"label":"Nachshon Schwartz","data":[0,0,1,4,-1,-7,-5,0,-28,-44,-40,-67,-60,-31,-34,-52,-57,-60,-51,-48,-36,-25,-39,-61,-73,-88,-118,-138,-149,-145,-140,-125,-100,-80,-72,-61,-76,-83,-63,-61,-47,-29,-23,-7,0,0,0,0,0,0],"fill":false},{"label":"Andrey Nikitin","data":[0,0,0,0,2,0,0,9,14,31,49,46,33,46,36,7,0,0,0,0,0,0,-2,-10,-29,-30,-43,-44,-54,-48,-44,-33,-13,0,0,0,0,0,0,0,0,0,0,0,-6,-24,-42,-63,-67,-71],"fill":false},{"label":"daliusd","data":[0,0,-59,-117,-171,-228,-279,-320,-368,-406,-443,-503,-540,-553,-585,-630,-626,-628,-617,-610,-582,-554,-534,-521,-523,-514,-512,-502,-486,-452,-431,-396,-358,-326,-306,-285,-268,-249,-230,-215,-194,-169,-150,-119,-98,-95,-91,-88,-84,-80],"fill":false},{"label":"Jonathan Avinor","data":[0,0,8,16,26,33,8,-3,-7,0,-21,-65,-74,-62,-89,-128,-148,-164,-159,-151,-137,-120,-124,-136,-158,-163,-180,-188,-184,-169,-159,-142,-127,-118,-120,-117,-115,-107,-105,-102,-99,-92,-98,-91,-92,-97,-102,-110,-131,-151],"fill":false},{"label":"Aviran Huga","data":[0,0,16,33,51,65,84,113,126,147,166,167,163,185,180,158,147,139,132,123,113,95,90,77,62,55,33,15,0,0,0,0,0,-6,-22,-36,-46,-48,-57,-72,-76,-75,-80,-78,-85,-106,-127,-145,-165,-184],"fill":false},{"label":"Asaf Yonay","data":[0,0,-24,-49,-66,-86,-102,-119,-153,-176,-188,-219,-215,-187,-201,-231,-247,-258,-262,-263,-253,-238,-245,-256,-279,-278,-293,-297,-309,-306,-307,-295,-273,-257,-261,-260,-254,-238,-225,-216,-203,-190,-193,-183,-178,-177,-187,-196,-198,-200],"fill":false},{"label":"Dovile Lapinskaite","data":[0,0,-54,-108,-155,-205,-244,-274,-312,-339,-347,-375,-381,-360,-373,-400,-406,-405,-403,-399,-388,-374,-362,-360,-376,-373,-392,-399,-397,-379,-372,-352,-328,-309,-300,-292,-281,-269,-270,-266,-256,-242,-241,-229,-219,-232,-248,-270,-283,-295],"fill":false},{"label":"Guy Rotem","data":[0,0,-19,-38,-10,10,-4,-1,-17,-22,-23,-42,-53,-38,-69,-119,-148,-173,-184,-195,-204,-208,-209,-218,-238,-250,-279,-300,-308,-301,-309,-308,-307,-310,-317,-322,-336,-344,-332,-319,-313,-303,-289,-281,-284,-306,-312,-322,-329,-336],"fill":false},{"label":"Karolina Zarankaitė","data":[0,0,4,9,3,-4,2,16,14,22,33,25,0,0,-36,-85,-79,-66,-92,-120,-107,-97,-88,-91,-96,-118,-149,-173,-189,-191,-200,-207,-212,-224,-236,-249,-256,-269,-261,-275,-267,-255,-250,-239,-249,-272,-295,-321,-336,-350],"fill":false},{"label":"Gongreg","data":[0,0,-14,-27,-55,-87,-94,-84,-101,-108,-124,-161,-181,-176,-210,-258,-279,-296,-299,-305,-303,-302,-319,-342,-376,-390,-406,-412,-425,-423,-428,-421,-405,-395,-396,-392,-395,-399,-392,-382,-381,-376,-380,-374,-373,-380,-395,-410,-422,-433],"fill":false},{"label":"Doron Zavelevsky","data":[0,0,-33,-66,-58,-53,-62,-56,-85,-103,-120,-167,-172,-156,-154,-170,-165,-153,-155,-186,-201,-213,-232,-259,-295,-313,-341,-358,-372,-371,-378,-375,-363,-356,-369,-378,-384,-385,-379,-367,-373,-375,-366,-342,-347,-356,-376,-399,-417,-433],"fill":false},{"label":"Domas Maksimas","data":[0,0,-7,-14,-26,-49,-52,-44,-69,-91,-117,-172,-193,-189,-201,-233,-243,-249,-262,-281,-278,-276,-296,-330,-370,-401,-421,-431,-438,-427,-424,-414,-397,-386,-383,-377,-394,-403,-398,-405,-398,-387,-384,-369,-363,-365,-382,-407,-426,-444],"fill":false},{"label":"Inbal Langer","data":[0,0,-39,-78,-87,-99,-118,-123,-149,-163,-163,-184,-194,-180,-195,-226,-235,-240,-245,-258,-263,-268,-278,-306,-327,-351,-375,-389,-391,-381,-380,-374,-368,-370,-379,-385,-390,-402,-404,-410,-408,-402,-400,-391,-387,-401,-413,-432,-441,-450],"fill":false},{"label":"Jonathan Fraimorice","data":[0,0,-47,-94,-132,-174,-200,-214,-247,-268,-274,-306,-335,-337,-354,-407,-441,-470,-494,-519,-520,-531,-544,-563,-587,-610,-643,-665,-668,-654,-646,-624,-601,-583,-586,-584,-572,-555,-539,-525,-516,-501,-502,-489,-487,-488,-497,-501,-502,-503],"fill":false},{"label":"Stanislav Prokopiv","data":[0,0,-15,-30,-52,-77,-88,-88,-87,-75,-85,-114,-133,-127,-153,-191,-229,-261,-289,-323,-318,-312,-336,-371,-410,-440,-463,-472,-476,-464,-470,-466,-458,-455,-440,-422,-424,-421,-420,-429,-438,-443,-451,-448,-462,-482,-495,-515,-521,-527],"fill":false},{"label":"David Perlman","data":[0,0,13,27,30,21,33,56,19,-7,-25,-64,-80,-73,-103,-149,-172,-191,-216,-246,-250,-273,-296,-328,-369,-402,-440,-470,-490,-496,-507,-512,-509,-510,-530,-549,-570,-588,-598,-614,-626,-634,-648,-653,-668,-694,-720,-749,-771,-793],"fill":false},{"label":"Tadas Kundelis","data":[0,0,-60,-119,-174,-232,-284,-326,-376,-416,-455,-518,-560,-579,-617,-669,-671,-665,-659,-657,-642,-629,-624,-630,-655,-668,-682,-687,-684,-671,-675,-683,-685,-692,-707,-719,-723,-721,-727,-737,-742,-743,-750,-746,-755,-766,-785,-802,-816,-829],"fill":false},{"label":"Mantas Miliukas","data":[0,0,-51,-102,-144,-190,-219,-235,-220,-193,-181,-188,-221,-229,-233,-250,-280,-306,-337,-377,-399,-421,-439,-468,-500,-511,-550,-578,-595,-598,-615,-624,-628,-638,-659,-677,-697,-711,-718,-730,-740,-746,-758,-762,-770,-786,-797,-811,-822,-832],"fill":false},{"label":"Oleg Gordeev","data":[0,0,-31,-62,-98,-138,-182,-216,-256,-284,-307,-349,-352,-329,-351,-393,-420,-443,-466,-489,-497,-500,-525,-558,-595,-622,-657,-683,-702,-707,-719,-721,-716,-715,-725,-732,-748,-759,-763,-768,-776,-780,-791,-793,-805,-824,-846,-870,-887,-902],"fill":false}]}});
 };
 </script>
 <table>
@@ -39,6 +39,29 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">25 Dec 2020, 00:30:07</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">25 Dec 2020, 00:41:22</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">25 Dec 2020, 00:45:50</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">25 Dec 2020, 02:18:04</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">25 Dec 2020, 02:41:10</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">25 Dec 2020, 02:53:53</span> Asaf Yonay</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">25 Dec 2020, 03:38:40</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">25 Dec 2020, 03:39:18</span> Andrey Nikitin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">25 Dec 2020, 03:43:31</span> Gerda Simoliunaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">25 Dec 2020, 03:49:54</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">25 Dec 2020, 04:02:38</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">25 Dec 2020, 04:11:41</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">25 Dec 2020, 04:13:31</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">25 Dec 2020, 05:06:40</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">25 Dec 2020, 05:12:07</span> Gongreg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">25 Dec 2020, 05:36:06</span> Dovile Lapinskaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">25 Dec 2020, 08:40:50</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">25 Dec 2020, 12:14:04</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">25 Dec 2020, 13:15:38</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">25 Dec 2020, 16:15:56</span> Doron Zavelevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">25 Dec 2020, 20:34:30</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">26 Dec 2020, 04:15:24</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">26 Dec 2020, 04:55:23</span> Aviran Huga</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">26 Dec 2020, 13:45:05</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">26 Dec 2020, 15:48:43</span> GuyPerkal</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">27 Dec 2020, 05:57:18</span> David Perlman</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 25:</p>
@@ -56,6 +79,29 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">25 Dec 2020, 00:28:36</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">25 Dec 2020, 00:41:07</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">25 Dec 2020, 00:45:00</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">25 Dec 2020, 02:18:00</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">25 Dec 2020, 02:41:04</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">25 Dec 2020, 02:53:40</span> Asaf Yonay</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">25 Dec 2020, 03:38:10</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">25 Dec 2020, 03:39:04</span> Andrey Nikitin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">25 Dec 2020, 03:43:26</span> Gerda Simoliunaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">25 Dec 2020, 03:48:49</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">25 Dec 2020, 04:02:33</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">25 Dec 2020, 04:10:23</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">25 Dec 2020, 04:11:35</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">25 Dec 2020, 04:23:16</span> GuyPerkal</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">25 Dec 2020, 05:05:32</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">25 Dec 2020, 05:11:43</span> Gongreg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">25 Dec 2020, 05:35:21</span> Dovile Lapinskaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">25 Dec 2020, 08:39:56</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">25 Dec 2020, 12:12:43</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">25 Dec 2020, 12:54:34</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">25 Dec 2020, 13:13:54</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">25 Dec 2020, 16:15:07</span> Doron Zavelevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">26 Dec 2020, 04:15:10</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">26 Dec 2020, 04:52:59</span> Aviran Huga</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">26 Dec 2020, 13:44:18</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">26 Dec 2020, 18:59:52</span> David Perlman</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -72,7 +118,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">24 Dec 2020, 01:59:20</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">24 Dec 2020, 02:14:11</span> Gabriel Grinberg</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">24 Dec 2020, 02:16:12</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">24 Dec 2020, 02:40:08</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">24 Dec 2020, 02:40:08</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">24 Dec 2020, 02:43:00</span> Audrius Kovalenko</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">24 Dec 2020, 02:59:02</span> Dor Ben Baruch</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">24 Dec 2020, 03:02:21</span> Lior Hai</div> 
@@ -93,6 +139,11 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">24 Dec 2020, 14:48:28</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">24 Dec 2020, 19:04:08</span> Doron Zavelevsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">24 Dec 2020, 20:55:52</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">25 Dec 2020, 08:12:50</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">25 Dec 2020, 10:02:42</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">25 Dec 2020, 11:30:07</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">26 Dec 2020, 15:48:26</span> GuyPerkal</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">26 Dec 2020, 17:37:12</span> David Perlman</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 24:</p>
@@ -115,7 +166,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">24 Dec 2020, 02:08:10</span> Guy Rotem</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">24 Dec 2020, 02:23:40</span> Noam Neeman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">24 Dec 2020, 02:27:53</span> Lior Hai</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">24 Dec 2020, 02:32:07</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">24 Dec 2020, 02:32:07</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">24 Dec 2020, 03:01:04</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">24 Dec 2020, 04:18:00</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">24 Dec 2020, 04:30:03</span> Inbal Langer</div> 
@@ -129,6 +180,10 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">24 Dec 2020, 08:29:40</span> Doron Zavelevsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">24 Dec 2020, 11:26:21</span> Aviran Huga</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">24 Dec 2020, 20:16:38</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">25 Dec 2020, 09:01:17</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">25 Dec 2020, 10:58:19</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">26 Dec 2020, 15:30:35</span> GuyPerkal</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">26 Dec 2020, 16:36:30</span> David Perlman</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -145,7 +200,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">23 Dec 2020, 02:48:28</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">23 Dec 2020, 02:56:19</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">23 Dec 2020, 03:17:20</span> Nachshon Schwartz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">23 Dec 2020, 04:08:10</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">23 Dec 2020, 04:08:10</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">23 Dec 2020, 04:16:03</span> Domas Maksimas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">23 Dec 2020, 04:54:30</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">23 Dec 2020, 05:16:52</span> Almog Adziashvili</div> 
@@ -167,6 +222,10 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">23 Dec 2020, 17:55:52</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">24 Dec 2020, 10:55:08</span> Aviran Huga</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">24 Dec 2020, 12:01:05</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">25 Dec 2020, 07:06:07</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">25 Dec 2020, 10:02:59</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">26 Dec 2020, 14:48:31</span> GuyPerkal</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">27 Dec 2020, 05:57:04</span> David Perlman</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 23:</p>
@@ -190,7 +249,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">23 Dec 2020, 02:44:05</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">23 Dec 2020, 03:09:46</span> Inbal Langer</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">23 Dec 2020, 03:49:38</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">23 Dec 2020, 03:59:11</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">23 Dec 2020, 03:59:11</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">23 Dec 2020, 04:25:44</span> Gongreg</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">23 Dec 2020, 04:36:36</span> Lieron Schalew</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">23 Dec 2020, 05:00:51</span> Jonathan Avinor</div> 
@@ -207,6 +266,8 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">23 Dec 2020, 15:05:45</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">23 Dec 2020, 16:12:54</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">23 Dec 2020, 17:18:26</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">25 Dec 2020, 06:06:05</span> David Perlman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">26 Dec 2020, 11:09:13</span> GuyPerkal</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -232,7 +293,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">22 Dec 2020, 02:26:24</span> Nachshon Schwartz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">22 Dec 2020, 03:16:12</span> Domas Maksimas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">22 Dec 2020, 03:18:08</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">22 Dec 2020, 03:58:27</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">22 Dec 2020, 03:58:27</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">22 Dec 2020, 04:05:58</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">22 Dec 2020, 04:20:26</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">22 Dec 2020, 04:33:49</span> Asaf Yonay</div> 
@@ -250,6 +311,8 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">22 Dec 2020, 16:26:36</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">23 Dec 2020, 07:25:31</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">23 Dec 2020, 08:59:35</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">25 Dec 2020, 04:22:41</span> David Perlman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">26 Dec 2020, 04:54:08</span> GuyPerkal</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 22:</p>
@@ -278,7 +341,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">22 Dec 2020, 02:52:19</span> Inbal Langer</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">22 Dec 2020, 03:33:37</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">22 Dec 2020, 03:51:44</span> Andrey Nikitin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">22 Dec 2020, 03:54:07</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">22 Dec 2020, 03:54:07</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">22 Dec 2020, 04:12:33</span> Lieron Schalew</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">22 Dec 2020, 04:17:15</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">22 Dec 2020, 05:17:41</span> Gongreg</div> 
@@ -292,6 +355,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">22 Dec 2020, 18:19:05</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">23 Dec 2020, 05:22:33</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">24 Dec 2020, 20:14:54</span> David Perlman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">25 Dec 2020, 16:45:39</span> GuyPerkal</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -312,7 +376,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">21 Dec 2020, 02:25:23</span> Nachshon Schwartz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">21 Dec 2020, 02:56:34</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">21 Dec 2020, 03:04:37</span> Yonatan Hattav</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">21 Dec 2020, 03:55:54</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">21 Dec 2020, 03:55:54</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">21 Dec 2020, 04:10:49</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">21 Dec 2020, 04:31:54</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">21 Dec 2020, 04:33:10</span> Karolina Zarankaitė</div> 
@@ -336,6 +400,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">22 Dec 2020, 18:07:18</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">23 Dec 2020, 04:50:49</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">24 Dec 2020, 19:49:04</span> David Perlman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">25 Dec 2020, 13:43:54</span> GuyPerkal</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 21:</p>
@@ -356,7 +421,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">21 Dec 2020, 02:49:44</span> Yonatan Hattav</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">21 Dec 2020, 02:55:57</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">21 Dec 2020, 03:48:05</span> Dovile Lapinskaite</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">21 Dec 2020, 03:54:23</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">21 Dec 2020, 03:54:23</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">21 Dec 2020, 04:18:46</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">21 Dec 2020, 04:22:52</span> Domas Maksimas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">21 Dec 2020, 04:40:44</span> Guy Rotem</div> 
@@ -378,6 +443,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">22 Dec 2020, 17:07:56</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">23 Dec 2020, 04:06:04</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">24 Dec 2020, 19:20:56</span> David Perlman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">25 Dec 2020, 13:40:16</span> GuyPerkal</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -388,7 +454,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">20 Dec 2020, 04:02:02</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">20 Dec 2020, 04:39:52</span> Gabriel Grinberg</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">20 Dec 2020, 06:13:29</span> daliusd</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">20 Dec 2020, 07:47:27</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">20 Dec 2020, 07:47:27</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">20 Dec 2020, 08:04:18</span> Guy Rotem</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">20 Dec 2020, 08:24:44</span> Doron Zavelevsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">20 Dec 2020, 09:11:33</span> Audrius Kovalenko</div> 
@@ -419,6 +485,8 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">23 Dec 2020, 08:25:48</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">24 Dec 2020, 10:52:53</span> Aviran Huga</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">24 Dec 2020, 17:51:16</span> David Perlman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">25 Dec 2020, 12:34:29</span> GuyPerkal</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">25 Dec 2020, 20:34:04</span> Donatas Petrauskas</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 20:</p>
@@ -435,7 +503,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">20 Dec 2020, 02:18:24</span> daliusd</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">20 Dec 2020, 02:36:54</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">20 Dec 2020, 02:59:16</span> Serhii Muryhin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">20 Dec 2020, 03:10:05</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">20 Dec 2020, 03:10:05</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">20 Dec 2020, 04:07:48</span> Audrius Kovalenko</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">20 Dec 2020, 04:13:45</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">20 Dec 2020, 06:06:58</span> Asaf Yonay</div> 
@@ -471,7 +539,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">19 Dec 2020, 00:43:41</span> silyevsk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">19 Dec 2020, 00:50:14</span> daliusd</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">19 Dec 2020, 00:51:41</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">19 Dec 2020, 02:19:24</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">19 Dec 2020, 02:19:24</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">19 Dec 2020, 03:10:33</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">19 Dec 2020, 03:22:31</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">19 Dec 2020, 03:32:50</span> Serhii Muryhin</div> 
@@ -517,7 +585,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">19 Dec 2020, 01:02:44</span> Gabriel Grinberg</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">19 Dec 2020, 01:11:46</span> GuyPerkal</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">19 Dec 2020, 01:20:55</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">19 Dec 2020, 02:12:42</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">19 Dec 2020, 02:12:42</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">19 Dec 2020, 02:14:40</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">19 Dec 2020, 02:41:26</span> Noam Neeman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">19 Dec 2020, 02:43:46</span> ShaharR</div> 
@@ -580,7 +648,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">18 Dec 2020, 03:30:46</span> Almog Adziashvili</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">18 Dec 2020, 04:37:42</span> Gongreg</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">18 Dec 2020, 04:51:23</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">18 Dec 2020, 06:13:23</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">18 Dec 2020, 06:13:23</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">18 Dec 2020, 06:34:38</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">18 Dec 2020, 06:36:49</span> Andrey Nikitin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">18 Dec 2020, 07:20:10</span> felixmosh</div> 
@@ -604,6 +672,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">20 Dec 2020, 11:13:32</span> David Perlman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">20 Dec 2020, 11:18:01</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">22 Dec 2020, 04:53:39</span> Arijus</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">26 Dec 2020, 07:28:24</span> Oleksandr Bondarchuk</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 18:</p>
@@ -633,7 +702,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">18 Dec 2020, 03:45:02</span> Andrey Nikitin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">18 Dec 2020, 04:29:49</span> Gongreg</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">18 Dec 2020, 04:36:36</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">18 Dec 2020, 05:58:50</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">18 Dec 2020, 05:58:50</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">18 Dec 2020, 06:15:57</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">18 Dec 2020, 06:50:38</span> Lieron Schalew</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">18 Dec 2020, 07:31:08</span> Lior Hai</div> 
@@ -656,6 +725,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">20 Dec 2020, 16:22:52</span> Yael Sarusi</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">22 Dec 2020, 04:53:03</span> Arijus</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">23 Dec 2020, 08:08:03</span> Vladyslav Zhuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">26 Dec 2020, 07:02:48</span> Oleksandr Bondarchuk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -677,7 +747,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">17 Dec 2020, 02:15:19</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">17 Dec 2020, 02:31:17</span> Nachshon Schwartz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">17 Dec 2020, 02:37:09</span> Dovile Lapinskaite</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">17 Dec 2020, 02:46:15</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">17 Dec 2020, 02:46:15</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">17 Dec 2020, 02:54:19</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">17 Dec 2020, 03:05:55</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">17 Dec 2020, 03:06:34</span> GuyPerkal</div> 
@@ -729,7 +799,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">17 Dec 2020, 02:09:52</span> GuyPerkal</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">17 Dec 2020, 02:18:06</span> Nachshon Schwartz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">17 Dec 2020, 02:24:26</span> Dovile Lapinskaite</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">17 Dec 2020, 02:45:24</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">17 Dec 2020, 02:45:24</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">17 Dec 2020, 02:48:20</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">17 Dec 2020, 02:53:05</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">17 Dec 2020, 02:53:57</span> Andrey Nikitin</div> 
@@ -779,7 +849,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">16 Dec 2020, 01:42:17</span> GuyPerkal</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">16 Dec 2020, 01:42:46</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">16 Dec 2020, 01:59:11</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">16 Dec 2020, 01:59:20</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">16 Dec 2020, 01:59:20</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">16 Dec 2020, 02:02:23</span> Yonatan Hattav</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">16 Dec 2020, 02:48:16</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">16 Dec 2020, 02:49:45</span> Dan Kovalsky</div> 
@@ -838,7 +908,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">16 Dec 2020, 01:15:35</span> Lieron Schalew</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">16 Dec 2020, 01:29:11</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">16 Dec 2020, 01:29:53</span> Or Leib</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">16 Dec 2020, 01:59:01</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">16 Dec 2020, 01:59:01</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">16 Dec 2020, 02:09:45</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">16 Dec 2020, 02:13:31</span> Audrius Kovalenko</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">16 Dec 2020, 02:16:14</span> Nachshon Schwartz</div> 
@@ -895,7 +965,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">15 Dec 2020, 02:55:00</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">15 Dec 2020, 02:56:21</span> Donatas Petrauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">15 Dec 2020, 03:00:15</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">15 Dec 2020, 03:02:56</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">15 Dec 2020, 03:02:56</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">15 Dec 2020, 03:19:34</span> Tadas Kundelis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">15 Dec 2020, 03:20:18</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">15 Dec 2020, 03:23:31</span> Domas Maksimas</div> 
@@ -952,7 +1022,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">15 Dec 2020, 02:18:00</span> Tomer Shkolnik</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">15 Dec 2020, 02:53:52</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">15 Dec 2020, 02:56:48</span> Inbal Langer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">15 Dec 2020, 03:02:10</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">15 Dec 2020, 03:02:10</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">15 Dec 2020, 03:05:26</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">15 Dec 2020, 03:15:50</span> Itay Friedman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">15 Dec 2020, 03:15:57</span> Lieron Schalew</div> 
@@ -1019,7 +1089,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">14 Dec 2020, 10:54:23</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">14 Dec 2020, 12:44:58</span> Nachshon Schwartz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">14 Dec 2020, 12:54:32</span> Guy Rotem</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">14 Dec 2020, 14:12:07</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">14 Dec 2020, 14:12:07</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">14 Dec 2020, 14:30:55</span> Itay Friedman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">14 Dec 2020, 15:20:06</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">14 Dec 2020, 15:36:55</span> Eddie Erlich</div> 
@@ -1078,7 +1148,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">14 Dec 2020, 12:10:20</span> Nachshon Schwartz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">14 Dec 2020, 13:31:14</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">14 Dec 2020, 14:10:43</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">14 Dec 2020, 14:11:45</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">14 Dec 2020, 14:11:45</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">14 Dec 2020, 14:51:58</span> Tom Bigelajzen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">14 Dec 2020, 15:05:20</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">14 Dec 2020, 15:36:47</span> Amit Dahan</div> 
@@ -1135,7 +1205,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">13 Dec 2020, 12:31:57</span> Yonatan Hattav</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">13 Dec 2020, 13:22:29</span> Amit Dahan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">13 Dec 2020, 14:13:04</span> Karolina Zarankaitė</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">13 Dec 2020, 14:22:29</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">13 Dec 2020, 14:22:29</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">13 Dec 2020, 14:24:27</span> Inbal Langer</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">13 Dec 2020, 14:31:08</span> Itai Ben David</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">13 Dec 2020, 15:09:28</span> Tom Bigelajzen</div> 
@@ -1188,7 +1258,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">13 Dec 2020, 02:53:06</span> Inbal Langer</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">13 Dec 2020, 03:09:35</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">13 Dec 2020, 03:12:30</span> Asaf Yonay</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">13 Dec 2020, 03:18:46</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">13 Dec 2020, 03:18:46</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">13 Dec 2020, 03:21:13</span> Tadas Kundelis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">13 Dec 2020, 03:24:10</span> Itay Friedman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">13 Dec 2020, 03:41:23</span> Itai Ben David</div> 
@@ -1253,7 +1323,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">12 Dec 2020, 09:10:55</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">12 Dec 2020, 11:05:40</span> Noam Neeman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">12 Dec 2020, 11:21:08</span> Amit Dahan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">12 Dec 2020, 12:07:23</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">12 Dec 2020, 12:07:23</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">12 Dec 2020, 13:15:02</span> Itay Friedman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">12 Dec 2020, 13:40:57</span> Yakir Narkis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">12 Dec 2020, 13:58:34</span> Nachshon Schwartz</div> 
@@ -1319,7 +1389,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">12 Dec 2020, 08:38:07</span> Inbal Langer</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">12 Dec 2020, 09:41:01</span> Yakir Narkis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">12 Dec 2020, 11:11:30</span> Amit Dahan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">12 Dec 2020, 12:05:42</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">12 Dec 2020, 12:05:42</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">12 Dec 2020, 12:56:37</span> Nachshon Schwartz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">12 Dec 2020, 13:11:32</span> Tom Bigelajzen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">12 Dec 2020, 13:49:57</span> Rita Bazak</div> 
@@ -1340,6 +1410,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">18 Dec 2020, 08:50:35</span> Elad Bogomolny</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">18 Dec 2020, 19:51:11</span> Lior Erez</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">19 Dec 2020, 18:14:13</span> bt4R9</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">25 Dec 2020, 06:10:33</span> Nir Cohen</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1389,7 +1460,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">11 Dec 2020, 15:22:01</span> Shilo Magen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">11 Dec 2020, 15:23:29</span> felixmosh</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">11 Dec 2020, 15:41:53</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">11 Dec 2020, 16:23:12</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">11 Dec 2020, 16:23:12</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">11 Dec 2020, 16:51:13</span> Doron Zavelevsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">11 Dec 2020, 17:27:47</span> etaiso</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">11 Dec 2020, 17:28:49</span> Tom Bigelajzen</div> 
@@ -1446,7 +1517,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">11 Dec 2020, 04:03:24</span> Gongreg</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">11 Dec 2020, 04:20:48</span> Arijus</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">11 Dec 2020, 04:30:02</span> Andrey Nikitin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">11 Dec 2020, 07:10:39</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">11 Dec 2020, 07:10:39</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">11 Dec 2020, 07:29:40</span> Dan Kovalsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">11 Dec 2020, 08:32:26</span> etaiso</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">11 Dec 2020, 08:39:06</span> David Perlman</div> 
@@ -1525,7 +1596,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">10 Dec 2020, 07:34:58</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">10 Dec 2020, 08:08:23</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">10 Dec 2020, 08:40:01</span> Tom Bigelajzen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">10 Dec 2020, 09:22:31</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">10 Dec 2020, 09:22:31</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">10 Dec 2020, 09:24:13</span> Arijus</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">10 Dec 2020, 12:05:26</span> Vadym Holoveichuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">10 Dec 2020, 12:09:44</span> Karolina Zarankaitė</div> 
@@ -1606,7 +1677,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">10 Dec 2020, 06:25:23</span> Vadym Holoveichuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">10 Dec 2020, 07:04:53</span> darksmile</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">10 Dec 2020, 07:44:01</span> Oleg Gordeev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">10 Dec 2020, 09:19:59</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">10 Dec 2020, 09:19:59</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">10 Dec 2020, 09:34:08</span> David Perlman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">10 Dec 2020, 10:24:38</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">10 Dec 2020, 11:58:54</span> Rita Bazak</div> 
@@ -1687,7 +1758,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">09 Dec 2020, 14:21:40</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">09 Dec 2020, 15:54:12</span> Eddie Erlich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">09 Dec 2020, 17:10:37</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">09 Dec 2020, 17:39:52</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">09 Dec 2020, 17:39:52</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">09 Dec 2020, 23:19:36</span> Nir Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">10 Dec 2020, 03:35:39</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">10 Dec 2020, 16:59:24</span> Stanislav Prokopiv</div> 
@@ -1763,7 +1834,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">09 Dec 2020, 14:22:36</span> Eddie Erlich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">09 Dec 2020, 15:46:45</span> Amit Dahan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">09 Dec 2020, 17:03:30</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">09 Dec 2020, 17:28:52</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">09 Dec 2020, 17:28:52</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">09 Dec 2020, 23:02:39</span> Nir Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">10 Dec 2020, 03:19:21</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">10 Dec 2020, 04:16:44</span> Itai Schuftan</div> 
@@ -1839,7 +1910,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">08 Dec 2020, 12:14:33</span> Guy Rotem</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">08 Dec 2020, 14:31:55</span> Amit Dahan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">08 Dec 2020, 15:11:09</span> Tadas Kundelis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">08 Dec 2020, 17:02:36</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">08 Dec 2020, 17:02:36</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">08 Dec 2020, 17:15:32</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">08 Dec 2020, 17:55:06</span> Rita Bazak</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">09 Dec 2020, 04:35:45</span> Arijus</div> 
@@ -1897,7 +1968,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">08 Dec 2020, 02:34:08</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">08 Dec 2020, 02:35:07</span> Inbal Langer</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">08 Dec 2020, 02:36:02</span> Or Leib</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">08 Dec 2020, 02:43:45</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">08 Dec 2020, 02:43:45</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">08 Dec 2020, 02:47:38</span> felixmosh</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">08 Dec 2020, 03:01:23</span> etaiso</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">08 Dec 2020, 03:01:39</span> Tomas Eglinskas</div> 
@@ -1929,6 +2000,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">16 Dec 2020, 08:26:21</span> Lior Erez</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">18 Dec 2020, 08:06:48</span> bt4R9</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">19 Dec 2020, 07:21:22</span> Mariia Havrylovych</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">25 Dec 2020, 07:34:18</span> Roman Shevchuk</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1985,7 +2057,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">07 Dec 2020, 10:05:08</span> etaiso</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">07 Dec 2020, 10:41:40</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">07 Dec 2020, 12:12:18</span> darksmile</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">07 Dec 2020, 13:54:52</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">07 Dec 2020, 13:54:52</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">07 Dec 2020, 13:57:38</span> Tomer Shkolnik</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">07 Dec 2020, 14:02:45</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">07 Dec 2020, 15:06:57</span> Shilo Magen</div> 
@@ -2069,7 +2141,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">07 Dec 2020, 10:48:13</span> Or Leib</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">07 Dec 2020, 12:05:56</span> darksmile</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">07 Dec 2020, 13:34:11</span> Tomer Shkolnik</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">07 Dec 2020, 13:36:42</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">07 Dec 2020, 13:36:42</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">07 Dec 2020, 15:19:38</span> Lieron Schalew</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">07 Dec 2020, 15:51:36</span> Amit Dahan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">07 Dec 2020, 16:36:47</span> Rita Bazak</div> 
@@ -2141,7 +2213,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">06 Dec 2020, 03:26:17</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">06 Dec 2020, 03:27:01</span> Antanas Bastys</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">06 Dec 2020, 03:35:50</span> Asaf Yonay</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">06 Dec 2020, 03:45:35</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">06 Dec 2020, 03:45:35</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">06 Dec 2020, 03:48:07</span> Lieron Schalew</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">06 Dec 2020, 03:53:42</span> Sharon Zevadi</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">06 Dec 2020, 04:09:58</span> etaiso</div> 
@@ -2224,7 +2296,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">06 Dec 2020, 02:41:41</span> felixmosh</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">06 Dec 2020, 02:42:19</span> Itai Schuftan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">06 Dec 2020, 02:47:11</span> bt4R9</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">06 Dec 2020, 02:57:09</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">06 Dec 2020, 02:57:09</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">06 Dec 2020, 02:58:08</span> Vladyslav Zhuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">06 Dec 2020, 03:06:39</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">06 Dec 2020, 03:18:42</span> Antanas Bastys</div> 
@@ -2328,7 +2400,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">05 Dec 2020, 12:57:14</span> Doron Zavelevsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">05 Dec 2020, 14:11:44</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">05 Dec 2020, 14:17:47</span> Tomer Shkolnik</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">05 Dec 2020, 14:25:41</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">05 Dec 2020, 14:25:41</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">05 Dec 2020, 15:17:58</span> Domas Maksimas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">05 Dec 2020, 15:24:24</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">05 Dec 2020, 16:58:08</span> Aviv Rosental</div> 
@@ -2416,7 +2488,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">05 Dec 2020, 12:48:04</span> bt4R9</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">05 Dec 2020, 13:53:54</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">05 Dec 2020, 14:07:22</span> Tomer Shkolnik</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">05 Dec 2020, 14:19:23</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">05 Dec 2020, 14:19:23</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">05 Dec 2020, 15:06:16</span> Asaf Yonay</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">05 Dec 2020, 16:47:14</span> Aviv Rosental</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">05 Dec 2020, 17:35:10</span> Sharon Zevadi</div> 
@@ -2496,7 +2568,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">04 Dec 2020, 10:06:51</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">04 Dec 2020, 10:22:59</span> Tom Bigelajzen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">04 Dec 2020, 10:35:24</span> Or Leib</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">04 Dec 2020, 10:43:04</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">04 Dec 2020, 10:43:04</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">04 Dec 2020, 11:39:25</span> Amit Dahan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">04 Dec 2020, 11:43:56</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">04 Dec 2020, 11:57:07</span> Asaf Yonay</div> 
@@ -2587,7 +2659,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">04 Dec 2020, 09:39:30</span> Elad Bogomolny</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">04 Dec 2020, 09:48:18</span> Tom Bigelajzen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">04 Dec 2020, 09:50:52</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">04 Dec 2020, 10:18:34</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">04 Dec 2020, 10:18:34</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">04 Dec 2020, 10:32:54</span> etaiso</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">04 Dec 2020, 10:52:20</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">04 Dec 2020, 11:30:43</span> Mantas Miliukas</div> 
@@ -2689,7 +2761,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">03 Dec 2020, 11:52:53</span> Roman Shevchuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">03 Dec 2020, 15:42:46</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">03 Dec 2020, 16:18:39</span> Rita Bazak</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">03 Dec 2020, 16:48:09</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">03 Dec 2020, 16:48:09</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">03 Dec 2020, 17:11:09</span> Itai Ben David</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">03 Dec 2020, 18:13:25</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">03 Dec 2020, 18:39:53</span> etaiso</div> 
@@ -2781,7 +2853,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">03 Dec 2020, 11:35:33</span> Roman Shevchuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">03 Dec 2020, 15:20:36</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">03 Dec 2020, 15:48:09</span> Rita Bazak</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">03 Dec 2020, 16:47:26</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">03 Dec 2020, 16:47:26</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">03 Dec 2020, 17:07:33</span> Itai Ben David</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">03 Dec 2020, 18:04:48</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">03 Dec 2020, 18:30:40</span> etaiso</div> 
@@ -2882,7 +2954,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">02 Dec 2020, 16:40:26</span> Itai Ben David</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">02 Dec 2020, 18:54:15</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">03 Dec 2020, 04:13:55</span> Arijus</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">03 Dec 2020, 07:31:08</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">03 Dec 2020, 07:31:08</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">03 Dec 2020, 07:33:31</span> Malachi Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">03 Dec 2020, 12:14:49</span> valerii-vorobiov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">04 Dec 2020, 09:03:40</span> Mariia Havrylovych</div> 
@@ -2976,7 +3048,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">02 Dec 2020, 16:36:18</span> Itai Ben David</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">02 Dec 2020, 18:44:24</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">03 Dec 2020, 04:09:53</span> Arijus</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">03 Dec 2020, 07:24:35</span> yonifra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">03 Dec 2020, 07:24:35</span> Jonathan Fraimorice</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">03 Dec 2020, 07:28:06</span> Malachi Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">03 Dec 2020, 11:55:29</span> valerii-vorobiov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">04 Dec 2020, 08:56:37</span> Mariia Havrylovych</div> 
