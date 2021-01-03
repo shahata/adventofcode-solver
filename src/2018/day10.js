@@ -1,3 +1,5 @@
+import { ocr } from '../utils/ocr.js';
+
 function move(points, seconds) {
   return points.map(p => ({
     x: p.x + p.xDiff * seconds,
@@ -42,5 +44,5 @@ export function day(input) {
     nextHeight = height(size(move(points, secs + 1)));
   } while (currentHeight > nextHeight); //text visible in minimal height
 
-  return { part1: '\n' + print(move(points, secs)), part2: secs };
+  return { part1: ocr(print(move(points, secs))), part2: secs };
 }

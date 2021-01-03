@@ -1,4 +1,5 @@
 import { execute } from './day09.js';
+import { ocr } from '../utils/ocr.js';
 
 function move({ x, y }, direction) {
   const directions = {
@@ -67,13 +68,13 @@ export function part2(input) {
     .sort((a, b) => a[1] - b[1] || a[0] - b[0]);
   const first = coordinates[0];
   const last = coordinates[coordinates.length - 1];
-  const lines = [''];
+  const lines = [];
   for (let y = first[1]; y <= last[1]; y++) {
     let line = '';
     for (let x = first[0]; x <= last[0]; x++) {
-      line += map[`${x},${y}`] && map[`${x},${y}`].value === 1 ? '#' : ' ';
+      line += map[`${x},${y}`] && map[`${x},${y}`].value === 1 ? '#' : '.';
     }
     lines.push(line);
   }
-  return lines.join('\n');
+  return ocr(lines.join('\n'));
 }

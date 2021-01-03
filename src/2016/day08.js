@@ -1,3 +1,5 @@
+import { ocr } from '../utils/ocr.js';
+
 function init(width, height) {
   return new Array(height).fill().map(() => new Array(width).fill(false));
 }
@@ -57,7 +59,7 @@ export function part1(input, width = 50, height = 6) {
 
 export function part2(input, width = 50, height = 6) {
   const final = solve(input, width, height);
-  return `\n${final
-    .map(row => row.map(x => (x ? '#' : '.')).join(''))
-    .join('\n')}`;
+  return ocr(
+    final.map(row => `.${row.map(x => (x ? '#' : '.')).join('')}`).join('\n'),
+  );
 }

@@ -12,17 +12,7 @@ describe('day11 2019', () => {
 
   describe('part2', () => {
     it('should work for part 2 input', () => {
-      expect(part2(input)).toEqual(
-        [
-          '',
-          ' ###   ##  #  # #### ###  #    ###  ###  ',
-          ' #  # #  # #  # #    #  # #    #  # #  # ',
-          ' #  # #    #  # ###  #  # #    #  # #  # ',
-          ' ###  # ## #  # #    ###  #    ###  ###  ',
-          ' #    #  # #  # #    #    #    #    # #  ',
-          ' #     ###  ##  #### #    #### #    #  # ',
-        ].join('\n'),
-      );
+      expect(part2(input)).toEqual('PGUEPLPR');
     });
   });
 });

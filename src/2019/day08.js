@@ -1,3 +1,5 @@
+import { ocr } from '../utils/ocr.js';
+
 export function part1(input, wide = 25, tall = 6) {
   const bits = input.split('');
   const layers = [];
@@ -31,7 +33,7 @@ export function part2(input, wide = 25, tall = 6) {
     const row = Math.floor(index / wide);
     rows[row] = (rows[row] || '') + bit;
   });
-  return `\n${rows
-    .map(row => row.replace(/0/g, ' ').replace(/1/g, '#'))
-    .join('\n')}`;
+  return ocr(
+    rows.map(row => `.${row.replace(/0/g, '.').replace(/1/g, '#')}`).join('\n'),
+  );
 }

@@ -16,21 +16,11 @@ describe('day08 2019', () => {
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(part2('0222112222120000', 2, 2)).toEqual('\n #\n# ');
+      expect(part2('0222112222120000', 2, 2)).toEqual('\n..#\n.#.');
     });
 
     it('should work for part 2 input', () => {
-      expect(part2(input)).toEqual(
-        [
-          '',
-          '  ##  ##  #### ###   ##  ',
-          '   # #  # #    #  # #  # ',
-          '   # #  # ###  #  # #  # ',
-          '   # #### #    ###  #### ',
-          '#  # #  # #    # #  #  # ',
-          ' ##  #  # #    #  # #  # ',
-        ].join('\n'),
-      );
+      expect(part2(input)).toEqual('JAFRA');
     });
   });
 });
