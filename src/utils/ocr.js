@@ -43,7 +43,7 @@ export function ocr(image) {
       const letter = lines.map(x => x.slice(i * 5 + 1, i * 5 + 5)).join('');
       result += alphabet[letter];
     }
-    return result.length === letters ? result : image;
+    return result.length === letters ? result : `\n${image}`;
   } else {
     lines = lines.map(x => `..${x}..`);
     const letters = (lines[0].length - 2) / 8;
