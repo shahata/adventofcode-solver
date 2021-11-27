@@ -5,26 +5,26 @@
       "name": "Launch Day",
       "type": "node",
       "request": "launch",
+      "cwd": "${workspaceRoot}",
       "program": "${workspaceRoot}/src/index.js",
       "args": [
         "${relativeFile}"
-      ],
-      "cwd": "${workspaceRoot}"
+      ]
     },
     {
       "name": "Launch Tests",
       "type": "node",
       "request": "launch",
+      "cwd": "${workspaceRoot}",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": [
         "--runInBand",
         "--findRelatedTests",
         "${relativeFile}"
       ],
-      "runtimeArgs": [
-        "--experimental-vm-modules"
-      ],
-      "cwd": "${workspaceRoot}"
+      "env": {
+        "NODE_OPTIONS": "--experimental-vm-modules",
+      }
     }
   ]
 }

@@ -8,9 +8,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "f(){ if [ -z \"$CI\" ]; then npm run jest -- --onlyChanged $*; else npm run jest -- $*; fi ;};f",
-    "jest": "node --experimental-vm-modules node_modules/.bin/jest",
-    "lint": "eslint src/**/*.js"
+    "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi }; NODE_OPTIONS=--experimental-vm-modules f",
+    "lint": "eslint src"
   },
   "dependencies": {
     "@zonda/inquirer-timeout-confirm-prompt": "^0.1.1",
@@ -58,7 +57,7 @@
     "runSelectedTestsOnly": true,
     "env": {
       "params": {
-        "runner": "--experimental-vm-modules"
+        "env": "NODE_OPTIONS=--experimental-vm-modules"
       }
     }
   }
