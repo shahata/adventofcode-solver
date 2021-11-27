@@ -101,26 +101,30 @@ function toHHMMSS(sec_num) {
 export async function createSolver(year, day) {
   inquirer.registerPrompt('timeout-confirm', TimeoutConfirm);
   const page = await getYearPage(year);
-  const [, eta] = page.match(/server_eta = (\d+)/);
-  const answers = await inquirer.prompt([
-    {
-      type: 'timeout-confirm',
-      timeout: eta,
-      timeoutTips: t => `(${toHHMMSS(t)})`,
-      name: 'create',
-      message: `Create solver ${year}/${dayName(day)}?`,
-    },
-  ]);
-  if (answers.create) {
-    const txtFileName = await downloadInput(year, day);
-    const jsFileName = renderTemplate(year, dayName(day), 'js', {});
-    const specFileName = renderTemplate(year, dayName(day), 'spec.js', {
-      year,
-      day: dayName(day),
-    });
-    [jsFileName, specFileName, txtFileName].forEach(fn =>
-      console.log(`Created ${fn}`),
-    );
-    console.log('');
+  if (page.match(/server_eta = (\d+)/)) {
+    const [, eta] = page.match(/server_eta = (\d+)/);
+    const answers = await inquirer.prompt([
+      {
+        type: 'timeout-confirm',
+        timeout: eta,
+        timeoutTips: t => `(${toHHMMSS(t)})`,
+        name: 'create',
+        message: `Create solver ${year}/${dayName(day)}?`,
+      },
+    ]);
+    if (!answers.create) {
+      return;
+    }
   }
+
+  const txtFileName = await downloadInput(year, day);
+  const jsFileName = renderTemplate(year, dayName(day), 'js', {});
+  const specFileName = renderTemplate(year, dayName(day), 'spec.js', {
+    year,
+    day: dayName(day),
+  });
+  [jsFileName, specFileName, txtFileName].forEach(fn =>
+    console.log(`Created ${fn}`),
+  );
+  console.log('');
 }
