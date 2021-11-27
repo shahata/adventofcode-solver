@@ -1,16 +1,14 @@
-/* global performance, fetch */
+/* global fetch */
 import { dayName } from '../../utils/day-name.js';
 
 let duration;
-performance.timerify = fn => {
-  return (...args) => {
-    const t0 = performance.now();
-    const result = fn(...args);
-    const t1 = performance.now();
-    duration = `(${Math.round(t1 - t0)}ms)`;
-    return result;
-  };
-};
+function timerify(fn) {
+  const start = performance.now();
+  const result = fn();
+  const end = performance.now();
+  duration = `(${Math.round(end - start)}ms)`;
+  return result;
+}
 
 async function readInput(session, year, day) {
   const url = `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`;
@@ -61,13 +59,13 @@ export async function solver(session, year, day) {
   const module = await import(`../../${fileName}.js`);
   const input = await readInput(session, year, day);
   if (module.day) {
-    const { part1, part2 } = performance.timerify(module.day)(input);
+    const { part1, part2 } = timerify(() => module.day(input));
     console.log(await submit(1, part1));
     console.log(await submit(2, part2, duration));
   } else {
-    const part1 = performance.timerify(module.part1)(input);
+    const part1 = timerify(() => module.part1(input));
     console.log(await submit(1, part1, duration));
-    const part2 = performance.timerify(module.part2)(input);
+    const part2 = timerify(() => module.part2(input));
     console.log(await submit(2, part2, duration));
   }
 }
