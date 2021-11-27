@@ -16,15 +16,8 @@ function parse(input) {
     '!=': (a, b) => a !== b,
   };
   return input.split('\n').map(x => {
-    const [
-      variable,
-      operator,
-      param,
-      ,
-      compVariable,
-      compOperator,
-      compParam,
-    ] = x.split(/\s+/);
+    const [variable, operator, param, , compVariable, compOperator, compParam] =
+      x.split(/\s+/);
     return state => {
       state[variable] = state[variable] || 0;
       state[compVariable] = state[compVariable] || 0;

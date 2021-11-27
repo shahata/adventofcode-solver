@@ -1,5 +1,6 @@
 function parse(input, fn) {
-  const regexp = /^(swap position|swap letter|rotate based|rotate|reverse positions|move position) ([^\s]+)\s.*\s([^\s]+)$/;
+  const regexp =
+    /^(swap position|swap letter|rotate based|rotate|reverse positions|move position) ([^\s]+)\s.*\s([^\s]+)$/;
   const ops = {
     'swap position': (a, b) => str => {
       [a, b] = [+a, +b].sort((a, b) => a - b);
