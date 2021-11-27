@@ -2,7 +2,7 @@ import fs from 'fs';
 import url from 'url';
 import path from 'path';
 import ProgressBar from 'progress';
-import { performance, PerformanceObserver } from 'perf_hooks';
+import { performance } from 'perf_hooks';
 
 import readInput from './read-input.js';
 import { dayName } from './day-name.js';
@@ -16,10 +16,13 @@ import {
 } from './renderer.js';
 
 let duration;
-const obs = new PerformanceObserver(list => {
-  duration = `(${Math.round(list.getEntries().shift().duration)}ms)`;
-});
-obs.observe({ entryTypes: ['function'] });
+function timerify(fn) {
+  const start = performance.now();
+  const result = fn();
+  const end = performance.now();
+  duration = `(${Math.round(end - start)}ms)`;
+  return result;
+}
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -36,18 +39,12 @@ function solverFunction(year, day) {
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log('----------------------------');
     if (module.day) {
-      const { part1, part2 } = performance.timerify(module.day)(input);
+      const { part1, part2 } = timerify(() => module.day(input));
       console.log(`Part1: ${part1}`);
       console.log(`Part2: ${part2}`, duration);
     } else {
-      console.log(
-        `Part1: ${performance.timerify(module.part1)(input)}`,
-        duration,
-      );
-      console.log(
-        `Part2: ${performance.timerify(module.part2)(input)}`,
-        duration,
-      );
+      console.log(`Part1: ${timerify(() => module.part1(input))}`, duration);
+      console.log(`Part2: ${timerify(() => module.part2(input))}`, duration);
     }
     console.log('');
   };

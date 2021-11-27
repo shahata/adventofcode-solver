@@ -118,6 +118,8 @@ a.sponsor-badge:hover, a.sponsor-badge:focus {
   width: 200px;
   float: right;
   margin: 0 15px 2em 2em;
+  position: relative;
+  z-index: 10;
 }
 #sponsor {
   margin-bottom: 2.5em;
