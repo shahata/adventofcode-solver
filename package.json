@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi }; NODE_OPTIONS=--experimental-vm-modules f",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@zonda/inquirer-timeout-confirm-prompt": "^0.1.1",
@@ -40,11 +41,6 @@
       "plugin:jest/recommended",
       "plugin:prettier/recommended"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
   },
   "prettier": {
     "singleQuote": true,

@@ -3,7 +3,7 @@ import readInput from '../utils/read-input.js';
 
 const input = readInput(import.meta.url);
 
-describe.only('day01 2021', () => {
+describe('day01 2021', () => {
   describe('part1', () => {
     it('should work for part 1 examples', () => {
       expect(
