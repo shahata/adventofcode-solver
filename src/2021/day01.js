@@ -2,15 +2,12 @@ export function part1(input) {
   return input
     .split('\n')
     .map(x => +x)
-    .filter((x, i, a) => i > 0 && a[i - 1] < x).length;
+    .filter((x, i, a) => i > 0 && x > a[i - 1]).length;
 }
 
 export function part2(input) {
   return input
     .split('\n')
     .map(x => +x)
-    .filter(
-      (x, i, a) =>
-        i > 2 && a[i - 1] + a[i - 2] + a[i - 3] < x + a[i - 1] + a[i - 2],
-    ).length;
+    .filter((x, i, a) => i > 2 && x > a[i - 3]).length;
 }
