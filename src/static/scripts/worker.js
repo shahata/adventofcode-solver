@@ -20,6 +20,8 @@ self.onmessage = async e => {
   await solveAll(e.data.session, e.data.year, e.data.day);
   self.postMessage({ type: 'done' });
 };
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 console.log = (...args) => {
   const str = args.map(x => `${x}`).join(' ');
   self.postMessage({ type: 'log', log: str });

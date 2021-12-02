@@ -1,6 +1,6 @@
-import fs from 'fs';
-import url from 'url';
-import path from 'path';
+import * as fs from 'fs';
+import * as url from 'url';
+import * as path from 'path';
 import ProgressBar from 'progress';
 import { performance } from 'perf_hooks';
 

@@ -40,7 +40,7 @@ function calcNeighbors(map, next, visited, recursive) {
 function parse(input) {
   const portals = {};
   let counter = 0;
-  let current;
+  let current = { end: undefined };
   const map = input
     .split('\n')
     .map((line, y) => line.split('').map((p, x) => ({ x, y, c: p })));
@@ -84,7 +84,7 @@ function bfs(input, recursive) {
   let queue = [{ point: current, distance: 0, level: 0 }];
   while (queue.length > 0) {
     const next = queue.shift();
-    if (next.point.end) {
+    if (next.point && next.point.end) {
       return next.distance - 1;
     }
     visited.add(next);

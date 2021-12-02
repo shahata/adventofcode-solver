@@ -19,18 +19,18 @@ function parse(input) {
     });
     food.allergens.forEach(x => allAllergens.add(x));
   });
-  allIngredients = [...allIngredients.values()];
-  allIngredients.forEach(
+  const allIngredientsArr = [...allIngredients.values()];
+  allIngredientsArr.forEach(
     ingredient => (ingredient.mightContain = new Set(allAllergens)),
   );
   foods.forEach(food => {
-    allIngredients.forEach(ingredient => {
+    allIngredientsArr.forEach(ingredient => {
       if (!food.ingredients.includes(ingredient.name)) {
         food.allergens.forEach(x => ingredient.mightContain.delete(x));
       }
     });
   });
-  return allIngredients;
+  return allIngredientsArr;
 }
 
 export function part1(input) {

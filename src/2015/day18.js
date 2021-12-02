@@ -1,4 +1,4 @@
-function life(grid, stuck = () => false) {
+function life(grid, stuck) {
   function calc(state, i, j) {
     const adjacent = [
       grid[i - 1] && grid[i - 1][j - 1],
@@ -19,7 +19,7 @@ function life(grid, stuck = () => false) {
     }
   }
   return grid.map((row, i) =>
-    row.map((cell, j) => stuck(i, j) || calc(cell, i, j)),
+    row.map((cell, j) => (stuck && stuck(i, j)) || calc(cell, i, j)),
   );
 }
 

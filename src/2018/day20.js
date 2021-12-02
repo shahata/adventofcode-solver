@@ -49,7 +49,8 @@ function traverse(current, path, map) {
 
 function calc(input) {
   const start = { x: 0, y: 0 };
-  const map = new Map([[pos(start), '.']]);
+  const map = new Map();
+  map.set(pos(start), '.');
   traverse(start, input.slice(1, input.length - 1).split(''), map);
 
   const queue = [{ distance: 0, point: start }];

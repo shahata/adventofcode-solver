@@ -28,24 +28,24 @@ export function part1(input, fuelAmount = 1) {
     .reduce((prev, next) => Object.assign(prev, { [next.element]: next }), {});
 
   const spare = {};
-  let requirements = [[fuelAmount, 'FUEL']];
-  while (requirements.length > 1 || requirements[0][1] !== 'ORE') {
+  let requirements = [{ amount: fuelAmount, element: 'FUEL' }];
+  while (requirements.length > 1 || requirements[0].element !== 'ORE') {
     const next = requirements.shift();
-    if (next[1] === 'ORE') {
+    if (next.element === 'ORE') {
       requirements.push(next);
       continue;
     }
-    const r = need(next[0], next[1], reactions, spare);
+    const r = need(next.amount, next.element, reactions, spare);
     r.forEach(([amount, element]) => {
-      const f = requirements.find(x => x[1] === element);
+      const f = requirements.find(x => x.element === element);
       if (f) {
-        f[0] += amount;
+        f.amount += amount;
       } else {
-        requirements.push([amount, element]);
+        requirements.push({ amount, element });
       }
     });
   }
-  return requirements[0][0];
+  return requirements[0].amount;
 }
 
 export function part2(input) {

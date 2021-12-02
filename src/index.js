@@ -1,6 +1,6 @@
-import fs from 'fs';
-import url from 'url';
-import path from 'path';
+import * as fs from 'fs';
+import * as url from 'url';
+import * as path from 'path';
 import solveAll from './utils/solver.js';
 
 async function solveAllYears() {
@@ -15,12 +15,14 @@ if (process.env.ADVENT_SESSION) {
   let day = process.argv[3];
   if (process.argv[2] && process.argv[2].includes('/')) {
     const clean = process.argv[2].split('/').slice(-2);
-    year = parseInt(clean[0]);
-    day = parseInt(clean[1].match(/\d+/).pop());
-    if (Number.isNaN(year) || Number.isNaN(day)) {
+    const yearNum = parseInt(clean[0]);
+    const dayNum = parseInt(clean[1].match(/\d+/).pop());
+    if (Number.isNaN(yearNum) || Number.isNaN(dayNum)) {
       console.error('Invalid arguments');
       process.exit(0);
     }
+    year = `${yearNum}`;
+    day = `${dayNum}`;
   }
   if (year) {
     solveAll(`${year}`, day && `${day}`).catch(err => console.error(err.stack));

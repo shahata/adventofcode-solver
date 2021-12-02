@@ -40,7 +40,7 @@ function run(input, network, id) {
 
 function init(input) {
   const network = new Array(50).fill().map((x, i) => {
-    return { packets: [{ type: 'id', value: i }], idle: 0 };
+    return { packets: [{ type: 'id', value: i }], idle: 0, cpu: undefined };
   });
   network.forEach((x, i) => (x.cpu = run(input, network, i)));
   return network;

@@ -2,9 +2,8 @@ import { divisors } from '../utils/divisors.js';
 
 export function day(input, part1Only = false) {
   input = +input;
-  let part1,
-    part2 = part1Only;
-  for (let i = 1; !part1 || !part2; i++) {
+  let part1, part2;
+  for (let i = 1; part1Only ? !part1 : !part1 || !part2; i++) {
     const numbers = divisors(i);
     const sum = numbers.reduce((sum, x) => sum + x, 0);
     const sub = numbers

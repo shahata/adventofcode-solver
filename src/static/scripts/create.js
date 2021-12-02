@@ -1,9 +1,8 @@
-/*global document, window, WorkerShim, fetch */
-
+/* global document, window, WorkerShim, fetch */
 function runWorker(session, year, day = 1) {
   return new Promise(resolve => {
-    if (window.SolverWorker) {
-      window.SolverWorker.terminate();
+    if (window['SolverWorker']) {
+      window['SolverWorker'].terminate();
     }
     if (day === 1) {
       document.getElementById('output').innerHTML = '';
@@ -12,7 +11,7 @@ function runWorker(session, year, day = 1) {
       runWorker(session, year, day + 1) && false;
     document.getElementById('loader').style.display = 'block';
 
-    const u = s => new URL(s, window.location);
+    const u = s => new URL(s, window.location.toString());
     const worker = new WorkerShim('../static/scripts/worker.js', {
       type: 'module',
       importMap: {
@@ -37,7 +36,7 @@ function runWorker(session, year, day = 1) {
         resolve();
       }
     };
-    window.SolverWorker = worker;
+    window['SolverWorker'] = worker;
   });
 }
 
@@ -74,12 +73,16 @@ async function submitAnswer(e) {
 }
 
 export async function run(year) {
-  const session = document.getElementById('session').value;
-  document.getElementById('session').value = '';
-  document.getElementById('session').blur();
+  /** @type {HTMLInputElement} */
+  const sessionElement = document.querySelector('#session');
+  const session = sessionElement.value;
+  sessionElement.value = '';
+  sessionElement.blur();
   await runWorker(session, year);
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 console.log = (...args) => {
   const str = args.map(x => `${x}`).join(' ');
   const element = document.createElement('span');
@@ -94,5 +97,8 @@ console.log = (...args) => {
   }
   document
     .querySelectorAll('#submitter')
-    .forEach(form => (form.onsubmit = e => submitAnswer(e) && false));
+    .forEach(
+      (/** @type {HTMLFormElement} */ form) =>
+        (form.onsubmit = e => submitAnswer(e) && false),
+    );
 };

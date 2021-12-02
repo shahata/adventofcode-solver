@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import * as crypto from 'crypto';
 
 export default function md5(str) {
   const hash = crypto.createHash('md5');

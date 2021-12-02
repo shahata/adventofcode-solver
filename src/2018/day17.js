@@ -91,7 +91,7 @@ export function day(input) {
       }
     }
   });
-  const result = fill(pit, base, end);
+  const result = fill(pit, base);
   // console.log(pit.map(x => x.join('')).join('\n'));
   return { part1: result.wet + result.dry, part2: result.dry };
 }

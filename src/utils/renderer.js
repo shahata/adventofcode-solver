@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import inquirer from 'inquirer';
 import { fileURLToPath } from 'url';
 import { dayName, isDayName } from './day-name.js';
@@ -11,7 +11,7 @@ import {
   getEventsPage,
   getLeaderboardJsons,
   getEndPage,
-  downloadContent,
+  downloadStatic,
 } from './scraper.js';
 import TimeoutConfirm from '@zonda/inquirer-timeout-confirm-prompt';
 
@@ -26,13 +26,6 @@ function renderTemplate(year, name, extension, model) {
   }, fs.readFileSync(`${template}.${extension}.template`).toString());
   fs.writeFileSync(fileName, result);
   return fileName;
-}
-
-async function downloadStatic(url) {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const src = path.resolve(__dirname, '..', 'static');
-  const fileName = path.join(src, url.split('/').pop());
-  fs.writeFileSync(fileName, await downloadContent(url));
 }
 
 export async function downloadQuestion(year, day) {
@@ -82,20 +75,11 @@ export async function downloadIndex(year, bar) {
 }
 
 function toHHMMSS(sec_num) {
-  var hours = Math.floor(sec_num / 3600);
-  var minutes = Math.floor((sec_num - hours * 3600) / 60);
-  var seconds = sec_num - hours * 3600 - minutes * 60;
-
-  if (hours < 10) {
-    hours = '0' + hours;
-  }
-  if (minutes < 10) {
-    minutes = '0' + minutes;
-  }
-  if (seconds < 10) {
-    seconds = '0' + seconds;
-  }
-  return hours + ':' + minutes + ':' + seconds;
+  const hours = Math.floor(sec_num / 3600);
+  const minutes = Math.floor((sec_num - hours * 3600) / 60);
+  const seconds = sec_num - hours * 3600 - minutes * 60;
+  const pad = num => (num < 10 ? '0' : '') + num;
+  return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
 }
 
 export async function createSolver(year, day) {

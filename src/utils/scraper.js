@@ -1,7 +1,10 @@
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
 import fetch from 'node-fetch';
 import { dayName } from './day-name.js';
 
-export async function downloadContent(url, postPayload) {
+async function downloadRequest(url, postPayload) {
   const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
   const options = { headers };
   if (postPayload) {
@@ -22,10 +25,23 @@ export async function downloadContent(url, postPayload) {
       ].join('\n'),
     );
   }
+  return response;
+}
+
+async function downloadContent(url, postPayload) {
+  const response = await downloadRequest(url, postPayload);
+  return await response.text();
+}
+
+export async function downloadStatic(url) {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const src = path.resolve(__dirname, '..', 'static');
+  const fileName = path.join(src, url.split('/').pop());
+  const response = await downloadRequest(url);
   if (response.headers.get('Content-Type') === 'image/png') {
-    return Buffer.from(await response.arrayBuffer());
+    fs.writeFileSync(fileName, Buffer.from(await response.arrayBuffer()));
   } else {
-    return await response.text();
+    fs.writeFileSync(fileName, await response.text());
   }
 }
 

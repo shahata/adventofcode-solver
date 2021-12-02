@@ -86,7 +86,7 @@ describe('day25 2018', () => {
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(part2(input)).toEqual(undefined);
+      expect(part2()).toEqual(undefined);
     });
   });
 });

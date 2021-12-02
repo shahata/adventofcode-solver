@@ -16,9 +16,7 @@ describe('day13 2020', () => {
 
   describe('part2', () => {
     it('should work for part 2 examples', () => {
-      expect(part2(['939', '7,13,x,x,59,x,31,19'].join('\n'), 0)).toEqual(
-        1068781,
-      );
+      expect(part2(['939', '7,13,x,x,59,x,31,19'].join('\n'))).toEqual(1068781);
     });
 
     it('should work for part 2 input', () => {

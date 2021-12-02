@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { fileURLToPath } from 'url';
 
 export default function readInput(fileUrl) {

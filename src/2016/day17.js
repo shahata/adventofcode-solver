@@ -25,7 +25,9 @@ function solve(input, shortest = true) {
         .slice(0, 4)
         .split('')
         .map(x => 'bcdef'.includes(x));
-      queue = queue.concat(getNeighbors(next, doors));
+      queue = queue.concat(
+        getNeighbors(next, [doors[0], doors[1], doors[2], doors[3]]),
+      );
     }
   }
   return max;

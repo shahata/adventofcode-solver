@@ -1,9 +1,9 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import { fileURLToPath } from 'url';
 
-function removeIgnoredDays(jsons) {
-  jsons.forEach(json => {
+function removeIgnoredDays(jsonArr) {
+  jsonArr.forEach(json => {
     if (json.event === '2020') {
       Object.values(json.members).forEach(member => {
         delete member.completion_day_level['1'];
@@ -17,23 +17,23 @@ function removeIgnoredDays(jsons) {
   });
 }
 
-export function calcLeaderboard(jsons) {
+export function calcLeaderboard(jsonArr) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const jsonPath = path.resolve(__dirname, 'leaderboards.json');
   const debugMode = false;
-  if (jsons) {
+  if (jsonArr) {
     if (debugMode) {
-      fs.writeFileSync(jsonPath, JSON.stringify(jsons));
+      fs.writeFileSync(jsonPath, JSON.stringify(jsonArr));
     }
   } else if (debugMode) {
-    jsons = JSON.parse(fs.readFileSync(jsonPath).toString());
+    jsonArr = JSON.parse(fs.readFileSync(jsonPath).toString());
   } else {
     return;
   }
-  removeIgnoredDays(jsons);
+  removeIgnoredDays(jsonArr);
 
   const members = Object.values(
-    jsons
+    jsonArr
       .reverse()
       .map(x => x.members)
       .reduce((a, b) => ({ ...a, ...b }), {}),
@@ -95,7 +95,12 @@ export function calcLeaderboard(jsons) {
       ) {
         data.pop();
       }
-      return { label: member.label, pointsPerDay: data, stars: member.stars };
+      return {
+        label: member.label,
+        pointsPerDay: data,
+        stars: member.stars,
+        leadPerDay: 0,
+      };
     });
   leaders.forEach(member => {
     member.leadPerDay = member.pointsPerDay.map((p, i) => {

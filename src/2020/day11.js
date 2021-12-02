@@ -18,7 +18,7 @@ function neighbors(seats, current, far) {
       } while (far && seats[point.y] && seats[point.y][point.x] === '.');
       return seats[point.y] && seats[point.y][point.x] === '#' ? 1 : 0;
     })
-    .reduce((a, b) => a + b);
+    .reduce((a, b) => a + b, 0);
 }
 
 function life(input, count, far) {
