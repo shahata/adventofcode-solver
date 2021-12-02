@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Day 2 - Advent of Code 2021</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2021</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
+<article class="day-desc"><h2>--- Day 2: Dive! ---</h2><p>Now, you need to figure out how to <span title="Tank, I need a pilot program for a B212 helicopter.">pilot this thing</span>.</p>
+<p>It seems like the submarine can take a series of commands like <code>forward 1</code>, <code>down 2</code>, or <code>up 3</code>:</p>
+<ul>
+<li><code>forward X</code> increases the horizontal position by <code>X</code> units.</li>
+<li><code>down X</code> <em>increases</em> the depth by <code>X</code> units.</li>
+<li><code>up X</code> <em>decreases</em> the depth by <code>X</code> units.</li>
+</ul>
+<p>Note that since you're on a submarine, <code>down</code> and <code>up</code> affect your <em>depth</em>, and so they have the opposite result of what you might expect.</p>
+<p>The submarine seems to already have a planned course (your puzzle input). You should probably figure out where it's going. For example:</p>
+<pre><code>forward 5
+down 5
+forward 8
+up 3
+down 8
+forward 2
+</code></pre>
+<p>Your horizontal position and depth both start at <code>0</code>. The steps above would then modify them as follows:</p>
+<ul>
+<li><code>forward 5</code> adds <code>5</code> to your horizontal position, a total of <code>5</code>.</li>
+<li><code>down 5</code> adds <code>5</code> to your depth, resulting in a value of <code>5</code>.</li>
+<li><code>forward 8</code> adds <code>8</code> to your horizontal position, a total of <code>13</code>.</li>
+<li><code>up 3</code> decreases your depth by <code>3</code>, resulting in a value of <code>2</code>.</li>
+<li><code>down 8</code> adds <code>8</code> to your depth, resulting in a value of <code>10</code>.</li>
+<li><code>forward 2</code> adds <code>2</code> to your horizontal position, a total of <code>15</code>.</li>
+</ul>
+<p>After following these instructions, you would have a horizontal position of <code>15</code> and a depth of <code>10</code>. (Multiplying these together produces <code><em>150</em></code>.)</p>
+<p>Calculate the horizontal position and depth you would have after following the planned course. <em>What do you get if you multiply your final horizontal position by your final depth?</em></p>
+</article>
+<p>Your puzzle answer was <code>1561344</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.</p>
+<p>In addition to horizontal position and depth, you'll also need to track a third value, <em>aim</em>, which also starts at <code>0</code>. The commands also mean something entirely different than you first thought:</p>
+<ul>
+<li><code>down X</code> <em>increases</em> your aim by <code>X</code> units.</li>
+<li><code>up X</code> <em>decreases</em> your aim by <code>X</code> units.</li>
+<li><code>forward X</code> does two things:<ul>
+  <li>It increases your horizontal position by <code>X</code> units.</li>
+  <li>It increases your depth by your aim <em>multiplied by</em> <code>X</code>.</li>
+</ul></li>
+</ul>
+<p>Again note that since you're on a submarine, <code>down</code> and <code>up</code> do the opposite of what you might expect: "down" means aiming in the positive direction.</p>
+<p>Now, the above example does something different:</p>
+<ul>
+<li><code>forward 5</code> adds <code>5</code> to your horizontal position, a total of <code>5</code>. Because your aim is <code>0</code>, your depth does not change.</li>
+<li><code>down 5</code> adds <code>5</code> to your aim, resulting in a value of <code>5</code>.</li>
+<li><code>forward 8</code> adds <code>8</code> to your horizontal position, a total of <code>13</code>. Because your aim is <code>5</code>, your depth increases by <code>8*5=40</code>.</li>
+<li><code>up 3</code> decreases your aim by <code>3</code>, resulting in a value of <code>2</code>.</li>
+<li><code>down 8</code> adds <code>8</code> to your aim, resulting in a value of <code>10</code>.</li>
+<li><code>forward 2</code> adds <code>2</code> to your horizontal position, a total of <code>15</code>.  Because your aim is <code>10</code>, your depth increases by <code>2*10=20</code> to a total of <code>60</code>.</li>
+</ul>
+<p>After following these new instructions, you would have a horizontal position of <code>15</code> and a depth of <code>60</code>. (Multiplying these produces <code><em>900</em></code>.)</p>
+<p>Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course. <em>What do you get if you multiply your final horizontal position by your final depth?</em></p>
+</article>
+<p>Your puzzle answer was <code>1848454425</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, you should <a href="index.html">return to your Advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href="day02.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Dive%21%22+%2D+Day+2+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F2&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Dive%21%22+%2D+Day+2+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F2'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
+</html>
