@@ -1,5 +1,5 @@
 function findMostCommonBit(numbers, digit) {
-  let counter = { 0: 0, 1: 0 };
+  const counter = { 0: 0, 1: 0 };
   numbers.forEach(number => counter[number[digit]]++);
   return counter['1'] >= counter['0'] ? '1' : '0';
 }
