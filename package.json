@@ -63,9 +63,6 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "tsc --module esnext --moduleResolution node --target esnext --allowJs --checkJs --noEmit"
-    ]
+    "*.js": "eslint --fix"
   }
 }
