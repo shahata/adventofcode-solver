@@ -19,4 +19,4 @@ $ npm start 2021
 $ npm start 2021 [day-number]
 ```
 
-The above commands will work for years 2015-2021.
+The commands above will work for years 2015-2021.
