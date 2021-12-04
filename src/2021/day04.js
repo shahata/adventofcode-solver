@@ -5,7 +5,7 @@ function mark(board, number) {
 }
 
 function winner(board) {
-  const winnerRow = board.find(row => row.every(slot => slot.marked));
+  const winnerRow = board.some(row => row.every(slot => slot.marked));
   const winnerCol = board[0].some((s, i) => board.every(row => row[i].marked));
   return winnerRow || winnerCol;
 }

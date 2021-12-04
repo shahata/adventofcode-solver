@@ -13,7 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@zonda/inquirer-timeout-confirm-prompt": "^0.1.1",
+    "@shahata/inquirer-timeout-confirm-prompt": "^0.1.1",
     "inquirer": "^8.2.0",
     "js-combinatorics": "^0.6.1",
     "node-fetch": "^3.1.0",

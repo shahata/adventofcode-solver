@@ -13,7 +13,7 @@ import {
   getEndPage,
   downloadStatic,
 } from './scraper.js';
-import TimeoutConfirm from '@zonda/inquirer-timeout-confirm-prompt';
+import TimeoutConfirm from '@shahata/inquirer-timeout-confirm-prompt';
 
 function renderTemplate(year, name, extension, model) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
