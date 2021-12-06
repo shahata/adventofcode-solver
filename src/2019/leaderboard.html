@@ -14,11 +14,19 @@
 
 <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js" crossorigin="anonymous"></script>
+<button onclick="drawChart(true)">Show All</button>
+<button onclick="drawChart(false)">Show Top Ten</button>
 <canvas id="canvas"></canvas>
 <script>
+var configAll = {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[2,0,0,0,3,6,7,16,24,31,30,27,30,32,31,33,39,58,56,55,56,55,52,68,69,73,71,73,76,79,78,85,84,85,93,101,100,106,105,106,109,114,113,117,115,114,115,117,122,127],"fill":false},{"label":"silyevsk","data":[0,1,2,1,0,0,0,8,15,21,18,16,17,18,16,20,25,43,39,37,36,34,33,50,48,53,52,53,55,57,54,58,56,55,59,64,62,67,65,63,65,71,72,73,72,70,68,67,70,74],"fill":false},{"label":"Gabriel Grinberg","data":[3,5,3,1,6,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Stanislav Prokopiv","data":[-18,-35,-54,-71,-67,-65,-67,-63,-60,-55,-57,-58,-60,-61,-59,-56,-59,-48,-49,-52,-57,-61,-63,-51,-52,-49,-52,-54,-55,-54,-59,-61,-64,-66,-59,-52,-55,-51,-50,-57,-56,-52,-54,-55,-58,-61,-62,-61,-57,-55],"fill":false},{"label":"Yonatan Hattav","data":[-51,-102,-154,-203,-240,-275,-316,-350,-377,-403,-439,-475,-502,-528,-542,-565,-577,-575,-583,-587,-598,-608,-619,-615,-619,-622,-632,-636,-641,-644,-648,-645,-650,-655,-653,-651,-659,-660,-670,-678,-681,-683,-687,-689,-696,-702,-705,-707,-705,-704],"fill":false},{"label":"Guy Rotem","data":[-62,-124,-183,-239,-282,-323,-369,-406,-434,-461,-496,-531,-549,-560,-575,-587,-583,-566,-585,-599,-601,-607,-622,-628,-647,-661,-680,-695,-707,-718,-732,-735,-745,-753,-748,-745,-751,-749,-755,-758,-760,-759,-764,-762,-766,-770,-774,-778,-777,-774],"fill":false}]}};
+var configTop = {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[2,0,0,0,3,6,7,16,24,31,30,27,30,32,31,33,39,58,56,55,56,55,52,68,69,73,71,73,76,79,78,85,84,85,93,101,100,106,105,106,109,114,113,117,115,114,115,117,122,127],"fill":false},{"label":"silyevsk","data":[0,1,2,1,0,0,0,8,15,21,18,16,17,18,16,20,25,43,39,37,36,34,33,50,48,53,52,53,55,57,54,58,56,55,59,64,62,67,65,63,65,71,72,73,72,70,68,67,70,74],"fill":false},{"label":"Gabriel Grinberg","data":[3,5,3,1,6,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Stanislav Prokopiv","data":[-18,-35,-54,-71,-67,-65,-67,-63,-60,-55,-57,-58,-60,-61,-59,-56,-59,-48,-49,-52,-57,-61,-63,-51,-52,-49,-52,-54,-55,-54,-59,-61,-64,-66,-59,-52,-55,-51,-50,-57,-56,-52,-54,-55,-58,-61,-62,-61,-57,-55],"fill":false},{"label":"Yonatan Hattav","data":[-51,-102,-154,-203,-240,-275,-316,-350,-377,-403,-439,-475,-502,-528,-542,-565,-577,-575,-583,-587,-598,-608,-619,-615,-619,-622,-632,-636,-641,-644,-648,-645,-650,-655,-653,-651,-659,-660,-670,-678,-681,-683,-687,-689,-696,-702,-705,-707,-705,-704],"fill":false},{"label":"Guy Rotem","data":[-62,-124,-183,-239,-282,-323,-369,-406,-434,-461,-496,-531,-549,-560,-575,-587,-583,-566,-585,-599,-601,-607,-622,-628,-647,-661,-680,-695,-707,-718,-732,-735,-745,-753,-748,-745,-751,-749,-755,-758,-760,-759,-764,-762,-766,-770,-774,-778,-777,-774],"fill":false}]}};
+window.drawChart = function(all) {
+  window.myLine.data = JSON.parse(JSON.stringify(all ? configAll.data : configTop.data));
+  window.myLine.update();
+};
 window.onload = function() {
   var ctx = document.getElementById("canvas").getContext("2d");
-  window.myLine = new Chart(ctx, {"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[2,0,0,0,3,6,7,16,24,31,30,27,30,32,31,33,39,58,56,55,56,55,52,68,69,73,71,73,76,79,78,85,84,85,93,101,100,106,105,106,109,114,113,117,115,114,115,117,122,127],"fill":false},{"label":"silyevsk","data":[0,1,2,1,0,0,0,8,15,21,18,16,17,18,16,20,25,43,39,37,36,34,33,50,48,53,52,53,55,57,54,58,56,55,59,64,62,67,65,63,65,71,72,73,72,70,68,67,70,74],"fill":false},{"label":"Gabriel Grinberg","data":[3,5,3,1,6,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Stanislav Prokopiv","data":[-18,-35,-54,-71,-67,-65,-67,-63,-60,-55,-57,-58,-60,-61,-59,-56,-59,-48,-49,-52,-57,-61,-63,-51,-52,-49,-52,-54,-55,-54,-59,-61,-64,-66,-59,-52,-55,-51,-50,-57,-56,-52,-54,-55,-58,-61,-62,-61,-57,-55],"fill":false},{"label":"Yonatan Hattav","data":[-51,-102,-154,-203,-240,-275,-316,-350,-377,-403,-439,-475,-502,-528,-542,-565,-577,-575,-583,-587,-598,-608,-619,-615,-619,-622,-632,-636,-641,-644,-648,-645,-650,-655,-653,-651,-659,-660,-670,-678,-681,-683,-687,-689,-696,-702,-705,-707,-705,-704],"fill":false},{"label":"Guy Rotem","data":[-61,-122,-181,-237,-280,-321,-367,-404,-432,-459,-494,-529,-547,-558,-573,-585,-581,-564,-583,-597,-599,-605,-620,-626,-645,-659,-678,-693,-705,-716,-730,-733,-743,-751,-746,-743,-749,-747,-753,-756,-758,-757,-762,-760,-764,-768,-772,-776,-775,-772],"fill":false}]}});
+  window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(configAll)));
 };
 </script>
 <table>
@@ -949,6 +957,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">30 Dec 2019, 05:55:57</span> Arye Lukashevski</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">13 Apr 2020, 08:11:36</span> Audrius Kovalenko</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">12 Dec 2020, 14:34:47</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">01 Dec 2021, 11:23:40</span> Almog Adziashvili</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 6:</p>
@@ -1001,6 +1010,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">30 Dec 2019, 05:46:10</span> Arye Lukashevski</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">13 Apr 2020, 07:23:20</span> Audrius Kovalenko</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">12 Dec 2020, 13:54:41</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">01 Dec 2021, 11:03:56</span> Almog Adziashvili</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1052,6 +1062,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">13 Apr 2020, 04:50:46</span> Audrius Kovalenko</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">18 Jul 2020, 04:14:30</span> Gal Elmalah</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">11 Dec 2020, 13:10:45</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">29 Nov 2021, 14:15:12</span> Almog Adziashvili</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 5:</p>
@@ -1102,6 +1113,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">12 Apr 2020, 14:49:38</span> Audrius Kovalenko</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">18 Jul 2020, 04:12:26</span> Gal Elmalah</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">11 Dec 2020, 10:28:11</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">29 Nov 2021, 13:56:38</span> Almog Adziashvili</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1420,18 +1432,19 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">07 Dec 2019, 01:42:39</span> Marius Jurgelenas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">07 Dec 2019, 04:46:36</span> Guy Rotem</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">09 Dec 2019, 04:17:32</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">12 Dec 2019, 02:44:48</span> Dor Duchovni</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">12 Dec 2019, 05:21:31</span> Yam Ben-Tzvi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">12 Dec 2019, 05:30:49</span> Nir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">12 Dec 2019, 06:07:59</span> Boris Litvinsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">28 Mar 2020, 14:33:31</span> Oded Gefen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">11 Apr 2020, 10:27:42</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">16 Jul 2020, 16:41:43</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">27 Nov 2020, 09:42:55</span> Tzachi Azo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">01 Dec 2020, 15:32:38</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">10 Dec 2020, 16:18:39</span> Dor Ben Baruch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">31 Oct 2021, 08:29:42</span> Itai Schuftan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">25 Nov 2021, 10:07:40</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">09 Dec 2019, 08:43:30</span> Danylo Vdovenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">12 Dec 2019, 02:44:48</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">12 Dec 2019, 05:21:31</span> Yam Ben-Tzvi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">12 Dec 2019, 05:30:49</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">12 Dec 2019, 06:07:59</span> Boris Litvinsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">28 Mar 2020, 14:33:31</span> Oded Gefen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">11 Apr 2020, 10:27:42</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">16 Jul 2020, 16:41:43</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">27 Nov 2020, 09:42:55</span> Tzachi Azo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">01 Dec 2020, 15:32:38</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">10 Dec 2020, 16:18:39</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">31 Oct 2021, 08:29:42</span> Itai Schuftan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">25 Nov 2021, 10:07:40</span> Almog Adziashvili</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
@@ -1486,7 +1499,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">03 Dec 2019, 15:52:40</span> Bohdan Lyzanets</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">04 Dec 2019, 01:10:20</span> Gerda Simoliunaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">04 Dec 2019, 04:35:26</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">04 Dec 2019, 12:45:51</span> jurasm</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">04 Dec 2019, 12:45:51</span> Jurij Mikelionis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">04 Dec 2019, 16:52:03</span> Carl M. Lane</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">05 Dec 2019, 02:54:12</span> Hadar Raab</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">05 Dec 2019, 13:31:20</span> Yonatan Hattav</div> 
@@ -1498,20 +1511,20 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">07 Dec 2019, 01:17:24</span> Marius Jurgelenas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">07 Dec 2019, 04:33:47</span> Guy Rotem</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">09 Dec 2019, 04:00:29</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">12 Dec 2019, 02:38:00</span> Dor Duchovni</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">12 Dec 2019, 04:27:04</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">12 Dec 2019, 04:36:11</span> Nir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">12 Dec 2019, 04:46:01</span> Dor Mitzafon</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">12 Dec 2019, 04:51:21</span> Yam Ben-Tzvi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">12 Dec 2019, 05:36:31</span> Boris Litvinsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">12 Dec 2019, 05:42:10</span> Karin Agan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">12 Dec 2019, 07:08:54</span> Aviran Huga</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">28 Mar 2020, 13:58:20</span> Oded Gefen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">11 Apr 2020, 10:16:00</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">16 Jul 2020, 16:30:40</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">27 Aug 2020, 10:00:27</span> Itai Schuftan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">27 Nov 2020, 09:10:25</span> Tzachi Azo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">29 Nov 2020, 06:20:54</span> Doron Zavelevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">09 Dec 2019, 08:39:08</span> Danylo Vdovenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">12 Dec 2019, 02:38:00</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">12 Dec 2019, 04:27:04</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">12 Dec 2019, 04:36:11</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">12 Dec 2019, 04:46:01</span> Dor Mitzafon</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">12 Dec 2019, 04:51:21</span> Yam Ben-Tzvi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">12 Dec 2019, 05:36:31</span> Boris Litvinsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">12 Dec 2019, 05:42:10</span> Karin Agan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">12 Dec 2019, 07:08:54</span> Aviran Huga</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">28 Mar 2020, 13:58:20</span> Oded Gefen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">11 Apr 2020, 10:16:00</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">16 Jul 2020, 16:30:40</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">27 Aug 2020, 10:00:27</span> Itai Schuftan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">27 Nov 2020, 09:10:25</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">30 Nov 2020, 08:53:26</span> Dan Kovalsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">30 Nov 2020, 13:00:30</span> Noam Neeman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">01 Dec 2020, 15:25:21</span> Eddie Erlich</div> 
@@ -1577,39 +1590,40 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">03 Dec 2019, 01:39:12</span> Gerda Simoliunaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">03 Dec 2019, 04:15:00</span> lirancr</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">03 Dec 2019, 09:22:58</span> Yonatan Hattav</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">03 Dec 2019, 10:29:37</span> jurasm</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">03 Dec 2019, 10:29:37</span> Jurij Mikelionis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">03 Dec 2019, 15:04:08</span> Bohdan Lyzanets</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">05 Dec 2019, 02:43:00</span> Hadar Raab</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">05 Dec 2019, 17:44:09</span> Serhii Muryhin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">06 Dec 2019, 00:38:03</span> Yakir Narkis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">06 Dec 2019, 10:10:10</span> Lior Erez</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">06 Dec 2019, 14:18:05</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">06 Dec 2019, 20:36:07</span> Roy Sommer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">07 Dec 2019, 00:56:10</span> Marius Jurgelenas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">07 Dec 2019, 04:16:17</span> Guy Rotem</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">09 Dec 2019, 03:01:17</span> Dor Duchovni</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">09 Dec 2019, 03:26:21</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">11 Dec 2019, 11:28:13</span> Gongreg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">12 Dec 2019, 04:08:50</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">12 Dec 2019, 04:09:05</span> Nir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">12 Dec 2019, 04:13:52</span> Dor Mitzafon</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">12 Dec 2019, 04:28:40</span> Yam Ben-Tzvi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">12 Dec 2019, 04:46:28</span> Boris Litvinsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">12 Dec 2019, 04:48:35</span> Karin Agan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">12 Dec 2019, 05:59:07</span> Aviran Huga</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">16 Dec 2019, 05:08:57</span> mkloouo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">13 Feb 2020, 11:02:45</span> Itai Schuftan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">28 Mar 2020, 11:04:34</span> Oded Gefen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">10 Apr 2020, 17:43:08</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">16 Jul 2020, 12:20:05</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">25 Nov 2020, 08:26:29</span> darksmile</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">25 Nov 2020, 14:11:52</span> Etai Gross</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">27 Nov 2020, 08:34:47</span> Tzachi Azo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">29 Nov 2020, 06:03:56</span> Doron Zavelevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">05 Dec 2019, 08:51:01</span> Danylo Vdovenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">05 Dec 2019, 17:44:09</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">06 Dec 2019, 00:38:03</span> Yakir Narkis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">06 Dec 2019, 10:10:10</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">06 Dec 2019, 14:18:05</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">06 Dec 2019, 20:36:07</span> Roy Sommer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">07 Dec 2019, 00:56:10</span> Marius Jurgelenas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">07 Dec 2019, 04:16:17</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">09 Dec 2019, 03:01:17</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">09 Dec 2019, 03:26:21</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">11 Dec 2019, 11:28:13</span> Gongreg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">12 Dec 2019, 04:08:50</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">12 Dec 2019, 04:09:05</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">12 Dec 2019, 04:13:52</span> Dor Mitzafon</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">12 Dec 2019, 04:28:40</span> Yam Ben-Tzvi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">12 Dec 2019, 04:46:28</span> Boris Litvinsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">12 Dec 2019, 04:48:35</span> Karin Agan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">12 Dec 2019, 05:59:07</span> Aviran Huga</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">16 Dec 2019, 05:08:57</span> mkloouo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">13 Feb 2020, 11:02:45</span> Itai Schuftan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">28 Mar 2020, 11:04:34</span> Oded Gefen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">10 Apr 2020, 17:43:08</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">16 Jul 2020, 12:20:05</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">25 Nov 2020, 08:26:29</span> darksmile</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">25 Nov 2020, 14:11:52</span> Etai Gross</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">27 Nov 2020, 08:34:47</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">85)</span> <span class="leaderboard-time">01 Dec 2020, 15:05:22</span> Eddie Erlich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">86)</span> <span class="leaderboard-time">05 Dec 2020, 12:22:45</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">87)</span> <span class="leaderboard-time">10 Dec 2020, 15:33:32</span> Dor Ben Baruch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">25 Nov 2021, 09:46:31</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">17 Sept 2021, 08:24:33</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">89)</span> <span class="leaderboard-time">25 Nov 2021, 09:46:31</span> Almog Adziashvili</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
@@ -1669,35 +1683,35 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">03 Dec 2019, 01:21:34</span> Gerda Simoliunaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">03 Dec 2019, 04:06:13</span> lirancr</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">03 Dec 2019, 07:43:58</span> Yonatan Hattav</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">03 Dec 2019, 10:07:50</span> jurasm</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">03 Dec 2019, 10:07:50</span> Jurij Mikelionis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">03 Dec 2019, 14:44:08</span> Bohdan Lyzanets</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">05 Dec 2019, 02:33:04</span> Hadar Raab</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">05 Dec 2019, 16:43:41</span> Serhii Muryhin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">06 Dec 2019, 00:16:48</span> Yakir Narkis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">06 Dec 2019, 10:01:48</span> Lior Erez</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">06 Dec 2019, 14:11:13</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">06 Dec 2019, 20:30:01</span> Roy Sommer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">07 Dec 2019, 00:50:19</span> Marius Jurgelenas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">07 Dec 2019, 04:11:35</span> Guy Rotem</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">09 Dec 2019, 02:57:21</span> Dor Duchovni</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">09 Dec 2019, 03:14:04</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">09 Dec 2019, 05:14:23</span> Hadar Geva</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">11 Dec 2019, 11:23:26</span> Gongreg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">12 Dec 2019, 03:53:04</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">12 Dec 2019, 03:59:13</span> Nir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">12 Dec 2019, 04:04:39</span> Dor Mitzafon</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">12 Dec 2019, 04:13:32</span> Yam Ben-Tzvi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">12 Dec 2019, 04:17:48</span> Boris Litvinsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">12 Dec 2019, 04:36:02</span> TalZa1810</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">12 Dec 2019, 04:38:07</span> Karin Agan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">12 Dec 2019, 05:48:11</span> Aviran Huga</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">16 Dec 2019, 05:03:29</span> mkloouo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">13 Feb 2020, 09:26:26</span> Itai Schuftan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">28 Mar 2020, 10:48:21</span> Oded Gefen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">10 Apr 2020, 17:22:10</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">16 Jul 2020, 12:08:03</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">24 Nov 2020, 13:30:33</span> bitamar</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">85)</span> <span class="leaderboard-time">25 Nov 2020, 02:28:11</span> Doron Zavelevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">05 Dec 2019, 08:47:41</span> Danylo Vdovenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">05 Dec 2019, 16:43:41</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">06 Dec 2019, 00:16:48</span> Yakir Narkis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">06 Dec 2019, 10:01:48</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">06 Dec 2019, 14:11:13</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">06 Dec 2019, 20:30:01</span> Roy Sommer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">07 Dec 2019, 00:50:19</span> Marius Jurgelenas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">07 Dec 2019, 04:11:35</span> Guy Rotem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">09 Dec 2019, 02:57:21</span> Dor Duchovni</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">09 Dec 2019, 03:14:04</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">09 Dec 2019, 05:14:23</span> Hadar Geva</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">11 Dec 2019, 11:23:26</span> Gongreg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">12 Dec 2019, 03:53:04</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">12 Dec 2019, 03:59:13</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">12 Dec 2019, 04:04:39</span> Dor Mitzafon</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">12 Dec 2019, 04:13:32</span> Yam Ben-Tzvi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">12 Dec 2019, 04:17:48</span> Boris Litvinsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">12 Dec 2019, 04:36:02</span> TalZa1810</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">12 Dec 2019, 04:38:07</span> Karin Agan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">12 Dec 2019, 05:48:11</span> Aviran Huga</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">16 Dec 2019, 05:03:29</span> mkloouo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">13 Feb 2020, 09:26:26</span> Itai Schuftan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">28 Mar 2020, 10:48:21</span> Oded Gefen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">10 Apr 2020, 17:22:10</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">16 Jul 2020, 12:08:03</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">85)</span> <span class="leaderboard-time">24 Nov 2020, 13:30:33</span> bitamar</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">86)</span> <span class="leaderboard-time">25 Nov 2020, 08:22:05</span> darksmile</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">87)</span> <span class="leaderboard-time">25 Nov 2020, 09:09:55</span> Itay Friedman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">25 Nov 2020, 14:01:19</span> Etai Gross</div> 
@@ -1707,7 +1721,8 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">92)</span> <span class="leaderboard-time">01 Dec 2020, 14:50:56</span> Eddie Erlich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">93)</span> <span class="leaderboard-time">05 Dec 2020, 12:15:02</span> Dovile Lapinskaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">10 Dec 2020, 15:08:52</span> Dor Ben Baruch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">25 Nov 2021, 09:39:05</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">17 Sept 2021, 08:16:13</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">96)</span> <span class="leaderboard-time">25 Nov 2021, 09:39:05</span> Almog Adziashvili</div> 
 </td>
 </tr>
 </table>
