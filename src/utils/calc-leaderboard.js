@@ -17,64 +17,10 @@ function removeIgnoredDays(jsonArr) {
   });
 }
 
-export function calcLeaderboard(jsonArr) {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const jsonPath = path.resolve(__dirname, 'leaderboards.json');
-  const debugMode = false;
-  if (jsonArr) {
-    if (debugMode) {
-      fs.writeFileSync(jsonPath, JSON.stringify(jsonArr));
-    }
-  } else if (debugMode) {
-    jsonArr = JSON.parse(fs.readFileSync(jsonPath).toString());
-  } else {
-    return;
-  }
-  removeIgnoredDays(jsonArr);
-
-  const members = Object.values(
-    jsonArr
-      .reverse()
-      .map(x => x.members)
-      .reduce((a, b) => ({ ...a, ...b }), {}),
-  );
-  const days = new Array(25).fill().map(() => [[], []]);
-  members.forEach(member => {
-    const name = member.name || `(anonymous user #${member.id})`;
-    member.label = name;
-    for (const [day, stars] of Object.entries(member.completion_day_level)) {
-      const index = parseInt(day) - 1;
-      if (stars['1']) {
-        days[index][0].push({ name, ts: parseInt(stars['1'].get_star_ts) });
-      }
-      if (stars['2']) {
-        days[index][1].push({ name, ts: parseInt(stars['2'].get_star_ts) });
-      }
-    }
-  });
-  const sorted = days.map(day =>
-    day.reverse().map(stars =>
-      stars
-        .sort((a, b) => a.ts - b.ts)
-        .map(star => ({
-          name: star.name,
-          ts: new Date(star.ts * 1000).toLocaleString('en-GB', {
-            hour12: false,
-            second: '2-digit',
-            minute: '2-digit',
-            hour: '2-digit',
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric',
-            timeZone: 'America/New_York',
-          }),
-        })),
-    ),
-  );
-  members.sort((a, b) => b.local_score - a.local_score);
+function calcChart(members, sorted, count) {
   const leaders = members
     .filter((m, i, a) => a[0].stars - m.stars <= 4)
-    // .slice(0, 10)
+    .slice(0, count)
     .map(member => {
       const pointsPerDay = [];
       sorted.forEach(day => {
@@ -133,6 +79,66 @@ export function calcLeaderboard(jsonArr) {
       }),
     },
   };
+  return config;
+}
+
+export function calcLeaderboard(jsonArr) {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const jsonPath = path.resolve(__dirname, 'leaderboards.json');
+  const debugMode = false;
+  if (jsonArr) {
+    if (debugMode) {
+      fs.writeFileSync(jsonPath, JSON.stringify(jsonArr));
+    }
+  } else if (debugMode) {
+    jsonArr = JSON.parse(fs.readFileSync(jsonPath).toString());
+  } else {
+    return;
+  }
+  removeIgnoredDays(jsonArr);
+
+  const members = Object.values(
+    jsonArr
+      .reverse()
+      .map(x => x.members)
+      .reduce((a, b) => ({ ...a, ...b }), {}),
+  );
+  const days = new Array(25).fill().map(() => [[], []]);
+  members.forEach(member => {
+    const name = member.name || `(anonymous user #${member.id})`;
+    member.label = name;
+    for (const [day, stars] of Object.entries(member.completion_day_level)) {
+      const index = parseInt(day) - 1;
+      if (stars['1']) {
+        days[index][0].push({ name, ts: parseInt(stars['1'].get_star_ts) });
+      }
+      if (stars['2']) {
+        days[index][1].push({ name, ts: parseInt(stars['2'].get_star_ts) });
+      }
+    }
+  });
+  const sorted = days.map(day =>
+    day.reverse().map(stars =>
+      stars
+        .sort((a, b) => a.ts - b.ts)
+        .map(star => ({
+          name: star.name,
+          ts: new Date(star.ts * 1000).toLocaleString('en-GB', {
+            hour12: false,
+            second: '2-digit',
+            minute: '2-digit',
+            hour: '2-digit',
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            timeZone: 'America/New_York',
+          }),
+        })),
+    ),
+  );
+  members.sort((a, b) => b.local_score - a.local_score);
+  const configAll = calcChart(members, sorted, 1000);
+  const configTop = calcChart(members, sorted, 10);
   let output = [''];
   output.push(
     '<script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>',
@@ -140,11 +146,19 @@ export function calcLeaderboard(jsonArr) {
   );
   output.push(
     [
+      '<button onclick="drawChart(true)">Show All</button>',
+      '<button onclick="drawChart(false)">Show Top Ten</button>',
       '<canvas id="canvas"></canvas>',
       '<script>',
+      `var configAll = ${JSON.stringify(configAll)};`,
+      `var configTop = ${JSON.stringify(configTop)};`,
+      'window.drawChart = function(all) {',
+      '  window.myLine.data = JSON.parse(JSON.stringify(all ? configAll.data : configTop.data));',
+      '  window.myLine.update();',
+      '};',
       'window.onload = function() {',
       '  var ctx = document.getElementById("canvas").getContext("2d");',
-      `  window.myLine = new Chart(ctx, ${JSON.stringify(config)});`,
+      `  window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(configAll)));`,
       '};',
       '</script>',
     ].join('\n'),
