@@ -4,7 +4,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  let lines = input.split('\n').map(x => x.split(' | '));
+  const lines = input.split('\n').map(x => x.split(' | '));
   return lines
     .map(l => l.map(d => d.split(' ').map(d => d.split('').sort().join(''))))
     .reduce((prev, [patterns, output]) => {
