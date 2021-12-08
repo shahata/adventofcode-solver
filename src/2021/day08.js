@@ -1,74 +1,26 @@
 export function part1(input) {
   const lines = input.split('\n').map(x => x.split(' | ')[1].split(' '));
-  return lines
-    .map(x => x.filter(x => x.length !== 5 && x.length !== 6))
-    .map(x => x.length)
-    .reduce((a, b) => a + b, 0);
-}
-
-function getMap(digits) {
-  digits = digits.map(d => d.split('').sort().join(''));
-  const one = digits.find(d => d.length === 2);
-  const seven = digits.find(d => d.length === 3);
-  const four = digits.find(d => d.length === 4);
-  const eight = digits.find(d => d.length === 7);
-  const six = [
-    eight
-      .split('')
-      .filter(d => d !== one[0])
-      .sort()
-      .join(''),
-    eight
-      .split('')
-      .filter(d => d !== one[1])
-      .sort()
-      .join(''),
-  ].find(d => digits.indexOf(d) !== -1);
-  const five = digits.find(d => {
-    const l = six.split('').filter(x => d.indexOf(x) === -1).length;
-    return d.length === 5 && l === 1;
-  });
-  const nine = [...new Set((one + five).split(''))].sort().join('');
-  const zero = digits.find(d => d.length === 6 && d !== six && d !== nine);
-  const two = digits.find(
-    d =>
-      (d.indexOf(one[0]) === -1 || d.indexOf(one[1]) === -1) &&
-      d.length === 5 &&
-      d !== five,
-  );
-  const three = digits.find(d => d.length === 5 && d !== five && d !== two);
-
-  const map = {
-    [one]: 1,
-    [seven]: 7,
-    [four]: 4,
-    [eight]: 8,
-    [five]: 5,
-    [six]: 6,
-    [nine]: 9,
-    [two]: 2,
-    [three]: 3,
-    [zero]: 0,
-  };
-  return map;
-}
-
-function calcNum(output, map) {
-  return +output
-    .map(d => {
-      return map[d.split('').sort().join('')];
-    })
-    .join('');
-}
-
-function guess(line) {
-  const map = getMap(line[0].concat(line[1]));
-  return calcNum(line[1], map);
+  return lines.flat().filter(x => x.length !== 5 && x.length !== 6).length;
 }
 
 export function part2(input) {
-  const lines = input
-    .split('\n')
-    .map(x => x.split(' | ').map(x => x.split(' ')));
-  return lines.reduce((prev, line) => guess(line) + prev, 0);
+  let lines = input.split('\n').map(x => x.split(' | '));
+  return lines
+    .map(l => l.map(d => d.split(' ').map(d => d.split('').sort().join(''))))
+    .reduce((prev, [patterns, output]) => {
+      const len = n => d => d.length === n;
+      const has = (p, n) => d => [...p].filter(c => d.includes(c)).length === n;
+      const d1 = patterns.find(len(2));
+      const d4 = patterns.find(len(4));
+      const d7 = patterns.find(len(3));
+      const d8 = patterns.find(len(7));
+      const d6 = patterns.filter(len(6)).find(has(d1, 1));
+      const d9 = patterns.filter(len(6)).find(has(d4, 4));
+      const d5 = patterns.filter(len(5)).find(has(d6, 5));
+      const d2 = patterns.filter(len(5)).find(has(d9, 4));
+      const d0 = patterns.filter(len(6)).find(d => d !== d6 && d !== d9);
+      const d3 = patterns.filter(len(5)).find(d => d !== d2 && d !== d5);
+      const map = [d0, d1, d2, d3, d4, d5, d6, d7, d8, d9];
+      return Number(output.map(d => map.indexOf(d)).join('')) + prev;
+    }, 0);
 }
