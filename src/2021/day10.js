@@ -1,11 +1,7 @@
 function clean(line) {
-  let len = 0;
-  while (line.length !== len) {
+  for (let len = 0; line.length !== len; ) {
     len = line.length;
-    line = line.replaceAll('()', '');
-    line = line.replaceAll('[]', '');
-    line = line.replaceAll('{}', '');
-    line = line.replaceAll('<>', '');
+    line = line.replaceAll(/\(\)|\[\]|\{\}|<>/g, '');
   }
   return line;
 }
