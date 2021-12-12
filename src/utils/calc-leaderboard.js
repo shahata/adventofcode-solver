@@ -137,8 +137,11 @@ export function calcLeaderboard(jsonArr) {
     ),
   );
   members.sort((a, b) => b.local_score - a.local_score);
-  const configAll = calcChart(members, sorted, 1000);
-  const configTop = calcChart(members, sorted, 10);
+  const config = {
+    all: calcChart(members, sorted, 1000),
+    ten: calcChart(members, sorted, 10),
+    five: calcChart(members, sorted, 5),
+  };
   let output = [''];
   output.push(
     '<script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>',
@@ -146,14 +149,14 @@ export function calcLeaderboard(jsonArr) {
   );
   output.push(
     [
-      '<button onclick="drawChart(true)">Show All</button>',
-      '<button onclick="drawChart(false)">Show Top Ten</button>',
+      '<button onclick="drawChart(\'all\')">Show All</button>',
+      '<button onclick="drawChart(\'ten\')">Show Top Ten</button>',
+      '<button onclick="drawChart(\'five\')">Show Top Five</button>',
       '<canvas id="canvas"></canvas>',
       '<script>',
-      `var configAll = ${JSON.stringify(configAll)};`,
-      `var configTop = ${JSON.stringify(configTop)};`,
-      'window.drawChart = function(all) {',
-      '  window.myLine.data = JSON.parse(JSON.stringify(all ? configAll.data : configTop.data));',
+      `var config = ${JSON.stringify(config)};`,
+      'window.drawChart = function(group) {',
+      '  window.myLine.data = JSON.parse(JSON.stringify(config[group].data));',
       '  window.myLine.update();',
       '};',
       'window.onload = function() {',
