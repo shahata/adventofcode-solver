@@ -161,7 +161,7 @@ export function calcLeaderboard(jsonArr) {
       '};',
       'window.onload = function() {',
       '  var ctx = document.getElementById("canvas").getContext("2d");',
-      `  window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(configAll)));`,
+      `  window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config.all)));`,
       '};',
       '</script>',
     ].join('\n'),
