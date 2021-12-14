@@ -23,11 +23,9 @@ export function part1(input, times = 10) {
     charMap[key[0]] = (charMap[key[0]] || 0) + pairsMap[key];
     charMap[key[1]] = (charMap[key[1]] || 0) + pairsMap[key];
   }
-  return (
-    (Math.max(...Object.values(charMap)) -
-      Math.min(...Object.values(charMap))) /
-    2
-  );
+  const max = Math.max(...Object.values(charMap));
+  const min = Math.min(...Object.values(charMap));
+  return (max - min) / 2;
 }
 
 export function part2(input) {
