@@ -42,7 +42,7 @@ function reduce(expression = []) {
         expression[nextNumber + i + 4].value += expression[i + 2].value;
       }
       expression.splice(i, 4, { type: 'number', value: 0 });
-      return expression;
+      return true;
     }
   }
 
@@ -55,45 +55,32 @@ function reduce(expression = []) {
       { type: 'end' },
     ];
     expression.splice(splitIndex, 1, ...split);
+    return true;
   }
-  return expression;
+  return false;
 }
 
-function reduceExpression(expression) {
-  let prev = undefined;
-  while (prev !== expression.length) {
-    prev = expression.length;
-    expression = reduce(expression);
-  }
+function add(a, b) {
+  const expression = [{ type: 'start' }, ...a, ...b, { type: 'end' }];
+  while (reduce(expression));
   return expression;
 }
 
 export function part1(input) {
   const lines = input.split('\n').map(x => parse(x));
-  let result = lines.shift();
-  while (lines.length) {
-    result.unshift({ type: 'start' });
-    result.push(...lines.shift(), { type: 'end' });
-    reduceExpression(result);
-  }
-  return magnitude(result);
+  return magnitude(lines.reduce((a, b) => add(a, b)));
 }
 
 export function part2(input) {
   const lines = input.split('\n');
-  let final = 0;
+  let max = 0;
   for (let i = 0; i < lines.length; i++) {
     for (let j = 0; j < lines.length; j++) {
       if (i !== j) {
-        let result = reduceExpression([
-          { type: 'start' },
-          ...parse(lines[i]),
-          ...parse(lines[j]),
-          { type: 'end' },
-        ]);
-        final = Math.max(final, magnitude(result));
+        let result = add(parse(lines[i]), parse(lines[j]));
+        max = Math.max(max, magnitude(result));
       }
     }
   }
-  return final;
+  return max;
 }
