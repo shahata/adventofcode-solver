@@ -48,7 +48,7 @@ function parse(str) {
 
 export function part1(input) {
   const lines = input.split('\n').map(parse);
-  return magnitude(lines.reduce((a, b) => add(a, b)));
+  return magnitude(lines.reduce(add));
 }
 
 export function part2(input) {
@@ -56,8 +56,7 @@ export function part2(input) {
   let max = 0;
   for (let a of lines) {
     for (let b of lines) {
-      let result = a !== b ? add(parse(a), parse(b)) : [{ value: 0 }];
-      max = Math.max(max, magnitude(result));
+      max = Math.max(max, a !== b ? magnitude(add(parse(a), parse(b))) : 0);
     }
   }
   return max;
