@@ -76,8 +76,8 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const scanners = solve(input);
   const distances = [];
+  const scanners = solve(input);
   for (const { position: a } of scanners) {
     for (const { position: b } of scanners) {
       distances.push(a.reduce((sum, x, i) => sum + Math.abs(x - b[i]), 0));
