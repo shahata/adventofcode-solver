@@ -33,14 +33,12 @@ function match(scanner1, scanner2) {
     const rotated = scanner2.map(x => rotate(x, index));
     for (const a of scanner1) {
       for (const b of rotated) {
-        const distance = `${a[0] - b[0]},${a[1] - b[1]},${a[2] - b[2]}`;
+        const p = [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+        const distance = `${p[0]},${p[1]},${p[2]}`;
         distances.set(distance, (distances.get(distance) || 0) + 1);
         if (distances.get(distance) >= 12) {
-          const position = distance.split(',').map(x => +x);
-          return {
-            position,
-            beacons: rotated.map(x => x.map((x, i) => x + position[i])),
-          };
+          const abs = rotated.map(x => [x[0] + p[0], x[1] + p[1], x[2] + p[2]]);
+          return { position: p, beacons: abs };
         }
       }
     }
@@ -72,22 +70,18 @@ function solve(input) {
 }
 
 export function part1(input) {
-  const scanners = solve(input);
-  const beacons = new Set(
-    scanners.map(x => x.beacons.map(x => x.join(','))).flat(),
-  );
-  return beacons.size;
+  const all = new Set();
+  solve(input).forEach(x => x.beacons.forEach(x => all.add(x.join(','))));
+  return all.size;
 }
 
 export function part2(input) {
   const scanners = solve(input);
-  let max = 0;
-  for (const a of scanners) {
-    for (const b of scanners) {
-      const distance = (a, b) =>
-        Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]);
-      max = Math.max(max, distance(a.position, b.position));
+  const distances = [];
+  for (const { position: a } of scanners) {
+    for (const { position: b } of scanners) {
+      distances.push(a.reduce((sum, x, i) => sum + Math.abs(x - b[i]), 0));
     }
   }
-  return max;
+  return Math.max(...distances);
 }
