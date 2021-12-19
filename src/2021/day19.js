@@ -34,9 +34,9 @@ function match(scanner1, scanner2) {
     for (const a of scanner1) {
       for (const b of rotated) {
         const p = [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
-        const distance = `${p[0]},${p[1]},${p[2]}`;
-        distances.set(distance, (distances.get(distance) || 0) + 1);
-        if (distances.get(distance) >= 12) {
+        const key = `${p[0]},${p[1]},${p[2]}`;
+        distances.set(key, (distances.get(key) || 0) + 1);
+        if (distances.get(key) >= 12) {
           const abs = rotated.map(x => [x[0] + p[0], x[1] + p[1], x[2] + p[2]]);
           return { position: p, beacons: abs };
         }
