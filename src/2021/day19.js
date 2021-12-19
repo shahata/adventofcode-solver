@@ -27,19 +27,19 @@ function rotate([x, y, z], orientation) {
   ][orientation];
 }
 
-function match(a, b) {
+function match(scanner1, scanner2) {
   for (let index = 0; index < 24; index++) {
     const distances = new Map();
-    const rotations = b.map(x => rotate(x, index));
-    for (const beacon of a) {
-      for (const rotation of rotations) {
-        const distance = beacon.map((x, i) => x - rotation[i]).join(',');
+    const rotated = scanner2.map(x => rotate(x, index));
+    for (const a of scanner1) {
+      for (const b of rotated) {
+        const distance = `${a[0] - b[0]},${a[1] - b[1]},${a[2] - b[2]}`;
         distances.set(distance, (distances.get(distance) || 0) + 1);
         if (distances.get(distance) >= 12) {
           const position = distance.split(',').map(x => +x);
           return {
             position,
-            beacons: rotations.map(x => x.map((x, i) => x + position[i])),
+            beacons: rotated.map(x => x.map((x, i) => x + position[i])),
           };
         }
       }
