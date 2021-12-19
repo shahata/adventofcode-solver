@@ -1,13 +1,4 @@
-function parse(input) {
-  return input.split('\n\n').map(lines =>
-    lines
-      .split('\n')
-      .slice(1)
-      .map(c => c.split(',').map(x => +x)),
-  );
-}
-
-function rotate([x, y, z]) {
+function rotate([x, y, z], orientation) {
   return [
     [x, y, z],
     [-y, x, z],
@@ -33,91 +24,69 @@ function rotate([x, y, z]) {
     [z, -x, -y],
     [-x, -z, -y],
     [-z, x, -y],
-  ];
+  ][orientation];
 }
 
 function match(a, b) {
-  for (let j = 0; j < 24; j++) {
+  for (let index = 0; index < 24; index++) {
     const distances = {};
-    for (const beaconA of a) {
-      for (const beaconB of b) {
-        const rotationA = rotate(beaconA)[0];
-        const rotationB = rotate(beaconB)[j];
-        const distance = `${rotationA[0] - rotationB[0]},${
-          rotationA[1] - rotationB[1]
-        },${rotationA[2] - rotationB[2]}`;
+    a.forEach(beacon => {
+      b.map(x => rotate(x, index)).forEach(rotation => {
+        const distance = beacon.map((x, i) => x - rotation[i]).join(',');
         distances[distance] = (distances[distance] || 0) + 1;
-      }
-    }
-    const max = Math.max(...Object.values(distances));
+      });
+    });
+    const [key, max] = Object.entries(distances).sort((a, b) => b[1] - a[1])[0];
+    const position = key.split(',').map(x => +x);
     if (max >= 12) {
       return {
-        rotation: j,
-        distance: Object.keys(distances).find(x => distances[x] === max),
+        position,
+        beacons: b.map(x => rotate(x, index).map((x, i) => x + position[i])),
       };
     }
   }
 }
 
-function next(absolute, scanners) {
-  for (const a of absolute) {
-    for (const b of scanners) {
-      const result = match(a, b);
-      if (result) {
-        return { ...result, scanner: b };
+function solve(input) {
+  const skip = [];
+  const scanners = input
+    .replaceAll(/^--.*\n/gm, '')
+    .split('\n\n')
+    .map(lines => lines.split('\n').map(c => c.split(',').map(x => +x)));
+  const solution = [{ position: [0, 0, 0], beacons: scanners.shift() }];
+  while (scanners.length > 0) {
+    for (const a of solution) {
+      for (const b of scanners) {
+        if (skip.find(x => x.a === a && x.b === b)) continue;
+        const result = match(a.beacons, b);
+        if (result) {
+          scanners.splice(scanners.indexOf(b), 1);
+          solution.push(result);
+        } else {
+          skip.push({ a, b });
+        }
       }
     }
   }
+  return solution;
 }
 
 export function part1(input) {
-  let scanners = parse(input);
-  const absolute = [scanners.shift()];
-  while (scanners.length > 0) {
-    const found = next(absolute, scanners);
-    scanners = scanners.filter(x => x !== found.scanner);
-    absolute.push(
-      found.scanner.map(x => {
-        const coord = rotate(x)[found.rotation];
-        const distance = found.distance.split(',').map(x => +x);
-        return [
-          coord[0] + distance[0],
-          coord[1] + distance[1],
-          coord[2] + distance[2],
-        ];
-      }),
-    );
-  }
-  return new Set(absolute.flat().map(x => `${x[0]},${x[1]},${x[2]}`)).size;
+  const scanners = solve(input);
+  const beacons = new Set(
+    scanners.map(x => x.beacons.map(x => x.join(','))).flat(),
+  );
+  return beacons.size;
 }
 
 export function part2(input) {
-  let scanners = parse(input);
-  const absolute = [scanners.shift()];
-  const positions = [[0, 0, 0]];
-  while (scanners.length > 0) {
-    const found = next(absolute, scanners);
-    scanners = scanners.filter(x => x !== found.scanner);
-    positions.push(found.distance.split(',').map(x => +x));
-    absolute.push(
-      found.scanner.map(x => {
-        const coord = rotate(x)[found.rotation];
-        const distance = found.distance.split(',').map(x => +x);
-        return [
-          coord[0] + distance[0],
-          coord[1] + distance[1],
-          coord[2] + distance[2],
-        ];
-      }),
-    );
-  }
+  const scanners = solve(input);
   let max = 0;
-  for (const a of positions) {
-    for (const b of positions) {
-      max = Math.max(
-        max,
-        Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]),
-      );
+  for (const a of scanners) {
+    for (const b of scanners) {
+      const distance = (a, b) =>
+        Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]) + Math.abs(a[2] - b[2]);
+      max = Math.max(max, distance(a.position, b.position));
     }
   }
   return max;
