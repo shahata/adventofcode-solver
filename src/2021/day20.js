@@ -5,9 +5,7 @@ function buffer(image, c) {
 }
 
 function enhance(image, algorithm) {
-  const next = new Array(image.length)
-    .fill()
-    .map(() => new Array(image[0].length).fill());
+  const next = new Array(image.length).fill().map(() => []);
   const get = (i, j) => (image[i] && image[i][j]) || image[0][0];
   for (let i = 0; i < image.length; i++) {
     for (let j = 0; j < image[0].length; j++) {
