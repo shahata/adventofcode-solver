@@ -11,13 +11,13 @@ function enhance(image, algorithm) {
     for (let j = 0; j < image[0].length; j++) {
       const area = [
         get(i - 1, j - 1),
-        get(i - 1, j),
+        get(i - 1, j + 0),
         get(i - 1, j + 1),
-        get(i, j - 1),
-        get(i, j),
-        get(i, j + 1),
+        get(i + 0, j - 1),
+        get(i + 0, j + 0),
+        get(i + 0, j + 1),
         get(i + 1, j - 1),
-        get(i + 1, j),
+        get(i + 1, j + 0),
         get(i + 1, j + 1),
       ].join('');
       const pixel = area.replaceAll('#', '1').replaceAll('.', '0');
