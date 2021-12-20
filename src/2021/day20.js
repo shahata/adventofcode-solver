@@ -1,7 +1,7 @@
 function buffer(image, c) {
-  image = image.map(line => [c, ...line, c]);
-  const empty = new Array(image[0].length).fill(c);
-  return [empty, ...image, empty];
+  image = image.map(line => [c, c, ...line, c, c]);
+  const e = new Array(image[0].length).fill(c);
+  return [e, e, ...image, e, e];
 }
 
 function enhance(image, algorithm) {
