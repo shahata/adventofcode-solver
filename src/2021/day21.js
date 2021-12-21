@@ -14,18 +14,23 @@ export function part1(input) {
   return Math.min(...score) * (i - 1);
 }
 
-function play(position1, position2, score1, score2, memory = new Map()) {
-  const key = [position1, position2, score1, score2].join(',');
+function play(player1, player2, memory = new Map()) {
+  if (player2.score >= 21) return [0, 1];
+
+  const key = JSON.stringify({ player1, player2 });
   const result = memory.get(key);
   if (result) return result;
-  if (score2 >= 21) return [0, 1];
 
   const wins = [0, 0];
   const odds = { 3: 1, 9: 1, 4: 3, 8: 3, 5: 6, 7: 6, 6: 7 };
   for (const key in odds) {
-    let pos = position1 + +key;
-    if (pos > 10) pos -= 10;
-    const next = play(position2, pos, score2, score1 + pos, memory);
+    let position = player1.position + +key;
+    if (position > 10) position -= 10;
+    const next = play(
+      player2,
+      { position, score: player1.score + position },
+      memory,
+    );
     wins[0] += next[1] * odds[key];
     wins[1] += next[0] * odds[key];
   }
@@ -36,6 +41,6 @@ function play(position1, position2, score1, score2, memory = new Map()) {
 
 export function part2(input) {
   const players = input.split('\n').map(line => +line.split(': ')[1]);
-  const wins = play(players[0], players[1], 0, 0);
-  return Math.max(wins[0], wins[1]);
+  const wins = play(...players.map(p => ({ position: p, score: 0 })));
+  return Math.max(...wins);
 }
