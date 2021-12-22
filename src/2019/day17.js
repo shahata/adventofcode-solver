@@ -8,7 +8,7 @@ function createMap(input, commands) {
     output: x => output.push(x),
     base: 0,
   };
-  const ops = input.split(',').map(x => +x);
+  const ops = input.split(',').map(Number);
   let ip = 0;
 
   ops[0] = commands ? 2 : ops[0];

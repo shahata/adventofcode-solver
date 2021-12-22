@@ -11,7 +11,7 @@ function parse(input) {
     .split('\n')
     .slice(1)
     .concat([ticket])
-    .map(x => x.split(',').map(x => +x));
+    .map(x => x.split(',').map(Number));
 
   return { rules, ticket: tickets[tickets.length - 1], tickets };
 }

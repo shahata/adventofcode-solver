@@ -15,7 +15,7 @@ function inc(octopai, i, j) {
 }
 
 function run(input, steps) {
-  const octopai = input.split('\n').map(line => line.split('').map(x => +x));
+  const octopai = input.split('\n').map(line => line.split('').map(Number));
   let flashes = 0;
   for (let n = 0; n < steps; n++) {
     if (octopai.every(line => line.every(octopus => octopus === 0))) {

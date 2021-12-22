@@ -5,7 +5,7 @@ function distance(a, b) {
 export function part1(input) {
   let constellations = 0;
   const lines = input.split('\n');
-  const points = lines.map(line => line.split(',').map(x => +x));
+  const points = lines.map(line => line.split(',').map(Number));
   points.forEach(p => {
     p.near = points.filter(q => distance(p, q) <= 3);
   });

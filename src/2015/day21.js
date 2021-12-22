@@ -52,7 +52,7 @@ function calcOptions() {
 }
 
 function parse(input) {
-  const [hit, damage, armor] = input.match(/\d+/g).map(x => +x);
+  const [hit, damage, armor] = input.match(/\d+/g).map(Number);
   return { hit, damage, armor };
 }
 

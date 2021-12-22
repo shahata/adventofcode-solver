@@ -1,5 +1,5 @@
 export function part1(input) {
-  const [start, end] = input.split('-').map(x => +x);
+  const [start, end] = input.split('-').map(Number);
   let options = 0;
   for (let i = start; i <= end; i++) {
     const digits = `${i}`.split('').sort();
@@ -11,7 +11,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const [start, end] = input.split('-').map(x => +x);
+  const [start, end] = input.split('-').map(Number);
   let options = 0;
   for (let i = start; i <= end; i++) {
     const digits = `${i}`.split('').sort();

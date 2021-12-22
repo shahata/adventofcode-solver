@@ -1,7 +1,7 @@
 function parse(input) {
   return input
     .split('\n')
-    .map(s => s.match(/<x=([^,]*), y=([^,]*), z=([^>]*)>/).map(x => +x))
+    .map(s => s.match(/<x=([^,]*), y=([^,]*), z=([^>]*)>/).map(Number))
     .map(([, x, y, z]) => ({
       position: [x, y, z],
       velocity: [0, 0, 0],

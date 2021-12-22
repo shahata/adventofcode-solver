@@ -3,7 +3,7 @@ import { execute } from './day05.js';
 
 function run(input, inputValues, state) {
   const user = { input: inputValues, output: undefined };
-  const ops = state ? state.ops : input.split(',').map(x => +x);
+  const ops = state ? state.ops : input.split(',').map(Number);
   let ip = state ? state.ip : 0;
 
   while (ops[ip] % 100 !== 99) {

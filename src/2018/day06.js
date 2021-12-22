@@ -31,7 +31,7 @@ function calcBlastSize(points, size) {
 function parseInput(input) {
   const points = input
     .split('\n')
-    .map(x => x.split(', ').map(x => +x))
+    .map(x => x.split(', ').map(Number))
     .map(([x, y]) => ({ x, y }));
   const size = points.reduce(
     (max, p) => ({ x: Math.max(max.x, p.x), y: Math.max(max.y, p.y) }),

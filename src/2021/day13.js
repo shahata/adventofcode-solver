@@ -2,7 +2,7 @@ import { ocr } from '../utils/ocr.js';
 
 function fold(input, total = Infinity) {
   let [paper, folds] = input.split('\n\n');
-  paper = paper.split('\n').map(line => line.split(',').map(x => +x));
+  paper = paper.split('\n').map(line => line.split(',').map(Number));
   folds = folds.split('\n').map(line => {
     const [axis, number] = line.replace('fold along ', '').split('=');
     return { axis, number: +number };

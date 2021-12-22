@@ -4,7 +4,7 @@ export function part1(input) {
   buses = buses
     .split(',')
     .filter(x => x !== 'x')
-    .map(x => +x);
+    .map(Number);
 
   const next = buses.map(x => {
     let result = 0;

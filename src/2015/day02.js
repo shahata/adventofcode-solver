@@ -1,4 +1,4 @@
-const parse = input => input.split('\n').map(x => x.split('x').map(x => +x));
+const parse = input => input.split('\n').map(x => x.split('x').map(Number));
 
 export const part1 = input =>
   parse(input)

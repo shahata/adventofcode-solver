@@ -40,7 +40,7 @@ function encode(arr) {
 }
 
 function parse(input) {
-  return input.split(',').map(x => +x);
+  return input.split(',').map(Number);
 }
 
 function parse2(input) {

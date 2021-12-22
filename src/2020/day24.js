@@ -29,7 +29,7 @@ export function part1(input) {
 }
 
 function neighbors(key) {
-  const [x, y] = key.split(',').map(x => +x);
+  const [x, y] = key.split(',').map(Number);
   return Object.values(go)
     .map(f => f({ x, y }))
     .map(p => `${p.x},${p.y}`);

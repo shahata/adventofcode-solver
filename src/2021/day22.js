@@ -36,13 +36,9 @@ function subtract(a, b) {
 function calculateAreas(input) {
   const commands = input.split('\n').map(line => {
     const [operation, rest] = line.split(' ');
-    let [x, y, z] = rest.split(',').map(x =>
-      x
-        .slice(2)
-        .split('..')
-        .map(x => +x)
-        .sort((a, b) => a - b),
-    );
+    let [x, y, z] = rest
+      .split(',')
+      .map(x => x.slice(2).split('..').map(Number));
     return {
       operation,
       x: [x[0], x[1] + 1],
@@ -61,38 +57,21 @@ function calculateAreas(input) {
   return areas;
 }
 
-export function part1(input) {
-  const areas = calculateAreas(input);
+function volume(areas) {
   let total = 0;
-  for (const area of areas) {
-    const align = x => (x < -50 ? -50 : x > 51 ? 51 : x);
-    const subset = {
-      x: area.x.map(align),
-      y: area.y.map(align),
-      z: area.z.map(align),
-    };
-    if (
-      subset.x[0] < subset.x[1] &&
-      subset.y[0] < subset.y[1] &&
-      subset.z[0] < subset.z[1]
-    ) {
-      total +=
-        (subset.x[1] - subset.x[0]) *
-        (subset.y[1] - subset.y[0]) *
-        (subset.z[1] - subset.z[0]);
-    }
+  for (const { x, y, z } of areas) {
+    total += (x[1] - x[0]) * (y[1] - y[0]) * (z[1] - z[0]);
   }
   return total;
 }
 
+export function part1(input) {
+  const areas = calculateAreas(input);
+  const rest = calculateAreas(`${input}\noff x=-50..50,y=-50..50,z=-50..50`);
+  return volume(areas) - volume(rest);
+}
+
 export function part2(input) {
   const areas = calculateAreas(input);
-  let total = 0;
-  for (const area of areas) {
-    total +=
-      (area.x[1] - area.x[0]) *
-      (area.y[1] - area.y[0]) *
-      (area.z[1] - area.z[0]);
-  }
-  return total;
+  return volume(areas);
 }

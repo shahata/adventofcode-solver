@@ -30,7 +30,7 @@ function build(nodes) {
   let start,
     data = { x: 0, y: 0 };
   nodes.forEach(node => {
-    const [, x, y] = node.name.match(/x(\d+)-y(\d+)$/).map(x => +x);
+    const [, x, y] = node.name.match(/x(\d+)-y(\d+)$/).map(Number);
     map[cellId({ x, y })] = { wall: Math.floor(Math.log10(node.used)) === big };
     start = node.used === 0 ? { x, y } : start;
     data = y === 0 && x > data.x ? { x, y } : data;

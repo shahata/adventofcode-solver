@@ -35,12 +35,9 @@ function subGame(players, check) {
 }
 
 function parse(input) {
-  return input.split('\n\n').map(player =>
-    player
-      .split('\n')
-      .slice(1)
-      .map(x => +x),
-  );
+  return input
+    .split('\n\n')
+    .map(player => player.split('\n').slice(1).map(Number));
 }
 
 export function part1(input) {

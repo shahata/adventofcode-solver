@@ -18,7 +18,7 @@ const ops = {
   eqri: (r, i1, i2, o) => (r[o] = r[i1] === i2 ? 1 : 0),
   eqrr: (r, i1, i2, o) => (r[o] = r[i1] === r[i2] ? 1 : 0),
 };
-const numbers = arr => arr.map(x => +x);
+const numbers = arr => arr.map(Number);
 
 export function part1(input, reg0 = 0) {
   const lines = input.split('\n');

@@ -1,7 +1,7 @@
 import Combinatorics from 'js-combinatorics';
 
 export function part1(input, preamble = 25) {
-  const numbers = input.split('\n').map(x => +x);
+  const numbers = input.split('\n').map(Number);
   let stack = [];
   for (let i = 0; i < numbers.length; i++) {
     if (stack.length === preamble) {
@@ -17,7 +17,7 @@ export function part1(input, preamble = 25) {
 
 export function part2(input, preamble = 25) {
   const target = part1(input, preamble);
-  const numbers = input.split('\n').map(x => +x);
+  const numbers = input.split('\n').map(Number);
   for (let i = 0; i < numbers.length; i++) {
     let sum, j;
     for (j = i, sum = 0; sum < target; j++) {

@@ -15,13 +15,9 @@ function shoot(xVelocity, yVelocity, xRange, yRange) {
 }
 
 function calculate(input) {
-  const [xRange, yRange] = input.split(', ').map(x =>
-    x
-      .split('=')
-      .pop()
-      .split('..')
-      .map(x => +x),
-  );
+  const [xRange, yRange] = input
+    .split(', ')
+    .map(x => x.split('=').pop().split('..').map(Number));
   const deepY = Math.min(...yRange);
   const farX = Math.max(...xRange);
   let results = [];

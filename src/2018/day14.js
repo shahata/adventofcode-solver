@@ -5,7 +5,7 @@ function cook(check) {
     elf1 = (elf1 + board[elf1] + 1) % board.length;
     elf2 = (elf2 + board[elf2] + 1) % board.length;
     const newRecipes = String(board[elf1] + board[elf2]).split('');
-    board.push(...newRecipes.map(x => +x));
+    board.push(...newRecipes.map(Number));
   }
   return board;
 }

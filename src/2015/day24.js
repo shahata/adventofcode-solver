@@ -22,7 +22,7 @@ function f(boxes, total, part) {
 }
 
 function solve(input, x) {
-  const boxes = input.split('\n').map(x => +x);
+  const boxes = input.split('\n').map(Number);
   const total = boxes.reduce((sum, x) => sum + x);
   return f(boxes, total / x, x);
 }

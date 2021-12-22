@@ -12,7 +12,7 @@ function run(input, commands) {
     output: x => output.push(x),
     base: 0,
   };
-  const ops = input.split(',').map(x => +x);
+  const ops = input.split(',').map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {

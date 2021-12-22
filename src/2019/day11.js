@@ -50,7 +50,7 @@ export function part1(input, map = {}) {
   }
 
   const user = { input: read, output: write, base: 0 };
-  const ops = input.split(',').map(x => +x);
+  const ops = input.split(',').map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {

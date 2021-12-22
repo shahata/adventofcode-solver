@@ -18,7 +18,7 @@ function remove(position) {
 export function part1(input) {
   const [, players, lastMarble] = input
     .match(/(\d+) players; last marble is worth (\d+)/)
-    .map(x => +x);
+    .map(Number);
 
   const score = new Map();
   let player = 0;
@@ -42,6 +42,6 @@ export function part1(input) {
 export function part2(input) {
   const [, players, lastMarble] = input
     .match(/(\d+) players; last marble is worth (\d+)/)
-    .map(x => +x);
+    .map(Number);
   return part1(`${players} players; last marble is worth ${lastMarble * 100}`);
 }

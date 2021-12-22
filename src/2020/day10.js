@@ -1,7 +1,7 @@
 export function part1(input) {
   const numbers = input
     .split('\n')
-    .map(x => +x)
+    .map(Number)
     .concat(0)
     .sort((a, b) => a - b);
   const map = new Map([
@@ -19,7 +19,7 @@ export function part1(input) {
 export function part2(input) {
   const numbers = input
     .split('\n')
-    .map(x => +x)
+    .map(Number)
     .concat(0)
     .sort((a, b) => a - b);
   const map = new Map([[0, 1]]);

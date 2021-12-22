@@ -3,7 +3,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const numbers = input.split('\n').map(x => +x);
+  const numbers = input.split('\n').map(Number);
   const visited = new Set();
   let current = 0;
   let frequency = 0;

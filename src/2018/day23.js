@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 function parse(input) {
   return input
     .split('\n')
-    .map(x => x.match(/(-?\d+),(-?\d+),(-?\d+)>, r=(-?\d+)/).map(x => +x))
+    .map(x => x.match(/(-?\d+),(-?\d+),(-?\d+)>, r=(-?\d+)/).map(Number))
     .map(([, x, y, z, r]) => ({ x, y, z, r }));
 }
 

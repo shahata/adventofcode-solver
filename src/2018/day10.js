@@ -31,7 +31,7 @@ function print(points) {
 export function day(input) {
   const regex = /([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)+/;
   const points = input.split('\n').map(line => {
-    const [, x, y, xDiff, yDiff] = line.match(regex).map(x => +x);
+    const [, x, y, xDiff, yDiff] = line.match(regex).map(Number);
     return { x, y, xDiff, yDiff };
   });
 

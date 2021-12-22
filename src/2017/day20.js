@@ -37,10 +37,7 @@ function parse(input) {
   return input.split('\n').map((line, i) => {
     const parser =
       /^p=<(-?\d+),(-?\d+),(-?\d+)>, v=<(-?\d+),(-?\d+),(-?\d+)>, a=<(-?\d+),(-?\d+),(-?\d+)>$/;
-    const numbers = line
-      .match(parser)
-      .slice(1)
-      .map(x => +x);
+    const numbers = line.match(parser).slice(1).map(Number);
     return {
       i,
       p: numbers.slice(0, 3),

@@ -12,7 +12,7 @@ function offsets(dimensions) {
 }
 
 function neighbors(key) {
-  const coordinates = key.split(',').map(x => +x);
+  const coordinates = key.split(',').map(Number);
   return offsets(coordinates.length)
     .map(x => x.map((c, i) => coordinates[i] + c).join(','))
     .filter(x => x !== key);

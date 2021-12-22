@@ -50,7 +50,7 @@ function solve(input) {
   const scanners = input
     .replaceAll(/^--.*\n/gm, '')
     .split('\n\n')
-    .map(lines => lines.split('\n').map(c => c.split(',').map(x => +x)));
+    .map(lines => lines.split('\n').map(c => c.split(',').map(Number)));
   const solution = [{ position: [0, 0, 0], beacons: scanners.shift() }];
   while (scanners.length > 0) {
     for (const a of solution) {

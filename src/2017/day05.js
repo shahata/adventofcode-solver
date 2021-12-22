@@ -11,7 +11,7 @@ function solve(maze, mutate) {
 }
 
 function parse(input) {
-  return input.split('\n').map(x => +x);
+  return input.split('\n').map(Number);
 }
 
 export const part1 = input => solve(parse(input), x => x + 1);

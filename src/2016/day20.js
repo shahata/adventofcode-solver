@@ -21,7 +21,7 @@ function parse(input) {
     x
       .match(/^(\d+)-(\d+)$/)
       .slice(1)
-      .map(x => +x),
+      .map(Number),
   );
 }
 
