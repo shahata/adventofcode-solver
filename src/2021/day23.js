@@ -1,3 +1,9 @@
+const toKey = state =>
+  state
+    .sort((a, b) => a.x - b.x || a.y - b.y)
+    .map(s => `${s.x},${s.y},${s.sign}`)
+    .join(':');
+
 function neighbors({ state, energy: curr }) {
   const price = { A: 1, B: 10, C: 100, D: 1000 };
   const home = { A: 3, B: 5, C: 7, D: 9 };
@@ -26,19 +32,12 @@ function neighbors({ state, energy: curr }) {
   });
 }
 
-const toKey = state =>
-  state
-    .sort((a, b) => a.x - b.x || a.y - b.y)
-    .map(s => `${s.x},${s.y},${s.sign}`)
-    .join(':');
-
 function solve(start, end) {
   const visited = new Map();
   const queue = [{ state: start, energy: 0 }];
   while (queue.length > 0) {
-    const n = queue.shift();
+    const n = queue.sort((a, b) => a.energy - b.energy).shift();
     if (toKey(n.state) === end) return n.energy;
-
     neighbors(n).forEach(neighbor => {
       const v = visited.get(toKey(neighbor.state));
       if (!v || neighbor.energy < v.energy) {
@@ -47,9 +46,7 @@ function solve(start, end) {
         queue.push(neighbor);
       }
     });
-    queue.sort((a, b) => a.energy - b.energy);
   }
-  return 'no solution';
 }
 
 function parse(input) {
