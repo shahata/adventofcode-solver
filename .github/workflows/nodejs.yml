@@ -16,5 +16,4 @@ jobs:
     - run: npm test
       env:
         CI: true
-        SKIP_HEAVY: true
         NODE_OPTIONS: '--experimental-vm-modules'
