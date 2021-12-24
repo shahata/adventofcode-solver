@@ -8,26 +8,28 @@ function neighbors({ state, energy: curr }) {
   const price = { A: 1, B: 10, C: 100, D: 1000 };
   const home = { A: 3, B: 5, C: 7, D: 9 };
   const move = (a, b) => ({
-    state: state.map(m => (m !== a ? m : { ...b, done: b.y !== 1 })),
-    energy: curr + price[a.sign] * (Math.abs(a.x - b.x) + Math.abs(a.y - b.y)),
+    state: state.map(m => (m !== a ? m : { ...b, done: b.y !== 1 })), //replace with new position
+    energy: curr + price[a.sign] * (Math.abs(a.x - b.x) + Math.abs(a.y - b.y)), //add cost of move
   });
   return state.flatMap(member => {
     const { x, y, sign } = member;
     const is = (x, y) => m => m.x === x && m.y === y;
+    if (member.done) return []; //it is already in the right room
     if (y === 1) {
+      //we want to bring it into the room
       const go = { sign, x: home[sign], y: state.length === 8 ? 3 : 5 };
-      if (state.some(m => (m.x - x) * (m.x - go.x) < 0 && m.y === 1)) return [];
-      if (state.some(m => m.x === go.x && m.sign !== sign)) return [];
-      while (state.some(is(go.x, go.y))) go.y--;
-      return [move(member, go)];
+      if (state.some(m => (m.x - x) * (m.x - go.x) < 0 && m.y === 1)) return []; //the path to the room is blocked
+      if (state.some(m => m.x === go.x && m.sign !== sign)) return []; //there's a wrong letter in the room
+      while (state.some(is(go.x, go.y))) go.y--; //search for the lowest free space in the room
+      return [move(member, go)]; //move into the room
     } else {
+      //we want to bring it out of the room
       let options = [];
-      if (member.done) return [];
-      if (state.some(m => m.x === x && m.y < y)) return [];
-      for (let i = x; i <= 11 && !state.some(is(i, 1)); i++) options.push(i);
-      for (let i = x; i >= 1 && !state.some(is(i, 1)); i--) options.push(i);
-      options = options.filter(i => ![3, 5, 7, 9].includes(i));
-      return options.map(x => move(member, { sign, x, y: 1 }));
+      if (state.some(m => m.x === x && m.y < y)) return []; //the path out of the room is blocked
+      for (let i = x; i >= 1 && !state.some(is(i, 1)); i--) options.push(i); //collect options to the left
+      for (let i = x; i <= 11 && !state.some(is(i, 1)); i++) options.push(i); //collect options to the right
+      options = options.filter(i => ![3, 5, 7, 9].includes(i)); //don't stand in the doorway don't block up the hall
+      return options.map(x => move(member, { sign, x, y: 1 })); //return all remaining options to move out of the room
     }
   });
 }
