@@ -5,20 +5,12 @@ const input = readInput(import.meta.url);
 
 describe('day24 2021', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
-      // expect(part1('1')).toEqual(0);
-    });
-
     it('should work for part 1 input', () => {
       expect(part1(input)).toEqual(53999995829399);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
-      // expect(part2('1')).toEqual(0);
-    });
-
     it('should work for part 2 input', () => {
       expect(part2(input)).toEqual(11721151118175);
     });
