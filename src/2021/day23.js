@@ -17,7 +17,7 @@ function neighbors({ state, energy: curr }) {
     if (member.done) return []; //it is already in the right room
     if (y === 1) {
       //we want to bring it into the room
-      const go = { sign, x: home[sign], y: state.length === 8 ? 3 : 5 };
+      const go = { sign, x: home[sign], y: state.length === 8 ? 3 : 5 }; //set different target y for part 1 and 2
       if (state.some(m => (m.x - x) * (m.x - go.x) < 0 && m.y === 1)) return []; //the path to the room is blocked
       if (state.some(m => m.x === go.x && m.sign !== sign)) return []; //there's a wrong letter in the room
       while (state.some(is(go.x, go.y))) go.y--; //search for the lowest free space in the room
