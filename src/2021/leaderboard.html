@@ -19,7 +19,7 @@
 <button onclick="drawChart('five')">Show Top Five</button>
 <canvas id="canvas"></canvas>
 <script>
-var config = {"all":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"rasmus93","data":[1,2,10,19,23,25,24,23,26,35,44,52,60,66,68,89,94,127,128,131,132,134,126,127,129,125,132,141,153,165,170,166,170,173,188,202,216,230,233,234,239,238],"fill":false},{"label":"Almog Adziashvili","data":[2,6,10,18,15,14,12,10,11,16,26,31,36,38,41,64,67,97,108,115,118,121,119,125,122,120,121,132,139,143,149,150,155,152,170,187,200,213,214,211,206,207],"fill":false},{"label":"Gal Elmalah","data":[5,8,14,20,23,24,20,17,16,17,18,28,34,38,34,56,54,83,91,97,99,100,101,109,114,115,117,130,136,143,144,139,145,147,159,170,181,192,190,188,182,178],"fill":false},{"label":"Shahar Talmi","data":[-5,-9,-8,-1,0,0,0,0,0,6,12,21,23,24,21,34,35,66,71,76,75,73,69,72,71,68,74,82,93,103,105,102,100,94,108,121,137,153,152,151,155,153],"fill":false},{"label":"Gabriel Grinberg","data":[4,6,8,11,13,9,10,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"ranyitz","data":[0,0,0,0,-4,-9,-16,-24,-31,-28,-26,-30,-39,-49,-59,-53,-60,-35,-32,-30,-46,-61,-68,-69,-66,-67,-68,-64,-67,-65,-72,-82,-79,-84,-76,-69,-76,-83,-86,-91,-92,-95],"fill":false},{"label":"silyevsk","data":[3,8,15,19,17,14,9,4,6,14,11,18,19,24,23,35,39,67,77,86,84,83,82,89,95,98,103,113,117,122,125,124,120,112,128,143,158,173,168,162,165],"fill":false},{"label":"PavlyukVadim","data":[-29,-101,-102,-101,-102,-110,-119,-128,-141,-146,-147,-161,-169,-176,-182,-162,-172,-148,-146,-151,-168,-184,-189,-191,-190,-195,-199,-193,-194,-191,-197,-210,-203,-202,-193,-185,-180,-178,-182,-186,-196,-201],"fill":false},{"label":"Galymzhan Kozhayev","data":[-99,-196,-285,-372,-431,-488,-519,-547,-549,-539,-532,-534,-531,-528,-530,-516,-514,-480,-471,-463,-470,-477,-475,-470,-466,-464,-461,-458,-448,-437,-433,-435,-433,-437,-426,-416,-404,-392,-390,-399,-398,-404],"fill":false},{"label":"Oleksandr Bondarchuk","data":[-4,-5,-15,-22,-36,-52,-66,-81,-85,-81,-86,-80,-84,-85,-84,-69,-70,-38,-34,-30,-35,-38,-63,-79,-81,-90,-86,-74,-76,-101,-112,-135,-134,-136,-119,-103,-95,-87,-93,-100,-107],"fill":false},{"label":"Daniel Kagan","data":[-95,-189,-266,-341,-348,-358,-366,-373,-382,-383,-397,-403,-410,-423,-438,-435,-453,-439,-444,-451,-463,-475,-487,-499,-503,-509,-514,-535,-544,-553,-563,-574,-586,-599,-597,-596,-595,-594,-604,-616,-619,-626],"fill":false},{"label":"Audrius Kovalenko","data":[-75,-148,-153,-156,-168,-187,-203,-219,-243,-259,-265,-263,-264,-269,-283,-274,-296,-281,-285,-291,-297,-302,-308,-306,-313,-321,-324,-317,-309,-300,-320,-344,-360,-377,-372,-368,-372,-374,-393,-415,-419],"fill":false},{"label":"Maor Yosef","data":[-9,-17,-29,-38,-62,-85,-102,-115,-123,-121,-130,-147,-163,-178,-199,-191,-205,-186,-201,-218,-273,-327,-347,-361,-371,-387,-398,-407,-398,-390,-395,-407,-422,-438,-432,-427,-429,-430,-444,-459,-468],"fill":false},{"label":"ykrukovsky","data":[-21,-38,-33,-28,-28,-34,-45,-66,-69,-62,-54,-59,-62,-64,-71,-67,-75,-81,-75,-76,-95,-113,-122,-128,-134,-160,-185,-187,-204,-223,-246,-271,-292,-315,-341,-368,-384,-400,-424,-450],"fill":false},{"label":"Tadas Kundelis","data":[-35,-66,-94,-119,-137,-150,-171,-190,-201,-208,-210,-230,-276,-317,-326,-310,-316,-293,-307,-322,-352,-382,-425,-460,-503,-547,-565,-571,-597,-620,-644,-671,-688,-708,-718,-729,-739,-749,-775,-802],"fill":false},{"label":"Noam Neeman","data":[-1,-4,-12,-40,-119,-198,-228,-262,-277,-281,-342,-395,-467,-538,-582,-590,-619,-615,-631,-649,-686,-738,-804,-859,-905,-953,-1011,-1049,-1062,-1065,-1074,-1083,-1097,-1112,-1099,-1087,-1088,-1093,-1108,-1125,-1136],"fill":false},{"label":"​Vytautas Jakutis","data":[-114,-223,-326,-426,-526,-625,-715,-805,-887,-959,-1018,-1076,-1106,-1138,-1163,-1158,-1161,-1159,-1161,-1163,-1177,-1190,-1203,-1214,-1222,-1229,-1235,-1230,-1240,-1244,-1246,-1253,-1262,-1272,-1265,-1259,-1257,-1254,-1266,-1279,-1277],"fill":false},{"label":"Oleksii Dubok","data":[-38,-76,-114,-151,-168,-220,-226,-236,-271,-290,-336,-379,-416,-459,-511,-527,-542,-529,-575,-620,-660,-699,-718,-722,-760,-794,-813,-817,-837,-842,-845,-851,-876,-902,-914,-927,-923,-918,-948,-979],"fill":false},{"label":"Andrius Vidmanto Bentkus","data":[-85,-169,-220,-274,-302,-331,-355,-377,-399,-412,-436,-452,-475,-497,-538,-555,-572,-560,-567,-579,-604,-628,-659,-682,-721,-763,-797,-809,-832,-846,-862,-881,-908,-935,-932,-930,-943,-956,-977,-1000],"fill":false},{"label":"Giedrius Graževičius","data":[-72,-141,-165,-212,-241,-272,-294,-317,-351,-371,-423,-461,-493,-524,-567,-582,-627,-639,-674,-704,-743,-781,-818,-845,-874,-899,-926,-949,-956,-968,-983,-999,-1009,-1043,-1047,-1051,-1044,-1037,-1055,-1074],"fill":false},{"label":"Jonathan Fraimorice","data":[-28,-56,-78,-97,-133,-163,-213,-264,-309,-340,-388,-425,-443,-461,-508,-518,-560,-562,-584,-604,-639,-674,-724,-763,-782,-805,-846,-868,-897,-913,-930,-948,-987,-1027,-1030,-1036,-1042,-1048,-1075,-1103],"fill":false},{"label":"Domas Karklys","data":[-98,-194,-282,-368,-420,-470,-489,-507,-523,-529,-533,-532,-547,-563,-576,-565,-574,-567,-570,-573,-582,-590,-601,-604,-613,-625,-633,-657,-662,-717,-731,-746,-752,-771,-792,-814,-1102,-1390,-1398,-1409,-1417],"fill":false},{"label":"Amir Yonatan","data":[-12,-23,-40,-55,-76,-94,-109,-123,-150,-162,-183,-196,-257,-314,-379,-409,-421,-395,-388,-387,-391,-395,-416,-425,-443,-474,-466,-494,-519,-536,-537,-558,-561,-568,-569,-571,-582,-593],"fill":false},{"label":"Vidas","data":[-41,-78,-104,-127,-165,-203,-229,-253,-306,-344,-375,-406,-448,-492,-542,-567,-623,-638,-670,-703,-772,-841,-912,-975,-1036,-1101,-1138,-1156,-1178,-1188,-1209,-1231,-1249,-1267,-1257,-1248,-1239,-1230,-1250,-1270],"fill":false},{"label":"Lior Hai","data":[-83,-165,-197,-228,-277,-319,-364,-408,-429,-444,-473,-500,-521,-542,-571,-573,-594,-588,-605,-624,-691,-758,-781,-830,-857,-886,-906,-925,-976,-1021,-1064,-1112,-1147,-1184,-1204,-1225,-1237,-1249,-1266,-1287],"fill":false},{"label":"Taras Petushkov","data":[-62,-120,-161,-201,-256,-307,-388,-468,-520,-559,-602,-631,-676,-716,-765,-778,-822,-826,-871,-915,-967,-1018,-1054,-1079,-1115,-1150,-1189,-1209,-1244,-1270,-1289,-1306,-1325,-1347,-1343,-1340,-1330,-1320,-1336,-1354],"fill":false},{"label":"dragonofdeath","data":[-78,-154,-239,-321,-363,-411,-485,-556,-613,-660,-693,-719,-759,-801,-838,-882,-923,-926,-950,-976,-1009,-1041,-1076,-1102,-1135,-1165,-1182,-1192,-1204,-1212,-1224,-1238,-1264,-1293,-1300,-1308,-1305,-1301,-1332,-1364],"fill":false},{"label":"Inbal Langer","data":[-22,-43,-77,-110,-195,-277,-335,-391,-434,-471,-508,-550,-583,-616,-658,-678,-721,-735,-796,-856,-904,-951,-985,-1016,-1050,-1090,-1112,-1164,-1182,-1204,-1243,-1285,-1321,-1359,-1374,-1390,-1399,-1408,-1430,-1454],"fill":false},{"label":"Dovilė Lapinskaitė","data":[-65,-140,-167,-191,-231,-268,-295,-320,-364,-393,-457,-514,-568,-621,-691,-729,-779,-788,-824,-859,-888,-917,-950,-972,-1030,-1089,-1121,-1138,-1172,-1205,-1249,-1298,-1340,-1384,-1386,-1389,-1394,-1398,-1426,-1456],"fill":false},{"label":"Oded Soffrin","data":[-2,-7,-111,-212,-310,-404,-479,-551,-582,-599,-614,-617,-646,-675,-751,-804,-838,-835,-858,-883,-921,-958,-968,-987,-1007,-1025,-1075,-1120,-1126,-1128,-1132,-1140,-1148,-1159,-1172,-1186,-1203,-1491,-1498,-1506],"fill":false},{"label":"atamurius","data":[-51,-96,-141,-183,-244,-302,-357,-410,-481,-540,-593,-632,-695,-772,-825,-848,-911,-934,-981,-1028,-1079,-1129,-1173,-1206,-1255,-1304,-1348,-1375,-1405,-1432,-1457,-1483,-1526,-1571,-1588,-1606,-1600,-1594,-1617,-1642],"fill":false},{"label":"Donatas Petrauskas","data":[-49,-93,-128,-158,-195,-238,-282,-324,-360,-385,-419,-438,-466,-494,-520,-547,-573,-565,-578,-594,-628,-661,-724,-781,-805,-826,-840,-879,-922,-957,-995,-1036,-1037,-1038,-1057,-1077,-1085,-1093],"fill":false},{"label":"Nachshon Schwartz","data":[-122,-238,-349,-458,-568,-675,-773,-869,-958,-1037,-1111,-1183,-1260,-1339,-1419,-1471,-1502,-1497,-1548,-1598,-1657,-1716,-1734,-1742,-1756,-1771,-1792,-1799,-1843,-1879,-1907,-1936,-1958,-1982,-1993,-2005,-2008,-2011,-2022,-2036],"fill":false},{"label":"Lior Erez","data":[-7,-17,-118,-216,-312,-402,-459,-513,-589,-659,-713,-768,-833,-897,-948,-970,-1007,-1029,-1055,-1084,-1134,-1183,-1228,-1260,-1320,-1382,-1424,-1456,-1489,-1523,-1536,-1574,-1597,-1625,-1633,-1642,-1930,-2218,-2250,-2283],"fill":false},{"label":"Artem Ohanjanyan","data":[-89,-177,-235,-291,-363,-431,-480,-527,-614,-691,-764,-835,-911,-989,-1058,-1099,-1145,-1161,-1215,-1269,-1312,-1357,-1397,-1426,-1468,-1513,-1556,-1585,-1609,-1622,-1648,-1676,-1717,-1759,-1782,-1806,-1820,-1834],"fill":false}]}},"ten":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"rasmus93","data":[0,0,2,8,10,16,14,17,26,29,32,31,37,42,47,55,59,61,57,55,57,61,57,55,58,57,58,59,60,62,65,64,70,79,80,81,79,77,81,83,84,85],"fill":false},{"label":"Almog Adziashvili","data":[1,4,2,7,2,5,2,4,11,10,14,10,13,14,20,30,32,31,37,39,43,48,50,53,51,52,47,50,46,40,44,48,55,58,62,66,63,60,62,60,51,54],"fill":false},{"label":"Gal Elmalah","data":[4,6,6,9,10,15,10,11,16,11,6,7,11,14,13,22,19,17,20,21,24,27,32,37,43,47,43,48,43,40,39,37,45,53,51,49,44,39,38,37,27,25],"fill":false},{"label":"Shahar Talmi","data":[-6,-11,-16,-12,-13,-9,-10,-6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Gabriel Grinberg","data":[3,4,0,0,0,0,0,0,0,-6,-12,-21,-23,-24,-21,-34,-35,-66,-71,-76,-75,-73,-69,-72,-71,-68,-74,-82,-93,-103,-105,-102,-100,-94,-108,-121,-137,-153,-152,-151,-155,-153],"fill":false},{"label":"ranyitz","data":[-1,-2,-8,-11,-17,-18,-26,-30,-31,-34,-38,-51,-62,-73,-80,-87,-95,-101,-103,-106,-121,-134,-137,-141,-137,-135,-142,-146,-160,-168,-177,-184,-179,-178,-184,-190,-213,-236,-238,-242,-247,-248],"fill":false},{"label":"silyevsk","data":[2,6,7,8,4,5,-1,-2,6,8,-1,-3,-4,0,2,1,4,1,6,10,9,10,13,17,24,30,29,31,24,19,20,22,20,18,20,22,21,20,16,11,10],"fill":false},{"label":"PavlyukVadim","data":[-30,-103,-110,-112,-115,-119,-129,-134,-141,-152,-159,-182,-192,-200,-203,-196,-207,-214,-217,-227,-243,-257,-258,-263,-261,-263,-273,-275,-287,-294,-302,-312,-303,-296,-301,-306,-317,-331,-334,-337,-351,-354],"fill":false},{"label":"Galymzhan Kozhayev","data":[-100,-198,-293,-383,-444,-497,-529,-553,-549,-545,-544,-555,-554,-552,-551,-550,-549,-546,-542,-539,-545,-550,-544,-542,-537,-532,-535,-540,-541,-540,-538,-537,-533,-531,-534,-537,-541,-545,-542,-550,-553,-557],"fill":false},{"label":"Oleksandr Bondarchuk","data":[-5,-7,-23,-33,-49,-61,-76,-87,-85,-87,-98,-101,-107,-109,-105,-103,-105,-104,-105,-106,-110,-111,-132,-151,-152,-158,-160,-156,-169,-204,-217,-237,-234,-230,-227,-224,-232,-240,-245,-251,-262],"fill":false}]}},"five":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"rasmus93","data":[-1,-4,0,1,8,11,12,13,15,19,26,24,26,28,34,33,40,44,37,34,33,34,25,18,15,10,15,11,17,22,26,27,25,26,29,32,35,38,43,46,57,60],"fill":false},{"label":"Almog Adziashvili","data":[0,0,0,0,0,0,0,0,0,0,8,3,2,0,7,8,13,14,17,18,19,21,18,16,8,5,4,2,3,0,5,11,10,5,11,17,19,21,24,23,24,29],"fill":false},{"label":"Gal Elmalah","data":[3,2,4,2,8,10,8,7,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Shahar Talmi","data":[-7,-15,-18,-19,-15,-14,-12,-10,-11,-10,-6,-7,-11,-14,-13,-22,-19,-17,-20,-21,-24,-27,-32,-37,-43,-47,-43,-48,-43,-40,-39,-37,-45,-53,-51,-49,-44,-39,-38,-37,-27,-25],"fill":false},{"label":"Gabriel Grinberg","data":[2,0,-2,-7,-2,-5,-2,-4,-11,-16,-18,-28,-34,-38,-34,-56,-54,-83,-91,-97,-99,-100,-101,-109,-114,-115,-117,-130,-136,-143,-144,-139,-145,-147,-159,-170,-181,-192,-190,-188,-182,-178],"fill":false}]}}};
+var config = {"all":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"rasmus93","data":[0,0,0,1,8,11,15,19,20,21,32,31,37,42,45,54,55,60,51,45,48,51,44,38,34,27,29,28,36,43,45,42,50,61,60,59,58,57,65,72,74,82,81,66,68,65,61,57],"fill":false},{"label":"Almog Adziashvili","data":[1,4,0,0,0,0,3,6,5,2,14,10,13,14,18,29,28,30,31,29,34,38,37,36,27,22,18,19,22,21,24,26,35,40,42,44,42,40,46,49,41,51,42,39,38,34,35,36],"fill":false},{"label":"silyevsk","data":[2,6,5,1,2,0,0,0,0,0,-1,-3,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Shahar Talmi","data":[-6,-11,-18,-19,-15,-14,-9,-4,-6,-8,0,0,0,0,-2,-1,-4,-1,-6,-10,-9,-10,-13,-17,-24,-30,-29,-31,-24,-19,-20,-22,-20,-18,-20,-22,-21,-20,-16,-11,-10,-3,-7,-4,-13,-20,-23,-26],"fill":false},{"label":"Gal Elmalah","data":[4,6,4,2,8,10,11,13,10,3,6,7,11,14,11,21,15,16,14,11,15,17,19,20,19,17,14,17,19,21,19,15,25,35,31,27,23,19,22,26,17,22,17,15,1,-11],"fill":false},{"label":"ykrukovsky","data":[-22,-40,-43,-46,-43,-48,-54,-70,-75,-76,-66,-80,-85,-88,-94,-102,-114,-148,-152,-162,-179,-196,-204,-217,-229,-258,-288,-300,-321,-345,-371,-395,-412,-427,-469,-511,-542,-573,-592,-612,-638,-649,-657,-668,-674,-679,-680,-681],"fill":false},{"label":"Gabriel Grinberg","data":[3,4,-2,-7,-2,-5,1,2,-6,-14,-12,-21,-23,-24,-23,-35,-39,-67,-77,-86,-84,-83,-82,-89,-95,-98,-103,-113,-117,-122,-125,-124,-120,-112,-128,-143,-158,-173,-168,-162,-165,-156,-163,-189,-192,-210],"fill":false},{"label":"ranyitz","data":[-1,-2,-10,-18,-19,-23,-25,-28,-37,-42,-38,-51,-62,-73,-82,-88,-99,-102,-109,-116,-130,-144,-150,-158,-161,-165,-171,-177,-184,-187,-197,-206,-199,-196,-204,-212,-234,-256,-254,-253,-257,-251,-261,-280,-282,-284],"fill":false},{"label":"PavlyukVadim","data":[-30,-103,-112,-119,-117,-124,-128,-132,-147,-160,-159,-182,-192,-200,-205,-197,-211,-215,-223,-237,-252,-267,-271,-280,-285,-293,-302,-306,-311,-313,-322,-334,-323,-314,-321,-328,-338,-351,-350,-348,-361,-357,-372,-371,-379,-400],"fill":false},{"label":"Galymzhan Kozhayev","data":[-100,-198,-295,-390,-446,-502,-528,-551,-555,-553,-544,-555,-554,-552,-553,-551,-553,-547,-548,-549,-554,-560,-557,-559,-561,-562,-564,-571,-565,-559,-558,-559,-553,-549,-554,-559,-562,-565,-558,-561,-563,-560,-563,-561,-557,-558],"fill":false},{"label":"Audrius Kovalenko","data":[-76,-150,-163,-174,-183,-201,-212,-223,-249,-273,-277,-284,-287,-293,-306,-309,-335,-348,-362,-377,-381,-385,-390,-395,-408,-419,-427,-430,-426,-422,-445,-468,-480,-489,-500,-511,-530,-547,-561,-577,-584,-588,-599,-615,-625,-645],"fill":false},{"label":"Maor Yosef","data":[-10,-19,-39,-56,-77,-99,-111,-119,-129,-135,-142,-168,-186,-202,-222,-226,-244,-253,-278,-304,-357,-410,-429,-450,-466,-485,-501,-520,-515,-512,-520,-531,-542,-550,-560,-570,-587,-603,-612,-621,-633,-635,-648,-673,-672,-671],"fill":false},{"label":"Oleksandr Bondarchuk","data":[-5,-7,-25,-40,-51,-66,-75,-85,-91,-95,-98,-101,-107,-109,-107,-104,-109,-105,-111,-116,-119,-121,-145,-168,-176,-188,-189,-187,-193,-223,-237,-259,-254,-248,-247,-246,-253,-260,-261,-262,-272,-287,-289,-311],"fill":false},{"label":"Taras Petushkov","data":[-63,-122,-171,-219,-271,-321,-397,-472,-526,-573,-614,-652,-699,-740,-788,-813,-861,-893,-948,-1001,-1051,-1101,-1136,-1168,-1210,-1248,-1292,-1322,-1361,-1392,-1414,-1430,-1445,-1459,-1471,-1483,-1488,-1493,-1504,-1516,-1531,-1536,-1553,-1554,-1559,-1568,-1570,-1572],"fill":false},{"label":"Tadas Kundelis","data":[-36,-68,-104,-137,-152,-164,-180,-194,-207,-222,-222,-251,-299,-341,-349,-345,-355,-360,-384,-408,-436,-465,-507,-549,-598,-645,-668,-684,-714,-742,-769,-795,-808,-820,-846,-872,-897,-922,-943,-964,-985,-1003,-1025,-1048,-1066,-1091],"fill":false},{"label":"Daniel Kagan","data":[-96,-191,-276,-359,-363,-372,-375,-377,-388,-397,-409,-424,-433,-447,-461,-470,-492,-506,-521,-537,-547,-558,-569,-588,-598,-607,-617,-648,-661,-675,-688,-698,-706,-711,-725,-739,-753,-767,-772,-778,-784,-782,-800,-1101,-1401,-1704,-1710,-1716],"fill":false},{"label":"Andrius Vidmanto Bentkus","data":[-86,-171,-230,-292,-317,-345,-364,-381,-405,-426,-448,-473,-498,-521,-561,-590,-611,-627,-644,-665,-688,-711,-741,-771,-816,-861,-900,-922,-949,-968,-987,-1005,-1028,-1047,-1060,-1073,-1101,-1129,-1145,-1162,-1181,-1182,-1210,-1224,-1240,-1253],"fill":false},{"label":"Oleksii Dubok","data":[-39,-78,-124,-169,-183,-234,-235,-240,-277,-304,-348,-400,-439,-483,-534,-562,-581,-596,-652,-706,-744,-782,-800,-811,-855,-892,-916,-930,-954,-964,-970,-975,-996,-1014,-1042,-1070,-1081,-1091,-1116,-1141,-1171,-1187,-1214,-1226,-1243,-1259],"fill":false},{"label":"Giedrius Graževičius","data":[-73,-143,-175,-230,-256,-286,-303,-321,-357,-385,-435,-482,-516,-548,-590,-617,-666,-706,-751,-790,-827,-864,-900,-934,-969,-997,-1029,-1062,-1073,-1090,-1108,-1123,-1129,-1155,-1175,-1194,-1202,-1210,-1223,-1236,-1252,-1269,-1281,-1291,-1312,-1331],"fill":false},{"label":"Jonathan Fraimorice","data":[-29,-58,-88,-115,-148,-177,-222,-268,-315,-354,-400,-446,-466,-485,-531,-553,-599,-629,-661,-690,-723,-757,-806,-852,-877,-903,-949,-981,-1014,-1035,-1055,-1072,-1107,-1139,-1158,-1179,-1200,-1221,-1243,-1265,-1298,-1317,-1346,-1363,-1376,-1398],"fill":false},{"label":"Domas Maksimas","data":[-21,-41,-91,-138,-169,-209,-256,-301,-365,-423,-459,-498,-531,-562,-596,-613,-669,-705,-734,-765,-789,-813,-859,-902,-936,-961,-999,-1034,-1057,-1073,-1098,-1129,-1138,-1142,-1189,-1235,-1270,-1305,-1313,-1323,-1340,-1352,-1371,-1380,-1384,-1398],"fill":false},{"label":"​Vytautas Jakutis","data":[-115,-225,-336,-444,-541,-639,-724,-809,-893,-973,-1030,-1097,-1129,-1162,-1186,-1193,-1200,-1226,-1238,-1249,-1261,-1273,-1285,-1303,-1317,-1327,-1338,-1343,-1357,-1366,-1371,-1377,-1382,-1384,-1393,-1402,-1415,-1427,-1434,-1441,-1442,-1452,-1458,-1466,-1463,-1471],"fill":false},{"label":"Lior Hai","data":[-84,-167,-207,-246,-292,-333,-373,-412,-435,-458,-485,-521,-544,-566,-594,-608,-633,-655,-682,-710,-775,-841,-863,-919,-952,-984,-1009,-1038,-1093,-1143,-1189,-1236,-1267,-1296,-1332,-1368,-1395,-1422,-1434,-1449,-1467,-1476,-1496,-1501,-1513,-1523],"fill":false},{"label":"Vidas","data":[-42,-80,-114,-145,-180,-217,-238,-257,-312,-358,-387,-427,-471,-516,-565,-602,-662,-705,-747,-789,-856,-924,-994,-1064,-1131,-1199,-1241,-1269,-1295,-1310,-1334,-1355,-1369,-1379,-1385,-1391,-1397,-1403,-1418,-1432,-1455,-1463,-1487,-1500,-1520,-1537],"fill":false},{"label":"Inbal Langer","data":[-23,-45,-87,-128,-210,-291,-344,-395,-440,-485,-520,-571,-606,-640,-681,-713,-760,-802,-873,-942,-988,-1034,-1067,-1105,-1145,-1188,-1215,-1277,-1299,-1326,-1368,-1409,-1441,-1471,-1502,-1533,-1557,-1581,-1598,-1616,-1636,-1657,-1678,-1699,-1723,-1747],"fill":false},{"label":"Dovilė Lapinskaitė","data":[-66,-142,-177,-209,-246,-282,-304,-324,-370,-407,-469,-535,-591,-645,-714,-764,-818,-855,-901,-945,-972,-1000,-1032,-1061,-1125,-1187,-1224,-1251,-1289,-1327,-1374,-1422,-1460,-1496,-1514,-1532,-1552,-1571,-1594,-1618,-1652,-1672,-1707,-1731,-1742,-1753],"fill":false},{"label":"Noam Neeman","data":[-2,-6,-22,-58,-134,-212,-237,-266,-283,-295,-354,-416,-490,-562,-605,-625,-658,-682,-708,-735,-770,-821,-886,-948,-1000,-1051,-1114,-1162,-1179,-1187,-1199,-1207,-1217,-1224,-1227,-1230,-1246,-1266,-1276,-1287,-1301,-1300,-1325,-1329],"fill":false},{"label":"dragonofdeath","data":[-79,-156,-249,-339,-378,-425,-494,-560,-619,-674,-705,-740,-782,-825,-861,-917,-962,-993,-1027,-1062,-1093,-1124,-1158,-1191,-1230,-1263,-1285,-1305,-1321,-1334,-1349,-1362,-1384,-1405,-1428,-1451,-1463,-1474,-1500,-1526,-1548,-1555,-1588,-1608,-1631],"fill":false},{"label":"atamurius","data":[-52,-98,-151,-201,-259,-316,-366,-414,-487,-554,-605,-653,-718,-796,-848,-883,-950,-1001,-1058,-1114,-1163,-1212,-1255,-1295,-1350,-1402,-1451,-1488,-1522,-1554,-1582,-1607,-1646,-1683,-1716,-1749,-1758,-1767,-1785,-1804,-1835,-1860,-1890,-1908,-1930,-1953],"fill":false},{"label":"Nachshon Schwartz","data":[-123,-240,-359,-476,-583,-689,-782,-873,-964,-1051,-1123,-1204,-1283,-1363,-1442,-1506,-1541,-1564,-1625,-1684,-1741,-1799,-1816,-1831,-1851,-1869,-1895,-1912,-1960,-2001,-2032,-2060,-2078,-2094,-2121,-2148,-2166,-2184,-2190,-2198,-2226,-2240,-2256,-2262,-2277,-2292],"fill":false},{"label":"Artem Ohanjanyan","data":[-90,-179,-245,-309,-378,-445,-489,-531,-620,-705,-776,-856,-934,-1013,-1081,-1134,-1184,-1228,-1292,-1355,-1396,-1440,-1479,-1515,-1563,-1611,-1659,-1698,-1726,-1744,-1773,-1800,-1837,-1871,-1910,-1949,-1978,-2007,-2035,-2063,-2095,-2117,-2143,-2150],"fill":false}]}},"ten":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"rasmus93","data":[0,0,0,1,8,11,15,19,20,21,32,31,37,42,45,54,55,60,51,45,48,51,44,38,34,27,29,28,36,43,45,42,50,61,60,59,58,57,65,72,74,82,81,66,68,65,61,57],"fill":false},{"label":"Almog Adziashvili","data":[1,4,0,0,0,0,3,6,5,2,14,10,13,14,18,29,28,30,31,29,34,38,37,36,27,22,18,19,22,21,24,26,35,40,42,44,42,40,46,49,41,51,42,39,38,34,35,36],"fill":false},{"label":"silyevsk","data":[2,6,5,1,2,0,0,0,0,0,-1,-3,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Shahar Talmi","data":[-6,-11,-18,-19,-15,-14,-9,-4,-6,-8,0,0,0,0,-2,-1,-4,-1,-6,-10,-9,-10,-13,-17,-24,-30,-29,-31,-24,-19,-20,-22,-20,-18,-20,-22,-21,-20,-16,-11,-10,-3,-7,-4,-13,-20,-23,-26],"fill":false},{"label":"Gal Elmalah","data":[4,6,4,2,8,10,11,13,10,3,6,7,11,14,11,21,15,16,14,11,15,17,19,20,19,17,14,17,19,21,19,15,25,35,31,27,23,19,22,26,17,22,17,15,1,-11],"fill":false},{"label":"ykrukovsky","data":[-22,-40,-43,-46,-43,-48,-54,-70,-75,-76,-66,-80,-85,-88,-94,-102,-114,-148,-152,-162,-179,-196,-204,-217,-229,-258,-288,-300,-321,-345,-371,-395,-412,-427,-469,-511,-542,-573,-592,-612,-638,-649,-657,-668,-674,-679,-680,-681],"fill":false},{"label":"Gabriel Grinberg","data":[3,4,-2,-7,-2,-5,1,2,-6,-14,-12,-21,-23,-24,-23,-35,-39,-67,-77,-86,-84,-83,-82,-89,-95,-98,-103,-113,-117,-122,-125,-124,-120,-112,-128,-143,-158,-173,-168,-162,-165,-156,-163,-189,-192,-210],"fill":false},{"label":"ranyitz","data":[-1,-2,-10,-18,-19,-23,-25,-28,-37,-42,-38,-51,-62,-73,-82,-88,-99,-102,-109,-116,-130,-144,-150,-158,-161,-165,-171,-177,-184,-187,-197,-206,-199,-196,-204,-212,-234,-256,-254,-253,-257,-251,-261,-280,-282,-284],"fill":false},{"label":"PavlyukVadim","data":[-30,-103,-112,-119,-117,-124,-128,-132,-147,-160,-159,-182,-192,-200,-205,-197,-211,-215,-223,-237,-252,-267,-271,-280,-285,-293,-302,-306,-311,-313,-322,-334,-323,-314,-321,-328,-338,-351,-350,-348,-361,-357,-372,-371,-379,-400],"fill":false},{"label":"Galymzhan Kozhayev","data":[-100,-198,-295,-390,-446,-502,-528,-551,-555,-553,-544,-555,-554,-552,-553,-551,-553,-547,-548,-549,-554,-560,-557,-559,-561,-562,-564,-571,-565,-559,-558,-559,-553,-549,-554,-559,-562,-565,-558,-561,-563,-560,-563,-561,-557,-558],"fill":false}]}},"five":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"rasmus93","data":[-1,-4,0,0,6,11,12,13,15,19,18,21,24,28,27,25,27,30,20,16,14,13,7,2,7,5,11,9,14,22,21,16,15,21,18,15,16,17,19,23,33,31,39,27,30,31,26,21],"fill":false},{"label":"Almog Adziashvili","data":[0,0,0,-1,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"silyevsk","data":[1,2,5,0,0,0,-3,-6,-5,-2,-15,-13,-17,-14,-18,-29,-28,-30,-31,-29,-34,-38,-37,-36,-27,-22,-18,-19,-22,-21,-24,-26,-35,-40,-42,-44,-42,-40,-46,-49,-41,-51,-42,-39,-38,-34,-35,-36],"fill":false},{"label":"Shahar Talmi","data":[-7,-15,-18,-20,-17,-14,-12,-10,-11,-10,-14,-10,-13,-14,-20,-30,-32,-31,-37,-39,-43,-48,-50,-53,-51,-52,-47,-50,-46,-40,-44,-48,-55,-58,-62,-66,-63,-60,-62,-60,-51,-54,-49,-43,-51,-54,-58,-62],"fill":false},{"label":"Gal Elmalah","data":[3,2,4,1,6,10,8,7,5,1,-8,-3,-2,0,-7,-8,-13,-14,-17,-18,-19,-21,-18,-16,-8,-5,-4,-2,-3,0,-5,-11,-10,-5,-11,-17,-19,-21,-24,-23,-24,-29,-25,-24,-37,-45],"fill":false}]}}};
 window.drawChart = function(group) {
   window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
   window.myLine.update();
@@ -38,34 +38,208 @@ window.onload = function() {
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
+<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 24:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">24 Dec 2021, 01:57:35</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">24 Dec 2021, 03:18:59</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">24 Dec 2021, 03:38:42</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">24 Dec 2021, 04:21:31</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">24 Dec 2021, 05:06:27</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">24 Dec 2021, 05:55:18</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">24 Dec 2021, 07:08:36</span> Yonatan Hattav</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span class="leaderboard-time">24 Dec 2021, 07:43:30</span> Daniel Kagan</div> 
 </td>
 <td style="padding-right: 50px;">
+<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 24:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">24 Dec 2021, 01:40:39</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">24 Dec 2021, 02:36:38</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">24 Dec 2021, 03:20:56</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">24 Dec 2021, 04:18:56</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">24 Dec 2021, 04:50:28</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">24 Dec 2021, 05:40:55</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">24 Dec 2021, 07:02:57</span> Yonatan Hattav</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span class="leaderboard-time">24 Dec 2021, 07:42:52</span> Daniel Kagan</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
+<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 23:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">23 Dec 2021, 01:39:53</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">23 Dec 2021, 02:35:24</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">23 Dec 2021, 02:37:44</span> Galymzhan Kozhayev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">23 Dec 2021, 02:43:30</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">23 Dec 2021, 02:49:04</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">23 Dec 2021, 02:56:56</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">23 Dec 2021, 04:11:11</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">23 Dec 2021, 04:16:56</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">23 Dec 2021, 05:07:43</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">23 Dec 2021, 05:33:20</span> ​Vytautas Jakutis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">23 Dec 2021, 06:40:10</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">23 Dec 2021, 06:43:41</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">23 Dec 2021, 07:47:15</span> Dovilė Lapinskaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">23 Dec 2021, 08:14:50</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">23 Dec 2021, 08:23:42</span> Andrius Vidmanto Bentkus</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">23 Dec 2021, 08:38:14</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">23 Dec 2021, 09:51:46</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">23 Dec 2021, 12:15:06</span> Oleksii Dubok</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">23 Dec 2021, 13:25:38</span> Vidas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">23 Dec 2021, 14:05:18</span> Gabriel Grinberg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">23 Dec 2021, 14:47:49</span> Giedrius Graževičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">23 Dec 2021, 14:52:29</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">23 Dec 2021, 16:57:14</span> PavlyukVadim</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">23 Dec 2021, 16:58:07</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">23 Dec 2021, 17:13:44</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">23 Dec 2021, 18:31:20</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">24 Dec 2021, 04:50:34</span> Tadas Kundelis</div> 
 </td>
 <td style="padding-right: 50px;">
+<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 23:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">23 Dec 2021, 00:16:59</span> Galymzhan Kozhayev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">23 Dec 2021, 00:32:59</span> ​Vytautas Jakutis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">23 Dec 2021, 00:33:23</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">23 Dec 2021, 01:16:14</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">23 Dec 2021, 01:52:02</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">23 Dec 2021, 01:55:00</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">23 Dec 2021, 02:14:05</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">23 Dec 2021, 02:40:36</span> Gabriel Grinberg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">23 Dec 2021, 02:48:02</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">23 Dec 2021, 02:50:07</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">23 Dec 2021, 03:01:23</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">23 Dec 2021, 03:03:03</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">23 Dec 2021, 03:05:39</span> PavlyukVadim</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">23 Dec 2021, 03:33:22</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">23 Dec 2021, 03:40:07</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">23 Dec 2021, 03:52:38</span> Dovilė Lapinskaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">23 Dec 2021, 04:20:55</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">23 Dec 2021, 05:53:23</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">23 Dec 2021, 06:55:06</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">23 Dec 2021, 08:09:28</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">23 Dec 2021, 08:23:14</span> Andrius Vidmanto Bentkus</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">23 Dec 2021, 08:39:50</span> Oleksii Dubok</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">23 Dec 2021, 10:28:52</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">23 Dec 2021, 13:02:01</span> Sergey Puzankov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">23 Dec 2021, 13:19:25</span> Vidas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">23 Dec 2021, 14:32:22</span> Giedrius Graževičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">23 Dec 2021, 16:08:59</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">23 Dec 2021, 18:03:41</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">23 Dec 2021, 18:11:35</span> Inbal Langer</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
+<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 22:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">22 Dec 2021, 00:56:54</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">22 Dec 2021, 01:44:41</span> Galymzhan Kozhayev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">22 Dec 2021, 02:02:21</span> PavlyukVadim</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">22 Dec 2021, 02:35:53</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">22 Dec 2021, 02:49:42</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">22 Dec 2021, 02:51:06</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">22 Dec 2021, 02:54:01</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">22 Dec 2021, 05:56:33</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">22 Dec 2021, 06:25:17</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">22 Dec 2021, 08:09:53</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">22 Dec 2021, 08:22:51</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">22 Dec 2021, 08:47:27</span> ​Vytautas Jakutis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">22 Dec 2021, 09:00:14</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">22 Dec 2021, 09:01:26</span> Giedrius Graževičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">22 Dec 2021, 09:04:21</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">22 Dec 2021, 09:04:48</span> Oleksii Dubok</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">22 Dec 2021, 09:13:37</span> Vidas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">22 Dec 2021, 09:49:54</span> Andrius Vidmanto Bentkus</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">22 Dec 2021, 10:27:27</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">22 Dec 2021, 10:30:23</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">22 Dec 2021, 12:21:16</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">22 Dec 2021, 12:43:54</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">22 Dec 2021, 16:19:04</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">22 Dec 2021, 16:33:10</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">22 Dec 2021, 16:39:58</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">22 Dec 2021, 16:45:32</span> Oleksandr Bondarchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">22 Dec 2021, 17:45:12</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">23 Dec 2021, 03:15:55</span> Dovilė Lapinskaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">23 Dec 2021, 14:04:28</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">23 Dec 2021, 17:25:53</span> Gabriel Grinberg</div> 
 </td>
 <td style="padding-right: 50px;">
+<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 22:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">22 Dec 2021, 00:09:47</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">22 Dec 2021, 00:10:01</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">22 Dec 2021, 00:10:35</span> Oleksandr Bondarchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">22 Dec 2021, 00:10:53</span> Galymzhan Kozhayev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">22 Dec 2021, 00:15:15</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">22 Dec 2021, 00:19:50</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">22 Dec 2021, 00:22:01</span> ​Vytautas Jakutis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">22 Dec 2021, 00:23:09</span> Gabriel Grinberg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">22 Dec 2021, 00:24:09</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">22 Dec 2021, 00:24:40</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">22 Dec 2021, 00:32:36</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">22 Dec 2021, 00:34:07</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">22 Dec 2021, 00:41:28</span> Giedrius Graževičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">22 Dec 2021, 00:42:42</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">22 Dec 2021, 00:47:52</span> Yonatan Hattav</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">22 Dec 2021, 00:53:54</span> PavlyukVadim</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">22 Dec 2021, 01:31:03</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">22 Dec 2021, 01:45:04</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">22 Dec 2021, 01:59:50</span> Daniel Kagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">22 Dec 2021, 02:00:44</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">22 Dec 2021, 02:19:04</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">22 Dec 2021, 03:01:32</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">22 Dec 2021, 03:42:14</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">22 Dec 2021, 03:52:05</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">22 Dec 2021, 04:06:45</span> Vidas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">22 Dec 2021, 04:33:09</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">22 Dec 2021, 04:39:11</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">22 Dec 2021, 07:59:32</span> Oleksii Dubok</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">22 Dec 2021, 09:49:12</span> Andrius Vidmanto Bentkus</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">22 Dec 2021, 12:19:56</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">22 Dec 2021, 12:42:50</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">22 Dec 2021, 14:00:49</span> Domas Karklys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">22 Dec 2021, 14:01:11</span> Sergey Puzankov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">22 Dec 2021, 16:30:41</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">22 Dec 2021, 21:31:31</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">23 Dec 2021, 03:10:31</span> Dovilė Lapinskaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">23 Dec 2021, 05:03:31</span> SofiiaBalushka</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">23 Dec 2021, 13:57:10</span> Oleg Gordeev</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 21:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Dec 2021, 01:01:18</span> Almog Adziashvili</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">21 Dec 2021, 01:08:19</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">21 Dec 2021, 01:16:44</span> rasmus93</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">21 Dec 2021, 01:31:54</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">21 Dec 2021, 01:32:44</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">21 Dec 2021, 01:48:42</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">21 Dec 2021, 01:51:12</span> PavlyukVadim</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span class="leaderboard-time">21 Dec 2021, 01:54:54</span> Galymzhan Kozhayev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">9)</span> <span class="leaderboard-time">21 Dec 2021, 01:57:25</span> Daniel Kagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">21 Dec 2021, 01:01:18</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">21 Dec 2021, 01:08:19</span> Gabriel Grinberg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">21 Dec 2021, 01:16:44</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">21 Dec 2021, 01:31:54</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">21 Dec 2021, 01:32:44</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">21 Dec 2021, 01:48:42</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">21 Dec 2021, 01:51:12</span> PavlyukVadim</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">21 Dec 2021, 01:54:54</span> Galymzhan Kozhayev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">21 Dec 2021, 01:57:25</span> Daniel Kagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">21 Dec 2021, 02:08:41</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">21 Dec 2021, 02:11:45</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">21 Dec 2021, 03:10:59</span> Andrius Vidmanto Bentkus</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">21 Dec 2021, 03:13:54</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">21 Dec 2021, 03:23:50</span> Yonatan Hattav</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">21 Dec 2021, 03:27:33</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">21 Dec 2021, 03:45:59</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">21 Dec 2021, 03:47:57</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">21 Dec 2021, 04:05:50</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">21 Dec 2021, 04:30:10</span> Vidas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">21 Dec 2021, 04:39:01</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">21 Dec 2021, 04:54:06</span> ​Vytautas Jakutis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">21 Dec 2021, 05:55:19</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">21 Dec 2021, 06:09:17</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">21 Dec 2021, 07:20:26</span> SofiiaBalushka</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">21 Dec 2021, 07:20:49</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">21 Dec 2021, 10:14:19</span> Oleksandr Bondarchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">21 Dec 2021, 10:16:24</span> Oleksii Dubok</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">21 Dec 2021, 10:59:22</span> Giedrius Graževičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">21 Dec 2021, 11:41:20</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">21 Dec 2021, 13:26:01</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">21 Dec 2021, 14:45:17</span> Dovilė Lapinskaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">21 Dec 2021, 16:44:00</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">21 Dec 2021, 18:37:04</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">22 Dec 2021, 03:22:02</span> Lieron Schalew</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">22 Dec 2021, 12:57:35</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">22 Dec 2021, 15:52:58</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">23 Dec 2021, 13:36:14</span> Oleg Gordeev</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 21:</p>
@@ -86,6 +260,29 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">21 Dec 2021, 01:26:51</span> Maor Yosef</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">21 Dec 2021, 01:42:52</span> PavlyukVadim</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">21 Dec 2021, 01:46:44</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">21 Dec 2021, 01:58:48</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">21 Dec 2021, 02:00:55</span> Giedrius Graževičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">21 Dec 2021, 02:34:42</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">21 Dec 2021, 02:43:03</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">21 Dec 2021, 02:53:37</span> Andrius Vidmanto Bentkus</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">21 Dec 2021, 02:54:53</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">21 Dec 2021, 03:07:50</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">21 Dec 2021, 03:10:08</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">21 Dec 2021, 03:17:48</span> Vidas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">21 Dec 2021, 03:20:11</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">21 Dec 2021, 04:18:35</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">21 Dec 2021, 04:52:39</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">21 Dec 2021, 04:52:40</span> SofiiaBalushka</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">21 Dec 2021, 05:20:00</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">21 Dec 2021, 05:51:57</span> Lieron Schalew</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">21 Dec 2021, 10:00:40</span> Oleksii Dubok</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">21 Dec 2021, 12:10:37</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">21 Dec 2021, 12:50:21</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">21 Dec 2021, 13:19:40</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">21 Dec 2021, 13:30:58</span> Dovilė Lapinskaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">21 Dec 2021, 15:22:42</span> ievgeniip</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">22 Dec 2021, 16:21:54</span> Sergey Puzankov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">22 Dec 2021, 22:12:18</span> Oleg Gordeev</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -126,6 +323,10 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">20 Dec 2021, 14:29:38</span> Oleksii Dubok</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">20 Dec 2021, 16:56:56</span> dragonofdeath</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">20 Dec 2021, 18:37:27</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">21 Dec 2021, 09:40:05</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">22 Dec 2021, 06:28:17</span> Lieron Schalew</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">22 Dec 2021, 13:12:31</span> Sergey Puzankov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">22 Dec 2021, 21:51:44</span> Oleg Gordeev</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 20:</p>
@@ -165,6 +366,10 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">20 Dec 2021, 14:29:19</span> Oleksii Dubok</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">20 Dec 2021, 16:52:43</span> dragonofdeath</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">20 Dec 2021, 17:37:34</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">21 Dec 2021, 09:34:53</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">22 Dec 2021, 05:34:43</span> Lieron Schalew</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">22 Dec 2021, 13:11:05</span> Sergey Puzankov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">22 Dec 2021, 21:43:47</span> Oleg Gordeev</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -203,6 +408,10 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">20 Dec 2021, 14:58:54</span> Artem Ohanjanyan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">20 Dec 2021, 16:04:07</span> Kobi Zakut</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">20 Dec 2021, 21:26:52</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">21 Dec 2021, 03:03:44</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">21 Dec 2021, 22:05:29</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">22 Dec 2021, 19:25:13</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">23 Dec 2021, 09:53:58</span> Domas Maksimas</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 19:</p>
@@ -240,6 +449,9 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">20 Dec 2021, 15:50:10</span> Kobi Zakut</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">20 Dec 2021, 17:17:41</span> ykrukovsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">20 Dec 2021, 17:35:43</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">21 Dec 2021, 21:31:37</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">22 Dec 2021, 19:11:21</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">23 Dec 2021, 09:48:39</span> Domas Maksimas</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -292,6 +504,9 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">19 Dec 2021, 23:06:28</span> ykrukovsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">20 Dec 2021, 06:38:27</span> SofiiaBalushka</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">20 Dec 2021, 20:46:01</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">21 Dec 2021, 14:48:12</span> Gerda Simoliunaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">23 Dec 2021, 09:54:07</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">23 Dec 2021, 16:36:36</span> Tal Harel</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 18:</p>
@@ -342,6 +557,10 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">19 Dec 2021, 19:18:02</span> ykrukovsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">20 Dec 2021, 06:29:38</span> SofiiaBalushka</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">20 Dec 2021, 20:40:06</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">21 Dec 2021, 14:40:01</span> Gerda Simoliunaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">22 Dec 2021, 08:31:57</span> Tal Harel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">23 Dec 2021, 09:53:33</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">24 Dec 2021, 08:51:14</span> Yonatan Hattav</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -404,6 +623,9 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">19 Dec 2021, 12:03:33</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">19 Dec 2021, 21:29:45</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">20 Dec 2021, 09:24:39</span> Tal Harel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">23 Dec 2021, 09:05:36</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">23 Dec 2021, 10:08:03</span> Živilė Kindurytė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">24 Dec 2021, 08:22:06</span> Kobi Zakut</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 17:</p>
@@ -466,6 +688,8 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">19 Dec 2021, 12:00:03</span> Jonathan Avinor</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">19 Dec 2021, 20:40:26</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">20 Dec 2021, 17:14:54</span> Kobi Zakut</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">23 Dec 2021, 08:54:46</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">23 Dec 2021, 09:10:01</span> Živilė Kindurytė</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -527,6 +751,9 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">19 Dec 2021, 08:38:28</span> Vladyslav Shalamai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">19 Dec 2021, 19:14:10</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">20 Dec 2021, 17:42:45</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">22 Dec 2021, 02:17:08</span> Gerda Simoliunaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">23 Dec 2021, 03:05:31</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">23 Dec 2021, 06:39:47</span> Živilė Kindurytė</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 16:</p>
@@ -587,6 +814,9 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">19 Dec 2021, 07:57:39</span> Vladyslav Shalamai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">19 Dec 2021, 19:02:16</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">20 Dec 2021, 17:31:41</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">21 Dec 2021, 15:38:56</span> Gerda Simoliunaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">22 Dec 2021, 17:52:15</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">23 Dec 2021, 05:56:38</span> Živilė Kindurytė</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -661,6 +891,9 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">19 Dec 2021, 18:05:35</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">20 Dec 2021, 04:05:53</span> Domas Karklys</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">20 Dec 2021, 16:36:37</span> ShaharR</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">21 Dec 2021, 02:59:27</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">22 Dec 2021, 09:30:26</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">23 Dec 2021, 05:41:20</span> Živilė Kindurytė</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 15:</p>
@@ -737,6 +970,8 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">19 Dec 2021, 07:58:45</span> Niryo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">19 Dec 2021, 13:30:49</span> Lieron Schalew</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">19 Dec 2021, 17:34:39</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">22 Dec 2021, 09:05:06</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">23 Dec 2021, 05:27:59</span> Živilė Kindurytė</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -820,6 +1055,8 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">17 Dec 2021, 19:14:30</span> Danylo Verhuliesov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">18 Dec 2021, 18:43:20</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">20 Dec 2021, 16:22:01</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">21 Dec 2021, 10:50:30</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">23 Dec 2021, 11:14:33</span> Živilė Kindurytė</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 14:</p>
@@ -902,6 +1139,9 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">17 Dec 2021, 10:58:14</span> Yael Sarusi</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">17 Dec 2021, 18:32:58</span> Danylo Verhuliesov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">18 Dec 2021, 18:34:24</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">21 Dec 2021, 10:25:21</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">21 Dec 2021, 13:37:48</span> andrius-girdzius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">23 Dec 2021, 11:00:01</span> Živilė Kindurytė</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -988,6 +1228,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">15 Dec 2021, 15:40:52</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">17 Dec 2021, 10:38:39</span> Yael Sarusi</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">18 Dec 2021, 08:59:32</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">21 Dec 2021, 03:20:24</span> Stanislav Prokopiv</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 13:</p>
@@ -1072,6 +1313,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">15 Dec 2021, 15:19:28</span> Karolina Zarankaitė</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">17 Dec 2021, 10:37:28</span> Yael Sarusi</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">18 Dec 2021, 08:52:23</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">21 Dec 2021, 03:19:15</span> Stanislav Prokopiv</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1332,6 +1574,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">14 Dec 2021, 20:47:23</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">16 Dec 2021, 10:31:54</span> Itai Schuftan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">19 Dec 2021, 13:09:28</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">24 Dec 2021, 05:43:58</span> Amit Dahan</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 11:</p>
@@ -1418,6 +1661,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">14 Dec 2021, 20:45:31</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">16 Dec 2021, 10:19:24</span> Itai Schuftan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">19 Dec 2021, 12:52:07</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">23 Dec 2021, 13:21:30</span> Amit Dahan</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1513,6 +1757,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">14 Dec 2021, 19:06:38</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">89)</span> <span class="leaderboard-time">15 Dec 2021, 05:00:15</span> Boris Buliga</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">90)</span> <span class="leaderboard-time">17 Dec 2021, 09:31:56</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">91)</span> <span class="leaderboard-time">23 Dec 2021, 13:03:23</span> Amit Dahan</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 10:</p>
@@ -1606,6 +1851,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">14 Dec 2021, 18:55:46</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">89)</span> <span class="leaderboard-time">15 Dec 2021, 04:52:18</span> Boris Buliga</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">90)</span> <span class="leaderboard-time">17 Dec 2021, 08:44:10</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">91)</span> <span class="leaderboard-time">23 Dec 2021, 12:49:42</span> Amit Dahan</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1701,6 +1947,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">15 Dec 2021, 04:40:12</span> Boris Buliga</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">89)</span> <span class="leaderboard-time">16 Dec 2021, 09:09:45</span> Itai Schuftan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">90)</span> <span class="leaderboard-time">17 Dec 2021, 08:17:42</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">91)</span> <span class="leaderboard-time">23 Dec 2021, 10:35:03</span> Amit Dahan</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 9:</p>
@@ -1796,6 +2043,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">90)</span> <span class="leaderboard-time">14 Dec 2021, 17:40:31</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">91)</span> <span class="leaderboard-time">15 Dec 2021, 04:39:59</span> Boris Buliga</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">92)</span> <span class="leaderboard-time">17 Dec 2021, 07:45:14</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">93)</span> <span class="leaderboard-time">23 Dec 2021, 10:05:58</span> Amit Dahan</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1895,6 +2143,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">92)</span> <span class="leaderboard-time">16 Dec 2021, 07:15:57</span> Gerda Simoliunaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">93)</span> <span class="leaderboard-time">17 Dec 2021, 07:14:25</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">19 Dec 2021, 14:35:44</span> Mykola Borozdin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">23 Dec 2021, 09:52:48</span> Amit Dahan</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 8:</p>
@@ -1993,6 +2242,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">93)</span> <span class="leaderboard-time">14 Dec 2021, 14:22:18</span> Gerda Simoliunaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">14 Dec 2021, 15:37:09</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">17 Dec 2021, 00:54:47</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">96)</span> <span class="leaderboard-time">22 Dec 2021, 15:49:37</span> Amit Dahan</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -2094,6 +2344,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">12 Dec 2021, 13:23:45</span> Gerda Simoliunaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">14 Dec 2021, 15:22:02</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">96)</span> <span class="leaderboard-time">16 Dec 2021, 18:05:19</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">97)</span> <span class="leaderboard-time">22 Dec 2021, 15:24:42</span> Amit Dahan</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 7:</p>
@@ -2193,6 +2444,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">12 Dec 2021, 13:12:54</span> Gerda Simoliunaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">14 Dec 2021, 15:14:48</span> Mantas Miliukas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">96)</span> <span class="leaderboard-time">14 Dec 2021, 18:49:14</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">97)</span> <span class="leaderboard-time">22 Dec 2021, 14:14:18</span> Amit Dahan</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -2292,6 +2544,7 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">92)</span> <span class="leaderboard-time">12 Dec 2021, 09:58:54</span> Itai Schuftan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">93)</span> <span class="leaderboard-time">13 Dec 2021, 07:10:25</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">14 Dec 2021, 14:43:53</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">22 Dec 2021, 14:04:54</span> Amit Dahan</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 6:</p>
@@ -2391,110 +2644,112 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">12 Dec 2021, 06:30:13</span> Itai Schuftan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">12 Dec 2021, 11:59:44</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">96)</span> <span class="leaderboard-time">14 Dec 2021, 14:02:38</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">97)</span> <span class="leaderboard-time">22 Dec 2021, 13:21:15</span> Amit Dahan</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 5:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">05 Dec 2021, 00:18:02</span> Alexandr Yushkov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">05 Dec 2021, 00:20:32</span> Galymzhan Kozhayev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">05 Dec 2021, 00:20:32</span> rasmus93</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">05 Dec 2021, 00:21:13</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">05 Dec 2021, 00:23:06</span> ykrukovsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">05 Dec 2021, 00:25:38</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">05 Dec 2021, 00:27:22</span> Almog Adziashvili</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">05 Dec 2021, 00:27:53</span> Oleksandr Bondarchuk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">05 Dec 2021, 00:35:05</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">05 Dec 2021, 00:35:25</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">05 Dec 2021, 00:39:31</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">05 Dec 2021, 00:41:55</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">05 Dec 2021, 00:44:46</span> Daniel Kagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">05 Dec 2021, 00:48:42</span> Karolina Zarankaitė</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">05 Dec 2021, 00:51:16</span> ShaharR</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">05 Dec 2021, 00:56:19</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">05 Dec 2021, 01:04:51</span> PavlyukVadim</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">05 Dec 2021, 01:12:31</span> Domas Karklys</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">05 Dec 2021, 01:14:49</span> Tadas Kundelis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">05 Dec 2021, 01:33:55</span> Oleksandr Kylinskyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">05 Dec 2021, 01:36:17</span> Sergey Puzankov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">05 Dec 2021, 01:36:22</span> Yonatan Hattav</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">05 Dec 2021, 01:43:28</span> Yael Sarusi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">05 Dec 2021, 01:44:05</span> Amir Yonatan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">05 Dec 2021, 01:47:49</span> Andrius Vidmanto Bentkus</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">05 Dec 2021, 01:49:26</span> oriprice</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">05 Dec 2021, 01:53:21</span> Lior Hai</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">05 Dec 2021, 01:55:44</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">05 Dec 2021, 02:00:24</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">05 Dec 2021, 02:02:56</span> alexeytokar</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">05 Dec 2021, 02:19:37</span> Oleksii Dubok</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">05 Dec 2021, 02:26:21</span> Giedrius Graževičius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">05 Dec 2021, 02:28:02</span> valerii-vorobiov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">05 Dec 2021, 02:32:12</span> andrius-girdzius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">05 Dec 2021, 02:39:17</span> Danylo Verhuliesov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">05 Dec 2021, 02:42:15</span> Tomer Shkolnik</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">05 Dec 2021, 02:43:54</span> Donatas Petrauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">05 Dec 2021, 02:54:29</span> daniel-azu</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">05 Dec 2021, 02:58:52</span> SofiiaBalushka</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">05 Dec 2021, 02:59:54</span> Gil Shochat</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">05 Dec 2021, 03:03:46</span> Dovilė Lapinskaitė</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">05 Dec 2021, 03:06:16</span> Jurij Mikelionis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">05 Dec 2021, 03:12:24</span> Jonathan Fraimorice</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">05 Dec 2021, 03:18:05</span> Tania-Y</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">05 Dec 2021, 03:32:55</span> Bohdan Tryhub</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">05 Dec 2021, 03:48:58</span> (anonymous user #1780487)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">05 Dec 2021, 03:57:44</span> Živilė Kindurytė</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">05 Dec 2021, 03:58:27</span> Guy Perkal</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">05 Dec 2021, 03:59:00</span> Inbal Langer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">05 Dec 2021, 04:00:39</span> Vidas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">05 Dec 2021, 04:04:09</span> Taras Petushkov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">05 Dec 2021, 04:30:48</span> egidijusj</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">05 Dec 2021, 04:33:10</span> Yakir Narkis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">05 Dec 2021, 05:16:30</span> Vladyslav Shalamai</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">05 Dec 2021, 05:20:26</span> Egidijus Jakas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">05 Dec 2021, 05:26:30</span> Hadar Raab</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">05 Dec 2021, 05:27:58</span> Niryo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">05 Dec 2021, 05:28:41</span> Vlad Kampov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">05 Dec 2021, 05:58:38</span> dragonofdeath</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">05 Dec 2021, 06:15:49</span> Cwallice</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">05 Dec 2021, 06:25:38</span> Yuri Tkachenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">05 Dec 2021, 06:41:14</span> Domas Maksimas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">05 Dec 2021, 06:47:58</span> Maxim Novak</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">05 Dec 2021, 07:01:51</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">05 Dec 2021, 08:40:00</span> Lukas Pažėra</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">05 Dec 2021, 09:31:16</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">05 Dec 2021, 09:43:09</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">05 Dec 2021, 11:07:44</span> ievgeniip</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">05 Dec 2021, 11:15:04</span> Eugene Vashchuk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">05 Dec 2021, 11:21:56</span> Mykola Borozdin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">05 Dec 2021, 12:54:27</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">05 Dec 2021, 13:38:29</span> Boris Buliga</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">05 Dec 2021, 14:18:43</span> Mykhailo Maslov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">05 Dec 2021, 14:22:55</span> Savva Khalaman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">05 Dec 2021, 15:53:50</span> Rita Bazak</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">05 Dec 2021, 16:48:02</span> Kobi Zakut</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">05 Dec 2021, 16:51:25</span> Vladyslav Zhuk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">05 Dec 2021, 17:57:57</span> Lukas Kairys</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">06 Dec 2021, 03:11:58</span> Jonathan Avinor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">06 Dec 2021, 04:29:24</span> Dor Ben Baruch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">06 Dec 2021, 06:28:21</span> Lieron Schalew</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">06 Dec 2021, 07:25:56</span> Lior Erez</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">06 Dec 2021, 09:59:37</span> Michael Wachsman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">06 Dec 2021, 10:59:16</span> ​Vytautas Jakutis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">85)</span> <span class="leaderboard-time">06 Dec 2021, 11:08:03</span> Itai Schuftan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">86)</span> <span class="leaderboard-time">06 Dec 2021, 12:43:36</span> Anna Ivakhnik</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">87)</span> <span class="leaderboard-time">06 Dec 2021, 12:56:05</span> Mykhailo Pustovit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">07 Dec 2021, 07:09:22</span> Tal Harel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">89)</span> <span class="leaderboard-time">07 Dec 2021, 10:41:53</span> Artem Ohanjanyan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">90)</span> <span class="leaderboard-time">07 Dec 2021, 16:43:20</span> Tomas Miliauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">91)</span> <span class="leaderboard-time">08 Dec 2021, 16:55:26</span> Nachshon Schwartz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">92)</span> <span class="leaderboard-time">09 Dec 2021, 04:09:58</span> Nir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">93)</span> <span class="leaderboard-time">09 Dec 2021, 06:54:34</span> David Perlman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">09 Dec 2021, 07:07:21</span> magia_li</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">09 Dec 2021, 12:03:54</span> Gerda Simoliunaite</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">96)</span> <span class="leaderboard-time">09 Dec 2021, 13:16:00</span> Антон Кисиль</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">97)</span> <span class="leaderboard-time">11 Dec 2021, 09:04:46</span> Oleg Gordeev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">98)</span> <span class="leaderboard-time">12 Dec 2021, 05:45:28</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">99)</span> <span class="leaderboard-time">14 Dec 2021, 13:47:42</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  1)</span> <span class="leaderboard-time">05 Dec 2021, 00:18:02</span> Alexandr Yushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  2)</span> <span class="leaderboard-time">05 Dec 2021, 00:20:32</span> Galymzhan Kozhayev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  3)</span> <span class="leaderboard-time">05 Dec 2021, 00:20:32</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  4)</span> <span class="leaderboard-time">05 Dec 2021, 00:21:13</span> silyevsk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  5)</span> <span class="leaderboard-time">05 Dec 2021, 00:23:06</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  6)</span> <span class="leaderboard-time">05 Dec 2021, 00:25:38</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  7)</span> <span class="leaderboard-time">05 Dec 2021, 00:27:22</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  8)</span> <span class="leaderboard-time">05 Dec 2021, 00:27:53</span> Oleksandr Bondarchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  9)</span> <span class="leaderboard-time">05 Dec 2021, 00:35:05</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 10)</span> <span class="leaderboard-time">05 Dec 2021, 00:35:25</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 11)</span> <span class="leaderboard-time">05 Dec 2021, 00:39:31</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 12)</span> <span class="leaderboard-time">05 Dec 2021, 00:41:55</span> Gabriel Grinberg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 13)</span> <span class="leaderboard-time">05 Dec 2021, 00:44:46</span> Daniel Kagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 14)</span> <span class="leaderboard-time">05 Dec 2021, 00:48:42</span> Karolina Zarankaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 15)</span> <span class="leaderboard-time">05 Dec 2021, 00:51:16</span> ShaharR</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 16)</span> <span class="leaderboard-time">05 Dec 2021, 00:56:19</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 17)</span> <span class="leaderboard-time">05 Dec 2021, 01:04:51</span> PavlyukVadim</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 18)</span> <span class="leaderboard-time">05 Dec 2021, 01:12:31</span> Domas Karklys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 19)</span> <span class="leaderboard-time">05 Dec 2021, 01:14:49</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 20)</span> <span class="leaderboard-time">05 Dec 2021, 01:33:55</span> Oleksandr Kylinskyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 21)</span> <span class="leaderboard-time">05 Dec 2021, 01:36:17</span> Sergey Puzankov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 22)</span> <span class="leaderboard-time">05 Dec 2021, 01:36:22</span> Yonatan Hattav</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 23)</span> <span class="leaderboard-time">05 Dec 2021, 01:43:28</span> Yael Sarusi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 24)</span> <span class="leaderboard-time">05 Dec 2021, 01:44:05</span> Amir Yonatan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 25)</span> <span class="leaderboard-time">05 Dec 2021, 01:47:49</span> Andrius Vidmanto Bentkus</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 26)</span> <span class="leaderboard-time">05 Dec 2021, 01:49:26</span> oriprice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 27)</span> <span class="leaderboard-time">05 Dec 2021, 01:53:21</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 28)</span> <span class="leaderboard-time">05 Dec 2021, 01:55:44</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">05 Dec 2021, 02:00:24</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">05 Dec 2021, 02:02:56</span> alexeytokar</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 31)</span> <span class="leaderboard-time">05 Dec 2021, 02:19:37</span> Oleksii Dubok</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 32)</span> <span class="leaderboard-time">05 Dec 2021, 02:26:21</span> Giedrius Graževičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 33)</span> <span class="leaderboard-time">05 Dec 2021, 02:28:02</span> valerii-vorobiov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 34)</span> <span class="leaderboard-time">05 Dec 2021, 02:32:12</span> andrius-girdzius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 35)</span> <span class="leaderboard-time">05 Dec 2021, 02:39:17</span> Danylo Verhuliesov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 36)</span> <span class="leaderboard-time">05 Dec 2021, 02:42:15</span> Tomer Shkolnik</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 37)</span> <span class="leaderboard-time">05 Dec 2021, 02:43:54</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 38)</span> <span class="leaderboard-time">05 Dec 2021, 02:54:29</span> daniel-azu</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 39)</span> <span class="leaderboard-time">05 Dec 2021, 02:58:52</span> SofiiaBalushka</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 40)</span> <span class="leaderboard-time">05 Dec 2021, 02:59:54</span> Gil Shochat</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 41)</span> <span class="leaderboard-time">05 Dec 2021, 03:03:46</span> Dovilė Lapinskaitė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 42)</span> <span class="leaderboard-time">05 Dec 2021, 03:06:16</span> Jurij Mikelionis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 43)</span> <span class="leaderboard-time">05 Dec 2021, 03:12:24</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 44)</span> <span class="leaderboard-time">05 Dec 2021, 03:18:05</span> Tania-Y</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 45)</span> <span class="leaderboard-time">05 Dec 2021, 03:32:55</span> Bohdan Tryhub</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 46)</span> <span class="leaderboard-time">05 Dec 2021, 03:48:58</span> (anonymous user #1780487)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 47)</span> <span class="leaderboard-time">05 Dec 2021, 03:57:44</span> Živilė Kindurytė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 48)</span> <span class="leaderboard-time">05 Dec 2021, 03:58:27</span> Guy Perkal</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 49)</span> <span class="leaderboard-time">05 Dec 2021, 03:59:00</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 50)</span> <span class="leaderboard-time">05 Dec 2021, 04:00:39</span> Vidas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 51)</span> <span class="leaderboard-time">05 Dec 2021, 04:04:09</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 52)</span> <span class="leaderboard-time">05 Dec 2021, 04:30:48</span> egidijusj</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 53)</span> <span class="leaderboard-time">05 Dec 2021, 04:33:10</span> Yakir Narkis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 54)</span> <span class="leaderboard-time">05 Dec 2021, 05:16:30</span> Vladyslav Shalamai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">05 Dec 2021, 05:20:26</span> Egidijus Jakas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">05 Dec 2021, 05:26:30</span> Hadar Raab</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">05 Dec 2021, 05:27:58</span> Niryo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">05 Dec 2021, 05:28:41</span> Vlad Kampov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">05 Dec 2021, 05:58:38</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">05 Dec 2021, 06:15:49</span> Cwallice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">05 Dec 2021, 06:25:38</span> Yuri Tkachenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">05 Dec 2021, 06:41:14</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">05 Dec 2021, 06:47:58</span> Maxim Novak</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 64)</span> <span class="leaderboard-time">05 Dec 2021, 07:01:51</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">05 Dec 2021, 08:40:00</span> Lukas Pažėra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 66)</span> <span class="leaderboard-time">05 Dec 2021, 09:31:16</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 67)</span> <span class="leaderboard-time">05 Dec 2021, 09:43:09</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 68)</span> <span class="leaderboard-time">05 Dec 2021, 11:07:44</span> ievgeniip</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 69)</span> <span class="leaderboard-time">05 Dec 2021, 11:15:04</span> Eugene Vashchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 70)</span> <span class="leaderboard-time">05 Dec 2021, 11:21:56</span> Mykola Borozdin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 71)</span> <span class="leaderboard-time">05 Dec 2021, 12:54:27</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 72)</span> <span class="leaderboard-time">05 Dec 2021, 13:38:29</span> Boris Buliga</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 73)</span> <span class="leaderboard-time">05 Dec 2021, 14:18:43</span> Mykhailo Maslov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 74)</span> <span class="leaderboard-time">05 Dec 2021, 14:22:55</span> Savva Khalaman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 75)</span> <span class="leaderboard-time">05 Dec 2021, 15:53:50</span> Rita Bazak</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 76)</span> <span class="leaderboard-time">05 Dec 2021, 16:48:02</span> Kobi Zakut</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 77)</span> <span class="leaderboard-time">05 Dec 2021, 16:51:25</span> Vladyslav Zhuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 78)</span> <span class="leaderboard-time">05 Dec 2021, 17:57:57</span> Lukas Kairys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 79)</span> <span class="leaderboard-time">06 Dec 2021, 03:11:58</span> Jonathan Avinor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 80)</span> <span class="leaderboard-time">06 Dec 2021, 04:29:24</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 81)</span> <span class="leaderboard-time">06 Dec 2021, 06:28:21</span> Lieron Schalew</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 82)</span> <span class="leaderboard-time">06 Dec 2021, 07:25:56</span> Lior Erez</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 83)</span> <span class="leaderboard-time">06 Dec 2021, 09:59:37</span> Michael Wachsman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 84)</span> <span class="leaderboard-time">06 Dec 2021, 10:59:16</span> ​Vytautas Jakutis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 85)</span> <span class="leaderboard-time">06 Dec 2021, 11:08:03</span> Itai Schuftan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 86)</span> <span class="leaderboard-time">06 Dec 2021, 12:43:36</span> Anna Ivakhnik</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 87)</span> <span class="leaderboard-time">06 Dec 2021, 12:56:05</span> Mykhailo Pustovit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 88)</span> <span class="leaderboard-time">07 Dec 2021, 07:09:22</span> Tal Harel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 89)</span> <span class="leaderboard-time">07 Dec 2021, 10:41:53</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 90)</span> <span class="leaderboard-time">07 Dec 2021, 16:43:20</span> Tomas Miliauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">08 Dec 2021, 16:55:26</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">09 Dec 2021, 04:09:58</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">09 Dec 2021, 06:54:34</span> David Perlman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">09 Dec 2021, 07:07:21</span> magia_li</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">09 Dec 2021, 12:03:54</span> Gerda Simoliunaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">09 Dec 2021, 13:16:00</span> Антон Кисиль</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">11 Dec 2021, 09:04:46</span> Oleg Gordeev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">12 Dec 2021, 05:45:28</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">14 Dec 2021, 13:47:42</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">22 Dec 2021, 13:07:24</span> Amit Dahan</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 5:</p>
@@ -2599,6 +2854,8 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">11 Dec 2021, 09:02:28</span> Oleg Gordeev</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">12 Dec 2021, 05:29:15</span> Stanislav Prokopiv</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">14 Dec 2021, 13:16:42</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">21 Dec 2021, 15:15:10</span> Amit Dahan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">22 Dec 2021, 11:23:18</span> Aaron Vinestock</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
