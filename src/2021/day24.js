@@ -3,8 +3,8 @@ export function part1(input) {
   const stack = [];
   let push;
   input.split('\n').forEach((line, i) => {
-    const value = line.split(' ').pop();
-    if (i % 18 === 4) push = value === '1';
+    const value = +line.split(' ').pop();
+    if (i % 18 === 4) push = value === 1;
     if (push && i % 18 === 15) {
       stack.push({ index: Math.floor(i / 18), diff: +value });
     }
@@ -26,8 +26,8 @@ export function part2(input) {
   const stack = [];
   let push;
   input.split('\n').forEach((line, i) => {
-    const value = line.split(' ').pop();
-    if (i % 18 === 4) push = value === '1';
+    const value = +line.split(' ').pop();
+    if (i % 18 === 4) push = value === 1;
     if (push && i % 18 === 15) {
       stack.push({ index: Math.floor(i / 18), diff: +value });
     }
