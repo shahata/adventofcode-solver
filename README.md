@@ -2,7 +2,7 @@
 
 This repository contains solutions for advent of code (https://adventofcode.com)
 
-![image](https://user-images.githubusercontent.com/1764161/148400243-a2af370a-dd45-436a-8da1-93bd3c06d0fe.png)
+![image](https://user-images.githubusercontent.com/1764161/148400728-db545c1b-cc5a-4f7a-ab4c-b79bb30e58f8.png)
 
 Go ahead and try to solve the challenge on your own before using this spoiler!
 
