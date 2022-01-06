@@ -1,66 +1,119 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 7 - Advent of Code 2021</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2021</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-<article class="day-desc"><h2>--- Day 7: The Treachery of Whales ---</h2><p>A giant <a href="https://en.wikipedia.org/wiki/Sperm_whale" target="_blank">whale</a> has decided your submarine is its next meal, and it's much faster than you are. There's nowhere to run!</p>
-<p>Suddenly, a swarm of crabs (each in its own tiny submarine - it's too deep for them otherwise) zooms in to rescue you! They seem to be preparing to blast a hole in the ocean floor; sensors indicate a <em>massive underground cave system</em> just beyond where they're aiming!</p>
-<p>The crab submarines all need to be aligned before they'll have enough power to blast a large enough hole for your submarine to get through. However, it doesn't look like they'll be aligned before the whale catches you! Maybe you can help?</p>
-<p>There's one major catch - crab submarines can only move horizontally.</p>
-<p>You quickly make a list of <em>the horizontal position of each crab</em> (your puzzle input). Crab submarines have limited fuel, so you need to find a way to make all of their horizontal positions match while requiring them to spend as little fuel as possible.</p>
-<p>For example, consider the following horizontal positions:</p>
-<pre><code>16,1,2,0,4,2,7,1,2,14</code></pre>
-<p>This means there's a crab with horizontal position <code>16</code>, a crab with horizontal position <code>1</code>, and so on.</p>
-<p>Each change of 1 step in horizontal position of a single crab costs 1 fuel. You could choose any horizontal position to align them all on, but the one that costs the least fuel is horizontal position <code>2</code>:</p>
-<ul>
-<li>Move from <code>16</code> to <code>2</code>: <code>14</code> fuel</li>
-<li>Move from <code>1</code> to <code>2</code>: <code>1</code> fuel</li>
-<li>Move from <code>2</code> to <code>2</code>: <code>0</code> fuel</li>
-<li>Move from <code>0</code> to <code>2</code>: <code>2</code> fuel</li>
-<li>Move from <code>4</code> to <code>2</code>: <code>2</code> fuel</li>
-<li>Move from <code>2</code> to <code>2</code>: <code>0</code> fuel</li>
-<li>Move from <code>7</code> to <code>2</code>: <code>5</code> fuel</li>
-<li>Move from <code>1</code> to <code>2</code>: <code>1</code> fuel</li>
-<li>Move from <code>2</code> to <code>2</code>: <code>0</code> fuel</li>
-<li>Move from <code>14</code> to <code>2</code>: <code>12</code> fuel</li>
-</ul>
-<p>This costs a total of <code><em>37</em></code> fuel. This is the cheapest possible outcome; more expensive outcomes include aligning at position <code>1</code> (<code>41</code> fuel), position <code>3</code> (<code>39</code> fuel), or position <code>10</code> (<code>71</code> fuel).</p>
-<p>Determine the horizontal position that the crabs can align to using the least fuel possible. <em>How much fuel must they spend to align to that position?</em></p>
-</article>
-<p>Your puzzle answer was <code>342641</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>The crabs don't seem interested in your proposed solution. Perhaps you misunderstand crab engineering?</p>
-<p>As it turns out, crab submarine engines <span title="This appears to be due to the modial interaction of magneto-reluctance and capacitive duractance.">don't burn fuel at a constant rate</span>. Instead, each change of 1 step in horizontal position costs 1 more unit of fuel than the last: the first step costs <code>1</code>, the second step costs <code>2</code>, the third step costs <code>3</code>, and so on.</p>
-<p>As each crab moves, moving further becomes more expensive. This changes the best horizontal position to align them all on; in the example above, this becomes <code>5</code>:</p>
-<ul>
-<li>Move from <code>16</code> to <code>5</code>: <code>66</code> fuel</li>
-<li>Move from <code>1</code> to <code>5</code>: <code>10</code> fuel</li>
-<li>Move from <code>2</code> to <code>5</code>: <code>6</code> fuel</li>
-<li>Move from <code>0</code> to <code>5</code>: <code>15</code> fuel</li>
-<li>Move from <code>4</code> to <code>5</code>: <code>1</code> fuel</li>
-<li>Move from <code>2</code> to <code>5</code>: <code>6</code> fuel</li>
-<li>Move from <code>7</code> to <code>5</code>: <code>3</code> fuel</li>
-<li>Move from <code>1</code> to <code>5</code>: <code>10</code> fuel</li>
-<li>Move from <code>2</code> to <code>5</code>: <code>6</code> fuel</li>
-<li>Move from <code>14</code> to <code>5</code>: <code>45</code> fuel</li>
-</ul>
-<p>This costs a total of <code><em>168</em></code> fuel. This is the new cheapest possible outcome; the old alignment position (<code>2</code>) now costs <code>206</code> fuel instead.</p>
-<p>Determine the horizontal position that the crabs can align to using the least fuel possible so they can make you an escape route! <em>How much fuel must they spend to align to that position?</em></p>
-</article>
-<p>Your puzzle answer was <code>93006301</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="day07.txt" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22The+Treachery+of+Whales%22+%2D+Day+7+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F7&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22The+Treachery+of+Whales%22+%2D+Day+7+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F7'}else{return false;}" target="_blank">Mastodon</a
-></span>]</span> this puzzle.</p>
-</main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 7 - Advent of Code 2021</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2021</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        article *[title] {
+          border-bottom: 1px dotted #ffff66;
+        }
+      </style>
+      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
+      <article class="day-desc">
+        <h2>--- Day 7: The Treachery of Whales ---</h2>
+        <p>A giant <a href="https://en.wikipedia.org/wiki/Sperm_whale" target="_blank">whale</a> has decided your
+          submarine is its next meal, and it's much faster than you are. There's nowhere to run!</p>
+        <p>Suddenly, a swarm of crabs (each in its own tiny submarine - it's too deep for them otherwise) zooms in to
+          rescue you! They seem to be preparing to blast a hole in the ocean floor; sensors indicate a <em>massive
+            underground cave system</em> just beyond where they're aiming!</p>
+        <p>The crab submarines all need to be aligned before they'll have enough power to blast a large enough hole for
+          your submarine to get through. However, it doesn't look like they'll be aligned before the whale catches you!
+          Maybe you can help?</p>
+        <p>There's one major catch - crab submarines can only move horizontally.</p>
+        <p>You quickly make a list of <em>the horizontal position of each crab</em> (your puzzle input). Crab submarines
+          have limited fuel, so you need to find a way to make all of their horizontal positions match while requiring
+          them to spend as little fuel as possible.</p>
+        <p>For example, consider the following horizontal positions:</p>
+        <pre><code>16,1,2,0,4,2,7,1,2,14</code></pre>
+        <p>This means there's a crab with horizontal position <code>16</code>, a crab with horizontal position
+          <code>1</code>, and so on.</p>
+        <p>Each change of 1 step in horizontal position of a single crab costs 1 fuel. You could choose any horizontal
+          position to align them all on, but the one that costs the least fuel is horizontal position <code>2</code>:
+        </p>
+        <ul>
+          <li>Move from <code>16</code> to <code>2</code>: <code>14</code> fuel</li>
+          <li>Move from <code>1</code> to <code>2</code>: <code>1</code> fuel</li>
+          <li>Move from <code>2</code> to <code>2</code>: <code>0</code> fuel</li>
+          <li>Move from <code>0</code> to <code>2</code>: <code>2</code> fuel</li>
+          <li>Move from <code>4</code> to <code>2</code>: <code>2</code> fuel</li>
+          <li>Move from <code>2</code> to <code>2</code>: <code>0</code> fuel</li>
+          <li>Move from <code>7</code> to <code>2</code>: <code>5</code> fuel</li>
+          <li>Move from <code>1</code> to <code>2</code>: <code>1</code> fuel</li>
+          <li>Move from <code>2</code> to <code>2</code>: <code>0</code> fuel</li>
+          <li>Move from <code>14</code> to <code>2</code>: <code>12</code> fuel</li>
+        </ul>
+        <p>This costs a total of <code><em>37</em></code> fuel. This is the cheapest possible outcome; more expensive
+          outcomes include aligning at position <code>1</code> (<code>41</code> fuel), position <code>3</code>
+          (<code>39</code> fuel), or position <code>10</code> (<code>71</code> fuel).</p>
+        <p>Determine the horizontal position that the crabs can align to using the least fuel possible. <em>How much
+            fuel must they spend to align to that position?</em></p>
+      </article>
+      <p>Your puzzle answer was <code>342641</code>.</p>
+      <article class="day-desc">
+        <h2 id="part2">--- Part Two ---</h2>
+        <p>The crabs don't seem interested in your proposed solution. Perhaps you misunderstand crab engineering?</p>
+        <p>As it turns out, crab submarine engines <span
+            title="This appears to be due to the modial interaction of magneto-reluctance and capacitive duractance.">don't
+            burn fuel at a constant rate</span>. Instead, each change of 1 step in horizontal position costs 1 more unit
+          of fuel than the last: the first step costs <code>1</code>, the second step costs <code>2</code>, the third
+          step costs <code>3</code>, and so on.</p>
+        <p>As each crab moves, moving further becomes more expensive. This changes the best horizontal position to align
+          them all on; in the example above, this becomes <code>5</code>:</p>
+        <ul>
+          <li>Move from <code>16</code> to <code>5</code>: <code>66</code> fuel</li>
+          <li>Move from <code>1</code> to <code>5</code>: <code>10</code> fuel</li>
+          <li>Move from <code>2</code> to <code>5</code>: <code>6</code> fuel</li>
+          <li>Move from <code>0</code> to <code>5</code>: <code>15</code> fuel</li>
+          <li>Move from <code>4</code> to <code>5</code>: <code>1</code> fuel</li>
+          <li>Move from <code>2</code> to <code>5</code>: <code>6</code> fuel</li>
+          <li>Move from <code>7</code> to <code>5</code>: <code>3</code> fuel</li>
+          <li>Move from <code>1</code> to <code>5</code>: <code>10</code> fuel</li>
+          <li>Move from <code>2</code> to <code>5</code>: <code>6</code> fuel</li>
+          <li>Move from <code>14</code> to <code>5</code>: <code>45</code> fuel</li>
+        </ul>
+        <p>This costs a total of <code><em>168</em></code> fuel. This is the new cheapest possible outcome; the old
+          alignment position (<code>2</code>) now costs <code>206</code> fuel instead.</p>
+        <p>Determine the horizontal position that the crabs can align to using the least fuel possible so they can make
+          you an escape route! <em>How much fuel must they spend to align to that position?</em></p>
+      </article>
+      <p>Your puzzle answer was <code>93006301</code>.</p>
+      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+      <p>If you still want to see it, you can <a href="day07.txt" target="_blank">get your puzzle input</a>.</p>
+      <p>You can also <span class="share">[Share<span class="share-content">on
+            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22The+Treachery+of+Whales%22+%2D+Day+7+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F7&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+              target="_blank">Twitter</a>
+            <a href="javascript:void(0);"
+              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22The+Treachery+of+Whales%22+%2D+Day+7+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F7'}else{return false;}"
+              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
+    </main>
+  </body>
 </html>

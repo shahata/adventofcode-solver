@@ -1,424 +1,633 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Leaderboard - Advent of Code 2016</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2016</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
+  <head>
+    <meta charset="utf-8" />
+    <title>Leaderboard - Advent of Code 2016</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2016</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
 
-<script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js" crossorigin="anonymous"></script>
-<button onclick="drawChart('all')">Show All</button>
-<button onclick="drawChart('ten')">Show Top Ten</button>
-<button onclick="drawChart('five')">Show Top Five</button>
-<canvas id="canvas"></canvas>
-<script>
-var config = {"all":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false}]}},"ten":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false}]}},"five":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false}]}}};
-window.drawChart = function(group) {
-  window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
-  window.myLine.update();
-};
-window.onload = function() {
-  var ctx = document.getElementById("canvas").getContext("2d");
-  window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config.all)));
-};
-</script>
-<table>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 25:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">09 Dec 2017, 09:05:38</span> Shahar Talmi</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 25:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">06 Dec 2017, 19:47:52</span> Shahar Talmi</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 24:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">06 Dec 2017, 18:50:43</span> Shahar Talmi</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 24:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">06 Dec 2017, 18:13:56</span> Shahar Talmi</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 23:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">07 Dec 2017, 00:05:12</span> Shahar Talmi</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 23:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">04 Dec 2017, 20:32:15</span> Shahar Talmi</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 22:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">04 Dec 2017, 18:56:48</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">22 Dec 2017, 16:24:10</span> Noam Neeman</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 22:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">04 Dec 2017, 17:45:47</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">20 Dec 2017, 10:09:53</span> Noam Neeman</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 21:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">04 Dec 2017, 00:18:13</span> Shahar Talmi</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 21:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">03 Dec 2017, 18:08:37</span> Shahar Talmi</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 20:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">03 Dec 2017, 12:08:36</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">19 Dec 2017, 18:05:03</span> Noam Neeman</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 20:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">03 Dec 2017, 11:25:27</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">19 Dec 2017, 17:54:10</span> Noam Neeman</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 19:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">09 Dec 2017, 09:05:23</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">18 Dec 2017, 10:06:58</span> Noam Neeman</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 19:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 15:34:21</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">17 Dec 2017, 13:31:14</span> Noam Neeman</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 18:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 14:43:22</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">17 Dec 2017, 11:55:59</span> Noam Neeman</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 18:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 14:41:07</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">17 Dec 2017, 11:51:55</span> Noam Neeman</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 17:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 14:16:54</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">17 Dec 2017, 10:23:32</span> Noam Neeman</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 17:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 14:09:43</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">17 Dec 2017, 10:14:03</span> Noam Neeman</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 16:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 13:26:41</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">26 Dec 2017, 12:00:54</span> Noam Neeman</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 16:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 13:22:14</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">26 Dec 2017, 11:44:50</span> Noam Neeman</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 15:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 12:46:36</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">29 Dec 2017, 10:36:02</span> Noam Neeman</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 15:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 12:20:51</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">29 Dec 2017, 10:33:52</span> Noam Neeman</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 14:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 11:03:50</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">30 Dec 2017, 09:07:58</span> Noam Neeman</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 14:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 10:37:51</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">30 Dec 2017, 08:46:27</span> Noam Neeman</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 13:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 07:53:58</span> Shahar Talmi</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 13:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 07:38:36</span> Shahar Talmi</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 12:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 04:39:52</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">25 Nov 2020, 16:21:24</span> silyevsk</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 12:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">02 Dec 2017, 04:36:20</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">25 Nov 2020, 16:20:43</span> silyevsk</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 11:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">08 Dec 2017, 10:39:03</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">25 Nov 2020, 15:53:22</span> silyevsk</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 11:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">22 Jan 2017, 01:52:20</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">25 Jun 2017, 10:26:24</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">25 Nov 2020, 15:41:44</span> silyevsk</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 10:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 15:04:02</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">24 Jun 2017, 12:05:37</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">16 Dec 2017, 17:05:22</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">21 Nov 2020, 16:47:58</span> silyevsk</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 10:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 15:01:12</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">24 Jun 2017, 12:04:23</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">16 Dec 2017, 15:34:02</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">21 Nov 2020, 16:45:51</span> silyevsk</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 9:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 12:13:20</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">24 Jun 2017, 10:28:02</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">21 Nov 2020, 08:20:33</span> silyevsk</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 9:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 11:04:16</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">24 Jun 2017, 10:14:20</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">13 Dec 2017, 11:08:31</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">21 Nov 2020, 08:12:24</span> silyevsk</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 8:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 10:30:31</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">24 Jun 2017, 09:26:26</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">13 Dec 2017, 07:20:38</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">21 Nov 2020, 04:43:20</span> silyevsk</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 8:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 10:21:51</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">24 Jun 2017, 09:23:11</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">13 Dec 2017, 07:14:54</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">21 Nov 2020, 04:42:38</span> silyevsk</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 7:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 08:04:23</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">18 Jun 2017, 18:56:17</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">12 Dec 2017, 13:11:01</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">21 Nov 2020, 03:32:09</span> silyevsk</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 7:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 07:43:23</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">18 Jun 2017, 18:44:31</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">12 Dec 2017, 12:32:46</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">21 Nov 2020, 03:18:39</span> silyevsk</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 6:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 04:11:52</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">18 Jun 2017, 17:23:55</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">11 Dec 2017, 13:37:22</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">20 Nov 2020, 23:55:43</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">18 Dec 2020, 04:03:04</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">09 Aug 2021, 04:09:34</span> Gal Elmalah</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 6:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">21 Jan 2017, 04:07:00</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">18 Jun 2017, 17:17:16</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">11 Dec 2017, 13:35:10</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">20 Nov 2020, 23:53:38</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">18 Dec 2020, 03:37:05</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">09 Aug 2021, 04:06:58</span> Gal Elmalah</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 5:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">20 Jan 2017, 20:52:14</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">18 Jun 2017, 16:52:40</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">11 Dec 2017, 10:18:05</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">20 Nov 2020, 18:04:05</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">18 Dec 2020, 03:25:08</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">08 Aug 2021, 12:21:35</span> Gal Elmalah</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 5:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">20 Jan 2017, 19:39:51</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">18 Jun 2017, 11:29:23</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">11 Dec 2017, 09:55:34</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">20 Nov 2020, 17:51:41</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">18 Dec 2020, 03:15:13</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">08 Aug 2021, 12:02:47</span> Gal Elmalah</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 4:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">20 Jan 2017, 19:18:05</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">13 Jun 2017, 17:15:06</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">07 Dec 2017, 05:35:21</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">10 Dec 2017, 15:44:48</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">02 Dec 2018, 15:32:04</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">20 Nov 2020, 17:36:53</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">14 Dec 2020, 14:26:28</span> Stanislav Prokopiv</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 4:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">20 Jan 2017, 18:59:38</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">13 Jun 2017, 17:01:18</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">06 Dec 2017, 19:19:30</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">10 Dec 2017, 15:02:24</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">02 Dec 2018, 15:20:38</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">20 Nov 2020, 17:27:05</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">14 Dec 2020, 13:48:41</span> Stanislav Prokopiv</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 3:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">20 Jan 2017, 17:16:18</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">13 Jun 2017, 16:28:34</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">06 Dec 2017, 18:34:32</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">10 Dec 2017, 11:14:59</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">01 Dec 2018, 15:42:02</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">20 Nov 2020, 16:57:02</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">11 Dec 2020, 17:25:51</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span class="leaderboard-time">07 Aug 2021, 10:21:35</span> Gal Elmalah</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 3:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">20 Jan 2017, 17:02:41</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">13 Jun 2017, 16:22:07</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">06 Dec 2017, 18:24:15</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">10 Dec 2017, 11:08:53</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">01 Dec 2018, 15:19:33</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">14 Nov 2019, 05:36:37</span> gavrielco</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">20 Nov 2020, 16:51:07</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span class="leaderboard-time">11 Dec 2020, 17:09:01</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">9)</span> <span class="leaderboard-time">07 Aug 2021, 10:13:49</span> Gal Elmalah</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 2:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">20 Jan 2017, 15:51:58</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">13 Jun 2017, 16:14:39</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">30 Nov 2017, 12:10:25</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">06 Dec 2017, 18:06:04</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">09 Dec 2017, 16:33:06</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">14 Nov 2019, 04:26:50</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">14 Nov 2019, 04:57:16</span> gavrielco</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">20 Nov 2020, 16:41:10</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">11 Dec 2020, 11:31:02</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">09 Jan 2021, 03:37:09</span> Donatas Petrauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">07 Aug 2021, 08:41:04</span> Gal Elmalah</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">20 Jan 2017, 15:39:07</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">13 Jun 2017, 15:52:21</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">30 Nov 2017, 11:55:11</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">06 Dec 2017, 17:58:30</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">09 Dec 2017, 16:00:42</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">14 Nov 2019, 04:12:53</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">14 Nov 2019, 04:49:58</span> gavrielco</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">20 Nov 2020, 16:31:49</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">11 Dec 2020, 11:14:26</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">15 Dec 2020, 03:19:14</span> Donatas Petrauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">07 Aug 2021, 08:35:41</span> Gal Elmalah</div> 
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td style="padding-right: 50px;">
-<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 1:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">20 Jan 2017, 11:13:44</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">13 Jun 2017, 15:19:10</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">30 Nov 2017, 08:28:20</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">30 Nov 2017, 11:18:31</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">30 Nov 2017, 14:02:27</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">06 Dec 2017, 17:41:57</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">09 Dec 2017, 13:33:03</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">14 Nov 2019, 03:58:41</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">14 Nov 2019, 04:37:49</span> gavrielco</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">14 Nov 2019, 08:50:26</span> Tatiana Podolskaya</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">26 Oct 2020, 17:17:58</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">20 Nov 2020, 16:23:45</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">14 Dec 2020, 14:46:13</span> Donatas Petrauskas</div> 
-</td>
-<td style="padding-right: 50px;">
-<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">20 Jan 2017, 10:16:51</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">13 Jun 2017, 14:16:52</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">30 Nov 2017, 07:05:51</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">30 Nov 2017, 07:47:02</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">30 Nov 2017, 08:23:17</span> Omri Gotlieb</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">30 Nov 2017, 13:46:25</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">06 Dec 2017, 17:31:43</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">09 Dec 2017, 10:07:54</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">14 Nov 2019, 03:54:59</span> Gabriel Grinberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">14 Nov 2019, 04:11:33</span> gavrielco</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">14 Nov 2019, 04:13:27</span> Sharon Zevadi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">14 Nov 2019, 04:57:32</span> Boris Dichter</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">14 Nov 2019, 05:00:34</span> Tatiana Podolskaya</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">25 Oct 2020, 17:51:43</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">20 Nov 2020, 16:10:56</span> silyevsk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">14 Dec 2020, 14:01:30</span> Donatas Petrauskas</div> 
-</td>
-</tr>
-</table>
-</main>
-</body>
+      <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js"
+        crossorigin="anonymous"></script>
+      <button onclick="drawChart('all')">Show All</button>
+      <button onclick="drawChart('ten')">Show Top Ten</button>
+      <button onclick="drawChart('five')">Show Top Five</button>
+      <canvas id="canvas"></canvas>
+      <script>
+        var config = { "all": { "type": "line", "options": { "plugins": { "colorschemes": { "scheme": "brewer.Paired12" } } }, "data": { "labels": ["Day 1-1", "Day 1-2", "Day 2-1", "Day 2-2", "Day 3-1", "Day 3-2", "Day 4-1", "Day 4-2", "Day 5-1", "Day 5-2", "Day 6-1", "Day 6-2", "Day 7-1", "Day 7-2", "Day 8-1", "Day 8-2", "Day 9-1", "Day 9-2", "Day 10-1", "Day 10-2", "Day 11-1", "Day 11-2", "Day 12-1", "Day 12-2", "Day 13-1", "Day 13-2", "Day 14-1", "Day 14-2", "Day 15-1", "Day 15-2", "Day 16-1", "Day 16-2", "Day 17-1", "Day 17-2", "Day 18-1", "Day 18-2", "Day 19-1", "Day 19-2", "Day 20-1", "Day 20-2", "Day 21-1", "Day 21-2", "Day 22-1", "Day 22-2", "Day 23-1", "Day 23-2", "Day 24-1", "Day 24-2", "Day 25-1", "Day 25-2"], "datasets": [{ "label": "Shahar Talmi", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "fill": false }] } }, "ten": { "type": "line", "options": { "plugins": { "colorschemes": { "scheme": "brewer.Paired12" } } }, "data": { "labels": ["Day 1-1", "Day 1-2", "Day 2-1", "Day 2-2", "Day 3-1", "Day 3-2", "Day 4-1", "Day 4-2", "Day 5-1", "Day 5-2", "Day 6-1", "Day 6-2", "Day 7-1", "Day 7-2", "Day 8-1", "Day 8-2", "Day 9-1", "Day 9-2", "Day 10-1", "Day 10-2", "Day 11-1", "Day 11-2", "Day 12-1", "Day 12-2", "Day 13-1", "Day 13-2", "Day 14-1", "Day 14-2", "Day 15-1", "Day 15-2", "Day 16-1", "Day 16-2", "Day 17-1", "Day 17-2", "Day 18-1", "Day 18-2", "Day 19-1", "Day 19-2", "Day 20-1", "Day 20-2", "Day 21-1", "Day 21-2", "Day 22-1", "Day 22-2", "Day 23-1", "Day 23-2", "Day 24-1", "Day 24-2", "Day 25-1", "Day 25-2"], "datasets": [{ "label": "Shahar Talmi", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "fill": false }] } }, "five": { "type": "line", "options": { "plugins": { "colorschemes": { "scheme": "brewer.Paired12" } } }, "data": { "labels": ["Day 1-1", "Day 1-2", "Day 2-1", "Day 2-2", "Day 3-1", "Day 3-2", "Day 4-1", "Day 4-2", "Day 5-1", "Day 5-2", "Day 6-1", "Day 6-2", "Day 7-1", "Day 7-2", "Day 8-1", "Day 8-2", "Day 9-1", "Day 9-2", "Day 10-1", "Day 10-2", "Day 11-1", "Day 11-2", "Day 12-1", "Day 12-2", "Day 13-1", "Day 13-2", "Day 14-1", "Day 14-2", "Day 15-1", "Day 15-2", "Day 16-1", "Day 16-2", "Day 17-1", "Day 17-2", "Day 18-1", "Day 18-2", "Day 19-1", "Day 19-2", "Day 20-1", "Day 20-2", "Day 21-1", "Day 21-2", "Day 22-1", "Day 22-2", "Day 23-1", "Day 23-2", "Day 24-1", "Day 24-2", "Day 25-1", "Day 25-2"], "datasets": [{ "label": "Shahar Talmi", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "fill": false }] } } };
+        window.drawChart = function (group) {
+          window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
+          window.myLine.update();
+        };
+        window.onload = function () {
+          var ctx = document.getElementById("canvas").getContext("2d");
+          window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config.all)));
+        };
+      </script>
+      <table>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 25:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">09 Dec 2017, 09:05:38</span> Shahar Talmi</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 25:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">06 Dec 2017, 19:47:52</span> Shahar Talmi</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 24:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">06 Dec 2017, 18:50:43</span> Shahar Talmi</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 24:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">06 Dec 2017, 18:13:56</span> Shahar Talmi</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 23:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">07 Dec 2017, 00:05:12</span> Shahar Talmi</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 23:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">04 Dec 2017, 20:32:15</span> Shahar Talmi</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 22:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">04 Dec 2017, 18:56:48</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">22 Dec 2017, 16:24:10</span> Noam Neeman</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 22:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">04 Dec 2017, 17:45:47</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">20 Dec 2017, 10:09:53</span> Noam Neeman</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 21:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">04 Dec 2017, 00:18:13</span> Shahar Talmi</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 21:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">03 Dec 2017, 18:08:37</span> Shahar Talmi</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 20:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">03 Dec 2017, 12:08:36</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">19 Dec 2017, 18:05:03</span> Noam Neeman</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 20:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">03 Dec 2017, 11:25:27</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">19 Dec 2017, 17:54:10</span> Noam Neeman</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 19:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">09 Dec 2017, 09:05:23</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">18 Dec 2017, 10:06:58</span> Noam Neeman</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 19:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 15:34:21</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">17 Dec 2017, 13:31:14</span> Noam Neeman</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 18:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 14:43:22</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">17 Dec 2017, 11:55:59</span> Noam Neeman</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 18:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 14:41:07</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">17 Dec 2017, 11:51:55</span> Noam Neeman</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 17:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 14:16:54</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">17 Dec 2017, 10:23:32</span> Noam Neeman</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 17:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 14:09:43</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">17 Dec 2017, 10:14:03</span> Noam Neeman</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 16:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 13:26:41</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">26 Dec 2017, 12:00:54</span> Noam Neeman</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 16:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 13:22:14</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">26 Dec 2017, 11:44:50</span> Noam Neeman</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 15:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 12:46:36</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">29 Dec 2017, 10:36:02</span> Noam Neeman</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 15:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 12:20:51</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">29 Dec 2017, 10:33:52</span> Noam Neeman</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 14:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 11:03:50</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">30 Dec 2017, 09:07:58</span> Noam Neeman</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 14:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 10:37:51</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">30 Dec 2017, 08:46:27</span> Noam Neeman</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 13:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 07:53:58</span> Shahar Talmi</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 13:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 07:38:36</span> Shahar Talmi</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 12:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 04:39:52</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">25 Nov 2020, 16:21:24</span> silyevsk</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 12:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">02 Dec 2017, 04:36:20</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">25 Nov 2020, 16:20:43</span> silyevsk</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 11:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">08 Dec 2017, 10:39:03</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">25 Nov 2020, 15:53:22</span> silyevsk</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 11:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">22 Jan 2017, 01:52:20</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">25 Jun 2017, 10:26:24</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">25 Nov 2020, 15:41:44</span> silyevsk</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 10:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 15:04:02</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">24 Jun 2017, 12:05:37</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">16 Dec 2017, 17:05:22</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">21 Nov 2020, 16:47:58</span> silyevsk</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 10:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 15:01:12</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">24 Jun 2017, 12:04:23</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">16 Dec 2017, 15:34:02</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">21 Nov 2020, 16:45:51</span> silyevsk</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 9:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 12:13:20</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">24 Jun 2017, 10:28:02</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">21 Nov 2020, 08:20:33</span> silyevsk</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 9:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 11:04:16</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">24 Jun 2017, 10:14:20</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">13 Dec 2017, 11:08:31</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">21 Nov 2020, 08:12:24</span> silyevsk</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 8:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 10:30:31</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">24 Jun 2017, 09:26:26</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">13 Dec 2017, 07:20:38</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">21 Nov 2020, 04:43:20</span> silyevsk</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 8:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 10:21:51</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">24 Jun 2017, 09:23:11</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">13 Dec 2017, 07:14:54</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">21 Nov 2020, 04:42:38</span> silyevsk</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 7:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 08:04:23</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">18 Jun 2017, 18:56:17</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">12 Dec 2017, 13:11:01</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">21 Nov 2020, 03:32:09</span> silyevsk</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 7:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 07:43:23</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">18 Jun 2017, 18:44:31</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">12 Dec 2017, 12:32:46</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">21 Nov 2020, 03:18:39</span> silyevsk</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 6:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 04:11:52</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">18 Jun 2017, 17:23:55</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">11 Dec 2017, 13:37:22</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">20 Nov 2020, 23:55:43</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span
+                class="leaderboard-time">18 Dec 2020, 04:03:04</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span
+                class="leaderboard-time">09 Aug 2021, 04:09:34</span> Gal Elmalah</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 6:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">21 Jan 2017, 04:07:00</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">18 Jun 2017, 17:17:16</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">11 Dec 2017, 13:35:10</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">20 Nov 2020, 23:53:38</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span
+                class="leaderboard-time">18 Dec 2020, 03:37:05</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span
+                class="leaderboard-time">09 Aug 2021, 04:06:58</span> Gal Elmalah</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 5:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 20:52:14</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">18 Jun 2017, 16:52:40</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">11 Dec 2017, 10:18:05</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">20 Nov 2020, 18:04:05</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span
+                class="leaderboard-time">18 Dec 2020, 03:25:08</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span
+                class="leaderboard-time">08 Aug 2021, 12:21:35</span> Gal Elmalah</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 5:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 19:39:51</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">18 Jun 2017, 11:29:23</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">11 Dec 2017, 09:55:34</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">20 Nov 2020, 17:51:41</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span
+                class="leaderboard-time">18 Dec 2020, 03:15:13</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span
+                class="leaderboard-time">08 Aug 2021, 12:02:47</span> Gal Elmalah</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 4:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 19:18:05</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">13 Jun 2017, 17:15:06</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">07 Dec 2017, 05:35:21</span> Salick Cogan</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">10 Dec 2017, 15:44:48</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span
+                class="leaderboard-time">02 Dec 2018, 15:32:04</span> Gabriel Grinberg</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span
+                class="leaderboard-time">20 Nov 2020, 17:36:53</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span
+                class="leaderboard-time">14 Dec 2020, 14:26:28</span> Stanislav Prokopiv</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 4:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 18:59:38</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">13 Jun 2017, 17:01:18</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">06 Dec 2017, 19:19:30</span> Salick Cogan</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">10 Dec 2017, 15:02:24</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span
+                class="leaderboard-time">02 Dec 2018, 15:20:38</span> Gabriel Grinberg</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span
+                class="leaderboard-time">20 Nov 2020, 17:27:05</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span
+                class="leaderboard-time">14 Dec 2020, 13:48:41</span> Stanislav Prokopiv</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 3:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 17:16:18</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">13 Jun 2017, 16:28:34</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">06 Dec 2017, 18:34:32</span> Salick Cogan</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">10 Dec 2017, 11:14:59</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span
+                class="leaderboard-time">01 Dec 2018, 15:42:02</span> Gabriel Grinberg</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span
+                class="leaderboard-time">20 Nov 2020, 16:57:02</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span
+                class="leaderboard-time">11 Dec 2020, 17:25:51</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span
+                class="leaderboard-time">07 Aug 2021, 10:21:35</span> Gal Elmalah</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 3:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 17:02:41</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span
+                class="leaderboard-time">13 Jun 2017, 16:22:07</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span
+                class="leaderboard-time">06 Dec 2017, 18:24:15</span> Salick Cogan</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span
+                class="leaderboard-time">10 Dec 2017, 11:08:53</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span
+                class="leaderboard-time">01 Dec 2018, 15:19:33</span> Gabriel Grinberg</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span
+                class="leaderboard-time">14 Nov 2019, 05:36:37</span> gavrielco</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span
+                class="leaderboard-time">20 Nov 2020, 16:51:07</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span
+                class="leaderboard-time">11 Dec 2020, 17:09:01</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">9)</span> <span
+                class="leaderboard-time">07 Aug 2021, 10:13:49</span> Gal Elmalah</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 2:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 15:51:58</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span
+                class="leaderboard-time">13 Jun 2017, 16:14:39</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span
+                class="leaderboard-time">30 Nov 2017, 12:10:25</span> Oded Soffrin</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span
+                class="leaderboard-time">06 Dec 2017, 18:06:04</span> Salick Cogan</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span
+                class="leaderboard-time">09 Dec 2017, 16:33:06</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span
+                class="leaderboard-time">14 Nov 2019, 04:26:50</span> Gabriel Grinberg</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span
+                class="leaderboard-time">14 Nov 2019, 04:57:16</span> gavrielco</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span
+                class="leaderboard-time">20 Nov 2020, 16:41:10</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span
+                class="leaderboard-time">11 Dec 2020, 11:31:02</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span
+                class="leaderboard-time">09 Jan 2021, 03:37:09</span> Donatas Petrauskas</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span
+                class="leaderboard-time">07 Aug 2021, 08:41:04</span> Gal Elmalah</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 15:39:07</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span
+                class="leaderboard-time">13 Jun 2017, 15:52:21</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span
+                class="leaderboard-time">30 Nov 2017, 11:55:11</span> Oded Soffrin</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span
+                class="leaderboard-time">06 Dec 2017, 17:58:30</span> Salick Cogan</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span
+                class="leaderboard-time">09 Dec 2017, 16:00:42</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span
+                class="leaderboard-time">14 Nov 2019, 04:12:53</span> Gabriel Grinberg</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span
+                class="leaderboard-time">14 Nov 2019, 04:49:58</span> gavrielco</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span
+                class="leaderboard-time">20 Nov 2020, 16:31:49</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span
+                class="leaderboard-time">11 Dec 2020, 11:14:26</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span
+                class="leaderboard-time">15 Dec 2020, 03:19:14</span> Donatas Petrauskas</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span
+                class="leaderboard-time">07 Aug 2021, 08:35:41</span> Gal Elmalah</div>
+          </td>
+        </tr>
+        <tr style="vertical-align: top;">
+          <td style="padding-right: 50px;">
+            <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 1:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 11:13:44</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span
+                class="leaderboard-time">13 Jun 2017, 15:19:10</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span
+                class="leaderboard-time">30 Nov 2017, 08:28:20</span> Tzvika Farber</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span
+                class="leaderboard-time">30 Nov 2017, 11:18:31</span> Oded Soffrin</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span
+                class="leaderboard-time">30 Nov 2017, 14:02:27</span> Alon Yehezkel</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span
+                class="leaderboard-time">06 Dec 2017, 17:41:57</span> Salick Cogan</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span
+                class="leaderboard-time">09 Dec 2017, 13:33:03</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span
+                class="leaderboard-time">14 Nov 2019, 03:58:41</span> Gabriel Grinberg</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span
+                class="leaderboard-time">14 Nov 2019, 04:37:49</span> gavrielco</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span
+                class="leaderboard-time">14 Nov 2019, 08:50:26</span> Tatiana Podolskaya</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span
+                class="leaderboard-time">26 Oct 2020, 17:17:58</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span
+                class="leaderboard-time">20 Nov 2020, 16:23:45</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span
+                class="leaderboard-time">14 Dec 2020, 14:46:13</span> Donatas Petrauskas</div>
+          </td>
+          <td style="padding-right: 50px;">
+            <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span
+                class="leaderboard-time">20 Jan 2017, 10:16:51</span> Shahar Talmi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span
+                class="leaderboard-time">13 Jun 2017, 14:16:52</span> atamurius</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span
+                class="leaderboard-time">30 Nov 2017, 07:05:51</span> Oded Soffrin</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span
+                class="leaderboard-time">30 Nov 2017, 07:47:02</span> Tzvika Farber</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span
+                class="leaderboard-time">30 Nov 2017, 08:23:17</span> Omri Gotlieb</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span
+                class="leaderboard-time">30 Nov 2017, 13:46:25</span> Alon Yehezkel</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span
+                class="leaderboard-time">06 Dec 2017, 17:31:43</span> Salick Cogan</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span
+                class="leaderboard-time">09 Dec 2017, 10:07:54</span> Noam Neeman</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span
+                class="leaderboard-time">14 Nov 2019, 03:54:59</span> Gabriel Grinberg</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span
+                class="leaderboard-time">14 Nov 2019, 04:11:33</span> gavrielco</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span
+                class="leaderboard-time">14 Nov 2019, 04:13:27</span> Sharon Zevadi</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span
+                class="leaderboard-time">14 Nov 2019, 04:57:32</span> Boris Dichter</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span
+                class="leaderboard-time">14 Nov 2019, 05:00:34</span> Tatiana Podolskaya</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span
+                class="leaderboard-time">25 Oct 2020, 17:51:43</span> Stanislav Prokopiv</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span
+                class="leaderboard-time">20 Nov 2020, 16:10:56</span> silyevsk</div>
+            <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span
+                class="leaderboard-time">14 Dec 2020, 14:01:30</span> Donatas Petrauskas</div>
+          </td>
+        </tr>
+      </table>
+    </main>
+  </body>
 </html>

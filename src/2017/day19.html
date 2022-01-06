@@ -1,69 +1,113 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 19 - Advent of Code 2017</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-<article class="day-desc"><h2>--- Day 19: A Series of Tubes ---</h2><p>Somehow, a network packet got <span title="I know how fast it's going, but I don't know where it is.">lost</span> and ended up here.  It's trying to follow a routing diagram (your puzzle input), but it's confused about where to go.</p>
-<p>Its starting point is just off the top of the diagram. Lines (drawn with <code>|</code>, <code>-</code>, and <code>+</code>) show the path it needs to take, starting by going down onto the only line connected to the top of the diagram. It needs to follow this path until it reaches the end (located somewhere within the diagram) and stop there.</p>
-<p>Sometimes, the lines cross over each other; in these cases, it needs to continue going the same direction, and only turn left or right when there's no other option.  In addition, someone has left <em>letters</em> on the line; these also don't change its direction, but it can use them to keep track of where it's been. For example:</p>
-<pre><code>     |          
-     |  +--+    
-     A  |  C    
- F---|----E|--+ 
-     |  |  |  D 
-     +B-+  +--+ 
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 19 - Advent of Code 2017</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2017</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        article *[title] {
+          border-bottom: 1px dotted #ffff66;
+        }
+      </style>
+      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
+      <article class="day-desc">
+        <h2>--- Day 19: A Series of Tubes ---</h2>
+        <p>Somehow, a network packet got <span
+            title="I know how fast it's going, but I don't know where it is.">lost</span> and ended up here. It's trying
+          to follow a routing diagram (your puzzle input), but it's confused about where to go.</p>
+        <p>Its starting point is just off the top of the diagram. Lines (drawn with <code>|</code>, <code>-</code>, and
+          <code>+</code>) show the path it needs to take, starting by going down onto the only line connected to the top
+          of the diagram. It needs to follow this path until it reaches the end (located somewhere within the diagram)
+          and stop there.</p>
+        <p>Sometimes, the lines cross over each other; in these cases, it needs to continue going the same direction,
+          and only turn left or right when there's no other option. In addition, someone has left <em>letters</em> on
+          the line; these also don't change its direction, but it can use them to keep track of where it's been. For
+          example:</p>
+        <pre><code>     |
+     |  +--+
+     A  |  C
+ F---|----E|--+
+     |  |  |  D
+     +B-+  +--+
 
 </code></pre>
-<p>Given this diagram, the packet needs to take the following path:</p>
-<ul>
-<li>Starting at the only line touching the top of the diagram, it must go down, pass through <code>A</code>, and continue onward to the first <code>+</code>.</li>
-<li>Travel right, up, and right, passing through <code>B</code> in the process.</li>
-<li>Continue down (collecting <code>C</code>), right, and up (collecting <code>D</code>).</li>
-<li>Finally, go all the way left through <code>E</code> and stopping at <code>F</code>.</li>
-</ul>
-<p>Following the path to the end, the letters it sees on its path are <code>ABCDEF</code>.</p>
-<p>The little packet looks up at you, hoping you can help it find the way.  <em>What letters will it see</em> (in the order it would see them) if it follows the path? (The routing diagram is very wide; make sure you view it without line wrapping.)</p>
-</article>
-<p>Your puzzle answer was <code>KGPTMEJVS</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>The packet is curious how many steps it needs to go.</p>
-<p>For example, using the same routing diagram from the example above...</p>
-<pre><code>     |          
-     |  +--+    
-     A  |  C    
- F---|--|-E---+ 
-     |  |  |  D 
-     +B-+  +--+ 
+        <p>Given this diagram, the packet needs to take the following path:</p>
+        <ul>
+          <li>Starting at the only line touching the top of the diagram, it must go down, pass through <code>A</code>,
+            and continue onward to the first <code>+</code>.</li>
+          <li>Travel right, up, and right, passing through <code>B</code> in the process.</li>
+          <li>Continue down (collecting <code>C</code>), right, and up (collecting <code>D</code>).</li>
+          <li>Finally, go all the way left through <code>E</code> and stopping at <code>F</code>.</li>
+        </ul>
+        <p>Following the path to the end, the letters it sees on its path are <code>ABCDEF</code>.</p>
+        <p>The little packet looks up at you, hoping you can help it find the way. <em>What letters will it see</em> (in
+          the order it would see them) if it follows the path? (The routing diagram is very wide; make sure you view it
+          without line wrapping.)</p>
+      </article>
+      <p>Your puzzle answer was <code>KGPTMEJVS</code>.</p>
+      <article class="day-desc">
+        <h2 id="part2">--- Part Two ---</h2>
+        <p>The packet is curious how many steps it needs to go.</p>
+        <p>For example, using the same routing diagram from the example above...</p>
+        <pre><code>     |
+     |  +--+
+     A  |  C
+ F---|--|-E---+
+     |  |  |  D
+     +B-+  +--+
 
 </code></pre>
-<p>...the packet would go:</p>
-<ul>
-<li><code>6</code> steps down (including the first line at the top of the diagram).</li>
-<li><code>3</code> steps right.</li>
-<li><code>4</code> steps up.</li>
-<li><code>3</code> steps right.</li>
-<li><code>4</code> steps down.</li>
-<li><code>3</code> steps right.</li>
-<li><code>2</code> steps up.</li>
-<li><code>13</code> steps left (including the <code>F</code> it stops on).</li>
-</ul>
-<p>This would result in a total of <code>38</code> steps.</p>
-<p><em>How many steps</em> does the packet need to go?</p>
-</article>
-<p>Your puzzle answer was <code>16328</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="day19.txt" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22A+Series+of+Tubes%22+%2D+Day+19+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F19&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22A+Series+of+Tubes%22+%2D+Day+19+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F19'}else{return false;}" target="_blank">Mastodon</a
-></span>]</span> this puzzle.</p>
-</main>
-</body>
+        <p>...the packet would go:</p>
+        <ul>
+          <li><code>6</code> steps down (including the first line at the top of the diagram).</li>
+          <li><code>3</code> steps right.</li>
+          <li><code>4</code> steps up.</li>
+          <li><code>3</code> steps right.</li>
+          <li><code>4</code> steps down.</li>
+          <li><code>3</code> steps right.</li>
+          <li><code>2</code> steps up.</li>
+          <li><code>13</code> steps left (including the <code>F</code> it stops on).</li>
+        </ul>
+        <p>This would result in a total of <code>38</code> steps.</p>
+        <p><em>How many steps</em> does the packet need to go?</p>
+      </article>
+      <p>Your puzzle answer was <code>16328</code>.</p>
+      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+      <p>If you still want to see it, you can <a href="day19.txt" target="_blank">get your puzzle input</a>.</p>
+      <p>You can also <span class="share">[Share<span class="share-content">on
+            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22A+Series+of+Tubes%22+%2D+Day+19+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F19&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+              target="_blank">Twitter</a>
+            <a href="javascript:void(0);"
+              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22A+Series+of+Tubes%22+%2D+Day+19+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F19'}else{return false;}"
+              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
+    </main>
+  </body>
 </html>

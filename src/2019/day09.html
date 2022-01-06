@@ -1,56 +1,116 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 9 - Advent of Code 2019</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-<article class="day-desc"><h2>--- Day 9: Sensor Boost ---</h2><p>You've just said goodbye to the rebooted rover and left Mars when you receive a faint distress signal coming from the asteroid belt.  It must be the Ceres monitoring station!</p>
-<p>In order to lock on to the signal, you'll need to boost your sensors. The Elves send up the latest <em>BOOST</em> program - Basic Operation Of System Test.</p>
-<p>While BOOST (your puzzle input) is capable of boosting your sensors, for <span title="Oh sure, NOW safety is a priority.">tenuous safety reasons</span>, it refuses to do so until the computer it runs on passes some checks to demonstrate it is a <em>complete Intcode computer</em>.</p>
-<p><a href="day05.html">Your existing Intcode computer</a> is missing one key feature: it needs support for parameters in <em>relative mode</em>.</p>
-<p>Parameters in mode <code>2</code>, <em>relative mode</em>, behave very similarly to parameters in <em>position mode</em>: the parameter is interpreted as a position.  Like position mode, parameters in relative mode can be read from or written to.</p>
-<p>The important difference is that relative mode parameters don't count from address <code>0</code>.  Instead, they count from a value called the <em>relative base</em>. The <em>relative base</em> starts at <code>0</code>.</p>
-<p>The address a relative mode parameter refers to is itself <em>plus</em> the current <em>relative base</em>. When the relative base is <code>0</code>, relative mode parameters and position mode parameters with the same value refer to the same address.</p>
-<p>For example, given a relative base of <code>50</code>, a relative mode parameter of <code>-7</code> refers to memory address <code>50 + -7 = <em>43</em></code>.</p>
-<p>The relative base is modified with the <em>relative base offset</em> instruction:</p>
-<ul>
-<li>Opcode <code>9</code> <em>adjusts the relative base</em> by the value of its only parameter. The relative base increases (or decreases, if the value is negative) by the value of the parameter.</li>
-</ul>
-<p>For example, if the relative base is <code>2000</code>, then after the instruction <code>109,19</code>, the relative base would be <code>2019</code>. If the next instruction were <code>204,-34</code>, then the value at address <code>1985</code> would be output.</p>
-<p>Your Intcode computer will also need a few other capabilities:</p>
-<ul>
-<li>The computer's available memory should be much larger than the initial program. Memory beyond the initial program starts with the value <code>0</code> and can be read or written like any other memory. (It is invalid to try to access memory at a negative address, though.)</li>
-<li>The computer should have support for large numbers. Some instructions near the beginning of the BOOST program will verify this capability.</li>
-</ul>
-<p>Here are some example programs that use these features:</p>
-<ul>
-<li><code>109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99</code> takes no input and produces a <a href="https://en.wikipedia.org/wiki/Quine_(computing)">copy of itself</a> as output.</li>
-<li><code>1102,34915192,34915192,7,4,7,99,0</code> should output a 16-digit number.</li>
-<li><code>104,1125899906842624,99</code> should output the large number in the middle.</li>
-</ul>
-<p>The BOOST program will ask for a single input; run it in test mode by providing it the value <code>1</code>. It will perform a series of checks on each opcode, output any opcodes (and the associated parameter modes) that seem to be functioning incorrectly, and finally output a BOOST keycode.</p>
-<p>Once your Intcode computer is fully functional, the BOOST program should report no malfunctioning opcodes when run in test mode; it should only output a single value, the BOOST keycode. <em>What BOOST keycode does it produce?</em></p>
-</article>
-<p>Your puzzle answer was <code>2932210790</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p><em>You now have a complete Intcode computer.</em></p>
-<p>Finally, you can lock on to the Ceres distress signal! You just need to boost your sensors using the BOOST program.</p>
-<p>The program runs in sensor boost mode by providing the input instruction the value <code>2</code>.  Once run, it will boost the sensors automatically, but it might take a few seconds to complete the operation on slower hardware.  In sensor boost mode, the program will output a single value: <em>the coordinates of the distress signal</em>.</p>
-<p>Run the BOOST program in sensor boost mode.  <em>What are the coordinates of the distress signal?</em></p>
-</article>
-<p>Your puzzle answer was <code>73144</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="day09.txt" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Sensor+Boost%22+%2D+Day+9+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F9&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Sensor+Boost%22+%2D+Day+9+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F9'}else{return false;}" target="_blank">Mastodon</a
-></span>]</span> this puzzle.</p>
-</main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 9 - Advent of Code 2019</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2019</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        article *[title] {
+          border-bottom: 1px dotted #ffff66;
+        }
+      </style>
+      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
+      <article class="day-desc">
+        <h2>--- Day 9: Sensor Boost ---</h2>
+        <p>You've just said goodbye to the rebooted rover and left Mars when you receive a faint distress signal coming
+          from the asteroid belt. It must be the Ceres monitoring station!</p>
+        <p>In order to lock on to the signal, you'll need to boost your sensors. The Elves send up the latest
+          <em>BOOST</em> program - Basic Operation Of System Test.</p>
+        <p>While BOOST (your puzzle input) is capable of boosting your sensors, for <span
+            title="Oh sure, NOW safety is a priority.">tenuous safety reasons</span>, it refuses to do so until the
+          computer it runs on passes some checks to demonstrate it is a <em>complete Intcode computer</em>.</p>
+        <p><a href="day05.html">Your existing Intcode computer</a> is missing one key feature: it needs support for
+          parameters in <em>relative mode</em>.</p>
+        <p>Parameters in mode <code>2</code>, <em>relative mode</em>, behave very similarly to parameters in
+          <em>position mode</em>: the parameter is interpreted as a position. Like position mode, parameters in relative
+          mode can be read from or written to.</p>
+        <p>The important difference is that relative mode parameters don't count from address <code>0</code>. Instead,
+          they count from a value called the <em>relative base</em>. The <em>relative base</em> starts at
+          <code>0</code>.</p>
+        <p>The address a relative mode parameter refers to is itself <em>plus</em> the current <em>relative base</em>.
+          When the relative base is <code>0</code>, relative mode parameters and position mode parameters with the same
+          value refer to the same address.</p>
+        <p>For example, given a relative base of <code>50</code>, a relative mode parameter of <code>-7</code> refers to
+          memory address <code>50 + -7 = <em>43</em></code>.</p>
+        <p>The relative base is modified with the <em>relative base offset</em> instruction:</p>
+        <ul>
+          <li>Opcode <code>9</code> <em>adjusts the relative base</em> by the value of its only parameter. The relative
+            base increases (or decreases, if the value is negative) by the value of the parameter.</li>
+        </ul>
+        <p>For example, if the relative base is <code>2000</code>, then after the instruction <code>109,19</code>, the
+          relative base would be <code>2019</code>. If the next instruction were <code>204,-34</code>, then the value at
+          address <code>1985</code> would be output.</p>
+        <p>Your Intcode computer will also need a few other capabilities:</p>
+        <ul>
+          <li>The computer's available memory should be much larger than the initial program. Memory beyond the initial
+            program starts with the value <code>0</code> and can be read or written like any other memory. (It is
+            invalid to try to access memory at a negative address, though.)</li>
+          <li>The computer should have support for large numbers. Some instructions near the beginning of the BOOST
+            program will verify this capability.</li>
+        </ul>
+        <p>Here are some example programs that use these features:</p>
+        <ul>
+          <li><code>109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99</code> takes no input and produces a <a
+              href="https://en.wikipedia.org/wiki/Quine_(computing)">copy of itself</a> as output.</li>
+          <li><code>1102,34915192,34915192,7,4,7,99,0</code> should output a 16-digit number.</li>
+          <li><code>104,1125899906842624,99</code> should output the large number in the middle.</li>
+        </ul>
+        <p>The BOOST program will ask for a single input; run it in test mode by providing it the value <code>1</code>.
+          It will perform a series of checks on each opcode, output any opcodes (and the associated parameter modes)
+          that seem to be functioning incorrectly, and finally output a BOOST keycode.</p>
+        <p>Once your Intcode computer is fully functional, the BOOST program should report no malfunctioning opcodes
+          when run in test mode; it should only output a single value, the BOOST keycode. <em>What BOOST keycode does it
+            produce?</em></p>
+      </article>
+      <p>Your puzzle answer was <code>2932210790</code>.</p>
+      <article class="day-desc">
+        <h2 id="part2">--- Part Two ---</h2>
+        <p><em>You now have a complete Intcode computer.</em></p>
+        <p>Finally, you can lock on to the Ceres distress signal! You just need to boost your sensors using the BOOST
+          program.</p>
+        <p>The program runs in sensor boost mode by providing the input instruction the value <code>2</code>. Once run,
+          it will boost the sensors automatically, but it might take a few seconds to complete the operation on slower
+          hardware. In sensor boost mode, the program will output a single value: <em>the coordinates of the distress
+            signal</em>.</p>
+        <p>Run the BOOST program in sensor boost mode. <em>What are the coordinates of the distress signal?</em></p>
+      </article>
+      <p>Your puzzle answer was <code>73144</code>.</p>
+      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+      <p>If you still want to see it, you can <a href="day09.txt" target="_blank">get your puzzle input</a>.</p>
+      <p>You can also <span class="share">[Share<span class="share-content">on
+            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Sensor+Boost%22+%2D+Day+9+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F9&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+              target="_blank">Twitter</a>
+            <a href="javascript:void(0);"
+              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Sensor+Boost%22+%2D+Day+9+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F9'}else{return false;}"
+              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
+    </main>
+  </body>
 </html>

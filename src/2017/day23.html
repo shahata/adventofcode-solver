@@ -1,42 +1,92 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 23 - Advent of Code 2017</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-<article class="day-desc"><h2>--- Day 23: Coprocessor Conflagration ---</h2><p>You decide to head directly to the CPU and fix the printer from there. As you get close, you find an <em>experimental coprocessor</em> doing so much work that the local programs are afraid it will <a href="https://en.wikipedia.org/wiki/Halt_and_Catch_Fire">halt and catch fire</a>. This would cause serious issues for the rest of the computer, so you head in and see what you can do.</p>
-<p>The code it's running seems to be a variant of the kind you saw recently on that <a href="day18.html">tablet</a>. The general functionality seems <em>very similar</em>, but some of the instructions are different:</p>
-<ul>
-<li><code>set X Y</code> <em>sets</em> register <code>X</code> to the value of <code>Y</code>.</li>
-<li><code>sub X Y</code> <em>decreases</em> register <code>X</code> by the value of <code>Y</code>.</li>
-<li><code>mul X Y</code> sets register <code>X</code> to the result of <em>multiplying</em> the value contained in register <code>X</code> by the value of <code>Y</code>.</li>
-<li><code>jnz X Y</code> <em>jumps</em> with an offset of the value of <code>Y</code>, but only if the value of <code>X</code> is <em>not zero</em>. (An offset of <code>2</code> skips the next instruction, an offset of <code>-1</code> jumps to the previous instruction, and so on.)</li>
-<p>Only the instructions listed above are used. The eight registers here, named <code>a</code> through <code>h</code>, all start at <code>0</code>.</p>
-</ul>
-<p>The coprocessor is currently set to some kind of <em>debug mode</em>, which allows for testing, but prevents it from doing any meaningful work.</p>
-<p>If you run the program (your puzzle input), <em>how many times is the <code>mul</code> instruction invoked?</em></p>
-</article>
-<p>Your puzzle answer was <code>4225</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now, it's time to fix the problem.</p>
-<p>The <em>debug mode switch</em> is wired directly to register <code>a</code>.  You <span title="From 'magic' to 'more magic'.">flip the switch</span>, which makes <em>register <code>a</code> now start at <code>1</code></em> when the program is executed.</p>
-<p>Immediately, the coprocessor begins to overheat.  Whoever wrote this program obviously didn't choose a very efficient implementation.  You'll need to <em>optimize the program</em> if it has any hope of completing before Santa needs that printer working.</p>
-<p>The coprocessor's ultimate goal is to determine the final value left in register <code>h</code> once the program completes. Technically, if it had that... it wouldn't even need to run the program.</p>
-<p>After setting register <code>a</code> to <code>1</code>, if the program were to run to completion, <em>what value would be left in register <code>h</code>?</em></p>
-</article>
-<p>Your puzzle answer was <code>905</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="day23.txt" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23'}else{return false;}" target="_blank">Mastodon</a
-></span>]</span> this puzzle.</p>
-</main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 23 - Advent of Code 2017</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2017</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        article *[title] {
+          border-bottom: 1px dotted #ffff66;
+        }
+      </style>
+      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
+      <article class="day-desc">
+        <h2>--- Day 23: Coprocessor Conflagration ---</h2>
+        <p>You decide to head directly to the CPU and fix the printer from there. As you get close, you find an
+          <em>experimental coprocessor</em> doing so much work that the local programs are afraid it will <a
+            href="https://en.wikipedia.org/wiki/Halt_and_Catch_Fire">halt and catch fire</a>. This would cause serious
+          issues for the rest of the computer, so you head in and see what you can do.</p>
+        <p>The code it's running seems to be a variant of the kind you saw recently on that <a
+            href="day18.html">tablet</a>. The general functionality seems <em>very similar</em>, but some of the
+          instructions are different:</p>
+        <ul>
+          <li><code>set X Y</code> <em>sets</em> register <code>X</code> to the value of <code>Y</code>.</li>
+          <li><code>sub X Y</code> <em>decreases</em> register <code>X</code> by the value of <code>Y</code>.</li>
+          <li><code>mul X Y</code> sets register <code>X</code> to the result of <em>multiplying</em> the value
+            contained in register <code>X</code> by the value of <code>Y</code>.</li>
+          <li><code>jnz X Y</code> <em>jumps</em> with an offset of the value of <code>Y</code>, but only if the value
+            of <code>X</code> is <em>not zero</em>. (An offset of <code>2</code> skips the next instruction, an offset
+            of <code>-1</code> jumps to the previous instruction, and so on.)</li>
+          <p>Only the instructions listed above are used. The eight registers here, named <code>a</code> through
+            <code>h</code>, all start at <code>0</code>.</p>
+        </ul>
+        <p>The coprocessor is currently set to some kind of <em>debug mode</em>, which allows for testing, but prevents
+          it from doing any meaningful work.</p>
+        <p>If you run the program (your puzzle input), <em>how many times is the <code>mul</code> instruction
+            invoked?</em></p>
+      </article>
+      <p>Your puzzle answer was <code>4225</code>.</p>
+      <article class="day-desc">
+        <h2 id="part2">--- Part Two ---</h2>
+        <p>Now, it's time to fix the problem.</p>
+        <p>The <em>debug mode switch</em> is wired directly to register <code>a</code>. You <span
+            title="From 'magic' to 'more magic'.">flip the switch</span>, which makes <em>register <code>a</code> now
+            start at <code>1</code></em> when the program is executed.</p>
+        <p>Immediately, the coprocessor begins to overheat. Whoever wrote this program obviously didn't choose a very
+          efficient implementation. You'll need to <em>optimize the program</em> if it has any hope of completing before
+          Santa needs that printer working.</p>
+        <p>The coprocessor's ultimate goal is to determine the final value left in register <code>h</code> once the
+          program completes. Technically, if it had that... it wouldn't even need to run the program.</p>
+        <p>After setting register <code>a</code> to <code>1</code>, if the program were to run to completion, <em>what
+            value would be left in register <code>h</code>?</em></p>
+      </article>
+      <p>Your puzzle answer was <code>905</code>.</p>
+      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+      <p>If you still want to see it, you can <a href="day23.txt" target="_blank">get your puzzle input</a>.</p>
+      <p>You can also <span class="share">[Share<span class="share-content">on
+            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+              target="_blank">Twitter</a>
+            <a href="javascript:void(0);"
+              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Coprocessor+Conflagration%22+%2D+Day+23+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F23'}else{return false;}"
+              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
+    </main>
+  </body>
 </html>

@@ -1,52 +1,104 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 15 - Advent of Code 2015</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2015</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-<article class="day-desc"><h2>--- Day 15: Science for Hungry People ---</h2><p>Today, you set out on the task of perfecting your milk-dunking cookie recipe.  All you have to do is find the right balance of ingredients.</p>
-<p>Your recipe leaves room for exactly <code>100</code> teaspoons of ingredients.  You make a list of the <em>remaining ingredients you could use to finish the recipe</em> (your puzzle input) and their <em>properties per teaspoon</em>:</p>
-<ul>
-<li><code>capacity</code> (how well it helps the cookie absorb milk)</li>
-<li><code>durability</code> (how well it keeps the cookie intact when full of milk)</li>
-<li><code>flavor</code> (how tasty it makes the cookie)</li>
-<li><code>texture</code> (how it improves the feel of the cookie)</li>
-<li><code>calories</code> (how many calories it adds to the cookie)</li>
-</ul>
-<p>You can only measure ingredients in whole-teaspoon amounts accurately, and you have to be accurate so you can reproduce your results in the future.  The <em>total score</em> of a cookie can be found by adding up each of the properties (negative totals become <code>0</code>) and then multiplying together everything except calories.</p>
-<p>For instance, suppose you have <span title="* I know what your preference is, but...">these two ingredients</span>:</p>
-<pre><code>Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 15 - Advent of Code 2015</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2015</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        article *[title] {
+          border-bottom: 1px dotted #ffff66;
+        }
+      </style>
+      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
+      <article class="day-desc">
+        <h2>--- Day 15: Science for Hungry People ---</h2>
+        <p>Today, you set out on the task of perfecting your milk-dunking cookie recipe. All you have to do is find the
+          right balance of ingredients.</p>
+        <p>Your recipe leaves room for exactly <code>100</code> teaspoons of ingredients. You make a list of the
+          <em>remaining ingredients you could use to finish the recipe</em> (your puzzle input) and their <em>properties
+            per teaspoon</em>:</p>
+        <ul>
+          <li><code>capacity</code> (how well it helps the cookie absorb milk)</li>
+          <li><code>durability</code> (how well it keeps the cookie intact when full of milk)</li>
+          <li><code>flavor</code> (how tasty it makes the cookie)</li>
+          <li><code>texture</code> (how it improves the feel of the cookie)</li>
+          <li><code>calories</code> (how many calories it adds to the cookie)</li>
+        </ul>
+        <p>You can only measure ingredients in whole-teaspoon amounts accurately, and you have to be accurate so you can
+          reproduce your results in the future. The <em>total score</em> of a cookie can be found by adding up each of
+          the properties (negative totals become <code>0</code>) and then multiplying together everything except
+          calories.</p>
+        <p>For instance, suppose you have <span title="* I know what your preference is, but...">these two
+            ingredients</span>:</p>
+        <pre><code>Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8
 Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3
 </code></pre>
-<p>Then, choosing to use <code>44</code> teaspoons of butterscotch and <code>56</code> teaspoons of cinnamon (because the amounts of each ingredient must add up to <code>100</code>) would result in a cookie with the following properties:</p>
-<ul>
-<li>A <code>capacity</code> of <code>44*-1 + 56*2 = 68</code></li>
-<li>A <code>durability</code> of <code>44*-2 + 56*3 = 80</code></li>
-<li>A <code>flavor</code> of <code>44*6 + 56*-2 = 152</code></li>
-<li>A <code>texture</code> of <code>44*3 + 56*-1 = 76</code></li>
-</ul>
-<p>Multiplying these together (<code>68 * 80 * 152 * 76</code>, ignoring <code>calories</code> for now) results in a total score of  <code>62842880</code>, which happens to be the best score possible given these ingredients.  If any properties had produced a negative total, it would have instead become zero, causing the whole score to multiply to zero.</p>
-<p>Given the ingredients in your kitchen and their properties, what is the <em>total score</em> of the highest-scoring cookie you can make?</p>
-</article>
-<p>Your puzzle answer was <code>13882464</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Your cookie recipe becomes wildly popular!  Someone asks if you can make another recipe that has exactly <code>500</code> calories per cookie (so they can use it as a meal replacement).  Keep the rest of your award-winning process the same (100 teaspoons, same ingredients, same scoring system).</p>
-<p>For example, given the ingredients above, if you had instead selected <code>40</code> teaspoons of butterscotch and <code>60</code> teaspoons of cinnamon (which still adds to <code>100</code>), the total calorie count would be <code>40*8 + 60*3 = 500</code>.  The total score would go down, though: only <code>57600000</code>, the best you can do in such trying circumstances.</p>
-<p>Given the ingredients in your kitchen and their properties, what is the <em>total score</em> of the highest-scoring cookie you can make with a calorie total of <code>500</code>?</p>
-</article>
-<p>Your puzzle answer was <code>11171160</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="day15.txt" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Science+for+Hungry+People%22+%2D+Day+15+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F15&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Science+for+Hungry+People%22+%2D+Day+15+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F15'}else{return false;}" target="_blank">Mastodon</a
-></span>]</span> this puzzle.</p>
-</main>
-</body>
+        <p>Then, choosing to use <code>44</code> teaspoons of butterscotch and <code>56</code> teaspoons of cinnamon
+          (because the amounts of each ingredient must add up to <code>100</code>) would result in a cookie with the
+          following properties:</p>
+        <ul>
+          <li>A <code>capacity</code> of <code>44*-1 + 56*2 = 68</code></li>
+          <li>A <code>durability</code> of <code>44*-2 + 56*3 = 80</code></li>
+          <li>A <code>flavor</code> of <code>44*6 + 56*-2 = 152</code></li>
+          <li>A <code>texture</code> of <code>44*3 + 56*-1 = 76</code></li>
+        </ul>
+        <p>Multiplying these together (<code>68 * 80 * 152 * 76</code>, ignoring <code>calories</code> for now) results
+          in a total score of <code>62842880</code>, which happens to be the best score possible given these
+          ingredients. If any properties had produced a negative total, it would have instead become zero, causing the
+          whole score to multiply to zero.</p>
+        <p>Given the ingredients in your kitchen and their properties, what is the <em>total score</em> of the
+          highest-scoring cookie you can make?</p>
+      </article>
+      <p>Your puzzle answer was <code>13882464</code>.</p>
+      <article class="day-desc">
+        <h2 id="part2">--- Part Two ---</h2>
+        <p>Your cookie recipe becomes wildly popular! Someone asks if you can make another recipe that has exactly
+          <code>500</code> calories per cookie (so they can use it as a meal replacement). Keep the rest of your
+          award-winning process the same (100 teaspoons, same ingredients, same scoring system).</p>
+        <p>For example, given the ingredients above, if you had instead selected <code>40</code> teaspoons of
+          butterscotch and <code>60</code> teaspoons of cinnamon (which still adds to <code>100</code>), the total
+          calorie count would be <code>40*8 + 60*3 = 500</code>. The total score would go down, though: only
+          <code>57600000</code>, the best you can do in such trying circumstances.</p>
+        <p>Given the ingredients in your kitchen and their properties, what is the <em>total score</em> of the
+          highest-scoring cookie you can make with a calorie total of <code>500</code>?</p>
+      </article>
+      <p>Your puzzle answer was <code>11171160</code>.</p>
+      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+      <p>If you still want to see it, you can <a href="day15.txt" target="_blank">get your puzzle input</a>.</p>
+      <p>You can also <span class="share">[Share<span class="share-content">on
+            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Science+for+Hungry+People%22+%2D+Day+15+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F15&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+              target="_blank">Twitter</a>
+            <a href="javascript:void(0);"
+              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Science+for+Hungry+People%22+%2D+Day+15+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F15'}else{return false;}"
+              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
+    </main>
+  </body>
 </html>

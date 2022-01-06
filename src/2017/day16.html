@@ -1,51 +1,98 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 16 - Advent of Code 2017</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-<article class="day-desc"><h2>--- Day 16: Permutation Promenade ---</h2><p>You come upon a very unusual sight; a group of programs here appear to be <a href="https://www.youtube.com/watch?v=lyZQPjUT5B4&t=53">dancing</a>.</p>
-<p>There are sixteen programs in total, named <code>a</code> through <code>p</code>. They start by standing in a <span title="This is called a 'newline'.">line</span>: <code>a</code> stands in position <code>0</code>, <code>b</code> stands in position <code>1</code>, and so on until <code>p</code>, which stands in position <code>15</code>.</p>
-<p>The programs' <em>dance</em> consists of a sequence of <em>dance moves</em>:</p>
-<ul>
-<li><em>Spin</em>, written <code>sX</code>, makes <code>X</code> programs move from the end to the front, but maintain their order otherwise. (For example, <code>s3</code> on <code>abcde</code> produces <code>cdeab</code>).</li>
-<li><em>Exchange</em>, written <code>xA/B</code>, makes the programs at positions <code>A</code> and <code>B</code> swap places.</li>
-<li><em>Partner</em>, written <code>pA/B</code>, makes the programs named <code>A</code> and <code>B</code> swap places.</li>
-</ul>
-<p>For example, with only five programs standing in a line (<code>abcde</code>), they could do the following dance:</p>
-<ul>
-<li><code>s1</code>, a spin of size <code>1</code>: <code>eabcd</code>.</li>
-<li><code>x3/4</code>, swapping the last two programs: <code>eabdc</code>.</li>
-<li><code>pe/b</code>, swapping programs <code>e</code> and <code>b</code>: <code>baedc</code>.</li>
-</ul>
-<p>After finishing their dance, the programs end up in order <code>baedc</code>.<p>
-<p>You watch the dance for a while and record their dance moves (your puzzle input). <em>In what order are the programs standing</em> after their dance?</p>
-</article>
-<p>Your puzzle answer was <code>olgejankfhbmpidc</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now that you're starting to get a feel for the dance moves, you turn your attention to <em>the dance as a whole</em>.</p>
-<p>Keeping the positions they ended up in from their previous dance, the programs perform it again and again: including the first dance, a total of <em>one billion</em> (<code>1000000000</code>) times.</p>
-<p>In the example above, their second dance would <em>begin</em> with the order <code>baedc</code>, and use the same dance moves:</p>
-<ul>
-<li><code>s1</code>, a spin of size <code>1</code>: <code>cbaed</code>.</li>
-<li><code>x3/4</code>, swapping the last two programs: <code>cbade</code>.</li>
-<li><code>pe/b</code>, swapping programs <code>e</code> and <code>b</code>: <code>ceadb</code>.</li>
-</ul>
-<p><em>In what order are the programs standing</em> after their billion dances?</p>
-</article>
-<p>Your puzzle answer was <code>gfabehpdojkcimnl</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="day16.txt" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Permutation+Promenade%22+%2D+Day+16+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F16&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Permutation+Promenade%22+%2D+Day+16+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F16'}else{return false;}" target="_blank">Mastodon</a
-></span>]</span> this puzzle.</p>
-</main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 16 - Advent of Code 2017</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2017</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        article *[title] {
+          border-bottom: 1px dotted #ffff66;
+        }
+      </style>
+      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
+      <article class="day-desc">
+        <h2>--- Day 16: Permutation Promenade ---</h2>
+        <p>You come upon a very unusual sight; a group of programs here appear to be <a
+            href="https://www.youtube.com/watch?v=lyZQPjUT5B4&t=53">dancing</a>.</p>
+        <p>There are sixteen programs in total, named <code>a</code> through <code>p</code>. They start by standing in a
+          <span title="This is called a 'newline'.">line</span>: <code>a</code> stands in position <code>0</code>,
+          <code>b</code> stands in position <code>1</code>, and so on until <code>p</code>, which stands in position
+          <code>15</code>.</p>
+        <p>The programs' <em>dance</em> consists of a sequence of <em>dance moves</em>:</p>
+        <ul>
+          <li><em>Spin</em>, written <code>sX</code>, makes <code>X</code> programs move from the end to the front, but
+            maintain their order otherwise. (For example, <code>s3</code> on <code>abcde</code> produces
+            <code>cdeab</code>).</li>
+          <li><em>Exchange</em>, written <code>xA/B</code>, makes the programs at positions <code>A</code> and
+            <code>B</code> swap places.</li>
+          <li><em>Partner</em>, written <code>pA/B</code>, makes the programs named <code>A</code> and <code>B</code>
+            swap places.</li>
+        </ul>
+        <p>For example, with only five programs standing in a line (<code>abcde</code>), they could do the following
+          dance:</p>
+        <ul>
+          <li><code>s1</code>, a spin of size <code>1</code>: <code>eabcd</code>.</li>
+          <li><code>x3/4</code>, swapping the last two programs: <code>eabdc</code>.</li>
+          <li><code>pe/b</code>, swapping programs <code>e</code> and <code>b</code>: <code>baedc</code>.</li>
+        </ul>
+        <p>After finishing their dance, the programs end up in order <code>baedc</code>.
+        <p>
+        <p>You watch the dance for a while and record their dance moves (your puzzle input). <em>In what order are the
+            programs standing</em> after their dance?</p>
+      </article>
+      <p>Your puzzle answer was <code>olgejankfhbmpidc</code>.</p>
+      <article class="day-desc">
+        <h2 id="part2">--- Part Two ---</h2>
+        <p>Now that you're starting to get a feel for the dance moves, you turn your attention to <em>the dance as a
+            whole</em>.</p>
+        <p>Keeping the positions they ended up in from their previous dance, the programs perform it again and again:
+          including the first dance, a total of <em>one billion</em> (<code>1000000000</code>) times.</p>
+        <p>In the example above, their second dance would <em>begin</em> with the order <code>baedc</code>, and use the
+          same dance moves:</p>
+        <ul>
+          <li><code>s1</code>, a spin of size <code>1</code>: <code>cbaed</code>.</li>
+          <li><code>x3/4</code>, swapping the last two programs: <code>cbade</code>.</li>
+          <li><code>pe/b</code>, swapping programs <code>e</code> and <code>b</code>: <code>ceadb</code>.</li>
+        </ul>
+        <p><em>In what order are the programs standing</em> after their billion dances?</p>
+      </article>
+      <p>Your puzzle answer was <code>gfabehpdojkcimnl</code>.</p>
+      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+      <p>If you still want to see it, you can <a href="day16.txt" target="_blank">get your puzzle input</a>.</p>
+      <p>You can also <span class="share">[Share<span class="share-content">on
+            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Permutation+Promenade%22+%2D+Day+16+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F16&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+              target="_blank">Twitter</a>
+            <a href="javascript:void(0);"
+              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Permutation+Promenade%22+%2D+Day+16+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F16'}else{return false;}"
+              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
+    </main>
+  </body>
 </html>

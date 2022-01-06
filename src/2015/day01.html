@@ -1,48 +1,94 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 1 - Advent of Code 2015</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2015</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-<article class="day-desc"><h2>--- Day 1: Not Quite Lisp ---</h2><p>Santa was hoping for a white Christmas, but his weather machine's "snow" function is powered by stars, and he's fresh out!  To save Christmas, he needs you to collect <em class="star">fifty stars</em> by December 25th.</p>
-<p>Collect stars by helping Santa solve puzzles.  Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first.  Each puzzle grants <em class="star">one star</em>. <span title="Also, some puzzles contain Easter eggs like this one. Yes, I know it's not traditional to do Advent calendars for Easter.">Good luck!</span></p>
-<p>Here's an easy puzzle to warm you up.</p>
-<p>Santa is trying to deliver presents in a large apartment building, but he can't find the right floor - the directions he got are a little confusing. He starts on the ground floor (floor <code>0</code>) and then follows the instructions one character at a time.</p>
-<p>An opening parenthesis, <code>(</code>, means he should go up one floor, and a closing parenthesis, <code>)</code>, means he should go down one floor.</p>
-<p>The apartment building is very tall, and the basement is very deep; he will never find the top or bottom floors.</p>
-<p>For example:</p>
-<ul>
-<li><code>(())</code> and <code>()()</code> both result in floor <code>0</code>.</li>
-<li><code>(((</code> and <code>(()(()(</code> both result in floor <code>3</code>.</li>
-<li><code>))(((((</code> also results in floor <code>3</code>.</li>
-<li><code>())</code> and <code>))(</code> both result in floor <code>-1</code> (the first basement level).</li>
-<li><code>)))</code> and <code>)())())</code> both result in floor <code>-3</code>.</li>
-</ul>
-<p>To <em>what floor</em> do the instructions take Santa?</p>
-</article>
-<p>Your puzzle answer was <code>74</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now, given the same instructions, find the <em>position</em> of the first character that causes him to enter the basement (floor <code>-1</code>).  The first character in the instructions has position <code>1</code>, the second character has position <code>2</code>, and so on.</p>
-<p>For example:</p>
-<ul>
-<li><code>)</code> causes him to enter the basement at character position <code>1</code>.</li>
-<li><code>()())</code> causes him to enter the basement at character position <code>5</code>.</li>
-</ul>
-<p>What is the <em>position</em> of the character that causes Santa to first enter the basement?</p>
-</article>
-<p>Your puzzle answer was <code>1795</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="day01.txt" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Not+Quite+Lisp%22+%2D+Day+1+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F1&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Not+Quite+Lisp%22+%2D+Day+1+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F1'}else{return false;}" target="_blank">Mastodon</a
-></span>]</span> this puzzle.</p>
-</main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 1 - Advent of Code 2015</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2015</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        article *[title] {
+          border-bottom: 1px dotted #ffff66;
+        }
+      </style>
+      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
+      <article class="day-desc">
+        <h2>--- Day 1: Not Quite Lisp ---</h2>
+        <p>Santa was hoping for a white Christmas, but his weather machine's "snow" function is powered by stars, and
+          he's fresh out! To save Christmas, he needs you to collect <em class="star">fifty stars</em> by December 25th.
+        </p>
+        <p>Collect stars by helping Santa solve puzzles. Two puzzles will be made available on each day in the Advent
+          calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants <em class="star">one
+            star</em>. <span
+            title="Also, some puzzles contain Easter eggs like this one. Yes, I know it's not traditional to do Advent calendars for Easter.">Good
+            luck!</span></p>
+        <p>Here's an easy puzzle to warm you up.</p>
+        <p>Santa is trying to deliver presents in a large apartment building, but he can't find the right floor - the
+          directions he got are a little confusing. He starts on the ground floor (floor <code>0</code>) and then
+          follows the instructions one character at a time.</p>
+        <p>An opening parenthesis, <code>(</code>, means he should go up one floor, and a closing parenthesis,
+          <code>)</code>, means he should go down one floor.</p>
+        <p>The apartment building is very tall, and the basement is very deep; he will never find the top or bottom
+          floors.</p>
+        <p>For example:</p>
+        <ul>
+          <li><code>(())</code> and <code>()()</code> both result in floor <code>0</code>.</li>
+          <li><code>(((</code> and <code>(()(()(</code> both result in floor <code>3</code>.</li>
+          <li><code>))(((((</code> also results in floor <code>3</code>.</li>
+          <li><code>())</code> and <code>))(</code> both result in floor <code>-1</code> (the first basement level).
+          </li>
+          <li><code>)))</code> and <code>)())())</code> both result in floor <code>-3</code>.</li>
+        </ul>
+        <p>To <em>what floor</em> do the instructions take Santa?</p>
+      </article>
+      <p>Your puzzle answer was <code>74</code>.</p>
+      <article class="day-desc">
+        <h2 id="part2">--- Part Two ---</h2>
+        <p>Now, given the same instructions, find the <em>position</em> of the first character that causes him to enter
+          the basement (floor <code>-1</code>). The first character in the instructions has position <code>1</code>, the
+          second character has position <code>2</code>, and so on.</p>
+        <p>For example:</p>
+        <ul>
+          <li><code>)</code> causes him to enter the basement at character position <code>1</code>.</li>
+          <li><code>()())</code> causes him to enter the basement at character position <code>5</code>.</li>
+        </ul>
+        <p>What is the <em>position</em> of the character that causes Santa to first enter the basement?</p>
+      </article>
+      <p>Your puzzle answer was <code>1795</code>.</p>
+      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+      <p>If you still want to see it, you can <a href="day01.txt" target="_blank">get your puzzle input</a>.</p>
+      <p>You can also <span class="share">[Share<span class="share-content">on
+            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Not+Quite+Lisp%22+%2D+Day+1+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F1&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+              target="_blank">Twitter</a>
+            <a href="javascript:void(0);"
+              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Not+Quite+Lisp%22+%2D+Day+1+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F1'}else{return false;}"
+              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
+    </main>
+  </body>
 </html>

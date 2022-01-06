@@ -1,57 +1,199 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Advent of Code 2021</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2021</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>
-.calendar .calendar-color-c4 { display: inline-block; animation: anim-crab 5s ease-in-out infinite; color:#0066ff; text-shadow:0 0 5px #0066ff, 0 0 5px #0066ff, 0 0 5px #0066ff, 0 0 5px #0066ff, 0 0 10px #0066ff, 0 0 10px #0066ff, 0 0 10px #0066ff; }
-.calendar .calendar-color-c2 { display: inline-block; animation: anim-crab 5s ease-in-out infinite; color:#ff9900; text-shadow:0 0 5px #ff9900, 0 0 5px #ff9900, 0 0 5px #ff9900, 0 0 5px #ff9900, 0 0 10px #ff9900, 0 0 10px #ff9900, 0 0 10px #ff9900; }
-.calendar .calendar-color-w3 { color:#00a2db; }
-.calendar .calendar-color-w4 { color:#0091cc; }
-.calendar .calendar-color-w23 { color:#00094c; }
-.calendar .calendar-color-w17 { color:#002566; }
-.calendar .calendar-color-c1 { display: inline-block; animation: anim-crab 5s ease-in-out infinite; color:#ff0000; text-shadow:0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 10px #ff0000, 0 0 10px #ff0000; }
-.calendar .calendar-color-w6 { color:#0079b5; }
-.calendar .calendar-color-w13 { color:#003b7b; }
-.calendar .calendar-color-r { color:#ff0000; }
-.calendar .calendar-color-w20 { color:#001759; }
-.calendar .calendar-color-w12 { color:#004282; }
-.calendar .calendar-color-w1 { color:#00c8ff; }
-.calendar .calendar-color-w21 { color:#001255; }
-.calendar .calendar-color-w5 { color:#0085c0; }
-.calendar .calendar-color-w7 { color:#006daa; }
-.calendar .calendar-color-w2 { color:#00b5ed; }
-.calendar .calendar-color-w15 { color:#002e6f; }
-.calendar .calendar-color-d { color:#584338; }
-.calendar .calendar-color-w11 { color:#004a8a; }
-.calendar .calendar-color-o { color:#c74c30; }
-.calendar .calendar-color-c5 { display: inline-block; animation: anim-crab 5s ease-in-out infinite; color:#ff00ff; text-shadow:0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 10px #ff00ff, 0 0 10px #ff00ff; }
-.calendar .calendar-color-w18 { color:#002062; }
-.calendar .calendar-color-s { color:#ffffff; }
-.calendar .calendar-color-c3 { display: inline-block; animation: anim-crab 5s ease-in-out infinite; color:#009933; text-shadow:0 0 5px #009933, 0 0 5px #009933, 0 0 5px #009933, 0 0 5px #009933, 0 0 10px #009933, 0 0 10px #009933, 0 0 10px #009933; }
-.calendar .calendar-color-w14 { color:#003374; }
-.calendar .calendar-color-w16 { color:#00296b; }
-.calendar .calendar-color-g { color:#a47a4d; }
-.calendar .calendar-color-w8 { color:#00619f; }
-.calendar .calendar-color-w22 { color:#000d51; }
-.calendar .calendar-color-w10 { color:#005291; }
-.calendar .calendar-color-w19 { color:#001b5e; }
-.calendar .calendar-color-w9 { color:#005a98; }
-@keyframes anim-crab {
-    0% { transform: translate(-.2em,0); }
-   50% { transform: translate( .2em,0); }
-  100% { transform: translate(-.2em,0); }
-}
-</style>
-<pre class="calendar calendar-perfect"><a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete"><span class="calendar-color-w1">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+  <head>
+    <meta charset="utf-8" />
+    <title>Advent of Code 2021</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2021</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        .calendar .calendar-color-c4 {
+          display: inline-block;
+          animation: anim-crab 5s ease-in-out infinite;
+          color: #0066ff;
+          text-shadow: 0 0 5px #0066ff, 0 0 5px #0066ff, 0 0 5px #0066ff, 0 0 5px #0066ff, 0 0 10px #0066ff, 0 0 10px #0066ff, 0 0 10px #0066ff;
+        }
+
+        .calendar .calendar-color-c2 {
+          display: inline-block;
+          animation: anim-crab 5s ease-in-out infinite;
+          color: #ff9900;
+          text-shadow: 0 0 5px #ff9900, 0 0 5px #ff9900, 0 0 5px #ff9900, 0 0 5px #ff9900, 0 0 10px #ff9900, 0 0 10px #ff9900, 0 0 10px #ff9900;
+        }
+
+        .calendar .calendar-color-w3 {
+          color: #00a2db;
+        }
+
+        .calendar .calendar-color-w4 {
+          color: #0091cc;
+        }
+
+        .calendar .calendar-color-w23 {
+          color: #00094c;
+        }
+
+        .calendar .calendar-color-w17 {
+          color: #002566;
+        }
+
+        .calendar .calendar-color-c1 {
+          display: inline-block;
+          animation: anim-crab 5s ease-in-out infinite;
+          color: #ff0000;
+          text-shadow: 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 10px #ff0000, 0 0 10px #ff0000;
+        }
+
+        .calendar .calendar-color-w6 {
+          color: #0079b5;
+        }
+
+        .calendar .calendar-color-w13 {
+          color: #003b7b;
+        }
+
+        .calendar .calendar-color-r {
+          color: #ff0000;
+        }
+
+        .calendar .calendar-color-w20 {
+          color: #001759;
+        }
+
+        .calendar .calendar-color-w12 {
+          color: #004282;
+        }
+
+        .calendar .calendar-color-w1 {
+          color: #00c8ff;
+        }
+
+        .calendar .calendar-color-w21 {
+          color: #001255;
+        }
+
+        .calendar .calendar-color-w5 {
+          color: #0085c0;
+        }
+
+        .calendar .calendar-color-w7 {
+          color: #006daa;
+        }
+
+        .calendar .calendar-color-w2 {
+          color: #00b5ed;
+        }
+
+        .calendar .calendar-color-w15 {
+          color: #002e6f;
+        }
+
+        .calendar .calendar-color-d {
+          color: #584338;
+        }
+
+        .calendar .calendar-color-w11 {
+          color: #004a8a;
+        }
+
+        .calendar .calendar-color-o {
+          color: #c74c30;
+        }
+
+        .calendar .calendar-color-c5 {
+          display: inline-block;
+          animation: anim-crab 5s ease-in-out infinite;
+          color: #ff00ff;
+          text-shadow: 0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 10px #ff00ff, 0 0 10px #ff00ff;
+        }
+
+        .calendar .calendar-color-w18 {
+          color: #002062;
+        }
+
+        .calendar .calendar-color-s {
+          color: #ffffff;
+        }
+
+        .calendar .calendar-color-c3 {
+          display: inline-block;
+          animation: anim-crab 5s ease-in-out infinite;
+          color: #009933;
+          text-shadow: 0 0 5px #009933, 0 0 5px #009933, 0 0 5px #009933, 0 0 5px #009933, 0 0 10px #009933, 0 0 10px #009933, 0 0 10px #009933;
+        }
+
+        .calendar .calendar-color-w14 {
+          color: #003374;
+        }
+
+        .calendar .calendar-color-w16 {
+          color: #00296b;
+        }
+
+        .calendar .calendar-color-g {
+          color: #a47a4d;
+        }
+
+        .calendar .calendar-color-w8 {
+          color: #00619f;
+        }
+
+        .calendar .calendar-color-w22 {
+          color: #000d51;
+        }
+
+        .calendar .calendar-color-w10 {
+          color: #005291;
+        }
+
+        .calendar .calendar-color-w19 {
+          color: #001b5e;
+        }
+
+        .calendar .calendar-color-w9 {
+          color: #005a98;
+        }
+
+        @keyframes anim-crab {
+          0% {
+            transform: translate(-.2em, 0);
+          }
+
+          50% {
+            transform: translate(.2em, 0);
+          }
+
+          100% {
+            transform: translate(-.2em, 0);
+          }
+        }
+      </style>
+      <pre class="calendar calendar-perfect"><a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete"><span class="calendar-color-w1">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 2, two stars" href="day02.html" class="calendar-day2 calendar-verycomplete"><span class="calendar-color-w2"> . . . '             .     .    </span> <span class="calendar-color-s">.</span> <span class="calendar-color-w2">.    </span><span class="calendar-color-c3" style="opacity: 0.93; animation-delay: -3.05s;">.</span><span class="calendar-color-w2"> </span> <span class="calendar-color-g">..''''</span>  <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 3, two stars" href="day03.html" class="calendar-day3 calendar-verycomplete"><span class="calendar-color-w3">             '    .  .         </span> <span class="calendar-color-s">.</span> <span class="calendar-color-w3">   </span><span class="calendar-color-c4" style="opacity: 0.89; animation-delay: -0.91s;">.</span><span class="calendar-color-w3"> </span><span class="calendar-color-c4" style="opacity: 0.89; animation-delay: -3.31s;">.</span><span class="calendar-color-w3"> </span> <span class="calendar-color-g">:</span>        <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 4, two stars" href="day04.html" class="calendar-day4 calendar-verycomplete"><span class="calendar-color-w4">.      .        '     .   .   </span><span class="calendar-color-c4" style="opacity: 0.86; animation-delay: -1.42s;">.</span> <span class="calendar-color-s">.'</span> <span class="calendar-color-c5" style="opacity: 0.86; animation-delay: -3.88s;">.</span><span class="calendar-color-w4"> </span> <span class="calendar-color-g">....'</span>        <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
@@ -77,6 +219,6 @@
 <a aria-label="Day 24, two stars" href="day24.html" class="calendar-day24 calendar-verycomplete">       <span class="calendar-color-d">:</span> <span class="calendar-color-c1" style="opacity: 0.14; animation-delay: -4.91s;">.</span> <span class="calendar-color-d">.'</span>                                      <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 25, two stars" href="day25.html" class="calendar-day25 calendar-verycomplete">       <span class="calendar-color-d">:..:</span>                                        <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 </pre>
-</main>
-</body>
+    </main>
+  </body>
 </html>

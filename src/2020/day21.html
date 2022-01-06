@@ -1,48 +1,104 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 21 - Advent of Code 2020</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2020</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
-<article class="day-desc"><h2>--- Day 21: Allergen Assessment ---</h2><p>You reach the train's last stop and the closest you can get to your vacation island without getting wet. There aren't even any boats here, but nothing can stop you now: you build a raft. You just need a few days' worth of food for your journey.</p>
-<p>You don't speak the local language, so you can't read any ingredients lists. However, sometimes, allergens are listed in a language you <em>do</em> understand. You should be able to use this information to determine which ingredient contains which allergen and <span title="I actually considered doing this once. I do not recommend it.">work out which foods are safe</span> to take with you on your trip.</p>
-<p>You start by compiling a list of foods (your puzzle input), one food per line. Each line includes that food's <em>ingredients list</em> followed by some or all of the allergens the food contains.</p>
-<p>Each allergen is found in exactly one ingredient. Each ingredient contains zero or one allergen. <em>Allergens aren't always marked</em>; when they're listed (as in <code>(contains nuts, shellfish)</code> after an ingredients list), the ingredient that contains each listed allergen will be <em>somewhere in the corresponding ingredients list</em>. However, even if an allergen isn't listed, the ingredient that contains that allergen could still be present: maybe they forgot to label it, or maybe it was labeled in a language you don't know.</p>
-<p>For example, consider the following list of foods:</p>
-<pre><code>mxmxvkd kfcds sqjhc nhms (contains dairy, fish)
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 21 - Advent of Code 2020</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2020</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>
+        article *[title] {
+          border-bottom: 1px dotted #ffff66;
+        }
+      </style>
+      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
+      <article class="day-desc">
+        <h2>--- Day 21: Allergen Assessment ---</h2>
+        <p>You reach the train's last stop and the closest you can get to your vacation island without getting wet.
+          There aren't even any boats here, but nothing can stop you now: you build a raft. You just need a few days'
+          worth of food for your journey.</p>
+        <p>You don't speak the local language, so you can't read any ingredients lists. However, sometimes, allergens
+          are listed in a language you <em>do</em> understand. You should be able to use this information to determine
+          which ingredient contains which allergen and <span
+            title="I actually considered doing this once. I do not recommend it.">work out which foods are safe</span>
+          to take with you on your trip.</p>
+        <p>You start by compiling a list of foods (your puzzle input), one food per line. Each line includes that food's
+          <em>ingredients list</em> followed by some or all of the allergens the food contains.</p>
+        <p>Each allergen is found in exactly one ingredient. Each ingredient contains zero or one allergen.
+          <em>Allergens aren't always marked</em>; when they're listed (as in <code>(contains nuts, shellfish)</code>
+          after an ingredients list), the ingredient that contains each listed allergen will be <em>somewhere in the
+            corresponding ingredients list</em>. However, even if an allergen isn't listed, the ingredient that contains
+          that allergen could still be present: maybe they forgot to label it, or maybe it was labeled in a language you
+          don't know.</p>
+        <p>For example, consider the following list of foods:</p>
+        <pre><code>mxmxvkd kfcds sqjhc nhms (contains dairy, fish)
 trh fvjkl sbzzf mxmxvkd (contains dairy)
 sqjhc fvjkl (contains soy)
 sqjhc mxmxvkd sbzzf (contains fish)
 </code></pre>
-<p>The first food in the list has four ingredients (written in a language you don't understand): <code>mxmxvkd</code>, <code>kfcds</code>, <code>sqjhc</code>, and <code>nhms</code>. While the food might contain other allergens, a few allergens the food definitely contains are listed afterward: <code>dairy</code> and <code>fish</code>.</p>
-<p>The first step is to determine which ingredients <em>can't possibly</em> contain any of the allergens in any food in your list. In the above example, none of the ingredients <code>kfcds</code>, <code>nhms</code>, <code>sbzzf</code>, or <code>trh</code> can contain an allergen. Counting the number of times any of these ingredients appear in any ingredients list produces <em><code>5</code></em>: they all appear once each except <code>sbzzf</code>, which appears twice.</p>
-<p>Determine which ingredients cannot possibly contain any of the allergens in your list. <em>How many times do any of those ingredients appear?</em></p>
-</article>
-<p>Your puzzle answer was <code>2556</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now that you've isolated the inert ingredients, you should have enough information to figure out which ingredient contains which allergen.</p>
-<p>In the above example:</p>
-<ul>
-<li><code>mxmxvkd</code> contains <code>dairy</code>.</li>
-<li><code>sqjhc</code> contains <code>fish</code>.</li>
-<li><code>fvjkl</code> contains <code>soy</code>.</li>
-</ul>
-<p>Arrange the ingredients <em>alphabetically by their allergen</em> and separate them by commas to produce your <em>canonical dangerous ingredient list</em>. (There should <em>not be any spaces</em> in your canonical dangerous ingredient list.) In the above example, this would be <em><code>mxmxvkd,sqjhc,fvjkl</code></em>.</p>
-<p>Time to stock your raft with supplies. <em>What is your canonical dangerous ingredient list?</em></p>
-</article>
-<p>Your puzzle answer was <code>vcckp,hjz,nhvprqb,jhtfzk,mgkhhc,qbgbmc,bzcrknb,zmh</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-<p>If you still want to see it, you can <a href="day21.txt" target="_blank">get your puzzle input</a>.</p>
-<p>You can also <span class="share">[Share<span class="share-content">on
-  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Allergen+Assessment%22+%2D+Day+21+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
-  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Allergen+Assessment%22+%2D+Day+21+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F21'}else{return false;}" target="_blank">Mastodon</a
-></span>]</span> this puzzle.</p>
-</main>
-</body>
+        <p>The first food in the list has four ingredients (written in a language you don't understand):
+          <code>mxmxvkd</code>, <code>kfcds</code>, <code>sqjhc</code>, and <code>nhms</code>. While the food might
+          contain other allergens, a few allergens the food definitely contains are listed afterward: <code>dairy</code>
+          and <code>fish</code>.</p>
+        <p>The first step is to determine which ingredients <em>can't possibly</em> contain any of the allergens in any
+          food in your list. In the above example, none of the ingredients <code>kfcds</code>, <code>nhms</code>,
+          <code>sbzzf</code>, or <code>trh</code> can contain an allergen. Counting the number of times any of these
+          ingredients appear in any ingredients list produces <em><code>5</code></em>: they all appear once each except
+          <code>sbzzf</code>, which appears twice.</p>
+        <p>Determine which ingredients cannot possibly contain any of the allergens in your list. <em>How many times do
+            any of those ingredients appear?</em></p>
+      </article>
+      <p>Your puzzle answer was <code>2556</code>.</p>
+      <article class="day-desc">
+        <h2 id="part2">--- Part Two ---</h2>
+        <p>Now that you've isolated the inert ingredients, you should have enough information to figure out which
+          ingredient contains which allergen.</p>
+        <p>In the above example:</p>
+        <ul>
+          <li><code>mxmxvkd</code> contains <code>dairy</code>.</li>
+          <li><code>sqjhc</code> contains <code>fish</code>.</li>
+          <li><code>fvjkl</code> contains <code>soy</code>.</li>
+        </ul>
+        <p>Arrange the ingredients <em>alphabetically by their allergen</em> and separate them by commas to produce your
+          <em>canonical dangerous ingredient list</em>. (There should <em>not be any spaces</em> in your canonical
+          dangerous ingredient list.) In the above example, this would be <em><code>mxmxvkd,sqjhc,fvjkl</code></em>.</p>
+        <p>Time to stock your raft with supplies. <em>What is your canonical dangerous ingredient list?</em></p>
+      </article>
+      <p>Your puzzle answer was <code>vcckp,hjz,nhvprqb,jhtfzk,mgkhhc,qbgbmc,bzcrknb,zmh</code>.</p>
+      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+      <p>If you still want to see it, you can <a href="day21.txt" target="_blank">get your puzzle input</a>.</p>
+      <p>You can also <span class="share">[Share<span class="share-content">on
+            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Allergen+Assessment%22+%2D+Day+21+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+              target="_blank">Twitter</a>
+            <a href="javascript:void(0);"
+              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Allergen+Assessment%22+%2D+Day+21+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F21'}else{return false;}"
+              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
+    </main>
+  </body>
 </html>
