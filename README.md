@@ -2,6 +2,8 @@
 
 This repository contains solutions for advent of code (https://adventofcode.com)
 
+![image](https://user-images.githubusercontent.com/1764161/148400243-a2af370a-dd45-436a-8da1-93bd3c06d0fe.png)
+
 Go ahead and try to solve the challenge on your own before using this spoiler!
 
 In order to use this solver simply go to: https://shahata.github.io/adventofcode-solver/src/2021/solver.html and follow the instructions.
