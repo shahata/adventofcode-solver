@@ -1,134 +1,92 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 22 - Advent of Code 2021</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2021</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 22: Reactor Reboot ---</h2>
-        <p>Operating at these extreme ocean depths has overloaded the submarine's reactor; it needs to be rebooted.</p>
-        <p>The reactor core is made up of a large 3-dimensional grid made up entirely of cubes, one cube per integer
-          3-dimensional coordinate (<code>x,y,z</code>). Each cube can be either <em>on</em> or <em>off</em>; at the
-          start of the reboot process, they are all <em>off</em>. (Could it be an old model of a reactor you've seen <a
-            href="/2020/day/17">before</a>?)</p>
-        <p>To reboot the reactor, you just need to set all of the cubes to either <em>on</em> or <em>off</em> by
-          following a list of <em>reboot steps</em> (your puzzle input). Each step specifies a <a
-            href="https://en.wikipedia.org/wiki/Cuboid" target="_blank">cuboid</a> (the set of all cubes that have
-          coordinates which fall within ranges for <code>x</code>, <code>y</code>, and <code>z</code>) and whether to
-          turn all of the cubes in that cuboid <em>on</em> or <em>off</em>.</p>
-        <p>For example, given these reboot steps:</p>
-        <pre><code>on x=10..12,y=10..12,z=10..12
+<head>
+<meta charset="utf-8"/>
+<title>Day 22 - Advent of Code 2021</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2021</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 22: Reactor Reboot ---</h2><p>Operating at these extreme ocean depths has overloaded the submarine's reactor; it needs to be rebooted.</p>
+<p>The reactor core is made up of a large 3-dimensional grid made up entirely of cubes, one cube per integer 3-dimensional coordinate (<code>x,y,z</code>). Each cube can be either <em>on</em> or <em>off</em>; at the start of the reboot process, they are all <em>off</em>. (Could it be an old model of a reactor you've seen <a href="/2020/day/17">before</a>?)</p>
+<p>To reboot the reactor, you just need to set all of the cubes to either <em>on</em> or <em>off</em> by following a list of <em>reboot steps</em> (your puzzle input). Each step specifies a <a href="https://en.wikipedia.org/wiki/Cuboid" target="_blank">cuboid</a> (the set of all cubes that have coordinates which fall within ranges for <code>x</code>, <code>y</code>, and <code>z</code>) and whether to turn all of the cubes in that cuboid <em>on</em> or <em>off</em>.</p>
+<p>For example, given these reboot steps:</p>
+<pre><code>on x=10..12,y=10..12,z=10..12
 on x=11..13,y=11..13,z=11..13
 off x=9..11,y=9..11,z=9..11
 on x=10..10,y=10..10,z=10..10
 </code></pre>
-        <p>The first step (<code>on x=10..12,y=10..12,z=10..12</code>) turns <em>on</em> a 3x3x3 cuboid consisting of 27
-          cubes:</p>
-        <ul>
-          <li><code>10,10,10</code></li>
-          <li><code>10,10,11</code></li>
-          <li><code>10,10,12</code></li>
-          <li><code>10,11,10</code></li>
-          <li><code>10,11,11</code></li>
-          <li><code>10,11,12</code></li>
-          <li><code>10,12,10</code></li>
-          <li><code>10,12,11</code></li>
-          <li><code>10,12,12</code></li>
-          <li><code>11,10,10</code></li>
-          <li><code>11,10,11</code></li>
-          <li><code>11,10,12</code></li>
-          <li><code>11,11,10</code></li>
-          <li><code>11,11,11</code></li>
-          <li><code>11,11,12</code></li>
-          <li><code>11,12,10</code></li>
-          <li><code>11,12,11</code></li>
-          <li><code>11,12,12</code></li>
-          <li><code>12,10,10</code></li>
-          <li><code>12,10,11</code></li>
-          <li><code>12,10,12</code></li>
-          <li><code>12,11,10</code></li>
-          <li><code>12,11,11</code></li>
-          <li><code>12,11,12</code></li>
-          <li><code>12,12,10</code></li>
-          <li><code>12,12,11</code></li>
-          <li><code>12,12,12</code></li>
-        </ul>
-        <p>The second step (<code>on x=11..13,y=11..13,z=11..13</code>) turns <em>on</em> a 3x3x3 cuboid that overlaps
-          with the first. As a result, only 19 additional cubes turn on; the rest are already on from the previous step:
-        </p>
-        <ul>
-          <li><code>11,11,13</code></li>
-          <li><code>11,12,13</code></li>
-          <li><code>11,13,11</code></li>
-          <li><code>11,13,12</code></li>
-          <li><code>11,13,13</code></li>
-          <li><code>12,11,13</code></li>
-          <li><code>12,12,13</code></li>
-          <li><code>12,13,11</code></li>
-          <li><code>12,13,12</code></li>
-          <li><code>12,13,13</code></li>
-          <li><code>13,11,11</code></li>
-          <li><code>13,11,12</code></li>
-          <li><code>13,11,13</code></li>
-          <li><code>13,12,11</code></li>
-          <li><code>13,12,12</code></li>
-          <li><code>13,12,13</code></li>
-          <li><code>13,13,11</code></li>
-          <li><code>13,13,12</code></li>
-          <li><code>13,13,13</code></li>
-        </ul>
-        <p>The third step (<code>off x=9..11,y=9..11,z=9..11</code>) turns <em>off</em> a 3x3x3 cuboid that overlaps
-          partially with some cubes that are on, ultimately turning off 8 cubes:</p>
-        <ul>
-          <li><code>10,10,10</code></li>
-          <li><code>10,10,11</code></li>
-          <li><code>10,11,10</code></li>
-          <li><code>10,11,11</code></li>
-          <li><code>11,10,10</code></li>
-          <li><code>11,10,11</code></li>
-          <li><code>11,11,10</code></li>
-          <li><code>11,11,11</code></li>
-        </ul>
-        <p>The final step (<code>on x=10..10,y=10..10,z=10..10</code>) turns <em>on</em> a single cube,
-          <code>10,10,10</code>. After this last step, <code><em>39</em></code> cubes are <em>on</em>.</p>
-        <p>The initialization procedure only uses cubes that have <code>x</code>, <code>y</code>, and <code>z</code>
-          positions of at least <code>-50</code> and at most <code>50</code>. For now, ignore cubes outside this region.
-        </p>
-        <p>Here is a larger example:</p>
-        <pre><code>on x=-20..26,y=-36..17,z=-47..7
+<p>The first step (<code>on x=10..12,y=10..12,z=10..12</code>) turns <em>on</em> a 3x3x3 cuboid consisting of 27 cubes:</p>
+<ul>
+<li><code>10,10,10</code></li>
+<li><code>10,10,11</code></li>
+<li><code>10,10,12</code></li>
+<li><code>10,11,10</code></li>
+<li><code>10,11,11</code></li>
+<li><code>10,11,12</code></li>
+<li><code>10,12,10</code></li>
+<li><code>10,12,11</code></li>
+<li><code>10,12,12</code></li>
+<li><code>11,10,10</code></li>
+<li><code>11,10,11</code></li>
+<li><code>11,10,12</code></li>
+<li><code>11,11,10</code></li>
+<li><code>11,11,11</code></li>
+<li><code>11,11,12</code></li>
+<li><code>11,12,10</code></li>
+<li><code>11,12,11</code></li>
+<li><code>11,12,12</code></li>
+<li><code>12,10,10</code></li>
+<li><code>12,10,11</code></li>
+<li><code>12,10,12</code></li>
+<li><code>12,11,10</code></li>
+<li><code>12,11,11</code></li>
+<li><code>12,11,12</code></li>
+<li><code>12,12,10</code></li>
+<li><code>12,12,11</code></li>
+<li><code>12,12,12</code></li>
+</ul>
+<p>The second step (<code>on x=11..13,y=11..13,z=11..13</code>) turns <em>on</em> a 3x3x3 cuboid that overlaps with the first. As a result, only 19 additional cubes turn on; the rest are already on from the previous step:</p>
+<ul>
+<li><code>11,11,13</code></li>
+<li><code>11,12,13</code></li>
+<li><code>11,13,11</code></li>
+<li><code>11,13,12</code></li>
+<li><code>11,13,13</code></li>
+<li><code>12,11,13</code></li>
+<li><code>12,12,13</code></li>
+<li><code>12,13,11</code></li>
+<li><code>12,13,12</code></li>
+<li><code>12,13,13</code></li>
+<li><code>13,11,11</code></li>
+<li><code>13,11,12</code></li>
+<li><code>13,11,13</code></li>
+<li><code>13,12,11</code></li>
+<li><code>13,12,12</code></li>
+<li><code>13,12,13</code></li>
+<li><code>13,13,11</code></li>
+<li><code>13,13,12</code></li>
+<li><code>13,13,13</code></li>
+</ul>
+<p>The third step (<code>off x=9..11,y=9..11,z=9..11</code>) turns <em>off</em> a 3x3x3 cuboid that overlaps partially with some cubes that are on, ultimately turning off 8 cubes:</p>
+<ul>
+<li><code>10,10,10</code></li>
+<li><code>10,10,11</code></li>
+<li><code>10,11,10</code></li>
+<li><code>10,11,11</code></li>
+<li><code>11,10,10</code></li>
+<li><code>11,10,11</code></li>
+<li><code>11,11,10</code></li>
+<li><code>11,11,11</code></li>
+</ul>
+<p>The final step (<code>on x=10..10,y=10..10,z=10..10</code>) turns <em>on</em> a single cube, <code>10,10,10</code>. After this last step, <code><em>39</em></code> cubes are <em>on</em>.</p>
+<p>The initialization procedure only uses cubes that have <code>x</code>, <code>y</code>, and <code>z</code> positions of at least <code>-50</code> and at most <code>50</code>. For now, ignore cubes outside this region.</p>
+<p>Here is a larger example:</p>
+<pre><code>on x=-20..26,y=-36..17,z=-47..7
 on x=-20..33,y=-21..23,z=-26..28
 on x=-22..28,y=-29..23,z=-38..16
 on x=-46..7,y=-6..46,z=-50..-1
@@ -151,19 +109,13 @@ on x=-41..9,y=-7..43,z=-33..15
 on x=-54112..-39298,y=-85059..-49293,z=-27449..7877
 on x=967..23432,y=45373..81175,z=27513..53682
 </code></pre>
-        <p>The last two steps are fully outside the initialization procedure area; all other steps are fully within it.
-          After executing these steps in the initialization procedure region, <code><em>590784</em></code> cubes are
-          <em>on</em>.</p>
-        <p>Execute the reboot steps. Afterward, considering only cubes in the region
-          <code>x=-50..50,y=-50..50,z=-50..50</code>, <em>how many cubes are on?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>612714</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>Now that the initialization procedure is complete, you can reboot the reactor.</p>
-        <p>Starting with all cubes <em>off</em>, run all of the <em>reboot steps</em> for all cubes in the reactor.</p>
-        <p>Consider the following reboot steps:</p>
-        <pre><code>on x=-5..47,y=-31..22,z=-19..33
+<p>The last two steps are fully outside the initialization procedure area; all other steps are fully within it. After executing these steps in the initialization procedure region, <code><em>590784</em></code> cubes are <em>on</em>.</p>
+<p>Execute the reboot steps. Afterward, considering only cubes in the region <code>x=-50..50,y=-50..50,z=-50..50</code>, <em>how many cubes are on?</em></p>
+</article>
+<p>Your puzzle answer was <code>612714</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now that the initialization procedure is complete, you can reboot the reactor.</p>
+<p>Starting with all cubes <em>off</em>, run all of the <em>reboot steps</em> for all cubes in the reactor.</p>
+<p>Consider the following reboot steps:</p>
+<pre><code>on x=-5..47,y=-31..22,z=-19..33
 on x=-44..5,y=-27..21,z=-14..35
 on x=-49..-1,y=-11..42,z=-10..38
 on x=-20..34,y=-40..6,z=-44..1
@@ -224,22 +176,16 @@ off x=-70369..-16548,y=22648..78696,z=-1892..86821
 on x=-53470..21291,y=-120233..-33476,z=-44150..38147
 off x=-93533..-4276,y=-16170..68771,z=-104985..-24507
 </code></pre>
-        <p>After running the above reboot steps, <code><em>2758514936282235</em></code> cubes are <em>on</em>. (Just for
-          <span title="Well, *I* think it's fun.">fun</span>, <code>474140</code> of those are also in the
-          initialization procedure region.)</p>
-        <p>Starting again with all cubes <em>off</em>, execute all reboot steps. Afterward, considering all cubes,
-          <em>how many cubes are on?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>1311612259117092</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day22.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Reactor+Reboot%22+%2D+Day+22+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Reactor+Reboot%22+%2D+Day+22+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F22'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>After running the above reboot steps, <code><em>2758514936282235</em></code> cubes are <em>on</em>. (Just for <span title="Well, *I* think it's fun.">fun</span>, <code>474140</code> of those are also in the initialization procedure region.)</p>
+<p>Starting again with all cubes <em>off</em>, execute all reboot steps. Afterward, considering all cubes, <em>how many cubes are on?</em></p>
+</article>
+<p>Your puzzle answer was <code>1311612259117092</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day22.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Reactor+Reboot%22+%2D+Day+22+%2D+Advent+of+Code+2021&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Reactor+Reboot%22+%2D+Day+22+%2D+Advent+of+Code+2021+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2021%2Fday%2F22'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

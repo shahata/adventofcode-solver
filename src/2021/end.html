@@ -1,250 +1,65 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>You have completed Advent of Code! - Advent of Code 2021</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2021</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <article>
-        <p>You use all <span class="day-success">fifty stars</span> to boost the signal and remotely start the sleigh!
-          Now, you just have to find your way back to the surface...</p>
-        <p>...did you know crab submarines come with colored lights?</p>
-        <p class="aside">Congratulations! You've finished every puzzle in Advent of Code 2021! I hope you had as much
-          fun solving them as I had making them for you. I'd love to hear about your adventure; you can get in touch
-          with me via contact info on <a href="http://was.tl/" target="_blank">my website</a> or through <a
-            href="https://twitter.com/ericwastl" target="_blank">Twitter</a>.</p>
-        <p class="aside">If you'd like to see more things like this in the future, please consider <a
-            href="/2021/support" target="_blank">supporting</a> Advent of Code and sharing it with others.</p>
-        <p class="aside">To hear about future projects, you can follow me on <a href="https://twitter.com/ericwastl"
-            target="_blank">Twitter</a>.</p>
-        <p class="aside">I've <span style="border-bottom:1px dotted #ffff66;"
-            title="Yep, just like that.  There's at least one in the description for each day.">highlighted</span> the
-          easter eggs in each puzzle, just in case you missed any. Hover your mouse over them, and the easter egg will
-          appear.</p>
-        <p>You can <span class="share">[Share<span class="share-content">on
-              <a href="https://twitter.com/intent/tweet?text=I+just+completed+all+25+days+of+Advent+of+Code+2021%21&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-                target="_blank">Twitter</a>
-              <a href="javascript:void(0);"
-                onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I+just+completed+all+25+days+of+Advent+of+Code+2021%21+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F'}else{return false;}"
-                target="_blank">Mastodon</a></span>]</span> this moment with your friends, or <a href="index.html">[Go
-            Check on Your Calendar]</a>.
-      </article>
-      <style>
-        .calendar-bkg {
-          background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-        }
-
-        .sf {
-          position: fixed;
-          animation: anim-sf0 linear 20s infinite;
-          z-index: -1;
-        }
-
-        .sf:before {
-          content: "*";
-        }
-
-        .sf.sf0 {
-          color: #ffffff;
-        }
-
-        .sf.sf1 {
-          color: #cccccc;
-          animation-name: anim-sf1;
-        }
-
-        .sf.sf2 {
-          color: #999999;
-          animation-name: anim-sf2;
-        }
-
-        .sf.sf3 {
-          color: #666666;
-          animation-name: anim-sf3;
-        }
-
-        @keyframes anim-sf0 {
-          0% {
-            transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
-          }
-
-          95% {
-            transform: translate(8em, 100vh) rotate(1turn) scale(1.0, 1.0);
-          }
-
-          100% {
-            transform: translate(8em, 100vh) rotate(1turn) scale(0.0, 0.0);
-          }
-        }
-
-        @keyframes anim-sf1 {
-          0% {
-            transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
-          }
-
-          95% {
-            transform: translate(6em, 100vh) rotate(1turn) scale(1.0, 1.0);
-          }
-
-          100% {
-            transform: translate(6em, 100vh) rotate(1turn) scale(0.0, 0.0);
-          }
-        }
-
-        @keyframes anim-sf2 {
-          0% {
-            transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
-          }
-
-          95% {
-            transform: translate(4em, 100vh) rotate(1turn) scale(1.0, 1.0);
-          }
-
-          100% {
-            transform: translate(4em, 100vh) rotate(1turn) scale(0.0, 0.0);
-          }
-        }
-
-        @keyframes anim-sf3 {
-          0% {
-            transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
-          }
-
-          95% {
-            transform: translate(2em, 100vh) rotate(1turn) scale(1.0, 1.0);
-          }
-
-          100% {
-            transform: translate(2em, 100vh) rotate(1turn) scale(0.0, 0.0);
-          }
-        }
-      </style>
-      <div class="sf sf2" style="top:-3.13em; left:33.97vw; animation-delay:-4.21s;"></div>
-      <div class="sf sf3" style="top:-4.54em; left:77.01vw; animation-delay:-8.16s;"></div>
-      <div class="sf sf2" style="top:-3.76em; left:43.49vw; animation-delay:-7.22s;"></div>
-      <div class="sf sf3" style="top:-4.80em; left:55.15vw; animation-delay:-1.16s;"></div>
-      <div class="sf sf0" style="top:-1.01em; left:42.42vw; animation-delay:-18.23s;"></div>
-      <div class="sf sf0" style="top:-1.56em; left:65.00vw; animation-delay:-17.29s;"></div>
-      <div class="sf sf2" style="top:-3.16em; left:74.56vw; animation-delay:-14.27s;"></div>
-      <div class="sf sf2" style="top:-3.76em; left:48.83vw; animation-delay:-18.37s;"></div>
-      <div class="sf sf2" style="top:-3.78em; left:20.73vw; animation-delay:-10.80s;"></div>
-      <div class="sf sf2" style="top:-3.83em; left:50.74vw; animation-delay:-12.59s;"></div>
-      <div class="sf sf1" style="top:-2.18em; left:64.27vw; animation-delay:-0.24s;"></div>
-      <div class="sf sf1" style="top:-2.74em; left:25.85vw; animation-delay:-1.27s;"></div>
-      <div class="sf sf0" style="top:-1.45em; left:94.42vw; animation-delay:-8.05s;"></div>
-      <div class="sf sf2" style="top:-3.43em; left:3.89vw; animation-delay:-17.15s;"></div>
-      <div class="sf sf3" style="top:-4.01em; left:66.38vw; animation-delay:-2.97s;"></div>
-      <div class="sf sf0" style="top:-1.11em; left:80.61vw; animation-delay:-6.60s;"></div>
-      <div class="sf sf2" style="top:-3.73em; left:76.08vw; animation-delay:-12.21s;"></div>
-      <div class="sf sf1" style="top:-2.09em; left:26.30vw; animation-delay:-18.93s;"></div>
-      <div class="sf sf1" style="top:-2.05em; left:68.15vw; animation-delay:-3.91s;"></div>
-      <div class="sf sf0" style="top:-1.99em; left:44.10vw; animation-delay:-4.40s;"></div>
-      <div class="sf sf3" style="top:-4.24em; left:21.03vw; animation-delay:-9.84s;"></div>
-      <div class="sf sf0" style="top:-1.00em; left:67.23vw; animation-delay:-9.23s;"></div>
-      <div class="sf sf0" style="top:-1.45em; left:54.20vw; animation-delay:-8.93s;"></div>
-      <div class="sf sf1" style="top:-2.28em; left:58.56vw; animation-delay:-10.52s;"></div>
-      <div class="sf sf2" style="top:-3.25em; left:74.13vw; animation-delay:-19.07s;"></div>
-      <div class="sf sf1" style="top:-2.43em; left:18.69vw; animation-delay:-17.21s;"></div>
-      <div class="sf sf3" style="top:-4.24em; left:32.61vw; animation-delay:-8.77s;"></div>
-      <div class="sf sf0" style="top:-1.22em; left:68.69vw; animation-delay:-13.90s;"></div>
-      <div class="sf sf1" style="top:-2.69em; left:53.29vw; animation-delay:-3.05s;"></div>
-      <div class="sf sf1" style="top:-2.41em; left:72.21vw; animation-delay:-3.82s;"></div>
-      <div class="sf sf1" style="top:-2.27em; left:5.76vw; animation-delay:-18.59s;"></div>
-      <div class="sf sf2" style="top:-3.30em; left:22.93vw; animation-delay:-14.30s;"></div>
-      <div class="sf sf1" style="top:-2.60em; left:94.21vw; animation-delay:-1.92s;"></div>
-      <div class="sf sf0" style="top:-1.80em; left:7.61vw; animation-delay:-3.65s;"></div>
-      <div class="sf sf0" style="top:-1.93em; left:82.26vw; animation-delay:-1.64s;"></div>
-      <div class="sf sf2" style="top:-3.42em; left:37.05vw; animation-delay:-11.74s;"></div>
-      <div class="sf sf2" style="top:-3.21em; left:94.48vw; animation-delay:-0.51s;"></div>
-      <div class="sf sf1" style="top:-2.48em; left:2.91vw; animation-delay:-8.41s;"></div>
-      <div class="sf sf2" style="top:-3.38em; left:94.98vw; animation-delay:-6.64s;"></div>
-      <div class="sf sf1" style="top:-2.73em; left:80.97vw; animation-delay:-13.49s;"></div>
-      <div class="sf sf1" style="top:-2.45em; left:89.03vw; animation-delay:-14.18s;"></div>
-      <div class="sf sf2" style="top:-3.42em; left:68.07vw; animation-delay:-10.23s;"></div>
-      <div class="sf sf0" style="top:-1.62em; left:14.02vw; animation-delay:-13.73s;"></div>
-      <div class="sf sf0" style="top:-1.56em; left:8.67vw; animation-delay:-9.76s;"></div>
-      <div class="sf sf0" style="top:-1.49em; left:7.54vw; animation-delay:-19.79s;"></div>
-      <div class="sf sf0" style="top:-1.91em; left:74.38vw; animation-delay:-8.68s;"></div>
-      <div class="sf sf0" style="top:-1.88em; left:92.17vw; animation-delay:-8.73s;"></div>
-      <div class="sf sf0" style="top:-1.28em; left:14.63vw; animation-delay:-13.96s;"></div>
-      <div class="sf sf1" style="top:-2.54em; left:43.25vw; animation-delay:-4.39s;"></div>
-      <div class="sf sf1" style="top:-2.23em; left:94.77vw; animation-delay:-9.66s;"></div>
-      <div class="sf sf2" style="top:-3.90em; left:84.21vw; animation-delay:-10.44s;"></div>
-      <div class="sf sf3" style="top:-4.98em; left:8.99vw; animation-delay:-8.76s;"></div>
-      <div class="sf sf0" style="top:-1.19em; left:36.47vw; animation-delay:-8.68s;"></div>
-      <div class="sf sf2" style="top:-3.57em; left:34.12vw; animation-delay:-9.93s;"></div>
-      <div class="sf sf3" style="top:-4.23em; left:40.03vw; animation-delay:-0.82s;"></div>
-      <div class="sf sf2" style="top:-3.45em; left:37.58vw; animation-delay:-3.69s;"></div>
-      <div class="sf sf3" style="top:-4.92em; left:4.55vw; animation-delay:-7.50s;"></div>
-      <div class="sf sf0" style="top:-1.82em; left:22.58vw; animation-delay:-5.71s;"></div>
-      <div class="sf sf0" style="top:-1.60em; left:65.41vw; animation-delay:-12.75s;"></div>
-      <div class="sf sf3" style="top:-4.77em; left:1.36vw; animation-delay:-15.55s;"></div>
-      <div class="sf sf0" style="top:-1.50em; left:79.14vw; animation-delay:-14.84s;"></div>
-      <div class="sf sf3" style="top:-4.69em; left:28.39vw; animation-delay:-8.82s;"></div>
-      <div class="sf sf3" style="top:-4.94em; left:78.09vw; animation-delay:-15.15s;"></div>
-      <div class="sf sf0" style="top:-1.42em; left:88.96vw; animation-delay:-7.50s;"></div>
-      <div class="sf sf2" style="top:-3.47em; left:35.09vw; animation-delay:-5.31s;"></div>
-      <div class="sf sf1" style="top:-2.32em; left:20.63vw; animation-delay:-18.98s;"></div>
-      <div class="sf sf1" style="top:-2.66em; left:40.29vw; animation-delay:-0.28s;"></div>
-      <div class="sf sf3" style="top:-4.85em; left:34.46vw; animation-delay:-7.83s;"></div>
-      <div class="sf sf0" style="top:-1.08em; left:44.15vw; animation-delay:-9.61s;"></div>
-      <div class="sf sf1" style="top:-2.15em; left:41.02vw; animation-delay:-5.64s;"></div>
-      <div class="sf sf0" style="top:-1.26em; left:32.90vw; animation-delay:-2.87s;"></div>
-      <div class="sf sf0" style="top:-1.86em; left:86.42vw; animation-delay:-14.61s;"></div>
-      <div class="sf sf2" style="top:-3.01em; left:35.58vw; animation-delay:-6.10s;"></div>
-      <div class="sf sf0" style="top:-1.85em; left:42.63vw; animation-delay:-18.03s;"></div>
-      <div class="sf sf3" style="top:-4.32em; left:35.05vw; animation-delay:-5.99s;"></div>
-      <div class="sf sf2" style="top:-3.17em; left:42.87vw; animation-delay:-16.96s;"></div>
-      <div class="sf sf3" style="top:-4.05em; left:9.05vw; animation-delay:-15.86s;"></div>
-      <div class="sf sf2" style="top:-3.59em; left:42.11vw; animation-delay:-6.79s;"></div>
-      <div class="sf sf0" style="top:-1.52em; left:56.60vw; animation-delay:-13.31s;"></div>
-      <div class="sf sf2" style="top:-3.11em; left:45.92vw; animation-delay:-9.19s;"></div>
-      <div class="sf sf3" style="top:-4.60em; left:59.61vw; animation-delay:-13.35s;"></div>
-      <div class="sf sf0" style="top:-1.87em; left:15.81vw; animation-delay:-5.85s;"></div>
-      <div class="sf sf2" style="top:-3.17em; left:59.98vw; animation-delay:-12.54s;"></div>
-      <div class="sf sf2" style="top:-3.41em; left:13.00vw; animation-delay:-18.68s;"></div>
-      <div class="sf sf2" style="top:-3.31em; left:37.61vw; animation-delay:-10.11s;"></div>
-      <div class="sf sf2" style="top:-3.73em; left:39.02vw; animation-delay:-7.83s;"></div>
-      <div class="sf sf2" style="top:-3.46em; left:81.30vw; animation-delay:-19.89s;"></div>
-      <div class="sf sf1" style="top:-2.18em; left:20.89vw; animation-delay:-13.65s;"></div>
-      <div class="sf sf1" style="top:-2.61em; left:25.70vw; animation-delay:-13.61s;"></div>
-      <div class="sf sf1" style="top:-2.08em; left:50.97vw; animation-delay:-11.83s;"></div>
-      <div class="sf sf0" style="top:-1.41em; left:34.61vw; animation-delay:-0.21s;"></div>
-      <div class="sf sf3" style="top:-4.95em; left:87.22vw; animation-delay:-1.66s;"></div>
-      <div class="sf sf2" style="top:-3.78em; left:83.52vw; animation-delay:-8.68s;"></div>
-      <div class="sf sf1" style="top:-2.43em; left:77.45vw; animation-delay:-6.78s;"></div>
-      <div class="sf sf3" style="top:-4.13em; left:36.88vw; animation-delay:-2.65s;"></div>
-      <div class="sf sf1" style="top:-2.14em; left:3.02vw; animation-delay:-15.00s;"></div>
-      <div class="sf sf0" style="top:-1.80em; left:14.51vw; animation-delay:-13.56s;"></div>
-      <div class="sf sf3" style="top:-4.29em; left:56.26vw; animation-delay:-19.06s;"></div>
-      <div class="sf sf1" style="top:-2.99em; left:24.92vw; animation-delay:-16.56s;"></div>
-      <div class="sf sf1" style="top:-2.34em; left:83.39vw; animation-delay:-3.96s;"></div>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<title>You have completed Advent of Code! - Advent of Code 2021</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2021</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<article>
+<p>You use all <span class="day-success">fifty stars</span> to boost the signal and remotely start the sleigh! Now, you just have to find your way back to the surface...</p><p>...did you know crab submarines come with colored lights?</p>
+<p class="aside">Congratulations!  You've finished every puzzle in Advent of Code 2021!  I hope you had as much fun solving them as I had making them for you.  I'd love to hear about your adventure; you can get in touch with me via contact info on <a href="http://was.tl/" target="_blank">my website</a> or through <a href="https://twitter.com/ericwastl" target="_blank">Twitter</a>.</p>
+<p class="aside">If you'd like to see more things like this in the future, please consider <a href="/2021/support" target="_blank">supporting</a> Advent of Code and sharing it with others.</p>
+<p class="aside">To hear about future projects, you can follow me on <a href="https://twitter.com/ericwastl" target="_blank">Twitter</a>.</p>
+<p class="aside">I've <span style="border-bottom:1px dotted #ffff66;" title="Yep, just like that.  There's at least one in the description for each day.">highlighted</span> the easter eggs in each puzzle, just in case you missed any.  Hover your mouse over them, and the easter egg will appear.</p>
+<p>You can <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I+just+completed+all+25+days+of+Advent+of+Code+2021%21&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I+just+completed+all+25+days+of+Advent+of+Code+2021%21+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this moment with your friends, or <a href="index.html">[Go Check on Your Calendar]</a>.
+</article>
+<style>
+.calendar-bkg {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 100%);
+}
+.sf {
+  position: fixed;
+  animation: anim-sf0 linear 20s infinite;
+  z-index: -1;
+}
+.sf:before {
+  content: "*";
+}
+.sf.sf0 { color: #ffffff; }
+.sf.sf1 { color: #cccccc; animation-name: anim-sf1; }
+.sf.sf2 { color: #999999; animation-name: anim-sf2; }
+.sf.sf3 { color: #666666; animation-name: anim-sf3; }
+@keyframes anim-sf0 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(8em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(8em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf1 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(6em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(6em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf2 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(4em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(4em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf3 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(2em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(2em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+</style>
+<div class="sf sf1" style="top:-2.50em; left:45.67vw; animation-delay:-16.47s;"></div><div class="sf sf1" style="top:-2.45em; left:92.67vw; animation-delay:-13.26s;"></div><div class="sf sf1" style="top:-2.39em; left:92.76vw; animation-delay:-18.49s;"></div><div class="sf sf1" style="top:-2.02em; left:33.16vw; animation-delay:-8.52s;"></div><div class="sf sf1" style="top:-2.96em; left:6.24vw; animation-delay:-0.01s;"></div><div class="sf sf1" style="top:-2.97em; left:58.18vw; animation-delay:-1.77s;"></div><div class="sf sf2" style="top:-3.73em; left:30.14vw; animation-delay:-2.15s;"></div><div class="sf sf3" style="top:-4.42em; left:73.77vw; animation-delay:-2.78s;"></div><div class="sf sf1" style="top:-2.49em; left:38.36vw; animation-delay:-10.43s;"></div><div class="sf sf3" style="top:-4.74em; left:39.12vw; animation-delay:-16.62s;"></div><div class="sf sf1" style="top:-2.89em; left:24.62vw; animation-delay:-18.45s;"></div><div class="sf sf3" style="top:-4.10em; left:62.44vw; animation-delay:-15.01s;"></div><div class="sf sf2" style="top:-3.28em; left:63.87vw; animation-delay:-8.43s;"></div><div class="sf sf0" style="top:-1.65em; left:67.63vw; animation-delay:-16.31s;"></div><div class="sf sf2" style="top:-3.51em; left:30.24vw; animation-delay:-8.65s;"></div><div class="sf sf1" style="top:-2.43em; left:63.20vw; animation-delay:-3.52s;"></div><div class="sf sf3" style="top:-4.79em; left:55.08vw; animation-delay:-6.12s;"></div><div class="sf sf0" style="top:-1.59em; left:25.92vw; animation-delay:-0.08s;"></div><div class="sf sf3" style="top:-4.26em; left:84.77vw; animation-delay:-19.76s;"></div><div class="sf sf0" style="top:-1.32em; left:52.33vw; animation-delay:-10.86s;"></div><div class="sf sf3" style="top:-4.40em; left:72.81vw; animation-delay:-13.94s;"></div><div class="sf sf0" style="top:-1.66em; left:83.01vw; animation-delay:-2.86s;"></div><div class="sf sf1" style="top:-2.53em; left:7.88vw; animation-delay:-15.16s;"></div><div class="sf sf2" style="top:-3.52em; left:56.52vw; animation-delay:-3.81s;"></div><div class="sf sf3" style="top:-4.34em; left:69.92vw; animation-delay:-5.88s;"></div><div class="sf sf2" style="top:-3.28em; left:7.27vw; animation-delay:-0.19s;"></div><div class="sf sf1" style="top:-2.75em; left:19.79vw; animation-delay:-8.37s;"></div><div class="sf sf3" style="top:-4.69em; left:39.68vw; animation-delay:-16.30s;"></div><div class="sf sf3" style="top:-4.57em; left:19.04vw; animation-delay:-19.03s;"></div><div class="sf sf0" style="top:-1.51em; left:9.22vw; animation-delay:-15.37s;"></div><div class="sf sf2" style="top:-3.87em; left:1.06vw; animation-delay:-8.70s;"></div><div class="sf sf1" style="top:-2.65em; left:20.00vw; animation-delay:-0.17s;"></div><div class="sf sf0" style="top:-1.73em; left:91.63vw; animation-delay:-8.52s;"></div><div class="sf sf2" style="top:-3.65em; left:92.78vw; animation-delay:-6.20s;"></div><div class="sf sf0" style="top:-1.58em; left:77.47vw; animation-delay:-11.95s;"></div><div class="sf sf1" style="top:-2.09em; left:67.13vw; animation-delay:-13.35s;"></div><div class="sf sf3" style="top:-4.39em; left:69.40vw; animation-delay:-3.82s;"></div><div class="sf sf0" style="top:-1.92em; left:46.87vw; animation-delay:-13.43s;"></div><div class="sf sf2" style="top:-3.16em; left:12.87vw; animation-delay:-15.03s;"></div><div class="sf sf0" style="top:-1.62em; left:43.40vw; animation-delay:-0.47s;"></div><div class="sf sf1" style="top:-2.04em; left:42.80vw; animation-delay:-17.42s;"></div><div class="sf sf1" style="top:-2.91em; left:48.12vw; animation-delay:-18.29s;"></div><div class="sf sf0" style="top:-1.16em; left:46.71vw; animation-delay:-17.76s;"></div><div class="sf sf3" style="top:-4.93em; left:21.55vw; animation-delay:-5.39s;"></div><div class="sf sf1" style="top:-2.71em; left:10.15vw; animation-delay:-1.90s;"></div><div class="sf sf3" style="top:-5.00em; left:64.01vw; animation-delay:-1.35s;"></div><div class="sf sf1" style="top:-2.19em; left:41.55vw; animation-delay:-0.50s;"></div><div class="sf sf2" style="top:-3.48em; left:55.41vw; animation-delay:-0.63s;"></div><div class="sf sf0" style="top:-1.20em; left:4.55vw; animation-delay:-16.50s;"></div><div class="sf sf2" style="top:-3.89em; left:69.74vw; animation-delay:-19.92s;"></div><div class="sf sf3" style="top:-4.59em; left:4.71vw; animation-delay:-11.01s;"></div><div class="sf sf3" style="top:-4.91em; left:93.39vw; animation-delay:-3.38s;"></div><div class="sf sf2" style="top:-3.18em; left:24.71vw; animation-delay:-8.99s;"></div><div class="sf sf0" style="top:-1.14em; left:75.63vw; animation-delay:-6.35s;"></div><div class="sf sf0" style="top:-1.84em; left:36.82vw; animation-delay:-19.26s;"></div><div class="sf sf0" style="top:-1.22em; left:88.78vw; animation-delay:-12.85s;"></div><div class="sf sf0" style="top:-1.60em; left:19.26vw; animation-delay:-4.14s;"></div><div class="sf sf1" style="top:-2.16em; left:30.94vw; animation-delay:-14.38s;"></div><div class="sf sf0" style="top:-1.79em; left:64.14vw; animation-delay:-3.44s;"></div><div class="sf sf3" style="top:-4.26em; left:4.33vw; animation-delay:-8.73s;"></div><div class="sf sf0" style="top:-1.38em; left:8.23vw; animation-delay:-14.53s;"></div><div class="sf sf1" style="top:-2.10em; left:73.28vw; animation-delay:-5.91s;"></div><div class="sf sf2" style="top:-3.18em; left:19.72vw; animation-delay:-15.89s;"></div><div class="sf sf2" style="top:-3.24em; left:2.39vw; animation-delay:-15.58s;"></div><div class="sf sf0" style="top:-1.18em; left:68.80vw; animation-delay:-14.92s;"></div><div class="sf sf1" style="top:-2.67em; left:2.01vw; animation-delay:-15.40s;"></div><div class="sf sf3" style="top:-4.03em; left:22.72vw; animation-delay:-2.42s;"></div><div class="sf sf1" style="top:-2.12em; left:90.77vw; animation-delay:-2.80s;"></div><div class="sf sf1" style="top:-2.65em; left:31.39vw; animation-delay:-6.12s;"></div><div class="sf sf1" style="top:-2.71em; left:12.47vw; animation-delay:-14.19s;"></div><div class="sf sf0" style="top:-1.90em; left:33.72vw; animation-delay:-13.40s;"></div><div class="sf sf2" style="top:-3.22em; left:38.01vw; animation-delay:-15.08s;"></div><div class="sf sf3" style="top:-4.69em; left:85.82vw; animation-delay:-19.31s;"></div><div class="sf sf2" style="top:-3.20em; left:1.73vw; animation-delay:-1.97s;"></div><div class="sf sf2" style="top:-3.02em; left:7.60vw; animation-delay:-10.41s;"></div><div class="sf sf2" style="top:-3.40em; left:15.71vw; animation-delay:-13.00s;"></div><div class="sf sf3" style="top:-4.35em; left:6.01vw; animation-delay:-16.96s;"></div><div class="sf sf1" style="top:-2.81em; left:5.30vw; animation-delay:-17.71s;"></div><div class="sf sf1" style="top:-2.83em; left:69.41vw; animation-delay:-16.63s;"></div><div class="sf sf1" style="top:-2.63em; left:74.17vw; animation-delay:-8.61s;"></div><div class="sf sf1" style="top:-2.60em; left:45.54vw; animation-delay:-11.23s;"></div><div class="sf sf0" style="top:-1.37em; left:72.96vw; animation-delay:-7.27s;"></div><div class="sf sf2" style="top:-3.42em; left:72.30vw; animation-delay:-4.79s;"></div><div class="sf sf1" style="top:-2.72em; left:1.42vw; animation-delay:-5.65s;"></div><div class="sf sf3" style="top:-4.01em; left:24.93vw; animation-delay:-6.00s;"></div><div class="sf sf2" style="top:-3.82em; left:5.73vw; animation-delay:-10.04s;"></div><div class="sf sf0" style="top:-1.93em; left:10.42vw; animation-delay:-1.01s;"></div><div class="sf sf2" style="top:-3.68em; left:94.50vw; animation-delay:-19.33s;"></div><div class="sf sf2" style="top:-3.07em; left:90.58vw; animation-delay:-13.45s;"></div><div class="sf sf0" style="top:-1.45em; left:64.55vw; animation-delay:-11.74s;"></div><div class="sf sf0" style="top:-1.91em; left:28.42vw; animation-delay:-8.08s;"></div><div class="sf sf3" style="top:-4.89em; left:70.43vw; animation-delay:-15.31s;"></div><div class="sf sf0" style="top:-1.78em; left:93.66vw; animation-delay:-1.18s;"></div><div class="sf sf1" style="top:-2.53em; left:80.15vw; animation-delay:-15.76s;"></div><div class="sf sf0" style="top:-1.18em; left:27.87vw; animation-delay:-16.78s;"></div><div class="sf sf2" style="top:-3.02em; left:18.30vw; animation-delay:-12.73s;"></div><div class="sf sf0" style="top:-1.55em; left:71.35vw; animation-delay:-11.02s;"></div><div class="sf sf0" style="top:-1.68em; left:22.35vw; animation-delay:-10.29s;"></div><div class="sf sf3" style="top:-4.64em; left:34.79vw; animation-delay:-18.61s;"></div><div class="sf sf3" style="top:-4.47em; left:2.45vw; animation-delay:-0.93s;"></div>
+</main>
+</body>
 </html>
