@@ -1,128 +1,61 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 14 - Advent of Code 2016</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2016</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 14: One-Time Pad ---</h2>
-        <p>In order to communicate securely with Santa while you're on this mission, you've been using a <a
-            href="https://en.wikipedia.org/wiki/One-time_pad">one-time pad</a> that you <a
-            href="https://en.wikipedia.org/wiki/Security_through_obscurity">generate</a> using a <span
-            title="This also happens to be the plot of World War II.">pre-agreed algorithm</span>. Unfortunately, you've
-          run out of keys in your one-time pad, and so you need to generate some more.</p>
-        <p>To generate keys, you first get a stream of random data by taking the <a
-            href="https://en.wikipedia.org/wiki/MD5">MD5</a> of a pre-arranged <a
-            href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a> (your puzzle input) and an increasing
-          integer index (starting with <code>0</code>, and represented in decimal); the resulting MD5 hash should be
-          represented as a string of <em>lowercase</em> hexadecimal digits.</p>
-        <p>However, not all of these MD5 hashes are <em>keys</em>, and you need <code>64</code> new keys for your
-          one-time pad. A hash is a key <em>only if</em>:</p>
-        <ul>
-          <li>It contains <em>three</em> of the same character in a row, like <code>777</code>. Only consider the first
-            such triplet in a hash.</li>
-          <li>One of the next <code>1000</code> hashes in the stream contains that same character <em>five</em> times in
-            a row, like <code>77777</code>.</li>
-        </ul>
-        <p>Considering future hashes for five-of-a-kind sequences does not cause those hashes to be skipped; instead,
-          regardless of whether the current hash is a key, always resume testing for keys starting with the very next
-          hash.</p>
-        <p>For example, if the pre-arranged salt is <code>abc</code>:</p>
-        <ul>
-          <li>The first index which produces a triple is <code>18</code>, because the MD5 hash of <code>abc18</code>
-            contains <code>...cc38887a5...</code>. However, index <code>18</code> does not count as a key for your
-            one-time pad, because none of the next thousand hashes (index <code>19</code> through index
-            <code>1018</code>) contain <code>88888</code>.</li>
-          <li>The next index which produces a triple is <code>39</code>; the hash of <code>abc39</code> contains
-            <code>eee</code>. It is also the first key: one of the next thousand hashes (the one at index 816) contains
-            <code>eeeee</code>.</li>
-          <li>None of the next six triples are keys, but the one after that, at index <code>92</code>, is: it contains
-            <code>999</code> and index <code>200</code> contains <code>99999</code>.</li>
-          <li>Eventually, index <code>22728</code> meets all of the criteria to generate the <code>64</code>th key.</li>
-        </ul>
-        <p>So, using our example salt of <code>abc</code>, index <code>22728</code> produces the <code>64</code>th key.
-        </p>
-        <p>Given the actual salt in your puzzle input, <em>what index</em> produces your <code>64</code>th one-time pad
-          key?</p>
-      </article>
-      <p>Your puzzle answer was <code>23769</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>Of course, in order to make this process <a href="https://en.wikipedia.org/wiki/MD5#Security">even more
-            secure</a>, you've also implemented <a href="https://en.wikipedia.org/wiki/Key_stretching">key
-            stretching</a>.</p>
-        <p>Key stretching forces attackers to spend more time generating hashes. Unfortunately, it forces everyone else
-          to spend more time, too.</p>
-        <p>To implement key stretching, whenever you generate a hash, before you use it, you first find the MD5 hash of
-          that hash, then the MD5 hash of <em>that</em> hash, and so on, a total of <em><code>2016</code> additional
-            hashings</em>. Always use lowercase hexadecimal representations of hashes.</p>
-        <p>For example, to find the stretched hash for index <code>0</code> and salt <code>abc</code>:</p>
-        <ul>
-          <li>Find the MD5 hash of <code>abc0</code>: <code>577571be4de9dcce85a041ba0410f29f</code>.</li>
-          <li>Then, find the MD5 hash of that hash: <code>eec80a0c92dc8a0777c619d9bb51e910</code>.</li>
-          <li>Then, find the MD5 hash of that hash: <code>16062ce768787384c81fe17a7a60c7e3</code>.</li>
-          <li>...repeat many times...</li>
-          <li>Then, find the MD5 hash of that hash: <code>a107ff634856bb300138cac6568c0f24</code>.</li>
-        </ul>
-        <p>So, the stretched hash for index <code>0</code> in this situation is <code>a107ff...</code>. In the end, you
-          find the original hash (one use of MD5), then find the hash-of-the-previous-hash <code>2016</code> times, for
-          a total of <code>2017</code> uses of MD5.</p>
-        <p>The rest of the process remains the same, but now the keys are entirely different. Again for salt
-          <code>abc</code>:</p>
-        <ul>
-          <li>The first triple (<code>222</code>, at index <code>5</code>) has no matching <code>22222</code> in the
-            next thousand hashes.</li>
-          <li>The second triple (<code>eee</code>, at index <code>10</code>) hash a matching <code>eeeee</code> at index
-            <code>89</code>, and so it is the first key.</li>
-          <li>Eventually, index <code>22551</code> produces the <code>64</code>th key (triple <code>fff</code> with
-            matching <code>fffff</code> at index <code>22859</code>.</li>
-        </ul>
-        <p>Given the actual salt in your puzzle input and using <code>2016</code> extra MD5 calls of key stretching,
-          <em>what index</em> now produces your <code>64</code>th one-time pad key?</p>
-      </article>
-      <p>Your puzzle answer was <code>20606</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>Your puzzle input was <code class="puzzle-input">cuanljph</code>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22One%2DTime+Pad%22+%2D+Day+14+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22One%2DTime+Pad%22+%2D+Day+14+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<title>Day 14 - Advent of Code 2016</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2016</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: One-Time Pad ---</h2><p>In order to communicate securely with Santa while you're on this mission, you've been using a <a href="https://en.wikipedia.org/wiki/One-time_pad">one-time pad</a> that you <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">generate</a> using a <span title="This also happens to be the plot of World War II.">pre-agreed algorithm</span>. Unfortunately, you've run out of keys in your one-time pad, and so you need to generate some more.</p>
+<p>To generate keys, you first get a stream of random data by taking the <a href="https://en.wikipedia.org/wiki/MD5">MD5</a> of a pre-arranged <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a> (your puzzle input) and an increasing integer index (starting with <code>0</code>, and represented in decimal); the resulting MD5 hash should be represented as a string of <em>lowercase</em> hexadecimal digits.</p>
+<p>However, not all of these MD5 hashes are <em>keys</em>, and you need <code>64</code> new keys for your one-time pad.  A hash is a key <em>only if</em>:</p>
+<ul>
+<li>It contains <em>three</em> of the same character in a row, like <code>777</code>. Only consider the first such triplet in a hash.</li>
+<li>One of the next <code>1000</code> hashes in the stream contains that same character <em>five</em> times in a row, like <code>77777</code>.</li>
+</ul>
+<p>Considering future hashes for five-of-a-kind sequences does not cause those hashes to be skipped; instead, regardless of whether the current hash is a key, always resume testing for keys starting with the very next hash.</p>
+<p>For example, if the pre-arranged salt is <code>abc</code>:</p>
+<ul>
+<li>The first index which produces a triple is <code>18</code>, because the MD5 hash of <code>abc18</code> contains <code>...cc38887a5...</code>. However, index <code>18</code> does not count as a key for your one-time pad, because none of the next thousand hashes (index <code>19</code> through index <code>1018</code>) contain <code>88888</code>.</li>
+<li>The next index which produces a triple is <code>39</code>; the hash of <code>abc39</code> contains <code>eee</code>. It is also the first key: one of the next thousand hashes (the one at index 816) contains <code>eeeee</code>.</li>
+<li>None of the next six triples are keys, but the one after that, at index <code>92</code>, is: it contains <code>999</code> and index <code>200</code> contains <code>99999</code>.</li>
+<li>Eventually, index <code>22728</code> meets all of the criteria to generate the <code>64</code>th key.</li>
+</ul>
+<p>So, using our example salt of <code>abc</code>, index <code>22728</code> produces the <code>64</code>th key.</p>
+<p>Given the actual salt in your puzzle input, <em>what index</em> produces your <code>64</code>th one-time pad key?</p>
+</article>
+<p>Your puzzle answer was <code>23769</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Of course, in order to make this process <a href="https://en.wikipedia.org/wiki/MD5#Security">even more secure</a>, you've also implemented <a href="https://en.wikipedia.org/wiki/Key_stretching">key stretching</a>.</p>
+<p>Key stretching forces attackers to spend more time generating hashes. Unfortunately, it forces everyone else to spend more time, too.</p>
+<p>To implement key stretching, whenever you generate a hash, before you use it, you first find the MD5 hash of that hash, then the MD5 hash of <em>that</em> hash, and so on, a total of <em><code>2016</code> additional hashings</em>. Always use lowercase hexadecimal representations of hashes.</p>
+<p>For example, to find the stretched hash for index <code>0</code> and salt <code>abc</code>:</p>
+<ul>
+<li>Find the MD5 hash of <code>abc0</code>: <code>577571be4de9dcce85a041ba0410f29f</code>.</li>
+<li>Then, find the MD5 hash of that hash: <code>eec80a0c92dc8a0777c619d9bb51e910</code>.</li>
+<li>Then, find the MD5 hash of that hash: <code>16062ce768787384c81fe17a7a60c7e3</code>.</li>
+<li>...repeat many times...</li>
+<li>Then, find the MD5 hash of that hash: <code>a107ff634856bb300138cac6568c0f24</code>.</li>
+</ul>
+<p>So, the stretched hash for index <code>0</code> in this situation is <code>a107ff...</code>. In the end, you find the original hash (one use of MD5), then find the hash-of-the-previous-hash <code>2016</code> times, for a total of <code>2017</code> uses of MD5.</p>
+<p>The rest of the process remains the same, but now the keys are entirely different. Again for salt <code>abc</code>:</p>
+<ul>
+<li>The first triple (<code>222</code>, at index <code>5</code>) has no matching <code>22222</code> in the next thousand hashes.</li>
+<li>The second triple (<code>eee</code>, at index <code>10</code>) hash a matching <code>eeeee</code> at index <code>89</code>, and so it is the first key.</li>
+<li>Eventually, index <code>22551</code> produces the <code>64</code>th key (triple <code>fff</code> with matching <code>fffff</code> at index <code>22859</code>.</li>
+</ul>
+<p>Given the actual salt in your puzzle input and using <code>2016</code> extra MD5 calls of key stretching, <em>what index</em> now produces your <code>64</code>th one-time pad key?</p>
+</article>
+<p>Your puzzle answer was <code>20606</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>Your puzzle input was <code class="puzzle-input">cuanljph</code>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22One%2DTime+Pad%22+%2D+Day+14+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22One%2DTime+Pad%22+%2D+Day+14+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F14'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

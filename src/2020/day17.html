@@ -1,80 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 17 - Advent of Code 2020</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2020</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 17: Conway Cubes ---</h2>
-        <p>As your flight slowly drifts through the sky, the Elves at the Mythical Information Bureau at the North Pole
-          contact you. They'd like some help debugging a malfunctioning experimental energy source aboard one of their
-          super-secret imaging satellites.</p>
-        <p>The experimental energy source is based on cutting-edge technology: a set of <span
-            title="Rest in peace, Conway.">Conway</span> Cubes contained in a pocket dimension! When you hear it's
-          having problems, you can't help but agree to take a look.</p>
-        <p>The pocket dimension contains an infinite 3-dimensional grid. At every integer 3-dimensional coordinate
-          (<code>x,y,z</code>), there exists a single cube which is either <em>active</em> or <em>inactive</em>.</p>
-        <p>In the initial state of the pocket dimension, almost all cubes start <em>inactive</em>. The only exception to
-          this is a small flat region of cubes (your puzzle input); the cubes in this region start in the specified
-          <em>active</em> (<code>#</code>) or <em>inactive</em> (<code>.</code>) state.</p>
-        <p>The energy source then proceeds to boot up by executing six <em>cycles</em>.</p>
-        <p>Each cube only ever considers its <em>neighbors</em>: any of the 26 other cubes where any of their
-          coordinates differ by at most <code>1</code>. For example, given the cube at <code>x=1,y=2,z=3</code>, its
-          neighbors include the cube at <code>x=2,y=2,z=2</code>, the cube at <code>x=0,y=2,z=3</code>, and so on.</p>
-        <p>During a cycle, <em>all</em> cubes <em>simultaneously</em> change their state according to the following
-          rules:</p>
-        <ul>
-          <li>If a cube is <em>active</em> and <em>exactly <code>2</code> or <code>3</code></em> of its neighbors are
-            also active, the cube remains <em>active</em>. Otherwise, the cube becomes <em>inactive</em>.</li>
-          <li>If a cube is <em>inactive</em> but <em>exactly <code>3</code></em> of its neighbors are active, the cube
-            becomes <em>active</em>. Otherwise, the cube remains <em>inactive</em>.</li>
-        </ul>
-        <p>The engineers responsible for this experimental energy source would like you to simulate the pocket dimension
-          and determine what the configuration of cubes should be at the end of the six-cycle boot process.</p>
-        <p>For example, consider the following initial state:</p>
-        <pre><code>.#.
+<head>
+<meta charset="utf-8"/>
+<title>Day 17 - Advent of Code 2020</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2020</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 17: Conway Cubes ---</h2><p>As your flight slowly drifts through the sky, the Elves at the Mythical Information Bureau at the North Pole contact you. They'd like some help debugging a malfunctioning experimental energy source aboard one of their super-secret imaging satellites.</p>
+<p>The experimental energy source is based on cutting-edge technology: a set of <span title="Rest in peace, Conway.">Conway</span> Cubes contained in a pocket dimension! When you hear it's having problems, you can't help but agree to take a look.</p>
+<p>The pocket dimension contains an infinite 3-dimensional grid. At every integer 3-dimensional coordinate (<code>x,y,z</code>), there exists a single cube which is either <em>active</em> or <em>inactive</em>.</p>
+<p>In the initial state of the pocket dimension, almost all cubes start <em>inactive</em>. The only exception to this is a small flat region of cubes (your puzzle input); the cubes in this region start in the specified <em>active</em> (<code>#</code>) or <em>inactive</em> (<code>.</code>) state.</p>
+<p>The energy source then proceeds to boot up by executing six <em>cycles</em>.</p>
+<p>Each cube only ever considers its <em>neighbors</em>: any of the 26 other cubes where any of their coordinates differ by at most <code>1</code>. For example, given the cube at <code>x=1,y=2,z=3</code>, its neighbors include the cube at <code>x=2,y=2,z=2</code>, the cube at <code>x=0,y=2,z=3</code>, and so on.</p>
+<p>During a cycle, <em>all</em> cubes <em>simultaneously</em> change their state according to the following rules:</p>
+<ul>
+<li>If a cube is <em>active</em> and <em>exactly <code>2</code> or <code>3</code></em> of its neighbors are also active, the cube remains <em>active</em>. Otherwise, the cube becomes <em>inactive</em>.</li>
+<li>If a cube is <em>inactive</em> but <em>exactly <code>3</code></em> of its neighbors are active, the cube becomes <em>active</em>. Otherwise, the cube remains <em>inactive</em>.</li>
+</ul>
+<p>The engineers responsible for this experimental energy source would like you to simulate the pocket dimension and determine what the configuration of cubes should be at the end of the six-cycle boot process.</p>
+<p>For example, consider the following initial state:</p>
+<pre><code>.#.
 ..#
 ###
 </code></pre>
-        <p>Even though the pocket dimension is 3-dimensional, this initial state represents a small 2-dimensional slice
-          of it. (In particular, this initial state defines a 3x3x1 region of the 3-dimensional space.)</p>
-        <p>Simulating a few cycles from this initial state produces the following configurations, where the result of
-          each cycle is shown layer-by-layer at each given <code>z</code> coordinate (and the frame of view follows the
-          active cells in each cycle):</p>
-        <pre><code>Before any cycles:
+<p>Even though the pocket dimension is 3-dimensional, this initial state represents a small 2-dimensional slice of it. (In particular, this initial state defines a 3x3x1 region of the 3-dimensional space.)</p>
+<p>Simulating a few cycles from this initial state produces the following configurations, where the result of each cycle is shown layer-by-layer at each given <code>z</code> coordinate (and the frame of view follows the active cells in each cycle):</p>
+<pre><code>Before any cycles:
 
 z=0
 .#.
@@ -185,32 +141,16 @@ z=2
 .......
 .......
 </code></pre>
-        <p>After the full six-cycle boot process completes, <em><code>112</code></em> cubes are left in the
-          <em>active</em> state.</p>
-        <p>Starting with your given initial configuration, simulate six cycles. <em>How many cubes are left in the
-            active state after the sixth cycle?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>232</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>For some reason, your simulated results don't match what the experimental energy source engineers expected.
-          Apparently, the pocket dimension actually has <em>four spatial dimensions</em>, not three.</p>
-        <p>The pocket dimension contains an infinite 4-dimensional grid. At every integer 4-dimensional coordinate
-          (<code>x,y,z,w</code>), there exists a single cube (really, a <em>hypercube</em>) which is still either
-          <em>active</em> or <em>inactive</em>.</p>
-        <p>Each cube only ever considers its <em>neighbors</em>: any of the 80 other cubes where any of their
-          coordinates differ by at most <code>1</code>. For example, given the cube at <code>x=1,y=2,z=3,w=4</code>, its
-          neighbors include the cube at <code>x=2,y=2,z=3,w=3</code>, the cube at <code>x=0,y=2,z=3,w=4</code>, and so
-          on.</p>
-        <p>The initial state of the pocket dimension still consists of a small flat region of cubes. Furthermore, the
-          same rules for cycle updating still apply: during each cycle, consider the <em>number of active neighbors</em>
-          of each cube.</p>
-        <p>For example, consider the same initial state as in the example above. Even though the pocket dimension is
-          4-dimensional, this initial state represents a small 2-dimensional slice of it. (In particular, this initial
-          state defines a 3x3x1x1 region of the 4-dimensional space.)</p>
-        <p>Simulating a few cycles from this initial state produces the following configurations, where the result of
-          each cycle is shown layer-by-layer at each given <code>z</code> and <code>w</code> coordinate:</p>
-        <pre><code>Before any cycles:
+<p>After the full six-cycle boot process completes, <em><code>112</code></em> cubes are left in the <em>active</em> state.</p>
+<p>Starting with your given initial configuration, simulate six cycles. <em>How many cubes are left in the active state after the sixth cycle?</em></p>
+</article>
+<p>Your puzzle answer was <code>232</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>For some reason, your simulated results don't match what the experimental energy source engineers expected. Apparently, the pocket dimension actually has <em>four spatial dimensions</em>, not three.</p>
+<p>The pocket dimension contains an infinite 4-dimensional grid. At every integer 4-dimensional coordinate (<code>x,y,z,w</code>), there exists a single cube (really, a <em>hypercube</em>) which is still either <em>active</em> or <em>inactive</em>.</p>
+<p>Each cube only ever considers its <em>neighbors</em>: any of the 80 other cubes where any of their coordinates differ by at most <code>1</code>. For example, given the cube at <code>x=1,y=2,z=3,w=4</code>, its neighbors include the cube at <code>x=2,y=2,z=3,w=3</code>, the cube at <code>x=0,y=2,z=3,w=4</code>, and so on.</p>
+<p>The initial state of the pocket dimension still consists of a small flat region of cubes. Furthermore, the same rules for cycle updating still apply: during each cycle, consider the <em>number of active neighbors</em> of each cube.</p>
+<p>For example, consider the same initial state as in the example above. Even though the pocket dimension is 4-dimensional, this initial state represents a small 2-dimensional slice of it. (In particular, this initial state defines a 3x3x1x1 region of the 4-dimensional space.)</p>
+<p>Simulating a few cycles from this initial state produces the following configurations, where the result of each cycle is shown layer-by-layer at each given <code>z</code> and <code>w</code> coordinate:</p>
+<pre><code>Before any cycles:
 
 z=0, w=0
 .#.
@@ -443,21 +383,16 @@ z=2, w=2
 .....
 .....
 </code></pre>
-        <p>After the full six-cycle boot process completes, <em><code>848</code></em> cubes are left in the
-          <em>active</em> state.</p>
-        <p>Starting with your given initial configuration, simulate six cycles in a 4-dimensional space. <em>How many
-            cubes are left in the active state after the sixth cycle?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>1620</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day17.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Conway+Cubes%22+%2D+Day+17+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F17&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Conway+Cubes%22+%2D+Day+17+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F17'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>After the full six-cycle boot process completes, <em><code>848</code></em> cubes are left in the <em>active</em> state.</p>
+<p>Starting with your given initial configuration, simulate six cycles in a 4-dimensional space. <em>How many cubes are left in the active state after the sixth cycle?</em></p>
+</article>
+<p>Your puzzle answer was <code>1620</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day17.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Conway+Cubes%22+%2D+Day+17+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F17&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Conway+Cubes%22+%2D+Day+17+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F17'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

@@ -1,68 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 24 - Advent of Code 2020</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2020</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 24: Lobby Layout ---</h2>
-        <p>Your raft makes it to the tropical island; it turns out that the small crab was an excellent navigator. You
-          make your way to the resort.</p>
-        <p>As you enter the lobby, you discover a small problem: the floor is being renovated. You can't even reach the
-          check-in desk until they've finished installing the <em>new tile floor</em>.</p>
-        <p>The tiles are all <em>hexagonal</em>; they need to be arranged in a <a
-            href="https://en.wikipedia.org/wiki/Hexagonal_tiling">hex grid</a> with a very specific color pattern. Not
-          in the mood to wait, you offer to help figure out the pattern.</p>
-        <p>The tiles are all <em>white</em> on one side and <em>black</em> on the other. They start with the white side
-          facing up. The lobby is large enough to fit whatever pattern might need to appear there.</p>
-        <p>A member of the renovation crew gives you a <em>list of the tiles that need to be flipped over</em> (your
-          puzzle input). Each line in the list identifies a single tile that needs to be flipped by giving a series of
-          steps starting from a <em>reference tile</em> in the very center of the room. (Every line starts from the same
-          reference tile.)</p>
-        <p>Because the tiles are hexagonal, every tile has <em>six neighbors</em>: east, southeast, southwest, west,
-          northwest, and northeast. These directions are given in your list, respectively, as <code>e</code>,
-          <code>se</code>, <code>sw</code>, <code>w</code>, <code>nw</code>, and <code>ne</code>. A tile is identified
-          by a series of these directions with <em>no delimiters</em>; for example, <code>esenee</code> identifies the
-          tile you land on if you start at the reference tile and then move one tile east, one tile southeast, one tile
-          northeast, and one tile east.</p>
-        <p>Each time a tile is identified, it flips from white to black or from black to white. Tiles might be flipped
-          more than once. For example, a line like <code>esew</code> flips a tile immediately adjacent to the reference
-          tile, and a line like <code>nwwswee</code> flips the reference tile itself.</p>
-        <p>Here is a larger example:</p>
-        <pre><code>sesenwnenenewseeswwswswwnenewsewsw
+<head>
+<meta charset="utf-8"/>
+<title>Day 24 - Advent of Code 2020</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2020</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 24: Lobby Layout ---</h2><p>Your raft makes it to the tropical island; it turns out that the small crab was an excellent navigator. You make your way to the resort.</p>
+<p>As you enter the lobby, you discover a small problem: the floor is being renovated. You can't even reach the check-in desk until they've finished installing the <em>new tile floor</em>.</p>
+<p>The tiles are all <em>hexagonal</em>; they need to be arranged in a <a href="https://en.wikipedia.org/wiki/Hexagonal_tiling">hex grid</a> with a very specific color pattern. Not in the mood to wait, you offer to help figure out the pattern.</p>
+<p>The tiles are all <em>white</em> on one side and <em>black</em> on the other. They start with the white side facing up. The lobby is large enough to fit whatever pattern might need to appear there.</p>
+<p>A member of the renovation crew gives you a <em>list of the tiles that need to be flipped over</em> (your puzzle input). Each line in the list identifies a single tile that needs to be flipped by giving a series of steps starting from a <em>reference tile</em> in the very center of the room. (Every line starts from the same reference tile.)</p>
+<p>Because the tiles are hexagonal, every tile has <em>six neighbors</em>: east, southeast, southwest, west, northwest, and northeast. These directions are given in your list, respectively, as <code>e</code>, <code>se</code>, <code>sw</code>, <code>w</code>, <code>nw</code>, and <code>ne</code>. A tile is identified by a series of these directions with <em>no delimiters</em>; for example, <code>esenee</code> identifies the tile you land on if you start at the reference tile and then move one tile east, one tile southeast, one tile northeast, and one tile east.</p>
+<p>Each time a tile is identified, it flips from white to black or from black to white. Tiles might be flipped more than once. For example, a line like <code>esew</code> flips a tile immediately adjacent to the reference tile, and a line like <code>nwwswee</code> flips the reference tile itself.</p>
+<p>Here is a larger example:</p>
+<pre><code>sesenwnenenewseeswwswswwnenewsewsw
 neeenesenwnwwswnenewnwwsewnenwseswesw
 seswneswswsenwwnwse
 nwnwneseeswswnenewneswwnewseswneseene
@@ -83,29 +40,18 @@ eneswnwswnwsenenwnwnwwseeswneewsenese
 neswnwewnwnwseenwseesewsenwsweewe
 wseweeenwnesenwwwswnew
 </code></pre>
-        <p>In the above example, 10 tiles are flipped once (to black), and 5 more are flipped twice (to black, then back
-          to white). After all of these instructions have been followed, a total of <em><code>10</code></em> tiles are
-          <em>black</em>.</p>
-        <p>Go through the renovation crew's list and determine which tiles they need to flip. After all of the
-          instructions have been followed, <em>how many tiles are left with the black side up?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>287</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>The tile floor in the lobby is meant to be a <span title="I need one of these!">living art exhibit</span>.
-          Every day, the tiles are all flipped according to the following rules:</p>
-        <ul>
-          <li>Any <em>black</em> tile with <em>zero</em> or <em>more than 2</em> black tiles immediately adjacent to it
-            is flipped to <em>white</em>.</li>
-          <li>Any <em>white</em> tile with <em>exactly 2</em> black tiles immediately adjacent to it is flipped to
-            <em>black</em>.</li>
-        </ul>
-        <p>Here, <em>tiles immediately adjacent</em> means the six tiles directly touching the tile in question.</p>
-        <p>The rules are applied <em>simultaneously</em> to every tile; put another way, it is first determined which
-          tiles need to be flipped, then they are all flipped at the same time.</p>
-        <p>In the above example, the number of black tiles that are facing up after the given number of days has passed
-          is as follows:</p>
-        <pre><code>Day 1: 15
+<p>In the above example, 10 tiles are flipped once (to black), and 5 more are flipped twice (to black, then back to white). After all of these instructions have been followed, a total of <em><code>10</code></em> tiles are <em>black</em>.</p>
+<p>Go through the renovation crew's list and determine which tiles they need to flip. After all of the instructions have been followed, <em>how many tiles are left with the black side up?</em></p>
+</article>
+<p>Your puzzle answer was <code>287</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>The tile floor in the lobby is meant to be a <span title="I need one of these!">living art exhibit</span>. Every day, the tiles are all flipped according to the following rules:</p>
+<ul>
+<li>Any <em>black</em> tile with <em>zero</em> or <em>more than 2</em> black tiles immediately adjacent to it is flipped to <em>white</em>.</li>
+<li>Any <em>white</em> tile with <em>exactly 2</em> black tiles immediately adjacent to it is flipped to <em>black</em>.</li>
+</ul>
+<p>Here, <em>tiles immediately adjacent</em> means the six tiles directly touching the tile in question.</p>
+<p>The rules are applied <em>simultaneously</em> to every tile; put another way, it is first determined which tiles need to be flipped, then they are all flipped at the same time.</p>
+<p>In the above example, the number of black tiles that are facing up after the given number of days has passed is as follows:</p>
+<pre><code>Day 1: 15
 Day 2: 12
 Day 3: 25
 Day 4: 14
@@ -126,20 +72,16 @@ Day 80: 1373
 Day 90: 1844
 Day 100: 2208
 </code></pre>
-        <p>After executing this process a total of 100 times, there would be <em><code>2208</code></em> black tiles
-          facing up.</p>
-        <p><em>How many tiles will be black after 100 days?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>3636</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day24.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Lobby+Layout%22+%2D+Day+24+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F24&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Lobby+Layout%22+%2D+Day+24+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F24'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>After executing this process a total of 100 times, there would be <em><code>2208</code></em> black tiles facing up.</p>
+<p><em>How many tiles will be black after 100 days?</em></p>
+</article>
+<p>Your puzzle answer was <code>3636</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day24.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Lobby+Layout%22+%2D+Day+24+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F24&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Lobby+Layout%22+%2D+Day+24+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F24'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

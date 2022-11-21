@@ -1,101 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 2 - Advent of Code 2017</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2017</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 2: Corruption Checksum ---</h2>
-        <p>As you walk through the door, a glowing humanoid shape yells in your direction. "You there! Your state
-          appears to be idle. Come help us repair the corruption in this spreadsheet - if we take another millisecond,
-          we'll have to display an hourglass cursor!"</p>
-        <p>The spreadsheet consists of rows of apparently-random numbers. To make sure the recovery process is on the
-          right track, they need you to calculate the spreadsheet's <em>checksum</em>. For each row, determine the
-          difference between the largest value and the smallest value; the checksum is the sum of all of these
-          differences.</p>
-        <p>For example, given the following spreadsheet:</p>
-        <pre><code>5 1 9 5
+<head>
+<meta charset="utf-8"/>
+<title>Day 2 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 2: Corruption Checksum ---</h2><p>As you walk through the door, a glowing humanoid shape yells in your direction. "You there! Your state appears to be idle. Come help us repair the corruption in this spreadsheet - if we take another millisecond, we'll have to display an hourglass cursor!"</p>
+<p>The spreadsheet consists of rows of apparently-random numbers. To make sure the recovery process is on the right track, they need you to calculate the spreadsheet's <em>checksum</em>. For each row, determine the difference between the largest value and the smallest value; the checksum is the sum of all of these differences.</p>
+<p>For example, given the following spreadsheet:</p>
+<pre><code>5 1 9 5
 7 5 3
 2 4 6 8</code></pre>
-        <ul>
-          <li>The first row's largest and smallest values are <code>9</code> and <code>1</code>, and their difference is
-            <code>8</code>.</li>
-          <li>The second row's largest and smallest values are <code>7</code> and <code>3</code>, and their difference
-            is <code>4</code>.</li>
-          <li>The third row's difference is <code>6</code>.</li>
-        </ul>
-        <p>In this example, the spreadsheet's checksum would be <code>8 + 4 + 6 = 18</code>.</p>
-        <p><em>What is the checksum</em> for the spreadsheet in your puzzle input?</p>
-      </article>
-      <p>Your puzzle answer was <code>41887</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>"Great work; looks like we're on the right track after all. Here's a <em class="star">star</em> for your
-          effort." However, the program seems a little worried. Can programs <em>be</em> worried?</p>
-        <p>"Based on what we're seeing, it looks like all the User wanted is some information about the <em>evenly
-            divisible values</em> in the spreadsheet. Unfortunately, none of us are equipped for that kind of
-          calculation - most of us specialize in <span
-            title="Bonus points if you solve this part using only bitwise operations.">bitwise operations</span>."</p>
-        <p>It sounds like the goal is to find the only two numbers in each row where one evenly divides the other - that
-          is, where the result of the division operation is a whole number. They would like you to find those numbers on
-          each line, divide them, and add up each line's result.</p>
-        <p>For example, given the following spreadsheet:</p>
-        <pre><code>5 9 2 8
+<ul>
+<li>The first row's largest and smallest values are <code>9</code> and <code>1</code>, and their difference is <code>8</code>.</li>
+<li>The second row's largest and smallest values are <code>7</code> and <code>3</code>, and their difference is <code>4</code>.</li>
+<li>The third row's difference is <code>6</code>.</li>
+</ul>
+<p>In this example, the spreadsheet's checksum would be <code>8 + 4 + 6 = 18</code>.</p>
+<p><em>What is the checksum</em> for the spreadsheet in your puzzle input?</p>
+</article>
+<p>Your puzzle answer was <code>41887</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>"Great work; looks like we're on the right track after all.  Here's a <em class="star">star</em> for your effort." However, the program seems a little worried. Can programs <em>be</em> worried?</p>
+<p>"Based on what we're seeing, it looks like all the User wanted is some information about the <em>evenly divisible values</em> in the spreadsheet.  Unfortunately, none of us are equipped for that kind of calculation - most of us specialize in <span title="Bonus points if you solve this part using only bitwise operations.">bitwise operations</span>."</p>
+<p>It sounds like the goal is to find the only two numbers in each row where one evenly divides the other - that is, where the result of the division operation is a whole number. They would like you to find those numbers on each line, divide them, and add up each line's result.</p>
+<p>For example, given the following spreadsheet:</p>
+<pre><code>5 9 2 8
 9 4 7 3
 3 8 6 5</code></pre>
-        <ul>
-          <li>In the first row, the only two numbers that evenly divide are <code>8</code> and <code>2</code>; the
-            result of this division is <code>4</code>.</li>
-          <li>In the second row, the two numbers are <code>9</code> and <code>3</code>; the result is <code>3</code>.
-          </li>
-          <li>In the third row, the result is <code>2</code>.</li>
-        </ul>
-        <p>In this example, the sum of the results would be <code>4 + 3 + 2 = 9</code>.</p>
-        <p>What is the <em>sum of each row's result</em> in your puzzle input?</p>
-      </article>
-      <p>Your puzzle answer was <code>226</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day02.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Corruption+Checksum%22+%2D+Day+2+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F2&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Corruption+Checksum%22+%2D+Day+2+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F2'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<ul>
+<li>In the first row, the only two numbers that evenly divide are <code>8</code> and <code>2</code>; the result of this division is <code>4</code>.</li>
+<li>In the second row, the two numbers are <code>9</code> and <code>3</code>; the result is <code>3</code>.</li>
+<li>In the third row, the result is <code>2</code>.</li>
+</ul>
+<p>In this example, the sum of the results would be <code>4 + 3 + 2 = 9</code>.</p>
+<p>What is the <em>sum of each row's result</em> in your puzzle input?</p>
+</article>
+<p>Your puzzle answer was <code>226</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day02.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Corruption+Checksum%22+%2D+Day+2+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F2&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Corruption+Checksum%22+%2D+Day+2+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F2'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>
