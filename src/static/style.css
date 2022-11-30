@@ -54,35 +54,39 @@ p.wrap {
   width: 45em;
 }
 
-.hidden-layout {
-  padding: 0 .5em;
-  border: 1px solid transparent;
-}
-.hidden {
+.hidden-until-hover {
   border: 1px dotted gray;
   overflow: hidden;
   position: relative;
   padding: 0 .5em;
+  transition: border-color 0s linear 5s;
 }
-.hidden:before {
-  content: "(hover to view)";
+.hidden-until-hover:before {
+  content: "(hover to reveal)";
   position: absolute;
   opacity: .5;
   text-align: center;
   left: 0;
   top: 0;
   width: 100%;
+  overflow: hidden;
+  transition: width 0s linear 5s;
 }
-.hidden > * {
+.hidden-until-hover > * {
   visibility: hidden;
+  transition: visibility 0s linear 5s;
 }
-.hidden:hover {
+.hidden-until-hover:hover {
+  transition: border-color 0s linear 1s;
   border-color: transparent;
 }
-.hidden:hover:before {
-  display: none;
+.hidden-until-hover:hover:before {
+  content: "( keep hovering )";
+  transition: width 0s linear 1s;
+  width: 0;
 }
-.hidden:hover > * {
+.hidden-until-hover:hover > * {
+  transition: visibility 0s linear 1s;
   visibility: visible;
 }
 
@@ -262,7 +266,7 @@ article {
   margin-bottom: 2em;
   margin-top: 2em;
 }
-article:first-child {
+article:first-of-type {
   margin-top: 0;
 }
 article h2 {

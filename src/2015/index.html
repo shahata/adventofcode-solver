@@ -1,609 +1,249 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Advent of Code 2015</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2015</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        .calendar a.calendar-complete,
-        .calendar a.calendar-verycomplete {
-          color: #009900;
-        }
+<head>
+<meta charset="utf-8"/>
+<title>Advent of Code 2015</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2015</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>
+.calendar a.calendar-complete, .calendar a.calendar-verycomplete {
+  color: #009900;
+}
+.calendar a.calendar-day25.calendar-complete,
+.calendar a.calendar-day25.calendar-verycomplete{ color: #ffff66; }
+.calendar a.calendar-day25.calendar-verycomplete{ text-shadow: 0 0 5px #ffff66; }
 
-        .calendar a.calendar-day25.calendar-complete,
-        .calendar a.calendar-day25.calendar-verycomplete {
-          color: #ffff66;
-        }
+.calendar .calendar-trunk { color: #cccccc; }
 
-        .calendar a.calendar-day25.calendar-verycomplete {
-          text-shadow: 0 0 5px #ffff66;
-        }
+.calendar a                       .calendar-ornament0 { color: inherit; }
+.calendar a                       .calendar-ornament1 { color: inherit; }
+.calendar a                       .calendar-ornament2 { color: inherit; }
+.calendar a                       .calendar-ornament3 { color: inherit; }
+.calendar a.calendar-verycomplete .calendar-ornament0 { color: #0066ff; text-shadow: 0 0 5px #0066ff; }
+.calendar a.calendar-verycomplete .calendar-ornament1 { color: #ff9900; text-shadow: 0 0 5px #ff9900; }
+.calendar a.calendar-verycomplete .calendar-ornament2 { color: #ff0000; text-shadow: 0 0 5px #ff0000; }
+.calendar a.calendar-verycomplete .calendar-ornament3 { color: #ffff66; text-shadow: 0 0 5px #ffff66; }
 
-        .calendar .calendar-trunk {
-          color: #cccccc;
-        }
+.calendar.calendar-beckon .calendar-day1  { animation: anim-beckon 3s infinite -2.875s; }
+.calendar.calendar-beckon .calendar-day2  { animation: anim-beckon 3s infinite -2.750s; }
+.calendar.calendar-beckon .calendar-day3  { animation: anim-beckon 3s infinite -2.625s; }
+.calendar.calendar-beckon .calendar-day4  { animation: anim-beckon 3s infinite -2.500s; }
+.calendar.calendar-beckon .calendar-day5  { animation: anim-beckon 3s infinite -2.375s; }
+.calendar.calendar-beckon .calendar-day6  { animation: anim-beckon 3s infinite -2.250s; }
+.calendar.calendar-beckon .calendar-day7  { animation: anim-beckon 3s infinite -2.125s; }
+.calendar.calendar-beckon .calendar-day8  { animation: anim-beckon 3s infinite -2.000s; }
+.calendar.calendar-beckon .calendar-day9  { animation: anim-beckon 3s infinite -1.875s; }
+.calendar.calendar-beckon .calendar-day10 { animation: anim-beckon 3s infinite -1.750s; }
+.calendar.calendar-beckon .calendar-day11 { animation: anim-beckon 3s infinite -1.625s; }
+.calendar.calendar-beckon .calendar-day12 { animation: anim-beckon 3s infinite -1.500s; }
+.calendar.calendar-beckon .calendar-day13 { animation: anim-beckon 3s infinite -1.375s; }
+.calendar.calendar-beckon .calendar-day14 { animation: anim-beckon 3s infinite -1.250s; }
+.calendar.calendar-beckon .calendar-day15 { animation: anim-beckon 3s infinite -1.125s; }
+.calendar.calendar-beckon .calendar-day16 { animation: anim-beckon 3s infinite -1.000s; }
+.calendar.calendar-beckon .calendar-day17 { animation: anim-beckon 3s infinite -0.875s; }
+.calendar.calendar-beckon .calendar-day18 { animation: anim-beckon 3s infinite -0.750s; }
+.calendar.calendar-beckon .calendar-day19 { animation: anim-beckon 3s infinite -0.625s; }
+.calendar.calendar-beckon .calendar-day20 { animation: anim-beckon 3s infinite -0.500s; }
+.calendar.calendar-beckon .calendar-day21 { animation: anim-beckon 3s infinite -0.375s; }
+.calendar.calendar-beckon .calendar-day22 { animation: anim-beckon 3s infinite -0.250s; }
+.calendar.calendar-beckon .calendar-day23 { animation: anim-beckon 3s infinite -0.125s; }
+.calendar.calendar-beckon .calendar-day24 { animation: anim-beckon 3s infinite -0.000s; }
+.calendar.calendar-beckon > span { animation-name: anim-beckon-dark ! important; }
+@keyframes anim-beckon {
+  0%   { color: #666666; }
+  80%  { color: #666666; }
+  90%  { color: #00ff00; }
+  100% { color: #666666; }
+}
+@keyframes anim-beckon-dark {
+  0%   { color: #333333; }
+  80%  { color: #333333; }
+  90%  { color: #009900; }
+  100% { color: #333333; }
+}
 
-        .calendar a .calendar-ornament0 {
-          color: inherit;
-        }
-
-        .calendar a .calendar-ornament1 {
-          color: inherit;
-        }
-
-        .calendar a .calendar-ornament2 {
-          color: inherit;
-        }
-
-        .calendar a .calendar-ornament3 {
-          color: inherit;
-        }
-
-        .calendar a.calendar-verycomplete .calendar-ornament0 {
-          color: #0066ff;
-          text-shadow: 0 0 5px #0066ff;
-        }
-
-        .calendar a.calendar-verycomplete .calendar-ornament1 {
-          color: #ff9900;
-          text-shadow: 0 0 5px #ff9900;
-        }
-
-        .calendar a.calendar-verycomplete .calendar-ornament2 {
-          color: #ff0000;
-          text-shadow: 0 0 5px #ff0000;
-        }
-
-        .calendar a.calendar-verycomplete .calendar-ornament3 {
-          color: #ffff66;
-          text-shadow: 0 0 5px #ffff66;
-        }
-
-        .calendar.calendar-beckon .calendar-day1 {
-          animation: anim-beckon 3s infinite -2.875s;
-        }
-
-        .calendar.calendar-beckon .calendar-day2 {
-          animation: anim-beckon 3s infinite -2.750s;
-        }
-
-        .calendar.calendar-beckon .calendar-day3 {
-          animation: anim-beckon 3s infinite -2.625s;
-        }
-
-        .calendar.calendar-beckon .calendar-day4 {
-          animation: anim-beckon 3s infinite -2.500s;
-        }
-
-        .calendar.calendar-beckon .calendar-day5 {
-          animation: anim-beckon 3s infinite -2.375s;
-        }
-
-        .calendar.calendar-beckon .calendar-day6 {
-          animation: anim-beckon 3s infinite -2.250s;
-        }
-
-        .calendar.calendar-beckon .calendar-day7 {
-          animation: anim-beckon 3s infinite -2.125s;
-        }
-
-        .calendar.calendar-beckon .calendar-day8 {
-          animation: anim-beckon 3s infinite -2.000s;
-        }
-
-        .calendar.calendar-beckon .calendar-day9 {
-          animation: anim-beckon 3s infinite -1.875s;
-        }
-
-        .calendar.calendar-beckon .calendar-day10 {
-          animation: anim-beckon 3s infinite -1.750s;
-        }
-
-        .calendar.calendar-beckon .calendar-day11 {
-          animation: anim-beckon 3s infinite -1.625s;
-        }
-
-        .calendar.calendar-beckon .calendar-day12 {
-          animation: anim-beckon 3s infinite -1.500s;
-        }
-
-        .calendar.calendar-beckon .calendar-day13 {
-          animation: anim-beckon 3s infinite -1.375s;
-        }
-
-        .calendar.calendar-beckon .calendar-day14 {
-          animation: anim-beckon 3s infinite -1.250s;
-        }
-
-        .calendar.calendar-beckon .calendar-day15 {
-          animation: anim-beckon 3s infinite -1.125s;
-        }
-
-        .calendar.calendar-beckon .calendar-day16 {
-          animation: anim-beckon 3s infinite -1.000s;
-        }
-
-        .calendar.calendar-beckon .calendar-day17 {
-          animation: anim-beckon 3s infinite -0.875s;
-        }
-
-        .calendar.calendar-beckon .calendar-day18 {
-          animation: anim-beckon 3s infinite -0.750s;
-        }
-
-        .calendar.calendar-beckon .calendar-day19 {
-          animation: anim-beckon 3s infinite -0.625s;
-        }
-
-        .calendar.calendar-beckon .calendar-day20 {
-          animation: anim-beckon 3s infinite -0.500s;
-        }
-
-        .calendar.calendar-beckon .calendar-day21 {
-          animation: anim-beckon 3s infinite -0.375s;
-        }
-
-        .calendar.calendar-beckon .calendar-day22 {
-          animation: anim-beckon 3s infinite -0.250s;
-        }
-
-        .calendar.calendar-beckon .calendar-day23 {
-          animation: anim-beckon 3s infinite -0.125s;
-        }
-
-        .calendar.calendar-beckon .calendar-day24 {
-          animation: anim-beckon 3s infinite -0.000s;
-        }
-
-        .calendar.calendar-beckon>span {
-          animation-name: anim-beckon-dark ! important;
-        }
-
-        @keyframes anim-beckon {
-          0% {
-            color: #666666;
-          }
-
-          80% {
-            color: #666666;
-          }
-
-          90% {
-            color: #00ff00;
-          }
-
-          100% {
-            color: #666666;
-          }
-        }
-
-        @keyframes anim-beckon-dark {
-          0% {
-            color: #333333;
-          }
-
-          80% {
-            color: #333333;
-          }
-
-          90% {
-            color: #009900;
-          }
-
-          100% {
-            color: #333333;
-          }
-        }
-
-        .calendar-bkg {
-          position: fixed;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: -1;
-          color: #ffffff;
-          cursor: default;
-          -webkit-user-select: none;
-          -khtml-user-select: none;
-          -moz-user-select: -moz-none;
-          -o-user-select: none;
-          user-select: none;
-        }
-
-        .calendar-bkg div:nth-child(1) {
-          opacity: .04;
-        }
-
-        .calendar-bkg div:nth-child(2) {
-          opacity: .08;
-        }
-
-        .calendar-bkg div:nth-child(3) {
-          opacity: .12;
-        }
-
-        .calendar-bkg div:nth-child(4) {
-          opacity: .16;
-        }
-
-        .calendar-bkg div {
-          text-align: justify;
-          margin-bottom: -1.2em;
-        }
-
-        .calendar-bkg div::after {
-          content: "_";
-          display: inline-block;
-          visibility: hidden;
-          width: 100%;
-        }
-
-        .calendar .calendar-lightbeam {
-          visibility: hidden;
-          color: #666666;
-        }
-
-        .calendar a.calendar-complete .calendar-lightbeam,
-        .calendar a.calendar-verycomplete .calendar-lightbeam {
-          visibility: visible;
-        }
-
-        .calendar a.calendar-verycomplete .calendar-lightbeam {
-          color: #ffff66;
-          text-shadow: 0 0 5px #ffff66;
-        }
-      </style>
-      <pre class="calendar calendar-perfect"><a aria-label="Day 25, two stars" href="day25.html" class="calendar-day25 calendar-verycomplete">                        <span class="calendar-lightbeam">|</span>
-                       <span class="calendar-lightbeam">\</span><span class="calendar-lightbeam">|</span><span class="calendar-lightbeam">/</span>
+.calendar-bkg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  color: #ffffff;
+  cursor: default;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+.calendar-bkg div:nth-child(1) { opacity: .04; }
+.calendar-bkg div:nth-child(2) { opacity: .08; }
+.calendar-bkg div:nth-child(3) { opacity: .12; }
+.calendar-bkg div:nth-child(4) { opacity: .16; }
+.calendar-bkg div {
+  text-align: justify;
+  margin-bottom: -1.2em;
+}
+.calendar-bkg div::after {
+  content: "_";
+  display: inline-block;
+  visibility: hidden;
+  width: 100%;
+}
+.calendar .calendar-lightbeam { visibility: hidden; color: #666666; }
+.calendar a.calendar-complete .calendar-lightbeam,
+.calendar a.calendar-verycomplete .calendar-lightbeam { visibility: visible; }
+.calendar a.calendar-verycomplete .calendar-lightbeam { color: #ffff66; text-shadow: 0 0 5px #ffff66; }
+</style>
+<pre class="calendar calendar-perfect"><a aria-label="Day 25, two stars" href="day25.html" class="calendar-day25 calendar-verycomplete">                        <span class="calendar-lightbeam">|</span>                               
+                       <span class="calendar-lightbeam">\</span><span class="calendar-lightbeam">|</span><span class="calendar-lightbeam">/</span>                              
                       <span class="calendar-lightbeam">-</span><span class="calendar-lightbeam">-</span>*<span class="calendar-lightbeam">-</span><span class="calendar-lightbeam">-</span>                        <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 24, two stars" href="day24.html" class="calendar-day24 calendar-verycomplete">                       &gt;<span class="calendar-ornament1">o</span>&lt;                         <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 23, two stars" href="day23.html" class="calendar-day23 calendar-verycomplete">                      &gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;                        <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 22, two stars" href="day22.html" class="calendar-day22 calendar-verycomplete">                     &gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;&lt;                       <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 21, two stars" href="day21.html" class="calendar-day21 calendar-verycomplete">                    &gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;                      <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 20, two stars" href="day20.html" class="calendar-day20 calendar-verycomplete">                   &gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;                     <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 19, two stars" href="day19.html" class="calendar-day19 calendar-verycomplete">                  &gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;                    <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 18, two stars" href="day18.html" class="calendar-day18 calendar-verycomplete">                 &gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;                   <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 17, two stars" href="day17.html" class="calendar-day17 calendar-verycomplete">                &gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;                  <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 16, two stars" href="day16.html" class="calendar-day16 calendar-verycomplete">               &gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;&lt;                 <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 15, two stars" href="day15.html" class="calendar-day15 calendar-verycomplete">              &gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;                <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 14, two stars" href="day14.html" class="calendar-day14 calendar-verycomplete">             &gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;               <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 13, two stars" href="day13.html" class="calendar-day13 calendar-verycomplete">            &gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;              <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 12, two stars" href="day12.html" class="calendar-day12 calendar-verycomplete">           &gt;&gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;             <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 11, two stars" href="day11.html" class="calendar-day11 calendar-verycomplete">          &gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;            <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 10, two stars" href="day10.html" class="calendar-day10 calendar-verycomplete">         &gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;&lt;           <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 9, two stars" href="day09.html" class="calendar-day9 calendar-verycomplete">        &gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;          <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 8, two stars" href="day08.html" class="calendar-day8 calendar-verycomplete">       &gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;&lt;         <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 7, two stars" href="day07.html" class="calendar-day7 calendar-verycomplete">      &gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;        <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 6, two stars" href="day06.html" class="calendar-day6 calendar-verycomplete">     &gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;       <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 5, two stars" href="day05.html" class="calendar-day5 calendar-verycomplete">    &gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;      <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 4, two stars" href="day04.html" class="calendar-day4 calendar-verycomplete">   &gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;     <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 3, two stars" href="day03.html" class="calendar-day3 calendar-verycomplete">  &gt;&gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;    <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 2, two stars" href="day02.html" class="calendar-day2 calendar-verycomplete"> &gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;   <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete">&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<span class="calendar-trunk">                      |   |
-                      |   |
-           _  _ __ ___|___|___ __ _  _           </span>
+<a aria-label="Day 23, two stars" href="day23.html" class="calendar-day23 calendar-verycomplete">                      &gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;                        <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 22, two stars" href="day22.html" class="calendar-day22 calendar-verycomplete">                     &gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;&lt;                       <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 21, two stars" href="day21.html" class="calendar-day21 calendar-verycomplete">                    &gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;                      <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 20, two stars" href="day20.html" class="calendar-day20 calendar-verycomplete">                   &gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;                     <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 19, two stars" href="day19.html" class="calendar-day19 calendar-verycomplete">                  &gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;&lt;                    <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 18, two stars" href="day18.html" class="calendar-day18 calendar-verycomplete">                 &gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;&lt;                   <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 17, two stars" href="day17.html" class="calendar-day17 calendar-verycomplete">                &gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;                  <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 16, two stars" href="day16.html" class="calendar-day16 calendar-verycomplete">               &gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;                 <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 15, two stars" href="day15.html" class="calendar-day15 calendar-verycomplete">              &gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;                <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 14, two stars" href="day14.html" class="calendar-day14 calendar-verycomplete">             &gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;               <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 13, two stars" href="day13.html" class="calendar-day13 calendar-verycomplete">            &gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;&lt;              <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 12, two stars" href="day12.html" class="calendar-day12 calendar-verycomplete">           &gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;             <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 11, two stars" href="day11.html" class="calendar-day11 calendar-verycomplete">          &gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament0">O</span>&lt;            <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 10, two stars" href="day10.html" class="calendar-day10 calendar-verycomplete">         &gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;           <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 9, two stars" href="day09.html" class="calendar-day9 calendar-verycomplete">        &gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;&lt;          <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 8, two stars" href="day08.html" class="calendar-day8 calendar-verycomplete">       &gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&lt;         <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 7, two stars" href="day07.html" class="calendar-day7 calendar-verycomplete">      &gt;<span class="calendar-ornament0">O</span>&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;        <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 6, two stars" href="day06.html" class="calendar-day6 calendar-verycomplete">     &gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;       <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 5, two stars" href="day05.html" class="calendar-day5 calendar-verycomplete">    &gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament1">o</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;      <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 4, two stars" href="day04.html" class="calendar-day4 calendar-verycomplete">   &gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;     <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 3, two stars" href="day03.html" class="calendar-day3 calendar-verycomplete">  &gt;&gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament3">*</span>&gt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;&lt;&lt;<span class="calendar-ornament0">O</span>&lt;&lt;    <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 2, two stars" href="day02.html" class="calendar-day2 calendar-verycomplete"> &gt;<span class="calendar-ornament2">@</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament1">o</span>&lt;&lt;&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament2">@</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament3">*</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament2">@</span>&lt;&lt;   <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete">&gt;&gt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament1">o</span>&lt;&lt;<span class="calendar-ornament2">@</span>&lt;&lt;&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament2">@</span>&lt;<span class="calendar-ornament3">*</span>&lt;<span class="calendar-ornament0">O</span>&lt;&lt;<span class="calendar-ornament1">o</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament3">*</span>&lt;&lt;<span class="calendar-ornament0">O</span>&gt;&gt;&gt;<span class="calendar-ornament1">o</span>&gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament0">O</span>&gt;&gt;<span class="calendar-ornament0">O</span>&lt;&lt;&lt;&lt;  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<span class="calendar-trunk">                      |   |                             
+                      |   |                             
+           _  _ __ ___|___|___ __ _  _           </span>       
 </pre>
-      <div class="calendar-bkg">
-        <div>__ ___ _ _ __ ____ __ ___ _ ____ ___ _ ___</div>
-        <div>_ __ _ _ __ __ _ _ _ _____ _ ___ ___ ____</div>
-        <div>___ ____ _ __ _ ____ ____ _ _____ ___ _</div>
-        <div>_ _ _ _ ____ ___ ____ _ __ __ ___ __ _ _</div>
-      </div>
+<div class="calendar-bkg">
+<div>__ ___ _ _ __ ____ __ ___ _ ____ ___ _ ___</div>
+<div>_ __ _ _ __ __ _ _ _ _____ _ ___ ___ ____</div>
+<div>___ ____ _ __ _ ____ ____ _ _____ ___ _</div>
+<div>_ _ _ _ ____ ___ ____ _ __ __ ___ __ _ _</div>
+</div>
 
-      <style>
-        #caravan {
-          position: fixed;
-          left: -160px;
-          top: 7em;
-          animation: anim-caravan linear 20s infinite;
-          z-index: -1;
-        }
-
-        @keyframes anim-caravan {
-          0% {
-            transform: translateX(0);
-            opacity: 1;
-          }
-
-          95% {
-            transform: translateX(96vw);
-            opacity: 1;
-          }
-
-          100% {
-            transform: translateX(100vw);
-            opacity: 0;
-          }
-        }
-
-        #caravan div {
-          position: absolute;
-          top: 0;
-          color: #aaaaaa;
-          animation: anim-reindeer ease 3.5s infinite;
-        }
-
-        @keyframes anim-reindeer {
-          0% {
-            transform: translateY(0);
-          }
-
-          50% {
-            transform: translateY(5px);
-          }
-
-          100% {
-            transform: translateY(0);
-          }
-        }
-
-        #caravan div:before {
-          content: "*";
-          position: absolute;
-          left: 0;
-          top: 0;
-          font-size: 6pt;
-        }
-
-        #caravan div:after {
-          content: "*";
-          position: absolute;
-          left: 10px;
-          top: 10px;
-          font-size: 5pt;
-        }
-
-        #caravan #sleigh:before {
-          content: "J";
-          transform: scaleX(-1) rotate(90deg);
-          font-size: 10pt;
-          color: #990000;
-          top: 2px;
-        }
-
-        #caravan #sleigh:after {
-          content: none;
-        }
-
-        #caravan #rudolph:before {
-          color: #ff0000;
-          left: 5px;
-          top: 5px;
-          text-shadow: 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000;
-        }
-
-        #caravan #rudolph:after {
-          content: none;
-        }
-      </style>
-      <div id="caravan">
-        <div style="animation-delay:-0.0s; left:0px;" id="sleigh"></div>
-        <div style="animation-delay:-0.5s; left:20px;"></div>
-        <div style="animation-delay:-1.0s; left:40px;"></div>
-        <div style="animation-delay:-1.5s; left:60px;"></div>
-        <div style="animation-delay:-2.0s; left:80px;"></div>
-        <div style="animation-delay:-2.5s; left:100px;"></div>
-        <div style="animation-delay:-3.0s; left:120px;"></div>
-        <div style="animation-delay:-3.5s; left:140px;" id="rudolph"></div>
-      </div>
-      <style>
-        .calendar-bkg {
-          background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-        }
-
-        .sf {
-          position: fixed;
-          animation: anim-sf0 linear 20s infinite;
-          z-index: -1;
-        }
-
-        .sf:before {
-          content: "*";
-        }
-
-        .sf.sf0 {
-          color: #ffffff;
-        }
-
-        .sf.sf1 {
-          color: #cccccc;
-          animation-name: anim-sf1;
-        }
-
-        .sf.sf2 {
-          color: #999999;
-          animation-name: anim-sf2;
-        }
-
-        .sf.sf3 {
-          color: #666666;
-          animation-name: anim-sf3;
-        }
-
-        @keyframes anim-sf0 {
-          0% {
-            transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
-          }
-
-          95% {
-            transform: translate(8em, 100vh) rotate(1turn) scale(1.0, 1.0);
-          }
-
-          100% {
-            transform: translate(8em, 100vh) rotate(1turn) scale(0.0, 0.0);
-          }
-        }
-
-        @keyframes anim-sf1 {
-          0% {
-            transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
-          }
-
-          95% {
-            transform: translate(6em, 100vh) rotate(1turn) scale(1.0, 1.0);
-          }
-
-          100% {
-            transform: translate(6em, 100vh) rotate(1turn) scale(0.0, 0.0);
-          }
-        }
-
-        @keyframes anim-sf2 {
-          0% {
-            transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
-          }
-
-          95% {
-            transform: translate(4em, 100vh) rotate(1turn) scale(1.0, 1.0);
-          }
-
-          100% {
-            transform: translate(4em, 100vh) rotate(1turn) scale(0.0, 0.0);
-          }
-        }
-
-        @keyframes anim-sf3 {
-          0% {
-            transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
-          }
-
-          95% {
-            transform: translate(2em, 100vh) rotate(1turn) scale(1.0, 1.0);
-          }
-
-          100% {
-            transform: translate(2em, 100vh) rotate(1turn) scale(0.0, 0.0);
-          }
-        }
-      </style>
-      <div class="sf sf0" style="top:-1.23em; left:55.67vw; animation-delay:-16.79s;"></div>
-      <div class="sf sf3" style="top:-4.56em; left:42.49vw; animation-delay:-3.30s;"></div>
-      <div class="sf sf3" style="top:-4.90em; left:41.09vw; animation-delay:-7.41s;"></div>
-      <div class="sf sf3" style="top:-4.89em; left:17.02vw; animation-delay:-10.51s;"></div>
-      <div class="sf sf0" style="top:-1.03em; left:39.33vw; animation-delay:-2.88s;"></div>
-      <div class="sf sf2" style="top:-3.29em; left:82.43vw; animation-delay:-17.94s;"></div>
-      <div class="sf sf3" style="top:-4.69em; left:24.78vw; animation-delay:-6.22s;"></div>
-      <div class="sf sf1" style="top:-2.23em; left:69.51vw; animation-delay:-1.45s;"></div>
-      <div class="sf sf0" style="top:-1.11em; left:26.19vw; animation-delay:-11.90s;"></div>
-      <div class="sf sf1" style="top:-3.00em; left:41.66vw; animation-delay:-9.29s;"></div>
-      <div class="sf sf3" style="top:-4.08em; left:43.16vw; animation-delay:-19.36s;"></div>
-      <div class="sf sf0" style="top:-1.23em; left:72.26vw; animation-delay:-10.71s;"></div>
-      <div class="sf sf3" style="top:-4.75em; left:78.17vw; animation-delay:-16.70s;"></div>
-      <div class="sf sf2" style="top:-3.30em; left:11.88vw; animation-delay:-18.04s;"></div>
-      <div class="sf sf2" style="top:-3.82em; left:15.11vw; animation-delay:-16.77s;"></div>
-      <div class="sf sf1" style="top:-2.51em; left:8.70vw; animation-delay:-14.86s;"></div>
-      <div class="sf sf1" style="top:-2.73em; left:27.63vw; animation-delay:-19.01s;"></div>
-      <div class="sf sf0" style="top:-1.75em; left:2.40vw; animation-delay:-17.67s;"></div>
-      <div class="sf sf2" style="top:-3.41em; left:80.96vw; animation-delay:-13.30s;"></div>
-      <div class="sf sf1" style="top:-2.55em; left:58.95vw; animation-delay:-13.35s;"></div>
-      <div class="sf sf1" style="top:-2.31em; left:68.01vw; animation-delay:-14.79s;"></div>
-      <div class="sf sf3" style="top:-4.89em; left:45.04vw; animation-delay:-10.86s;"></div>
-      <div class="sf sf3" style="top:-4.80em; left:30.34vw; animation-delay:-2.28s;"></div>
-      <div class="sf sf1" style="top:-2.69em; left:57.58vw; animation-delay:-1.69s;"></div>
-      <div class="sf sf2" style="top:-3.88em; left:71.76vw; animation-delay:-7.10s;"></div>
-      <div class="sf sf1" style="top:-2.23em; left:65.14vw; animation-delay:-0.84s;"></div>
-      <div class="sf sf2" style="top:-3.11em; left:76.59vw; animation-delay:-4.23s;"></div>
-      <div class="sf sf0" style="top:-1.58em; left:69.15vw; animation-delay:-17.81s;"></div>
-      <div class="sf sf0" style="top:-1.94em; left:6.38vw; animation-delay:-12.81s;"></div>
-      <div class="sf sf2" style="top:-3.21em; left:19.08vw; animation-delay:-5.15s;"></div>
-      <div class="sf sf0" style="top:-1.18em; left:88.12vw; animation-delay:-19.44s;"></div>
-      <div class="sf sf3" style="top:-4.31em; left:76.38vw; animation-delay:-11.40s;"></div>
-      <div class="sf sf0" style="top:-1.39em; left:43.24vw; animation-delay:-14.42s;"></div>
-      <div class="sf sf1" style="top:-2.76em; left:62.85vw; animation-delay:-4.40s;"></div>
-      <div class="sf sf1" style="top:-2.82em; left:15.60vw; animation-delay:-18.19s;"></div>
-      <div class="sf sf2" style="top:-3.05em; left:29.82vw; animation-delay:-11.52s;"></div>
-      <div class="sf sf1" style="top:-2.22em; left:22.69vw; animation-delay:-13.51s;"></div>
-      <div class="sf sf2" style="top:-3.07em; left:64.61vw; animation-delay:-3.74s;"></div>
-      <div class="sf sf2" style="top:-3.34em; left:2.93vw; animation-delay:-7.56s;"></div>
-      <div class="sf sf3" style="top:-4.75em; left:11.38vw; animation-delay:-12.47s;"></div>
-      <div class="sf sf3" style="top:-4.08em; left:52.50vw; animation-delay:-6.85s;"></div>
-      <div class="sf sf0" style="top:-1.63em; left:78.28vw; animation-delay:-9.41s;"></div>
-      <div class="sf sf3" style="top:-4.49em; left:23.50vw; animation-delay:-18.61s;"></div>
-      <div class="sf sf0" style="top:-1.24em; left:3.02vw; animation-delay:-3.01s;"></div>
-      <div class="sf sf2" style="top:-3.23em; left:50.69vw; animation-delay:-11.77s;"></div>
-      <div class="sf sf1" style="top:-2.67em; left:93.58vw; animation-delay:-8.09s;"></div>
-      <div class="sf sf2" style="top:-3.06em; left:46.89vw; animation-delay:-2.72s;"></div>
-      <div class="sf sf0" style="top:-1.99em; left:10.55vw; animation-delay:-9.00s;"></div>
-      <div class="sf sf0" style="top:-1.09em; left:57.26vw; animation-delay:-11.99s;"></div>
-      <div class="sf sf0" style="top:-1.59em; left:62.00vw; animation-delay:-1.65s;"></div>
-      <div class="sf sf2" style="top:-3.75em; left:55.31vw; animation-delay:-10.95s;"></div>
-      <div class="sf sf1" style="top:-2.04em; left:81.25vw; animation-delay:-4.52s;"></div>
-      <div class="sf sf3" style="top:-4.19em; left:28.37vw; animation-delay:-0.21s;"></div>
-      <div class="sf sf1" style="top:-3.00em; left:81.77vw; animation-delay:-14.72s;"></div>
-      <div class="sf sf3" style="top:-4.86em; left:12.31vw; animation-delay:-15.25s;"></div>
-      <div class="sf sf2" style="top:-3.15em; left:62.92vw; animation-delay:-11.67s;"></div>
-      <div class="sf sf0" style="top:-1.14em; left:35.09vw; animation-delay:-18.93s;"></div>
-      <div class="sf sf1" style="top:-2.35em; left:78.67vw; animation-delay:-17.86s;"></div>
-      <div class="sf sf0" style="top:-1.30em; left:5.50vw; animation-delay:-15.40s;"></div>
-      <div class="sf sf0" style="top:-1.07em; left:20.37vw; animation-delay:-13.94s;"></div>
-      <div class="sf sf2" style="top:-3.32em; left:7.62vw; animation-delay:-5.62s;"></div>
-      <div class="sf sf0" style="top:-1.47em; left:53.26vw; animation-delay:-13.70s;"></div>
-      <div class="sf sf2" style="top:-3.54em; left:48.44vw; animation-delay:-0.34s;"></div>
-      <div class="sf sf1" style="top:-2.37em; left:64.50vw; animation-delay:-13.31s;"></div>
-      <div class="sf sf2" style="top:-3.03em; left:89.61vw; animation-delay:-13.77s;"></div>
-      <div class="sf sf0" style="top:-1.41em; left:89.05vw; animation-delay:-18.84s;"></div>
-      <div class="sf sf3" style="top:-4.81em; left:95.86vw; animation-delay:-17.93s;"></div>
-      <div class="sf sf3" style="top:-4.43em; left:82.71vw; animation-delay:-6.29s;"></div>
-      <div class="sf sf1" style="top:-2.36em; left:31.20vw; animation-delay:-6.03s;"></div>
-      <div class="sf sf1" style="top:-2.24em; left:4.41vw; animation-delay:-18.95s;"></div>
-      <div class="sf sf1" style="top:-2.54em; left:89.89vw; animation-delay:-11.83s;"></div>
-      <div class="sf sf1" style="top:-2.45em; left:72.93vw; animation-delay:-18.73s;"></div>
-      <div class="sf sf1" style="top:-2.21em; left:62.63vw; animation-delay:-0.80s;"></div>
-      <div class="sf sf2" style="top:-3.97em; left:75.39vw; animation-delay:-19.61s;"></div>
-      <div class="sf sf3" style="top:-4.82em; left:68.91vw; animation-delay:-9.38s;"></div>
-      <div class="sf sf0" style="top:-1.46em; left:2.80vw; animation-delay:-4.65s;"></div>
-      <div class="sf sf0" style="top:-1.09em; left:14.62vw; animation-delay:-18.55s;"></div>
-      <div class="sf sf3" style="top:-4.64em; left:4.87vw; animation-delay:-0.66s;"></div>
-      <div class="sf sf3" style="top:-4.51em; left:14.29vw; animation-delay:-9.29s;"></div>
-      <div class="sf sf1" style="top:-2.87em; left:38.64vw; animation-delay:-19.18s;"></div>
-      <div class="sf sf1" style="top:-2.57em; left:30.01vw; animation-delay:-19.37s;"></div>
-      <div class="sf sf2" style="top:-3.15em; left:82.41vw; animation-delay:-6.43s;"></div>
-      <div class="sf sf0" style="top:-1.12em; left:84.12vw; animation-delay:-2.95s;"></div>
-      <div class="sf sf3" style="top:-4.04em; left:18.25vw; animation-delay:-0.50s;"></div>
-      <div class="sf sf0" style="top:-1.63em; left:60.21vw; animation-delay:-7.79s;"></div>
-      <div class="sf sf2" style="top:-3.44em; left:48.06vw; animation-delay:-9.53s;"></div>
-      <div class="sf sf0" style="top:-1.66em; left:6.59vw; animation-delay:-8.25s;"></div>
-      <div class="sf sf0" style="top:-1.62em; left:9.81vw; animation-delay:-1.16s;"></div>
-      <div class="sf sf3" style="top:-4.21em; left:18.49vw; animation-delay:-6.52s;"></div>
-      <div class="sf sf2" style="top:-3.22em; left:31.68vw; animation-delay:-10.82s;"></div>
-      <div class="sf sf3" style="top:-4.15em; left:39.72vw; animation-delay:-19.68s;"></div>
-      <div class="sf sf0" style="top:-1.06em; left:23.22vw; animation-delay:-13.54s;"></div>
-      <div class="sf sf0" style="top:-1.75em; left:16.15vw; animation-delay:-5.13s;"></div>
-      <div class="sf sf1" style="top:-2.17em; left:78.74vw; animation-delay:-3.00s;"></div>
-      <div class="sf sf2" style="top:-3.34em; left:37.62vw; animation-delay:-3.59s;"></div>
-      <div class="sf sf1" style="top:-2.28em; left:3.80vw; animation-delay:-19.74s;"></div>
-      <div class="sf sf1" style="top:-2.51em; left:36.17vw; animation-delay:-15.28s;"></div>
-      <div class="sf sf1" style="top:-2.30em; left:21.67vw; animation-delay:-10.55s;"></div>
-      <div class="sf sf1" style="top:-2.94em; left:27.38vw; animation-delay:-12.33s;"></div>
-      <div class="sf sf2" style="top:-3.37em; left:27.10vw; animation-delay:-0.94s;"></div>
-    </main>
-  </body>
+<style>
+#caravan {
+  position: fixed;
+  left: -160px;
+  top: 7em;
+  animation: anim-caravan linear 20s infinite;
+  z-index: -1;
+}
+@keyframes anim-caravan {
+    0% { transform: translateX(0);     opacity: 1; }
+   95% { transform: translateX(96vw);  opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+#caravan div {
+  position: absolute;
+  top: 0;
+  color: #aaaaaa;
+  animation: anim-reindeer ease 3.5s infinite;
+}
+@keyframes anim-reindeer {
+    0% { transform: translateY(0); }
+   50% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+#caravan div:before {
+  content: "*";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 6pt;
+}
+#caravan div:after {
+  content: "*";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 5pt;
+}
+#caravan #sleigh:before {
+  content: "J";
+  transform: scaleX(-1) rotate(90deg);
+  font-size: 10pt;
+  color: #990000;
+  top: 2px;
+}
+#caravan #sleigh:after {
+  content: none;
+}
+#caravan #rudolph:before {
+  color: #ff0000;
+  left: 5px;
+  top: 5px;
+  text-shadow: 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000;
+}
+#caravan #rudolph:after {
+  content: none;
+}
+</style>
+<div id="caravan">
+<div style="animation-delay:-0.0s; left:0px;" id="sleigh"></div>
+<div style="animation-delay:-0.5s; left:20px;"></div>
+<div style="animation-delay:-1.0s; left:40px;"></div>
+<div style="animation-delay:-1.5s; left:60px;"></div>
+<div style="animation-delay:-2.0s; left:80px;"></div>
+<div style="animation-delay:-2.5s; left:100px;"></div>
+<div style="animation-delay:-3.0s; left:120px;"></div>
+<div style="animation-delay:-3.5s; left:140px;" id="rudolph"></div>
+</div><style>
+.calendar-bkg {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 100%);
+}
+.sf {
+  position: fixed;
+  animation: anim-sf0 linear 20s infinite;
+  z-index: -1;
+}
+.sf:before {
+  content: "*";
+}
+.sf.sf0 { color: #ffffff; }
+.sf.sf1 { color: #cccccc; animation-name: anim-sf1; }
+.sf.sf2 { color: #999999; animation-name: anim-sf2; }
+.sf.sf3 { color: #666666; animation-name: anim-sf3; }
+@keyframes anim-sf0 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(8em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(8em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf1 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(6em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(6em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf2 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(4em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(4em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf3 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(2em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(2em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+</style>
+<div class="sf sf3" style="top:-4.83em; left:47.93vw; animation-delay:-15.24s;"></div><div class="sf sf2" style="top:-3.42em; left:85.73vw; animation-delay:-2.57s;"></div><div class="sf sf2" style="top:-3.15em; left:53.96vw; animation-delay:-7.77s;"></div><div class="sf sf1" style="top:-2.62em; left:32.39vw; animation-delay:-13.50s;"></div><div class="sf sf1" style="top:-2.27em; left:52.89vw; animation-delay:-3.60s;"></div><div class="sf sf2" style="top:-3.80em; left:32.37vw; animation-delay:-13.70s;"></div><div class="sf sf2" style="top:-3.02em; left:45.58vw; animation-delay:-2.61s;"></div><div class="sf sf0" style="top:-1.54em; left:63.19vw; animation-delay:-6.94s;"></div><div class="sf sf0" style="top:-1.34em; left:54.69vw; animation-delay:-18.82s;"></div><div class="sf sf2" style="top:-3.51em; left:55.15vw; animation-delay:-16.14s;"></div><div class="sf sf2" style="top:-3.58em; left:21.47vw; animation-delay:-1.99s;"></div><div class="sf sf2" style="top:-3.31em; left:32.32vw; animation-delay:-10.97s;"></div><div class="sf sf1" style="top:-2.40em; left:71.60vw; animation-delay:-2.11s;"></div><div class="sf sf1" style="top:-2.50em; left:74.98vw; animation-delay:-11.19s;"></div><div class="sf sf2" style="top:-3.68em; left:77.13vw; animation-delay:-9.89s;"></div><div class="sf sf3" style="top:-4.34em; left:2.10vw; animation-delay:-17.34s;"></div><div class="sf sf2" style="top:-3.96em; left:9.62vw; animation-delay:-6.83s;"></div><div class="sf sf1" style="top:-2.86em; left:31.53vw; animation-delay:-19.92s;"></div><div class="sf sf0" style="top:-1.47em; left:91.95vw; animation-delay:-1.66s;"></div><div class="sf sf2" style="top:-3.85em; left:25.11vw; animation-delay:-10.49s;"></div><div class="sf sf3" style="top:-4.38em; left:2.87vw; animation-delay:-16.59s;"></div><div class="sf sf2" style="top:-3.13em; left:42.70vw; animation-delay:-3.76s;"></div><div class="sf sf2" style="top:-3.58em; left:33.70vw; animation-delay:-16.31s;"></div><div class="sf sf1" style="top:-2.51em; left:2.92vw; animation-delay:-18.36s;"></div><div class="sf sf3" style="top:-4.12em; left:82.03vw; animation-delay:-5.59s;"></div><div class="sf sf3" style="top:-4.36em; left:88.08vw; animation-delay:-15.94s;"></div><div class="sf sf2" style="top:-3.69em; left:55.98vw; animation-delay:-16.96s;"></div><div class="sf sf1" style="top:-2.34em; left:82.92vw; animation-delay:-2.92s;"></div><div class="sf sf1" style="top:-2.35em; left:11.28vw; animation-delay:-9.28s;"></div><div class="sf sf2" style="top:-3.50em; left:15.58vw; animation-delay:-17.72s;"></div><div class="sf sf2" style="top:-3.61em; left:5.81vw; animation-delay:-19.85s;"></div><div class="sf sf1" style="top:-2.17em; left:29.02vw; animation-delay:-16.92s;"></div><div class="sf sf2" style="top:-3.66em; left:63.16vw; animation-delay:-18.09s;"></div><div class="sf sf3" style="top:-4.64em; left:28.73vw; animation-delay:-18.66s;"></div><div class="sf sf2" style="top:-3.39em; left:72.73vw; animation-delay:-17.30s;"></div><div class="sf sf3" style="top:-4.69em; left:15.94vw; animation-delay:-18.65s;"></div><div class="sf sf1" style="top:-2.00em; left:9.29vw; animation-delay:-12.19s;"></div><div class="sf sf2" style="top:-3.13em; left:31.21vw; animation-delay:-4.96s;"></div><div class="sf sf1" style="top:-2.18em; left:59.11vw; animation-delay:-4.97s;"></div><div class="sf sf2" style="top:-3.90em; left:95.37vw; animation-delay:-1.26s;"></div><div class="sf sf1" style="top:-2.24em; left:88.76vw; animation-delay:-0.11s;"></div><div class="sf sf1" style="top:-2.70em; left:28.86vw; animation-delay:-5.18s;"></div><div class="sf sf2" style="top:-3.93em; left:95.43vw; animation-delay:-8.91s;"></div><div class="sf sf1" style="top:-2.56em; left:71.00vw; animation-delay:-18.30s;"></div><div class="sf sf0" style="top:-1.97em; left:44.66vw; animation-delay:-9.25s;"></div><div class="sf sf0" style="top:-1.04em; left:13.07vw; animation-delay:-7.31s;"></div><div class="sf sf2" style="top:-3.99em; left:42.95vw; animation-delay:-12.61s;"></div><div class="sf sf2" style="top:-3.78em; left:23.42vw; animation-delay:-12.18s;"></div><div class="sf sf1" style="top:-2.34em; left:38.10vw; animation-delay:-0.99s;"></div><div class="sf sf0" style="top:-1.49em; left:53.24vw; animation-delay:-6.44s;"></div><div class="sf sf3" style="top:-4.22em; left:74.86vw; animation-delay:-9.69s;"></div><div class="sf sf1" style="top:-2.06em; left:39.38vw; animation-delay:-17.05s;"></div><div class="sf sf3" style="top:-4.19em; left:52.77vw; animation-delay:-8.38s;"></div><div class="sf sf0" style="top:-1.81em; left:19.90vw; animation-delay:-7.09s;"></div><div class="sf sf0" style="top:-1.38em; left:10.84vw; animation-delay:-12.39s;"></div><div class="sf sf0" style="top:-1.28em; left:3.71vw; animation-delay:-12.90s;"></div><div class="sf sf0" style="top:-1.59em; left:31.65vw; animation-delay:-19.33s;"></div><div class="sf sf1" style="top:-2.09em; left:93.60vw; animation-delay:-9.45s;"></div><div class="sf sf1" style="top:-2.70em; left:38.66vw; animation-delay:-11.37s;"></div><div class="sf sf0" style="top:-1.49em; left:51.19vw; animation-delay:-12.41s;"></div><div class="sf sf2" style="top:-3.74em; left:66.66vw; animation-delay:-13.16s;"></div><div class="sf sf3" style="top:-4.42em; left:8.53vw; animation-delay:-13.55s;"></div><div class="sf sf3" style="top:-4.83em; left:65.33vw; animation-delay:-7.17s;"></div><div class="sf sf3" style="top:-4.54em; left:18.89vw; animation-delay:-7.28s;"></div><div class="sf sf0" style="top:-1.74em; left:80.21vw; animation-delay:-3.35s;"></div><div class="sf sf0" style="top:-1.81em; left:38.66vw; animation-delay:-0.56s;"></div><div class="sf sf2" style="top:-3.86em; left:93.74vw; animation-delay:-18.82s;"></div><div class="sf sf0" style="top:-1.79em; left:63.91vw; animation-delay:-5.55s;"></div><div class="sf sf1" style="top:-2.61em; left:77.04vw; animation-delay:-4.43s;"></div><div class="sf sf0" style="top:-1.38em; left:12.76vw; animation-delay:-15.39s;"></div><div class="sf sf1" style="top:-2.93em; left:54.91vw; animation-delay:-19.76s;"></div><div class="sf sf2" style="top:-3.57em; left:74.60vw; animation-delay:-16.71s;"></div><div class="sf sf3" style="top:-4.84em; left:72.75vw; animation-delay:-5.99s;"></div><div class="sf sf1" style="top:-2.94em; left:78.68vw; animation-delay:-19.67s;"></div><div class="sf sf0" style="top:-1.48em; left:19.41vw; animation-delay:-16.78s;"></div><div class="sf sf1" style="top:-2.08em; left:87.51vw; animation-delay:-6.10s;"></div><div class="sf sf0" style="top:-1.94em; left:64.88vw; animation-delay:-1.48s;"></div><div class="sf sf2" style="top:-3.53em; left:25.65vw; animation-delay:-9.29s;"></div><div class="sf sf3" style="top:-4.53em; left:25.25vw; animation-delay:-12.01s;"></div><div class="sf sf3" style="top:-4.83em; left:50.79vw; animation-delay:-5.39s;"></div><div class="sf sf1" style="top:-2.16em; left:55.59vw; animation-delay:-4.91s;"></div><div class="sf sf1" style="top:-2.37em; left:77.45vw; animation-delay:-15.58s;"></div><div class="sf sf2" style="top:-3.19em; left:18.68vw; animation-delay:-13.74s;"></div><div class="sf sf3" style="top:-4.92em; left:53.73vw; animation-delay:-10.54s;"></div><div class="sf sf0" style="top:-1.17em; left:64.06vw; animation-delay:-13.19s;"></div><div class="sf sf0" style="top:-1.28em; left:12.92vw; animation-delay:-14.42s;"></div><div class="sf sf3" style="top:-4.44em; left:47.41vw; animation-delay:-6.08s;"></div><div class="sf sf0" style="top:-1.69em; left:75.77vw; animation-delay:-4.22s;"></div><div class="sf sf0" style="top:-1.29em; left:90.41vw; animation-delay:-17.11s;"></div><div class="sf sf1" style="top:-2.84em; left:48.89vw; animation-delay:-12.20s;"></div><div class="sf sf1" style="top:-2.93em; left:15.28vw; animation-delay:-13.14s;"></div><div class="sf sf3" style="top:-4.61em; left:41.95vw; animation-delay:-3.99s;"></div><div class="sf sf1" style="top:-2.76em; left:16.58vw; animation-delay:-8.77s;"></div><div class="sf sf2" style="top:-3.44em; left:9.74vw; animation-delay:-3.01s;"></div><div class="sf sf3" style="top:-4.19em; left:40.49vw; animation-delay:-18.00s;"></div><div class="sf sf2" style="top:-3.32em; left:45.80vw; animation-delay:-3.15s;"></div><div class="sf sf0" style="top:-1.96em; left:23.53vw; animation-delay:-18.38s;"></div><div class="sf sf1" style="top:-2.20em; left:75.96vw; animation-delay:-15.93s;"></div><div class="sf sf1" style="top:-2.67em; left:13.77vw; animation-delay:-1.82s;"></div><div class="sf sf3" style="top:-4.27em; left:54.19vw; animation-delay:-15.66s;"></div>
+</main>
+</body>
 </html>

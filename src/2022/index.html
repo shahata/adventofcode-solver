@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Advent of Code 2022</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2022</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<p>The first puzzles will unlock on December 1st at midnight EST (UTC-5).  See you then!</p>
+<pre class="calendar calendar-beckon"><span aria-hidden="true" class="calendar-day25">#@@#@#@@@@@@#@@#@@@#@##@@##@@#@@@@@#@@@##@@@@#@@@  <span class="calendar-day">25</span></span>
+<span aria-hidden="true" class="calendar-day24">#@@@@#@@@@#@@@@@#@@@@@#@@@@###@@#@@@#@@@#@@@@##@@  <span class="calendar-day">24</span></span>
+<span aria-hidden="true" class="calendar-day23">@@#@@@#@@@#@#@@@@@@@@@@@@#@@@@#@@@#@@@##@#@@@@##@  <span class="calendar-day">23</span></span>
+<span aria-hidden="true" class="calendar-day22">#@@#@@#@@@@@#@@@@@@@#@@@@@@@#@@##@##@#@##@@#@#@@@  <span class="calendar-day">22</span></span>
+<span aria-hidden="true" class="calendar-day21">@@@@@@@#@@@@@@@@@@@@@@@@@@####@@##@@@@####@@@##@@  <span class="calendar-day">21</span></span>
+<span aria-hidden="true" class="calendar-day20">#@@#@@#@@#@#@@###@@@@@@@@@@@@@@@@###@@@@@@#@@@@@#  <span class="calendar-day">20</span></span>
+<span aria-hidden="true" class="calendar-day19">#@#@#@@@@@@@##@@@@@@#@@@#@@@@@@@@@#@@##@#@@@##@@#  <span class="calendar-day">19</span></span>
+<span aria-hidden="true" class="calendar-day18">@@@#@@@@@@@@@@@@@@@##@@##@@#@@@@@#@#@@@#@@#@#@@#@  <span class="calendar-day">18</span></span>
+<span aria-hidden="true" class="calendar-day17">#@@@@@@#@@@@@##@@@@#@@@#@@##@@##@@@#@@@@@@@@@#@@@  <span class="calendar-day">17</span></span>
+<span aria-hidden="true" class="calendar-day16">@@@@#@@#@@#@@@@@#@@@@@#@@@@@#@@#@#@@@#@@@@@@#@@#@  <span class="calendar-day">16</span></span>
+<span aria-hidden="true" class="calendar-day15">@@@@#@@#@@@@@@#@##@@@#@#@@@@@@@#@@@@@@##@@##@@#@@  <span class="calendar-day">15</span></span>
+<span aria-hidden="true" class="calendar-day14">@###@#@#@#@@@@#@@@@@#@@@@@@@@@@#@#@@#@@####@@@@@@  <span class="calendar-day">14</span></span>
+<span aria-hidden="true" class="calendar-day13">#@@####@@##@@@##@@#@##@@@#@@@@@@@#@@@@#@#@@@#@#@@  <span class="calendar-day">13</span></span>
+<span aria-hidden="true" class="calendar-day12">@@@@@@@##@@@###@@@#@@@#@@#@@@##@@#@@@#@#@#@@#@#@#  <span class="calendar-day">12</span></span>
+<span aria-hidden="true" class="calendar-day11">#@@#@##@###@@@@#@@#@@@@##@##@#@#@@#@@#@@#@#@@@@@@  <span class="calendar-day">11</span></span>
+<span aria-hidden="true" class="calendar-day10">#@#@@@@@@@@#@@@#|@@#@@#@@@#@##@#@#@@@@@#@#@@##@@#  <span class="calendar-day">10</span></span>
+<span aria-hidden="true" class="calendar-day9">#@##@#@@@##@##@@#@@@@@@#@@@@#@#@#@@#@##@#@##@@@@@  <span class="calendar-day"> 9</span></span>
+<span aria-hidden="true" class="calendar-day8">@@@@@@#@@@@@@@@@#@@@@@#@@@@#@#@#@##@#@#@@@@#@@@@@  <span class="calendar-day"> 8</span></span>
+<span aria-hidden="true" class="calendar-day7">##@@@@#@###@##@@@@@@@@@@@@@#@#@@#@###@##@@@@#@@##  <span class="calendar-day"> 7</span></span>
+<span aria-hidden="true" class="calendar-day6">@#@@@@@@##@##@@@@@@#@@@#@@@#@#@@@@@#@@@@@@@@@#@##  <span class="calendar-day"> 6</span></span>
+<span aria-hidden="true" class="calendar-day5">@#@@#@@@###@@##@@@@@@#@@@@@##@@@@#@@@##@@@@##@@@@  <span class="calendar-day"> 5</span></span>
+<span aria-hidden="true" class="calendar-day4">@@#@@@@@@@@@@#@@@#@@@#@@@####@@@##@@#@@#@##@@@#@@  <span class="calendar-day"> 4</span></span>
+<span aria-hidden="true" class="calendar-day3">@#@@@@####@@#@@#@@##@@@@@@###@@#@@@@@@#@##@#@@@##  <span class="calendar-day"> 3</span></span>
+<span aria-hidden="true" class="calendar-day2">#@@###@@@@@@@@@#@#@####@@#@@@@@#@@@#@@#@@@@@@@#@@  <span class="calendar-day"> 2</span></span>
+<span aria-hidden="true" class="calendar-day1">@@#@@@@@@@#@#@##@@@#@@@@@#@@@@@@@@@#@@#@#@@##@@#@  <span class="calendar-day"> 1</span><span id="calendar-countdown"></span><script>
+(function(){
+var countdown = document.getElementById("calendar-countdown");
+if (!countdown) return;
+var server_eta = 36106;
+var key = "2022-1-"+server_eta;
+var now = Math.floor(new Date().getTime()/1000);
+var target = server_eta + now;
+if (sessionStorage) {
+  // if you navigate away and hit the back button, this makes sure the countdown doesn't start from the wrong time
+  var prev_target = sessionStorage.getItem("calendar-target");
+  try { prev_target = JSON.parse(prev_target); } catch(e){}
+  if (prev_target && typeof prev_target === 'object' && prev_target.key === key) {
+    target = prev_target.target;
+  } else {
+    sessionStorage.setItem("calendar-target", JSON.stringify({key:key, target:target+1}));
+  }
+}
+
+var interval = null;
+function update_countdown() {
+  var remaining = Math.ceil(target - new Date().getTime()/1000);
+  if (remaining <= 0) {
+    clearInterval(interval);
+    interval = null;
+    countdown.textContent = "";
+
+    var a = document.createElement("a");
+    a[String.fromCharCode(104,114,101,102)] = "/2022" + String.fromCharCode(47,100,97,121,47) + "1";
+    a.className = "calendar-day1 calendar-day-new";
+    var span = countdown.parentNode;
+    while (span.firstChild) {
+      a.appendChild(span.firstChild);
+    }
+    a.appendChild(document.createTextNode("   "));
+    span.parentNode.insertBefore(a, span);
+    span.parentNode.removeChild(span);
+    countdown.parentNode.removeChild(countdown);
+  } else {
+    var hours = Math.floor(remaining/60/60);
+    remaining -= hours * 60 * 60;
+    var minutes = Math.floor(remaining/60);
+    remaining -= minutes * 60;
+    var seconds = remaining;
+    countdown.textContent = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  }
+}
+interval = setInterval(update_countdown,1000);
+update_countdown();
+})();
+</script></span>
+</pre>
+</main>
+</body>
+</html>

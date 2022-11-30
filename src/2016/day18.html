@@ -1,94 +1,45 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 18 - Advent of Code 2016</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2016</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 18: Like a Rogue ---</h2>
-        <p>As you enter this room, you hear a loud click! Some of the tiles in the floor here seem to be pressure plates
-          for <a href="https://nethackwiki.com/wiki/Trap">traps</a>, and the trap you just triggered has run out of...
-          whatever it tried to do to you. You doubt you'll be so lucky next time.</p>
-        <p>Upon closer examination, the traps and safe tiles in this room seem to follow a pattern. The tiles are
-          arranged into rows that are all the same width; you take note of the safe tiles (<code>.</code>) and traps
-          (<code>^</code>) in the first row (your puzzle input).</p>
-        <p>The type of tile (trapped or safe) in each row is based on the types of the tiles in the same position, and
-          to either side of that position, in the previous row. (If either side is off either end of the row, it counts
-          as "safe" because there isn't a trap embedded in the wall.)</p>
-        <p>For example, suppose you know the first row (with tiles marked by letters) and want to determine the next row
-          (with tiles marked by numbers):</p>
-        <pre><code>ABCDE
+<head>
+<meta charset="utf-8"/>
+<title>Day 18 - Advent of Code 2016</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2016</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 18: Like a Rogue ---</h2><p>As you enter this room, you hear a loud click! Some of the tiles in the floor here seem to be pressure plates for <a href="https://nethackwiki.com/wiki/Trap">traps</a>, and the trap you just triggered has run out of... whatever it tried to do to you. You doubt you'll be so lucky next time.</p>
+<p>Upon closer examination, the traps and safe tiles in this room seem to follow a pattern. The tiles are arranged into rows that are all the same width; you take note of the safe tiles (<code>.</code>) and traps (<code>^</code>) in the first row (your puzzle input).</p>
+<p>The type of tile (trapped or safe) in each row is based on the types of the tiles in the same position, and to either side of that position, in the previous row. (If either side is off either end of the row, it counts as "safe" because there isn't a trap embedded in the wall.)</p>
+<p>For example, suppose you know the first row (with tiles marked by letters) and want to determine the next row (with tiles marked by numbers):</p>
+<pre><code>ABCDE
 12345
 </code></pre>
-        <p>The type of tile <code>2</code> is based on the types of tiles <code>A</code>, <code>B</code>, and
-          <code>C</code>; the type of tile <code>5</code> is based on tiles <code>D</code>, <code>E</code>, and an
-          imaginary "safe" tile. Let's call these three tiles from the previous row the <em>left</em>, <em>center</em>,
-          and <em>right</em> tiles, respectively. Then, a new tile is a <em>trap</em> only in one of the following
-          situations:</p>
-        <ul>
-          <li>Its <em>left</em> and <em>center</em> tiles are traps, but its <em>right</em> tile is not.</li>
-          <li>Its <em>center</em> and <em>right</em> tiles are traps, but its <em>left</em> tile is not.</li>
-          <li>Only its <em>left</em> tile is a trap.</li>
-          <li>Only its <em>right</em> tile is a trap.</li>
-        </ul>
-        <p>In any other situation, the new tile is safe.</p>
-        <p>Then, starting with the row <code>..^^.</code>, you can determine the next row by applying those rules to
-          each new tile:</p>
-        <ul>
-          <li>The leftmost character on the next row considers the left (nonexistent, so we assume "safe"), center (the
-            first <code>.</code>, which means "safe"), and right (the second <code>.</code>, also "safe") tiles on the
-            previous row. Because all of the trap rules require a trap in at least one of the previous three tiles, the
-            first tile on this new row is also safe, <code>.</code>.</li>
-          <li>The second character on the next row considers its left (<code>.</code>), center (<code>.</code>), and
-            right (<code>^</code>) tiles from the previous row. This matches the fourth rule: only the right tile is a
-            trap. Therefore, the next tile in this new row is a trap, <code>^</code>.</li>
-          <li>The third character considers <code>.^^</code>, which matches the second trap rule: its center and right
-            tiles are traps, but its left tile is not. Therefore, this tile is also a trap, <code>^</code>.</li>
-          <li>The last two characters in this new row match the first and third rules, respectively, and so they are
-            both also traps, <code>^</code>.</li>
-        </ul>
-        <p>After these steps, we now know the next row of tiles in the room: <code>.^^^^</code>. Then, we continue on to
-          the next row, using the same rules, and get <code>^^..^</code>. After determining two new rows, our map looks
-          like this:</p>
-        <pre><code>..^^.
+<p>The type of tile <code>2</code> is based on the types of tiles <code>A</code>, <code>B</code>, and <code>C</code>; the type of tile <code>5</code> is based on tiles <code>D</code>, <code>E</code>, and an imaginary "safe" tile. Let's call these three tiles from the previous row the <em>left</em>, <em>center</em>, and <em>right</em> tiles, respectively. Then, a new tile is a <em>trap</em> only in one of the following situations:</p>
+<ul>
+<li>Its <em>left</em> and <em>center</em> tiles are traps, but its <em>right</em> tile is not.</li>
+<li>Its <em>center</em> and <em>right</em> tiles are traps, but its <em>left</em> tile is not.</li>
+<li>Only its <em>left</em> tile is a trap.</li>
+<li>Only its <em>right</em> tile is a trap.</li>
+</ul>
+<p>In any other situation, the new tile is safe.</p>
+<p>Then, starting with the row <code>..^^.</code>, you can determine the next row by applying those rules to each new tile:</p>
+<ul>
+<li>The leftmost character on the next row considers the left (nonexistent, so we assume "safe"), center (the first <code>.</code>, which means "safe"), and right (the second <code>.</code>, also "safe") tiles on the previous row. Because all of the trap rules require a trap in at least one of the previous three tiles, the first tile on this new row is also safe, <code>.</code>.</li>
+<li>The second character on the next row considers its left (<code>.</code>), center (<code>.</code>), and right (<code>^</code>) tiles from the previous row. This matches the fourth rule: only the right tile is a trap. Therefore, the next tile in this new row is a trap, <code>^</code>.</li>
+<li>The third character considers <code>.^^</code>, which matches the second trap rule: its center and right tiles are traps, but its left tile is not. Therefore, this tile is also a trap, <code>^</code>.</li>
+<li>The last two characters in this new row match the first and third rules, respectively, and so they are both also traps, <code>^</code>.</li>
+</ul>
+<p>After these steps, we now know the next row of tiles in the room: <code>.^^^^</code>. Then, we continue on to the next row, using the same rules, and get <code>^^..^</code>. After determining two new rows, our map looks like this:</p>
+<pre><code>..^^.
 .^^^^
 ^^..^
 </code></pre>
-        <p>Here's a larger example with ten tiles per row and ten rows:</p>
-        <pre><code>.^^.^.^^^^
+<p>Here's a larger example with ten tiles per row and ten rows:</p>
+<pre><code>.^^.^.^^^^
 ^^^...^..^
 ^.^^.^.^^.
 ..^^...^^^
@@ -99,26 +50,18 @@
 .^^^..^.^^
 ^^.^^^..^^
 </code></pre>
-        <p>In ten rows, this larger example has <code>38</code> safe tiles.</p>
-        <p>Starting with the map in your puzzle input, in a total of <code>40</code> rows (including the starting row),
-          <em>how many safe tiles</em> are there?</p>
-      </article>
-      <p>Your puzzle answer was <code>1951</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p><em>How many safe tiles</em> are there in a total of <span
-            title="You feel a wrenching sensation."><code>400000</code> rows</span>?</p>
-      </article>
-      <p>Your puzzle answer was <code>20002936</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day18.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>In ten rows, this larger example has <code>38</code> safe tiles.</p>
+<p>Starting with the map in your puzzle input, in a total of <code>40</code> rows (including the starting row), <em>how many safe tiles</em> are there?</p>
+</article>
+<p>Your puzzle answer was <code>1951</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p><em>How many safe tiles</em> are there in a total of <span title="You feel a wrenching sensation."><code>400000</code> rows</span>?</p>
+</article>
+<p>Your puzzle answer was <code>20002936</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day18.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Like+a+Rogue%22+%2D+Day+18+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F18'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

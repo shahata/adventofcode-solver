@@ -1,74 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 20 - Advent of Code 2017</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2017</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 20: Particle Swarm ---</h2>
-        <p>Suddenly, the GPU contacts you, asking for <span
-            title="...as if millions of graphics pipelines suddenly cried out for help, but suddenly started working on something else instead because they all have to do the same thing at the same time and can't spend very long asking for help.">help</span>.
-          Someone has asked it to simulate <em>too many particles</em>, and it won't be able to finish them all in time
-          to render the next frame at this rate.</p>
-        <p>It transmits to you a buffer (your puzzle input) listing each particle in order (starting with particle
-          <code>0</code>, then particle <code>1</code>, particle <code>2</code>, and so on). For each particle, it
-          provides the <code>X</code>, <code>Y</code>, and <code>Z</code> coordinates for the particle's position
-          (<code>p</code>), velocity (<code>v</code>), and acceleration (<code>a</code>), each in the format
-          <code>&lt;X,Y,Z&gt;</code>.</p>
-        <p>Each tick, all particles are updated simultaneously. A particle's properties are updated in the following
-          order:</p>
-        <ul>
-          <li>Increase the <code>X</code> velocity by the <code>X</code> acceleration.</li>
-          <li>Increase the <code>Y</code> velocity by the <code>Y</code> acceleration.</li>
-          <li>Increase the <code>Z</code> velocity by the <code>Z</code> acceleration.</li>
-          <li>Increase the <code>X</code> position by the <code>X</code> velocity.</li>
-          <li>Increase the <code>Y</code> position by the <code>Y</code> velocity.</li>
-          <li>Increase the <code>Z</code> position by the <code>Z</code> velocity.</li>
-        </ul>
-        <p>Because of seemingly tenuous rationale involving <a
-            href="https://en.wikipedia.org/wiki/Z-buffering">z-buffering</a>, the GPU would like to know which particle
-          will stay closest to position <code>&lt;0,0,0&gt;</code> in the long term. Measure this using the <a
-            href="https://en.wikipedia.org/wiki/Taxicab_geometry">Manhattan distance</a>, which in this situation is
-          simply the sum of the absolute values of a particle's <code>X</code>, <code>Y</code>, and <code>Z</code>
-          position.</p>
-        <p>For example, suppose you are only given two particles, both of which stay entirely on the X-axis (for
-          simplicity). Drawing the current states of particles <code>0</code> and <code>1</code> (in that order) with an
-          adjacent a number line and diagram of current <code>X</code> positions (marked in parentheses), the following
-          would take place:</p>
-        <pre><code>p=&lt; 3,0,0&gt;, v=&lt; 2,0,0&gt;, a=&lt;-1,0,0&gt;    -4 -3 -2 -1  0  1  2  3  4
+<head>
+<meta charset="utf-8"/>
+<title>Day 20 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 20: Particle Swarm ---</h2><p>Suddenly, the GPU contacts you, asking for <span title="...as if millions of graphics pipelines suddenly cried out for help, but suddenly started working on something else instead because they all have to do the same thing at the same time and can't spend very long asking for help.">help</span>. Someone has asked it to simulate <em>too many particles</em>, and it won't be able to finish them all in time to render the next frame at this rate.</p>
+<p>It transmits to you a buffer (your puzzle input) listing each particle in order (starting with particle <code>0</code>, then particle <code>1</code>, particle <code>2</code>, and so on). For each particle, it provides the <code>X</code>, <code>Y</code>, and <code>Z</code> coordinates for the particle's position (<code>p</code>), velocity (<code>v</code>), and acceleration (<code>a</code>), each in the format <code>&lt;X,Y,Z&gt;</code>.</p>
+<p>Each tick, all particles are updated simultaneously. A particle's properties are updated in the following order:</p>
+<ul>
+<li>Increase the <code>X</code> velocity by the <code>X</code> acceleration.</li>
+<li>Increase the <code>Y</code> velocity by the <code>Y</code> acceleration.</li>
+<li>Increase the <code>Z</code> velocity by the <code>Z</code> acceleration.</li>
+<li>Increase the <code>X</code> position by the <code>X</code> velocity.</li>
+<li>Increase the <code>Y</code> position by the <code>Y</code> velocity.</li>
+<li>Increase the <code>Z</code> position by the <code>Z</code> velocity.</li>
+</ul>
+<p>Because of seemingly tenuous rationale involving <a href="https://en.wikipedia.org/wiki/Z-buffering">z-buffering</a>, the GPU would like to know which particle will stay closest to position <code>&lt;0,0,0&gt;</code> in the long term. Measure this using the <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">Manhattan distance</a>, which in this situation is simply the sum of the absolute values of a particle's <code>X</code>, <code>Y</code>, and <code>Z</code> position.</p>
+<p>For example, suppose you are only given two particles, both of which stay entirely on the X-axis (for simplicity). Drawing the current states of particles <code>0</code> and <code>1</code> (in that order) with an adjacent a number line and diagram of current <code>X</code> positions (marked in parentheses), the following would take place:</p>
+<pre><code>p=&lt; 3,0,0&gt;, v=&lt; 2,0,0&gt;, a=&lt;-1,0,0&gt;    -4 -3 -2 -1  0  1  2  3  4
 p=&lt; 4,0,0&gt;, v=&lt; 0,0,0&gt;, a=&lt;-2,0,0&gt;                         (0)(1)
 
 p=&lt; 4,0,0&gt;, v=&lt; 1,0,0&gt;, a=&lt;-1,0,0&gt;    -4 -3 -2 -1  0  1  2  3  4
@@ -78,55 +34,43 @@ p=&lt; 4,0,0&gt;, v=&lt; 0,0,0&gt;, a=&lt;-1,0,0&gt;    -4 -3 -2 -1  0  1  2  3 
 p=&lt;-2,0,0&gt;, v=&lt;-4,0,0&gt;, a=&lt;-2,0,0&gt;          (1)               (0)
 
 p=&lt; 3,0,0&gt;, v=&lt;-1,0,0&gt;, a=&lt;-1,0,0&gt;    -4 -3 -2 -1  0  1  2  3  4
-p=&lt;-8,0,0&gt;, v=&lt;-6,0,0&gt;, a=&lt;-2,0,0&gt;                         (0)
+p=&lt;-8,0,0&gt;, v=&lt;-6,0,0&gt;, a=&lt;-2,0,0&gt;                         (0)   
 </code></pre>
-        <p>At this point, particle <code>1</code> will never be closer to <code>&lt;0,0,0&gt;</code> than particle
-          <code>0</code>, and so, in the long run, particle <code>0</code> will stay closest.</p>
-        <p><em>Which particle will stay closest to position <code>&lt;0,0,0&gt;</code></em> in the long term?</p>
-      </article>
-      <p>Your puzzle answer was <code>376</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>To simplify the problem further, the GPU would like to remove any particles that <em>collide</em>. Particles
-          collide if their positions ever <em>exactly match</em>. Because particles are updated simultaneously, <em>more
-            than two particles</em> can collide at the same time and place. Once particles collide, they are removed and
-          cannot collide with anything else after that tick.</p>
-        <p>For example:</p>
-        <pre><code>p=&lt;-6,0,0&gt;, v=&lt; 3,0,0&gt;, a=&lt; 0,0,0&gt;
+<p>At this point, particle <code>1</code> will never be closer to <code>&lt;0,0,0&gt;</code> than particle <code>0</code>, and so, in the long run, particle <code>0</code> will stay closest.</p>
+<p><em>Which particle will stay closest to position <code>&lt;0,0,0&gt;</code></em> in the long term?</p>
+</article>
+<p>Your puzzle answer was <code>376</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>To simplify the problem further, the GPU would like to remove any particles that <em>collide</em>. Particles collide if their positions ever <em>exactly match</em>. Because particles are updated simultaneously, <em>more than two particles</em> can collide at the same time and place.  Once particles collide, they are removed and cannot collide with anything else after that tick.</p>
+<p>For example:</p>
+<pre><code>p=&lt;-6,0,0&gt;, v=&lt; 3,0,0&gt;, a=&lt; 0,0,0&gt;    
 p=&lt;-4,0,0&gt;, v=&lt; 2,0,0&gt;, a=&lt; 0,0,0&gt;    -6 -5 -4 -3 -2 -1  0  1  2  3
 p=&lt;-2,0,0&gt;, v=&lt; 1,0,0&gt;, a=&lt; 0,0,0&gt;    (0)   (1)   (2)            (3)
 p=&lt; 3,0,0&gt;, v=&lt;-1,0,0&gt;, a=&lt; 0,0,0&gt;
 
-p=&lt;-3,0,0&gt;, v=&lt; 3,0,0&gt;, a=&lt; 0,0,0&gt;
+p=&lt;-3,0,0&gt;, v=&lt; 3,0,0&gt;, a=&lt; 0,0,0&gt;    
 p=&lt;-2,0,0&gt;, v=&lt; 2,0,0&gt;, a=&lt; 0,0,0&gt;    -6 -5 -4 -3 -2 -1  0  1  2  3
-p=&lt;-1,0,0&gt;, v=&lt; 1,0,0&gt;, a=&lt; 0,0,0&gt;             (0)(1)(2)      (3)
+p=&lt;-1,0,0&gt;, v=&lt; 1,0,0&gt;, a=&lt; 0,0,0&gt;             (0)(1)(2)      (3)   
 p=&lt; 2,0,0&gt;, v=&lt;-1,0,0&gt;, a=&lt; 0,0,0&gt;
 
-p=&lt; 0,0,0&gt;, v=&lt; 3,0,0&gt;, a=&lt; 0,0,0&gt;
+p=&lt; 0,0,0&gt;, v=&lt; 3,0,0&gt;, a=&lt; 0,0,0&gt;    
 p=&lt; 0,0,0&gt;, v=&lt; 2,0,0&gt;, a=&lt; 0,0,0&gt;    -6 -5 -4 -3 -2 -1  0  1  2  3
-p=&lt; 0,0,0&gt;, v=&lt; 1,0,0&gt;, a=&lt; 0,0,0&gt;                       X (3)
+p=&lt; 0,0,0&gt;, v=&lt; 1,0,0&gt;, a=&lt; 0,0,0&gt;                       X (3)      
 p=&lt; 1,0,0&gt;, v=&lt;-1,0,0&gt;, a=&lt; 0,0,0&gt;
 
-------destroyed by collision------
+------destroyed by collision------    
 ------destroyed by collision------    -6 -5 -4 -3 -2 -1  0  1  2  3
-------destroyed by collision------                      (3)
+------destroyed by collision------                      (3)         
 p=&lt; 0,0,0&gt;, v=&lt;-1,0,0&gt;, a=&lt; 0,0,0&gt;
 </code></pre>
-        <p>In this example, particles <code>0</code>, <code>1</code>, and <code>2</code> are simultaneously destroyed at
-          the time and place marked <code>X</code>. On the next tick, particle <code>3</code> passes through unharmed.
-        </p>
-        <p><em>How many particles are left</em> after all collisions are resolved?</p>
-      </article>
-      <p>Your puzzle answer was <code>574</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day20.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Particle+Swarm%22+%2D+Day+20+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F20&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Particle+Swarm%22+%2D+Day+20+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F20'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>In this example, particles <code>0</code>, <code>1</code>, and <code>2</code> are simultaneously destroyed at the time and place marked <code>X</code>. On the next tick, particle <code>3</code> passes through unharmed.</p>
+<p><em>How many particles are left</em> after all collisions are resolved?</p>
+</article>
+<p>Your puzzle answer was <code>574</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day20.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Particle+Swarm%22+%2D+Day+20+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F20&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Particle+Swarm%22+%2D+Day+20+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F20'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

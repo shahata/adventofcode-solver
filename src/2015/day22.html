@@ -1,77 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 22 - Advent of Code 2015</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2015</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 22: Wizard Simulator 20XX ---</h2>
-        <p>Little Henry Case decides that defeating bosses with <a href="day21.html">swords and stuff</a> is boring. Now
-          he's playing the game with a <span title="Being a !@#$% Sorcerer.">wizard</span>. Of course, he gets stuck on
-          another boss and needs your help again.</p>
-        <p>In this version, combat still proceeds with the player and the boss taking alternating turns. The player
-          still goes first. Now, however, you don't get any equipment; instead, you must choose one of your spells to
-          cast. The first character at or below <code>0</code> hit points loses.</p>
-        <p>Since you're a wizard, you don't get to wear armor, and you can't attack normally. However, since you do
-          <em>magic damage</em>, your opponent's armor is ignored, and so the boss effectively has zero armor as well.
-          As before, if armor (from a spell, in this case) would reduce damage below <code>1</code>, it becomes
-          <code>1</code> instead - that is, the boss' attacks always deal at least <code>1</code> damage.</p>
-        <p>On each of your turns, you must select one of your spells to cast. If you cannot afford to cast any spell,
-          you lose. Spells cost <em>mana</em>; you start with <em>500</em> mana, but have no maximum limit. You must
-          have enough mana to cast a spell, and its cost is immediately deducted when you cast it. Your spells are Magic
-          Missile, Drain, Shield, Poison, and Recharge.</p>
-        <ul>
-          <li><em>Magic Missile</em> costs <code>53</code> mana. It instantly does <code>4</code> damage.</li>
-          <li><em>Drain</em> costs <code>73</code> mana. It instantly does <code>2</code> damage and heals you for
-            <code>2</code> hit points.</li>
-          <li><em>Shield</em> costs <code>113</code> mana. It starts an <em>effect</em> that lasts for <code>6</code>
-            turns. While it is active, your armor is increased by <code>7</code>.</li>
-          <li><em>Poison</em> costs <code>173</code> mana. It starts an <em>effect</em> that lasts for <code>6</code>
-            turns. At the start of each turn while it is active, it deals the boss <code>3</code> damage.</li>
-          <li><em>Recharge</em> costs <code>229</code> mana. It starts an <em>effect</em> that lasts for <code>5</code>
-            turns. At the start of each turn while it is active, it gives you <code>101</code> new mana.</li>
-        </ul>
-        <p><em>Effects</em> all work the same way. Effects apply at the start of both the player's turns and the boss'
-          turns. Effects are created with a timer (the number of turns they last); at the start of each turn, after they
-          apply any effect they have, their timer is decreased by one. If this decreases the timer to zero, the effect
-          ends. You cannot cast a spell that would start an effect which is already active. However, effects can be
-          started on the same turn they end.</p>
-        <p>For example, suppose the player has <code>10</code> hit points and <code>250</code> mana, and that the boss
-          has <code>13</code> hit points and <code>8</code> damage:</p>
-        <pre><code>-- Player turn --
+<head>
+<meta charset="utf-8"/>
+<title>Day 22 - Advent of Code 2015</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2015</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 22: Wizard Simulator 20XX ---</h2><p>Little Henry Case decides that defeating bosses with <a href="day21.html">swords and stuff</a> is boring.  Now he's playing the game with a <span title="Being a !@#$% Sorcerer.">wizard</span>.  Of course, he gets stuck on another boss and needs your help again.</p>
+<p>In this version, combat still proceeds with the player and the boss taking alternating turns.  The player still goes first.  Now, however, you don't get any equipment; instead, you must choose one of your spells to cast.  The first character at or below <code>0</code> hit points loses.</p>
+<p>Since you're a wizard, you don't get to wear armor, and you can't attack normally.  However, since you do <em>magic damage</em>, your opponent's armor is ignored, and so the boss effectively has zero armor as well.  As before, if armor (from a spell, in this case) would reduce damage below <code>1</code>, it becomes <code>1</code> instead - that is, the boss' attacks always deal at least <code>1</code> damage.</p>
+<p>On each of your turns, you must select one of your spells to cast.  If you cannot afford to cast any spell, you lose.  Spells cost <em>mana</em>; you start with <em>500</em> mana, but have no maximum limit.  You must have enough mana to cast a spell, and its cost is immediately deducted when you cast it.  Your spells are Magic Missile, Drain, Shield, Poison, and Recharge.</p>
+<ul>
+<li><em>Magic Missile</em> costs <code>53</code> mana.  It instantly does <code>4</code> damage.</li>
+<li><em>Drain</em> costs <code>73</code> mana.  It instantly does <code>2</code> damage and heals you for <code>2</code> hit points.</li>
+<li><em>Shield</em> costs <code>113</code> mana.  It starts an <em>effect</em> that lasts for <code>6</code> turns.  While it is active, your armor is increased by <code>7</code>.</li>
+<li><em>Poison</em> costs <code>173</code> mana.  It starts an <em>effect</em> that lasts for <code>6</code> turns.  At the start of each turn while it is active, it deals the boss <code>3</code> damage.</li>
+<li><em>Recharge</em> costs <code>229</code> mana.  It starts an <em>effect</em> that lasts for <code>5</code> turns.  At the start of each turn while it is active, it gives you <code>101</code> new mana.</li>
+</ul>
+<p><em>Effects</em> all work the same way.  Effects apply at the start of both the player's turns and the boss' turns.  Effects are created with a timer (the number of turns they last); at the start of each turn, after they apply any effect they have, their timer is decreased by one.  If this decreases the timer to zero, the effect ends.  You cannot cast a spell that would start an effect which is already active.  However, effects can be started on the same turn they end.</p>
+<p>For example, suppose the player has <code>10</code> hit points and <code>250</code> mana, and that the boss has <code>13</code> hit points and <code>8</code> damage:</p>
+<pre><code>-- Player turn --
 - Player has 10 hit points, 0 armor, 250 mana
 - Boss has 13 hit points
 Player casts Poison.
@@ -93,8 +46,8 @@ Player casts Magic Missile, dealing 4 damage.
 - Boss has 3 hit points
 Poison deals 3 damage. This kills the boss, and the player wins.
 </code></pre>
-        <p>Now, suppose the same initial conditions, except that the boss has <code>14</code> hit points instead:</p>
-        <pre><code>-- Player turn --
+<p>Now, suppose the same initial conditions, except that the boss has <code>14</code> hit points instead:</p>
+<pre><code>-- Player turn --
 - Player has 10 hit points, 0 armor, 250 mana
 - Boss has 14 hit points
 Player casts Recharge.
@@ -159,29 +112,19 @@ Player casts Magic Missile, dealing 4 damage.
 - Boss has 2 hit points
 Poison deals 3 damage. This kills the boss, and the player wins.
 </code></pre>
-        <p>You start with <em>50 hit points</em> and <em>500 mana points</em>. The boss's actual stats are in your
-          puzzle input. What is the <em>least amount of mana</em> you can spend and still win the fight? (Do not include
-          mana recharge effects as "spending" negative mana.)</p>
-      </article>
-      <p>Your puzzle answer was <code>1824</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>On the next run through the game, you increase the difficulty to <em>hard</em>.</p>
-        <p>At the start of each <em>player turn</em> (before any other effects apply), you lose <code>1</code> hit
-          point. If this brings you to or below <code>0</code> hit points, you lose.</p>
-        <p>With the same starting stats for you and the boss, what is the <em>least amount of mana</em> you can spend
-          and still win the fight?</p>
-      </article>
-      <p>Your puzzle answer was <code>1937</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day22.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Wizard+Simulator+20XX%22+%2D+Day+22+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Wizard+Simulator+20XX%22+%2D+Day+22+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F22'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>You start with <em>50 hit points</em> and <em>500 mana points</em>. The boss's actual stats are in your puzzle input. What is the <em>least amount of mana</em> you can spend and still win the fight?  (Do not include mana recharge effects as "spending" negative mana.)</p>
+</article>
+<p>Your puzzle answer was <code>1824</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>On the next run through the game, you increase the difficulty to <em>hard</em>.</p>
+<p>At the start of each <em>player turn</em> (before any other effects apply), you lose <code>1</code> hit point. If this brings you to or below <code>0</code> hit points, you lose.</p>
+<p>With the same starting stats for you and the boss, what is the <em>least amount of mana</em> you can spend and still win the fight?</p>
+</article>
+<p>Your puzzle answer was <code>1937</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day22.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Wizard+Simulator+20XX%22+%2D+Day+22+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Wizard+Simulator+20XX%22+%2D+Day+22+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F22'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

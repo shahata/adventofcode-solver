@@ -1,105 +1,49 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 9 - Advent of Code 2016</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2016</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 9: Explosives in Cyberspace ---</h2>
-        <p>Wandering around a secure area, you come across a datalink port to a new part of the network. After briefly
-          scanning it for interesting files, you find one file in particular that catches your attention. It's
-          compressed with an experimental format, but fortunately, the documentation for the format is nearby.</p>
-        <p>The format compresses a sequence of characters. Whitespace is ignored. To indicate that some sequence should
-          be repeated, a marker is added to the file, like <code>(10x2)</code>. To decompress this marker, take the
-          subsequent <code>10</code> characters and repeat them <code>2</code> times. Then, continue reading the file
-          <em>after</em> the repeated data. The marker itself is not included in the decompressed output.</p>
-        <p>If parentheses or other characters appear within the data referenced by a marker, that's okay - treat it like
-          normal data, not a marker, and then resume looking for markers after the decompressed section.</p>
-        <p>For example:</p>
-        <ul>
-          <li><code>ADVENT</code> contains no markers and decompresses to itself with no changes, resulting in a
-            decompressed length of <code>6</code>.</li>
-          <li><code>A(1x5)BC</code> repeats only the <code>B</code> a total of <code>5</code> times, becoming
-            <code>ABBBBBC</code> for a decompressed length of <code>7</code>.</li>
-          <li><code>(3x3)XYZ</code> becomes <code>XYZXYZXYZ</code> for a decompressed length of <code>9</code>.</li>
-          <li><code>A(2x2)BCD(2x2)EFG</code> doubles the <code>BC</code> and <code>EF</code>, becoming
-            <code>ABCBCDEFEFG</code> for a decompressed length of <code>11</code>.</li>
-          <li><code>(6x1)(1x3)A</code> simply becomes <code>(1x3)A</code> - the <code>(1x3)</code> looks like a marker,
-            but because it's within a data section of another marker, it is not treated any differently from the
-            <code>A</code> that comes after it. It has a decompressed length of <code>6</code>.</li>
-          <li><code>X(8x2)(3x3)ABCY</code> becomes <code>X(3x3)ABC(3x3)ABCY</code> (for a decompressed length of
-            <code>18</code>), because the decompressed data from the <code>(8x2)</code> marker (the
-            <code>(3x3)ABC</code>) is skipped and not processed further.</li>
-        </ul>
-        <p>What is the <em>decompressed length</em> of the file (your puzzle input)? Don't count whitespace.</p>
-      </article>
-      <p>Your puzzle answer was <code>74532</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>Apparently, the file actually uses <em>version two</em> of the format.</p>
-        <p>In version two, the only difference is that markers within decompressed data <em>are</em> decompressed. This,
-          the documentation explains, provides much more substantial compression capabilities, allowing many-gigabyte
-          files to be stored in <span title="&quot;It's the bomb!&quot;, the documentation claims.">only a few
-            kilobytes</span>.</p>
-        <p>For example:</p>
-        <ul>
-          <li><code>(3x3)XYZ</code> still becomes <code>XYZXYZXYZ</code>, as the decompressed section contains no
-            markers.</li>
-          <li><code>X(8x2)(3x3)ABCY</code> becomes <code>XABCABCABCABCABCABCY</code>, because the decompressed data from
-            the <code>(8x2)</code> marker is then further decompressed, thus triggering the <code>(3x3)</code> marker
-            twice for a total of six <code>ABC</code> sequences.</li>
-          <li><code>(27x12)(20x12)(13x14)(7x10)(1x12)A</code> decompresses into a string of <code>A</code> repeated
-            <code>241920</code> times.</li>
-          <li><code>(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN</code> becomes <code>445</code> characters
-            long.</li>
-        </ul>
-        <p>Unfortunately, the computer you brought probably doesn't have enough memory to actually decompress the file;
-          you'll have to <em>come up with another way</em> to get its decompressed length.</p>
-        <p>What is the <em>decompressed length</em> of the file using this improved format?</p>
-      </article>
-      <p>Your puzzle answer was <code>11558231665</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day09.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Explosives+in+Cyberspace%22+%2D+Day+9+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F9&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Explosives+in+Cyberspace%22+%2D+Day+9+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F9'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<title>Day 9 - Advent of Code 2016</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2016</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 9: Explosives in Cyberspace ---</h2><p>Wandering around a secure area, you come across a datalink port to a new part of the network. After briefly scanning it for interesting files, you find one file in particular that catches your attention. It's compressed with an experimental format, but fortunately, the documentation for the format is nearby.</p>
+<p>The format compresses a sequence of characters. Whitespace is ignored. To indicate that some sequence should be repeated, a marker is added to the file, like <code>(10x2)</code>. To decompress this marker, take the subsequent <code>10</code> characters and repeat them <code>2</code> times. Then, continue reading the file <em>after</em> the repeated data.  The marker itself is not included in the decompressed output.</p>
+<p>If parentheses or other characters appear within the data referenced by a marker, that's okay - treat it like normal data, not a marker, and then resume looking for markers after the decompressed section.</p>
+<p>For example:</p>
+<ul>
+<li><code>ADVENT</code> contains no markers and decompresses to itself with no changes, resulting in a decompressed length of <code>6</code>.</li>
+<li><code>A(1x5)BC</code> repeats only the <code>B</code> a total of <code>5</code> times, becoming <code>ABBBBBC</code> for a decompressed length of <code>7</code>.</li>
+<li><code>(3x3)XYZ</code> becomes <code>XYZXYZXYZ</code> for a decompressed length of <code>9</code>.</li>
+<li><code>A(2x2)BCD(2x2)EFG</code> doubles the <code>BC</code> and <code>EF</code>, becoming <code>ABCBCDEFEFG</code> for a decompressed length of <code>11</code>.</li>
+<li><code>(6x1)(1x3)A</code> simply becomes <code>(1x3)A</code> - the <code>(1x3)</code> looks like a marker, but because it's within a data section of another marker, it is not treated any differently from the <code>A</code> that comes after it. It has a decompressed length of <code>6</code>.</li>
+<li><code>X(8x2)(3x3)ABCY</code> becomes <code>X(3x3)ABC(3x3)ABCY</code> (for a decompressed length of <code>18</code>), because the decompressed data from the <code>(8x2)</code> marker (the <code>(3x3)ABC</code>) is skipped and not processed further.</li>
+</ul>
+<p>What is the <em>decompressed length</em> of the file (your puzzle input)? Don't count whitespace.</p>
+</article>
+<p>Your puzzle answer was <code>74532</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Apparently, the file actually uses <em>version two</em> of the format.</p>
+<p>In version two, the only difference is that markers within decompressed data <em>are</em> decompressed. This, the documentation explains, provides much more substantial compression capabilities, allowing many-gigabyte files to be stored in <span title="&quot;It's the bomb!&quot;, the documentation claims.">only a few kilobytes</span>.</p>
+<p>For example:</p>
+<ul>
+<li><code>(3x3)XYZ</code> still becomes <code>XYZXYZXYZ</code>, as the decompressed section contains no markers.</li>
+<li><code>X(8x2)(3x3)ABCY</code> becomes <code>XABCABCABCABCABCABCY</code>, because the decompressed data from the <code>(8x2)</code> marker is then further decompressed, thus triggering the <code>(3x3)</code> marker twice for a total of six <code>ABC</code> sequences.</li>
+<li><code>(27x12)(20x12)(13x14)(7x10)(1x12)A</code> decompresses into a string of <code>A</code> repeated <code>241920</code> times.</li>
+<li><code>(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN</code> becomes <code>445</code> characters long.</li>
+</ul>
+<p>Unfortunately, the computer you brought probably doesn't have enough memory to actually decompress the file; you'll have to <em>come up with another way</em> to get its decompressed length.</p>
+<p>What is the <em>decompressed length</em> of the file using this improved format?</p>
+</article>
+<p>Your puzzle answer was <code>11558231665</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day09.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Explosives+in+Cyberspace%22+%2D+Day+9+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F9&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Explosives+in+Cyberspace%22+%2D+Day+9+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F9'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

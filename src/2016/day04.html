@@ -1,87 +1,41 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 4 - Advent of Code 2016</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2016</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 4: Security Through Obscurity ---</h2>
-        <p>Finally, you come across an information kiosk with a list of rooms. Of course, the list is encrypted and full
-          of decoy data, but the instructions to decode the list are barely hidden nearby. Better remove the decoy data
-          first.</p>
-        <p>Each room consists of an encrypted name (lowercase letters separated by dashes) followed by a dash, a sector
-          ID, and a checksum in square brackets.</p>
-        <p>A room is real (not a decoy) if the checksum is the five most common letters in the encrypted name, in order,
-          with ties broken by alphabetization. For example:</p>
-        <ul>
-          <li><code>aaaaa-bbb-z-y-x-123[abxyz]</code> is a real room because the most common letters are <code>a</code>
-            (5), <code>b</code> (3), and then a tie between <code>x</code>, <code>y</code>, and <code>z</code>, which
-            are listed alphabetically.</li>
-          <li><code>a-b-c-d-e-f-g-h-987[abcde]</code> is a real room because although the letters are all tied (1 of
-            each), the first five are listed alphabetically.</li>
-          <li><code>not-a-real-room-404[oarel]</code> is a real room.</li>
-          <li><code>totally-real-room-200[decoy]</code> is not.</li>
-        </ul>
-        <p>Of the real rooms from the list above, the sum of their sector IDs is <code>1514</code>.</p>
-        <p>What is the <em>sum of the sector IDs of the real rooms</em>?</p>
-      </article>
-      <p>Your puzzle answer was <code>245102</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>With all the decoy data out of the way, it's time to decrypt this list and get moving.</p>
-        <p>The room names are encrypted by a state-of-the-art <a
-            href="https://en.wikipedia.org/wiki/Caesar_cipher">shift cipher</a>, which is nearly unbreakable without
-          <span title="...or, like, half of a napkin.">the right software</span>. However, the information kiosk
-          designers at Easter Bunny HQ were not expecting to deal with a master cryptographer like yourself.</p>
-        <p>To decrypt a room name, rotate each letter forward through the alphabet a number of times equal to the room's
-          sector ID. <code>A</code> becomes <code>B</code>, <code>B</code> becomes <code>C</code>, <code>Z</code>
-          becomes <code>A</code>, and so on. Dashes become spaces.</p>
-        <p>For example, the real name for <code>qzmt-zixmtkozy-ivhz-343</code> is <code>very encrypted name</code>.</p>
-        <p><em>What is the sector ID</em> of the room where North Pole objects are stored?</p>
-      </article>
-      <p>Your puzzle answer was <code>324</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day04.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Security+Through+Obscurity%22+%2D+Day+4+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F4&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Security+Through+Obscurity%22+%2D+Day+4+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F4'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<title>Day 4 - Advent of Code 2016</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2016</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 4: Security Through Obscurity ---</h2><p>Finally, you come across an information kiosk with a list of rooms.  Of course, the list is encrypted and full of decoy data, but the instructions to decode the list are barely hidden nearby.  Better remove the decoy data first.</p>
+<p>Each room consists of an encrypted name (lowercase letters separated by dashes) followed by a dash, a sector ID, and a checksum in square brackets.</p>
+<p>A room is real (not a decoy) if the checksum is the five most common letters in the encrypted name, in order, with ties broken by alphabetization.  For example:</p>
+<ul>
+<li><code>aaaaa-bbb-z-y-x-123[abxyz]</code> is a real room because the most common letters are <code>a</code> (5), <code>b</code> (3), and then a tie between <code>x</code>, <code>y</code>, and <code>z</code>, which are listed alphabetically.</li>
+<li><code>a-b-c-d-e-f-g-h-987[abcde]</code> is a real room because although the letters are all tied (1 of each), the first five are listed alphabetically.</li>
+<li><code>not-a-real-room-404[oarel]</code> is a real room.</li>
+<li><code>totally-real-room-200[decoy]</code> is not.</li>
+</ul>
+<p>Of the real rooms from the list above, the sum of their sector IDs is <code>1514</code>.</p>
+<p>What is the <em>sum of the sector IDs of the real rooms</em>?</p>
+</article>
+<p>Your puzzle answer was <code>245102</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>With all the decoy data out of the way, it's time to decrypt this list and get moving.</p>
+<p>The room names are encrypted by a state-of-the-art <a href="https://en.wikipedia.org/wiki/Caesar_cipher">shift cipher</a>, which is nearly unbreakable without <span title="...or, like, half of a napkin.">the right software</span>. However, the information kiosk designers at Easter Bunny HQ were not expecting to deal with a master cryptographer like yourself.</p>
+<p>To decrypt a room name, rotate each letter forward through the alphabet a number of times equal to the room's sector ID.  <code>A</code> becomes <code>B</code>, <code>B</code> becomes <code>C</code>, <code>Z</code> becomes <code>A</code>, and so on. Dashes become spaces.</p>
+<p>For example, the real name for <code>qzmt-zixmtkozy-ivhz-343</code> is <code>very encrypted name</code>.</p>
+<p><em>What is the sector ID</em> of the room where North Pole objects are stored?</p>
+</article>
+<p>Your puzzle answer was <code>324</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day04.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Security+Through+Obscurity%22+%2D+Day+4+%2D+Advent+of+Code+2016&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F4&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Security+Through+Obscurity%22+%2D+Day+4+%2D+Advent+of+Code+2016+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2016%2Fday%2F4'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

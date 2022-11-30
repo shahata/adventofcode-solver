@@ -1,68 +1,35 @@
 <!DOCTYPE html>
 <html lang="en-us">
-      <head>
-            <meta charset="utf-8" />
-            <title>Solver - Advent of Code 2021</title>
-            <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext'
-                  rel='stylesheet' type='text/css'>
-            <link rel="stylesheet" type="text/css" href="../static/style.css" />
-            <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-            <link rel="shortcut icon" href="../static/favicon.png" />
-            <style>
-                  input[type="submit"]:disabled {
-                        opacity: 0.3;
-                  }
-            </style>
-            <script type="module-shim">
+<head>
+<meta charset="utf-8"/>
+<title>Solver - Advent of Code 2021</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+<style>input[type="submit"]:disabled { opacity: 0.3; }</style>
+<script type="module-shim">
       import { run } from '../static/scripts/create.js';
       document.getElementById('solver').onsubmit = () => run('2021') && false;
 </script>
-            <script src="https://unpkg.com/es-module-shims@0.4.6/dist/es-module-shims.js"
-                  crossorigin="anonymous"></script>
-      </head>
-      <body>
-            <header>
-                  <div>
-                        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-                        <nav>
-                              <ul>
-                                    <li><a href="events.html">[Events]</a></li>
-                                    <li><a href="leaderboard.html">[Leaderboard]</a></li>
-                                    <li><a href="solver.html">[Solver]</a></li>
-                              </ul>
-                        </nav>
-                        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-                                    title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/"
-                                    target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);"
-                                    class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span
-                                    class="star-count">50*</span></div>
-                  </div>
-                  <div>
-                        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-                                    href="index.html">2021</a><span class="title-event-wrap">;</span></h1>
-                  </div>
-            </header>
-            <main>
-                  <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-                  <article class="day-desc">
-                        <h2>--- Automatic Solver ---</h2>
-                        <p>Go to the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> site and
-                              open the <em>Application</em> tab in <a
-                                    href="https://developers.google.com/web/tools/chrome-devtools/storage/cookies"
-                                    target="_blank">Chrome DevTools</a>. Copy the value of the <em>session</em> cookie
-                              and paste it here to see the answers for your puzzle inputs.</p>
-                  </article>
-                  <form id="solver" action="#">
-                        <p>Session: <input id="session" type="text" autocomplete="off"> <input type="submit"
-                                    value="[Submit]"></p>
-                  </form>
-                  <pre id="output"></pre>
-                  <span id="loader" style="display: none">
-                        <img style="width: 380px; height: 143px; transform: translate(-175px, -60px); pointer-events: none"
-                              src="../static/loading.gif" />
-                        <form id="skip" action="#"><input type="submit" value="[Skip]"
-                                    style="transform: translate(40px, -150px)"></form>
-                  </span>
-            </main>
-      </body>
+<script src="https://unpkg.com/es-module-shims@0.4.6/dist/es-module-shims.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2021</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<script>window.addEventListener('click', function(e,s,r){if(e.target.nodeName==='CODE'&&e.detail===3){s=window.getSelection();s.removeAllRanges();r=document.createRange();r.selectNodeContents(e.target);s.addRange(r);}});</script>
+<article class="day-desc">
+<h2>--- Automatic Solver ---</h2>
+<p>Go to the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> site and open the <em>Application</em> tab in <a href="https://developers.google.com/web/tools/chrome-devtools/storage/cookies" target="_blank">Chrome DevTools</a>. Copy the value of the <em>session</em> cookie and paste it here to see the answers for your puzzle inputs.</p>
+</article>
+<form id="solver" action="#">
+<p>Session: <input id="session" type="text" autocomplete="off"> <input type="submit" value="[Submit]"></p>
+</form>
+<pre id="output"></pre>
+<span id="loader" style="display: none">
+<img style="width: 380px; height: 143px; transform: translate(-175px, -60px); pointer-events: none" src="../static/loading.gif" />
+<form id="skip" action="#"><input type="submit" value="[Skip]" style="transform: translate(40px, -150px)"></form>
+</span>
+</main>
+</body>
 </html>

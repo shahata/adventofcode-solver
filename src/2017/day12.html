@@ -1,60 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 12 - Advent of Code 2017</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2017</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 12: Digital Plumber ---</h2>
-        <p>Walking along the memory banks of the stream, you find a small village that is experiencing a little
-          confusion: some programs can't communicate with each other.</p>
-        <p>Programs in this village communicate using a fixed system of <em>pipes</em>. Messages are passed between
-          programs using these pipes, but most programs aren't connected to each other directly. Instead, programs pass
-          messages between each other until the message reaches the intended recipient.</p>
-        <p>For some reason, though, some of these messages aren't ever reaching their intended recipient, and the
-          programs suspect that some <span
-            title="Yes, citizens, plumbing! It's the latest invention to hit Rome!">pipes</span> are missing. They would
-          like you to investigate.</p>
-        <p>You walk through the village and record the ID of each program and the IDs with which it can communicate
-          directly (your puzzle input). Each program has one or more programs with which it can communicate, and these
-          pipes are bidirectional; if <code>8</code> says it can communicate with <code>11</code>, then <code>11</code>
-          will say it can communicate with <code>8</code>.</p>
-        <p>You need to figure out how many programs are in the group that contains program ID <code>0</code>.</p>
-        <p>For example, suppose you go door-to-door like a travelling salesman and record the following list:</p>
-        <pre><code>0 &lt;-&gt; 2
+<head>
+<meta charset="utf-8"/>
+<title>Day 12 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 12: Digital Plumber ---</h2><p>Walking along the memory banks of the stream, you find a small village that is experiencing a little confusion: some programs can't communicate with each other.</p>
+<p>Programs in this village communicate using a fixed system of <em>pipes</em>. Messages are passed between programs using these pipes, but most programs aren't connected to each other directly.  Instead, programs pass messages between each other until the message reaches the intended recipient.</p>
+<p>For some reason, though, some of these messages aren't ever reaching their intended recipient, and the programs suspect that some <span title="Yes, citizens, plumbing! It's the latest invention to hit Rome!">pipes</span> are missing. They would like you to investigate.</p>
+<p>You walk through the village and record the ID of each program and the IDs with which it can communicate directly (your puzzle input). Each program has one or more programs with which it can communicate, and these pipes are bidirectional; if <code>8</code> says it can communicate with <code>11</code>, then <code>11</code> will say it can communicate with <code>8</code>.</p>
+<p>You need to figure out how many programs are in the group that contains program ID <code>0</code>.</p>
+<p>For example, suppose you go door-to-door like a travelling salesman and record the following list:</p>
+<pre><code>0 &lt;-&gt; 2
 1 &lt;-&gt; 1
 2 &lt;-&gt; 0, 3, 4
 3 &lt;-&gt; 2, 4
@@ -62,41 +25,30 @@
 5 &lt;-&gt; 6
 6 &lt;-&gt; 4, 5
 </code></pre>
-        <p>In this example, the following programs are in the group that contains program ID <code>0</code>:</p>
-        <ul>
-          <li>Program <code>0</code> by definition.</li>
-          <li>Program <code>2</code>, directly connected to program <code>0</code>.</li>
-          <li>Program <code>3</code> via program <code>2</code>.</li>
-          <li>Program <code>4</code> via program <code>2</code>.</li>
-          <li>Program <code>5</code> via programs <code>6</code>, then <code>4</code>, then <code>2</code>.</li>
-          <li>Program <code>6</code> via programs <code>4</code>, then <code>2</code>.</li>
-        </ul>
-        <p>Therefore, a total of <code>6</code> programs are in this group; all but program <code>1</code>, which has a
-          pipe that connects it to itself.</p>
-        <p><em>How many programs</em> are in the group that contains program ID <code>0</code>?</p>
-      </article>
-      <p>Your puzzle answer was <code>175</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>There are more programs than just the ones in the group containing program ID <code>0</code>. The rest of
-          them have no way of reaching that group, and still might have no way of reaching each other.</p>
-        <p>A <em>group</em> is a collection of programs that can all communicate via pipes either directly or
-          indirectly. The programs you identified just a moment ago are all part of the same group. Now, they would like
-          you to determine the total number of groups.</p>
-        <p>In the example above, there were <code>2</code> groups: one consisting of programs <code>0,2,3,4,5,6</code>,
-          and the other consisting solely of program <code>1</code>.</p>
-        <p><em>How many groups are there</em> in total?</p>
-      </article>
-      <p>Your puzzle answer was <code>213</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day12.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Digital+Plumber%22+%2D+Day+12+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F12&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Digital+Plumber%22+%2D+Day+12+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F12'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>In this example, the following programs are in the group that contains program ID <code>0</code>:</p>
+<ul>
+<li>Program <code>0</code> by definition.</li>
+<li>Program <code>2</code>, directly connected to program <code>0</code>.</li>
+<li>Program <code>3</code> via program <code>2</code>.</li>
+<li>Program <code>4</code> via program <code>2</code>.</li>
+<li>Program <code>5</code> via programs <code>6</code>, then <code>4</code>, then <code>2</code>.</li>
+<li>Program <code>6</code> via programs <code>4</code>, then <code>2</code>.</li>
+</ul>
+<p>Therefore, a total of <code>6</code> programs are in this group; all but program <code>1</code>, which has a pipe that connects it to itself.</p>
+<p><em>How many programs</em> are in the group that contains program ID <code>0</code>?</p>
+</article>
+<p>Your puzzle answer was <code>175</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>There are more programs than just the ones in the group containing program ID <code>0</code>. The rest of them have no way of reaching that group, and still might have no way of reaching each other.</p>
+<p>A <em>group</em> is a collection of programs that can all communicate via pipes either directly or indirectly. The programs you identified just a moment ago are all part of the same group. Now, they would like you to determine the total number of groups.</p>
+<p>In the example above, there were <code>2</code> groups: one consisting of programs <code>0,2,3,4,5,6</code>, and the other consisting solely of program <code>1</code>.</p>
+<p><em>How many groups are there</em> in total?</p>
+</article>
+<p>Your puzzle answer was <code>213</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day12.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Digital+Plumber%22+%2D+Day+12+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F12&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Digital+Plumber%22+%2D+Day+12+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F12'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

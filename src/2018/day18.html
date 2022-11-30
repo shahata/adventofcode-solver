@@ -1,72 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 18 - Advent of Code 2018</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2018</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 18: Settlers of The North Pole ---</h2>
-        <p>On the outskirts of the North Pole base construction project, many Elves are collecting <span
-            title="Trade wood for sheep?">lumber</span>.</p>
-        <p>The lumber collection area is 50 acres by 50 acres; each acre can be either <em>open ground</em>
-          (<code>.</code>), <em>trees</em> (<code>|</code>), or a <em>lumberyard</em> (<code>#</code>). You take a scan
-          of the area (your puzzle input).</p>
-        <p>Strange magic is at work here: each minute, the landscape looks entirely different. In exactly <em>one
-            minute</em>, an open acre can fill with trees, a wooded acre can be converted to a lumberyard, or a
-          lumberyard can be cleared to open ground (the lumber having been sent to other projects).</p>
-        <p>The change to each acre is based entirely on <em>the contents of that acre</em> as well as <em>the number of
-            open, wooded, or lumberyard acres adjacent to it</em> at the start of each minute. Here, "adjacent" means
-          any of the eight acres surrounding that acre. (Acres on the edges of the lumber collection area might have
-          fewer than eight adjacent acres; the missing acres aren't counted.)</p>
-        <p>In particular:</p>
-        <ul>
-          <li>An <em>open</em> acre will become filled with <em>trees</em> if <em>three or more</em> adjacent acres
-            contained trees. Otherwise, nothing happens.</li>
-          <li>An acre filled with <em>trees</em> will become a <em>lumberyard</em> if <em>three or more</em> adjacent
-            acres were lumberyards. Otherwise, nothing happens.</li>
-          <li>An acre containing a <em>lumberyard</em> will remain a <em>lumberyard</em> if it was adjacent to <em>at
-              least one other lumberyard and at least one acre containing trees</em>. Otherwise, it becomes
-            <em>open</em>.</li>
-        </ul>
-        <p>These changes happen across all acres <em>simultaneously</em>, each of them using the state of all acres at
-          the beginning of the minute and changing to their new form by the end of that same minute. Changes that happen
-          during the minute don't affect each other.</p>
-        <p>For example, suppose the lumber collection area is instead only 10 by 10 acres with this initial
-          configuration:</p>
-        <pre><code>Initial state:
+<head>
+<meta charset="utf-8"/>
+<title>Day 18 - Advent of Code 2018</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 18: Settlers of The North Pole ---</h2><p>On the outskirts of the North Pole base construction project, many Elves are collecting <span title="Trade wood for sheep?">lumber</span>.</p>
+<p>The lumber collection area is 50 acres by 50 acres; each acre can be either <em>open ground</em> (<code>.</code>), <em>trees</em> (<code>|</code>), or a <em>lumberyard</em> (<code>#</code>). You take a scan of the area (your puzzle input).</p>
+<p>Strange magic is at work here: each minute, the landscape looks entirely different. In exactly <em>one minute</em>, an open acre can fill with trees, a wooded acre can be converted to a lumberyard, or a lumberyard can be cleared to open ground (the lumber having been sent to other projects).</p>
+<p>The change to each acre is based entirely on <em>the contents of that acre</em> as well as <em>the number of open, wooded, or lumberyard acres adjacent to it</em> at the start of each minute. Here, "adjacent" means any of the eight acres surrounding that acre. (Acres on the edges of the lumber collection area might have fewer than eight adjacent acres; the missing acres aren't counted.)</p>
+<p>In particular:</p>
+<ul>
+<li>An <em>open</em> acre will become filled with <em>trees</em> if <em>three or more</em> adjacent acres contained trees. Otherwise, nothing happens.</li>
+<li>An acre filled with <em>trees</em> will become a <em>lumberyard</em> if <em>three or more</em> adjacent acres were lumberyards. Otherwise, nothing happens.</li>
+<li>An acre containing a <em>lumberyard</em> will remain a <em>lumberyard</em> if it was adjacent to <em>at least one other lumberyard and at least one acre containing trees</em>. Otherwise, it becomes <em>open</em>.</li>
+</ul>
+<p>These changes happen across all acres <em>simultaneously</em>, each of them using the state of all acres at the beginning of the minute and changing to their new form by the end of that same minute. Changes that happen during the minute don't affect each other.</p>
+<p>For example, suppose the lumber collection area is instead only 10 by 10 acres with this initial configuration:</p>
+<pre><code>Initial state:
 .#.#...|#.
 .....#|##|
 .|..|...#.
@@ -198,28 +155,19 @@ After 10 minutes:
 ||||#|||||
 ||||||||||
 </code></pre>
-        <p>After 10 minutes, there are <code>37</code> wooded acres and <code>31</code> lumberyards. Multiplying the
-          number of wooded acres by the number of lumberyards gives the total <em>resource value</em> after ten minutes:
-          <code>37 * 31 = <em>1147</em></code>.</p>
-        <p><em>What will the total resource value of the lumber collection area be after 10 minutes?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>483840</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>This important natural resource will need to last for at least thousands of years. Are the Elves collecting
-          this lumber sustainably?</p>
-        <p><em>What will the total resource value of the lumber collection area be after 1000000000 minutes?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>219919</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day18.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>After 10 minutes, there are <code>37</code> wooded acres and <code>31</code> lumberyards.  Multiplying the number of wooded acres by the number of lumberyards gives the total <em>resource value</em> after ten minutes: <code>37 * 31 = <em>1147</em></code>.</p>
+<p><em>What will the total resource value of the lumber collection area be after 10 minutes?</em></p>
+</article>
+<p>Your puzzle answer was <code>483840</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>This important natural resource will need to last for at least thousands of years.  Are the Elves collecting this lumber sustainably?</p>
+<p><em>What will the total resource value of the lumber collection area be after 1000000000 minutes?</em></p>
+</article>
+<p>Your puzzle answer was <code>219919</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day18.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Settlers+of+The+North+Pole%22+%2D+Day+18+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F18'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>
