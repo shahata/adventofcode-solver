@@ -1,55 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 22 - Advent of Code 2020</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2020</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 22: Crab Combat ---</h2>
-        <p>It only takes a few hours of sailing the ocean on a raft for boredom to sink in. Fortunately, you brought a
-          small deck of <a href="/2019/day/22">space cards</a>! You'd like to play a game of <em>Combat</em>, and
-          there's even an opponent available: a small crab that climbed aboard your raft before you left.</p>
-        <p>Fortunately, it doesn't take long to teach the crab the rules.</p>
-        <p>Before the game starts, split the cards so each player has their own deck (your puzzle input). Then, the game
-          consists of a series of <em>rounds</em>: both players draw their top card, and the player with the
-          higher-valued card wins the round. The winner keeps both cards, placing them on the bottom of their own deck
-          so that the winner's card is above the other card. If this causes a player to have all of the cards, they win,
-          and the game ends.</p>
-        <p>For example, consider the following starting decks:</p>
-        <pre><code>Player 1:
+<head>
+<meta charset="utf-8"/>
+<title>Day 22 - Advent of Code 2020</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2020</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 22: Crab Combat ---</h2><p>It only takes a few hours of sailing the ocean on a raft for boredom to sink in. Fortunately, you brought a small deck of <a href="/2019/day/22">space cards</a>! You'd like to play a game of <em>Combat</em>, and there's even an opponent available: a small crab that climbed aboard your raft before you left.</p>
+<p>Fortunately, it doesn't take long to teach the crab the rules.</p>
+<p>Before the game starts, split the cards so each player has their own deck (your puzzle input). Then, the game consists of a series of <em>rounds</em>: both players draw their top card, and the player with the higher-valued card wins the round. The winner keeps both cards, placing them on the bottom of their own deck so that the winner's card is above the other card. If this causes a player to have all of the cards, they win, and the game ends.</p>
+<p>For example, consider the following starting decks:</p>
+<pre><code>Player 1:
 9
 2
 6
@@ -63,13 +29,9 @@ Player 2:
 7
 10
 </code></pre>
-        <p>This arrangement means that player 1's deck contains 5 cards, with <code>9</code> on top and <code>1</code>
-          on the bottom; player 2's deck also contains 5 cards, with <code>5</code> on top and <code>10</code> on the
-          bottom.</p>
-        <p>The first round begins with both players drawing the top card of their decks: <code>9</code> and
-          <code>5</code>. Player 1 has the higher card, so both cards move to the bottom of player 1's deck such that
-          <code>9</code> is above <code>5</code>. In total, it takes 29 rounds before a player has all of the cards:</p>
-        <pre><code>-- Round 1 --
+<p>This arrangement means that player 1's deck contains 5 cards, with <code>9</code> on top and <code>1</code> on the bottom; player 2's deck also contains 5 cards, with <code>5</code> on top and <code>10</code> on the bottom.</p>
+<p>The first round begins with both players drawing the top card of their decks: <code>9</code> and <code>5</code>. Player 1 has the higher card, so both cards move to the bottom of player 1's deck such that <code>9</code> is above <code>5</code>. In total, it takes 29 rounds before a player has all of the cards:</p>
+<pre><code>-- Round 1 --
 Player 1's deck: 9, 2, 6, 3, 1
 Player 2's deck: 5, 8, 4, 7, 10
 Player 1 plays: 9
@@ -129,14 +91,11 @@ Player 2 wins the round!
 
 
 == Post-game results ==
-Player 1's deck:
+Player 1's deck: 
 Player 2's deck: 3, 2, 10, 6, 8, 5, 9, 4, 7, 1
 </code></pre>
-        <p>Once the game ends, you can calculate the winning player's <em>score</em>. The bottom card in their deck is
-          worth the value of the card multiplied by 1, the second-from-the-bottom card is worth the value of the card
-          multiplied by 2, and so on. With 10 cards, the top card is worth the value on the card multiplied by 10. In
-          this example, the winning player's score is:</p>
-        <pre><code>   3 * 10
+<p>Once the game ends, you can calculate the winning player's <em>score</em>. The bottom card in their deck is worth the value of the card multiplied by 1, the second-from-the-bottom card is worth the value of the card multiplied by 2, and so on. With 10 cards, the top card is worth the value on the card multiplied by 10. In this example, the winning player's score is:</p>
+<pre><code>   3 * 10
 +  2 *  9
 + 10 *  8
 +  6 *  7
@@ -148,39 +107,20 @@ Player 2's deck: 3, 2, 10, 6, 8, 5, 9, 4, 7, 1
 +  1 *  1
 = 306
 </code></pre>
-        <p>So, once the game ends, the winning player's score is <em><code>306</code></em>.</p>
-        <p>Play the small crab in a game of Combat using the two decks you just dealt. <em>What is the winning player's
-            score?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>33421</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>You lost to the small crab! Fortunately, crabs aren't very good at recursion. To defend your honor as a Raft
-          Captain, you challenge the small crab to a game of <em><span
-              title="For some reason, nobody wants to play Recursive Twilight Imperium with me.">Recursive</span>
-            Combat</em>.</p>
-        <p>Recursive Combat still starts by splitting the cards into two decks (you offer to play with the same starting
-          decks as before - it's only fair). Then, the game consists of a series of <em>rounds</em> with a few changes:
-        </p>
-        <ul>
-          <li>Before either player deals a card, if there was a previous round in this game that had exactly the same
-            cards in the same order in the same players' decks, the <em>game</em> instantly ends in a win for player 1.
-            Previous rounds from other games are not considered. (This prevents infinite games of Recursive Combat,
-            which everyone agrees is a bad idea.)</li>
-          <li>Otherwise, this round's cards must be in a new configuration; the players begin the round by each drawing
-            the top card of their deck as normal.</li>
-          <li>If both players have at least as many cards remaining in their deck as the value of the card they just
-            drew, the winner of the round is determined by playing a new game of Recursive Combat (see below).</li>
-          <li>Otherwise, at least one player must not have enough cards left in their deck to recurse; the winner of the
-            round is the player with the higher-value card.</li>
-        </ul>
-        <p>As in regular Combat, the winner of the round (even if they won the round by winning a sub-game) takes the
-          two cards dealt at the beginning of the round and places them on the bottom of their own deck (again so that
-          the winner's card is above the other card). Note that the winner's card might be <em>the lower-valued of the
-            two cards</em> if they won the round due to winning a sub-game. If collecting cards by winning the round
-          causes a player to have all of the cards, they win, and the game ends.</p>
-        <p>Here is an example of a small game that would loop forever without the infinite game prevention rule:</p>
-        <pre><code>Player 1:
+<p>So, once the game ends, the winning player's score is <em><code>306</code></em>.</p>
+<p>Play the small crab in a game of Combat using the two decks you just dealt. <em>What is the winning player's score?</em></p>
+</article>
+<p>Your puzzle answer was <code>33421</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>You lost to the small crab! Fortunately, crabs aren't very good at recursion. To defend your honor as a Raft Captain, you challenge the small crab to a game of <em><span title="For some reason, nobody wants to play Recursive Twilight Imperium with me.">Recursive</span> Combat</em>.</p>
+<p>Recursive Combat still starts by splitting the cards into two decks (you offer to play with the same starting decks as before - it's only fair). Then, the game consists of a series of <em>rounds</em> with a few changes:</p>
+<ul>
+<li>Before either player deals a card, if there was a previous round in this game that had exactly the same cards in the same order in the same players' decks, the <em>game</em> instantly ends in a win for player 1. Previous rounds from other games are not considered. (This prevents infinite games of Recursive Combat, which everyone agrees is a bad idea.)</li>
+<li>Otherwise, this round's cards must be in a new configuration; the players begin the round by each drawing the top card of their deck as normal.</li>
+<li>If both players have at least as many cards remaining in their deck as the value of the card they just drew, the winner of the round is determined by playing a new game of Recursive Combat (see below).</li>
+<li>Otherwise, at least one player must not have enough cards left in their deck to recurse; the winner of the round is the player with the higher-value card.</li>
+</ul>
+<p>As in regular Combat, the winner of the round (even if they won the round by winning a sub-game) takes the two cards dealt at the beginning of the round and places them on the bottom of their own deck (again so that the winner's card is above the other card). Note that the winner's card might be <em>the lower-valued of the two cards</em> if they won the round due to winning a sub-game. If collecting cards by winning the round causes a player to have all of the cards, they win, and the game ends.</p>
+<p>Here is an example of a small game that would loop forever without the infinite game prevention rule:</p>
+<pre><code>Player 1:
 43
 19
 
@@ -189,19 +129,10 @@ Player 2:
 29
 14
 </code></pre>
-        <p>During a round of Recursive Combat, if both players have at least as many cards in their own decks as the
-          number on the card they just dealt, the winner of the round is determined by recursing into a sub-game of
-          Recursive Combat. (For example, if player 1 draws the <code>3</code> card, and player 2 draws the
-          <code>7</code> card, this would occur if player 1 has at least 3 cards left and player 2 has at least 7 cards
-          left, not counting the <code>3</code> and <code>7</code> cards that were drawn.)</p>
-        <p>To play a sub-game of Recursive Combat, each player creates a new deck by making a <em>copy</em> of the next
-          cards in their deck (the quantity of cards copied is equal to the number on the card they drew to trigger the
-          sub-game). During this sub-game, the game that triggered it is on hold and completely unaffected; no cards are
-          removed from players' decks to form the sub-game. (For example, if player 1 drew the <code>3</code> card,
-          their deck in the sub-game would be <em>copies</em> of the next three cards in their deck.)</p>
-        <p>Here is a complete example of gameplay, where <code>Game 1</code> is the primary game of Recursive Combat:
-        </p>
-        <pre><code>=== Game 1 ===
+<p>During a round of Recursive Combat, if both players have at least as many cards in their own decks as the number on the card they just dealt, the winner of the round is determined by recursing into a sub-game of Recursive Combat. (For example, if player 1 draws the <code>3</code> card, and player 2 draws the <code>7</code> card, this would occur if player 1 has at least 3 cards left and player 2 has at least 7 cards left, not counting the <code>3</code> and <code>7</code> cards that were drawn.)</p>
+<p>To play a sub-game of Recursive Combat, each player creates a new deck by making a <em>copy</em> of the next cards in their deck (the quantity of cards copied is equal to the number on the card they drew to trigger the sub-game). During this sub-game, the game that triggered it is on hold and completely unaffected; no cards are removed from players' decks to form the sub-game. (For example, if player 1 drew the <code>3</code> card, their deck in the sub-game would be <em>copies</em> of the next three cards in their deck.)</p>
+<p>Here is a complete example of gameplay, where <code>Game 1</code> is the primary game of Recursive Combat:</p>
+<pre><code>=== Game 1 ===
 
 -- Round 1 (Game 1) --
 Player 1's deck: 9, 2, 6, 3, 1
@@ -433,25 +364,19 @@ The winner of game 1 is player 2!
 
 
 == Post-game results ==
-Player 1's deck:
+Player 1's deck: 
 Player 2's deck: 7, 5, 6, 2, 4, 1, 10, 8, 9, 3
 </code></pre>
-        <p>After the game, the winning player's score is calculated from the cards they have in their original deck
-          using the same rules as regular Combat. In the above game, the winning player's score is
-          <em><code>291</code></em>.</p>
-        <p>Defend your honor as Raft Captain by playing the small crab in a game of Recursive Combat using the same two
-          decks as before. <em>What is the winning player's score?</em></p>
-      </article>
-      <p>Your puzzle answer was <code>33651</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day22.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Crab+Combat%22+%2D+Day+22+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Crab+Combat%22+%2D+Day+22+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F22'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>After the game, the winning player's score is calculated from the cards they have in their original deck using the same rules as regular Combat. In the above game, the winning player's score is <em><code>291</code></em>.</p>
+<p>Defend your honor as Raft Captain by playing the small crab in a game of Recursive Combat using the same two decks as before. <em>What is the winning player's score?</em></p>
+</article>
+<p>Your puzzle answer was <code>33651</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day22.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Crab+Combat%22+%2D+Day+22+%2D+Advent+of+Code+2020&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F22&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Crab+Combat%22+%2D+Day+22+%2D+Advent+of+Code+2020+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2020%2Fday%2F22'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

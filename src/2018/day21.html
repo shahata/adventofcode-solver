@@ -1,94 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 21 - Advent of Code 2018</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2018</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 21: Chronal Conversion ---</h2>
-        <p>You should have been watching where you were going, because as you wander the new North Pole base, you trip
-          and fall into a very deep hole!</p>
-        <p><span title="The old time travel hole gag! Classic.">Just kidding.</span> You're falling through time again.
-        </p>
-        <p>If you keep up your current pace, you should have resolved all of the temporal anomalies by the next time the
-          device activates. Since you have very little interest in browsing history in 500-year increments for the rest
-          of your life, you need to find a way to get back to your present time.</p>
-        <p>After a little research, you discover two important facts about the behavior of the device:</p>
-        <p>First, you discover that the device is hard-wired to always send you back in time in 500-year increments.
-          Changing this is probably not feasible.</p>
-        <p>Second, you discover the <em>activation system</em> (your puzzle input) for the time travel module.
-          Currently, it appears to <em>run forever without halting</em>.</p>
-        <p>If you can cause the activation system to <em>halt</em> at a specific moment, maybe you can make the device
-          send you so far back in time that you cause an <a
-            href="https://cwe.mitre.org/data/definitions/191.html">integer underflow</a> <em>in time itself</em> and
-          wrap around back to your current time!</p>
-        <p>The device executes the program as specified in <a href="day16.html">manual section one</a> and <a
-            href="day19.html">manual section two</a>.</p>
-        <p>Your goal is to figure out how the program works and cause it to halt. You can only control <em>register
-            <code>0</code></em>; every other register begins at <code>0</code> as usual.</p>
-        <p>Because time travel is a dangerous activity, the activation system begins with a few instructions which
-          verify that <em>bitwise AND</em> (via <code>bani</code>) does a <em>numeric</em> operation and <em>not</em> an
-          operation as if the inputs were interpreted as strings. If the test fails, it enters an infinite loop
-          re-running the test instead of allowing the program to execute normally. If the test passes, the program
-          continues, and assumes that <em>all other bitwise operations</em> (<code>banr</code>, <code>bori</code>, and
-          <code>borr</code>) also interpret their inputs as <em>numbers</em>. (Clearly, the Elves who wrote this system
-          were worried that someone might introduce a bug while trying to emulate this system with a scripting
-          language.)</p>
-        <p><em>What is the lowest non-negative integer value for register <code>0</code> that causes the program to halt
-            after executing the fewest instructions?</em> (Executing the same instruction multiple times counts as
-          multiple instructions executed.)</p>
-      </article>
-      <p>Your puzzle answer was <code>212115</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>In order to determine the timing window for your underflow exploit, you also need an upper bound:</p>
-        <p><em>What is the lowest non-negative integer value for register <code>0</code> that causes the program to halt
-            after executing the most instructions?</em> (The program must actually halt; running forever does not count
-          as halting.)</p>
-      </article>
-      <p>Your puzzle answer was <code>9258470</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day21.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Chronal+Conversion%22+%2D+Day+21+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Chronal+Conversion%22+%2D+Day+21+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F21'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<title>Day 21 - Advent of Code 2018</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2018</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 21: Chronal Conversion ---</h2><p>You should have been watching where you were going, because as you wander the new North Pole base, you trip and fall into a very deep hole!</p>
+<p><span title="The old time travel hole gag! Classic.">Just kidding.</span>  You're falling through time again.</p>
+<p>If you keep up your current pace, you should have resolved all of the temporal anomalies by the next time the device activates. Since you have very little interest in browsing history in 500-year increments for the rest of your life, you need to find a way to get back to your present time.</p>
+<p>After a little research, you discover two important facts about the behavior of the device:</p>
+<p>First, you discover that the device is hard-wired to always send you back in time in 500-year increments. Changing this is probably not feasible.</p>
+<p>Second, you discover the <em>activation system</em> (your puzzle input) for the time travel module.  Currently, it appears to <em>run forever without halting</em>.</p>
+<p>If you can cause the activation system to <em>halt</em> at a specific moment, maybe you can make the device send you so far back in time that you cause an <a href="https://cwe.mitre.org/data/definitions/191.html">integer underflow</a> <em>in time itself</em> and wrap around back to your current time!</p>
+<p>The device executes the program as specified in <a href="day16.html">manual section one</a> and <a href="day19.html">manual section two</a>.</p>
+<p>Your goal is to figure out how the program works and cause it to halt.  You can only control <em>register <code>0</code></em>; every other register begins at <code>0</code> as usual.</p>
+<p>Because time travel is a dangerous activity, the activation system begins with a few instructions which verify that <em>bitwise AND</em> (via <code>bani</code>) does a <em>numeric</em> operation and <em>not</em> an operation as if the inputs were interpreted as strings. If the test fails, it enters an infinite loop re-running the test instead of allowing the program to execute normally.  If the test passes, the program continues, and assumes that <em>all other bitwise operations</em> (<code>banr</code>, <code>bori</code>, and <code>borr</code>) also interpret their inputs as <em>numbers</em>. (Clearly, the Elves who wrote this system were worried that someone might introduce a bug while trying to emulate this system with a scripting language.)</p>
+<p><em>What is the lowest non-negative integer value for register <code>0</code> that causes the program to halt after executing the fewest instructions?</em> (Executing the same instruction multiple times counts as multiple instructions executed.)</p>
+</article>
+<p>Your puzzle answer was <code>212115</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>In order to determine the timing window for your underflow exploit, you also need an upper bound:</p>
+<p><em>What is the lowest non-negative integer value for register <code>0</code> that causes the program to halt after executing the most instructions?</em> (The program must actually halt; running forever does not count as halting.)</p>
+</article>
+<p>Your puzzle answer was <code>9258470</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day21.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Chronal+Conversion%22+%2D+Day+21+%2D+Advent+of+Code+2018&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Chronal+Conversion%22+%2D+Day+21+%2D+Advent+of+Code+2018+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2018%2Fday%2F21'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

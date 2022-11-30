@@ -1,77 +1,32 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 18 - Advent of Code 2017</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2017</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 18: Duet ---</h2>
-        <p>You discover a tablet containing some strange assembly code labeled simply "<a
-            href="https://en.wikipedia.org/wiki/Duet">Duet</a>". Rather than bother the sound card with it, you decide
-          to run the code yourself. Unfortunately, you don't see any documentation, so you're left to figure out what
-          the instructions mean on your own.</p>
-        <p>It seems like the assembly is meant to operate on a set of <em>registers</em> that are each named with a
-          single letter and that can each hold a single <a href="https://en.wikipedia.org/wiki/Integer">integer</a>. You
-          suppose each register should start with a value of <code>0</code>.</p>
-        <p>There aren't that many instructions, so it shouldn't be hard to figure out what they do. Here's what you
-          determine:</p>
-        <ul>
-          <li><code>snd X</code> <em><span title="I don't recommend actually trying this.">plays a sound</span></em>
-            with a frequency equal to the value of <code>X</code>.</li>
-          <li><code>set X Y</code> <em>sets</em> register <code>X</code> to the value of <code>Y</code>.</li>
-          <li><code>add X Y</code> <em>increases</em> register <code>X</code> by the value of <code>Y</code>.</li>
-          <li><code>mul X Y</code> sets register <code>X</code> to the result of <em>multiplying</em> the value
-            contained in register <code>X</code> by the value of <code>Y</code>.</li>
-          <li><code>mod X Y</code> sets register <code>X</code> to the <em>remainder</em> of dividing the value
-            contained in register <code>X</code> by the value of <code>Y</code> (that is, it sets <code>X</code> to the
-            result of <code>X</code> <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo</a>
-            <code>Y</code>).</li>
-          <li><code>rcv X</code> <em>recovers</em> the frequency of the last sound played, but only when the value of
-            <code>X</code> is not zero. (If it is zero, the command does nothing.)</li>
-          <li><code>jgz X Y</code> <em>jumps</em> with an offset of the value of <code>Y</code>, but only if the value
-            of <code>X</code> is <em>greater than zero</em>. (An offset of <code>2</code> skips the next instruction, an
-            offset of <code>-1</code> jumps to the previous instruction, and so on.)</li>
-        </ul>
-        <p>Many of the instructions can take either a register (a single letter) or a number. The value of a register is
-          the integer it contains; the value of a number is that number.</p>
-        <p>After each <em>jump</em> instruction, the program continues with the instruction to which the <em>jump</em>
-          jumped. After any other instruction, the program continues with the next instruction. Continuing (or jumping)
-          off either end of the program terminates it.</p>
-        <p>For example:</p>
-        <pre><code>set a 1
+<head>
+<meta charset="utf-8"/>
+<title>Day 18 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 18: Duet ---</h2><p>You discover a tablet containing some strange assembly code labeled simply "<a href="https://en.wikipedia.org/wiki/Duet">Duet</a>". Rather than bother the sound card with it, you decide to run the code yourself. Unfortunately, you don't see any documentation, so you're left to figure out what the instructions mean on your own.</p>
+<p>It seems like the assembly is meant to operate on a set of <em>registers</em> that are each named with a single letter and that can each hold a single <a href="https://en.wikipedia.org/wiki/Integer">integer</a>. You suppose each register should start with a value of <code>0</code>.</p>
+<p>There aren't that many instructions, so it shouldn't be hard to figure out what they do.  Here's what you determine:</p>
+<ul>
+<li><code>snd X</code> <em><span title="I don't recommend actually trying this.">plays a sound</span></em> with a frequency equal to the value of <code>X</code>.</li>
+<li><code>set X Y</code> <em>sets</em> register <code>X</code> to the value of <code>Y</code>.</li>
+<li><code>add X Y</code> <em>increases</em> register <code>X</code> by the value of <code>Y</code>.</li>
+<li><code>mul X Y</code> sets register <code>X</code> to the result of <em>multiplying</em> the value contained in register <code>X</code> by the value of <code>Y</code>.</li>
+<li><code>mod X Y</code> sets register <code>X</code> to the <em>remainder</em> of dividing the value contained in register <code>X</code> by the value of <code>Y</code> (that is, it sets <code>X</code> to the result of <code>X</code> <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo</a> <code>Y</code>).</li>
+<li><code>rcv X</code> <em>recovers</em> the frequency of the last sound played, but only when the value of <code>X</code> is not zero. (If it is zero, the command does nothing.)</li>
+<li><code>jgz X Y</code> <em>jumps</em> with an offset of the value of <code>Y</code>, but only if the value of <code>X</code> is <em>greater than zero</em>. (An offset of <code>2</code> skips the next instruction, an offset of <code>-1</code> jumps to the previous instruction, and so on.)</li>
+</ul>
+<p>Many of the instructions can take either a register (a single letter) or a number. The value of a register is the integer it contains; the value of a number is that number.</p>
+<p>After each <em>jump</em> instruction, the program continues with the instruction to which the <em>jump</em> jumped. After any other instruction, the program continues with the next instruction. Continuing (or jumping) off either end of the program terminates it.</p>
+<p>For example:</p>
+<pre><code>set a 1
 add a 2
 mul a a
 mod a 5
@@ -82,44 +37,24 @@ jgz a -1
 set a 1
 jgz a -2
 </code></pre>
-        <ul>
-          <li>The first four instructions set <code>a</code> to <code>1</code>, add <code>2</code> to it, square it, and
-            then set it to itself modulo <code>5</code>, resulting in a value of <code>4</code>.</li>
-          <li>Then, a sound with frequency <code>4</code> (the value of <code>a</code>) is played.</li>
-          <li>After that, <code>a</code> is set to <code>0</code>, causing the subsequent <code>rcv</code> and
-            <code>jgz</code> instructions to both be skipped (<code>rcv</code> because <code>a</code> is <code>0</code>,
-            and <code>jgz</code> because <code>a</code> is not greater than <code>0</code>).</li>
-          <li>Finally, <code>a</code> is set to <code>1</code>, causing the next <code>jgz</code> instruction to
-            activate, jumping back two instructions to another jump, which jumps again to the <code>rcv</code>, which
-            ultimately triggers the <em>recover</em> operation.</li>
-        </ul>
-        <p>At the time the <em>recover</em> operation is executed, the frequency of the last sound played is
-          <code>4</code>.</p>
-        <p><em>What is the value of the recovered frequency</em> (the value of the most recently played sound) the
-          <em>first</em> time a <code>rcv</code> instruction is executed with a non-zero value?</p>
-      </article>
-      <p>Your puzzle answer was <code>4601</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>As you congratulate yourself for a job well done, you notice that the documentation has been on the back of
-          the tablet this entire time. While you actually got most of the instructions correct, there are a few key
-          differences. This assembly code isn't about sound at all - it's meant to be run <em>twice at the same
-            time</em>.</p>
-        <p>Each running copy of the program has its own set of registers and follows the code independently - in fact,
-          the programs don't even necessarily run at the same speed. To coordinate, they use the <em>send</em>
-          (<code>snd</code>) and <em>receive</em> (<code>rcv</code>) instructions:</p>
-        <ul>
-          <li><code>snd X</code> <em>sends</em> the value of <code>X</code> to the other program. These values wait in a
-            queue until that program is ready to receive them. Each program has its own message queue, so a program can
-            never receive a message it sent.</li>
-          <li><code>rcv X</code> <em>receives</em> the next value and stores it in register <code>X</code>. If no values
-            are in the queue, the program <em>waits for a value to be sent to it</em>. Programs do not continue to the
-            next instruction until they have received a value. Values are received in the order they are sent.</li>
-        </ul>
-        <p>Each program also has its own <em>program ID</em> (one <code>0</code> and the other <code>1</code>); the
-          register <code>p</code> should begin with this value.</p>
-        <p>For example:</p>
-        <pre><code>snd 1
+<ul>
+<li>The first four instructions set <code>a</code> to <code>1</code>, add <code>2</code> to it, square it, and then set it to itself modulo <code>5</code>, resulting in a value of <code>4</code>.</li>
+<li>Then, a sound with frequency <code>4</code> (the value of <code>a</code>) is played.</li>
+<li>After that, <code>a</code> is set to <code>0</code>, causing the subsequent <code>rcv</code> and <code>jgz</code> instructions to both be skipped (<code>rcv</code> because <code>a</code> is <code>0</code>, and <code>jgz</code> because <code>a</code> is not greater than <code>0</code>).</li>
+<li>Finally, <code>a</code> is set to <code>1</code>, causing the next <code>jgz</code> instruction to activate, jumping back two instructions to another jump, which jumps again to the <code>rcv</code>, which ultimately triggers the <em>recover</em> operation.</li>
+</ul>
+<p>At the time the <em>recover</em> operation is executed, the frequency of the last sound played is <code>4</code>.</p>
+<p><em>What is the value of the recovered frequency</em> (the value of the most recently played sound) the <em>first</em> time a <code>rcv</code> instruction is executed with a non-zero value?</p>
+</article>
+<p>Your puzzle answer was <code>4601</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>As you congratulate yourself for a job well done, you notice that the documentation has been on the back of the tablet this entire time. While you actually got most of the instructions correct, there are a few key differences. This assembly code isn't about sound at all - it's meant to be run <em>twice at the same time</em>.</p>
+<p>Each running copy of the program has its own set of registers and follows the code independently - in fact, the programs don't even necessarily run at the same speed. To coordinate, they use the <em>send</em> (<code>snd</code>) and <em>receive</em> (<code>rcv</code>) instructions:</p>
+<ul>
+<li><code>snd X</code> <em>sends</em> the value of <code>X</code> to the other program. These values wait in a queue until that program is ready to receive them. Each program has its own message queue, so a program can never receive a message it sent.</li>
+<li><code>rcv X</code> <em>receives</em> the next value and stores it in register <code>X</code>. If no values are in the queue, the program <em>waits for a value to be sent to it</em>. Programs do not continue to the next instruction until they have received a value. Values are received in the order they are sent.</li>
+</ul>
+<p>Each program also has its own <em>program ID</em> (one <code>0</code> and the other <code>1</code>); the register <code>p</code> should begin with this value.</p>
+<p>For example:</p>
+<pre><code>snd 1
 snd 2
 snd p
 rcv a
@@ -127,30 +62,18 @@ rcv b
 rcv c
 rcv d
 </code></pre>
-        <p>Both programs begin by sending three values to the other. Program <code>0</code> sends <code>1, 2, 0</code>;
-          program <code>1</code> sends <code>1, 2, 1</code>. Then, each program receives a value (both <code>1</code>)
-          and stores it in <code>a</code>, receives another value (both <code>2</code>) and stores it in <code>b</code>,
-          and then each receives the program ID of the other program (program <code>0</code> receives <code>1</code>;
-          program <code>1</code> receives <code>0</code>) and stores it in <code>c</code>. Each program now sees a
-          different value in its own copy of register <code>c</code>.</p>
-        <p>Finally, both programs try to <code>rcv</code> a <em>fourth</em> time, but no data is waiting for either of
-          them, and they reach a <em>deadlock</em>. When this happens, both programs terminate.</p>
-        <p>It should be noted that it would be equally valid for the programs to run at different speeds; for example,
-          program <code>0</code> might have sent all three values and then stopped at the first <code>rcv</code> before
-          program <code>1</code> executed even its first instruction.</p>
-        <p>Once both of your programs have terminated (regardless of what caused them to do so), <em>how many times did
-            program <code>1</code> send a value</em>?</p>
-      </article>
-      <p>Your puzzle answer was <code>6858</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>If you still want to see it, you can <a href="day18.txt" target="_blank">get your puzzle input</a>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Duet%22+%2D+Day+18+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Duet%22+%2D+Day+18+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>Both programs begin by sending three values to the other.  Program <code>0</code> sends <code>1, 2, 0</code>; program <code>1</code> sends <code>1, 2, 1</code>. Then, each program receives a value (both <code>1</code>) and stores it in <code>a</code>, receives another value (both <code>2</code>) and stores it in <code>b</code>, and then each receives the program ID of the other program (program <code>0</code> receives <code>1</code>; program <code>1</code> receives <code>0</code>) and stores it in <code>c</code>. Each program now sees a different value in its own copy of register <code>c</code>.</p>
+<p>Finally, both programs try to <code>rcv</code> a <em>fourth</em> time, but no data is waiting for either of them, and they reach a <em>deadlock</em>.  When this happens, both programs terminate.</p>
+<p>It should be noted that it would be equally valid for the programs to run at different speeds; for example, program <code>0</code> might have sent all three values and then stopped at the first <code>rcv</code> before program <code>1</code> executed even its first instruction.</p>
+<p>Once both of your programs have terminated (regardless of what caused them to do so), <em>how many times did program <code>1</code> send a value</em>?</p>
+</article>
+<p>Your puzzle answer was <code>6858</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>If you still want to see it, you can <a href="day18.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Duet%22+%2D+Day+18+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Duet%22+%2D+Day+18+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F18'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

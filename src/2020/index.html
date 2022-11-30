@@ -1,137 +1,66 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Advent of Code 2020</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2020</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        .calendar .calendar-color-o {
-          color: #ffcc99;
-        }
-
-        .calendar .calendar-color-a {
-          color: #cccccc;
-        }
-
-        .calendar .calendar-color-l {
-          color: #ccccff;
-        }
-
-        .calendar .calendar-color-r {
-          color: #ff0000;
-        }
-
-        .calendar .calendar-color-g {
-          color: #00cc00;
-        }
-
-        .calendar .calendar-color-w {
-          color: #ffffff;
-        }
-
-        .calendar .calendar-color-b {
-          color: #333399;
-        }
-
-        .calendar .calendar-color-p {
-          color: #9900ff;
-        }
-
-        @keyframes anim-seamonster {
-          0% {
-            transform: translate(-.9em, 0);
-          }
-
-          50% {
-            transform: translate(.9em, 0);
-          }
-
-          100% {
-            transform: translate(-.9em, 0);
-          }
-        }
-
-        .calendar-color-p {
-          animation: anim-seamonster 7s ease-in-out infinite;
-          display: inline-block;
-        }
-
-        .calendar-color-r {
-          position: relative;
-        }
-
-        .calendar-color-r::before {
-          content: "*";
-          position: absolute;
-          color: #ffff66;
-          transform: translate(-.5px, -.6em) scale(.5);
-          text-shadow: 0 0 25px #ffff66, 0 0 20px #ffff66, 0 0 15px #ffff66, 0 0 10px #ffff66, 0 0 5px #ffff66;
-        }
-
-        @keyframes anim-storm {
-          0% {
-            opacity: 0;
-            transform: rotate3d(1, 0, 0, 45deg) translate(0, 0) rotate(0turn);
-          }
-
-          25% {
-            opacity: 1;
-          }
-
-          75% {
-            opacity: 1;
-          }
-
-          100% {
-            opacity: 0;
-            transform: rotate3d(1, 0, 0, 45deg) translate(-20em, -7em) rotate(-2turn);
-          }
-        }
-
-        #storm {
-          position: absolute;
-          left: 35em;
-          top: 30em;
-          z-index: -1;
-          transform-origin: .3em 1.3em;
-          animation: anim-storm 10s ease-in-out infinite;
-        }
-
-        #storm .cloud {
-          position: absolute;
-          left: 0;
-          top: 0;
-          transform-origin: bottom center;
-        }
-      </style>
-      <pre class="calendar calendar-perfect"><a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete">              <span class="calendar-color-l">..........</span><span class="calendar-color-r">|</span><span class="calendar-color-l">..........</span>                <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<head>
+<meta charset="utf-8"/>
+<title>Advent of Code 2020</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2020</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>
+.calendar .calendar-color-w { color:#ffffff; }
+.calendar .calendar-color-o { color:#ffcc99; }
+.calendar .calendar-color-p { color:#9900ff; }
+.calendar .calendar-color-l { color:#ccccff; }
+.calendar .calendar-color-b { color:#333399; }
+.calendar .calendar-color-a { color:#cccccc; }
+.calendar .calendar-color-r { color:#ff0000; }
+.calendar .calendar-color-g { color:#00cc00; }
+@keyframes anim-seamonster {
+    0% { transform: translate(-.9em,0); }
+   50% { transform: translate( .9em,0); }
+  100% { transform: translate(-.9em,0); }
+}
+.calendar-color-p {
+  animation: anim-seamonster 7s ease-in-out infinite;
+  display: inline-block;
+}
+.calendar-color-r {
+  position: relative;
+}
+.calendar-color-r::before {
+  content: "*";
+  position: absolute;
+  color: #ffff66;
+  transform: translate(-.5px,-.6em) scale(.5);
+  text-shadow: 0 0 25px #ffff66, 0 0 20px #ffff66, 0 0 15px #ffff66, 0 0 10px #ffff66, 0 0 5px #ffff66;
+}
+@keyframes anim-storm {
+    0% { opacity:0; transform:rotate3d(1,0,0,45deg) translate(0,0) rotate(0turn); }
+   25% { opacity:1; }
+   75% { opacity:1; }
+  100% { opacity:0; transform:rotate3d(1,0,0,45deg) translate(-20em,-7em) rotate(-2turn); }
+}
+#storm {
+  position: absolute;
+  left: 35em;
+  top: 30em;
+  z-index: -1;
+  transform-origin: .3em 1.3em;
+  animation: anim-storm 10s ease-in-out infinite;
+}
+#storm .cloud {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: bottom center;
+}
+</style>
+<pre class="calendar calendar-perfect"><a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete">              <span class="calendar-color-l">..........</span><span class="calendar-color-r">|</span><span class="calendar-color-l">..........</span>                <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 2, two stars" href="day02.html" class="calendar-day2 calendar-verycomplete">   <span class="calendar-color-l">.....''''''</span> <span class="calendar-color-w">.'</span>  <span class="calendar-color-w">-</span>  <span class="calendar-color-w">-</span>  <span class="calendar-color-a">\</span><span class="calendar-color-w">-</span> <span class="calendar-color-w">.''</span><span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span> <span class="calendar-color-l">''''''.....</span>     <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 3, two stars" href="day03.html" class="calendar-day3 calendar-verycomplete"><span class="calendar-color-l">'''</span> <span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span>  <span class="calendar-color-b">~</span> <span class="calendar-color-w">'.'.</span> <span class="calendar-color-w">-</span>   <span class="calendar-color-w">-</span> <span class="calendar-color-a">\</span> <span class="calendar-color-w">-'':</span>  <span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span>   <span class="calendar-color-b">~</span>  <span class="calendar-color-b">~</span>  <span class="calendar-color-l">'''</span>  <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 4, two stars" href="day04.html" class="calendar-day4 calendar-verycomplete"> <span class="calendar-color-b">~</span>   <span class="calendar-color-b">~</span>  <span class="calendar-color-b">~</span>   <span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span>  <span class="calendar-color-b">~</span> <span class="calendar-color-w">''..'''</span><span class="calendar-color-a">_[]</span><span class="calendar-color-w">.'</span>  <span class="calendar-color-b">~</span>    <span class="calendar-color-b">~</span>   <span class="calendar-color-b">~</span> <span class="calendar-color-b">~</span>  <span class="calendar-color-b">~</span>   <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
@@ -157,23 +86,23 @@
 <a aria-label="Day 24, two stars" href="day24.html" class="calendar-day24 calendar-verycomplete"><span class="calendar-color-g">''</span>         <span class="calendar-color-b">~</span>                 <span class="calendar-color-g">.'..</span><span class="calendar-color-a">\___</span><span class="calendar-color-g">''..</span>       <span class="calendar-color-b">~</span>  <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 25, two stars" href="day25.html" class="calendar-day25 calendar-verycomplete">     <span class="calendar-color-b">~</span>          <span class="calendar-color-b">~</span>        <span class="calendar-color-b">~</span>    <span class="calendar-color-g">'.'</span>  <span class="calendar-color-g">:</span> <span class="calendar-color-a">[]</span> <span class="calendar-color-g">.'</span>  <span class="calendar-color-b">~</span>      <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 </pre>
-      <script>
-        var calendar = document.getElementsByClassName("calendar")[0];
-        calendar.style.position = "relative";
-        var storm = document.createElement("div");
-        storm.id = "storm";
-        calendar.appendChild(storm);
-        for (var i = 0; i < 500; i++) {
-          var cloud = document.createElement("div");
-          cloud.className = "cloud";
-          cloud.textContent = "|";
-          var r = Math.pow(Math.random(), 1.2);
-          var t = Math.random();
-          cloud.style.opacity = 1 - r;
-          cloud.style.transform = "rotate(" + (-1 * (t + r)) + "turn) translate(-.5em," + (-6 * r) + "em) rotate(" + (.2 * r) + "turn)";
-          storm.appendChild(cloud);
-        }
-      </script>
-    </main>
-  </body>
+<script>
+var calendar = document.getElementsByClassName("calendar")[0];
+calendar.style.position = "relative";
+var storm = document.createElement("div");
+storm.id = "storm";
+calendar.appendChild(storm);
+for (var i=0; i<500; i++) {
+  var cloud = document.createElement("div");
+  cloud.className = "cloud";
+  cloud.textContent = "|";
+  var r = Math.pow(Math.random(),1.2);
+  var t = Math.random();
+  cloud.style.opacity = 1-r;
+  cloud.style.transform = "rotate("+(-1*(t+r))+"turn) translate(-.5em,"+(-6*r)+"em) rotate("+(.2*r)+"turn)";
+  storm.appendChild(cloud);
+}
+</script>
+</main>
+</body>
 </html>

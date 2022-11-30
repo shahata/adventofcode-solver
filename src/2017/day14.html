@@ -1,115 +1,59 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 14 - Advent of Code 2017</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2017</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 14: Disk Defragmentation ---</h2>
-        <p>Suddenly, a scheduled job activates the system's <a href="https://en.wikipedia.org/wiki/Defragmentation">disk
-            defragmenter</a>. Were the situation different, you might <a
-            href="https://www.youtube.com/watch?v=kPv1gQ5Rs8A&t=37">sit and watch it for a while</a>, but today, you
-          just don't have that kind of time. It's soaking up valuable system resources that are needed elsewhere, and so
-          the only option is to help it finish its task as soon as possible.</p>
-        <p>The disk in question consists of a 128x128 grid; each square of the grid is either <em>free</em> or
-          <em>used</em>. On this disk, the state of the grid is tracked by the bits in a sequence of <a
-            href="day10.html">knot hashes</a>.</p>
-        <p>A total of 128 knot hashes are calculated, each corresponding to a single row in the grid; each hash contains
-          128 bits which correspond to individual grid squares. Each bit of a hash indicates whether that square is
-          <em>free</em> (<code>0</code>) or <em>used</em> (<code>1</code>).</p>
-        <p>The hash inputs are a key string (your puzzle input), a dash, and a number from <code>0</code> to
-          <code>127</code> corresponding to the row. For example, if your key string were <code>flqrgnkx</code>, then
-          the first row would be given by the bits of the knot hash of <code>flqrgnkx-0</code>, the second row from the
-          bits of the knot hash of <code>flqrgnkx-1</code>, and so on until the last row, <code>flqrgnkx-127</code>.</p>
-        <p>The output of a knot hash is traditionally represented by 32 hexadecimal digits; each of these digits
-          correspond to 4 bits, for a total of <code>4 * 32 = 128</code> bits. To convert to bits, turn each hexadecimal
-          digit to its equivalent binary value, high-bit first: <code>0</code> becomes <code>0000</code>, <code>1</code>
-          becomes <code>0001</code>, <code>e</code> becomes <code>1110</code>, <code>f</code> becomes <code>1111</code>,
-          and so on; a hash that begins with <code>a0c2017...</code> in hexadecimal would begin with
-          <code>10100000110000100000000101110000...</code> in binary.</p>
-        <p>Continuing this process, the <em>first 8 rows and columns</em> for key <code>flqrgnkx</code> appear as
-          follows, using <code>#</code> to denote used squares, and <code>.</code> to denote free ones:</p>
-        <pre><code>##.#.#..-->
-.#.#.#.#
-....#.#.
-#.#.##.#
-.##.#...
-##..#..#
-.#...#..
+<head>
+<meta charset="utf-8"/>
+<title>Day 14 - Advent of Code 2017</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2017</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: Disk Defragmentation ---</h2><p>Suddenly, a scheduled job activates the system's <a href="https://en.wikipedia.org/wiki/Defragmentation">disk defragmenter</a>. Were the situation different, you might <a href="https://www.youtube.com/watch?v=kPv1gQ5Rs8A&t=37">sit and watch it for a while</a>, but today, you just don't have that kind of time. It's soaking up valuable system resources that are needed elsewhere, and so the only option is to help it finish its task as soon as possible.</p>
+<p>The disk in question consists of a 128x128 grid; each square of the grid is either <em>free</em> or <em>used</em>. On this disk, the state of the grid is tracked by the bits in a sequence of <a href="day10.html">knot hashes</a>.</p>
+<p>A total of 128 knot hashes are calculated, each corresponding to a single row in the grid; each hash contains 128 bits which correspond to individual grid squares. Each bit of a hash indicates whether that square is <em>free</em> (<code>0</code>) or <em>used</em> (<code>1</code>).</p>
+<p>The hash inputs are a key string (your puzzle input), a dash, and a number from <code>0</code> to <code>127</code> corresponding to the row.  For example, if your key string were <code>flqrgnkx</code>, then the first row would be given by the bits of the knot hash of <code>flqrgnkx-0</code>, the second row from the bits of the knot hash of <code>flqrgnkx-1</code>, and so on until the last row, <code>flqrgnkx-127</code>.</p>
+<p>The output of a knot hash is traditionally represented by 32 hexadecimal digits; each of these digits correspond to 4 bits, for a total of <code>4 * 32 = 128</code> bits. To convert to bits, turn each hexadecimal digit to its equivalent binary value, high-bit first: <code>0</code> becomes <code>0000</code>, <code>1</code> becomes <code>0001</code>, <code>e</code> becomes <code>1110</code>, <code>f</code> becomes <code>1111</code>, and so on; a hash that begins with <code>a0c2017...</code> in hexadecimal would begin with <code>10100000110000100000000101110000...</code> in binary.</p>
+<p>Continuing this process, the <em>first 8 rows and columns</em> for key <code>flqrgnkx</code> appear as follows, using <code>#</code> to denote used squares, and <code>.</code> to denote free ones:</p>
+<pre><code>##.#.#..-->
+.#.#.#.#   
+....#.#.   
+#.#.##.#   
+.##.#...   
+##..#..#   
+.#...#..   
 ##.#.##.-->
-|      |
-V      V
+|      |   
+V      V   
 </code></pre>
-        <p>In this example, <code>8108</code> squares are used across the entire 128x128 grid.</p>
-        <p>Given your actual key string, <em>how many squares are used</em>?</p>
-      </article>
-      <p>Your puzzle answer was <code>8194</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>Now, <span title="This is exactly how it works in real life.">all the defragmenter needs to know</span> is
-          the number of <em>regions</em>. A region is a group of <em>used</em> squares that are all <em>adjacent</em>,
-          not including diagonals. Every used square is in exactly one region: lone used squares form their own isolated
-          regions, while several adjacent squares all count as a single region.</p>
-        <p>In the example above, the following nine regions are visible, each marked with a distinct digit:</p>
-        <pre><code>11.2.3..-->
-.1.2.3.4
-....5.6.
-7.8.55.9
-.88.5...
-88..5..8
-.8...8..
+<p>In this example, <code>8108</code> squares are used across the entire 128x128 grid.</p>
+<p>Given your actual key string, <em>how many squares are used</em>?</p>
+</article>
+<p>Your puzzle answer was <code>8194</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now, <span title="This is exactly how it works in real life.">all the defragmenter needs to know</span> is the number of <em>regions</em>. A region is a group of <em>used</em> squares that are all <em>adjacent</em>, not including diagonals. Every used square is in exactly one region: lone used squares form their own isolated regions, while several adjacent squares all count as a single region.</p>
+<p>In the example above, the following nine regions are visible, each marked with a distinct digit:</p>
+<pre><code>11.2.3..-->
+.1.2.3.4   
+....5.6.   
+7.8.55.9   
+.88.5...   
+88..5..8   
+.8...8..   
 88.8.88.-->
-|      |
-V      V
+|      |   
+V      V   
 </code></pre>
-        <p>Of particular interest is the region marked <code>8</code>; while it does not appear contiguous in this small
-          view, all of the squares marked <code>8</code> are connected when considering the whole 128x128 grid. In
-          total, in this example, <code>1242</code> regions are present.</p>
-        <p><em>How many regions</em> are present given your key string?</p>
-      </article>
-      <p>Your puzzle answer was <code>1141</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>Your puzzle input was <code class="puzzle-input">uugsqrei</code>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Disk+Defragmentation%22+%2D+Day+14+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Disk+Defragmentation%22+%2D+Day+14+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F14'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<p>Of particular interest is the region marked <code>8</code>; while it does not appear contiguous in this small view, all of the squares marked <code>8</code> are connected when considering the whole 128x128 grid. In total, in this example, <code>1242</code> regions are present.</p>
+<p><em>How many regions</em> are present given your key string?</p>
+</article>
+<p>Your puzzle answer was <code>1141</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>Your puzzle input was <code class="puzzle-input">uugsqrei</code>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Disk+Defragmentation%22+%2D+Day+14+%2D+Advent+of+Code+2017&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Disk+Defragmentation%22+%2D+Day+14+%2D+Advent+of+Code+2017+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2017%2Fday%2F14'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>

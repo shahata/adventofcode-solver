@@ -1,84 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <title>Day 10 - Advent of Code 2015</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
-      type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../static/style.css" />
-    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
-    <link rel="shortcut icon" href="../static/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
-        <nav>
-          <ul>
-            <li><a href="events.html">[Events]</a></li>
-            <li><a href="leaderboard.html">[Leaderboard]</a></li>
-            <li><a href="solver.html">[Solver]</a></li>
-          </ul>
-        </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
-      </div>
-      <div>
-        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
-            href="index.html">2015</a><span class="title-event-wrap">;</span></h1>
-      </div>
-    </header>
-    <main>
-      <style>
-        article *[title] {
-          border-bottom: 1px dotted #ffff66;
-        }
-      </style>
-      <script>window.addEventListener('click', function (e, s, r) { if (e.target.nodeName === 'CODE' && e.detail === 3) { s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r); } });</script>
-      <article class="day-desc">
-        <h2>--- Day 10: Elves Look, Elves Say ---</h2>
-        <p>Today, the Elves are playing a game called <a
-            href="https://en.wikipedia.org/wiki/Look-and-say_sequence">look-and-say</a>. They take turns making
-          sequences by reading aloud the previous sequence and using that reading as the next sequence. For example,
-          <code>211</code> is read as "one two, two ones", which becomes <code>1221</code> (<code>1</code>
-          <code>2</code>, <code>2</code> <code>1</code>s).</p>
-        <p>Look-and-say sequences are generated iteratively, using the previous value as input for the next step. For
-          each step, take the previous value, and replace each run of digits (like <code>111</code>) with the number of
-          digits (<code>3</code>) followed by the digit itself (<code>1</code>).</p>
-        <p>For example:</p>
-        <ul>
-          <li><code>1</code> becomes <code>11</code> (<code>1</code> copy of digit <code>1</code>).</li>
-          <li><code>11</code> becomes <code>21</code> (<code>2</code> copies of digit <code>1</code>).</li>
-          <li><code>21</code> becomes <code>1211</code> (one <code>2</code> followed by one <code>1</code>).</li>
-          <li><code>1211</code> becomes <code>111221</code> (one <code>1</code>, one <code>2</code>, and two
-            <code>1</code>s).</li>
-          <li><code>111221</code> becomes <code>312211</code> (three <code>1</code>s, two <code>2</code>s, and one
-            <code>1</code>).</li>
-        </ul>
-        <p>Starting with the digits in your puzzle input, apply this process 40 times. What is <em>the length of the
-            result</em>?</p>
-      </article>
-      <p>Your puzzle answer was <code>252594</code>.</p>
-      <article class="day-desc">
-        <h2 id="part2">--- Part Two ---</h2>
-        <p>Neat, right? You might also enjoy hearing <a href="https://www.youtube.com/watch?v=ea7lJkEhytA">John Conway
-            talking about this sequence</a> (that's Conway of <em>Conway's Game of Life</em> fame).</p>
-        <p>Now, starting again with the digits in your puzzle input, apply this process <em
-            title="Only because any longer started taking alarmingly long on my test hardware, and I wanted to avoid excluding people.">50</em>
-          times. What is <em>the length of the new result</em>?</p>
-      </article>
-      <p>Your puzzle answer was <code>3579328</code>.</p>
-      <p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
-      <p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
-      <p>Your puzzle input was <code class="puzzle-input">1113222113</code>.</p>
-      <p>You can also <span class="share">[Share<span class="share-content">on
-            <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Elves+Look%2C+Elves+Say%22+%2D+Day+10+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode"
-              target="_blank">Twitter</a>
-            <a href="javascript:void(0);"
-              onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Elves+Look%2C+Elves+Say%22+%2D+Day+10+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F10'}else{return false;}"
-              target="_blank">Mastodon</a></span>]</span> this puzzle.</p>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8"/>
+<title>Day 10 - Advent of Code 2015</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
+<link rel="shortcut icon" href="../static/favicon.png"/>
+</head>
+<body>
+<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2015</a><span class="title-event-wrap">;</span></h1></div></header>
+<main>
+<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 10: Elves Look, Elves Say ---</h2><p>Today, the Elves are playing a game called <a href="https://en.wikipedia.org/wiki/Look-and-say_sequence">look-and-say</a>.  They take turns making sequences by reading aloud the previous sequence and using that reading as the next sequence.  For example, <code>211</code> is read as "one two, two ones", which becomes <code>1221</code> (<code>1</code> <code>2</code>, <code>2</code> <code>1</code>s).</p>
+<p>Look-and-say sequences are generated iteratively, using the previous value as input for the next step.  For each step, take the previous value, and replace each run of digits (like <code>111</code>) with the number of digits (<code>3</code>) followed by the digit itself (<code>1</code>).</p>
+<p>For example:</p>
+<ul>
+<li><code>1</code> becomes <code>11</code> (<code>1</code> copy of digit <code>1</code>).</li>
+<li><code>11</code> becomes <code>21</code> (<code>2</code> copies of digit <code>1</code>).</li>
+<li><code>21</code> becomes <code>1211</code> (one <code>2</code> followed by one <code>1</code>).</li>
+<li><code>1211</code> becomes <code>111221</code> (one <code>1</code>, one <code>2</code>, and two <code>1</code>s).</li>
+<li><code>111221</code> becomes <code>312211</code> (three <code>1</code>s, two <code>2</code>s, and one <code>1</code>).</li>
+</ul>
+<p>Starting with the digits in your puzzle input, apply this process 40 times.  What is <em>the length of the result</em>?</p>
+</article>
+<p>Your puzzle answer was <code>252594</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Neat, right? You might also enjoy hearing <a href="https://www.youtube.com/watch?v=ea7lJkEhytA">John Conway talking about this sequence</a> (that's Conway of <em>Conway's Game of Life</em> fame).</p>
+<p>Now, starting again with the digits in your puzzle input, apply this process <em title="Only because any longer started taking alarmingly long on my test hardware, and I wanted to avoid excluding people.">50</em> times.  What is <em>the length of the new result</em>?</p>
+</article>
+<p>Your puzzle answer was <code>3579328</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, all that is left is for you to <a href="index.html">admire your Advent calendar</a>.</p>
+<p>Your puzzle input was <code class="puzzle-input">1113222113</code>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Elves+Look%2C+Elves+Say%22+%2D+Day+10+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F10&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Elves+Look%2C+Elves+Say%22+%2D+Day+10+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F10'}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+</main>
+</body>
 </html>
