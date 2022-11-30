@@ -59,6 +59,7 @@ p.wrap {
   overflow: hidden;
   position: relative;
   padding: 0 .5em;
+  transition: border-color 0s linear 5s;
 }
 .hidden-until-hover:before {
   content: "(hover to reveal)";
@@ -69,9 +70,11 @@ p.wrap {
   top: 0;
   width: 100%;
   overflow: hidden;
+  transition: width 0s linear 5s;
 }
 .hidden-until-hover > * {
   visibility: hidden;
+  transition: visibility 0s linear 5s;
 }
 .hidden-until-hover:hover {
   transition: border-color 0s linear 1s;
