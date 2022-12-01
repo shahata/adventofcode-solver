@@ -1,4 +1,3 @@
-/* global fetch */
 import { dayName } from '../../utils/day-name.js';
 
 let duration;
