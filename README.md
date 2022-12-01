@@ -10,7 +10,7 @@ In order to use this solver simply go to: https://shahata.github.io/adventofcode
 
 [![Solver](https://user-images.githubusercontent.com/1764161/148401173-a80c850a-055e-442f-9aae-a725b1b233dd.png)](https://shahata.github.io/adventofcode-solver/src/2022/solver.html)
 
-Alternatively, if you don't want to share your cookie value online or if some solutions fail to run in the browser, simply clone this git and run the following commands. Note this requires node@17 or newer.
+Alternatively, if you don't want to share your cookie value online or if some solutions fail to run in the browser, simply clone this git and run the following commands. Note this requires node@19 or newer.
 
 ```sh
 $ npm install
