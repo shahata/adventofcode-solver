@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import fetch from 'node-fetch';
 import { dayName } from './day-name.js';
 
 async function downloadRequest(url, postPayload) {

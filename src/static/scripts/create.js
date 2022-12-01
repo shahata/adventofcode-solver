@@ -1,4 +1,4 @@
-/* global document, window, WorkerShim, fetch */
+/* global document, window, WorkerShim */
 function runWorker(session, year, day = 1) {
   return new Promise(resolve => {
     if (window['SolverWorker']) {
