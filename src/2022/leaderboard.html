@@ -19,7 +19,7 @@
 <button onclick="drawChart('five')">Show Top Five</button>
 <canvas id="canvas"></canvas>
 <script>
-var config = {"all":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Oleksandr Bondarchuk","data":[3,6,7,8,14,18],"fill":false},{"label":"GabiGrin","data":[4,8,10,15,18,14],"fill":false},{"label":"rasmus93","data":[-1,-2,2,8,15,14],"fill":false},{"label":"Sergey Ilyevsky","data":[2,4,3,6,8,10],"fill":false},{"label":"Shahar Talmi","data":[1,2,0,0,0,0],"fill":false},{"label":"Vytenis Urbonavičius","data":[0,0,-3,-6,-5,-4],"fill":false},{"label":"ykrukovsky","data":[-4,-10,-10,-8,-10,-13],"fill":false},{"label":"Gal Elmalah","data":[-13,-26,-30,-31,-27,-24],"fill":false},{"label":"Michał Kosowski","data":[-68,-133,-130,-126,-121,-116],"fill":false},{"label":"(anonymous user #76749)","data":[-73,-150,-157,-159,-160,-162],"fill":false},{"label":"Daniel Kagan","data":[-3,-6,-15,-24,-28],"fill":false},{"label":"Guy Porges","data":[-11,-21,-27,-31,-34],"fill":false},{"label":"Daniel Kochavi","data":[-20,-40,-52,-64,-70],"fill":false},{"label":"Audrius Kovalenko","data":[-12,-24,-51,-77,-82],"fill":false},{"label":"Itay Friedman","data":[-30,-59,-150,-236,-243],"fill":false},{"label":"Sergey Puzankov","data":[-6,-11,-16,-21],"fill":false},{"label":"Vitalii Kloz","data":[-5,-9,-20,-27],"fill":false},{"label":"Laurynas Remeika","data":[-8,-16,-26,-32],"fill":false},{"label":"Tomer Groisman","data":[-10,-21,-29,-37],"fill":false},{"label":"Maor Yosef","data":[-7,-14,-27,-38],"fill":false},{"label":"Lior Hai","data":[-9,-18,-35,-50],"fill":false},{"label":"Gražvydas Jučius","data":[-21,-45,-59,-69],"fill":false},{"label":"Almog Adziashvili","data":[-16,-31,-52,-71],"fill":false},{"label":"Mykola Borozdin","data":[-17,-35,-58,-79],"fill":false},{"label":"GregoryNative","data":[-26,-51,-71,-88],"fill":false},{"label":"Domas Maksimas","data":[-22,-43,-68,-90],"fill":false},{"label":"Gennadii Sirtsov","data":[-28,-56,-74,-92],"fill":false},{"label":"andrius-girdzius","data":[-19,-38,-68,-99],"fill":false},{"label":"Tadas Aučiūnas","data":[-32,-64,-93,-118],"fill":false},{"label":"nqstr","data":[-50,-99,-114,-128],"fill":false},{"label":"atamurius","data":[-27,-54,-94,-130],"fill":false},{"label":"viliusmileris","data":[-25,-51,-85,-130],"fill":false},{"label":"Domas Karklys","data":[-35,-65,-102,-136],"fill":false},{"label":"Justinas Simanavicius","data":[-42,-84,-117,-146],"fill":false},{"label":"Tomer Shkolnik","data":[-31,-65,-108,-147],"fill":false},{"label":"BenasMot","data":[-18,-35,-96,-155],"fill":false},{"label":"Shalev Shalit","data":[-39,-77,-119,-157],"fill":false},{"label":"Or Leib","data":[-29,-65,-115,-159],"fill":false},{"label":"Amit Dahan","data":[-15,-31,-98,-162],"fill":false},{"label":"Mindaugas Ardaravičius","data":[-44,-88,-129,-164],"fill":false},{"label":"Rėjus Paukštė","data":[-33,-66,-119,-169],"fill":false},{"label":"povilastwix","data":[-54,-109,-141,-171],"fill":false},{"label":"Andrii Domin","data":[-63,-143,-162,-178],"fill":false},{"label":"Dovile Lapinskaite","data":[-46,-91,-140,-182],"fill":false},{"label":"ievgeniip","data":[-48,-95,-142,-185],"fill":false},{"label":"Hadar Raab","data":[-37,-68,-131,-188],"fill":false},{"label":"Alexandr Yushkov","data":[-23,-45,-119,-189],"fill":false},{"label":"YanaYaroshevich","data":[-49,-97,-145,-191],"fill":false},{"label":"ShaharR","data":[-2,-4,-101,-192],"fill":false},{"label":"summercrane","data":[-34,-73,-135,-193],"fill":false},{"label":"Meir Cohen","data":[-14,-28,-115,-194],"fill":false},{"label":"Zerutis","data":[-61,-123,-162,-199],"fill":false},{"label":"Dalia Simons","data":[-82,-164,-188,-211],"fill":false},{"label":"yoav tsook","data":[-66,-130,-175,-216],"fill":false},{"label":"Matan Keidar","data":[-56,-115,-171,-223],"fill":false},{"label":"vytautasm","data":[-62,-123,-178,-229],"fill":false},{"label":"Yedidya Kennard","data":[-95,-187,-209,-229],"fill":false},{"label":"Dor Wiser","data":[-77,-151,-189,-236],"fill":false},{"label":"Justas Valskis","data":[-60,-120,-179,-240],"fill":false},{"label":"Dor Ben Baruch","data":[-64,-122,-180,-240],"fill":false},{"label":"Alexander Panman","data":[-24,-47,-146,-240],"fill":false},{"label":"TomerAmran","data":[-65,-128,-188,-242],"fill":false},{"label":"Taras Petushkov","data":[-75,-145,-197,-246],"fill":false},{"label":"Justas Brazauskas","data":[-47,-97,-176,-248],"fill":false},{"label":"Inbal Langer","data":[-36,-71,-164,-252],"fill":false},{"label":"Lukas Kairys","data":[-114,-224,-240,-253],"fill":false},{"label":"Dalius Gaizutis","data":[-52,-105,-180,-256],"fill":false},{"label":"שי ליבוביץ'","data":[-51,-102,-188,-266],"fill":false},{"label":"Milda Glebauskaite","data":[-79,-157,-211,-266],"fill":false},{"label":"(anonymous user #2301674)","data":[-108,-213,-244,-272],"fill":false},{"label":"Yuval Shoham","data":[-41,-82,-185,-284],"fill":false},{"label":"(anonymous user #2303455)","data":[-81,-218,-254,-287],"fill":false},{"label":"Andrius Butkevicius","data":[-103,-203,-249,-289],"fill":false},{"label":"Amit Abuksis","data":[-72,-141,-221,-295],"fill":false},{"label":"Gil Galditzky","data":[-125,-249,-275,-302],"fill":false},{"label":"Anton Feoktistov","data":[-92,-182,-251,-316],"fill":false},{"label":"Dima Bildin","data":[-90,-176,-248,-317],"fill":false},{"label":"Maurits Out","data":[-59,-116,-220,-320],"fill":false},{"label":"Yinon Cohen","data":[-99,-196,-262,-324],"fill":false},{"label":"Rimvydas Gimbutas","data":[-138,-274,-302,-326],"fill":false},{"label":"ivellios","data":[-71,-139,-239,-334],"fill":false},{"label":"Leonid Kolomiitsev","data":[-136,-270,-305,-337],"fill":false},{"label":"Iurii Kozhan","data":[-115,-229,-286,-339],"fill":false},{"label":"Oleksandr Yermilov","data":[-89,-177,-265,-345],"fill":false},{"label":"Adam Gorkoz","data":[-69,-135,-244,-350],"fill":false},{"label":"Michael Pustovit","data":[-84,-165,-260,-350],"fill":false},{"label":"(anonymous user #2373525)","data":[-57,-196,-277,-352],"fill":false},{"label":"Gil Levin","data":[-101,-202,-272,-354],"fill":false},{"label":"Snir Sharristh","data":[-109,-215,-288,-356],"fill":false},{"label":"Danylo Vdovenko","data":[-131,-260,-311,-359],"fill":false},{"label":"argshook","data":[-83,-162,-263,-360],"fill":false},{"label":"Hudyma Vitalii","data":[-113,-222,-293,-360],"fill":false},{"label":"Donatas Petrauskas","data":[-78,-151,-258,-361],"fill":false},{"label":"Andrii Koretskyi","data":[-91,-180,-274,-363],"fill":false},{"label":"Eddie Erlich","data":[-80,-156,-261,-366],"fill":false},{"label":"Asaf Yonay","data":[-127,-250,-314,-370],"fill":false},{"label":"Uzi Cohen","data":[-118,-244,-288,-373],"fill":false},{"label":"Eido Weksler","data":[-122,-240,-308,-374],"fill":false},{"label":"Kirill Gladkov","data":[-85,-168,-276,-377],"fill":false},{"label":"Oleksandr Yakover","data":[-117,-230,-306,-377],"fill":false},{"label":"Lior Marzouk","data":[-107,-211,-300,-383],"fill":false},{"label":"marine-bre","data":[-130,-257,-322,-385],"fill":false},{"label":"Anton Kolhun","data":[-116,-228,-313,-394],"fill":false},{"label":"Jonathan Fraimorice","data":[-93,-184,-296,-405],"fill":false},{"label":"Yevhen Kramorenko","data":[-128,-253,-337,-414],"fill":false},{"label":"Yuriy Fedorov","data":[-112,-223,-319,-417],"fill":false},{"label":"Avigdor Mansbach","data":[-102,-201,-311,-418],"fill":false},{"label":"Nadav Bahalul","data":[-124,-245,-335,-419],"fill":false},{"label":"Lukas Pažėra","data":[-139,-277,-355,-428],"fill":false},{"label":"Ugnius Mickys","data":[-126,-246,-328,-430],"fill":false},{"label":"Tania-Y","data":[-133,-265,-348,-440],"fill":false},{"label":"Jonathan Moskovich","data":[-134,-265,-357,-444],"fill":false},{"label":"Boris Dichter","data":[-119,-234,-340,-444],"fill":false},{"label":"Kostya-Al","data":[-132,-262,-360,-453],"fill":false},{"label":"Roy Sommer","data":[-123,-240,-351,-459],"fill":false},{"label":"ranyitz","data":[-120,-239,-352,-462],"fill":false},{"label":"Tzachi Azo","data":[-135,-268,-370,-466],"fill":false},{"label":"Karolis Astrauka","data":[-74,-145,-222],"fill":false},{"label":"Nachshon Schwartz","data":[-38,-75],"fill":false},{"label":"Nir Cohen","data":[-40,-80],"fill":false},{"label":"Stanislav Prokopiv","data":[-43,-86],"fill":false},{"label":"felixmosh","data":[-45,-91],"fill":false},{"label":"Arnoldas Šeščila","data":[-55,-107],"fill":false},{"label":"Tzah Hillel","data":[-53,-107],"fill":false},{"label":"Oded Soffrin","data":[-58,-114],"fill":false},{"label":"Shachar Almagor","data":[-70,-137],"fill":false},{"label":"Motiejus Juodelis","data":[-67,-142],"fill":false},{"label":"Yogev Shlomovitz","data":[-76,-148],"fill":false},{"label":"Tomas Jurevic","data":[-86,-170],"fill":false},{"label":"Einav Levy","data":[-87,-172],"fill":false},{"label":"Tomas Miliauskas","data":[-88,-175],"fill":false},{"label":"Nitzan Hadar","data":[-94,-188],"fill":false},{"label":"Kyrylo Taran","data":[-96,-189],"fill":false},{"label":"Yogev Ben David","data":[-97,-192],"fill":false},{"label":"Itai Schuftan","data":[-98,-194],"fill":false},{"label":"Ziv Pizanti","data":[-100,-198],"fill":false},{"label":"dmarav","data":[-106,-208],"fill":false},{"label":"Ravid Ben Harosh","data":[-105,-208],"fill":false},{"label":"Yitzi G","data":[-110,-217],"fill":false},{"label":"Tom May Rimok","data":[-111,-219],"fill":false},{"label":"Slava Goverdovsky","data":[-104,-226],"fill":false},{"label":"Dvir Cohen","data":[-121,-237],"fill":false},{"label":"Gavin Rifkind","data":[-129,-257],"fill":false},{"label":"Vladyslav Zhuk","data":[-137,-272],"fill":false},{"label":"Tomas Eglinskas","data":[-140,-280],"fill":false}]}},"ten":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Oleksandr Bondarchuk","data":[3,6,7,8,14,18],"fill":false},{"label":"GabiGrin","data":[4,8,10,15,18,14],"fill":false},{"label":"rasmus93","data":[-1,-2,2,8,15,14],"fill":false},{"label":"Sergey Ilyevsky","data":[2,4,3,6,8,10],"fill":false},{"label":"Shahar Talmi","data":[1,2,0,0,0,0],"fill":false},{"label":"Vytenis Urbonavičius","data":[0,0,-3,-6,-5,-4],"fill":false},{"label":"ykrukovsky","data":[-4,-10,-10,-8,-10,-13],"fill":false},{"label":"Gal Elmalah","data":[-13,-26,-30,-31,-27,-24],"fill":false},{"label":"Michał Kosowski","data":[-68,-133,-130,-126,-121,-116],"fill":false},{"label":"(anonymous user #76749)","data":[-73,-150,-157,-159,-160,-162],"fill":false}]}},"five":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Oleksandr Bondarchuk","data":[1,2,4,0,0,4],"fill":false},{"label":"GabiGrin","data":[2,4,7,7,4,0],"fill":false},{"label":"rasmus93","data":[-3,-6,-1,0,1,0],"fill":false},{"label":"Sergey Ilyevsky","data":[0,0,0,-2,-6,-4],"fill":false},{"label":"Shahar Talmi","data":[-1,-2,-3,-8,-14,-14],"fill":false}]}}};
+var config = {"all":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Oleksandr Bondarchuk","data":[54,108,172,231,294,360],"fill":false},{"label":"GabiGrin","data":[55,110,175,238,298,356],"fill":false},{"label":"rasmus93","data":[50,100,167,231,295,356],"fill":false},{"label":"Sergey Ilyevsky","data":[53,106,168,229,288,352],"fill":false},{"label":"Shahar Talmi","data":[52,104,165,223,280,342],"fill":false},{"label":"Vytenis Urbonavičius","data":[51,102,162,217,275,338],"fill":false},{"label":"ykrukovsky","data":[47,92,155,215,270,329],"fill":false},{"label":"Gal Elmalah","data":[38,76,135,192,253,318],"fill":false},{"label":"Daniel Kagan","data":[48,96,150,199,252,308],"fill":false},{"label":"Guy Porges","data":[40,81,138,192,246,303],"fill":false},{"label":"Sergey Puzankov","data":[45,91,149,202,247,297],"fill":false},{"label":"Vitalii Kloz","data":[46,93,145,196,239,287],"fill":false},{"label":"Laurynas Remeika","data":[43,86,139,191,237,286],"fill":false},{"label":"Tomer Groisman","data":[41,81,136,186,230,277],"fill":false},{"label":"Daniel Kochavi","data":[31,62,113,159,210,264],"fill":false},{"label":"Maor Yosef","data":[44,88,138,185,221,263],"fill":false},{"label":"Audrius Kovalenko","data":[39,78,114,146,198,251],"fill":false},{"label":"Lior Hai","data":[42,84,130,173,206,241],"fill":false},{"label":"Gražvydas Jučius","data":[30,57,106,154,193,233],"fill":false},{"label":"Michał Kosowski","data":[-17,-31,35,97,159,226],"fill":false},{"label":"GregoryNative","data":[25,51,94,135,177,221],"fill":false},{"label":"Mykola Borozdin","data":[34,67,107,144,170,202],"fill":false},{"label":"Domas Maksimas","data":[29,59,97,133,174,201],"fill":false},{"label":"(anonymous user #76749)","data":[-22,-48,8,64,120,180],"fill":false},{"label":"Gennadii Sirtsov","data":[23,46,91,131,154,177],"fill":false},{"label":"nqstr","data":[1,3,51,95,132,175],"fill":false},{"label":"BenasMot","data":[33,67,69,68,116,162],"fill":false},{"label":"andrius-girdzius","data":[32,64,97,124,137,153],"fill":false},{"label":"Tadas Aučiūnas","data":[19,38,72,105,124,146],"fill":false},{"label":"Tomer Shkolnik","data":[20,37,57,76,107,140],"fill":false},{"label":"viliusmileris","data":[26,51,80,93,115,135],"fill":false},{"label":"Almog Adziashvili","data":[35,71,113,152,133,123],"fill":false},{"label":"Andrii Domin","data":[-12,-41,3,45,83,122],"fill":false},{"label":"atamurius","data":[24,48,71,93,104,121],"fill":false},{"label":"Amit Dahan","data":[36,71,67,61,90,119],"fill":false},{"label":"Or Leib","data":[22,37,50,64,89,117],"fill":false},{"label":"ievgeniip","data":[3,7,23,38,72,113],"fill":false},{"label":"yoav tsook","data":[-15,-28,-10,7,54,105],"fill":false},{"label":"Matan Keidar","data":[-5,-13,-6,0,49,104],"fill":false},{"label":"Justinas Simanavicius","data":[9,18,48,77,87,101],"fill":false},{"label":"YanaYaroshevich","data":[2,5,20,32,64,100],"fill":false},{"label":"Itay Friedman","data":[21,43,14,-14,36,88],"fill":false},{"label":"Hadar Raab","data":[14,34,34,35,56,82],"fill":false},{"label":"Domas Karklys","data":[16,37,63,87,79,79],"fill":false},{"label":"Alexandr Yushkov","data":[28,57,46,34,52,76],"fill":false},{"label":"ShaharR","data":[49,98,63,29,49,74],"fill":false},{"label":"Rėjus Paukštė","data":[18,36,46,54,60,72],"fill":false},{"label":"summercrane","data":[17,29,30,30,45,60],"fill":false},{"label":"Shalev Shalit","data":[12,25,46,66,52,46],"fill":false},{"label":"Dor Ben Baruch","data":[-13,-20,-15,-17,0,18],"fill":false},{"label":"Mindaugas Ardaravičius","data":[7,14,36,59,30,9],"fill":false},{"label":"Yuval Shoham","data":[10,20,-21,-63,-33,4],"fill":false},{"label":"Dovile Lapinskaite","data":[5,11,25,41,16,0],"fill":false},{"label":"Milda Glebauskaite","data":[-29,-56,-47,-44,-28,-7],"fill":false},{"label":"Alexander Panman","data":[27,55,18,-19,-15,-8],"fill":false},{"label":"povilastwix","data":[-3,-7,24,52,17,-15],"fill":false},{"label":"Rimvydas Gimbutas","data":[-88,-173,-138,-104,-64,-19],"fill":false},{"label":"TomerAmran","data":[-14,-26,-23,-19,-23,-21],"fill":false},{"label":"Meir Cohen","data":[37,74,50,29,-3,-29],"fill":false},{"label":"Dalius Gaizutis","data":[-1,-3,-15,-33,-30,-32],"fill":false},{"label":"Lukas Kairys","data":[-64,-123,-76,-31,-34,-35],"fill":false},{"label":"Justas Valskis","data":[-9,-18,-14,-17,-30,-38],"fill":false},{"label":"Taras Petushkov","data":[-24,-43,-32,-23,-39,-46],"fill":false},{"label":"Dor Wiser","data":[-26,-49,-24,-13,-36,-47],"fill":false},{"label":"Gil Galditzky","data":[-75,-148,-111,-80,-66,-47],"fill":false},{"label":"Yinon Cohen","data":[-49,-95,-98,-102,-78,-48],"fill":false},{"label":"Dalia Simons","data":[-32,-63,-24,11,-23,-56],"fill":false},{"label":"Yedidya Kennard","data":[-45,-86,-45,-7,-37,-60],"fill":false},{"label":"(anonymous user #2303455)","data":[-31,-117,-90,-65,-66,-61],"fill":false},{"label":"Snir Sharristh","data":[-59,-114,-124,-134,-107,-73],"fill":false},{"label":"argshook","data":[-33,-61,-100,-140,-112,-81],"fill":false},{"label":"Lior Marzouk","data":[-57,-110,-136,-161,-126,-88],"fill":false},{"label":"שי ליבוביץ'","data":[0,0,-23,-43,-71,-91],"fill":false},{"label":"Leonid Kolomiitsev","data":[-86,-169,-141,-115,-108,-95],"fill":false},{"label":"Iurii Kozhan","data":[-65,-128,-122,-117,-108,-97],"fill":false},{"label":"Inbal Langer","data":[15,31,0,-31,-67,-97],"fill":false},{"label":"Dima Bildin","data":[-40,-75,-84,-95,-101,-105],"fill":false},{"label":"Anton Feoktistov","data":[-42,-81,-87,-94,-103,-106],"fill":false},{"label":"ivellios","data":[-20,-37,-75,-113,-115,-112],"fill":false},{"label":"Maurits Out","data":[-8,-14,-56,-99,-114,-132],"fill":false},{"label":"Hudyma Vitalii","data":[-63,-121,-129,-138,-145,-144],"fill":false},{"label":"Nir Cohen","data":[11,22,-32,-88,-121,-148],"fill":false},{"label":"marine-bre","data":[-80,-156,-158,-163,-158,-149],"fill":false},{"label":"Anton Kolhun","data":[-66,-127,-149,-172,-164,-154],"fill":false},{"label":"(anonymous user #2373525)","data":[-6,-95,-113,-130,-150,-162],"fill":false},{"label":"Nachshon Schwartz","data":[13,27,-30,-88,-130,-166],"fill":false},{"label":"Adam Gorkoz","data":[-18,-33,-80,-129,-146,-168],"fill":false},{"label":"Uzi Cohen","data":[-68,-143,-124,-151,-156,-169],"fill":false},{"label":"Eddie Erlich","data":[-30,-55,-98,-146,-167,-181],"fill":false},{"label":"Oleksandr Yakover","data":[-67,-129,-142,-155,-173,-182],"fill":false},{"label":"Avigdor Mansbach","data":[-52,-100,-148,-198,-196,-188],"fill":false},{"label":"Asaf Yonay","data":[-77,-149,-150,-148,-186,-215],"fill":false},{"label":"Lietuvaitis","data":[-90,-178,-206,-235,-223,-219],"fill":false},{"label":"Yuriy Fedorov","data":[-62,-122,-156,-197,-197,-221],"fill":false},{"label":"Lukas Pažėra","data":[-89,-176,-191,-206,-217,-222],"fill":false},{"label":"Jonathan Fraimorice","data":[-43,-83,-133,-185,-195,-226],"fill":false},{"label":"Eido Weksler","data":[-72,-139,-144,-152,-195,-232],"fill":false},{"label":"Yevhen Kramorenko","data":[-78,-152,-173,-192,-219,-238],"fill":false},{"label":"Tzachi Azo","data":[-85,-167,-207,-246,-245,-239],"fill":false},{"label":"Ugnius Mickys","data":[-76,-145,-164,-209,-246,-274],"fill":false},{"label":"Kostya-Al","data":[-82,-161,-197,-233,-259,-276],"fill":false},{"label":"Dvir Cohen","data":[-71,-136,-188,-242,-266,-281],"fill":false},{"label":"Jonathan Moskovich","data":[-84,-164,-194,-224,-265,-300],"fill":false},{"label":"Jonathan Toledano","data":[-27,-120,-175,-232,-272,-306],"fill":false},{"label":"Gilad Frish","data":[-93,-185,-238,-293,-324,-349],"fill":false},{"label":"Gil Levin","data":[-51,-101,-108,-132,-144],"fill":false},{"label":"ranyitz","data":[-70,-138,-189,-242,-264],"fill":false},{"label":"Roy Sommer","data":[-73,-139,-188,-239,-278],"fill":false},{"label":"Zerutis","data":[-10,-21,3,24],"fill":false},{"label":"Aviad Hadad","data":[-92,-183,-239,-298,-342],"fill":false},{"label":"vytautasm","data":[-11,-21,-13,-6],"fill":false},{"label":"Justas Brazauskas","data":[4,5,-11,-25],"fill":false},{"label":"(anonymous user #2301674)","data":[-58,-112,-80,-50],"fill":false},{"label":"Andrius Butkevicius","data":[-53,-102,-85,-67],"fill":false},{"label":"Amit Abuksis","data":[-21,-39,-56,-72],"fill":false},{"label":"Oleksandr Yermilov","data":[-39,-76,-101,-123],"fill":false},{"label":"Michael Pustovit","data":[-34,-64,-97,-130],"fill":false},{"label":"Danylo Vdovenko","data":[-81,-159,-147,-137],"fill":false},{"label":"Donatas Petrauskas","data":[-28,-50,-95,-141],"fill":false},{"label":"Andrii Koretskyi","data":[-41,-79,-111,-143],"fill":false},{"label":"Kirill Gladkov","data":[-35,-67,-113,-157],"fill":false},{"label":"Nadav Bahalul","data":[-74,-144,-171,-197],"fill":false},{"label":"Tania-Y","data":[-83,-164,-184,-219],"fill":false},{"label":"Boris Dichter","data":[-69,-133,-177,-224],"fill":false},{"label":"Karolis Astrauka","data":[-23,-43,-57],"fill":false},{"label":"Stanislav Prokopiv","data":[8,16],"fill":false},{"label":"felixmosh","data":[6,11],"fill":false},{"label":"Arnoldas Šeščila","data":[-4,-5],"fill":false},{"label":"Tzah Hillel","data":[-2,-5],"fill":false},{"label":"Oded Soffrin","data":[-7,-12],"fill":false},{"label":"Shachar Almagor","data":[-19,-35],"fill":false},{"label":"Motiejus Juodelis","data":[-16,-40],"fill":false},{"label":"Yogev Shlomovitz","data":[-25,-46],"fill":false},{"label":"Tomas Jurevic","data":[-36,-69],"fill":false},{"label":"Einav Levy","data":[-37,-71],"fill":false},{"label":"Tomas Miliauskas","data":[-38,-74],"fill":false},{"label":"Nitzan Hadar","data":[-44,-87],"fill":false},{"label":"Kyrylo Taran","data":[-46,-88],"fill":false},{"label":"Yogev Ben David","data":[-47,-91],"fill":false},{"label":"Itai Schuftan","data":[-48,-93],"fill":false},{"label":"Ziv Pizanti","data":[-50,-97],"fill":false},{"label":"dmarav","data":[-56,-107],"fill":false},{"label":"Ravid Ben Harosh","data":[-55,-107],"fill":false},{"label":"Yitzi G","data":[-60,-116],"fill":false},{"label":"Tom May Rimok","data":[-61,-118],"fill":false},{"label":"Slava Goverdovsky","data":[-54,-125],"fill":false},{"label":"Gavin Rifkind","data":[-79,-156],"fill":false},{"label":"Vladyslav Zhuk","data":[-87,-171],"fill":false},{"label":"Tomas Eglinskas","data":[-91,-181],"fill":false},{"label":"Artem Ohanjanyan","data":[-94,-188],"fill":false}]}},"ten":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Oleksandr Bondarchuk","data":[3,6,7,8,14,18],"fill":false},{"label":"GabiGrin","data":[4,8,10,15,18,14],"fill":false},{"label":"rasmus93","data":[-1,-2,2,8,15,14],"fill":false},{"label":"Sergey Ilyevsky","data":[2,4,3,6,8,10],"fill":false},{"label":"Shahar Talmi","data":[1,2,0,0,0,0],"fill":false},{"label":"Vytenis Urbonavičius","data":[0,0,-3,-6,-5,-4],"fill":false},{"label":"ykrukovsky","data":[-4,-10,-10,-8,-10,-13],"fill":false},{"label":"Gal Elmalah","data":[-13,-26,-30,-31,-27,-24],"fill":false},{"label":"Daniel Kagan","data":[-3,-6,-15,-24,-28,-34],"fill":false},{"label":"Guy Porges","data":[-11,-21,-27,-31,-34,-39],"fill":false}]}},"five":{"type":"line","options":{"plugins":{"colorschemes":{"scheme":"brewer.Paired12"}}},"data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Oleksandr Bondarchuk","data":[1,2,4,0,0,4],"fill":false},{"label":"GabiGrin","data":[2,4,7,7,4,0],"fill":false},{"label":"rasmus93","data":[-3,-6,-1,0,1,0],"fill":false},{"label":"Sergey Ilyevsky","data":[0,0,0,-2,-6,-4],"fill":false},{"label":"Shahar Talmi","data":[-1,-2,-3,-8,-14,-14],"fill":false}]}}};
 window.drawChart = function(group) {
   window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
   window.myLine.update();
@@ -165,34 +165,223 @@ window.onload = function() {
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 3:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">03 Dec 2022, 00:12:36</span> Michał Kosowski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">03 Dec 2022, 00:13:16</span> Oleksandr Bondarchuk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">03 Dec 2022, 00:17:42</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">03 Dec 2022, 00:18:13</span> Sergey Ilyevsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">03 Dec 2022, 00:18:39</span> Vytenis Urbonavičius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">03 Dec 2022, 00:19:19</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">03 Dec 2022, 00:20:34</span> rasmus93</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">03 Dec 2022, 00:23:46</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">03 Dec 2022, 00:24:58</span> ykrukovsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">03 Dec 2022, 00:27:02</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  1)</span> <span class="leaderboard-time">03 Dec 2022, 00:12:36</span> Michał Kosowski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  2)</span> <span class="leaderboard-time">03 Dec 2022, 00:13:16</span> Oleksandr Bondarchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  3)</span> <span class="leaderboard-time">03 Dec 2022, 00:17:42</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  4)</span> <span class="leaderboard-time">03 Dec 2022, 00:18:13</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  5)</span> <span class="leaderboard-time">03 Dec 2022, 00:18:39</span> Vytenis Urbonavičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  6)</span> <span class="leaderboard-time">03 Dec 2022, 00:19:19</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  7)</span> <span class="leaderboard-time">03 Dec 2022, 00:20:34</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  8)</span> <span class="leaderboard-time">03 Dec 2022, 00:23:46</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  9)</span> <span class="leaderboard-time">03 Dec 2022, 00:24:58</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 10)</span> <span class="leaderboard-time">03 Dec 2022, 00:27:02</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 11)</span> <span class="leaderboard-time">03 Dec 2022, 00:28:49</span> Guy Porges</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 12)</span> <span class="leaderboard-time">03 Dec 2022, 00:34:07</span> Daniel Kagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 13)</span> <span class="leaderboard-time">03 Dec 2022, 00:34:23</span> Matan Keidar</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 14)</span> <span class="leaderboard-time">03 Dec 2022, 00:35:50</span> Daniel Kochavi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 15)</span> <span class="leaderboard-time">03 Dec 2022, 00:36:51</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 16)</span> <span class="leaderboard-time">03 Dec 2022, 00:37:06</span> Itay Friedman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 17)</span> <span class="leaderboard-time">03 Dec 2022, 00:40:35</span> yoav tsook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 18)</span> <span class="leaderboard-time">03 Dec 2022, 00:41:12</span> Sergey Puzankov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 19)</span> <span class="leaderboard-time">03 Dec 2022, 00:44:21</span> Laurynas Remeika</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 20)</span> <span class="leaderboard-time">03 Dec 2022, 00:47:46</span> Vitalii Kloz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 21)</span> <span class="leaderboard-time">03 Dec 2022, 00:51:33</span> Tomer Groisman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 22)</span> <span class="leaderboard-time">03 Dec 2022, 00:52:14</span> BenasMot</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 23)</span> <span class="leaderboard-time">03 Dec 2022, 00:52:20</span> Rimvydas Gimbutas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 24)</span> <span class="leaderboard-time">03 Dec 2022, 00:54:14</span> GregoryNative</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 25)</span> <span class="leaderboard-time">03 Dec 2022, 01:02:34</span> nqstr</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 26)</span> <span class="leaderboard-time">03 Dec 2022, 01:21:26</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 27)</span> <span class="leaderboard-time">03 Dec 2022, 01:30:43</span> ievgeniip</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 28)</span> <span class="leaderboard-time">03 Dec 2022, 01:31:51</span> Gražvydas Jučius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">03 Dec 2022, 01:42:25</span> Andrii Domin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">03 Dec 2022, 01:47:54</span> Lior Marzouk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 31)</span> <span class="leaderboard-time">03 Dec 2022, 02:00:14</span> Yuval Shoham</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 32)</span> <span class="leaderboard-time">03 Dec 2022, 02:01:31</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 33)</span> <span class="leaderboard-time">03 Dec 2022, 02:05:54</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 34)</span> <span class="leaderboard-time">03 Dec 2022, 02:08:38</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 35)</span> <span class="leaderboard-time">03 Dec 2022, 02:13:00</span> Tomer Shkolnik</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 36)</span> <span class="leaderboard-time">03 Dec 2022, 02:19:44</span> Mykola Borozdin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 37)</span> <span class="leaderboard-time">03 Dec 2022, 02:21:45</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 38)</span> <span class="leaderboard-time">03 Dec 2022, 02:28:11</span> Yinon Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 39)</span> <span class="leaderboard-time">03 Dec 2022, 02:29:33</span> Amit Dahan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 40)</span> <span class="leaderboard-time">03 Dec 2022, 02:34:23</span> Or Leib</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 41)</span> <span class="leaderboard-time">03 Dec 2022, 02:46:47</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 42)</span> <span class="leaderboard-time">03 Dec 2022, 02:52:36</span> Hadar Raab</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 43)</span> <span class="leaderboard-time">03 Dec 2022, 03:01:13</span> ShaharR</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 44)</span> <span class="leaderboard-time">03 Dec 2022, 03:10:24</span> Alexandr Yushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 45)</span> <span class="leaderboard-time">03 Dec 2022, 03:10:24</span> Gennadii Sirtsov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 46)</span> <span class="leaderboard-time">03 Dec 2022, 03:15:30</span> Tadas Aučiūnas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 47)</span> <span class="leaderboard-time">03 Dec 2022, 03:25:32</span> Milda Glebauskaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 48)</span> <span class="leaderboard-time">03 Dec 2022, 03:38:15</span> viliusmileris</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 49)</span> <span class="leaderboard-time">03 Dec 2022, 03:46:49</span> Gil Galditzky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 50)</span> <span class="leaderboard-time">03 Dec 2022, 03:49:59</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 51)</span> <span class="leaderboard-time">03 Dec 2022, 04:01:12</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 52)</span> <span class="leaderboard-time">03 Dec 2022, 04:02:46</span> andrius-girdzius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 53)</span> <span class="leaderboard-time">03 Dec 2022, 04:03:37</span> summercrane</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 54)</span> <span class="leaderboard-time">03 Dec 2022, 04:06:27</span> Justinas Simanavicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">03 Dec 2022, 04:31:44</span> Leonid Kolomiitsev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">03 Dec 2022, 04:33:21</span> Rėjus Paukštė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">03 Dec 2022, 04:34:46</span> Iurii Kozhan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">03 Dec 2022, 04:39:25</span> Anton Kolhun</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">03 Dec 2022, 04:44:26</span> marine-bre</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">03 Dec 2022, 04:51:09</span> Avigdor Mansbach</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">03 Dec 2022, 05:00:28</span> Alexander Panman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">03 Dec 2022, 05:06:03</span> Tzachi Azo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">03 Dec 2022, 05:12:16</span> (anonymous user #2303455)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 64)</span> <span class="leaderboard-time">03 Dec 2022, 05:12:54</span> Lietuvaitis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">03 Dec 2022, 05:20:37</span> ivellios</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 66)</span> <span class="leaderboard-time">03 Dec 2022, 05:36:53</span> TomerAmran</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 67)</span> <span class="leaderboard-time">03 Dec 2022, 05:43:23</span> Hudyma Vitalii</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 68)</span> <span class="leaderboard-time">03 Dec 2022, 05:48:07</span> Domas Karklys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 69)</span> <span class="leaderboard-time">03 Dec 2022, 06:02:31</span> Lukas Kairys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 70)</span> <span class="leaderboard-time">03 Dec 2022, 06:04:40</span> Dalius Gaizutis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 71)</span> <span class="leaderboard-time">03 Dec 2022, 06:08:51</span> Anton Feoktistov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 72)</span> <span class="leaderboard-time">03 Dec 2022, 06:20:52</span> Dima Bildin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 73)</span> <span class="leaderboard-time">03 Dec 2022, 06:26:18</span> Lukas Pažėra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 74)</span> <span class="leaderboard-time">03 Dec 2022, 06:39:21</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 75)</span> <span class="leaderboard-time">03 Dec 2022, 06:43:14</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 76)</span> <span class="leaderboard-time">03 Dec 2022, 06:43:42</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 77)</span> <span class="leaderboard-time">03 Dec 2022, 06:52:04</span> Oleksandr Yakover</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 78)</span> <span class="leaderboard-time">03 Dec 2022, 07:00:29</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 79)</span> <span class="leaderboard-time">03 Dec 2022, 07:26:49</span> Dor Wiser</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 80)</span> <span class="leaderboard-time">03 Dec 2022, 07:35:49</span> (anonymous user #2373525)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 81)</span> <span class="leaderboard-time">03 Dec 2022, 07:43:44</span> Uzi Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 82)</span> <span class="leaderboard-time">03 Dec 2022, 07:46:52</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 83)</span> <span class="leaderboard-time">03 Dec 2022, 07:47:00</span> Dvir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 84)</span> <span class="leaderboard-time">03 Dec 2022, 08:30:19</span> Dovile Lapinskaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 85)</span> <span class="leaderboard-time">03 Dec 2022, 08:39:24</span> Kostya-Al</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 86)</span> <span class="leaderboard-time">03 Dec 2022, 08:53:25</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 87)</span> <span class="leaderboard-time">03 Dec 2022, 09:23:08</span> Yevhen Kramorenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 88)</span> <span class="leaderboard-time">03 Dec 2022, 09:36:00</span> שי ליבוביץ'</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 89)</span> <span class="leaderboard-time">03 Dec 2022, 10:36:47</span> Mindaugas Ardaravičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 90)</span> <span class="leaderboard-time">03 Dec 2022, 10:43:55</span> Adam Gorkoz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">03 Dec 2022, 10:58:57</span> Yedidya Kennard</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">03 Dec 2022, 11:03:27</span> Yuriy Fedorov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">03 Dec 2022, 11:23:20</span> Gilad Frish</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">03 Dec 2022, 11:41:20</span> Meir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">03 Dec 2022, 11:49:21</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">03 Dec 2022, 12:35:50</span> Ugnius Mickys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">03 Dec 2022, 12:50:45</span> Asaf Yonay</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">03 Dec 2022, 12:51:53</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">03 Dec 2022, 12:52:20</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">03 Dec 2022, 13:03:07</span> povilastwix</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">03 Dec 2022, 13:05:29</span> Dalia Simons</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">03 Dec 2022, 13:39:47</span> Jonathan Toledano</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">03 Dec 2022, 13:48:34</span> Jonathan Moskovich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">03 Dec 2022, 14:29:40</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">105)</span> <span class="leaderboard-time">03 Dec 2022, 14:56:06</span> Eido Weksler</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 3:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">03 Dec 2022, 00:04:30</span> rasmus93</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">03 Dec 2022, 00:07:19</span> Oleksandr Bondarchuk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">03 Dec 2022, 00:08:00</span> Michał Kosowski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">03 Dec 2022, 00:09:59</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">03 Dec 2022, 00:10:02</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">03 Dec 2022, 00:10:03</span> Sergey Ilyevsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">03 Dec 2022, 00:11:31</span> Vytenis Urbonavičius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">03 Dec 2022, 00:11:59</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">03 Dec 2022, 00:18:07</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">03 Dec 2022, 00:18:51</span> ykrukovsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">03 Dec 2022, 00:22:13</span> Guy Porges</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">03 Dec 2022, 00:22:22</span> Daniel Kagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">03 Dec 2022, 00:26:31</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">03 Dec 2022, 00:26:34</span> Daniel Kochavi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">03 Dec 2022, 00:26:50</span> Itay Friedman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  1)</span> <span class="leaderboard-time">03 Dec 2022, 00:04:30</span> rasmus93</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  2)</span> <span class="leaderboard-time">03 Dec 2022, 00:07:19</span> Oleksandr Bondarchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  3)</span> <span class="leaderboard-time">03 Dec 2022, 00:08:00</span> Michał Kosowski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  4)</span> <span class="leaderboard-time">03 Dec 2022, 00:09:59</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  5)</span> <span class="leaderboard-time">03 Dec 2022, 00:10:02</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  6)</span> <span class="leaderboard-time">03 Dec 2022, 00:10:03</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  7)</span> <span class="leaderboard-time">03 Dec 2022, 00:11:31</span> Vytenis Urbonavičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  8)</span> <span class="leaderboard-time">03 Dec 2022, 00:11:59</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  9)</span> <span class="leaderboard-time">03 Dec 2022, 00:18:07</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 10)</span> <span class="leaderboard-time">03 Dec 2022, 00:18:51</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 11)</span> <span class="leaderboard-time">03 Dec 2022, 00:22:13</span> Guy Porges</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 12)</span> <span class="leaderboard-time">03 Dec 2022, 00:22:22</span> Daniel Kagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 13)</span> <span class="leaderboard-time">03 Dec 2022, 00:26:31</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 14)</span> <span class="leaderboard-time">03 Dec 2022, 00:26:34</span> Daniel Kochavi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 15)</span> <span class="leaderboard-time">03 Dec 2022, 00:26:50</span> Itay Friedman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 16)</span> <span class="leaderboard-time">03 Dec 2022, 00:27:41</span> Matan Keidar</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 17)</span> <span class="leaderboard-time">03 Dec 2022, 00:28:04</span> BenasMot</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 18)</span> <span class="leaderboard-time">03 Dec 2022, 00:32:29</span> yoav tsook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 19)</span> <span class="leaderboard-time">03 Dec 2022, 00:32:30</span> Laurynas Remeika</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 20)</span> <span class="leaderboard-time">03 Dec 2022, 00:32:50</span> Sergey Puzankov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 21)</span> <span class="leaderboard-time">03 Dec 2022, 00:35:28</span> Tomer Groisman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 22)</span> <span class="leaderboard-time">03 Dec 2022, 00:35:40</span> Vitalii Kloz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 23)</span> <span class="leaderboard-time">03 Dec 2022, 00:41:22</span> GregoryNative</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 24)</span> <span class="leaderboard-time">03 Dec 2022, 00:45:42</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 25)</span> <span class="leaderboard-time">03 Dec 2022, 00:46:26</span> Rimvydas Gimbutas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 26)</span> <span class="leaderboard-time">03 Dec 2022, 00:47:56</span> Gražvydas Jučius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 27)</span> <span class="leaderboard-time">03 Dec 2022, 00:52:28</span> Andrii Domin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 28)</span> <span class="leaderboard-time">03 Dec 2022, 00:54:30</span> nqstr</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">03 Dec 2022, 01:07:43</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">03 Dec 2022, 01:16:11</span> Lior Marzouk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 31)</span> <span class="leaderboard-time">03 Dec 2022, 01:24:15</span> ievgeniip</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 32)</span> <span class="leaderboard-time">03 Dec 2022, 01:43:11</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 33)</span> <span class="leaderboard-time">03 Dec 2022, 01:48:31</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 34)</span> <span class="leaderboard-time">03 Dec 2022, 01:49:05</span> Tomer Shkolnik</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 35)</span> <span class="leaderboard-time">03 Dec 2022, 01:49:51</span> Yuval Shoham</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 36)</span> <span class="leaderboard-time">03 Dec 2022, 01:59:00</span> Amit Dahan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 37)</span> <span class="leaderboard-time">03 Dec 2022, 02:00:31</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 38)</span> <span class="leaderboard-time">03 Dec 2022, 02:00:33</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 39)</span> <span class="leaderboard-time">03 Dec 2022, 02:01:59</span> Mykola Borozdin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 40)</span> <span class="leaderboard-time">03 Dec 2022, 02:09:56</span> Or Leib</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 41)</span> <span class="leaderboard-time">03 Dec 2022, 02:12:56</span> Yinon Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 42)</span> <span class="leaderboard-time">03 Dec 2022, 02:43:36</span> Gennadii Sirtsov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 43)</span> <span class="leaderboard-time">03 Dec 2022, 02:44:04</span> viliusmileris</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 44)</span> <span class="leaderboard-time">03 Dec 2022, 02:46:35</span> Hadar Raab</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 45)</span> <span class="leaderboard-time">03 Dec 2022, 02:50:14</span> ShaharR</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 46)</span> <span class="leaderboard-time">03 Dec 2022, 02:59:05</span> Tadas Aučiūnas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 47)</span> <span class="leaderboard-time">03 Dec 2022, 03:03:36</span> Alexandr Yushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 48)</span> <span class="leaderboard-time">03 Dec 2022, 03:08:26</span> Dor Ben Baruch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 49)</span> <span class="leaderboard-time">03 Dec 2022, 03:13:18</span> Milda Glebauskaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 50)</span> <span class="leaderboard-time">03 Dec 2022, 03:18:53</span> summercrane</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 51)</span> <span class="leaderboard-time">03 Dec 2022, 03:26:14</span> Gil Galditzky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 52)</span> <span class="leaderboard-time">03 Dec 2022, 03:43:38</span> andrius-girdzius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 53)</span> <span class="leaderboard-time">03 Dec 2022, 03:45:10</span> Lietuvaitis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 54)</span> <span class="leaderboard-time">03 Dec 2022, 03:56:09</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">03 Dec 2022, 04:06:19</span> Justinas Simanavicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">03 Dec 2022, 04:07:07</span> Iurii Kozhan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">03 Dec 2022, 04:17:00</span> Anton Kolhun</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">03 Dec 2022, 04:22:10</span> Leonid Kolomiitsev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">03 Dec 2022, 04:23:34</span> Rėjus Paukštė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">03 Dec 2022, 04:31:02</span> marine-bre</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">03 Dec 2022, 04:33:56</span> Alexander Panman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">03 Dec 2022, 04:36:21</span> Dalius Gaizutis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">03 Dec 2022, 04:37:19</span> Avigdor Mansbach</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 64)</span> <span class="leaderboard-time">03 Dec 2022, 04:38:03</span> Tzachi Azo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">03 Dec 2022, 04:46:55</span> Yuriy Fedorov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 66)</span> <span class="leaderboard-time">03 Dec 2022, 04:55:05</span> (anonymous user #2303455)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 67)</span> <span class="leaderboard-time">03 Dec 2022, 05:04:44</span> ivellios</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 68)</span> <span class="leaderboard-time">03 Dec 2022, 05:09:24</span> Lukas Kairys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 69)</span> <span class="leaderboard-time">03 Dec 2022, 05:25:50</span> TomerAmran</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 70)</span> <span class="leaderboard-time">03 Dec 2022, 05:30:27</span> Uzi Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 71)</span> <span class="leaderboard-time">03 Dec 2022, 05:30:59</span> Dima Bildin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 72)</span> <span class="leaderboard-time">03 Dec 2022, 05:35:14</span> Hudyma Vitalii</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 73)</span> <span class="leaderboard-time">03 Dec 2022, 05:38:20</span> Domas Karklys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 74)</span> <span class="leaderboard-time">03 Dec 2022, 05:52:51</span> Anton Feoktistov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 75)</span> <span class="leaderboard-time">03 Dec 2022, 06:06:29</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 76)</span> <span class="leaderboard-time">03 Dec 2022, 06:16:58</span> Lukas Pažėra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 77)</span> <span class="leaderboard-time">03 Dec 2022, 06:18:55</span> Gil Levin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 78)</span> <span class="leaderboard-time">03 Dec 2022, 06:27:24</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 79)</span> <span class="leaderboard-time">03 Dec 2022, 06:33:33</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 80)</span> <span class="leaderboard-time">03 Dec 2022, 06:34:55</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 81)</span> <span class="leaderboard-time">03 Dec 2022, 06:35:53</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 82)</span> <span class="leaderboard-time">03 Dec 2022, 06:38:11</span> Adam Gorkoz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 83)</span> <span class="leaderboard-time">03 Dec 2022, 06:46:30</span> Oleksandr Yakover</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 84)</span> <span class="leaderboard-time">03 Dec 2022, 06:55:59</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 85)</span> <span class="leaderboard-time">03 Dec 2022, 07:08:21</span> (anonymous user #2373525)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 86)</span> <span class="leaderboard-time">03 Dec 2022, 07:15:54</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 87)</span> <span class="leaderboard-time">03 Dec 2022, 07:22:09</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 88)</span> <span class="leaderboard-time">03 Dec 2022, 07:26:03</span> Dor Wiser</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 89)</span> <span class="leaderboard-time">03 Dec 2022, 07:38:56</span> Dvir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 90)</span> <span class="leaderboard-time">03 Dec 2022, 08:19:15</span> Dovile Lapinskaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">03 Dec 2022, 08:29:59</span> Kostya-Al</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">03 Dec 2022, 09:17:31</span> Yevhen Kramorenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">03 Dec 2022, 09:29:28</span> שי ליבוביץ'</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">03 Dec 2022, 10:29:53</span> Mindaugas Ardaravičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">03 Dec 2022, 10:55:44</span> Yedidya Kennard</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">03 Dec 2022, 11:17:10</span> Gilad Frish</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">03 Dec 2022, 11:22:02</span> Meir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">03 Dec 2022, 11:38:17</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">03 Dec 2022, 11:40:09</span> Dalia Simons</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">03 Dec 2022, 12:15:52</span> povilastwix</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">03 Dec 2022, 12:22:12</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">03 Dec 2022, 12:35:40</span> Ugnius Mickys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">03 Dec 2022, 12:47:09</span> Asaf Yonay</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">03 Dec 2022, 13:04:09</span> Roy Sommer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">105)</span> <span class="leaderboard-time">03 Dec 2022, 13:10:53</span> Jonathan Toledano</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">106)</span> <span class="leaderboard-time">03 Dec 2022, 13:25:24</span> Jonathan Moskovich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">107)</span> <span class="leaderboard-time">03 Dec 2022, 14:24:22</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">108)</span> <span class="leaderboard-time">03 Dec 2022, 14:45:34</span> Eido Weksler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">109)</span> <span class="leaderboard-time">03 Dec 2022, 15:08:14</span> Aviad Hadad</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -291,30 +480,37 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">02 Dec 2022, 09:07:25</span> Nadav Bahalul</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">02 Dec 2022, 09:13:49</span> Uzi Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">02 Dec 2022, 09:26:07</span> Itay Friedman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">02 Dec 2022, 09:33:13</span> Jonathan Moskovich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">02 Dec 2022, 09:53:22</span> Inbal Langer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">02 Dec 2022, 10:02:29</span> Andrii Koretskyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">02 Dec 2022, 10:41:17</span> Michael Pustovit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">02 Dec 2022, 10:44:27</span> ShaharR</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">02 Dec 2022, 10:56:24</span> Tania-Y</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">02 Dec 2022, 10:59:36</span> Kostya-Al</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">02 Dec 2022, 11:24:43</span> Alexander Panman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">02 Dec 2022, 12:00:27</span> ivellios</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">02 Dec 2022, 12:10:22</span> Tzachi Azo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">02 Dec 2022, 12:15:33</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">105)</span> <span class="leaderboard-time">02 Dec 2022, 12:45:23</span> Yuriy Fedorov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">106)</span> <span class="leaderboard-time">02 Dec 2022, 12:55:04</span> Yuval Shoham</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">107)</span> <span class="leaderboard-time">02 Dec 2022, 13:45:52</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">108)</span> <span class="leaderboard-time">02 Dec 2022, 14:01:22</span> Kirill Gladkov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">109)</span> <span class="leaderboard-time">02 Dec 2022, 14:01:47</span> Ugnius Mickys</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">110)</span> <span class="leaderboard-time">02 Dec 2022, 14:06:31</span> Donatas Petrauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">111)</span> <span class="leaderboard-time">02 Dec 2022, 14:18:47</span> Boris Dichter</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">112)</span> <span class="leaderboard-time">02 Dec 2022, 14:42:14</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">113)</span> <span class="leaderboard-time">02 Dec 2022, 14:55:07</span> Adam Gorkoz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">114)</span> <span class="leaderboard-time">02 Dec 2022, 14:59:37</span> Avigdor Mansbach</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">115)</span> <span class="leaderboard-time">02 Dec 2022, 15:06:06</span> Roy Sommer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">116)</span> <span class="leaderboard-time">02 Dec 2022, 17:53:17</span> Jonathan Fraimorice</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">117)</span> <span class="leaderboard-time">02 Dec 2022, 17:53:59</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">02 Dec 2022, 09:28:50</span> Lietuvaitis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">02 Dec 2022, 09:33:13</span> Jonathan Moskovich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">02 Dec 2022, 09:53:22</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">02 Dec 2022, 10:02:29</span> Andrii Koretskyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">02 Dec 2022, 10:41:17</span> Michael Pustovit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">02 Dec 2022, 10:44:27</span> ShaharR</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">02 Dec 2022, 10:56:24</span> Tania-Y</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">02 Dec 2022, 10:59:36</span> Kostya-Al</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">02 Dec 2022, 11:24:43</span> Alexander Panman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">02 Dec 2022, 12:00:27</span> ivellios</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">02 Dec 2022, 12:10:22</span> Tzachi Azo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">105)</span> <span class="leaderboard-time">02 Dec 2022, 12:15:33</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">106)</span> <span class="leaderboard-time">02 Dec 2022, 12:45:23</span> Yuriy Fedorov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">107)</span> <span class="leaderboard-time">02 Dec 2022, 12:55:04</span> Yuval Shoham</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">108)</span> <span class="leaderboard-time">02 Dec 2022, 13:45:52</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">109)</span> <span class="leaderboard-time">02 Dec 2022, 14:01:22</span> Kirill Gladkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">110)</span> <span class="leaderboard-time">02 Dec 2022, 14:01:47</span> Ugnius Mickys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">111)</span> <span class="leaderboard-time">02 Dec 2022, 14:06:31</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">112)</span> <span class="leaderboard-time">02 Dec 2022, 14:18:47</span> Boris Dichter</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">113)</span> <span class="leaderboard-time">02 Dec 2022, 14:42:14</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">114)</span> <span class="leaderboard-time">02 Dec 2022, 14:55:07</span> Adam Gorkoz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">115)</span> <span class="leaderboard-time">02 Dec 2022, 14:59:37</span> Avigdor Mansbach</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">116)</span> <span class="leaderboard-time">02 Dec 2022, 15:06:06</span> Roy Sommer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">117)</span> <span class="leaderboard-time">02 Dec 2022, 17:53:17</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">118)</span> <span class="leaderboard-time">02 Dec 2022, 17:53:59</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">119)</span> <span class="leaderboard-time">03 Dec 2022, 07:15:41</span> Dvir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">120)</span> <span class="leaderboard-time">03 Dec 2022, 10:56:11</span> Gilad Frish</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">121)</span> <span class="leaderboard-time">03 Dec 2022, 11:09:52</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">122)</span> <span class="leaderboard-time">03 Dec 2022, 12:08:12</span> Jonathan Toledano</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">123)</span> <span class="leaderboard-time">03 Dec 2022, 14:03:33</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">124)</span> <span class="leaderboard-time">03 Dec 2022, 14:19:04</span> Aviad Hadad</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
@@ -413,29 +609,36 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">02 Dec 2022, 08:09:31</span> Oleksandr Yermilov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">02 Dec 2022, 08:43:43</span> Lior Marzouk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">02 Dec 2022, 08:52:19</span> Nadav Bahalul</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">02 Dec 2022, 09:20:00</span> Itay Friedman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">02 Dec 2022, 09:25:45</span> Jonathan Moskovich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">02 Dec 2022, 09:34:16</span> Inbal Langer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">02 Dec 2022, 09:47:14</span> Andrii Koretskyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">02 Dec 2022, 10:21:28</span> Michael Pustovit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">02 Dec 2022, 10:31:52</span> Yuriy Fedorov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">02 Dec 2022, 10:40:47</span> ShaharR</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">02 Dec 2022, 10:55:29</span> Kostya-Al</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">02 Dec 2022, 10:57:22</span> Alexander Panman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">105)</span> <span class="leaderboard-time">02 Dec 2022, 11:22:46</span> ivellios</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">106)</span> <span class="leaderboard-time">02 Dec 2022, 11:41:36</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">107)</span> <span class="leaderboard-time">02 Dec 2022, 12:04:15</span> Tzachi Azo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">108)</span> <span class="leaderboard-time">02 Dec 2022, 12:31:17</span> Yuval Shoham</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">109)</span> <span class="leaderboard-time">02 Dec 2022, 13:31:20</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">110)</span> <span class="leaderboard-time">02 Dec 2022, 13:45:46</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">111)</span> <span class="leaderboard-time">02 Dec 2022, 13:52:17</span> Boris Dichter</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">112)</span> <span class="leaderboard-time">02 Dec 2022, 13:53:57</span> Donatas Petrauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">113)</span> <span class="leaderboard-time">02 Dec 2022, 13:59:20</span> Kirill Gladkov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">114)</span> <span class="leaderboard-time">02 Dec 2022, 14:43:07</span> Adam Gorkoz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">115)</span> <span class="leaderboard-time">02 Dec 2022, 14:55:56</span> Avigdor Mansbach</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">116)</span> <span class="leaderboard-time">02 Dec 2022, 14:59:19</span> Roy Sommer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">117)</span> <span class="leaderboard-time">02 Dec 2022, 17:43:01</span> Jonathan Fraimorice</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">118)</span> <span class="leaderboard-time">02 Dec 2022, 17:47:25</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">02 Dec 2022, 09:19:58</span> Lietuvaitis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">02 Dec 2022, 09:20:00</span> Itay Friedman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">02 Dec 2022, 09:25:45</span> Jonathan Moskovich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">02 Dec 2022, 09:34:16</span> Inbal Langer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">02 Dec 2022, 09:47:14</span> Andrii Koretskyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">02 Dec 2022, 10:21:28</span> Michael Pustovit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">02 Dec 2022, 10:31:52</span> Yuriy Fedorov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">02 Dec 2022, 10:40:47</span> ShaharR</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">02 Dec 2022, 10:55:29</span> Kostya-Al</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">105)</span> <span class="leaderboard-time">02 Dec 2022, 10:57:22</span> Alexander Panman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">106)</span> <span class="leaderboard-time">02 Dec 2022, 11:22:46</span> ivellios</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">107)</span> <span class="leaderboard-time">02 Dec 2022, 11:41:36</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">108)</span> <span class="leaderboard-time">02 Dec 2022, 12:04:15</span> Tzachi Azo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">109)</span> <span class="leaderboard-time">02 Dec 2022, 12:31:17</span> Yuval Shoham</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">110)</span> <span class="leaderboard-time">02 Dec 2022, 13:31:20</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">111)</span> <span class="leaderboard-time">02 Dec 2022, 13:45:46</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">112)</span> <span class="leaderboard-time">02 Dec 2022, 13:52:17</span> Boris Dichter</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">113)</span> <span class="leaderboard-time">02 Dec 2022, 13:53:57</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">114)</span> <span class="leaderboard-time">02 Dec 2022, 13:59:20</span> Kirill Gladkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">115)</span> <span class="leaderboard-time">02 Dec 2022, 14:43:07</span> Adam Gorkoz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">116)</span> <span class="leaderboard-time">02 Dec 2022, 14:55:56</span> Avigdor Mansbach</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">117)</span> <span class="leaderboard-time">02 Dec 2022, 14:59:19</span> Roy Sommer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">118)</span> <span class="leaderboard-time">02 Dec 2022, 17:43:01</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">119)</span> <span class="leaderboard-time">02 Dec 2022, 17:47:25</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">120)</span> <span class="leaderboard-time">03 Dec 2022, 06:57:42</span> Dvir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">121)</span> <span class="leaderboard-time">03 Dec 2022, 10:04:53</span> Gilad Frish</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">122)</span> <span class="leaderboard-time">03 Dec 2022, 10:59:10</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">123)</span> <span class="leaderboard-time">03 Dec 2022, 11:49:59</span> Jonathan Toledano</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">124)</span> <span class="leaderboard-time">03 Dec 2022, 13:32:25</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">125)</span> <span class="leaderboard-time">03 Dec 2022, 13:57:55</span> Nachshon Schwartz</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -584,8 +787,13 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position">141)</span> <span class="leaderboard-time">02 Dec 2022, 01:22:56</span> Rimvydas Gimbutas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">142)</span> <span class="leaderboard-time">02 Dec 2022, 02:33:29</span> (anonymous user #2303455)</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">143)</span> <span class="leaderboard-time">02 Dec 2022, 06:39:20</span> Lukas Pažėra</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">144)</span> <span class="leaderboard-time">02 Dec 2022, 07:45:14</span> (anonymous user #2373525)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">145)</span> <span class="leaderboard-time">02 Dec 2022, 10:56:58</span> Tomas Eglinskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">144)</span> <span class="leaderboard-time">02 Dec 2022, 07:36:52</span> Lietuvaitis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">145)</span> <span class="leaderboard-time">02 Dec 2022, 07:45:14</span> (anonymous user #2373525)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">146)</span> <span class="leaderboard-time">02 Dec 2022, 10:56:58</span> Tomas Eglinskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">147)</span> <span class="leaderboard-time">03 Dec 2022, 07:09:47</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">148)</span> <span class="leaderboard-time">03 Dec 2022, 09:51:03</span> Gilad Frish</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">149)</span> <span class="leaderboard-time">03 Dec 2022, 11:03:57</span> Jonathan Toledano</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">150)</span> <span class="leaderboard-time">03 Dec 2022, 14:19:31</span> Artem Ohanjanyan</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
@@ -671,69 +879,74 @@ window.onload = function() {
 <div class="leaderboard-entry"><span class="leaderboard-position"> 80)</span> <span class="leaderboard-time">01 Dec 2022, 04:23:43</span> Taras Petushkov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 81)</span> <span class="leaderboard-time">01 Dec 2022, 04:33:45</span> Yogev Shlomovitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 82)</span> <span class="leaderboard-time">01 Dec 2022, 04:47:42</span> Dor Wiser</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 83)</span> <span class="leaderboard-time">01 Dec 2022, 04:52:35</span> Donatas Petrauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 84)</span> <span class="leaderboard-time">01 Dec 2022, 05:26:23</span> Milda Glebauskaite</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 85)</span> <span class="leaderboard-time">01 Dec 2022, 05:29:57</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 86)</span> <span class="leaderboard-time">01 Dec 2022, 05:33:06</span> (anonymous user #2303455)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 87)</span> <span class="leaderboard-time">01 Dec 2022, 05:48:51</span> Dalia Simons</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 88)</span> <span class="leaderboard-time">01 Dec 2022, 05:57:16</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 89)</span> <span class="leaderboard-time">01 Dec 2022, 05:58:23</span> Michael Pustovit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 90)</span> <span class="leaderboard-time">01 Dec 2022, 06:07:10</span> Kirill Gladkov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">01 Dec 2022, 06:12:35</span> Tomas Jurevic</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">01 Dec 2022, 06:17:08</span> Einav Levy</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">01 Dec 2022, 06:20:43</span> Tomas Miliauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">01 Dec 2022, 06:23:04</span> Oleksandr Yermilov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">01 Dec 2022, 06:23:20</span> Dima Bildin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">01 Dec 2022, 06:33:15</span> Andrii Koretskyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">01 Dec 2022, 06:48:11</span> Anton Feoktistov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">01 Dec 2022, 07:02:05</span> Jonathan Fraimorice</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">01 Dec 2022, 07:09:52</span> Nitzan Hadar</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">01 Dec 2022, 07:11:37</span> Yedidya Kennard</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">01 Dec 2022, 07:14:52</span> Kyrylo Taran</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">01 Dec 2022, 07:20:08</span> Yogev Ben David</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">01 Dec 2022, 07:32:09</span> Itai Schuftan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">01 Dec 2022, 07:35:48</span> Yinon Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">105)</span> <span class="leaderboard-time">01 Dec 2022, 07:38:47</span> Ziv Pizanti</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">106)</span> <span class="leaderboard-time">01 Dec 2022, 07:48:14</span> Gil Levin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">107)</span> <span class="leaderboard-time">01 Dec 2022, 07:50:50</span> Avigdor Mansbach</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">108)</span> <span class="leaderboard-time">01 Dec 2022, 07:55:32</span> Andrius Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">109)</span> <span class="leaderboard-time">01 Dec 2022, 08:45:30</span> Slava Goverdovsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">110)</span> <span class="leaderboard-time">01 Dec 2022, 08:56:38</span> Ravid Ben Harosh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">111)</span> <span class="leaderboard-time">01 Dec 2022, 09:27:05</span> dmarav</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">112)</span> <span class="leaderboard-time">01 Dec 2022, 09:38:49</span> Lior Marzouk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">113)</span> <span class="leaderboard-time">01 Dec 2022, 09:52:56</span> (anonymous user #2301674)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">114)</span> <span class="leaderboard-time">01 Dec 2022, 10:00:14</span> Snir Sharristh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">115)</span> <span class="leaderboard-time">01 Dec 2022, 10:05:44</span> Yitzi G</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">116)</span> <span class="leaderboard-time">01 Dec 2022, 10:21:29</span> Tom May Rimok</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">117)</span> <span class="leaderboard-time">01 Dec 2022, 10:22:14</span> Yuriy Fedorov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">118)</span> <span class="leaderboard-time">01 Dec 2022, 10:39:56</span> Hudyma Vitalii</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">119)</span> <span class="leaderboard-time">01 Dec 2022, 10:50:26</span> Lukas Kairys</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">120)</span> <span class="leaderboard-time">01 Dec 2022, 11:17:18</span> Iurii Kozhan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">121)</span> <span class="leaderboard-time">01 Dec 2022, 11:21:28</span> Anton Kolhun</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">122)</span> <span class="leaderboard-time">01 Dec 2022, 11:22:08</span> Oleksandr Yakover</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">123)</span> <span class="leaderboard-time">01 Dec 2022, 11:26:25</span> Uzi Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">124)</span> <span class="leaderboard-time">01 Dec 2022, 11:34:09</span> Boris Dichter</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">125)</span> <span class="leaderboard-time">01 Dec 2022, 12:05:24</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">126)</span> <span class="leaderboard-time">01 Dec 2022, 12:19:04</span> Dvir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">127)</span> <span class="leaderboard-time">01 Dec 2022, 12:34:12</span> Eido Weksler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">128)</span> <span class="leaderboard-time">01 Dec 2022, 12:36:08</span> Roy Sommer</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">129)</span> <span class="leaderboard-time">01 Dec 2022, 12:36:44</span> Nadav Bahalul</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">130)</span> <span class="leaderboard-time">01 Dec 2022, 12:48:47</span> Gil Galditzky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">131)</span> <span class="leaderboard-time">01 Dec 2022, 12:54:35</span> Ugnius Mickys</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">132)</span> <span class="leaderboard-time">01 Dec 2022, 13:04:39</span> Asaf Yonay</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">133)</span> <span class="leaderboard-time">01 Dec 2022, 13:30:38</span> Yevhen Kramorenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">134)</span> <span class="leaderboard-time">01 Dec 2022, 13:53:24</span> Gavin Rifkind</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">135)</span> <span class="leaderboard-time">01 Dec 2022, 14:00:26</span> marine-bre</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">136)</span> <span class="leaderboard-time">01 Dec 2022, 14:28:42</span> Danylo Vdovenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">137)</span> <span class="leaderboard-time">01 Dec 2022, 14:41:08</span> Kostya-Al</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">138)</span> <span class="leaderboard-time">01 Dec 2022, 15:39:26</span> Tania-Y</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">139)</span> <span class="leaderboard-time">01 Dec 2022, 15:39:26</span> Jonathan Moskovich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">140)</span> <span class="leaderboard-time">01 Dec 2022, 16:00:16</span> Tzachi Azo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">141)</span> <span class="leaderboard-time">01 Dec 2022, 17:02:09</span> Leonid Kolomiitsev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">142)</span> <span class="leaderboard-time">01 Dec 2022, 17:28:29</span> Vladyslav Zhuk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">143)</span> <span class="leaderboard-time">02 Dec 2022, 01:21:28</span> Rimvydas Gimbutas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">144)</span> <span class="leaderboard-time">02 Dec 2022, 06:32:55</span> Lukas Pažėra</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">145)</span> <span class="leaderboard-time">02 Dec 2022, 10:47:38</span> Tomas Eglinskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 83)</span> <span class="leaderboard-time">01 Dec 2022, 04:51:12</span> Jonathan Toledano</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 84)</span> <span class="leaderboard-time">01 Dec 2022, 04:52:35</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 85)</span> <span class="leaderboard-time">01 Dec 2022, 05:26:23</span> Milda Glebauskaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 86)</span> <span class="leaderboard-time">01 Dec 2022, 05:29:57</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 87)</span> <span class="leaderboard-time">01 Dec 2022, 05:33:06</span> (anonymous user #2303455)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 88)</span> <span class="leaderboard-time">01 Dec 2022, 05:48:51</span> Dalia Simons</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 89)</span> <span class="leaderboard-time">01 Dec 2022, 05:57:16</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 90)</span> <span class="leaderboard-time">01 Dec 2022, 05:58:23</span> Michael Pustovit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">01 Dec 2022, 06:07:10</span> Kirill Gladkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">01 Dec 2022, 06:12:35</span> Tomas Jurevic</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">01 Dec 2022, 06:17:08</span> Einav Levy</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">01 Dec 2022, 06:20:43</span> Tomas Miliauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">01 Dec 2022, 06:23:04</span> Oleksandr Yermilov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">01 Dec 2022, 06:23:20</span> Dima Bildin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">01 Dec 2022, 06:33:15</span> Andrii Koretskyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">01 Dec 2022, 06:48:11</span> Anton Feoktistov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">01 Dec 2022, 07:02:05</span> Jonathan Fraimorice</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">01 Dec 2022, 07:09:52</span> Nitzan Hadar</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">01 Dec 2022, 07:11:37</span> Yedidya Kennard</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">01 Dec 2022, 07:14:52</span> Kyrylo Taran</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">01 Dec 2022, 07:20:08</span> Yogev Ben David</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">01 Dec 2022, 07:32:09</span> Itai Schuftan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">105)</span> <span class="leaderboard-time">01 Dec 2022, 07:35:48</span> Yinon Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">106)</span> <span class="leaderboard-time">01 Dec 2022, 07:38:47</span> Ziv Pizanti</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">107)</span> <span class="leaderboard-time">01 Dec 2022, 07:48:14</span> Gil Levin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">108)</span> <span class="leaderboard-time">01 Dec 2022, 07:50:50</span> Avigdor Mansbach</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">109)</span> <span class="leaderboard-time">01 Dec 2022, 07:55:32</span> Andrius Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">110)</span> <span class="leaderboard-time">01 Dec 2022, 08:45:30</span> Slava Goverdovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">111)</span> <span class="leaderboard-time">01 Dec 2022, 08:56:38</span> Ravid Ben Harosh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">112)</span> <span class="leaderboard-time">01 Dec 2022, 09:27:05</span> dmarav</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">113)</span> <span class="leaderboard-time">01 Dec 2022, 09:38:49</span> Lior Marzouk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">114)</span> <span class="leaderboard-time">01 Dec 2022, 09:52:56</span> (anonymous user #2301674)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">115)</span> <span class="leaderboard-time">01 Dec 2022, 10:00:14</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">116)</span> <span class="leaderboard-time">01 Dec 2022, 10:05:44</span> Yitzi G</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">117)</span> <span class="leaderboard-time">01 Dec 2022, 10:21:29</span> Tom May Rimok</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">118)</span> <span class="leaderboard-time">01 Dec 2022, 10:22:14</span> Yuriy Fedorov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">119)</span> <span class="leaderboard-time">01 Dec 2022, 10:39:56</span> Hudyma Vitalii</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">120)</span> <span class="leaderboard-time">01 Dec 2022, 10:50:26</span> Lukas Kairys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">121)</span> <span class="leaderboard-time">01 Dec 2022, 11:17:18</span> Iurii Kozhan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">122)</span> <span class="leaderboard-time">01 Dec 2022, 11:21:28</span> Anton Kolhun</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">123)</span> <span class="leaderboard-time">01 Dec 2022, 11:22:08</span> Oleksandr Yakover</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">124)</span> <span class="leaderboard-time">01 Dec 2022, 11:26:25</span> Uzi Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">125)</span> <span class="leaderboard-time">01 Dec 2022, 11:34:09</span> Boris Dichter</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">126)</span> <span class="leaderboard-time">01 Dec 2022, 12:05:24</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">127)</span> <span class="leaderboard-time">01 Dec 2022, 12:19:04</span> Dvir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">128)</span> <span class="leaderboard-time">01 Dec 2022, 12:34:12</span> Eido Weksler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">129)</span> <span class="leaderboard-time">01 Dec 2022, 12:36:08</span> Roy Sommer</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">130)</span> <span class="leaderboard-time">01 Dec 2022, 12:36:44</span> Nadav Bahalul</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">131)</span> <span class="leaderboard-time">01 Dec 2022, 12:48:47</span> Gil Galditzky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">132)</span> <span class="leaderboard-time">01 Dec 2022, 12:54:35</span> Ugnius Mickys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">133)</span> <span class="leaderboard-time">01 Dec 2022, 13:04:39</span> Asaf Yonay</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">134)</span> <span class="leaderboard-time">01 Dec 2022, 13:30:38</span> Yevhen Kramorenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">135)</span> <span class="leaderboard-time">01 Dec 2022, 13:53:24</span> Gavin Rifkind</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">136)</span> <span class="leaderboard-time">01 Dec 2022, 14:00:26</span> marine-bre</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">137)</span> <span class="leaderboard-time">01 Dec 2022, 14:28:42</span> Danylo Vdovenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">138)</span> <span class="leaderboard-time">01 Dec 2022, 14:41:08</span> Kostya-Al</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">139)</span> <span class="leaderboard-time">01 Dec 2022, 15:39:26</span> Tania-Y</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">140)</span> <span class="leaderboard-time">01 Dec 2022, 15:39:26</span> Jonathan Moskovich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">141)</span> <span class="leaderboard-time">01 Dec 2022, 16:00:16</span> Tzachi Azo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">142)</span> <span class="leaderboard-time">01 Dec 2022, 17:02:09</span> Leonid Kolomiitsev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">143)</span> <span class="leaderboard-time">01 Dec 2022, 17:28:29</span> Vladyslav Zhuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">144)</span> <span class="leaderboard-time">02 Dec 2022, 01:21:28</span> Rimvydas Gimbutas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">145)</span> <span class="leaderboard-time">02 Dec 2022, 06:32:55</span> Lukas Pažėra</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">146)</span> <span class="leaderboard-time">02 Dec 2022, 06:51:40</span> Lietuvaitis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">147)</span> <span class="leaderboard-time">02 Dec 2022, 10:47:38</span> Tomas Eglinskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">148)</span> <span class="leaderboard-time">03 Dec 2022, 07:06:29</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">149)</span> <span class="leaderboard-time">03 Dec 2022, 09:45:08</span> Gilad Frish</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">150)</span> <span class="leaderboard-time">03 Dec 2022, 14:03:14</span> Artem Ohanjanyan</div> 
 </td>
 </tr>
 </table>
