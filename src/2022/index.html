@@ -12,41 +12,39 @@
 <header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2022</a><span class="title-event-wrap">;</span></h1></div></header>
 <main>
 <style>
-.calendar .calendar-color-g1 { color:#4d8b03; }
-.calendar .calendar-color-s { color:#d0b376; }
-.calendar .calendar-color-g0 { color:#488813; }
-.calendar .calendar-color-g4 { color:#01461f; }
 .calendar .calendar-color-u { color:#5eabb4; }
-.calendar .calendar-color-c { color:#eeeeee; }
-.calendar .calendar-color-g2 { color:#7fbd39; }
-.calendar .calendar-color-d { color:#685c46; }
+.calendar .calendar-color-g0 { color:#488813; }
+.calendar .calendar-color-s { color:#d0b376; }
 .calendar .calendar-color-g3 { color:#427322; }
+.calendar .calendar-color-g1 { color:#4d8b03; }
+.calendar .calendar-color-g4 { color:#01461f; }
+.calendar .calendar-color-g2 { color:#7fbd39; }
+.calendar .calendar-color-c { color:#eeeeee; }
 </style>
-<pre class="calendar"><span aria-hidden="true" class="calendar-day25">@@#@@#@@@@@@@@#@@@@@#@@##@@#@@@#@@@@@@#@@@@####@@  <span class="calendar-day">25</span></span>
-<span aria-hidden="true" class="calendar-day24">#@#@#@@#@@@@@@#@@@@@@@@@#@##@###@#@###@#@@@@#@@#@  <span class="calendar-day">24</span></span>
-<span aria-hidden="true" class="calendar-day23">@#@@@@@#@###@@@@@@##@#@@#@@@#@@@###@@@@@@@@@@@@@@  <span class="calendar-day">23</span></span>
-<span aria-hidden="true" class="calendar-day22">@@@@@##@@#@@##@@@@@#@@@@#@@#@@#@#@#@@@@@#@##@####  <span class="calendar-day">22</span></span>
-<span aria-hidden="true" class="calendar-day21">##@@@##@@@@@@#@#@@@#@@@@@####@@@#@@@@@#@@@@@@##@#  <span class="calendar-day">21</span></span>
-<span aria-hidden="true" class="calendar-day20">@@#@@@@@@@##@##@@#@@@@@@##@@@@@#@@#@##@@@@@@@@@@@  <span class="calendar-day">20</span></span>
-<span aria-hidden="true" class="calendar-day19">@@@@@@#@@@@@###@@@@@@@@@@@#@@@@@#@@@@#@@#@@@@@@@#  <span class="calendar-day">19</span></span>
-<span aria-hidden="true" class="calendar-day18">#@#@@#@@#@@@##@@#@##@@#@@@@@@@@#@@@#@#@@##@#@@#@@  <span class="calendar-day">18</span></span>
-<span aria-hidden="true" class="calendar-day17">@@@@#@@@##@#@@@@@@@@@@##@@##@##@@@###@@#@#@@@@@@@  <span class="calendar-day">17</span></span>
-<span aria-hidden="true" class="calendar-day16">#@@@@@#@@@##@@##@#@@@#@@@#@@@#@@##@@#####@@#@@@@@  <span class="calendar-day">16</span></span>
-<span aria-hidden="true" class="calendar-day15">#@#@@#@@@@@@@@@##@@@@@@@@#@@#@@#@@@@#@##@@###@@@#  <span class="calendar-day">15</span></span>
-<span aria-hidden="true" class="calendar-day14">##@#@@#@@@@@@@@#@@@#@@@#|@@@@#@@@##@@@##@@#@@@@@@  <span class="calendar-day">14</span></span>
-<span aria-hidden="true" class="calendar-day13">###@@@#@#@#@@#@#@#@@#@@@@#@@@@##@@#@@@@#@@#@@#@@#  <span class="calendar-day">13</span></span>
-<span aria-hidden="true" class="calendar-day12">#@@#@@@#@##@##@@@@@#@##@@@@###@#@@@@@@@@@##@@#@@@  <span class="calendar-day">12</span></span>
-<span aria-hidden="true" class="calendar-day11">@@#@###@@@##@###@@@@#@@@@@@@#####@#@#@@@@@@@#@#@@  <span class="calendar-day">11</span></span>
-<span aria-hidden="true" class="calendar-day10">#@@##@@@@#@@@@@@#@#@@#@@@@##@@@###@@@@@#@@##@@##@  <span class="calendar-day">10</span></span>
-<span aria-hidden="true" class="calendar-day9">#@@#@@@@#@@@#@#@@#@@##@@##@##@@@#@@#@@@###@@@###@  <span class="calendar-day"> 9</span></span>
-<span aria-hidden="true" class="calendar-day8">@##@@#@#@@@@@@@@##@@@@@@@###@@##@#@@@@@@@@@#@#@@@  <span class="calendar-day"> 8</span></span>
-<span aria-hidden="true" class="calendar-day7">#@@@@@@##@@@#@@##@#@@@#@@@@##@##@#@@@@@@#@@@##@@#  <span class="calendar-day"> 7</span></span>
-<span aria-hidden="true" class="calendar-day6">@#@@@@@#@@@#@@@@#@@@@##@@#@@####@@#@@@#@@###@@#@@  <span class="calendar-day"> 6</span><span id="calendar-countdown"></span><script>
+<pre class="calendar"><span aria-hidden="true" class="calendar-day25">@@#@@@@@@@@###@@@##@@@##@@@#@@#@##@@####@@@@@#@@@  <span class="calendar-day">25</span></span>
+<span aria-hidden="true" class="calendar-day24">@@#@#@##@@@@@#@#@@@@@##@@@@@@@#####@#@@#@@@@@@@@@  <span class="calendar-day">24</span></span>
+<span aria-hidden="true" class="calendar-day23">@#@#@@@@@@@@@@@@#@@#@@@@@#@@@@@@@@#@#@@@#@##@@@#@  <span class="calendar-day">23</span></span>
+<span aria-hidden="true" class="calendar-day22">@@@@#@@#@##@@@##@@@@@@#@@#@#@@@##@##@@##@@@#@@@@#  <span class="calendar-day">22</span></span>
+<span aria-hidden="true" class="calendar-day21">@##@#@@@##@@@@@@@###@##@@@@#@##@#@#@##@@@@@#@@##@  <span class="calendar-day">21</span></span>
+<span aria-hidden="true" class="calendar-day20">@@#@#@@@@#@@@@@##@@@|@#@#@@@@@@@@@@@@#@@@@@@#@@@#  <span class="calendar-day">20</span></span>
+<span aria-hidden="true" class="calendar-day19">@#@@@@#@##@@#@#@@@###@##@@#@@#@@@@@@@@@@@@@@@@##@  <span class="calendar-day">19</span></span>
+<span aria-hidden="true" class="calendar-day18">@@##@#@@@###@#@####@@#@@@#####@@@@@@#@@@@@#@@@@@@  <span class="calendar-day">18</span></span>
+<span aria-hidden="true" class="calendar-day17">@#@##@@#@##@@@##@@@#@#@@#@#@@#@#@@@@@@#@@@#@@###@  <span class="calendar-day">17</span></span>
+<span aria-hidden="true" class="calendar-day16">@@@@@#@@@@@#@@#@@@#@#@@@@@#@@#@@@#@@@#@@#@@@@@#@@  <span class="calendar-day">16</span></span>
+<span aria-hidden="true" class="calendar-day15">@#@@@#@@#@#@@@#@@@@@@@@@@@@@@|@@@###@@@@@@@#@@@@@  <span class="calendar-day">15</span></span>
+<span aria-hidden="true" class="calendar-day14">@#@@@@#@@##@#@@@@#@#@###@#@#@##@#@#@@@@###@@@@##@  <span class="calendar-day">14</span></span>
+<span aria-hidden="true" class="calendar-day13">@@@@#@@@@#@@#@#@@@@@#@@|@@@@@##@@@#@@#@@#@#@@@#@@  <span class="calendar-day">13</span></span>
+<span aria-hidden="true" class="calendar-day12">#@@@@@@##@@@@@@@@@@@@@@#@@#@@##@@#@##@@@@#@@@@@@#  <span class="calendar-day">12</span></span>
+<span aria-hidden="true" class="calendar-day11">@@##@@##@@@@@@@@#@#@#@@@@#@@@@#@@@@@#@##@@@@#@@#@  <span class="calendar-day">11</span></span>
+<span aria-hidden="true" class="calendar-day10">####@@@@##@@@@@@#@@@@@#@@##@#@@@@@@@@@@#@@@#@@#@@  <span class="calendar-day">10</span></span>
+<span aria-hidden="true" class="calendar-day9">@@@#@@###@@@@@@@##@@@@@@@#@@@@@@@@@|@@@@@@@@@@@@@  <span class="calendar-day"> 9</span></span>
+<span aria-hidden="true" class="calendar-day8">#@@@@#@@#@#@#@@#@@@@@@##@@#@@@###@####@@#@|@@#@@@  <span class="calendar-day"> 8</span></span>
+<span aria-hidden="true" class="calendar-day7">@#@#@@##@@@@@@@#@@##@@@#@##@@@#@@###@@##@@@@#@@@@  <span class="calendar-day"> 7</span><span id="calendar-countdown"></span><script>
 (function(){
 var countdown = document.getElementById("calendar-countdown");
 if (!countdown) return;
-var server_eta = 84115;
-var key = "2022-6-"+server_eta;
+var server_eta = 85597;
+var key = "2022-7-"+server_eta;
 var now = Math.floor(new Date().getTime()/1000);
 var target = server_eta + now;
 if (sessionStorage) {
@@ -69,8 +67,8 @@ function update_countdown() {
     countdown.textContent = "";
 
     var a = document.createElement("a");
-    a[String.fromCharCode(104,114,101,102)] = "/2022" + String.fromCharCode(47,100,97,121,47) + "6";
-    a.className = "calendar-day6 calendar-day-new";
+    a[String.fromCharCode(104,114,101,102)] = "/2022" + String.fromCharCode(47,100,97,121,47) + "7";
+    a.className = "calendar-day7 calendar-day-new";
     var span = countdown.parentNode;
     while (span.firstChild) {
       a.appendChild(span.firstChild);
@@ -92,9 +90,10 @@ interval = setInterval(update_countdown,1000);
 update_countdown();
 })();
 </script></span>
-<a aria-label="Day 5, two stars" href="day05.html" class="calendar-day5 calendar-verycomplete">|#@@@@#@@@<span class="calendar-color-g2">@</span><span class="calendar-color-g3">@</span><span class="calendar-color-g0">@</span><span class="calendar-color-u">.~~.</span><span class="calendar-color-g3">@</span><span class="calendar-color-g0">@</span><span class="calendar-color-s">.</span><span class="calendar-color-c">/\</span><span class="calendar-color-s">.'</span><span class="calendar-color-d">|</span><span class="calendar-color-g0">@</span><span class="calendar-color-g1">@</span><span class="calendar-color-g4">#</span><span class="calendar-color-g3">#</span>#@@@@@@###@#@#@@##@#  <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 4, two stars" href="day04.html" class="calendar-day4 calendar-verycomplete">@##@@@@<span class="calendar-color-g3">@</span><span class="calendar-color-g0">@</span><span class="calendar-color-g1">#</span><span class="calendar-color-g3">@</span><span class="calendar-color-s">.'</span><span class="calendar-color-u"> ~  </span><span class="calendar-color-s">'.</span><span class="calendar-color-c">/\</span><span class="calendar-color-s">'.</span><span class="calendar-color-c">/\</span><span class="calendar-color-s">' .</span><span class="calendar-color-d">|</span><span class="calendar-color-g0">@</span><span class="calendar-color-g2">#</span>##@#@#@@#@@@@#@@@@  <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 3, two stars" href="day03.html" class="calendar-day3 calendar-verycomplete">@@@<span class="calendar-color-g0">@</span><span class="calendar-color-g3">@</span><span class="calendar-color-g1">@@</span><span class="calendar-color-g0">@</span><span class="calendar-color-g1">@</span><span class="calendar-color-s">_/</span><span class="calendar-color-u"> ~   ~  </span><span class="calendar-color-s">\ ' '. '.'.</span><span class="calendar-color-g0">@</span><span class="calendar-color-g3">#</span>@@@@@@@@@@#@#@@@@  <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 6, two stars" href="day06.html" class="calendar-day6 calendar-verycomplete">@#@#@@@@@@<span class="calendar-color-g3">#</span><span class="calendar-color-g1">@</span><span class="calendar-color-u">.~~.</span><span class="calendar-color-g0">@#@</span><span class="calendar-color-g1">##</span><span class="calendar-color-g2">#</span><span class="calendar-color-g0">@</span><span class="calendar-color-s">..</span><span class="calendar-color-g4">@</span><span class="calendar-color-g2">@</span>#@#@@#@##@#@@@@@@@@@#@  <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 5, two stars" href="day05.html" class="calendar-day5 calendar-verycomplete">@@#@@#@#<span class="calendar-color-g4">@</span><span class="calendar-color-g2">#</span><span class="calendar-color-g1">@</span><span class="calendar-color-g3">@</span><span class="calendar-color-g4">@</span><span class="calendar-color-u">.~~.</span><span class="calendar-color-g1">@</span><span class="calendar-color-g2">@</span><span class="calendar-color-s">.</span><span class="calendar-color-c">/\</span><span class="calendar-color-s">.'</span><span class="calendar-color-g0">@</span><span class="calendar-color-g1">#@</span><span class="calendar-color-g2">@</span><span class="calendar-color-g3">@</span>#@#@@####@@#@#@@###@  <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 4, two stars" href="day04.html" class="calendar-day4 calendar-verycomplete">@#@@@<span class="calendar-color-g1">@</span><span class="calendar-color-g0">#@@</span><span class="calendar-color-g3">#</span><span class="calendar-color-g1">#</span><span class="calendar-color-s">.'</span><span class="calendar-color-u"> ~  </span><span class="calendar-color-s">'.</span><span class="calendar-color-c">/\</span><span class="calendar-color-s">'.</span><span class="calendar-color-c">/\</span><span class="calendar-color-s">' .</span><span class="calendar-color-g1">@</span><span class="calendar-color-g0">@</span><span class="calendar-color-g3">#</span>@#@@#@#|@@@@@#@@##  <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 3, two stars" href="day03.html" class="calendar-day3 calendar-verycomplete">@<span class="calendar-color-g3">@</span><span class="calendar-color-g2">#</span><span class="calendar-color-g0">##</span><span class="calendar-color-g3">#</span><span class="calendar-color-g2">@</span><span class="calendar-color-g1">@</span><span class="calendar-color-g0">@</span><span class="calendar-color-s">_/</span><span class="calendar-color-u"> ~   ~  </span><span class="calendar-color-s">\ ' '. '.'.</span><span class="calendar-color-g0">@@</span>@@#@|@@@#@@@@#@@#  <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 2, two stars" href="day02.html" class="calendar-day2 calendar-verycomplete"><span class="calendar-color-s">-~------'</span><span class="calendar-color-u">    ~    ~ </span><span class="calendar-color-s">'--~-----~-~----___________--</span>  <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete"><span class="calendar-color-u">  ~    ~  ~      ~     ~ ~   ~     ~  ~  ~   ~   </span>  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 </pre>

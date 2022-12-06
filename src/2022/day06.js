@@ -1,0 +1,12 @@
+export function part1(input, len = 4) {
+  for (let i = 0; i < input.length; i++) {
+    const four = input.slice(i, i + len);
+    if (new Set(four.split('')).size === len) {
+      return i + len;
+    }
+  }
+}
+
+export function part2(input) {
+  return part1(input, 14);
+}
