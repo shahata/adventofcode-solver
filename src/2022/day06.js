@@ -1,7 +1,7 @@
 export function part1(input, len = 4) {
   for (let i = 0; i < input.length; i++) {
-    const four = input.slice(i, i + len);
-    if (new Set(four.split('')).size === len) {
+    const slice = input.slice(i, i + len);
+    if (new Set(slice.split('')).size === len) {
       return i + len;
     }
   }
