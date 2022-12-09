@@ -1,7 +1,7 @@
 export function part1(input, len = 2) {
   const steps = input.split('\n').map(line => line.split(' '));
   const knots = new Array(len).fill().map(() => ({ x: 0, y: 0 }));
-  const visited = new Set([`${knots[len - 1].x},${knots[len - 1].y}`]);
+  const visited = new Set([`0,0`]);
   for (const [direction, count] of steps) {
     for (let i = 0; i < +count; i++) {
       if (direction === 'R') knots[0].x++;
