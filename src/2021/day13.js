@@ -42,5 +42,5 @@ export function part1(input) {
 
 export function part2(input) {
   const paper = fold(input);
-  return ocr(paper.map(line => '.' + line.join('')).join('\n'));
+  return ocr(paper.map(line => line.join('')).join('\n'));
 }

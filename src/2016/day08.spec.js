@@ -34,7 +34,7 @@ rotate column x=1 by 1`,
           7,
           3,
         ),
-      ).toEqual(['', '..#..#.#', '.#.#....', '..#.....'].join('\n'));
+      ).toEqual(['', '.#..#.#', '#.#....', '.#.....'].join('\n'));
     });
 
     it('should work for part 2 input', () => {

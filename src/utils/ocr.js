@@ -37,19 +37,19 @@ const alphabet = {
 export function ocr(image) {
   let lines = image.split('\n');
   if (lines.length === 6) {
-    const letters = (lines[0].length - 1) / 5;
+    if (lines[0].length % 5 !== 0) lines = lines.map(x => x.replace(/^\./, ''));
+    const letters = Math.ceil(lines[0].length / 5);
     let result = '';
     for (let i = 0; i < letters; i++) {
-      const letter = lines.map(x => x.slice(i * 5 + 1, i * 5 + 5)).join('');
+      const letter = lines.map(x => x.slice(i * 5, i * 5 + 4)).join('');
       result += alphabet[letter];
     }
     return result.length === letters ? result : `\n${image}`;
   } else {
-    lines = lines.map(x => `..${x}..`);
-    const letters = (lines[0].length - 2) / 8;
+    const letters = Math.ceil(lines[0].length / 8);
     let result = '';
     for (let i = 0; i < letters; i++) {
-      const letter = lines.map(x => x.slice(i * 8 + 2, i * 8 + 8)).join('');
+      const letter = lines.map(x => x.slice(i * 8, i * 8 + 6)).join('');
       result += alphabet[letter];
     }
     return result.length === letters ? result : `\n${image}`;

@@ -34,6 +34,6 @@ export function part2(input, wide = 25, tall = 6) {
     rows[row] = (rows[row] || '') + bit;
   });
   return ocr(
-    rows.map(row => `.${row.replace(/0/g, '.').replace(/1/g, '#')}`).join('\n'),
+    rows.map(row => `${row.replace(/0/g, '.').replace(/1/g, '#')}`).join('\n'),
   );
 }

@@ -60,6 +60,6 @@ export function part1(input, width = 50, height = 6) {
 export function part2(input, width = 50, height = 6) {
   const final = solve(input, width, height);
   return ocr(
-    final.map(row => `.${row.map(x => (x ? '#' : '.')).join('')}`).join('\n'),
+    final.map(row => `${row.map(x => (x ? '#' : '.')).join('')}`).join('\n'),
   );
 }
