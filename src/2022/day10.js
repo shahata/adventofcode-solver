@@ -40,5 +40,5 @@ export function part2(input) {
       x += +line.split(' ').pop();
     }
   }
-  return ocr(result.trim());
+  return ocr(result);
 }
