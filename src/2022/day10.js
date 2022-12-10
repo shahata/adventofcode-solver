@@ -28,7 +28,7 @@ export function part2(input) {
   let cycle = 0;
   let x = 1;
   function progress() {
-    if (cycle % 40 === 0) result += '\n';
+    if (cycle % 40 === 0) result += '\n.';
     result += Math.abs((cycle % 40) - x) <= 1 ? '#' : '.';
     cycle++;
   }
@@ -40,5 +40,5 @@ export function part2(input) {
       x += +line.split(' ').pop();
     }
   }
-  return ocr(result).trim();
+  return ocr(result.trim());
 }
