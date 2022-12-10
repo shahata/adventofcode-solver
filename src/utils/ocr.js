@@ -36,22 +36,16 @@ const alphabet = {
 
 export function ocr(image) {
   let lines = image.trim().split('\n');
-  if (lines.length === 6) {
-    if (lines[0].length % 5 !== 0) lines = lines.map(x => x.replace(/^\./, ''));
-    const letters = Math.ceil(lines[0].length / 5);
-    let result = '';
-    for (let i = 0; i < letters; i++) {
-      const letter = lines.map(x => x.slice(i * 5, i * 5 + 4)).join('');
-      result += alphabet[letter];
-    }
-    return result.length === letters ? result : `\n${image.trim()}`;
-  } else {
-    const letters = Math.ceil(lines[0].length / 8);
-    let result = '';
-    for (let i = 0; i < letters; i++) {
-      const letter = lines.map(x => x.slice(i * 8, i * 8 + 6)).join('');
-      result += alphabet[letter];
-    }
-    return result.length === letters ? result : `\n${image.trim()}`;
+  let width = lines.length === 6 ? 4 : 6;
+  let spaces = lines.length === 6 ? 1 : 2;
+  let result = '';
+  if (lines.length === 6 && lines[0].length % 5 !== 0) {
+    lines = lines.map(x => x.replace(/^\./, ''));
   }
+  const letters = Math.ceil(lines[0].length / (width + spaces));
+  for (let i = 0; i < letters; i++) {
+    const letter = lines.map(x => x.substr(i * (width + spaces), width));
+    result += alphabet[letter.join('')];
+  }
+  return result.length === letters ? result : `\n${image.trim()}`;
 }
