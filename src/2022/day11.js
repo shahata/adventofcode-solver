@@ -1,6 +1,5 @@
 export function part1(input, count = 20) {
-  let monkeys = input.split('\n\n');
-  monkeys = monkeys.map(monkey => {
+  const monkeys = input.split('\n\n').map(monkey => {
     const lines = monkey.split('\n');
     const [, items] = lines[1].split(': ');
     const [safe] = lines[2].match(/(old|\d+) (\*|\+) (old|\d+)$/);
@@ -25,8 +24,8 @@ export function part1(input, count = 20) {
       }
     }
   }
-  monkeys = monkeys.sort((a, b) => b.business - a.business);
-  return monkeys[0].business * monkeys[1].business;
+  const [top1, top2] = monkeys.sort((a, b) => b.business - a.business);
+  return top1.business * top2.business;
 }
 
 export function part2(input) {
