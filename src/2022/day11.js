@@ -2,8 +2,8 @@ export function part1(input, count = 20) {
   let monkeys = input.split('\n\n');
   monkeys = monkeys.map(monkey => {
     const lines = monkey.split('\n');
-    const items = lines[1].split(': ').pop();
-    const safe = lines[2].match(/(old|\d+) (\*|\+) (old|\d+)$/)[0];
+    const [, items] = lines[1].split(': ');
+    const [safe] = lines[2].match(/(old|\d+) (\*|\+) (old|\d+)$/);
     return {
       items: items.split(', ').map(x => +x),
       operation: new Function('old', `return ${safe}`),
