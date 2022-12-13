@@ -14,14 +14,11 @@ function check(a, b) {
 }
 
 export function part1(input) {
-  const pairs = input
+  return input
     .split('\n\n')
-    .map(pair => pair.split('\n').map(x => JSON.parse(x)));
-  let sum = 0;
-  for (let i = 0; i < pairs.length; i++) {
-    if (check(...pairs[i]) < 0) sum += i + 1;
-  }
-  return sum;
+    .map(pair => pair.split('\n').map(x => JSON.parse(x)))
+    .map((pair, i) => (check(...pair) < 0 ? i + 1 : 0))
+    .reduce((a, b) => a + b);
 }
 
 export function part2(input) {
