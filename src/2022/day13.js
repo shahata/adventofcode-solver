@@ -1,8 +1,7 @@
 function check(a, b) {
   for (let i = 0; i < a.length && i < b.length; i++) {
     if (Number.isInteger(a[i]) && Number.isInteger(b[i])) {
-      if (a[i] < b[i]) return -1;
-      if (a[i] > b[i]) return 1;
+      if (a[i] !== b[i]) return a[i] - b[i];
     } else {
       const result = check(
         Number.isInteger(a[i]) ? [a[i]] : a[i],
@@ -11,9 +10,7 @@ function check(a, b) {
       if (result !== 0) return result;
     }
   }
-  if (a.length < b.length) return -1;
-  if (a.length > b.length) return 1;
-  return 0;
+  return a.length - b.length;
 }
 
 export function part1(input) {
@@ -22,7 +19,7 @@ export function part1(input) {
     .map(pair => pair.split('\n').map(x => JSON.parse(x)));
   let sum = 0;
   for (let i = 0; i < pairs.length; i++) {
-    if (check(...pairs[i]) === -1) sum += i + 1;
+    if (check(...pairs[i]) < 0) sum += i + 1;
   }
   return sum;
 }
