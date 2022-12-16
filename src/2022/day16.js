@@ -24,11 +24,10 @@ function parse(input) {
     .reduce((obj, valve) => ({ ...obj, [valve.id]: valve }), {});
   Object.values(valves).forEach(valve => {
     valve.paths = Object.values(valves)
-      .filter(({ id }) => id !== valve.id)
+      .filter(({ id, rate }) => id !== valve.id && rate > 0)
       .map(({ id }) => ({ id, distance: distance(valves, valve, id) }));
   });
-  const open = Object.keys(valves).filter(id => valves[id].rate === 0);
-  return { valves, open };
+  return valves;
 }
 
 function best(valves, current, open, pressure, time, elephant) {
@@ -47,11 +46,11 @@ function best(valves, current, open, pressure, time, elephant) {
 }
 
 export function part1(input) {
-  const { valves, open } = parse(input);
-  return best(valves, 'AA', new Set(open), 0, 30, false);
+  const valves = parse(input);
+  return best(valves, 'AA', new Set(), 0, 30, false);
 }
 
 export function part2(input) {
-  const { valves, open } = parse(input);
-  return best(valves, 'AA', new Set(open), 0, 26, true);
+  const valves = parse(input);
+  return best(valves, 'AA', new Set(), 0, 26, true);
 }
