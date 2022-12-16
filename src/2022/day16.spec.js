@@ -49,8 +49,8 @@ describe('day16 2022', () => {
       ).toEqual(1707);
     });
 
-    // it('should work for part 2 input', () => {
-    //   expect(part2(input)).toEqual(2351);
-    // });
+    it('should work for part 2 input', () => {
+      expect(part2(input)).toEqual(2351);
+    });
   });
 });
