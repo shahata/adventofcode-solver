@@ -59,8 +59,8 @@ describe('day15 2022', () => {
       ).toEqual(56000011);
     });
 
-    // it('should work for part 2 input', () => {
-    //   expect(part2(input)).toEqual(11318723411840);
-    // });
+    it('should work for part 2 input', () => {
+      expect(part2(input)).toEqual(11318723411840);
+    });
   });
 });
