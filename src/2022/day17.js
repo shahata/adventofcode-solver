@@ -23,8 +23,8 @@ function moveIfPossible(cave, pos, cells, offset) {
   return false;
 }
 
-function detectLoop(cave, height, memory) {
-  const snapshot = JSON.stringify(cave.slice(0, 1000));
+function detectLoop(cave, height, memory, window) {
+  const snapshot = JSON.stringify(cave.slice(0, window));
   const found = memory.filter(s => s.snapshot === snapshot);
   if (found.length === 2) {
     const heightDiff = found[1].height - found[0].height;
@@ -73,7 +73,7 @@ export function part1(input, times = 2022) {
       cave.shift();
       depth--;
     }
-    const loop = memory && detectLoop(cave, height, memory);
+    const loop = memory && detectLoop(cave, height, memory, 100);
     if (loop) {
       const mul = Math.floor((times - i) / loop.indexDiff);
       i += mul * loop.indexDiff;
