@@ -9,13 +9,8 @@ function toCells(shape) {
 }
 
 function moveIfPossible(cave, pos, cells, offset) {
-  if (
-    cells.every(
-      cell =>
-        cave[pos.y + cell.y + offset.y] &&
-        cave[pos.y + cell.y + offset.y][pos.x + cell.x + offset.x] === '.',
-    )
-  ) {
+  const next = { x: pos.x + offset.x, y: pos.y + offset.y };
+  if (cells.every(cell => cave[next.y + cell.y]?.[next.x + cell.x] === '.')) {
     pos.x += offset.x;
     pos.y += offset.y;
     return true;
@@ -27,11 +22,12 @@ function detectLoop(cave, height, memory, window) {
   const snapshot = JSON.stringify(cave.slice(0, window));
   const found = memory.filter(s => s.snapshot === snapshot);
   if (found.length === 2) {
-    const heightDiff = found[1].height - found[0].height;
-    const indexDiff = memory.indexOf(found[1]) - memory.indexOf(found[0]);
-    return { indexDiff, heightDiff };
+    return {
+      indexDiff: found[1].index - found[0].index,
+      heightDiff: found[1].height - found[0].height,
+    };
   } else {
-    memory.push({ snapshot, height });
+    memory.push({ snapshot, height, index: memory.length });
   }
 }
 
@@ -77,8 +73,8 @@ export function part1(input, times = 2022) {
     if (loop) {
       const mul = Math.floor((times - i) / loop.indexDiff);
       i += mul * loop.indexDiff;
-      height += mul * loop.heightDiff;
       depth += mul * loop.heightDiff;
+      height += mul * loop.heightDiff;
       memory = null;
     }
     const y = dropShape(cave, cells, stream);
