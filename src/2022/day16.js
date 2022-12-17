@@ -1,12 +1,23 @@
 import Combinatorics from 'js-combinatorics';
 
-function select(arr) {
+function split(all) {
   let selected = [];
-  for (let num = arr.length; num > 0; num--) {
-    selected = selected.concat(Combinatorics.combination(arr, num).toArray());
+  for (let i = 1; i < all.length; i++) {
+    selected = selected.concat(Combinatorics.combination(all, i).toArray());
   }
-  return selected.concat([[]]);
+  const options = [];
+  for (let i = 0; i < selected.length; i++) {
+    const j = selected.findIndex(
+      x =>
+        selected[i].length + x.length === all.length &&
+        new Set(selected[i].concat(x)).size === all.length,
+    );
+    options.push([selected[i], selected[j]]);
+    selected.splice(j, 1);
+  }
+  return options;
 }
+
 function distance(valves, from, to) {
   const queue = [{ id: from, steps: 0 }];
   const visited = new Set(`${from},0`);
@@ -44,9 +55,9 @@ function best(valves, current, open, time) {
   const results = valves[current].paths
     .filter(({ id, distance }) => !open.has(id) && time > distance)
     .map(({ id, distance }) => {
-      const nextOpen = new Set(open).add(id);
-      const pressure = valves[id].rate * (time - distance - 1);
-      return pressure + best(valves, id, nextOpen, time - distance - 1);
+      const remaining = time - distance - 1;
+      const pressure = valves[id].rate * remaining;
+      return pressure + best(valves, id, new Set(open).add(id), remaining);
     });
   return Math.max(0, ...results);
 }
@@ -59,21 +70,12 @@ export function part1(input) {
 export function part2(input) {
   const valves = parse(input);
   const all = Object.keys(valves).filter(id => valves[id].rate > 0);
-  const options1 = select(all);
-  const options2 = [];
-  for (let i = 0; i < options1.length; i++) {
-    const j = options1.findIndex(
-      x =>
-        options1[i].length + x.length === all.length &&
-        new Set(options1[i].concat(x)).size === all.length,
-    );
-    options2.push(...options1.splice(j, 1));
-  }
+  const options = split(all);
   let max = 0;
-  for (let i = 0; i < options1.length; i++) {
+  for (let i = 0; i < options.length; i++) {
     let result =
-      best(valves, 'AA', new Set(options1[i]), 26) +
-      best(valves, 'AA', new Set(options2[i]), 26);
+      best(valves, 'AA', new Set(options[i][0]), 26) +
+      best(valves, 'AA', new Set(options[i][1]), 26);
     max = Math.max(max, result);
   }
   return max;
