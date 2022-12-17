@@ -70,13 +70,11 @@ export function part1(input) {
 export function part2(input) {
   const valves = parse(input);
   const all = Object.keys(valves).filter(id => valves[id].rate > 0);
-  const options = split(all);
-  let max = 0;
-  for (let i = 0; i < options.length; i++) {
-    let result =
-      best(valves, 'AA', new Set(options[i][0]), 26) +
-      best(valves, 'AA', new Set(options[i][1]), 26);
-    max = Math.max(max, result);
-  }
-  return max;
+  const results = split(all).map(([human, elephant]) => {
+    return (
+      best(valves, 'AA', new Set(human), 26) +
+      best(valves, 'AA', new Set(elephant), 26)
+    );
+  });
+  return Math.max(...results);
 }
