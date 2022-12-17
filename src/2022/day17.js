@@ -24,34 +24,27 @@ function moveIfPossible(cave, pos, cells, offset) {
 }
 
 function detectLoop(cave, height, memory) {
-  if (memory) {
-    const snapshot = JSON.stringify(cave.slice(0, 1000));
-    const found = memory.filter(s => s.snapshot === snapshot);
-    if (found.length === 2) {
-      const heightDiff = found[1].height - found[0].height;
-      const indexDiff = memory.indexOf(found[1]) - memory.indexOf(found[0]);
-      memory = null;
-      return { indexDiff, heightDiff };
-    } else {
-      memory.push({ snapshot, height });
-    }
+  const snapshot = JSON.stringify(cave.slice(0, 1000));
+  const found = memory.filter(s => s.snapshot === snapshot);
+  if (found.length === 2) {
+    const heightDiff = found[1].height - found[0].height;
+    const indexDiff = memory.indexOf(found[1]) - memory.indexOf(found[0]);
+    return { indexDiff, heightDiff };
+  } else {
+    memory.push({ snapshot, height });
   }
 }
 
 function dropShape(cave, cells, stream) {
   const pos = { x: 2, y: 0 };
-  let resting = false;
-  let falling = false;
-  while (!resting) {
-    if (!falling) {
-      const currentStream = stream.input[stream.index++ % stream.input.length];
-      const offset = { x: currentStream === '<' ? -1 : 1, y: 0 };
-      moveIfPossible(cave, pos, cells, offset);
-    } else if (!moveIfPossible(cave, pos, cells, { x: 0, y: 1 })) {
+  let done = false;
+  while (!done) {
+    const direction = stream.input[stream.index++ % stream.input.length];
+    moveIfPossible(cave, pos, cells, { x: direction === '<' ? -1 : 1, y: 0 });
+    if (!moveIfPossible(cave, pos, cells, { x: 0, y: 1 })) {
       cells.forEach(cell => (cave[pos.y + cell.y][pos.x + cell.x] = '#'));
-      resting = true;
+      done = true;
     }
-    falling = !falling;
   }
   return pos.y;
 }
@@ -80,7 +73,7 @@ export function part1(input, times = 2022) {
       cave.shift();
       depth--;
     }
-    const loop = detectLoop(cave, height, memory);
+    const loop = memory && detectLoop(cave, height, memory);
     if (loop) {
       const mul = Math.floor((times - i) / loop.indexDiff);
       i += mul * loop.indexDiff;
