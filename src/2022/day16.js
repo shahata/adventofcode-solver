@@ -1,3 +1,12 @@
+import Combinatorics from 'js-combinatorics';
+
+function select(arr) {
+  let selected = [];
+  for (let num = arr.length; num > 0; num--) {
+    selected = selected.concat(Combinatorics.combination(arr, num).toArray());
+  }
+  return selected.concat([[]]);
+}
 function distance(valves, from, to) {
   const queue = [{ id: from, steps: 0 }];
   const visited = new Set(`${from},0`);
@@ -30,27 +39,42 @@ function parse(input) {
   return valves;
 }
 
-function best(valves, current, open, pressure, time, elephant) {
-  if (time === 0) return pressure;
+function best(valves, current, open, time) {
+  if (time === 0) return 0;
   const results = valves[current].paths
     .filter(({ id, distance }) => !open.has(id) && time > distance)
     .map(({ id, distance }) => {
       const nextOpen = new Set(open).add(id);
-      const nextPressure = pressure + valves[id].rate * (time - distance - 1);
-      return Math.max(
-        best(valves, id, nextOpen, nextPressure, time - distance - 1, elephant),
-        elephant ? best(valves, 'AA', nextOpen, nextPressure, 26, false) : 0,
-      );
+      const pressure = valves[id].rate * (time - distance - 1);
+      return pressure + best(valves, id, nextOpen, time - distance - 1);
     });
-  return Math.max(pressure, ...results);
+  return Math.max(0, ...results);
 }
 
 export function part1(input) {
   const valves = parse(input);
-  return best(valves, 'AA', new Set(), 0, 30, false);
+  return best(valves, 'AA', new Set(), 30);
 }
 
 export function part2(input) {
   const valves = parse(input);
-  return best(valves, 'AA', new Set(), 0, 26, true);
+  const all = Object.keys(valves).filter(id => valves[id].rate > 0);
+  const options1 = select(all);
+  const options2 = [];
+  for (let i = 0; i < options1.length; i++) {
+    const j = options1.findIndex(
+      x =>
+        options1[i].length + x.length === all.length &&
+        new Set(options1[i].concat(x)).size === all.length,
+    );
+    options2.push(...options1.splice(j, 1));
+  }
+  let max = 0;
+  for (let i = 0; i < options1.length; i++) {
+    let result =
+      best(valves, 'AA', new Set(options1[i]), 26) +
+      best(valves, 'AA', new Set(options2[i]), 26);
+    max = Math.max(max, result);
+  }
+  return max;
 }
