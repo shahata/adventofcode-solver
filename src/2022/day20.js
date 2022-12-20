@@ -7,6 +7,7 @@ function mix(original, numbers) {
     else numbers.splice(pos, 0, next);
   }
 }
+
 export function part1(input, key = 1, times = 1) {
   const original = input.split('\n').map(x => ({ num: +x * key }));
   const numbers = original.slice(0);
