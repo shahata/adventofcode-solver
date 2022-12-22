@@ -31,131 +31,84 @@ function wrapLogic1(maze, pos) {
   return wrap;
 }
 
-const tops = [
-  {},
-  { x: 50, y: 0 },
-  { x: 100, y: 0 },
-  { x: 50, y: 50 },
-  { x: 50, y: 100 },
-  { x: 0, y: 100 },
-  { x: 0, y: 150 },
-];
-
 function wrapLogic2(maze, pos) {
-  let square;
-  if (pos.y < 50) {
-    if (pos.x < 50) console.log('WAT');
-    else if (pos.x < 100) square = 1;
-    else square = 2;
-  } else if (pos.y < 100) {
-    if (pos.x < 50) console.log('WAT');
-    else if (pos.x < 100) square = 3;
-    else console.log('WAT');
-  } else if (pos.y < 150) {
-    if (pos.x < 50) square = 5;
-    else if (pos.x < 100) square = 4;
-    else console.log('WAT');
-  } else {
-    if (pos.x < 50) square = 6;
-    else if (pos.x < 100) console.log('WAT');
-    else console.log('WAT');
-  }
-  const relative = { x: pos.x - tops[square].x, y: pos.y - tops[square].y };
-  let newRelative;
+  const tops = [
+    { x: 50, y: 0 },
+    { x: 100, y: 0 },
+    { x: 50, y: 50 },
+    { x: 50, y: 100 },
+    { x: 0, y: 100 },
+    { x: 0, y: 150 },
+  ];
+  const square = tops.findIndex(
+    top =>
+      Math.floor(top.x / 50) === Math.floor(pos.x / 50) &&
+      Math.floor(top.y / 50) === Math.floor(pos.y / 50),
+  );
   let newSquare;
   let newDirection;
   if (pos.direction === 0) {
-    //right
     if (square === 1) {
-      console.log('WAT');
-    } else if (square === 2) {
-      newRelative = { x: relative.x, y: 49 - relative.y };
       newSquare = 4;
       newDirection = 2;
-    } else if (square === 3) {
-      newRelative = { x: relative.y, y: relative.x };
+    } else if (square === 2) {
       newSquare = 2;
       newDirection = 3;
-    } else if (square === 4) {
-      newRelative = { x: relative.x, y: 49 - relative.y };
+    } else if (square === 3) {
       newSquare = 2;
       newDirection = 2;
     } else if (square === 5) {
-      console.log('WAT');
-    } else if (square === 6) {
-      newRelative = { x: relative.y, y: relative.x };
       newSquare = 4;
       newDirection = 3;
     }
   } else if (pos.direction === 1) {
-    //down
     if (square === 1) {
-      console.log('WAT');
-    } else if (square === 2) {
-      newRelative = { x: relative.y, y: relative.x };
       newSquare = 3;
       newDirection = 2;
     } else if (square === 3) {
-      console.log('WAT');
-    } else if (square === 4) {
-      newRelative = { x: relative.y, y: relative.x };
       newSquare = 6;
       newDirection = 2;
     } else if (square === 5) {
-      console.log('WAT');
-    } else if (square === 6) {
-      newRelative = { x: relative.x, y: 49 - relative.y };
       newSquare = 2;
       newDirection = 1;
     }
   } else if (pos.direction === 2) {
-    //left
-    if (square === 1) {
-      newRelative = { x: relative.x, y: 49 - relative.y };
+    if (square === 0) {
       newSquare = 5;
       newDirection = 0;
     } else if (square === 2) {
-      console.log('WAT');
-    } else if (square === 3) {
-      newRelative = { x: relative.y, y: relative.x };
       newSquare = 5;
       newDirection = 1;
     } else if (square === 4) {
-      console.log('WAT');
-    } else if (square === 5) {
-      newRelative = { x: relative.x, y: 49 - relative.y };
       newSquare = 1;
       newDirection = 0;
-    } else if (square === 6) {
-      newRelative = { x: relative.y, y: relative.x };
+    } else if (square === 5) {
       newSquare = 1;
       newDirection = 1;
     }
   } else if (pos.direction === 3) {
-    //up
-    if (square === 1) {
-      newRelative = { x: relative.y, y: relative.x };
+    if (square === 0) {
       newSquare = 6;
       newDirection = 0;
-    } else if (square === 2) {
-      newRelative = { x: relative.x, y: 49 - relative.y };
+    } else if (square === 1) {
       newSquare = 6;
       newDirection = 3;
-    } else if (square === 3) {
-      console.log('WAT');
     } else if (square === 4) {
-      console.log('WAT');
-    } else if (square === 5) {
-      newRelative = { x: relative.y, y: relative.x };
       newSquare = 3;
       newDirection = 0;
-    } else if (square === 6) {
-      console.log('WAT');
     }
   }
+
+  let newRelative;
+  const relative = { x: pos.x - tops[square].x, y: pos.y - tops[square].y };
+  if (Math.abs(pos.direction - newDirection) % 2 === 0) {
+    newRelative = { x: relative.x, y: 49 - relative.y };
+  } else {
+    newRelative = { x: relative.y, y: relative.x };
+  }
   return {
-    x: tops[newSquare].x + newRelative.x,
-    y: tops[newSquare].y + newRelative.y,
+    x: tops[newSquare - 1].x + newRelative.x,
+    y: tops[newSquare - 1].y + newRelative.y,
     direction: newDirection,
   };
 }
