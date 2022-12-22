@@ -8,7 +8,7 @@ function calcHeading(direction) {
 function wrapLogic1(maze, pos) {
   const heading = calcHeading(pos.direction);
   const opposite = { x: heading.x * -1, y: heading.y * -1 };
-  const wrap = { x: pos.x, y: pos.y, direction: pos.direction };
+  const wrap = { ...pos };
   while (
     maze[wrap.y + opposite.y]?.[wrap.x + opposite.x] === '.' ||
     maze[wrap.y + opposite.y]?.[wrap.x + opposite.x] === '#'
@@ -21,41 +21,28 @@ function wrapLogic1(maze, pos) {
 
 function wrapLogic2(squares, width) {
   return function (maze, pos) {
-    const currentSquare = squares.find(
-      square =>
-        square.x / width === Math.floor(pos.x / width) &&
-        square.y / width === Math.floor(pos.y / width),
-    );
-    const [nextSquare, nextDirection] = currentSquare.wrap[pos.direction];
-    const relative = { x: pos.x - currentSquare.x, y: pos.y - currentSquare.y };
-    let nextRelative;
-    const pair = [pos.direction, nextDirection].join('');
-    if (['20', '02', '11', '33'].includes(pair)) {
-      nextRelative = { x: relative.x, y: width - relative.y - 1 };
-    } else if (['31', '13', '00', '22'].includes(pair)) {
-      nextRelative = { x: width - relative.x - 1, y: relative.y };
-    } else if (['30', '03', '12', '21'].includes(pair)) {
-      nextRelative = { x: relative.y, y: relative.x };
-    } else if (['32', '23', '10', '01'].includes(pair)) {
-      nextRelative = { x: width - relative.y - 1, y: width - relative.x - 1 };
-    }
-    return {
-      x: squares[nextSquare].x + nextRelative.x,
-      y: squares[nextSquare].y + nextRelative.y,
-      direction: nextDirection,
-    };
+    const offset = { x: pos.x % width, y: pos.y % width };
+    const mirror = { x: width - offset.x - 1, y: width - offset.y - 1 };
+    const [i, direction] = squares.find(
+      square => square.x === pos.x - offset.x && square.y === pos.y - offset.y,
+    ).wrap[pos.direction];
+    const pair = [pos.direction, direction].sort().join('');
+    let next;
+    if (['02', '11', '33'].includes(pair)) next = { x: offset.x, y: mirror.y };
+    if (['13', '00', '22'].includes(pair)) next = { x: mirror.x, y: offset.y };
+    if (['03', '12'].includes(pair)) next = { x: offset.y, y: offset.x };
+    if (['23', '01'].includes(pair)) next = { x: mirror.y, y: mirror.x };
+    return { x: squares[i].x + next.x, y: squares[i].y + next.y, direction };
   };
 }
 
 function walk(maze, pos, steps, wrapLogic) {
-  for (let i = 0; i < steps; i++) {
+  for (; steps > 0; steps--) {
     const heading = calcHeading(pos.direction);
-    let next = {
-      x: pos.x + heading.x,
-      y: pos.y + heading.y,
-      direction: pos.direction,
-    };
-    if (!maze[next.y]?.[next.x] || maze[next.y][next.x] === ' ') {
+    let next = { ...pos };
+    next.x += heading.x;
+    next.y += heading.y;
+    if (maze[next.y]?.[next.x] !== '.' && maze[next.y]?.[next.x] !== '#') {
       next = wrapLogic(maze, pos);
     }
     if (maze[next.y][next.x] === '#') break;
@@ -70,11 +57,11 @@ export function part1(input, wrapLogic = wrapLogic1) {
   maze = maze.split('\n');
   directions = directions.replace(/(R|L)/g, ',$1,').split(',');
   while (maze[pos.y][pos.x] !== '.') pos.x++;
-  while (directions.length > 0) {
+  while (directions) {
     const next = directions.shift();
     if (next === 'R') pos.direction = (pos.direction + 1) % 4;
     if (next === 'L') pos.direction = (4 + pos.direction - 1) % 4;
-    if (!Number.isNaN(+next)) pos = walk(maze, pos, +next, wrapLogic);
+    if (Number.isInteger(+next)) pos = walk(maze, pos, +next, wrapLogic);
   }
   return (pos.y + 1) * 1000 + (pos.x + 1) * 4 + pos.direction;
 }
