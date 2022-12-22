@@ -29,9 +29,9 @@ function wrapLogic2(squares, width) {
     const pair = [pos.direction, direction].sort().join('');
     let next;
     if (['02', '11', '33'].includes(pair)) next = { x: offset.x, y: mirror.y };
-    if (['13', '00', '22'].includes(pair)) next = { x: mirror.x, y: offset.y };
+    if (['00', '13', '22'].includes(pair)) next = { x: mirror.x, y: offset.y };
     if (['03', '12'].includes(pair)) next = { x: offset.y, y: offset.x };
-    if (['23', '01'].includes(pair)) next = { x: mirror.y, y: mirror.x };
+    if (['01', '23'].includes(pair)) next = { x: mirror.y, y: mirror.x };
     return { x: squares[i].x + next.x, y: squares[i].y + next.y, direction };
   };
 }
