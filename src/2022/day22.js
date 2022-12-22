@@ -31,9 +31,18 @@ function wrapLogic1(maze, pos) {
   return wrap;
 }
 
+const tops = [
+  {},
+  { x: 50, y: 0 },
+  { x: 100, y: 0 },
+  { x: 50, y: 50 },
+  { x: 50, y: 100 },
+  { x: 0, y: 100 },
+  { x: 0, y: 150 },
+];
+
 function wrapLogic2(maze, pos) {
   let square;
-  pos; //?
   if (pos.y < 50) {
     if (pos.x < 50) console.log('WAT');
     else if (pos.x < 100) square = 1;
@@ -51,68 +60,104 @@ function wrapLogic2(maze, pos) {
     else if (pos.x < 100) console.log('WAT');
     else console.log('WAT');
   }
+  const relative = { x: pos.x - tops[square].x, y: pos.y - tops[square].y };
+  let newRelative;
+  let newSquare;
+  let newDirection;
   if (pos.direction === 0) {
     //right
     if (square === 1) {
       console.log('WAT');
     } else if (square === 2) {
-      //
+      newRelative = { x: relative.x, y: 49 - relative.y };
+      newSquare = 4;
+      newDirection = 2;
     } else if (square === 3) {
-      //
+      newRelative = { x: relative.y, y: relative.x };
+      newSquare = 2;
+      newDirection = 3;
     } else if (square === 4) {
-      //
+      newRelative = { x: relative.x, y: 49 - relative.y };
+      newSquare = 2;
+      newDirection = 2;
     } else if (square === 5) {
       console.log('WAT');
     } else if (square === 6) {
-      //
+      newRelative = { x: relative.y, y: relative.x };
+      newSquare = 4;
+      newDirection = 3;
     }
   } else if (pos.direction === 1) {
     //down
     if (square === 1) {
       console.log('WAT');
     } else if (square === 2) {
-      //
+      newRelative = { x: relative.y, y: relative.x };
+      newSquare = 3;
+      newDirection = 2;
     } else if (square === 3) {
       console.log('WAT');
     } else if (square === 4) {
-      //
+      newRelative = { x: relative.y, y: relative.x };
+      newSquare = 6;
+      newDirection = 2;
     } else if (square === 5) {
       console.log('WAT');
     } else if (square === 6) {
-      //
+      newRelative = { x: relative.x, y: 49 - relative.y };
+      newSquare = 2;
+      newDirection = 1;
     }
   } else if (pos.direction === 2) {
     //left
     if (square === 1) {
-      //
+      newRelative = { x: relative.x, y: 49 - relative.y };
+      newSquare = 5;
+      newDirection = 0;
     } else if (square === 2) {
       console.log('WAT');
     } else if (square === 3) {
-      //
+      newRelative = { x: relative.y, y: relative.x };
+      newSquare = 5;
+      newDirection = 1;
     } else if (square === 4) {
       console.log('WAT');
     } else if (square === 5) {
-      //
+      newRelative = { x: relative.x, y: 49 - relative.y };
+      newSquare = 1;
+      newDirection = 0;
     } else if (square === 6) {
-      //
+      newRelative = { x: relative.y, y: relative.x };
+      newSquare = 1;
+      newDirection = 1;
     }
   } else if (pos.direction === 3) {
     //up
     if (square === 1) {
-      //
+      newRelative = { x: relative.y, y: relative.x };
+      newSquare = 6;
+      newDirection = 0;
     } else if (square === 2) {
-      //
+      newRelative = { x: relative.x, y: 49 - relative.y };
+      newSquare = 6;
+      newDirection = 3;
     } else if (square === 3) {
       console.log('WAT');
     } else if (square === 4) {
       console.log('WAT');
     } else if (square === 5) {
-      //
+      newRelative = { x: relative.y, y: relative.x };
+      newSquare = 3;
+      newDirection = 0;
     } else if (square === 6) {
       console.log('WAT');
     }
   }
-  // return result;
+  return {
+    x: tops[newSquare].x + newRelative.x,
+    y: tops[newSquare].y + newRelative.y,
+    direction: newDirection,
+  };
 }
 
 function walk(maze, pos, steps, wrapLogic) {
