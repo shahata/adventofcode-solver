@@ -57,7 +57,7 @@ export function part1(input, wrapLogic = wrapLogic1) {
   maze = maze.split('\n');
   directions = directions.replace(/(R|L)/g, ',$1,').split(',');
   while (maze[pos.y][pos.x] !== '.') pos.x++;
-  while (directions) {
+  while (directions.length > 0) {
     const next = directions.shift();
     if (next === 'R') pos.direction = (pos.direction + 1) % 4;
     if (next === 'L') pos.direction = (4 + pos.direction - 1) % 4;
