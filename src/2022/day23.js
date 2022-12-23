@@ -6,6 +6,19 @@ function getOptions(check, key) {
   if (check === 'E') return [y, y - 1, y + 1].map(y => `${x + 1},${y}`);
 }
 
+function move(elves, proposals) {
+  let count = 0;
+  for (const key of proposals.keys()) {
+    const moving = proposals.get(key);
+    if (moving.length === 1) {
+      elves.delete(moving[0]);
+      elves.add(key);
+      count++;
+    }
+  }
+  return count;
+}
+
 function round(elves, checks) {
   const proposals = new Map();
   for (const key of elves.keys()) {
@@ -20,24 +33,15 @@ function round(elves, checks) {
       }
     }
   }
-  let count = 0;
-  for (const key of proposals.keys()) {
-    const moving = proposals.get(key);
-    if (moving.length === 1) {
-      elves.delete(moving[0]);
-      elves.set(key, true);
-      count++;
-    }
-  }
   checks.push(checks.shift());
-  return count;
+  return move(elves, proposals);
 }
 
 function parse(input) {
-  const elves = new Map();
+  const elves = new Set();
   input.split('\n').forEach((line, y) =>
     line.split('').forEach((cell, x) => {
-      if (cell === '#') elves.set(`${x},${y}`, true);
+      if (cell === '#') elves.add(`${x},${y}`);
     }),
   );
   return { elves, checks: ['N', 'S', 'W', 'E'] };
