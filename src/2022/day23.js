@@ -53,7 +53,7 @@ export function part1(input) {
   const keys = [...elves.keys()].map(key => key.split(','));
   const xs = keys.map(key => +key[0]).sort((a, b) => b - a);
   const ys = keys.map(key => +key[1]).sort((a, b) => b - a);
-  return (xs[0] - xs.pop() + 1) * (ys[0] - ys.pop() + 1) - elves.size;
+  return (xs.at(0) - xs.at(-1) + 1) * (ys.at(0) - ys.at(-1) + 1) - elves.size;
 }
 
 export function part2(input) {

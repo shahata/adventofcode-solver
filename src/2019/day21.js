@@ -20,7 +20,7 @@ function run(input, commands) {
   }
 
   //console.log(output.map(x => String.fromCharCode(x)).join(''));
-  return output[output.length - 1];
+  return output.at(-1);
 }
 
 export function part1(input) {

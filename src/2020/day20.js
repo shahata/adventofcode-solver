@@ -1,7 +1,7 @@
 const topBorder = t => t[0];
-const bottomBorder = t => t[t.length - 1];
+const bottomBorder = t => t.at(-1);
 const leftBorder = t => t.map(x => x[0]).join('');
-const rightBorder = t => t.map(x => x[x.length - 1]).join('');
+const rightBorder = t => t.map(x => x.at(-1)).join('');
 const mirror = t => t.map(line => line.split('').reverse().join(''));
 const rotate = t => mirror(t.map((_, i) => t.map(x => x[i]).join('')));
 const findRotation = (tile, fn) => tile && tile.rotations.find(fn);
@@ -80,7 +80,7 @@ function solvePuzzle(tiles, first) {
     //place part to the right of the previous part
     //(left border of new part connects to the right border of previous part)
     const right = rightBorder(next);
-    map[map.length - 1].push(next);
+    map.at(-1).push(next);
     next = findRotation(
       spliceTile(tiles, x => x.borders.includes(right)),
       x => leftBorder(x) === right,
@@ -89,7 +89,7 @@ function solvePuzzle(tiles, first) {
     //if no more parts to the right, place leftmost part in next row
     //(top border of new part connects to the bottom border of previous line)
     if (!next) {
-      const bottom = bottomBorder(map[map.length - 1][0]);
+      const bottom = bottomBorder(map.at(-1)[0]);
       map.push([]);
       next = findRotation(
         spliceTile(tiles, x => x.borders.includes(bottom)),

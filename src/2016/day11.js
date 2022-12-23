@@ -91,7 +91,7 @@ function getNeighbors(state) {
 }
 
 function done(state) {
-  const { generators, microchips } = state.floors[state.floors.length - 1];
+  const { generators, microchips } = state.floors.at(-1);
   return state.pieces.length === generators.length + microchips.length;
 }
 

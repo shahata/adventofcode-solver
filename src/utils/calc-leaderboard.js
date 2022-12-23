@@ -31,14 +31,9 @@ function calcChart(members, sorted, count) {
         pointsPerDay.push(...pointsPerStar.reverse());
       });
       const data = pointsPerDay.reduce((prev, today) => {
-        return prev.concat([
-          today + (prev.length === 0 ? 0 : prev[prev.length - 1]),
-        ]);
+        return prev.concat([today + (prev.length === 0 ? 0 : prev.at(-1))]);
       }, []);
-      while (
-        data.length > 1 &&
-        data[data.length - 1] === data[data.length - 2]
-      ) {
+      while (data.length > 1 && data.at(-1) === data.at(-2)) {
         data.pop();
       }
       return {

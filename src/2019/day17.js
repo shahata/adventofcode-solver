@@ -18,7 +18,7 @@ function createMap(input, commands) {
 
   const map = output.map(x => String.fromCharCode(x)).join('');
   if (commands) {
-    return output[output.length - 1];
+    return output.at(-1);
   } else {
     return map.split('\n').map(l => l.split(''));
   }

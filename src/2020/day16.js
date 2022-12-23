@@ -13,7 +13,7 @@ function parse(input) {
     .concat([ticket])
     .map(x => x.split(',').map(Number));
 
-  return { rules, ticket: tickets[tickets.length - 1], tickets };
+  return { rules, ticket: tickets.at(-1), tickets };
 }
 
 const valid = (n, x) => (n >= x.a && n <= x.b) || (n >= x.c && n <= x.d);

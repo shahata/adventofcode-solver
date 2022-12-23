@@ -18,7 +18,7 @@ export function part1(input, times = 10) {
     }
     pairsMap = next;
   }
-  const charMap = { [polymer[0]]: 1, [polymer[polymer.length - 1]]: 1 };
+  const charMap = { [polymer[0]]: 1, [polymer.at(-1)]: 1 };
   for (let key in pairsMap) {
     charMap[key[0]] = (charMap[key[0]] || 0) + pairsMap[key];
     charMap[key[1]] = (charMap[key[1]] || 0) + pairsMap[key];

@@ -66,8 +66,8 @@ export function part2(input) {
   const coordinates = Object.keys(map)
     .map(k => k.split(',').map(i => +i))
     .sort((a, b) => a[1] - b[1] || a[0] - b[0]);
-  const first = coordinates[0];
-  const last = coordinates[coordinates.length - 1];
+  const first = coordinates.at(0);
+  const last = coordinates.at(-1);
   const lines = [];
   for (let y = first[1]; y <= last[1]; y++) {
     let line = '';

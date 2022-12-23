@@ -4,7 +4,7 @@ function merge(ranges) {
   ranges.sort((a, b) => a[0] - b[0]);
   return ranges.reduce(
     (segments, range) => {
-      const lastSegment = segments[segments.length - 1];
+      const lastSegment = segments.at(-1);
       if (range[0] > lastSegment[1] + 1) {
         segments.push(range);
       } else {

@@ -14,7 +14,7 @@ function next2(prerequisites, done, pending, workers, base) {
   let now = 0;
   if (pending.length) {
     done.push(pending.sort((a, b) => a.time - b.time).shift());
-    now = done[done.length - 1].time;
+    now = done.at(-1).time;
   }
 
   let options = [];

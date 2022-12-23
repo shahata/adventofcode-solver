@@ -24,7 +24,7 @@ function cellId({ x, y }) {
 
 function build(nodes) {
   const big = Math.floor(
-    Math.log10(nodes.sort((a, b) => a.used - b.used)[nodes.length - 1].used),
+    Math.log10(nodes.sort((a, b) => a.used - b.used).at(-1).used),
   );
   const map = {};
   let start,
