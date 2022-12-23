@@ -1,31 +1,9 @@
 function getOptions(check, key) {
   const [x, y] = key.split(',').map(n => +n);
-  switch (check) {
-    case 'north':
-      return [
-        { x, y: y - 1 },
-        { x: x - 1, y: y - 1 },
-        { x: x + 1, y: y - 1 },
-      ].map(({ x, y }) => `${x},${y}`);
-    case 'south':
-      return [
-        { x, y: y + 1 },
-        { x: x - 1, y: y + 1 },
-        { x: x + 1, y: y + 1 },
-      ].map(({ x, y }) => `${x},${y}`);
-    case 'west':
-      return [
-        { x: x - 1, y },
-        { x: x - 1, y: y - 1 },
-        { x: x - 1, y: y + 1 },
-      ].map(({ x, y }) => `${x},${y}`);
-    case 'east':
-      return [
-        { x: x + 1, y },
-        { x: x + 1, y: y - 1 },
-        { x: x + 1, y: y + 1 },
-      ].map(({ x, y }) => `${x},${y}`);
-  }
+  if (check === 'N') return [x, x - 1, x + 1].map(x => `${x},${y - 1}`);
+  if (check === 'S') return [x, x - 1, x + 1].map(x => `${x},${y + 1}`);
+  if (check === 'W') return [y, y - 1, y + 1].map(y => `${x - 1},${y}`);
+  if (check === 'E') return [y, y - 1, y + 1].map(y => `${x + 1},${y}`);
 }
 
 function round(elves, checks) {
@@ -55,30 +33,27 @@ function round(elves, checks) {
   return count;
 }
 
-export function part1(input) {
-  let elves = new Map();
+function parse(input) {
+  const elves = new Map();
   input.split('\n').forEach((line, y) =>
     line.split('').forEach((cell, x) => {
       if (cell === '#') elves.set(`${x},${y}`, true);
     }),
   );
-  const checks = ['north', 'south', 'west', 'east'];
-  for (let i = 0; i < 10; i++) round(elves, checks);
+  return { elves, checks: ['N', 'S', 'W', 'E'] };
+}
 
-  const keys = [...elves.keys()].map(key => key.split(',').map(n => +n));
-  const xs = keys.map(key => key[0]).sort((a, b) => b - a);
-  const ys = keys.map(key => key[1]).sort((a, b) => b - a);
+export function part1(input) {
+  const { elves, checks } = parse(input);
+  for (let i = 0; i < 10; i++) round(elves, checks);
+  const keys = [...elves.keys()].map(key => key.split(','));
+  const xs = keys.map(key => +key[0]).sort((a, b) => b - a);
+  const ys = keys.map(key => +key[1]).sort((a, b) => b - a);
   return (xs[0] - xs.pop() + 1) * (ys[0] - ys.pop() + 1) - elves.size;
 }
 
 export function part2(input) {
-  let elves = new Map();
-  input.split('\n').forEach((line, y) =>
-    line.split('').forEach((cell, x) => {
-      if (cell === '#') elves.set(`${x},${y}`, true);
-    }),
-  );
-  const checks = ['north', 'south', 'west', 'east'];
+  const { elves, checks } = parse(input);
   let result = 1;
   while (round(elves, checks) > 0) result++;
   return result;
