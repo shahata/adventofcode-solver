@@ -16,15 +16,14 @@ function makeTrip(maps, start, end, steps = 0) {
   while (queue.length > 0) {
     const next = queue.shift();
     if (next.x === end.x && next.y === end.y) min = Math.min(next.steps, min);
-    if (next.steps >= min) continue;
-    const neighbors = getNeighbors(maps, next).filter(
-      point =>
-        !visited.has(`${point.x},${point.y},${point.steps % maps.length}`),
-    );
-    if (neighbors.length === 0) continue;
-    for (const point of neighbors) {
-      visited.add(`${point.x},${point.y},${point.steps % maps.length}`);
-      queue.push(point);
+    if (next.steps < min) {
+      for (const pos of getNeighbors(maps, next)) {
+        const hash = `${pos.x},${pos.y},${pos.steps % maps.length}`;
+        if (!visited.has(hash)) {
+          visited.add(hash);
+          queue.push(pos);
+        }
+      }
     }
   }
   return min;
