@@ -16,13 +16,12 @@ function makeTrip(maps, start, end, steps = 0) {
   while (queue.length > 0) {
     const next = queue.shift();
     if (next.x === end.x && next.y === end.y) min = Math.min(next.steps, min);
-    if (next.steps < min) {
-      for (const pos of getNeighbors(maps, next)) {
-        const hash = `${pos.x},${pos.y},${pos.steps % maps.length}`;
-        if (!visited.has(hash)) {
-          visited.add(hash);
-          queue.push(pos);
-        }
+    if (next.steps >= min) continue;
+    for (const pos of getNeighbors(maps, next)) {
+      const hash = `${pos.x},${pos.y},${pos.steps % maps.length}`;
+      if (!visited.has(hash)) {
+        visited.add(hash);
+        queue.push(pos);
       }
     }
   }
@@ -62,7 +61,7 @@ function parse(input) {
   map.set(`${end.x},${end.y + 1}`, ['#']);
 
   const serialize = map => {
-    const serializeKey = key => `${key}:${map.get(key).sort().join('')}`;
+    const serializeKey = key => `${key}:${map.get(key).join('')}`;
     return Array.from(map.keys()).sort().map(serializeKey).join(',');
   };
   const serialized = serialize(map);
