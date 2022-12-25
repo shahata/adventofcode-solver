@@ -5,8 +5,7 @@ export function part1(input) {
     let result = 0;
     let fives = 1;
     for (let i = num.length - 1; i >= 0; i--) {
-      let cur = num[i] === '=' ? -2 : num[i] === '-' ? -1 : +num[i];
-      result += fives * cur;
+      result += fives * (num[i] === '=' ? -2 : num[i] === '-' ? -1 : +num[i]);
       fives *= 5;
     }
     sum += result;
