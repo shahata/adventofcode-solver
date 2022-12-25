@@ -26,9 +26,9 @@ function best(blueprint, timeAvailable) {
   let max = 0;
   const maxNeeded = [
     //completely bogus heuristic
-    Math.max(...blueprint.map(cost => cost[0])),
-    Math.max(...blueprint.map(cost => cost[1])),
-    Math.max(...blueprint.map(cost => cost[2])),
+    Math.max(...blueprint.map(cost => cost[0])) * 1.5,
+    Math.max(...blueprint.map(cost => cost[1])) * 1.5,
+    Math.max(...blueprint.map(cost => cost[2])) * 1.5,
     Infinity,
   ];
   while (queue.length > 0) {
