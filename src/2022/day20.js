@@ -17,9 +17,9 @@ export function part1(input, key = 1, times = 1) {
   const base = numbers.findIndex(x => x.num === 0);
   if (numbers.length < 1000) return numbers.map(x => x.num).join(', ');
   return (
-    numbers[base + 1000].num +
-    numbers[base + 2000].num +
-    numbers[base + 3000].num
+    numbers[(base + 1000) % numbers.length].num +
+    numbers[(base + 2000) % numbers.length].num +
+    numbers[(base + 3000) % numbers.length].num
   );
 }
 
