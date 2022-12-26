@@ -15,7 +15,7 @@ async function readInput(session, year, day) {
   if (result.status !== 200) {
     throw `Could not download input!\n${await result.text()}`;
   }
-  return (await result.text()).trimRight();
+  return (await result.text()).trimEnd();
 }
 
 async function readAnswers(session, year, day) {
