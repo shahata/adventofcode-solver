@@ -1,4 +1,4 @@
-import * as vm from 'vm';
+import { runInThisContext } from 'vm';
 
 const ops = {
   addr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + r${i2}; break;`,
@@ -44,7 +44,7 @@ function run(input, tap, cb) {
       r${ip}++;
     }
   }`;
-  const exec = vm.runInThisContext(script);
+  const exec = runInThisContext(script);
   return exec(tap, cb);
 }
 

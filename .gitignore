@@ -2,3 +2,4 @@ src/utils/leaderboards.json
 node_modules
 *npm-debug.log
 .DS_Store
+*.pem

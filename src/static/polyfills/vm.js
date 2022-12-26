@@ -1,5 +1,3 @@
-const vm = {
-  runInThisContext: eval,
-};
-
-export default vm;
+export function runInThisContext(...args) {
+  return eval.apply(this, args);
+}
