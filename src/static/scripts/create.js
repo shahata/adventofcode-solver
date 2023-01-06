@@ -80,8 +80,6 @@ export async function run(year) {
   await runWorker(session, year);
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 console.log = (...args) => {
   const str = args.map(x => `${x}`).join(' ');
   const element = document.createElement('span');
