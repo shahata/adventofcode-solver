@@ -130,27 +130,26 @@ export function calcLeaderboard(jsonArr) {
     ten: calcChart(members, sorted, 10),
     five: calcChart(members, sorted, 5),
   };
-  let output = [''];
-  output.push(
-    [
-      '<script src="https://unpkg.com/chart.js@4.1.2/dist/chart.umd.js" crossorigin="anonymous"></script>',
-      '<button onclick="drawChart(\'all\')">Show All</button>',
-      '<button onclick="drawChart(\'ten\')">Show Top Ten</button>',
-      '<button onclick="drawChart(\'five\')">Show Top Five</button>',
-      '<canvas id="canvas"></canvas>',
-      '<script>',
-      `var config = ${JSON.stringify(config)};`,
-      'window.drawChart = function(group) {',
-      '  window.myLine.data = JSON.parse(JSON.stringify(config[group].data));',
-      '  window.myLine.update();',
-      '};',
-      'window.onload = function() {',
-      '  var ctx = document.getElementById("canvas").getContext("2d");',
-      `  window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config.all)));`,
-      '};',
-      '</script>',
-    ].join('\n'),
-  );
+  let output = [
+    `
+<button onclick="drawChart('all')">Show All</button>
+<button onclick="drawChart('ten')">Show Top Ten</button>
+<button onclick="drawChart('five')">Show Top Five</button>
+<canvas id="canvas"></canvas>
+<script type="module">
+  import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@4.1.2?min';
+  Chart.register(...registerables);
+  var config = ${JSON.stringify(config)};
+  window.drawChart = function(group) {
+    window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
+    window.myLine.update();
+  };
+  window.onload = function() {
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config.all)));
+  };
+</script>`,
+  ];
   const spans = [
     '<span class="leaderboard-daydesc-both">both stars</span>',
     'the <span class="leaderboard-daydesc-first">first star</span>',
