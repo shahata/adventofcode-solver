@@ -54,13 +54,6 @@ function calcChart(members, sorted, count) {
   });
   const config = {
     type: 'line',
-    options: {
-      plugins: {
-        colorschemes: {
-          scheme: 'brewer.Paired12',
-        },
-      },
-    },
     data: {
       labels: new Array(50)
         .fill()
@@ -139,11 +132,8 @@ export function calcLeaderboard(jsonArr) {
   };
   let output = [''];
   output.push(
-    '<script src="https://unpkg.com/chart.js@2.9.4/dist/Chart.min.js" crossorigin="anonymous"></script>',
-    '<script src="https://unpkg.com/chartjs-plugin-colorschemes@0.4.0/dist/chartjs-plugin-colorschemes.min.js" crossorigin="anonymous"></script>',
-  );
-  output.push(
     [
+      '<script src="https://unpkg.com/chart.js@4.1.2/dist/chart.umd.js" crossorigin="anonymous"></script>',
       '<button onclick="drawChart(\'all\')">Show All</button>',
       '<button onclick="drawChart(\'ten\')">Show Top Ten</button>',
       '<button onclick="drawChart(\'five\')">Show Top Five</button>',
