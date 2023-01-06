@@ -1,11 +1,11 @@
-import Combinatorics from 'js-combinatorics';
+import { combinations } from 'combinatorial-generators';
 
 function f(boxes, total, part) {
   const rest = (all, sub) => all.filter(x => sub.indexOf(x) === -1);
   const product = x => x.reduce((p, x) => p * x);
 
   for (let i = 1; i <= boxes.length; i++) {
-    const options = Combinatorics.combination(boxes, i).filter(
+    const options = [...combinations(boxes, i)].filter(
       a => a.reduce((s, x) => s + x) === total,
     );
     if (options.length) {

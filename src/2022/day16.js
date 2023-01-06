@@ -1,10 +1,7 @@
-import Combinatorics from 'js-combinatorics';
+import { powerSet } from 'combinatorial-generators';
 
 function split(all) {
-  let selected = [];
-  for (let i = 1; i < all.length; i++) {
-    selected = selected.concat(Combinatorics.combination(all, i).toArray());
-  }
+  const selected = [...powerSet(all)].slice(1);
   const options = [];
   for (let i = 0; i < selected.length; i++) {
     const j = selected.findIndex(

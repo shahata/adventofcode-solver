@@ -1,5 +1,5 @@
 import { execute } from './day09.js';
-import Combinatorics from 'js-combinatorics';
+import { powerSet } from 'combinatorial-generators';
 
 export function part1(input) {
   let mode, doors, items, name, combinations, exit, result;
@@ -13,13 +13,7 @@ export function part1(input) {
   }
 
   function initCombinations(items) {
-    let combinations = [];
-    for (let num = items.length; num > 0; num--) {
-      combinations = combinations.concat(
-        Combinatorics.combination(items, num).toArray(),
-      );
-    }
-    return combinations;
+    return [...powerSet(items)].slice(1);
   }
 
   function readyForChecks(map, name) {

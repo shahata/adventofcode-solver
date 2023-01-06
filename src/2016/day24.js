@@ -1,4 +1,4 @@
-import Combinatorics from 'js-combinatorics';
+import { combinations } from 'combinatorial-generators';
 
 function parse(input) {
   const targets = [];
@@ -46,17 +46,15 @@ function path(maze, source, destination) {
 
 function solve({ maze, targets }, andBack) {
   const back = {};
-  const paths = Combinatorics.combination(targets, 2)
-    .toArray()
-    .map(([source, destination]) => {
-      const distance = path(maze, source, destination);
-      if (source.target === 0 || destination.target === 0) {
-        back[source.target + destination.target] = distance;
-      }
-      return { points: [source.target, destination.target], distance };
-    });
+  const paths = [...combinations(targets, 2)].map(([source, destination]) => {
+    const distance = path(maze, source, destination);
+    if (source.target === 0 || destination.target === 0) {
+      back[source.target + destination.target] = distance;
+    }
+    return { points: [source.target, destination.target], distance };
+  });
 
-  const options = Combinatorics.combination(paths, targets.length - 1)
+  const options = [...combinations(paths, targets.length - 1)]
     .map(option => {
       const points = option.reduce((points, path) => {
         points[path.points[0]] = (points[path.points[0]] || []).concat([

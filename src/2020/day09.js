@@ -1,11 +1,11 @@
-import Combinatorics from 'js-combinatorics';
+import { combinations } from 'combinatorial-generators';
 
 export function part1(input, preamble = 25) {
   const numbers = input.split('\n').map(Number);
   let stack = [];
   for (let i = 0; i < numbers.length; i++) {
     if (stack.length === preamble) {
-      const sums = Combinatorics.combination(stack, 2).map(x => x[0] + x[1]);
+      const sums = [...combinations(stack, 2)].map(x => x[0] + x[1]);
       if (!sums.includes(numbers[i])) {
         return numbers[i];
       }

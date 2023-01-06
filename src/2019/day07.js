@@ -1,4 +1,4 @@
-import Combinatorics from 'js-combinatorics';
+import { permutations } from 'combinatorial-generators';
 import { execute } from './day05.js';
 
 function run(input, inputValues, state) {
@@ -18,8 +18,7 @@ function run(input, inputValues, state) {
 }
 
 export function part1(input, phases = [0, 1, 2, 3, 4]) {
-  const permutations = Combinatorics.permutation(phases).toArray();
-  const results = permutations.map(permutation => {
+  const results = [...permutations(phases)].map(permutation => {
     let A, B, C, D, E;
     do {
       A = run(input, A ? [E.user.output] : [permutation[0], 0], A);

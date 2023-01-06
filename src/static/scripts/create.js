@@ -16,7 +16,8 @@ function runWorker(session, year, day = 1) {
       type: 'module',
       importMap: {
         imports: {
-          'js-combinatorics': u('../static/polyfills/combinatorics.js'),
+          'combinatorial-generators':
+            'https://cdn.skypack.dev/combinatorial-generators@1.1.2',
           'child_process': u('../static/polyfills/child_process.js'),
           'crypto': u('../static/polyfills/crypto.js'),
         },

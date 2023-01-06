@@ -13,10 +13,7 @@ async function solveAll(session, year, day) {
 }
 
 self.window = self; //hack so that node-forge will work in the worker
-importScripts(
-  'https://unpkg.com/js-combinatorics@0.6.1/combinatorics.js',
-  'https://unpkg.com/node-forge@1.3.1/dist/forge.min.js',
-);
+importScripts('https://unpkg.com/node-forge@1.3.1/dist/forge.min.js');
 self.onmessage = async e => {
   await solveAll(e.data.session, e.data.year, e.data.day);
   self.postMessage({ type: 'done' });

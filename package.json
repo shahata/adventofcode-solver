@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@shahata/inquirer-timeout-confirm-prompt": "^0.1.1",
+    "combinatorial-generators": "^1.1.2",
     "inquirer": "^9.1.4",
-    "js-combinatorics": "^0.6.1",
     "progress": "^2.0.3"
   },
   "devDependencies": {

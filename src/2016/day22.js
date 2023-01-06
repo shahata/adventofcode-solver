@@ -1,4 +1,4 @@
-import Combinatorics from 'js-combinatorics';
+import { combinations } from 'combinatorial-generators';
 
 function parse(input) {
   return input
@@ -12,7 +12,7 @@ function parse(input) {
 }
 
 function solve1(nodes) {
-  const pairs = Combinatorics.bigCombination(nodes, 2).toArray();
+  const pairs = [...combinations(nodes, 2)];
   return pairs.concat(pairs.map(x => [x[1], x[0]])).filter(x => {
     return x[0].used !== 0 && x[0].used <= x[1].avail;
   });

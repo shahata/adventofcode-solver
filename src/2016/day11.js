@@ -1,4 +1,4 @@
-import Combinatorics from 'js-combinatorics';
+import { combinations } from 'combinatorial-generators';
 
 function parse(input) {
   let pieces = [];
@@ -18,7 +18,7 @@ function parse(input) {
 function select(arr, num) {
   let selected = [];
   for (num = Math.min(num, arr.length); num > 0; num--) {
-    selected = selected.concat(Combinatorics.combination(arr, num).toArray());
+    selected = selected.concat([...combinations(arr, num)]);
   }
   return selected;
 }
