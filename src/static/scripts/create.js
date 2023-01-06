@@ -19,7 +19,6 @@ function runWorker(session, year, day = 1) {
           'js-combinatorics': u('../static/polyfills/combinatorics.js'),
           'child_process': u('../static/polyfills/child_process.js'),
           'crypto': u('../static/polyfills/crypto.js'),
-          'vm': u('../static/polyfills/vm.js'),
         },
         scopes: {},
       },

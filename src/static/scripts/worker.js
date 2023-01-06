@@ -12,9 +12,10 @@ async function solveAll(session, year, day) {
   }
 }
 
+self.window = self;
 importScripts(
   'https://unpkg.com/js-combinatorics@0.6.1/combinatorics.js',
-  'https://unpkg.com/node-forge@0.9.2/dist/forge.min.js',
+  'https://unpkg.com/node-forge@1.3.1/dist/forge.min.js',
 );
 self.onmessage = async e => {
   await solveAll(e.data.session, e.data.year, e.data.day);

@@ -1,5 +1,3 @@
-import { runInThisContext } from 'vm';
-
 const ops = {
   addr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + r${i2}; break;`,
   addi: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + ${i2}; break;`,
@@ -27,14 +25,16 @@ const ops = {
   },
 };
 
-function run(input, tap, cb) {
+function run(input, tap) {
   const lines = input.split('\n');
   const ip = +lines.shift().split(' ').pop();
   const commands = lines.map((x, i) => {
     const [op, ...params] = x.split(' ');
     return ops[op](i, ...params);
   });
-  const script = `(cb) => {
+  const exec = new Function(
+    'cb',
+    `
     let r0 = 0, r1 = 0, r2 = 0, r3 = 0, r4 = 0, r5 = 0;
     while (true) {
       switch (r${ip}) {
@@ -42,10 +42,9 @@ function run(input, tap, cb) {
         default: return null;
       }
       r${ip}++;
-    }
-  }`;
-  const exec = runInThisContext(script);
-  return exec(tap, cb);
+    }`,
+  );
+  return exec(tap);
 }
 
 export function part1(input) {
