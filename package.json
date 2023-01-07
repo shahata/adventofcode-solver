@@ -48,6 +48,11 @@
   "eslintIgnore": [
     "src/template/*.js"
   ],
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/template"
+    ]
+  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",
