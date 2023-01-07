@@ -8,16 +8,6 @@
     <link rel="stylesheet" type="text/css" href="../static/style.css" />
     <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
     <link rel="shortcut icon" href="../static/favicon.png" />
-    <style>
-      input[type="submit"]:disabled {
-        opacity: 0.3;
-      }
-
-    </style>
-    <script type="module">
-      import { run } from '../static/scripts/create.js';
-      document.getElementById('solver').onsubmit = () => run('2015') && false;
-    </script>
   </head>
   <body>
     <header>
@@ -30,9 +20,8 @@
             <li><a href="solver.html">[Solver]</a></li>
           </ul>
         </nav>
-        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
-            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
-            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+        <div class="user">Shahar Talmi <a class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a
+            href="https://www.wix.engineering/" target="_blank" class="sponsor-badge"
             title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
       </div>
       <div>
@@ -41,7 +30,15 @@
       </div>
     </header>
     <main>
-      <script>
+      <style>
+        input[type="submit"]:disabled {
+          opacity: 0.3;
+        }
+
+      </style>
+      <script type="module">
+        import { run } from '../static/scripts/create.js';
+        document.getElementById('solver').onsubmit = () => run('2015') && false;
         window.addEventListener('click', function (e, s, r) {
           if (e.target.nodeName === 'CODE' && e.detail === 3) {
             s = window.getSelection();
