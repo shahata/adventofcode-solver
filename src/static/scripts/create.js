@@ -1,20 +1,17 @@
 /* global document, window, Worker, Blob */
 class WorkerShim {
-  constructor(aURL, options = {}) {
-    const workerScriptUrl = URL.createObjectURL(
+  constructor(url, options) {
+    const blob = URL.createObjectURL(
       new Blob(
         [
-          `importScripts('https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js');`,
+          `importScripts('https://unpkg.com/es-module-shims@1.6.3');`,
           `importShim.addImportMap(${JSON.stringify(options.importMap)});`,
-          `importShim('${aURL}');`,
+          `importShim('${url}');`,
         ],
         { type: 'application/javascript' },
       ),
     );
-    return new Worker(
-      workerScriptUrl,
-      Object.assign({}, options, { type: undefined }),
-    );
+    return new Worker(blob, Object.assign({}, options, { type: undefined }));
   }
 }
 
@@ -41,7 +38,6 @@ function runWorker(session, year, day = 1) {
             'child_process': u('../static/polyfills/child_process.js'),
             'crypto': u('../static/polyfills/crypto.js'),
           },
-          scopes: {},
         },
       })
     );
