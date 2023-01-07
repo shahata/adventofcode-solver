@@ -31,18 +31,20 @@ function runWorker(session, year, day = 1) {
     document.getElementById('loader').style.display = 'block';
 
     const u = s => new URL(s, window.location.toString());
-    const worker = new WorkerShim(u('../static/scripts/worker.js'), {
-      type: 'module',
-      importMap: {
-        imports: {
-          'combinatorial-generators':
-            'https://cdn.skypack.dev/combinatorial-generators@1.1.2?min',
-          'child_process': u('../static/polyfills/child_process.js'),
-          'crypto': u('../static/polyfills/crypto.js'),
+    const worker = /** @type {Worker} */ (
+      new WorkerShim(u('../static/scripts/worker.js'), {
+        type: 'module',
+        importMap: {
+          imports: {
+            'combinatorial-generators':
+              'https://cdn.skypack.dev/combinatorial-generators@1.1.2?min',
+            'child_process': u('../static/polyfills/child_process.js'),
+            'crypto': u('../static/polyfills/crypto.js'),
+          },
+          scopes: {},
         },
-        scopes: {},
-      },
-    });
+      })
+    );
     worker.onmessage = e => {
       if (e.data.type === 'log') {
         console.log(e.data.log);
