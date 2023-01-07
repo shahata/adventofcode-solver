@@ -1,7 +1,8 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { readFileSync, writeFileSync } from 'node:fs';
+
 import inquirer from 'inquirer';
-import { fileURLToPath } from 'url';
 import { dayName, isDayName } from './day-name.js';
 import { calcLeaderboard } from './calc-leaderboard.js';
 import {
@@ -23,8 +24,8 @@ function renderTemplate(year, name, extension, model) {
   const fileName = `${prefix}.${extension}`;
   const result = Object.keys(model).reduce((result, key) => {
     return result.replace(new RegExp(`{{${key}}}`, 'g'), model[key]);
-  }, fs.readFileSync(`${template}.template.${extension}`).toString());
-  fs.writeFileSync(fileName, result);
+  }, readFileSync(`${template}.template.${extension}`).toString());
+  writeFileSync(fileName, result);
   return fileName;
 }
 

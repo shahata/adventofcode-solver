@@ -1,9 +1,9 @@
-import * as fs from 'fs';
-import * as url from 'url';
-import * as path from 'path';
-import ProgressBar from 'progress';
-import { performance } from 'perf_hooks';
+import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { performance } from 'node:perf_hooks';
+import { existsSync, readdirSync } from 'node:fs';
 
+import ProgressBar from 'progress';
 import readInput from './read-input.js';
 import { dayName } from './day-name.js';
 import {
@@ -24,17 +24,17 @@ function timerify(fn) {
   return result;
 }
 
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function solverFunction(year, day) {
   const solver = path.resolve(__dirname, '..', year, `${dayName(day)}.js`);
-  if (!fs.existsSync(solver)) {
+  if (!existsSync(solver)) {
     return undefined;
   }
   return async () => {
     const module = await import(`../${year}/${dayName(day)}.js`);
     const input = readInput(
-      url.resolve(import.meta.url, `../${year}/${dayName(day)}.js`),
+      new URL(`../${year}/${dayName(day)}.js`, import.meta.url),
     );
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log('----------------------------');
@@ -52,8 +52,7 @@ function solverFunction(year, day) {
 
 function getDays(year) {
   try {
-    return fs
-      .readdirSync(path.resolve(__dirname, '..', year))
+    return readdirSync(path.resolve(__dirname, '..', year))
       .filter(x => x.match(/^day\d+\.js$/))
       .map(x => `${parseInt(x.match(/\d+/).shift())}`);
   } catch (e) {

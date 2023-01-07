@@ -35,8 +35,8 @@ function runWorker(session, year, day = 1) {
           imports: {
             'combinatorial-generators':
               'https://cdn.skypack.dev/combinatorial-generators@1.1.2?min',
-            'child_process': u('../static/polyfills/child_process.js'),
-            'crypto': u('../static/polyfills/crypto.js'),
+            'node:child_process': u('../static/polyfills/child_process.js'),
+            'node:crypto': u('../static/polyfills/crypto.js'),
           },
         },
       })
@@ -109,6 +109,7 @@ console.log = (...args) => {
     }
   } else {
     document.getElementById('output').appendChild(element);
+    document.getElementById('output').appendChild(document.createElement('br'));
   }
   document
     .querySelectorAll('#submitter')

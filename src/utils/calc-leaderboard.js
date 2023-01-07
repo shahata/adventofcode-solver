@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
+import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { readFileSync, writeFileSync } from 'node:fs';
 
 function removeIgnoredDays(jsonArr) {
   jsonArr.forEach(json => {
@@ -76,10 +76,10 @@ export function calcLeaderboard(jsonArr) {
   const debugMode = false;
   if (jsonArr) {
     if (debugMode) {
-      fs.writeFileSync(jsonPath, JSON.stringify(jsonArr));
+      writeFileSync(jsonPath, JSON.stringify(jsonArr));
     }
   } else if (debugMode) {
-    jsonArr = JSON.parse(fs.readFileSync(jsonPath).toString());
+    jsonArr = JSON.parse(readFileSync(jsonPath).toString());
   } else {
     return;
   }

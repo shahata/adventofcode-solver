@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
+import * as path from 'node:path';
+import { writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { dayName } from './day-name.js';
 
 async function downloadRequest(url, postPayload) {
@@ -38,9 +38,9 @@ export async function downloadStatic(url) {
   const fileName = path.join(src, url.split('/').pop());
   const response = await downloadRequest(url);
   if (response.headers.get('Content-Type') === 'image/png') {
-    fs.writeFileSync(fileName, Buffer.from(await response.arrayBuffer()));
+    writeFileSync(fileName, Buffer.from(await response.arrayBuffer()));
   } else {
-    fs.writeFileSync(fileName, await response.text());
+    writeFileSync(fileName, await response.text());
   }
 }
 

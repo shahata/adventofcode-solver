@@ -1,11 +1,11 @@
-import * as fs from 'fs';
-import * as url from 'url';
-import * as path from 'path';
+import * as path from 'node:path';
+import { readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import solveAll from './utils/solver.js';
 
 async function solveAllYears() {
-  const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-  const years = fs.readdirSync(__dirname).filter(x => x.match(/^\d\d\d\d$/));
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const years = readdirSync(__dirname).filter(x => x.match(/^\d\d\d\d$/));
   for (const year of years) {
     await solveAll(year, undefined, false);
   }
