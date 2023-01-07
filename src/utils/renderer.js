@@ -23,7 +23,7 @@ function renderTemplate(year, name, extension, model) {
   const fileName = `${prefix}.${extension}`;
   const result = Object.keys(model).reduce((result, key) => {
     return result.replace(new RegExp(`{{${key}}}`, 'g'), model[key]);
-  }, fs.readFileSync(`${template}.${extension}.template`).toString());
+  }, fs.readFileSync(`${template}.template.${extension}`).toString());
   fs.writeFileSync(fileName, result);
   return fileName;
 }
@@ -39,9 +39,9 @@ export async function downloadInput(year, day) {
 }
 
 export function tempLeaderboard(year) {
-  const page = calcLeaderboard();
-  if (page) {
-    renderTemplate(year, 'leaderboard', 'html', { year, page });
+  const model = calcLeaderboard();
+  if (model) {
+    renderTemplate(year, 'leaderboard', 'html', { year, ...model });
   }
 }
 
@@ -58,7 +58,7 @@ export async function downloadIndex(year, bar) {
   const leaderboards = await getLeaderboardJsons(year);
   renderTemplate(year, 'leaderboard', 'html', {
     year,
-    page: calcLeaderboard(leaderboards),
+    ...calcLeaderboard(leaderboards),
   });
   bar.tick();
   const end = await getEndPage(year).catch(() => undefined);

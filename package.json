@@ -46,6 +46,9 @@
       "plugin:@typescript-eslint/recommended"
     ]
   },
+  "eslintIgnore": [
+    "src/template/*.js"
+  ],
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",

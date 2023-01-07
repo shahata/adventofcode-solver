@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 13 - Advent of Code 2019</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 13: Care Package ---</h2><p>As you ponder the solitude of space and the ever-increasing three-hour roundtrip for messages between you and Earth, you notice that the Space Mail Indicator Light is blinking.  To help keep you sane, the Elves have sent you a care package.</p>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 13 - Advent of Code 2019</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2019</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 13: Care Package ---</h2><p>As you ponder the solitude of space and the ever-increasing three-hour roundtrip for messages between you and Earth, you notice that the Space Mail Indicator Light is blinking.  To help keep you sane, the Elves have sent you a care package.</p>
 <p>It's a new game for the ship's <a href="https://en.wikipedia.org/wiki/Arcade_cabinet">arcade cabinet</a>! Unfortunately, the arcade is <em>all the way</em> on the other end of the ship. Surely, it won't be hard to build your own - the care package even comes with schematics.</p>
 <p>The arcade cabinet runs <a href="day09.html">Intcode</a> software like the game the Elves sent (your puzzle input). It has a primitive screen capable of drawing square <em>tiles</em> on a grid.  The software draws tiles to the screen with output instructions: every three output instructions specify the <code>x</code> position (distance from the left), <code>y</code> position (distance from the top), and <code>tile id</code>. The <code>tile id</code> is interpreted as follows:</p>
 <ul>
@@ -41,6 +61,6 @@
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Care+Package%22+%2D+Day+13+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F13&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
   <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Care+Package%22+%2D+Day+13+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F13'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
-</main>
-</body>
+    </main>
+  </body>
 </html>

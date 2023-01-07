@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 21 - Advent of Code 2015</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2015</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 21: RPG Simulator 20XX ---</h2><p>Little <span title="The sky above the battle is the color of television, tuned to a dead channel.">Henry Case</span> got a new video game for Christmas.  It's an <a href="https://en.wikipedia.org/wiki/Role-playing_video_game">RPG</a>, and he's stuck on a boss.  He needs to know what equipment to buy at the shop.  He hands you the <a href="https://en.wikipedia.org/wiki/Game_controller">controller</a>.</p>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 21 - Advent of Code 2015</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2015</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 21: RPG Simulator 20XX ---</h2><p>Little <span title="The sky above the battle is the color of television, tuned to a dead channel.">Henry Case</span> got a new video game for Christmas.  It's an <a href="https://en.wikipedia.org/wiki/Role-playing_video_game">RPG</a>, and he's stuck on a boss.  He needs to know what equipment to buy at the shop.  He hands you the <a href="https://en.wikipedia.org/wiki/Game_controller">controller</a>.</p>
 <p>In this game, the player (you) and the enemy (the boss) take turns attacking.  The player always goes first.  Each attack reduces the opponent's hit points by at least <code>1</code>.  The first character at or below <code>0</code> hit points loses.</p>
 <p>Damage dealt by an attacker each turn is equal to the attacker's damage score minus the defender's armor score.  An attacker always does at least <code>1</code> damage.  So, if the attacker has a damage score of <code>8</code>, and the defender has an armor score of <code>3</code>, the defender loses <code>5</code> hit points.  If the defender had an armor score of <code>300</code>, the defender would still lose <code>1</code> hit point.</p>
 <p>Your damage score and armor score both start at zero.  They can be increased by buying items in exchange for gold.  You start with no items and have as much gold as you need.  Your total damage or armor is equal to the sum of those stats from all of your items.  You have <em>100 hit points</em>.</p>
@@ -62,6 +82,6 @@ Defense +3   80     0       3
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22RPG+Simulator+20XX%22+%2D+Day+21+%2D+Advent+of+Code+2015&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F21&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
   <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22RPG+Simulator+20XX%22+%2D+Day+21+%2D+Advent+of+Code+2015+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2015%2Fday%2F21'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
-</main>
-</body>
+    </main>
+  </body>
 </html>

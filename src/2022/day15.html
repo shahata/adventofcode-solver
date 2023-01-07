@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 15 - Advent of Code 2022</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2022</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 15: Beacon Exclusion Zone ---</h2><p>You feel the ground rumble again as the distress signal leads you to a large network of subterranean tunnels. You don't have time to search them all, but you don't need to: your pack contains a set of deployable <em>sensors</em> that you imagine were originally built to locate lost Elves.</p>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 15 - Advent of Code 2022</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2022</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 15: Beacon Exclusion Zone ---</h2><p>You feel the ground rumble again as the distress signal leads you to a large network of subterranean tunnels. You don't have time to search them all, but you don't need to: your pack contains a set of deployable <em>sensors</em> that you imagine were originally built to locate lost Elves.</p>
 <p>The sensors aren't very powerful, but that's okay; your handheld device indicates that you're close enough to the source of the distress signal to use them. You pull the emergency sensor system out of your pack, hit the big button on top, and the sensors zoom off down the tunnels.</p>
 <p>Once a sensor finds a spot it thinks will give it a good reading, it attaches itself to a hard surface and begins monitoring for the nearest signal source <em>beacon</em>. Sensors and beacons always exist at integer coordinates. Each sensor knows its own position and can <em>determine the position of a beacon precisely</em>; however, sensors can only lock on to the one beacon <em>closest to the sensor</em> as measured by the <a href="https://en.wikipedia.org/wiki/Taxicab_geometry" target="_blank">Manhattan distance</a>. (There is never a tie where two beacons are the same distance to a sensor.)</p>
 <p>It doesn't take long for the sensors to report back their positions and closest beacons (your puzzle input). For example:</p>
@@ -111,6 +131,6 @@ Sensor at x=20, y=1: closest beacon is at x=15, y=3
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Beacon+Exclusion+Zone%22+%2D+Day+15+%2D+Advent+of+Code+2022&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F15&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
   <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Beacon+Exclusion+Zone%22+%2D+Day+15+%2D+Advent+of+Code+2022+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2022%2Fday%2F15'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
-</main>
-</body>
+    </main>
+  </body>
 </html>

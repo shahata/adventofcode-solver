@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 23 - Advent of Code 2019</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 23: Category Six ---</h2><p>The droids have finished repairing as much of the ship as they can.  Their <span title="If you don't at least exhale sharply through your nose after reading this joke, we probably can't be friends.">report</span> indicates that this was a <em>Category 6</em> disaster - not because it was that bad, but because it destroyed the stockpile of <a href="https://en.wikipedia.org/wiki/Category_6_cable">Category 6</a> network cables as well as most of the ship's network infrastructure.</p>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 23 - Advent of Code 2019</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2019</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 23: Category Six ---</h2><p>The droids have finished repairing as much of the ship as they can.  Their <span title="If you don't at least exhale sharply through your nose after reading this joke, we probably can't be friends.">report</span> indicates that this was a <em>Category 6</em> disaster - not because it was that bad, but because it destroyed the stockpile of <a href="https://en.wikipedia.org/wiki/Category_6_cable">Category 6</a> network cables as well as most of the ship's network infrastructure.</p>
 <p>You'll need to <em>rebuild the network from scratch</em>.</p>
 <p>The computers on the network are standard <a href="day09.html">Intcode</a> computers that communicate by sending <em>packets</em> to each other.  There are <code>50</code> of them in total, each running a copy of the same <em>Network Interface Controller</em> (NIC) software (your puzzle input). The computers have <em>network addresses</em> <code>0</code> through <code>49</code>; when each computer boots up, it will request its network address via a single input instruction. Be sure to give each computer a unique network address.</p>
 <p>Once a computer has received its network address, it will begin doing work and communicating over the network by sending and receiving <em>packets</em>. All packets contain <em>two values</em> named <code>X</code> and <code>Y</code>. Packets sent to a computer are queued by the recipient and read in the order they are received.</p>
@@ -33,6 +53,6 @@
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Category+Six%22+%2D+Day+23+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F23&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
   <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Category+Six%22+%2D+Day+23+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F23'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
-</main>
-</body>
+    </main>
+  </body>
 </html>

@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 17 - Advent of Code 2019</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 17: Set and Forget ---</h2><p>An early warning system detects an incoming <a href="https://en.wikipedia.org/wiki/Solar_flare">solar flare</a> and automatically activates the ship's electromagnetic shield. Unfortunately, this has cut off the Wi-Fi for many small robots that, unaware of the impending danger, are now trapped on exterior scaffolding on the unsafe side of the shield. To rescue them, you'll have to act quickly!</p>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 17 - Advent of Code 2019</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2019</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 17: Set and Forget ---</h2><p>An early warning system detects an incoming <a href="https://en.wikipedia.org/wiki/Solar_flare">solar flare</a> and automatically activates the ship's electromagnetic shield. Unfortunately, this has cut off the Wi-Fi for many small robots that, unaware of the impending danger, are now trapped on exterior scaffolding on the unsafe side of the shield. To rescue them, you'll have to act quickly!</p>
 <p>The only tools at your disposal are some wired cameras and a small vacuum robot currently asleep at its charging station. The video quality is poor, but the vacuum robot has a needlessly bright LED that makes it easy to spot no matter where it is.</p>
 <p>An <a href="day09.html">Intcode</a> program, the <em>Aft Scaffolding Control and Information Interface</em> (ASCII, your puzzle input), provides access to the cameras and the vacuum robot.  Currently, because the vacuum robot is asleep, you can only access the cameras.</p>
 <p>Running the ASCII program on your Intcode computer will provide the current view of the scaffolds.  This is output, <span title="PURELY COINCIDENTALLY">purely coincidentally</span>, as <a href="https://simple.wikipedia.org/wiki/ASCII">ASCII code</a>: <code>35</code> means <code>#</code>, <code>46</code> means <code>.</code>, <code>10</code> starts a <a href="https://en.wikipedia.org/wiki/Newline#In_programming_languages">new line</a> of output below the current one, and so on. (Within a line, characters are drawn left-to-right.)</p>
@@ -110,6 +130,6 @@ C.....A...B...B
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Set+and+Forget%22+%2D+Day+17+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F17&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
   <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Set+and+Forget%22+%2D+Day+17+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F17'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
-</main>
-</body>
+    </main>
+  </body>
 </html>

@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 14 - Advent of Code 2019</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: Space Stoichiometry ---</h2><p>As you approach the rings of Saturn, your ship's <em>low fuel</em> indicator turns on.  There isn't any fuel here, but the rings have plenty of raw material.  Perhaps your ship's <span title="Yes, the acronym is intentional.">Inter-Stellar Refinery Union</span> brand <em>nanofactory</em> can turn these raw materials into fuel.</p>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 14 - Advent of Code 2019</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2019</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 14: Space Stoichiometry ---</h2><p>As you approach the rings of Saturn, your ship's <em>low fuel</em> indicator turns on.  There isn't any fuel here, but the rings have plenty of raw material.  Perhaps your ship's <span title="Yes, the acronym is intentional.">Inter-Stellar Refinery Union</span> brand <em>nanofactory</em> can turn these raw materials into fuel.</p>
 <p>You ask the nanofactory to produce a list of the <em>reactions</em> it can perform that are relevant to this process (your puzzle input). Every reaction turns some quantities of specific <em>input chemicals</em> into some quantity of an <em>output chemical</em>. Almost every <em>chemical</em> is produced by exactly one reaction; the only exception, <code>ORE</code>, is the raw material input to the entire process and is not produced by a reaction.</p>
 <p>You just need to know how much <code><em>ORE</em></code> you'll need to collect before you can produce one unit of <code><em>FUEL</em></code>.</p>
 <p>Each reaction gives specific quantities for its inputs and output; reactions cannot be partially run, so only whole integer multiples of these quantities can be used.  (It's okay to have leftover chemicals when you're done, though.) For example, the reaction <code>1 A, 2 B, 3 C =&gt; 2 D</code> means that exactly 2 units of chemical <code>D</code> can be produced by consuming exactly 1 <code>A</code>, 2 <code>B</code> and 3 <code>C</code>.  You can run the full reaction as many times as necessary; for example, you could produce 10 <code>D</code> by consuming 5 <code>A</code>, 10 <code>B</code>, and 15 <code>C</code>.</p>
@@ -108,6 +128,6 @@
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Space+Stoichiometry%22+%2D+Day+14+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F14&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
   <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%22Space+Stoichiometry%22+%2D+Day+14+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F14'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
-</main>
-</body>
+    </main>
+  </body>
 </html>

@@ -130,37 +130,17 @@ export function calcLeaderboard(jsonArr) {
     ten: calcChart(members, sorted, 10),
     five: calcChart(members, sorted, 5),
   };
-  let output = [
-    `
-<button onclick="drawChart('all')">Show All</button>
-<button onclick="drawChart('ten')">Show Top Ten</button>
-<button onclick="drawChart('five')">Show Top Five</button>
-<canvas id="canvas"></canvas>
-<script type="module">
-  import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@4.1.2?min';
-  Chart.register(...registerables);
-  var config = ${JSON.stringify(config)};
-  window.drawChart = function(group) {
-    window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
-    window.myLine.update();
-  };
-  window.onload = function() {
-    var ctx = document.getElementById("canvas").getContext("2d");
-    window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config.all)));
-  };
-</script>`,
-  ];
+  const table = [];
   const spans = [
     '<span class="leaderboard-daydesc-both">both stars</span>',
     'the <span class="leaderboard-daydesc-first">first star</span>',
   ];
-  output.push('<table>');
   sorted.reverse().forEach((day, index) => {
-    output.push('<tr style="vertical-align: top;">');
+    table.push('<tr style="vertical-align: top;">');
     day.forEach((stars, starIndex) => {
-      output.push('<td style="padding-right: 50px;">');
+      table.push('<td style="padding-right: 50px;">');
       if (stars.length) {
-        output.push(
+        table.push(
           `<p>First to get ${spans[starIndex]} on Day ${25 - index}:</p>`,
         );
         stars.forEach((star, index) => {
@@ -168,7 +148,7 @@ export function calcLeaderboard(jsonArr) {
             `${stars.length}`.length,
             ' ',
           );
-          output.push(
+          table.push(
             [
               `<div class="leaderboard-entry"><span class="leaderboard-position">`,
               `${paddedIndex})</span> <span class="leaderboard-time">${star.ts}`,
@@ -177,10 +157,9 @@ export function calcLeaderboard(jsonArr) {
           );
         });
       }
-      output.push('</td>');
+      table.push('</td>');
     });
-    output.push('</tr>');
+    table.push('</tr>');
   });
-  output.push('</table>');
-  return output.join('\n');
+  return { config: JSON.stringify(config), table: table.join('\n') };
 }

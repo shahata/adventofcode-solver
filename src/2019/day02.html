@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-<meta charset="utf-8"/>
-<title>Day 2 - Advent of Code 2019</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-<link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast"/>
-<link rel="shortcut icon" href="../static/favicon.png"/>
-</head>
-<body>
-<header><div><h1 class="title-global"><a href="index.html">Advent of Code</a></h1><nav><ul><li><a href="events.html">[Events]</a></li><li><a href="leaderboard.html">[Leaderboard]</a></li><li><a href="solver.html">[Solver]</a></li></ul></nav><div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank" onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge" title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div></div><div><h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a href="index.html">2019</a><span class="title-event-wrap">;</span></h1></div></header>
-<main>
-<style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 2: 1202 Program Alarm ---</h2><p>On the way to your <a href="https://en.wikipedia.org/wiki/Gravity_assist">gravity assist</a> around the Moon, your ship computer beeps angrily about a "<a href="https://www.hq.nasa.gov/alsj/a11/a11.landing.html#1023832">1202 program alarm</a>". On the radio, an Elf is already explaining how to handle the situation: "Don't worry, that's perfectly norma--" The ship computer <a href="https://en.wikipedia.org/wiki/Halt_and_Catch_Fire">bursts into flames</a>.</p>
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 2 - Advent of Code 2019</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a href="/2021/support" class="supporter-badge"
+            title="Advent of Code Supporter">(AoC++)</a> <a href="https://www.wix.engineering/" target="_blank"
+            onclick="if(ga)ga('send','event','sponsor','badge',this.href);" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">50*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2019</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <style>article *[title]{border-bottom:1px dotted #ffff66;}</style><article class="day-desc"><h2>--- Day 2: 1202 Program Alarm ---</h2><p>On the way to your <a href="https://en.wikipedia.org/wiki/Gravity_assist">gravity assist</a> around the Moon, your ship computer beeps angrily about a "<a href="https://www.hq.nasa.gov/alsj/a11/a11.landing.html#1023832">1202 program alarm</a>". On the radio, an Elf is already explaining how to handle the situation: "Don't worry, that's perfectly norma--" The ship computer <a href="https://en.wikipedia.org/wiki/Halt_and_Catch_Fire">bursts into flames</a>.</p>
 <p>You notify the Elves that the computer's <a href="https://en.wikipedia.org/wiki/Magic_smoke">magic smoke</a> seems to have <span title="Looks like SOMEONE forgot to change the switch to 'more magic'.">escaped</span>. "That computer ran <em>Intcode</em> programs like the gravity assist program it was working on; surely there are enough spare parts up there to build a new Intcode computer!"</p>
 <p>An Intcode program is a list of <a href="https://en.wikipedia.org/wiki/Integer">integers</a> separated by commas (like <code>1,0,0,3,99</code>).  To run one, start by looking at the first integer (called position <code>0</code>). Here, you will find an <em>opcode</em> - either <code>1</code>, <code>2</code>, or <code>99</code>. The opcode indicates what to do; for example, <code>99</code> means that the program is finished and should immediately halt. Encountering an unknown opcode means something went wrong.</p>
 <p>Opcode <code>1</code> <em>adds</em> together numbers read from two positions and stores the result in a third position. The three integers <em>immediately after</em> the opcode tell you these three positions - the first two indicate the <em>positions</em> from which you should read the input values, and the third indicates the <em>position</em> at which the output should be stored.</p>
@@ -65,6 +85,6 @@
   <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%221202+Program+Alarm%22+%2D+Day+2+%2D+Advent+of+Code+2019&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F2&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
   <a href="javascript:void(0);" onclick="var mastodon_instance=prompt('Mastodon Instance / Server Name?'); if(typeof mastodon_instance==='string' && mastodon_instance.length){this.href='https://'+mastodon_instance+'/share?text=I%27ve+completed+%221202+Program+Alarm%22+%2D+Day+2+%2D+Advent+of+Code+2019+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2019%2Fday%2F2'}else{return false;}" target="_blank">Mastodon</a
 ></span>]</span> this puzzle.</p>
-</main>
-</body>
+    </main>
+  </body>
 </html>
