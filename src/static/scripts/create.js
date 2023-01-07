@@ -1,4 +1,23 @@
-/* global document, window, WorkerShim */
+/* global document, window, Worker, Blob */
+class WorkerShim {
+  constructor(aURL, options = {}) {
+    const workerScriptUrl = URL.createObjectURL(
+      new Blob(
+        [
+          `importScripts('https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js');`,
+          `importShim.addImportMap(${JSON.stringify(options.importMap)});`,
+          `importShim('${aURL}');`,
+        ],
+        { type: 'application/javascript' },
+      ),
+    );
+    return new Worker(
+      workerScriptUrl,
+      Object.assign({}, options, { type: undefined }),
+    );
+  }
+}
+
 function runWorker(session, year, day = 1) {
   return new Promise(resolve => {
     if (window['SolverWorker']) {
@@ -12,7 +31,7 @@ function runWorker(session, year, day = 1) {
     document.getElementById('loader').style.display = 'block';
 
     const u = s => new URL(s, window.location.toString());
-    const worker = new WorkerShim('../static/scripts/worker.js', {
+    const worker = new WorkerShim(u('../static/scripts/worker.js'), {
       type: 'module',
       importMap: {
         imports: {
