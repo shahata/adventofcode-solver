@@ -1,4 +1,4 @@
-/* global document, window, Worker, Blob */
+/* eslint-env browser */
 class WorkerShim {
   constructor(url, options) {
     const blob = URL.createObjectURL(

@@ -1,3 +1,4 @@
+/* eslint-env worker */
 import { dayName } from '../../utils/day-name.js';
 
 let duration;
@@ -80,7 +81,6 @@ async function solveAll(session, year, day) {
   }
 }
 
-/* global self */
 self.window = self; //hack so that node-forge will work in the worker
 self.onmessage = async e => {
   await solveAll(e.data.session, e.data.year, e.data.day);
