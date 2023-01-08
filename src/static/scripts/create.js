@@ -35,7 +35,6 @@ function runWorker(session, year, day = 1) {
           imports: {
             'combinatorial-generators':
               'https://cdn.skypack.dev/combinatorial-generators@1.1.2?min',
-            'node:child_process': u('../static/polyfills/child_process.js'),
             'node:crypto': u('../static/polyfills/crypto.js'),
           },
         },
