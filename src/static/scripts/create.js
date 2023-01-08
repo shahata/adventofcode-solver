@@ -1,10 +1,12 @@
 /* eslint-env browser */
+import { imports } from '../../utils/urls.js';
+
 class WorkerShim {
   constructor(url, options) {
     const blob = URL.createObjectURL(
       new Blob(
         [
-          `importScripts('https://unpkg.com/es-module-shims@1.6.3');`,
+          `importScripts('${imports['es-module-shims']}');`,
           `importShim.addImportMap(${JSON.stringify(options.importMap)});`,
           `importShim('${url}');`,
         ],
@@ -33,8 +35,7 @@ function runWorker(session, year, day = 1) {
         type: 'module',
         importMap: {
           imports: {
-            'combinatorial-generators':
-              'https://cdn.skypack.dev/combinatorial-generators@1.1.2?min',
+            ...imports,
             'node:crypto': u('../static/polyfills/crypto.js'),
           },
         },

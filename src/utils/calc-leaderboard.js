@@ -1,6 +1,7 @@
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { imports } from './urls.js';
 
 function removeIgnoredDays(jsonArr) {
   jsonArr.forEach(json => {
@@ -161,5 +162,9 @@ export function calcLeaderboard(jsonArr) {
     });
     table.push('</tr>');
   });
-  return { config: JSON.stringify(config), table: table.join('\n') };
+  return {
+    config: JSON.stringify(config),
+    table: table.join('\n'),
+    chartJsUrl: imports['chart.js'],
+  };
 }
