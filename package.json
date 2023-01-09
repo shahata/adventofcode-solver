@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
+    "serve": "open https://127.0.0.1/ && http-server -p 443 -P https://127.0.0.1/ -S",
     "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi }; NODE_OPTIONS=--experimental-vm-modules f",
     "lint": "eslint src && tsc",
     "prepare": "husky install"
@@ -28,6 +29,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^27.1.7",
     "eslint-plugin-prettier": "^4.2.1",
+    "http-server": "^14.1.1",
     "husky": "^8.0.2",
     "jest": "^29.3.1",
     "prettier": "^2.8.1",
