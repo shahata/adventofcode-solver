@@ -11,7 +11,11 @@ function timerify(fn) {
 }
 
 async function readInput(session, year, day) {
-  const url = `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`;
+  let url = `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`;
+  if (!session) {
+    const fileName = `${year}/${dayName(day)}`;
+    url = new URL(`../../${fileName}.txt`, self['workerShimUrl']).toString();
+  }
   const result = await fetch(url);
   if (result.status !== 200) {
     throw `Could not download input!\n${await result.text()}`;
@@ -26,9 +30,9 @@ async function readAnswers(session, year, day) {
 }
 
 async function form(session, year, day, level, answer, duration) {
-  const answers = await readAnswers(session, year, day);
+  const answers = session && (await readAnswers(session, year, day));
   let submitter = '<input type="submit" value="[Submit]">';
-  if (answers[level - 1] === `${answer}`) {
+  if (!session || answers[level - 1] === `${answer}`) {
     submitter = '';
   } else if (answers[level - 1] !== undefined) {
     submitter = `However, you've apparently entered ${answers[level - 1]} :/`;
@@ -77,6 +81,8 @@ async function solveAll(session, year, day) {
       await solver(session, year, `${day}`);
     } catch (e) {
       console.log(e);
+      console.log('Please retry once issue is resolved');
+      return;
     }
   }
 }

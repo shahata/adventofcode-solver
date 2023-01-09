@@ -8,6 +8,7 @@ class WorkerShim {
         [
           `importScripts('${imports['es-module-shims']}');`,
           `importShim.addImportMap(${JSON.stringify(options.importMap)});`,
+          `self['workerShimUrl'] = '${url}';`,
           `importShim('${url}');`,
         ],
         { type: 'application/javascript' },
