@@ -2,6 +2,7 @@ import * as path from 'node:path';
 import { readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import solveAll from './utils/solver.js';
+import { execSync } from 'node:child_process';
 
 async function solveAllYears() {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -10,6 +11,17 @@ async function solveAllYears() {
     await solveAll(year, undefined, false);
   }
 }
+
+if (!process.env.ADVENT_SESSION) {
+  try {
+    process.env.ADVENT_SESSION = execSync(
+      'cookies https://adventofcode.com/ session',
+    ).toString();
+  } catch {
+    //
+  }
+}
+
 if (process.env.ADVENT_SESSION) {
   let year = process.argv[2];
   let day = process.argv[3];
