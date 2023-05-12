@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@shahata/inquirer-timeout-confirm-prompt": "^0.1.1",
-    "chart.js": "^4.1.2",
+    "chart.js": "^4.3.0",
     "combinatorial-generators": "^1.1.2",
     "es-module-shims": "^1.6.3",
     "inquirer": "^9.1.4",
