@@ -2,13 +2,13 @@
 
 This repository contains solutions for advent of code (https://adventofcode.com)
 
-<img width="1044" alt="image" src="https://user-images.githubusercontent.com/1764161/209458786-e1c31d6a-4357-45c6-a80c-18189dac8858.png">
+<img width="1051" alt="image" src="https://github.com/shahata/adventofcode-solver/assets/1764161/dc955d1b-89bb-42e6-86d3-89e2b2181950">
 
 Go ahead and try to solve the challenge on your own before using this spoiler!
 
 In order to use this solver simply go to: https://shahata.github.io/adventofcode-solver/src/2023/solver.html and follow the instructions.
 
-[<img width="1044" alt="image" src="https://user-images.githubusercontent.com/1764161/209458799-b1370c0e-b968-48c4-a4c7-fc72a9c8c566.png">](https://shahata.github.io/adventofcode-solver/src/2023/solver.html)
+[<img width="1051" alt="image" src="https://github.com/shahata/adventofcode-solver/assets/1764161/0be3cbfb-83d5-443c-8ce5-bc126c20841e">](https://shahata.github.io/adventofcode-solver/src/2023/solver.html)
 
 Alternatively, if you don't want to share your cookie value online or if some solutions fail to run in the browser, simply clone this git and run the following commands. Note this requires node@19 or newer.
 
