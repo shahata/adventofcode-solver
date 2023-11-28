@@ -35,9 +35,9 @@
       <button onclick="drawChart('five')">Show Top Five</button>
       <canvas id="canvas"></canvas>
       <script type="module">
-        import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@4.1.2?min';
+        import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@undefined?min';
         Chart.register(...registerables);
-        var config = JSON.parse('{"all":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[5,10,20,26,34,42,49,56,63,70,77,84,89,94,97,99,101,103,106,109,112,115,118,121,123,125,128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,172,174],"fill":false},{"label":"atamurius","data":[4,6,15,18,25,31,37,41,47,51,57,61,65,68,70,71,72,73,75,76,78,80,82,83,84,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110],"fill":false},{"label":"Maurits Out","data":[-2,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Sergey Ilyevsky","data":[-10,-19,-19,-23,-27,-29,-31,-33,-35,-37,-39,-41,-44,-47,-50,-53,-56,-59,-62,-65,-68,-71,-74,-77,-80,-83,-86,-89,-92,-95,-98,-101,-103,-105,-107,-109,-111,-113,-115,-117,-119,-121,-122,-123,-124,-125,-126,-127,-128,-129],"fill":false},{"label":"Maor Yosef","data":[0,0,-5,-14,-12,-8,-14,-19,-24,-28,-32,-36,-41,-46,-50,-54,-59,-64,-68,-72,-76,-80,-84,-88,-92,-96,-100,-104,-108,-112,-116,-120,-123,-126,-129,-132,-135,-138,-141,-144,-147,-150,-152,-154,-157,-160,-163,-166,-169,-171],"fill":false},{"label":"Donatas Petrauskas","data":[-4,-8,-6,-8,-10,-9,-8,-7,-6,-5,-4,-3,-5,-7,-9,-11,-13,-15,-17,-19,-21,-23,-25,-27,-29,-31,-33,-35,-37,-39,-41,-43,-44,-45,-46,-47,-48,-49,-50,-51,-52,-53,-486,-919,-921,-923,-925,-927,-929],"fill":false}]}},"ten":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[5,10,20,26,34,42,49,56,63,70,77,84,89,94,97,99,101,103,106,109,112,115,118,121,123,125,128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,172,174],"fill":false},{"label":"atamurius","data":[4,6,15,18,25,31,37,41,47,51,57,61,65,68,70,71,72,73,75,76,78,80,82,83,84,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110],"fill":false},{"label":"Maurits Out","data":[-2,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Sergey Ilyevsky","data":[-10,-19,-19,-23,-27,-29,-31,-33,-35,-37,-39,-41,-44,-47,-50,-53,-56,-59,-62,-65,-68,-71,-74,-77,-80,-83,-86,-89,-92,-95,-98,-101,-103,-105,-107,-109,-111,-113,-115,-117,-119,-121,-122,-123,-124,-125,-126,-127,-128,-129],"fill":false},{"label":"Maor Yosef","data":[0,0,-5,-14,-12,-8,-14,-19,-24,-28,-32,-36,-41,-46,-50,-54,-59,-64,-68,-72,-76,-80,-84,-88,-92,-96,-100,-104,-108,-112,-116,-120,-123,-126,-129,-132,-135,-138,-141,-144,-147,-150,-152,-154,-157,-160,-163,-166,-169,-171],"fill":false},{"label":"Donatas Petrauskas","data":[-4,-8,-6,-8,-10,-9,-8,-7,-6,-5,-4,-3,-5,-7,-9,-11,-13,-15,-17,-19,-21,-23,-25,-27,-29,-31,-33,-35,-37,-39,-41,-43,-44,-45,-46,-47,-48,-49,-50,-51,-52,-53,-486,-919,-921,-923,-925,-927,-929],"fill":false}]}},"five":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[5,10,20,26,34,42,49,56,63,70,77,84,89,94,97,99,101,103,106,109,112,115,118,121,123,125,128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,172,174],"fill":false},{"label":"atamurius","data":[4,6,15,18,25,31,37,41,47,51,57,61,65,68,70,71,72,73,75,76,78,80,82,83,84,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110],"fill":false},{"label":"Maurits Out","data":[-2,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Sergey Ilyevsky","data":[-10,-19,-19,-23,-27,-29,-31,-33,-35,-37,-39,-41,-44,-47,-50,-53,-56,-59,-62,-65,-68,-71,-74,-77,-80,-83,-86,-89,-92,-95,-98,-101,-103,-105,-107,-109,-111,-113,-115,-117,-119,-121,-122,-123,-124,-125,-126,-127,-128,-129],"fill":false},{"label":"Maor Yosef","data":[0,0,-5,-14,-12,-8,-14,-19,-24,-28,-32,-36,-41,-46,-50,-54,-59,-64,-68,-72,-76,-80,-84,-88,-92,-96,-100,-104,-108,-112,-116,-120,-123,-126,-129,-132,-135,-138,-141,-144,-147,-150,-152,-154,-157,-160,-163,-166,-169,-171],"fill":false}]}}}');
+        var config = JSON.parse('{"all":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[5,10,20,26,34,42,49,56,63,70,77,84,89,94,97,99,101,103,106,109,112,115,118,121,123,125,128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,172,174],"fill":false},{"label":"atamurius","data":[4,6,15,18,25,31,37,41,47,51,57,61,65,68,70,71,72,73,75,76,78,80,82,83,84,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110],"fill":false},{"label":"Maurits Out","data":[-2,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Sergey Ilyevsky","data":[-10,-19,-19,-23,-27,-29,-31,-33,-35,-37,-39,-41,-44,-47,-50,-53,-56,-59,-62,-65,-68,-71,-74,-77,-80,-83,-86,-89,-92,-95,-98,-101,-103,-105,-107,-109,-111,-113,-115,-117,-119,-121,-122,-123,-124,-125,-126,-127,-128,-129],"fill":false},{"label":"Maor Yosef","data":[0,0,-5,-14,-12,-8,-14,-19,-24,-28,-32,-36,-41,-46,-50,-54,-59,-64,-68,-72,-76,-80,-84,-88,-92,-96,-100,-104,-108,-112,-116,-120,-123,-126,-129,-132,-135,-138,-141,-144,-147,-150,-152,-154,-157,-160,-163,-166,-169,-171],"fill":false},{"label":"Donatas Petrauskas","data":[-4,-8,-6,-8,-10,-9,-8,-7,-6,-5,-4,-3,-5,-7,-9,-11,-13,-15,-17,-19,-21,-23,-25,-27,-29,-31,-33,-35,-37,-39,-41,-43,-44,-45,-46,-47,-48,-49,-50,-51,-52,-53,-497,-941,-943,-945,-947,-949,-951],"fill":false}]}},"ten":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[5,10,20,26,34,42,49,56,63,70,77,84,89,94,97,99,101,103,106,109,112,115,118,121,123,125,128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,172,174],"fill":false},{"label":"atamurius","data":[4,6,15,18,25,31,37,41,47,51,57,61,65,68,70,71,72,73,75,76,78,80,82,83,84,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110],"fill":false},{"label":"Maurits Out","data":[-2,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Sergey Ilyevsky","data":[-10,-19,-19,-23,-27,-29,-31,-33,-35,-37,-39,-41,-44,-47,-50,-53,-56,-59,-62,-65,-68,-71,-74,-77,-80,-83,-86,-89,-92,-95,-98,-101,-103,-105,-107,-109,-111,-113,-115,-117,-119,-121,-122,-123,-124,-125,-126,-127,-128,-129],"fill":false},{"label":"Maor Yosef","data":[0,0,-5,-14,-12,-8,-14,-19,-24,-28,-32,-36,-41,-46,-50,-54,-59,-64,-68,-72,-76,-80,-84,-88,-92,-96,-100,-104,-108,-112,-116,-120,-123,-126,-129,-132,-135,-138,-141,-144,-147,-150,-152,-154,-157,-160,-163,-166,-169,-171],"fill":false},{"label":"Donatas Petrauskas","data":[-4,-8,-6,-8,-10,-9,-8,-7,-6,-5,-4,-3,-5,-7,-9,-11,-13,-15,-17,-19,-21,-23,-25,-27,-29,-31,-33,-35,-37,-39,-41,-43,-44,-45,-46,-47,-48,-49,-50,-51,-52,-53,-497,-941,-943,-945,-947,-949,-951],"fill":false}]}},"five":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[5,10,20,26,34,42,49,56,63,70,77,84,89,94,97,99,101,103,106,109,112,115,118,121,123,125,128,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,172,174],"fill":false},{"label":"atamurius","data":[4,6,15,18,25,31,37,41,47,51,57,61,65,68,70,71,72,73,75,76,78,80,82,83,84,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110],"fill":false},{"label":"Maurits Out","data":[-2,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Sergey Ilyevsky","data":[-10,-19,-19,-23,-27,-29,-31,-33,-35,-37,-39,-41,-44,-47,-50,-53,-56,-59,-62,-65,-68,-71,-74,-77,-80,-83,-86,-89,-92,-95,-98,-101,-103,-105,-107,-109,-111,-113,-115,-117,-119,-121,-122,-123,-124,-125,-126,-127,-128,-129],"fill":false},{"label":"Maor Yosef","data":[0,0,-5,-14,-12,-8,-14,-19,-24,-28,-32,-36,-41,-46,-50,-54,-59,-64,-68,-72,-76,-80,-84,-88,-92,-96,-100,-104,-108,-112,-116,-120,-123,-126,-129,-132,-135,-138,-141,-144,-147,-150,-152,-154,-157,-160,-163,-166,-169,-171],"fill":false}]}}}');
         window.drawChart = function (group) {
           window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
           window.myLine.update();
@@ -530,6 +530,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">03 Dec 2021, 15:48:17</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2021, 08:12:34</span> argshook</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">02 Dec 2022, 19:19:20</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">11 Aug 2023, 10:30:55</span> povilastwix</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 6:</p>
@@ -549,6 +550,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">03 Dec 2021, 15:40:16</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2021, 07:58:32</span> argshook</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">02 Dec 2022, 19:12:34</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">11 Aug 2023, 10:13:07</span> povilastwix</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -570,6 +572,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">02 Dec 2021, 16:19:19</span> Sergey Puzankov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2021, 16:15:39</span> argshook</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">02 Dec 2022, 18:20:52</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">11 Aug 2023, 09:28:22</span> povilastwix</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 5:</p>
@@ -589,6 +592,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">28 Dec 2020, 03:24:39</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2021, 15:54:27</span> argshook</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">23 Oct 2022, 15:56:02</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Aug 2023, 14:22:34</span> povilastwix</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -611,6 +615,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2021, 15:41:36</span> argshook</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">16 Oct 2022, 19:39:05</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">29 Nov 2022, 08:20:03</span> Amit Abuksis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Aug 2023, 13:50:31</span> povilastwix</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 4:</p>
@@ -632,6 +637,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">06 Dec 2021, 15:39:39</span> argshook</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">16 Oct 2022, 19:36:26</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">29 Nov 2022, 08:18:57</span> Amit Abuksis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Aug 2023, 13:48:56</span> povilastwix</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -657,6 +663,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">16 Oct 2022, 18:57:22</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">29 Nov 2022, 03:25:14</span> Amit Abuksis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">05 Jan 2023, 05:08:57</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">07 Aug 2023, 01:43:11</span> povilastwix</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 3:</p>
@@ -682,6 +689,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">16 Oct 2022, 18:44:50</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">29 Nov 2022, 03:18:18</span> Amit Abuksis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">05 Jan 2023, 04:51:50</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">06 Aug 2023, 04:20:25</span> povilastwix</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -710,6 +718,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">16 Oct 2022, 18:30:28</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">29 Nov 2022, 02:49:12</span> Amit Abuksis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">05 Jan 2023, 04:14:33</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">06 Aug 2023, 03:52:44</span> povilastwix</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
@@ -736,6 +745,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">16 Oct 2022, 18:21:20</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">29 Nov 2022, 02:22:20</span> Amit Abuksis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">05 Jan 2023, 04:10:23</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">04 Aug 2023, 13:04:49</span> povilastwix</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -771,6 +781,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">29 Nov 2022, 02:12:44</span> Amit Abuksis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">22 Dec 2022, 09:36:18</span> GregoryNative</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">05 Jan 2023, 03:51:49</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">30 Jun 2023, 11:08:42</span> povilastwix</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
@@ -807,6 +818,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">29 Nov 2022, 02:12:30</span> Amit Abuksis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">22 Dec 2022, 08:23:19</span> GregoryNative</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">05 Jan 2023, 03:42:52</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">30 Jun 2023, 11:06:58</span> povilastwix</div> 
 </td>
 </tr>
       </table>
