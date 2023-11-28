@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;900');
+
 * {
-  background: white !important;
+  background: transparent !important;
   color: black !important;
   text-shadow: none !important;
+}
+body {
+  background: white !important;
+  font-weight: 400 !important;
+}
+article [title] {
+  border-bottom-color: black !important;
 }
 a {
   color: #0000ff !important;
@@ -10,3 +19,10 @@ a {
 em {
   font-weight: 900 !important;
 }
+code::before {
+  background: transparent !important;
+  border-color: black !important;
+}
+.stats-firstonly          { opacity: .5;   }
+.privboard-star-firstonly { opacity: .667; }
+.privboard-star-unlocked  { opacity: .333; }

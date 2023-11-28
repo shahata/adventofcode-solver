@@ -16,9 +16,12 @@ function solve(input, keypad, start) {
     .map(line => line.split(''))
     .reduce((code, line) => {
       return code.concat(
-        line.reduce((position, step) => {
-          return move(keypad, position, directions[step]);
-        }, code.at(-1) || start),
+        line.reduce(
+          (position, step) => {
+            return move(keypad, position, directions[step]);
+          },
+          code.at(-1) || start,
+        ),
       );
     }, [])
     .map(key => keypad[key.y][key.x])

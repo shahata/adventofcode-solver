@@ -22,9 +22,12 @@ function renderTemplate(year, name, extension, model) {
   const prefix = path.join(src, year, isDayName(name) ? name : name);
   const template = path.join(src, 'template', isDayName(name) ? 'day' : name);
   const fileName = `${prefix}.${extension}`;
-  const result = Object.keys(model).reduce((result, key) => {
-    return result.replace(new RegExp(`{{${key}}}`, 'g'), model[key]);
-  }, readFileSync(`${template}.template.${extension}`).toString());
+  const result = Object.keys(model).reduce(
+    (result, key) => {
+      return result.replace(new RegExp(`{{${key}}}`, 'g'), model[key]);
+    },
+    readFileSync(`${template}.template.${extension}`).toString(),
+  );
   writeFileSync(fileName, result);
   return fileName;
 }
