@@ -6,9 +6,9 @@ This repository contains solutions for advent of code (https://adventofcode.com)
 
 Go ahead and try to solve the challenge on your own before using this spoiler!
 
-In order to use this solver simply go to: https://shahata.github.io/adventofcode-solver/src/2022/solver.html and follow the instructions.
+In order to use this solver simply go to: https://shahata.github.io/adventofcode-solver/src/2023/solver.html and follow the instructions.
 
-[<img width="1044" alt="image" src="https://user-images.githubusercontent.com/1764161/209458799-b1370c0e-b968-48c4-a4c7-fc72a9c8c566.png">](https://shahata.github.io/adventofcode-solver/src/2022/solver.html)
+[<img width="1044" alt="image" src="https://user-images.githubusercontent.com/1764161/209458799-b1370c0e-b968-48c4-a4c7-fc72a9c8c566.png">](https://shahata.github.io/adventofcode-solver/src/2023/solver.html)
 
 Alternatively, if you don't want to share your cookie value online or if some solutions fail to run in the browser, simply clone this git and run the following commands. Note this requires node@19 or newer.
 
@@ -16,9 +16,9 @@ Alternatively, if you don't want to share your cookie value online or if some so
 $ npm install
 $ export ADVENT_SESSION=your-cookie-value
 
-$ npm start 2022
+$ npm start 2023
 - or -
-$ npm start 2022 [day-number]
+$ npm start 2023 [day-number]
 ```
 
-The commands above will work for years 2015-2022.
+The commands above will work for years 2015-2023.
