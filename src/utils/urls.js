@@ -1,6 +1,6 @@
 import pkg from '../../package-lock.json' assert { type: 'json' };
 
-const v = p => pkg.packages[''].dependencies[p].version;
+const v = p => pkg.packages[`node_modules/${p}`].version;
 const skypack = (name, suffix = '') => ({
   [name]: `https://cdn.skypack.dev/${name}@${v(name)}${suffix}?min`,
 });
