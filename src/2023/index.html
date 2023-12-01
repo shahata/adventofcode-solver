@@ -30,8 +30,11 @@
       </div>
     </header>
     <main>
-      <p>The first puzzles will unlock on December 1st at midnight EST (UTC-5).  See you then!</p>
-<p>Also, starting this December, please <a href="/about#faq_ai_leaderboard">don't use AI to get on the global leaderboard</a>.</p><pre class="calendar"><span aria-hidden="true" class="">                                                 </span>
+      <style>
+.calendar .calendar-color-n { color:#9b715b; }
+.calendar .calendar-color-y { color:#ffff66; text-shadow:0 0 5px #ffff66, 0 0 10px #ffff66; }
+</style>
+<pre class="calendar"><span aria-hidden="true" class="">                                                 </span>
 <span aria-hidden="true" class="">                                                 </span>
 <span aria-hidden="true" class="">                                                 </span>
 <span aria-hidden="true" class="">                                                 </span>
@@ -54,13 +57,12 @@
 <span aria-hidden="true" class="">                                                 </span>
 <span aria-hidden="true" class="">                                                 </span>
 <span aria-hidden="true" class="">                                                 </span>
-<span aria-hidden="true" class="">                                                 </span>
-<span aria-hidden="true" class="calendar-day1">  *                                                <span class="calendar-day"> 1</span><span id="calendar-countdown"></span><script>
+<span aria-hidden="true" class="calendar-day2">    <span class="calendar-color-n">----@</span>             *                            <span class="calendar-day"> 2</span><span id="calendar-countdown"></span><script>
 (function(){
 var countdown = document.getElementById("calendar-countdown");
 if (!countdown) return;
-var server_eta = 193760;
-var key = "2023-1-"+server_eta;
+var server_eta = 45330;
+var key = "2023-2-"+server_eta;
 var now = Math.floor(new Date().getTime()/1000);
 var target = server_eta + now;
 if (sessionStorage) {
@@ -83,8 +85,8 @@ function update_countdown() {
     countdown.textContent = "";
 
     var a = document.createElement("a");
-    a[String.fromCharCode(104,114,101,102)] = "/2023" + String.fromCharCode(47,100,97,121,47) + "1";
-    a.className = "calendar-day1 calendar-day-new";
+    a[String.fromCharCode(104,114,101,102)] = "/2023" + String.fromCharCode(47,100,97,121,47) + "2";
+    a.className = "calendar-day2 calendar-day-new";
     var span = countdown.parentNode;
     while (span.firstChild) {
       a.appendChild(span.firstChild);
@@ -106,6 +108,7 @@ interval = setInterval(update_countdown,1000);
 update_countdown();
 })();
 </script></span>
+<a aria-label="Day 1, two stars" href="day01.html" class="calendar-day1 calendar-verycomplete">  <span class="calendar-color-y">*</span> <span class="calendar-color-n">!</span> <span class="calendar-color-n">/^\</span>                                          <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 </pre>
     </main>
   </body>
