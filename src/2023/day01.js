@@ -1,14 +1,13 @@
+const rs = s => s.split('').reverse().join('');
+
 export function part1(input) {
   const lines = input.split('\n');
-  const nums = lines.map(line => {
-    const first = +line.split('').find(c => c >= '0' && c <= '9');
-    const last = +line
-      .split('')
-      .reverse()
-      .find(c => c >= '0' && c <= '9');
+  const numbers = lines.map(line => {
+    const first = +line.match(/[0-9]/).at(0);
+    const last = +rs(line).match(/[0-9]/).at(0);
     return first * 10 + last;
   });
-  return nums.reduce((a, b) => a + b, 0);
+  return numbers.reduce((a, b) => a + b, 0);
 }
 
 export function part2(input) {
@@ -23,31 +22,17 @@ export function part2(input) {
     'seven',
     'eight',
     'nine',
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
   ];
+  const regex = new RegExp('[0-9]|' + letters.join('|'));
+  const regex2 = new RegExp('[0-9]|' + rs(letters.join('|')));
   const lines = input.split('\n');
-  const nums = lines.map(line => {
-    const first = letters
-      .map(n => ({ n, i: line.indexOf(n) }))
-      .filter(x => x.i > -1)
-      .sort((a, b) => a.i - b.i)[0].n;
-    const last = letters
-      .map(n => ({ n, i: line.lastIndexOf(n) }))
-      .filter(x => x.i > -1)
-      .sort((a, b) => b.i - a.i)[0].n;
+  const numbers = lines.map(line => {
+    const first = line.match(regex).at(0);
+    const last = rs(line).match(regex2).at(0);
 
-    const a = letters.indexOf(first) <= 9 ? letters.indexOf(first) : +first;
-    const b = letters.indexOf(last) <= 9 ? letters.indexOf(last) : +last;
+    const a = Number.isNaN(+first) ? letters.indexOf(first) : +first;
+    const b = Number.isNaN(+last) ? letters.indexOf(rs(last)) : +last;
     return a * 10 + b;
   });
-  return nums.reduce((a, b) => a + b, 0);
+  return numbers.reduce((a, b) => a + b, 0);
 }
