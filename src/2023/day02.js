@@ -30,9 +30,8 @@ export function part1(input) {
 export function part2(input) {
   const games = parse(input);
   const powers = games.map(({ rounds }) => {
-    const dice = rounds.flat();
     const max = ['red', 'blue', 'green'].map(c => {
-      const counts = dice.filter(({ color }) => color === c);
+      const counts = rounds.flat().filter(({ color }) => color === c);
       return Math.max(...counts.map(({ count }) => count), 0);
     });
     return max[0] * max[1] * max[2];
