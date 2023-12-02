@@ -21,13 +21,11 @@ export function part2(input) {
     'eight',
     'nine',
   ];
-  const reverse = s => s.split('').reverse().join('');
-  const regex = new RegExp(`[0-9]|${letters.join('|')}`);
-  const regex2 = new RegExp(`[0-9]|${reverse(letters.join('|'))}`);
+  const regex = new RegExp(`(?=(?<digit>[0-9]|${letters.join('|')}))`, 'g');
   const lines = input.split('\n');
   const numbers = lines.map(line => {
-    const first = line.match(regex).at(0);
-    const last = reverse(reverse(line).match(regex2).at(0));
+    const first = [...line.matchAll(regex)].at(0).groups.digit;
+    const last = [...line.matchAll(regex)].at(-1).groups.digit;
     const a = Number.isNaN(+first) ? letters.indexOf(first) : +first;
     const b = Number.isNaN(+last) ? letters.indexOf(last) : +last;
     return a * 10 + b;
