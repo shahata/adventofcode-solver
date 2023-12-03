@@ -1,100 +1,51 @@
-function signed(map, i, j) {
-  const neighbors = [
-    map[i - 1]?.[j - 1],
-    map[i - 1]?.[j],
-    map[i - 1]?.[j + 1],
-    map[i]?.[j - 1],
-    map[i]?.[j + 1],
-    map[i + 1]?.[j - 1],
-    map[i + 1]?.[j],
-    map[i + 1]?.[j + 1],
-  ];
-  return neighbors.some(n => n !== '.' && (n < '0' || n > '9'));
+function signed(map, i, j, check = c => c && c !== '.' && Number.isNaN(+c)) {
+  return [
+    { pos: `${i - 1},${j - 1}`, c: map[i - 1]?.[j - 1] },
+    { pos: `${i - 1},${j}`, c: map[i - 1]?.[j] },
+    { pos: `${i - 1},${j + 1}`, c: map[i - 1]?.[j + 1] },
+    { pos: `${i},${j - 1}`, c: map[i]?.[j - 1] },
+    { pos: `${i},${j + 1}`, c: map[i]?.[j + 1] },
+    { pos: `${i + 1},${j - 1}`, c: map[i + 1]?.[j - 1] },
+    { pos: `${i + 1},${j}`, c: map[i + 1]?.[j] },
+    { pos: `${i + 1},${j + 1}`, c: map[i + 1]?.[j + 1] },
+  ].find(({ c }) => check(c))?.pos;
 }
 
-function gear(map, i, j) {
-  const neighbors = [
-    { x: i - 1, y: j - 1, c: map[i - 1]?.[j - 1] },
-    { x: i - 1, y: j, c: map[i - 1]?.[j] },
-    { x: i - 1, y: j + 1, c: map[i - 1]?.[j + 1] },
-    { x: i, y: j - 1, c: map[i]?.[j - 1] },
-    { x: i, y: j + 1, c: map[i]?.[j + 1] },
-    { x: i + 1, y: j - 1, c: map[i + 1]?.[j - 1] },
-    { x: i + 1, y: j, c: map[i + 1]?.[j] },
-    { x: i + 1, y: j + 1, c: map[i + 1]?.[j + 1] },
-  ];
-  const gears = neighbors.filter(n => n.c === '*');
-  if (gears.length > 1) {
-    console.log(gears); //?
+function parse(input, check) {
+  const map = input.split('\n').map(line => line.split(''));
+  let signs = {};
+  for (let i = 0; i < map.length; i++) {
+    let current = '';
+    let pos = undefined;
+    for (let j = 0; j < map[i].length; j++) {
+      if (Number.isInteger(+map[i][j])) {
+        current += map[i][j];
+        pos = pos || signed(map, i, j, check);
+      } else {
+        if (current && pos) {
+          signs[pos] = signs[pos] ? signs[pos].concat(+current) : [+current];
+        }
+        current = '';
+        pos = undefined;
+      }
+    }
+    if (current && pos) {
+      signs[pos] = signs[pos] ? signs[pos].concat(+current) : [+current];
+    }
   }
-  return gears.length === 0 ? undefined : `${gears[0].x},${gears[0].y}`;
+  return signs;
 }
 
 export function part1(input) {
-  const map = input.split('\n').map(line => line.split(''));
-  let current = '';
-  let sign = false;
-  let sum = 0;
-  for (let i = 0; i < map.length; i++) {
-    const line = map[i];
-    for (let j = 0; j < line.length; j++) {
-      const char = line[j];
-      if (char >= '0' && char <= '9') {
-        current += char;
-        if (signed(map, i, j)) {
-          sign = true;
-        }
-      } else {
-        if (current) {
-          if (sign) sum += +current;
-          current = '';
-          sign = false;
-        }
-      }
-    }
-    if (current) {
-      if (sign) sum += +current;
-      current = '';
-      sign = false;
-    }
-  }
-  return sum;
+  const signs = parse(input);
+  return Object.values(signs)
+    .flat()
+    .reduce((a, b) => a + b, 0);
 }
 
 export function part2(input) {
-  const map = input.split('\n').map(line => line.split(''));
-  let current = '';
-  let pos = undefined;
-  let gears = {};
-  for (let i = 0; i < map.length; i++) {
-    const line = map[i];
-    for (let j = 0; j < line.length; j++) {
-      const char = line[j];
-      if (char >= '0' && char <= '9') {
-        current += char;
-        pos = pos || gear(map, i, j);
-      } else {
-        if (current) {
-          if (pos)
-            gears[pos] = gears[pos] ? gears[pos].concat(current) : [+current];
-          current = '';
-          pos = undefined;
-        }
-      }
-    }
-    if (current) {
-      if (pos)
-        gears[pos] = gears[pos] ? gears[pos].concat(current) : [+current];
-      current = '';
-      pos = undefined;
-    }
-  }
-  gears = Object.values(gears).map(gear => {
-    if (gear.length > 1) {
-      return gear.reduce((a, b) => a * b, 1);
-    } else {
-      return 0;
-    }
-  });
-  return Object.values(gears).reduce((a, b) => a + b, 0);
+  const gears = parse(input, c => c === '*');
+  return Object.values(gears)
+    .map(gear => (gear.length > 1 ? gear.reduce((a, b) => a * b, 1) : 0))
+    .reduce((a, b) => a + b, 0);
 }
