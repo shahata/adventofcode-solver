@@ -13,7 +13,7 @@ function signed(map, i, j, check = c => c && c !== '.' && Number.isNaN(+c)) {
 
 function parse(input, check) {
   const map = input.split('\n').map(line => line.split(''));
-  let signs = {};
+  const signs = {};
   for (let i = 0; i < map.length; i++) {
     let current = '';
     let pos = undefined;
@@ -22,30 +22,24 @@ function parse(input, check) {
         current += map[i][j];
         pos = pos || signed(map, i, j, check);
       } else {
-        if (current && pos) {
-          signs[pos] = signs[pos] ? signs[pos].concat(+current) : [+current];
-        }
+        if (pos) signs[pos] = (signs[pos] || []).concat(+current);
         current = '';
         pos = undefined;
       }
     }
-    if (current && pos) {
-      signs[pos] = signs[pos] ? signs[pos].concat(+current) : [+current];
-    }
+    if (pos) signs[pos] = (signs[pos] || []).concat(+current);
   }
   return signs;
 }
 
 export function part1(input) {
-  const signs = parse(input);
-  return Object.values(signs)
+  return Object.values(parse(input))
     .flat()
     .reduce((a, b) => a + b, 0);
 }
 
 export function part2(input) {
-  const gears = parse(input, c => c === '*');
-  return Object.values(gears)
+  return Object.values(parse(input, c => c === '*'))
     .map(gear => (gear.length > 1 ? gear.reduce((a, b) => a * b, 1) : 0))
     .reduce((a, b) => a + b, 0);
 }
