@@ -89,6 +89,10 @@ function toHHMMSS(sec_num) {
 export async function createSolver(year, day) {
   inquirer.registerPrompt('timeout-confirm', TimeoutConfirm);
   const page = await getYearPage(year);
+  if (page.match(new RegExp(`key = "${year}-(\\d+)-"`))) {
+    const [, actual] = page.match(new RegExp(`key = "${year}-(\\d+)-"`));
+    day = actual;
+  }
   if (page.match(/server_eta = (\d+)/)) {
     const [, eta] = page.match(/server_eta = (\d+)/);
     const answers = await inquirer.prompt([
