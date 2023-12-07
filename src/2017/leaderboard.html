@@ -35,9 +35,9 @@
       <button onclick="drawChart('five')">Show Top Five</button>
       <canvas id="canvas"></canvas>
       <script type="module">
-        import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@undefined?min';
+        import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@4.4.0?min';
         Chart.register(...registerables);
-        var config = JSON.parse('{"all":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[14,22,38,60,76,87,102,116,131,146,162,177,192,202,195,188,186,184,188,192,194,196,197,198,196,197,200,204,203,204,208,214,219,223,226,231,230,233,235,234,237,240,244,248,252,257,253,250,254,258],"fill":false},{"label":"Alon Yehezkel","data":[11,17,29,48,54,58,64,70,78,86,93,101,117,128,130,132,135,138,143,148,146,144,147,150,152,156,158,159,162,166,171,180,182,185,187,190,188,190,187,184,186,188,190,192,197,201,200,199,201,203],"fill":false},{"label":"Yair Haimovitch","data":[0,0,0,10,15,18,23,27,34,41,51,60,74,83,82,81,80,79,85,91,92,93,92,91,92,95,96,99,101,104,107,114,115,117,118,122,119,120,123,124,128,132,135,138,144,150,151,152,158,164],"fill":false},{"label":"Mantas Miliukas","data":[16,26,34,49,63,72,85,97,110,123,136,148,161,168,169,170,167,164,167,170,169,168,161,155,146,141,133,125,114,104,95,91,85,80,74,71,61,55,50,44,43,42,41,40,41,42,37,33,34,35],"fill":false},{"label":"Maor Yosef","data":[12,17,31,49,61,69,78,87,99,111,126,140,148,152,148,144,137,130,125,122,111,100,92,85,75,66,59,53,47,42,40,42,39,31,30,32,26,23,21,17,18,19,20,21,24,26,20,14,17,20],"fill":false},{"label":"Aviad Hadad","data":[13,20,26,40,55,67,79,90,104,118,132,145,150,156,151,146,142,138,137,138,134,130,121,112,107,106,103,96,86,77,69,67,63,61,57,56,49,45,44,36,34,32,27,22,20,18,15,13,11,9],"fill":false},{"label":"Noam Neeman","data":[-3,-6,-8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"GabiGrin","data":[-9,-18,-26,-24,-26,-28,-30,-32,-34,-36,-38,-40,-42,-44,-55,-66,-65,-64,-57,-50,-64,-78,-76,-74,-71,-69,-65,-63,-67,-70,-64,-56,-53,-62,-58,-52,-51,-47,-43,-41,-44,-47,-49,-51,-52,-53,-51,-49,-44,-39],"fill":false},{"label":"Itai Pelles","data":[-8,-16,-20,-14,-13,-16,-13,-11,-8,-4,-3,-2,0,-3,-15,-27,-36,-45,-47,-49,-54,-59,-63,-67,-73,-75,-79,-82,-85,-87,-94,-97,-99,-100,-102,-101,-106,-108,-114,-121,-126,-131,-137,-143,-146,-149,-156,-163,-166,-169],"fill":false},{"label":"Dvir Cooper","data":[-14,-28,-41,-44,-51,-61,-71,-80,-87,-94,-99,-105,-109,-115,-131,-147,-161,-175,-186,-197,-212,-227,-241,-255,-267,-277,-286,-295,-300,-304,-303,-299,-295,-299,-302,-304,-308,-309,-308,-310,-314,-318,-321,-325,-323,-320,-322,-327,-328,-329],"fill":false},{"label":"Maurits Out","data":[15,24,4,-6,-20,-36,-51,-66,-80,-94,-104,-115,-123,-133,-154,-175,-192,-209,-222,-234,-251,-268,-284,-300,-313,-324,-335,-345,-357,-368,-379,-386,-396,-407,-417,-423,-434,-441,-449,-459,-465,-471,-478,-485,-489,-493,-501,-509,-513,-517],"fill":false},{"label":"atamurius","data":[-26,-52,-75,-88,-105,-123,-141,-159,-176,-193,-206,-220,-231,-244,-266,-288,-306,-324,-338,-351,-369,-387,-404,-421,-435,-447,-459,-470,-483,-495,-507,-515,-526,-538,-549,-556,-568,-576,-585,-596,-603,-610,-618,-626,-631,-636,-645,-654,-659,-664],"fill":false},{"label":"Sergey Ilyevsky","data":[-19,-40,-64,-78,-96,-115,-134,-153,-171,-189,-203,-218,-230,-244,-267,-290,-309,-328,-343,-357,-376,-395,-413,-431,-446,-459,-472,-484,-498,-511,-524,-533,-545,-558,-570,-578,-591,-600,-610,-622,-630,-638,-647,-656,-662,-668,-678,-688,-694,-700],"fill":false}]}},"ten":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[3,5,12,20,22,29,38,46,53,60,69,76,75,74,65,56,51,54,63,70,83,96,105,107,104,102,104,108,117,127,139,147,156,162,169,175,181,188,191,198,203,208,217,226,228,231,233,236,237,238],"fill":false},{"label":"Alon Yehezkel","data":[0,0,3,8,0,0,0,0,0,0,0,0,0,0,0,0,0,8,18,26,35,44,55,59,60,61,62,63,76,89,102,113,119,124,130,134,139,145,143,148,152,156,163,170,173,175,180,185,184,183],"fill":false},{"label":"Yair Haimovitch","data":[-11,-17,-26,-30,-39,-40,-41,-43,-44,-45,-42,-41,-43,-45,-48,-51,-55,-51,-40,-31,-19,-7,0,0,0,0,0,3,15,27,38,47,52,56,61,66,70,75,79,88,94,100,108,116,120,124,131,138,141,144],"fill":false},{"label":"Mantas Miliukas","data":[5,9,8,9,9,14,21,27,32,37,43,47,44,40,39,38,32,34,42,48,58,68,69,64,54,46,37,29,28,27,26,24,22,19,17,15,12,10,6,8,9,10,14,18,17,16,17,19,17,15],"fill":false},{"label":"Maor Yosef","data":[1,0,5,9,7,11,14,17,21,25,33,39,31,24,18,12,2,0,0,0,0,0,0,-6,-17,-29,-37,-43,-39,-35,-29,-25,-24,-30,-27,-24,-23,-22,-23,-19,-16,-13,-7,-1,0,0,0,0,0,0],"fill":false},{"label":"Aviad Hadad","data":[2,3,0,0,1,9,15,20,26,32,39,44,33,28,21,14,7,8,12,16,23,30,29,21,15,11,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-4,-8,-5,-1,-6,-11],"fill":false},{"label":"Noam Neeman","data":[-14,-23,-34,-40,-54,-58,-64,-70,-78,-86,-93,-101,-117,-128,-130,-132,-135,-130,-125,-122,-111,-100,-92,-91,-92,-95,-96,-96,-86,-77,-69,-67,-63,-61,-57,-56,-49,-45,-44,-36,-34,-32,-27,-22,-24,-26,-20,-14,-17,-20],"fill":false},{"label":"GabiGrin","data":[-20,-35,-52,-64,-80,-86,-94,-102,-112,-122,-131,-141,-159,-172,-185,-198,-200,-194,-182,-172,-175,-178,-168,-165,-163,-164,-161,-159,-153,-147,-133,-123,-116,-123,-115,-108,-100,-92,-87,-77,-78,-79,-76,-73,-76,-79,-71,-63,-61,-59],"fill":false},{"label":"Itai Pelles","data":[-19,-33,-46,-54,-67,-74,-77,-81,-86,-90,-96,-103,-117,-131,-145,-159,-171,-175,-172,-171,-165,-159,-155,-158,-165,-170,-175,-178,-171,-164,-163,-164,-162,-161,-159,-157,-155,-153,-158,-157,-160,-163,-164,-165,-170,-175,-176,-177,-183,-189],"fill":false},{"label":"Dvir Cooper","data":[-25,-45,-67,-84,-105,-119,-135,-150,-165,-180,-192,-206,-226,-243,-261,-279,-296,-305,-311,-319,-323,-327,-333,-346,-359,-372,-382,-391,-386,-381,-372,-366,-358,-360,-359,-360,-357,-354,-352,-346,-348,-350,-348,-347,-347,-346,-342,-341,-345,-349],"fill":false}]}},"five":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[2,5,7,11,15,18,24,29,32,35,36,37,44,50,47,44,49,46,45,44,48,52,50,48,50,56,67,79,89,100,101,100,104,106,108,109,111,113,112,110,109,108,109,110,108,107,102,98,96,94],"fill":false},{"label":"Alon Yehezkel","data":[-1,0,-2,-1,-7,-11,-14,-17,-21,-25,-33,-39,-31,-24,-18,-12,-2,0,0,0,0,0,0,0,6,15,25,34,48,62,64,66,67,68,69,68,69,70,64,60,58,56,55,54,53,51,49,47,43,39],"fill":false},{"label":"Yair Haimovitch","data":[-12,-17,-31,-39,-46,-51,-55,-60,-65,-70,-75,-80,-74,-69,-66,-63,-57,-59,-58,-57,-54,-51,-55,-59,-54,-46,-37,-26,-13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Mantas Miliukas","data":[4,9,3,0,2,3,7,10,11,12,10,8,13,16,21,26,30,26,24,22,23,24,14,5,0,0,0,0,0,0,-12,-23,-30,-37,-44,-51,-58,-65,-73,-80,-85,-90,-94,-98,-103,-108,-114,-119,-124,-129],"fill":false},{"label":"Maor Yosef","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-8,-18,-26,-35,-44,-55,-65,-71,-75,-74,-72,-67,-62,-67,-72,-76,-86,-88,-90,-93,-97,-102,-107,-110,-113,-115,-117,-120,-124,-131,-138,-141,-144],"fill":false}]}}}');
+        var config = JSON.parse('{"all":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[14,22,39,62,79,91,107,122,138,154,170,185,201,211,203,195,193,191,195,199,201,203,204,205,203,204,207,211,210,211,215,221,226,230,233,238,237,240,242,241,244,247,251,255,259,264,260,257,261,265],"fill":false},{"label":"Alon Yehezkel","data":[11,17,30,50,57,61,67,73,81,89,96,104,121,133,135,137,140,143,148,153,151,149,152,155,157,161,163,164,167,171,176,185,187,190,192,195,193,195,192,189,191,193,195,197,202,206,205,204,206,208],"fill":false},{"label":"Yair Haimovitch","data":[0,0,0,10,15,18,23,27,34,41,51,60,74,83,82,81,80,79,85,91,92,93,92,91,92,95,96,99,101,104,107,114,115,117,118,122,119,120,123,124,128,132,135,138,144,150,151,152,158,164],"fill":false},{"label":"Mantas Miliukas","data":[16,26,35,51,66,76,90,103,116,129,142,154,167,174,175,176,173,170,173,176,175,174,167,161,152,147,139,131,120,110,101,97,91,86,80,77,67,61,56,50,49,48,47,46,47,48,43,39,40,41],"fill":false},{"label":"Maor Yosef","data":[12,17,32,51,64,73,83,93,105,117,132,146,154,158,153,148,141,134,129,126,115,104,96,89,79,70,63,57,51,46,44,46,43,35,34,36,30,27,25,21,22,23,24,25,28,30,24,18,21,24],"fill":false},{"label":"Aviad Hadad","data":[13,20,27,42,58,71,84,96,110,124,138,151,156,162,156,150,146,142,141,142,138,134,125,116,111,110,107,100,90,81,73,71,67,65,61,60,53,49,48,40,38,36,31,26,24,22,19,17,15,13],"fill":false},{"label":"Noam Neeman","data":[-3,-6,-8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"GabiGrin","data":[-9,-18,-26,-24,-26,-28,-30,-32,-34,-36,-38,-40,-42,-44,-56,-68,-67,-66,-59,-52,-66,-80,-78,-76,-73,-71,-67,-65,-69,-72,-66,-58,-55,-64,-60,-54,-53,-49,-45,-43,-46,-49,-51,-53,-54,-55,-53,-51,-46,-41],"fill":false},{"label":"Itai Pelles","data":[-8,-16,-20,-14,-13,-16,-13,-11,-8,-4,-3,-2,0,-3,-16,-29,-38,-47,-49,-51,-56,-61,-65,-69,-75,-77,-81,-84,-87,-89,-96,-99,-101,-102,-104,-103,-108,-110,-116,-123,-128,-133,-139,-145,-148,-151,-158,-165,-168,-171],"fill":false},{"label":"Dvir Cooper","data":[-14,-28,-41,-44,-51,-61,-71,-80,-87,-94,-99,-105,-109,-115,-132,-149,-163,-177,-188,-199,-214,-229,-243,-257,-269,-279,-288,-297,-302,-306,-305,-301,-297,-301,-304,-306,-310,-311,-310,-312,-316,-320,-323,-327,-325,-322,-324,-329,-330,-331],"fill":false},{"label":"Maurits Out","data":[15,24,4,-6,-20,-36,-51,-66,-80,-94,-104,-115,-123,-133,-155,-177,-195,-213,-226,-238,-255,-272,-288,-304,-317,-328,-339,-349,-361,-372,-383,-390,-400,-411,-421,-427,-438,-445,-453,-463,-469,-475,-482,-489,-493,-497,-505,-513,-517,-521],"fill":false},{"label":"atamurius","data":[-26,-52,-75,-88,-105,-123,-141,-159,-176,-193,-206,-220,-231,-244,-267,-290,-309,-328,-342,-355,-373,-391,-408,-425,-439,-451,-463,-474,-487,-499,-511,-519,-530,-542,-553,-560,-572,-580,-589,-600,-607,-614,-622,-630,-635,-640,-649,-658,-663,-668],"fill":false},{"label":"Sergey Ilyevsky","data":[-19,-40,-64,-78,-96,-115,-134,-153,-171,-189,-203,-218,-230,-244,-268,-292,-312,-332,-347,-361,-380,-399,-417,-435,-450,-463,-476,-488,-502,-515,-528,-537,-549,-562,-574,-582,-595,-604,-614,-626,-634,-642,-651,-660,-666,-672,-682,-692,-698,-704],"fill":false}]}},"ten":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[3,5,12,20,22,30,40,49,57,65,74,81,80,78,68,58,53,57,66,73,86,99,108,114,111,109,111,112,120,130,142,150,159,165,172,178,184,191,194,201,206,211,220,229,231,234,236,239,240,241],"fill":false},{"label":"Alon Yehezkel","data":[0,0,3,8,0,0,0,0,0,0,0,0,0,0,0,0,0,9,19,27,36,45,56,64,65,66,67,65,77,90,103,114,120,125,131,135,140,146,144,149,153,157,164,171,174,176,181,186,185,184],"fill":false},{"label":"Yair Haimovitch","data":[-11,-17,-27,-32,-42,-43,-44,-46,-47,-48,-45,-44,-47,-50,-53,-56,-60,-55,-44,-35,-23,-11,-4,0,0,0,0,0,11,23,34,43,48,52,57,62,66,71,75,84,90,96,104,112,116,120,127,134,137,140],"fill":false},{"label":"Mantas Miliukas","data":[5,9,8,9,9,15,23,30,35,40,46,50,46,41,40,39,33,36,44,50,60,70,71,70,60,52,43,32,30,29,28,26,24,21,19,17,14,12,8,10,11,12,16,20,19,18,19,21,19,17],"fill":false},{"label":"Maor Yosef","data":[1,0,5,9,7,12,16,20,24,28,36,42,33,25,18,11,1,0,0,0,0,0,0,-2,-13,-25,-33,-42,-39,-35,-29,-25,-24,-30,-27,-24,-23,-22,-23,-19,-16,-13,-7,-1,0,0,0,0,0,0],"fill":false},{"label":"Aviad Hadad","data":[2,3,0,0,1,10,17,23,29,35,42,47,35,29,21,13,6,8,12,16,23,30,29,25,19,15,11,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-4,-8,-5,-1,-6,-11],"fill":false},{"label":"Noam Neeman","data":[-14,-23,-35,-42,-57,-61,-67,-73,-81,-89,-96,-104,-121,-133,-135,-137,-140,-134,-129,-126,-115,-104,-96,-91,-92,-95,-96,-99,-90,-81,-73,-71,-67,-65,-61,-60,-53,-49,-48,-40,-38,-36,-31,-26,-28,-30,-24,-18,-21,-24],"fill":false},{"label":"GabiGrin","data":[-20,-35,-53,-66,-83,-89,-97,-105,-115,-125,-134,-144,-163,-177,-191,-205,-207,-200,-188,-178,-181,-184,-174,-167,-165,-166,-163,-164,-159,-153,-139,-129,-122,-129,-121,-114,-106,-98,-93,-83,-84,-85,-82,-79,-82,-85,-77,-69,-67,-65],"fill":false},{"label":"Itai Pelles","data":[-19,-33,-47,-56,-70,-77,-80,-84,-89,-93,-99,-106,-121,-136,-151,-166,-178,-181,-178,-177,-171,-165,-161,-160,-167,-172,-177,-183,-177,-170,-169,-170,-168,-167,-165,-163,-161,-159,-164,-163,-166,-169,-170,-171,-176,-181,-182,-183,-189,-195],"fill":false},{"label":"Dvir Cooper","data":[-25,-45,-68,-86,-108,-122,-138,-153,-168,-183,-195,-209,-230,-248,-267,-286,-303,-311,-317,-325,-329,-333,-339,-348,-361,-374,-384,-396,-392,-387,-378,-372,-364,-366,-365,-366,-363,-360,-358,-352,-354,-356,-354,-353,-353,-352,-348,-347,-351,-355],"fill":false}]}},"five":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Shahar Talmi","data":[2,5,7,11,15,18,24,29,33,37,38,39,47,53,50,47,52,48,47,46,50,54,52,50,51,57,68,80,90,101,108,107,111,113,115,116,118,120,119,117,116,115,116,117,115,114,109,105,103,101],"fill":false},{"label":"Alon Yehezkel","data":[-1,0,-2,-1,-7,-12,-16,-20,-24,-28,-36,-42,-33,-25,-18,-11,-1,0,0,0,0,0,0,0,5,14,24,33,47,61,69,71,72,73,74,73,74,75,69,65,63,61,60,59,58,56,54,52,48,44],"fill":false},{"label":"Yair Haimovitch","data":[-12,-17,-32,-41,-49,-55,-60,-66,-71,-76,-81,-86,-80,-75,-71,-67,-61,-64,-63,-62,-59,-56,-60,-64,-60,-52,-43,-32,-19,-6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Mantas Miliukas","data":[4,9,3,0,2,3,7,10,11,12,10,8,13,16,22,28,32,27,25,23,24,25,15,6,0,0,0,0,0,0,-6,-17,-24,-31,-38,-45,-52,-59,-67,-74,-79,-84,-88,-92,-97,-102,-108,-113,-118,-123],"fill":false},{"label":"Maor Yosef","data":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-9,-19,-27,-36,-45,-56,-66,-73,-77,-76,-74,-69,-64,-63,-68,-72,-82,-84,-86,-89,-93,-98,-103,-106,-109,-111,-113,-116,-120,-127,-134,-137,-140],"fill":false}]}}}');
         window.drawChart = function (group) {
           window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
           window.myLine.update();
@@ -737,10 +737,11 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">16 Dec 2017, 05:18:44</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">17 Dec 2017, 14:46:40</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">29 Dec 2017, 06:17:12</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">02 Mar 2018, 17:38:03</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">17 Oct 2020, 06:12:44</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">20 Dec 2021, 08:52:29</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">10 Oct 2022, 11:19:20</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">22 Jan 2018, 06:34:06</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">02 Mar 2018, 17:38:03</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">17 Oct 2020, 06:12:44</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">20 Dec 2021, 08:52:29</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">10 Oct 2022, 11:19:20</span> Sergey Ilyevsky</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 9:</p>
@@ -763,10 +764,11 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">16 Dec 2017, 05:04:00</span> Vytenis Butkevicius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">17 Dec 2017, 14:32:55</span> Dvir Cooper</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">29 Dec 2017, 06:14:35</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">02 Mar 2018, 17:27:33</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">17 Oct 2020, 06:06:47</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">20 Dec 2021, 08:52:24</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">10 Oct 2022, 11:17:03</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">22 Jan 2018, 06:33:43</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">02 Mar 2018, 17:27:33</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">17 Oct 2020, 06:06:47</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">20 Dec 2021, 08:52:24</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">10 Oct 2022, 11:17:03</span> Sergey Ilyevsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -777,27 +779,28 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">08 Dec 2017, 01:07:44</span> Noam Neeman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">08 Dec 2017, 01:28:16</span> Yair Haimovitch</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">08 Dec 2017, 01:44:17</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">08 Dec 2017, 03:19:46</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">08 Dec 2017, 05:01:19</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">08 Dec 2017, 06:07:34</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">08 Dec 2017, 08:22:51</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">08 Dec 2017, 12:22:40</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">08 Dec 2017, 12:28:10</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">08 Dec 2017, 16:56:55</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">08 Dec 2017, 17:08:07</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">08 Dec 2017, 19:05:56</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">09 Dec 2017, 12:00:24</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">10 Dec 2017, 10:37:25</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">15 Dec 2017, 12:59:04</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">16 Dec 2017, 03:50:06</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">17 Dec 2017, 08:29:46</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">27 Dec 2017, 13:15:35</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">17 Feb 2018, 08:29:37</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">02 Mar 2018, 16:14:53</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">27 Feb 2019, 15:55:34</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">12 Sept 2020, 10:42:47</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">20 Dec 2021, 08:51:54</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">09 Oct 2022, 07:55:24</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">08 Dec 2017, 01:48:03</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">08 Dec 2017, 03:19:46</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">08 Dec 2017, 05:01:19</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">08 Dec 2017, 06:07:34</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">08 Dec 2017, 08:22:51</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">08 Dec 2017, 12:22:40</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">08 Dec 2017, 12:28:10</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">08 Dec 2017, 16:56:55</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">08 Dec 2017, 17:08:07</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">08 Dec 2017, 19:05:56</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">09 Dec 2017, 12:00:24</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">10 Dec 2017, 10:37:25</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">15 Dec 2017, 12:59:04</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">16 Dec 2017, 03:50:06</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">17 Dec 2017, 08:29:46</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">27 Dec 2017, 13:15:35</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">17 Feb 2018, 08:29:37</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">02 Mar 2018, 16:14:53</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">27 Feb 2019, 15:55:34</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">12 Sept 2020, 10:42:47</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">20 Dec 2021, 08:51:54</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">09 Oct 2022, 07:55:24</span> Sergey Ilyevsky</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 8:</p>
@@ -806,236 +809,243 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">08 Dec 2017, 01:05:38</span> Noam Neeman</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">08 Dec 2017, 01:27:06</span> Yair Haimovitch</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">08 Dec 2017, 01:41:24</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">08 Dec 2017, 03:13:21</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">08 Dec 2017, 04:58:56</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">08 Dec 2017, 06:02:31</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">08 Dec 2017, 08:20:24</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">08 Dec 2017, 12:18:20</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">08 Dec 2017, 12:25:43</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">08 Dec 2017, 16:55:20</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">08 Dec 2017, 16:59:28</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">08 Dec 2017, 19:01:45</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">09 Dec 2017, 11:58:45</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">10 Dec 2017, 08:59:41</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">15 Dec 2017, 12:48:49</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">16 Dec 2017, 03:46:37</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">17 Dec 2017, 08:28:42</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">27 Dec 2017, 10:15:48</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">17 Feb 2018, 08:17:35</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">02 Mar 2018, 16:13:14</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">27 Feb 2019, 15:52:57</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">12 Sept 2020, 10:42:41</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">20 Dec 2021, 08:51:48</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">09 Oct 2022, 07:53:51</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">08 Dec 2017, 01:46:01</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">08 Dec 2017, 03:13:21</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">08 Dec 2017, 04:58:56</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">08 Dec 2017, 06:02:31</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">08 Dec 2017, 08:20:24</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">08 Dec 2017, 12:18:20</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">08 Dec 2017, 12:25:43</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">08 Dec 2017, 16:55:20</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">08 Dec 2017, 16:59:28</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">08 Dec 2017, 19:01:45</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">09 Dec 2017, 11:58:45</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">10 Dec 2017, 08:59:41</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">15 Dec 2017, 12:48:49</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">16 Dec 2017, 03:46:37</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">17 Dec 2017, 08:28:42</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">27 Dec 2017, 10:15:48</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">17 Feb 2018, 08:17:35</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">02 Mar 2018, 16:13:14</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">27 Feb 2019, 15:52:57</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">12 Sept 2020, 10:42:41</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">20 Dec 2021, 08:51:48</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">09 Oct 2022, 07:53:51</span> Sergey Ilyevsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 7:</p>
 <div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">07 Dec 2017, 00:42:02</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">07 Dec 2017, 01:48:46</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">07 Dec 2017, 02:20:13</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">07 Dec 2017, 06:33:35</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">07 Dec 2017, 09:42:19</span> Mantas Miliukas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">07 Dec 2017, 13:23:01</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">07 Dec 2017, 13:44:03</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">07 Dec 2017, 17:42:58</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">07 Dec 2017, 18:32:37</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">07 Dec 2017, 22:59:56</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">08 Dec 2017, 09:06:31</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">08 Dec 2017, 09:22:50</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">08 Dec 2017, 11:41:44</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">08 Dec 2017, 18:24:02</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">09 Dec 2017, 11:44:00</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">09 Dec 2017, 12:09:41</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">15 Dec 2017, 01:36:56</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">16 Dec 2017, 04:48:38</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">27 Dec 2017, 09:22:56</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">01 Mar 2018, 09:46:49</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">02 Jan 2019, 00:24:23</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">11 Oct 2020, 10:56:50</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">18 Nov 2021, 04:16:05</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">30 Nov 2021, 02:19:45</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">20 Dec 2021, 08:51:24</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">06 Oct 2022, 10:43:12</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">07 Dec 2017, 01:00:05</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">07 Dec 2017, 01:48:46</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">07 Dec 2017, 02:20:13</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">07 Dec 2017, 06:33:35</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">07 Dec 2017, 09:42:19</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">07 Dec 2017, 13:23:01</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">07 Dec 2017, 13:44:03</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">07 Dec 2017, 17:42:58</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">07 Dec 2017, 18:32:37</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">07 Dec 2017, 22:59:56</span> Wo1v3r</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">08 Dec 2017, 09:06:31</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">08 Dec 2017, 09:22:50</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">08 Dec 2017, 11:41:44</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">08 Dec 2017, 18:24:02</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">09 Dec 2017, 11:44:00</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">09 Dec 2017, 12:09:41</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">15 Dec 2017, 01:36:56</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">16 Dec 2017, 04:48:38</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">27 Dec 2017, 09:22:56</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">01 Mar 2018, 09:46:49</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">02 Jan 2019, 00:24:23</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">11 Oct 2020, 10:56:50</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">18 Nov 2021, 04:16:05</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">30 Nov 2021, 02:19:45</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">20 Dec 2021, 08:51:24</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">06 Oct 2022, 10:43:12</span> Sergey Ilyevsky</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 7:</p>
 <div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">07 Dec 2017, 00:19:14</span> Alon Yehezkel</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">07 Dec 2017, 00:26:12</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">07 Dec 2017, 01:11:15</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">07 Dec 2017, 01:36:37</span> Mantas Miliukas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">07 Dec 2017, 03:03:15</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">07 Dec 2017, 04:43:33</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">07 Dec 2017, 05:02:30</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">07 Dec 2017, 06:22:09</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">07 Dec 2017, 07:13:32</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">07 Dec 2017, 11:37:20</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">07 Dec 2017, 11:47:35</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 12:00:08</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 15:47:59</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 17:57:23</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 19:21:23</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">08 Dec 2017, 06:11:00</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 07:59:20</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 08:30:59</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 17:42:24</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">12 Dec 2017, 16:10:30</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">15 Dec 2017, 08:50:54</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">26 Dec 2017, 12:33:14</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">01 Mar 2018, 02:49:26</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">01 Jan 2019, 15:19:15</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">13 Sept 2020, 05:49:39</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">17 Nov 2021, 10:17:13</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">30 Nov 2021, 01:29:06</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">20 Dec 2021, 08:51:17</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">06 Oct 2022, 02:36:07</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">07 Dec 2017, 00:33:30</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">07 Dec 2017, 01:11:15</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">07 Dec 2017, 01:36:37</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">07 Dec 2017, 03:03:15</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">07 Dec 2017, 04:43:33</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">07 Dec 2017, 05:02:30</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">07 Dec 2017, 06:22:09</span> Wo1v3r</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">07 Dec 2017, 07:13:32</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">07 Dec 2017, 11:37:20</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 11:47:35</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 12:00:08</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 15:47:59</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 17:57:23</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 19:21:23</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 06:11:00</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 07:59:20</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 08:30:59</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">08 Dec 2017, 17:42:24</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 16:10:30</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">15 Dec 2017, 08:50:54</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">26 Dec 2017, 12:33:14</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">01 Mar 2018, 02:49:26</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">01 Jan 2019, 15:19:15</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">13 Sept 2020, 05:49:39</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">17 Nov 2021, 10:17:13</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">30 Nov 2021, 01:29:06</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">20 Dec 2021, 08:51:17</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">06 Oct 2022, 02:36:07</span> Sergey Ilyevsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 6:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">06 Dec 2017, 02:20:30</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">06 Dec 2017, 03:39:57</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">06 Dec 2017, 05:10:30</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">06 Dec 2017, 15:20:14</span> Mantas Miliukas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">06 Dec 2017, 16:40:12</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">06 Dec 2017, 17:35:07</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">06 Dec 2017, 17:42:16</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">06 Dec 2017, 17:53:02</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 18:00:29</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 20:19:41</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">07 Dec 2017, 11:20:15</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 11:23:20</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 12:21:55</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 17:31:14</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 19:03:58</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">08 Dec 2017, 03:15:12</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 09:29:48</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 16:57:49</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">12 Dec 2017, 14:24:55</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">12 Dec 2017, 15:15:53</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">13 Dec 2017, 15:11:32</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">14 Dec 2017, 20:43:39</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">23 Dec 2017, 15:05:29</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">01 Mar 2018, 01:44:10</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">15 Dec 2018, 10:36:38</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">30 Dec 2018, 15:28:42</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">12 Sept 2020, 10:17:44</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">17 Nov 2021, 07:57:20</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">29 Nov 2021, 02:49:46</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">20 Dec 2021, 08:50:53</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">06 Oct 2022, 02:08:08</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">06 Dec 2017, 00:57:38</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">06 Dec 2017, 02:20:30</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">06 Dec 2017, 03:39:57</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">06 Dec 2017, 05:10:30</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">06 Dec 2017, 15:20:14</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">06 Dec 2017, 16:40:12</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">06 Dec 2017, 17:35:07</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">06 Dec 2017, 17:42:16</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:53:02</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 18:00:29</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 20:19:41</span> Wo1v3r</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 11:20:15</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 11:23:20</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 12:21:55</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 17:31:14</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 19:03:58</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 03:15:12</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 09:29:48</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 16:57:49</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">12 Dec 2017, 14:24:55</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 15:15:53</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">13 Dec 2017, 15:11:32</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">14 Dec 2017, 20:43:39</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">23 Dec 2017, 15:05:29</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">01 Mar 2018, 01:44:10</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">15 Dec 2018, 10:36:38</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">30 Dec 2018, 15:28:42</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">12 Sept 2020, 10:17:44</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">17 Nov 2021, 07:57:20</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">29 Nov 2021, 02:49:46</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">20 Dec 2021, 08:50:53</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">06 Oct 2022, 02:08:08</span> Sergey Ilyevsky</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 6:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">06 Dec 2017, 02:17:56</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">06 Dec 2017, 03:37:05</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">06 Dec 2017, 05:04:31</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">06 Dec 2017, 14:11:33</span> Mantas Miliukas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">06 Dec 2017, 16:24:41</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">06 Dec 2017, 17:14:19</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">06 Dec 2017, 17:40:13</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">06 Dec 2017, 17:45:23</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:48:25</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:48:39</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 20:11:29</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 11:13:39</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 11:20:39</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 12:10:04</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 17:21:36</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 19:01:51</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 02:52:56</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 09:24:52</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 16:53:47</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">12 Dec 2017, 14:17:53</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 15:10:21</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">14 Dec 2017, 20:39:29</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">23 Dec 2017, 14:58:51</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">01 Mar 2018, 01:39:12</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">15 Dec 2018, 10:28:13</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">30 Dec 2018, 15:17:23</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">12 Sept 2020, 10:17:38</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">17 Nov 2021, 07:36:49</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">29 Nov 2021, 02:45:37</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">20 Dec 2021, 08:50:46</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">06 Oct 2022, 02:05:16</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">06 Dec 2017, 00:54:12</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">06 Dec 2017, 02:17:56</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">06 Dec 2017, 03:37:05</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">06 Dec 2017, 05:04:31</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">06 Dec 2017, 14:11:33</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">06 Dec 2017, 16:24:41</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">06 Dec 2017, 17:14:19</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">06 Dec 2017, 17:40:13</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:45:23</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:48:25</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 17:48:39</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">06 Dec 2017, 20:11:29</span> Wo1v3r</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 11:13:39</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 11:20:39</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 12:10:04</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 17:21:36</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">07 Dec 2017, 19:01:51</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 02:52:56</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 09:24:52</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">08 Dec 2017, 16:53:47</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 14:17:53</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">12 Dec 2017, 15:10:21</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">14 Dec 2017, 20:39:29</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">23 Dec 2017, 14:58:51</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">01 Mar 2018, 01:39:12</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">15 Dec 2018, 10:28:13</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">30 Dec 2018, 15:17:23</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">12 Sept 2020, 10:17:38</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">17 Nov 2021, 07:36:49</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">29 Nov 2021, 02:45:37</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">20 Dec 2021, 08:50:46</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">06 Oct 2022, 02:05:16</span> Sergey Ilyevsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 5:</p>
 <div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">05 Dec 2017, 01:53:09</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">05 Dec 2017, 03:20:48</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">05 Dec 2017, 10:06:50</span> Mantas Miliukas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">05 Dec 2017, 11:09:13</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">05 Dec 2017, 14:50:32</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">06 Dec 2017, 15:41:45</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">06 Dec 2017, 17:27:43</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">06 Dec 2017, 17:38:47</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:49:44</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 19:33:54</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">07 Dec 2017, 03:25:27</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 09:03:58</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 09:05:13</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 09:10:23</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 10:57:09</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 17:23:45</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 10:56:39</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 16:29:54</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">10 Dec 2017, 04:55:32</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">12 Dec 2017, 01:33:52</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 15:38:21</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">13 Dec 2017, 05:04:28</span> Jonathan Adler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">14 Dec 2017, 19:59:59</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">23 Dec 2017, 08:07:15</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">23 Dec 2017, 13:42:39</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">27 Feb 2018, 11:42:39</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">24 Sept 2018, 19:53:35</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">15 Dec 2018, 10:00:56</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">30 Dec 2018, 06:13:13</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">12 Sept 2020, 09:51:34</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">16 Nov 2021, 08:40:23</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">29 Nov 2021, 02:29:31</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">20 Dec 2021, 08:50:03</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">05 Oct 2022, 05:29:43</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">05 Dec 2017, 02:05:41</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">05 Dec 2017, 03:20:48</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">05 Dec 2017, 10:06:50</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">05 Dec 2017, 11:09:13</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">05 Dec 2017, 14:50:32</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">06 Dec 2017, 15:41:45</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">06 Dec 2017, 17:27:43</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:38:47</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:49:44</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 19:33:54</span> Wo1v3r</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 03:25:27</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 09:03:58</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 09:05:13</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 09:10:23</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 10:57:09</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">07 Dec 2017, 17:23:45</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 10:56:39</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 16:29:54</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">10 Dec 2017, 04:55:32</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 01:33:52</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">12 Dec 2017, 15:38:21</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">13 Dec 2017, 05:04:28</span> Jonathan Adler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">14 Dec 2017, 19:59:59</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">23 Dec 2017, 08:07:15</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">23 Dec 2017, 13:42:39</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">27 Feb 2018, 11:42:39</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">24 Sept 2018, 19:53:35</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">15 Dec 2018, 10:00:56</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">30 Dec 2018, 06:13:13</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">12 Sept 2020, 09:51:34</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">16 Nov 2021, 08:40:23</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">29 Nov 2021, 02:29:31</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">20 Dec 2021, 08:50:03</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">05 Oct 2022, 05:29:43</span> Sergey Ilyevsky</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 5:</p>
 <div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">05 Dec 2017, 01:38:43</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">05 Dec 2017, 03:17:46</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">05 Dec 2017, 09:26:05</span> Mantas Miliukas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">05 Dec 2017, 11:02:58</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">05 Dec 2017, 14:42:38</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">05 Dec 2017, 18:09:11</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">06 Dec 2017, 15:47:51</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">06 Dec 2017, 17:37:32</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:48:30</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 19:25:28</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">07 Dec 2017, 03:21:54</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 06:14:05</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 08:57:36</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 09:01:06</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 10:55:34</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 17:15:20</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 10:39:52</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 16:28:07</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">10 Dec 2017, 04:52:25</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">12 Dec 2017, 01:30:57</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 15:33:04</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">13 Dec 2017, 04:39:56</span> Jonathan Adler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">14 Dec 2017, 19:56:05</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">23 Dec 2017, 06:23:41</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">23 Dec 2017, 13:34:24</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">27 Feb 2018, 11:40:57</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">24 Sept 2018, 19:49:39</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">15 Dec 2018, 09:53:20</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">30 Dec 2018, 06:10:54</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">12 Sept 2020, 09:51:27</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">16 Nov 2021, 08:38:26</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">29 Nov 2021, 02:27:37</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">20 Dec 2021, 08:49:57</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">05 Oct 2022, 05:27:58</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">05 Dec 2017, 02:04:29</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">05 Dec 2017, 03:17:46</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">05 Dec 2017, 09:26:05</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">05 Dec 2017, 11:02:58</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">05 Dec 2017, 14:42:38</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">05 Dec 2017, 18:09:11</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">06 Dec 2017, 15:47:51</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:37:32</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:48:30</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 19:25:28</span> Wo1v3r</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 03:21:54</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 06:14:05</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 08:57:36</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 09:01:06</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 10:55:34</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">07 Dec 2017, 17:15:20</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 10:39:52</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 16:28:07</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">10 Dec 2017, 04:52:25</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 01:30:57</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">12 Dec 2017, 15:33:04</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">13 Dec 2017, 04:39:56</span> Jonathan Adler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">14 Dec 2017, 19:56:05</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">23 Dec 2017, 06:23:41</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">23 Dec 2017, 13:34:24</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">27 Feb 2018, 11:40:57</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">24 Sept 2018, 19:49:39</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">15 Dec 2018, 09:53:20</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">30 Dec 2018, 06:10:54</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">12 Sept 2020, 09:51:27</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">16 Nov 2021, 08:38:26</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">29 Nov 2021, 02:27:37</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">20 Dec 2021, 08:49:57</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">05 Oct 2022, 05:27:58</span> Sergey Ilyevsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1048,33 +1058,34 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">04 Dec 2017, 14:34:31</span> Wo1v3r</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">04 Dec 2017, 15:19:09</span> Maor Yosef</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">04 Dec 2017, 18:42:33</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">05 Dec 2017, 16:38:05</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:20:46</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:22:17</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 18:03:29</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 08:37:48</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 08:42:12</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 08:43:58</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 16:46:16</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">08 Dec 2017, 10:31:24</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 14:30:02</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">09 Dec 2017, 16:23:31</span> boriskor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">10 Dec 2017, 05:24:57</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">11 Dec 2017, 16:57:01</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">12 Dec 2017, 04:47:44</span> Jonathan Adler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">12 Dec 2017, 16:31:17</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">13 Dec 2017, 09:45:19</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">14 Dec 2017, 18:47:17</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">06 Jan 2018, 05:47:38</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">27 Feb 2018, 11:30:57</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">23 Sept 2018, 08:27:02</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">15 Dec 2018, 04:06:52</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">29 Dec 2018, 17:54:26</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">12 Sept 2020, 09:51:52</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">16 Nov 2021, 08:05:46</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">29 Nov 2021, 02:18:04</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">20 Dec 2021, 08:49:30</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">05 Oct 2022, 05:20:53</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">05 Dec 2017, 01:46:35</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">05 Dec 2017, 16:38:05</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:20:46</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 17:22:17</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">06 Dec 2017, 18:03:29</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 08:37:48</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 08:42:12</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 08:43:58</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 16:46:16</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 10:31:24</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 14:30:02</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">09 Dec 2017, 16:23:31</span> boriskor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">10 Dec 2017, 05:24:57</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">11 Dec 2017, 16:57:01</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">12 Dec 2017, 04:47:44</span> Jonathan Adler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">12 Dec 2017, 16:31:17</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">13 Dec 2017, 09:45:19</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">14 Dec 2017, 18:47:17</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">06 Jan 2018, 05:47:38</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">27 Feb 2018, 11:30:57</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">23 Sept 2018, 08:27:02</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">15 Dec 2018, 04:06:52</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">29 Dec 2018, 17:54:26</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">12 Sept 2020, 09:51:52</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">16 Nov 2021, 08:05:46</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">29 Nov 2021, 02:18:04</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">20 Dec 2021, 08:49:30</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">05 Oct 2022, 05:20:53</span> Sergey Ilyevsky</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 4:</p>
@@ -1086,33 +1097,34 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">04 Dec 2017, 13:17:27</span> Wo1v3r</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">04 Dec 2017, 15:15:15</span> Maor Yosef</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">04 Dec 2017, 17:08:47</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">05 Dec 2017, 15:34:03</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:18:18</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 17:56:34</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">06 Dec 2017, 18:55:12</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 08:32:58</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 08:34:28</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 08:35:51</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 16:41:21</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">08 Dec 2017, 10:08:27</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 14:25:14</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">09 Dec 2017, 09:15:10</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">09 Dec 2017, 16:08:45</span> boriskor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">10 Dec 2017, 04:30:14</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">11 Dec 2017, 16:05:09</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">12 Dec 2017, 04:45:09</span> Jonathan Adler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">12 Dec 2017, 16:11:07</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">13 Dec 2017, 09:24:23</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">14 Dec 2017, 18:40:48</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">27 Feb 2018, 09:29:06</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">23 Sept 2018, 08:14:27</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">15 Dec 2018, 04:01:56</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">29 Dec 2018, 17:45:52</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">12 Sept 2020, 09:35:52</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">16 Nov 2021, 07:57:08</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">29 Nov 2021, 02:14:41</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">20 Dec 2021, 08:49:25</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">05 Oct 2022, 05:18:52</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">05 Dec 2017, 01:29:21</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">05 Dec 2017, 15:34:03</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 17:18:18</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">06 Dec 2017, 17:56:34</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">06 Dec 2017, 18:55:12</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 08:32:58</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 08:34:28</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 08:35:51</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">07 Dec 2017, 16:41:21</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">08 Dec 2017, 10:08:27</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 14:25:14</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">09 Dec 2017, 09:15:10</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">09 Dec 2017, 16:08:45</span> boriskor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">10 Dec 2017, 04:30:14</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">11 Dec 2017, 16:05:09</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">12 Dec 2017, 04:45:09</span> Jonathan Adler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">12 Dec 2017, 16:11:07</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">13 Dec 2017, 09:24:23</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">14 Dec 2017, 18:40:48</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">27 Feb 2018, 09:29:06</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">23 Sept 2018, 08:14:27</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">15 Dec 2018, 04:01:56</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">29 Dec 2018, 17:45:52</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">12 Sept 2020, 09:35:52</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">16 Nov 2021, 07:57:08</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">29 Nov 2021, 02:14:41</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">20 Dec 2021, 08:49:25</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">05 Oct 2022, 05:18:52</span> Sergey Ilyevsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1125,31 +1137,32 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">03 Dec 2017, 17:33:20</span> Maor Yosef</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">03 Dec 2017, 18:58:06</span> Aviv Rosental</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">03 Dec 2017, 19:58:59</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">05 Dec 2017, 12:47:24</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">06 Dec 2017, 17:13:20</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:16:05</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 18:35:09</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">07 Dec 2017, 08:25:58</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 16:07:48</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">08 Dec 2017, 09:59:25</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">08 Dec 2017, 14:15:11</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">09 Dec 2017, 12:36:38</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">09 Dec 2017, 15:14:50</span> boriskor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">11 Dec 2017, 15:20:36</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">12 Dec 2017, 04:26:34</span> Jonathan Adler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">13 Dec 2017, 05:28:05</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">14 Dec 2017, 10:51:18</span> Oded Cagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">14 Dec 2017, 16:52:29</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">14 Dec 2017, 18:24:47</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">15 Dec 2017, 15:48:30</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">29 Dec 2017, 18:53:22</span> ugniusb</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">26 Feb 2018, 18:36:10</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">22 Sept 2018, 18:30:12</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">29 Dec 2018, 07:58:13</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">06 Oct 2020, 15:34:07</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">28 Nov 2021, 02:39:53</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">20 Dec 2021, 08:49:02</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">05 Oct 2022, 05:15:44</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">05 Dec 2017, 01:12:28</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">05 Dec 2017, 12:47:24</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">06 Dec 2017, 17:13:20</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">06 Dec 2017, 17:16:05</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">06 Dec 2017, 18:35:09</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">07 Dec 2017, 08:25:58</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 16:07:48</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">08 Dec 2017, 09:59:25</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">08 Dec 2017, 14:15:11</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">09 Dec 2017, 12:36:38</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">09 Dec 2017, 15:14:50</span> boriskor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">11 Dec 2017, 15:20:36</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">12 Dec 2017, 04:26:34</span> Jonathan Adler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">13 Dec 2017, 05:28:05</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">14 Dec 2017, 10:51:18</span> Oded Cagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">14 Dec 2017, 16:52:29</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">14 Dec 2017, 18:24:47</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">15 Dec 2017, 15:48:30</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">29 Dec 2017, 18:53:22</span> (anonymous user #315860)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">26 Feb 2018, 18:36:10</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">22 Sept 2018, 18:30:12</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">29 Dec 2018, 07:58:13</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">06 Oct 2020, 15:34:07</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">28 Nov 2021, 02:39:53</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">20 Dec 2021, 08:49:02</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">05 Oct 2022, 05:15:44</span> Sergey Ilyevsky</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 3:</p>
@@ -1164,30 +1177,31 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">04 Dec 2017, 07:08:05</span> Jonathan Adler</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">04 Dec 2017, 08:44:07</span> Bohdan Lyzanets</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">04 Dec 2017, 13:59:53</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">06 Dec 2017, 16:58:08</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">06 Dec 2017, 18:01:04</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">07 Dec 2017, 07:59:32</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 08:16:35</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 08:22:48</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">07 Dec 2017, 10:26:41</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">07 Dec 2017, 18:45:53</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">08 Dec 2017, 10:43:30</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">09 Dec 2017, 11:27:26</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">09 Dec 2017, 12:59:44</span> boriskor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">12 Dec 2017, 15:38:34</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">14 Dec 2017, 10:24:30</span> Oded Cagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">14 Dec 2017, 11:01:37</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">14 Dec 2017, 16:33:45</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">15 Dec 2017, 15:13:20</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">29 Dec 2017, 14:05:11</span> ugniusb</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">26 Feb 2018, 14:15:19</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">22 Sept 2018, 16:31:38</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">29 Dec 2018, 07:34:15</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">05 Oct 2020, 14:50:06</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">18 Oct 2020, 12:31:32</span> Alexandr Yushkov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">27 Nov 2021, 10:24:10</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">20 Dec 2021, 08:48:56</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">05 Oct 2022, 02:01:07</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">05 Dec 2017, 00:51:44</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">06 Dec 2017, 16:58:08</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">06 Dec 2017, 18:01:04</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">07 Dec 2017, 07:59:32</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 08:16:35</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">07 Dec 2017, 08:22:48</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">07 Dec 2017, 10:26:41</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">07 Dec 2017, 18:45:53</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">08 Dec 2017, 10:43:30</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">09 Dec 2017, 11:27:26</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">09 Dec 2017, 12:59:44</span> boriskor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">12 Dec 2017, 15:38:34</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">14 Dec 2017, 10:24:30</span> Oded Cagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">14 Dec 2017, 11:01:37</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">14 Dec 2017, 16:33:45</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">15 Dec 2017, 15:13:20</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">29 Dec 2017, 14:05:11</span> (anonymous user #315860)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">26 Feb 2018, 14:15:19</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">22 Sept 2018, 16:31:38</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">29 Dec 2018, 07:34:15</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">05 Oct 2020, 14:50:06</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">18 Oct 2020, 12:31:32</span> Alexandr Yushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">27 Nov 2021, 10:24:10</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">20 Dec 2021, 08:48:56</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">05 Oct 2022, 02:01:07</span> Sergey Ilyevsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1205,31 +1219,32 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">03 Dec 2017, 17:20:26</span> Bohdan Lyzanets</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">03 Dec 2017, 19:36:22</span> Aviv Rosental</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">04 Dec 2017, 03:21:55</span> Jonathan Adler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">06 Dec 2017, 15:33:21</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">06 Dec 2017, 17:02:02</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2017, 17:51:15</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">07 Dec 2017, 06:35:48</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">07 Dec 2017, 07:29:13</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">07 Dec 2017, 07:52:03</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">07 Dec 2017, 09:46:54</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">07 Dec 2017, 15:50:11</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">08 Dec 2017, 05:56:21</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">09 Dec 2017, 09:54:43</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">09 Dec 2017, 11:43:40</span> boriskor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">11 Dec 2017, 19:31:54</span> Oded Cagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">12 Dec 2017, 09:57:47</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">13 Dec 2017, 12:49:04</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">29 Dec 2017, 12:55:14</span> ugniusb</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">26 Feb 2018, 07:56:19</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">18 Sept 2018, 15:38:57</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">15 Dec 2018, 03:45:44</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">28 Dec 2018, 07:54:36</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">29 Nov 2019, 13:09:28</span> Tadas Kundelis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">12 Sept 2020, 09:19:17</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">15 Nov 2021, 09:30:45</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">27 Nov 2021, 08:45:55</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">20 Dec 2021, 08:48:32</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">05 Oct 2022, 01:36:10</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">05 Dec 2017, 00:22:43</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">06 Dec 2017, 15:33:21</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2017, 17:02:02</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">06 Dec 2017, 17:51:15</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">07 Dec 2017, 06:35:48</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">07 Dec 2017, 07:29:13</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">07 Dec 2017, 07:52:03</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">07 Dec 2017, 09:46:54</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">07 Dec 2017, 15:50:11</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">08 Dec 2017, 05:56:21</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">09 Dec 2017, 09:54:43</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">09 Dec 2017, 11:43:40</span> boriskor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">11 Dec 2017, 19:31:54</span> Oded Cagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">12 Dec 2017, 09:57:47</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">13 Dec 2017, 12:49:04</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">29 Dec 2017, 12:55:14</span> (anonymous user #315860)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">26 Feb 2018, 07:56:19</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">18 Sept 2018, 15:38:57</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">15 Dec 2018, 03:45:44</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">28 Dec 2018, 07:54:36</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">29 Nov 2019, 13:09:28</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">12 Sept 2020, 09:19:17</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">15 Nov 2021, 09:30:45</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">27 Nov 2021, 08:45:55</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">20 Dec 2021, 08:48:32</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">05 Oct 2022, 01:36:10</span> Sergey Ilyevsky</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
@@ -1249,127 +1264,130 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">03 Dec 2017, 11:42:17</span> Jonathan Adler</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">03 Dec 2017, 16:48:18</span> Bohdan Lyzanets</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">04 Dec 2017, 04:36:45</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">06 Dec 2017, 15:28:19</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">06 Dec 2017, 16:33:39</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">06 Dec 2017, 17:40:01</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">07 Dec 2017, 05:11:50</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">07 Dec 2017, 07:23:57</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">07 Dec 2017, 07:45:23</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">07 Dec 2017, 08:36:02</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">07 Dec 2017, 14:02:38</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">07 Dec 2017, 14:05:08</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">07 Dec 2017, 15:40:59</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">09 Dec 2017, 11:27:53</span> boriskor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">11 Dec 2017, 19:24:36</span> Oded Cagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">12 Dec 2017, 09:40:26</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">13 Dec 2017, 12:30:21</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">29 Dec 2017, 12:33:23</span> ugniusb</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">26 Feb 2018, 07:32:56</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">18 Sept 2018, 02:20:47</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">15 Dec 2018, 03:38:33</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">28 Dec 2018, 07:34:01</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">29 Nov 2019, 13:01:37</span> Tadas Kundelis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">12 Sept 2020, 09:19:08</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">15 Nov 2021, 04:13:24</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">27 Nov 2021, 08:33:43</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">20 Dec 2021, 08:48:26</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">05 Oct 2022, 01:29:49</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">05 Dec 2017, 00:07:09</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">06 Dec 2017, 15:28:19</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">06 Dec 2017, 16:33:39</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">06 Dec 2017, 17:40:01</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">07 Dec 2017, 05:11:50</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">07 Dec 2017, 07:23:57</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">07 Dec 2017, 07:45:23</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">07 Dec 2017, 08:36:02</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">07 Dec 2017, 14:02:38</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">07 Dec 2017, 14:05:08</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">07 Dec 2017, 15:40:59</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">09 Dec 2017, 11:27:53</span> boriskor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">11 Dec 2017, 19:24:36</span> Oded Cagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">12 Dec 2017, 09:40:26</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">13 Dec 2017, 12:30:21</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">29 Dec 2017, 12:33:23</span> (anonymous user #315860)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">26 Feb 2018, 07:32:56</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">18 Sept 2018, 02:20:47</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">15 Dec 2018, 03:38:33</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">28 Dec 2018, 07:34:01</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">29 Nov 2019, 13:01:37</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">12 Sept 2020, 09:19:08</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">15 Nov 2021, 04:13:24</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">27 Nov 2021, 08:33:43</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">20 Dec 2021, 08:48:26</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">05 Oct 2022, 01:29:49</span> Sergey Ilyevsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 1:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">01 Dec 2017, 06:44:15</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">01 Dec 2017, 07:19:41</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">01 Dec 2017, 10:24:38</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">01 Dec 2017, 13:48:41</span> Mantas Miliukas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">01 Dec 2017, 16:25:35</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">01 Dec 2017, 16:35:31</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">01 Dec 2017, 18:39:43</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">02 Dec 2017, 07:39:54</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">02 Dec 2017, 07:56:32</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">02 Dec 2017, 10:15:26</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">03 Dec 2017, 08:45:31</span> Jonathan Adler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">03 Dec 2017, 16:34:50</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">03 Dec 2017, 19:11:12</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">06 Dec 2017, 15:21:57</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2017, 16:02:22</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">06 Dec 2017, 16:54:56</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">06 Dec 2017, 17:28:54</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">07 Dec 2017, 03:05:28</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">07 Dec 2017, 04:59:29</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">07 Dec 2017, 05:10:28</span> Maksym Petruk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">07 Dec 2017, 07:34:59</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">07 Dec 2017, 07:36:47</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">07 Dec 2017, 13:44:24</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">09 Dec 2017, 09:23:25</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">09 Dec 2017, 11:17:15</span> boriskor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">11 Dec 2017, 12:35:10</span> Oded Cagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">12 Dec 2017, 05:32:13</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">13 Dec 2017, 11:36:35</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">23 Dec 2017, 09:44:17</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">29 Dec 2017, 11:44:21</span> ugniusb</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">26 Feb 2018, 07:22:21</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">15 Sept 2018, 17:51:03</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">01 Dec 2018, 08:12:27</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">28 Dec 2018, 06:36:38</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">29 Nov 2019, 05:03:45</span> Sergey Ilyevsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">29 Nov 2019, 12:52:35</span> Tadas Kundelis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">06 Aug 2020, 17:01:52</span> Rėjus Paukštė</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">15 Nov 2021, 03:09:05</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">27 Nov 2021, 08:24:04</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">20 Dec 2021, 08:46:54</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">29 Nov 2022, 03:18:32</span> ShaharR</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">01 Dec 2017, 01:46:30</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">01 Dec 2017, 06:44:15</span> Wo1v3r</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">01 Dec 2017, 07:19:41</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">01 Dec 2017, 10:24:38</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">01 Dec 2017, 13:48:41</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">01 Dec 2017, 16:25:35</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">01 Dec 2017, 16:35:31</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">01 Dec 2017, 18:39:43</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">02 Dec 2017, 07:39:54</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">02 Dec 2017, 07:56:32</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">02 Dec 2017, 10:15:26</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">03 Dec 2017, 08:45:31</span> Jonathan Adler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">03 Dec 2017, 16:34:50</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">03 Dec 2017, 19:11:12</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">06 Dec 2017, 15:21:57</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">06 Dec 2017, 16:02:22</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">06 Dec 2017, 16:54:56</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">06 Dec 2017, 17:28:54</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">07 Dec 2017, 03:05:28</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">07 Dec 2017, 04:59:29</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">07 Dec 2017, 05:10:28</span> Maksym Petruk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">07 Dec 2017, 07:34:59</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">07 Dec 2017, 07:36:47</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">07 Dec 2017, 13:44:24</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">09 Dec 2017, 09:23:25</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">09 Dec 2017, 11:17:15</span> boriskor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">11 Dec 2017, 12:35:10</span> Oded Cagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">12 Dec 2017, 05:32:13</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">13 Dec 2017, 11:36:35</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">23 Dec 2017, 09:44:17</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">29 Dec 2017, 11:44:21</span> (anonymous user #315860)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">26 Feb 2018, 07:22:21</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">15 Sept 2018, 17:51:03</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">01 Dec 2018, 08:12:27</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">28 Dec 2018, 06:36:38</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">29 Nov 2019, 05:03:45</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">29 Nov 2019, 12:52:35</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">06 Aug 2020, 17:01:52</span> Rėjus Paukštė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">15 Nov 2021, 03:09:05</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">27 Nov 2021, 08:24:04</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">20 Dec 2021, 08:46:54</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">29 Nov 2022, 03:18:32</span> ShaharR</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">01 Dec 2017, 06:39:41</span> Wo1v3r</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">01 Dec 2017, 07:17:12</span> argshook</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">01 Dec 2017, 07:37:53</span> Niкitа Shulipа</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">01 Dec 2017, 13:26:53</span> Mantas Miliukas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">01 Dec 2017, 16:06:49</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">01 Dec 2017, 16:29:47</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">01 Dec 2017, 18:38:33</span> Aviad Hadad</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">02 Dec 2017, 05:49:37</span> Maor Yosef</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">02 Dec 2017, 07:32:33</span> Alon Yehezkel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">02 Dec 2017, 08:37:46</span> bolshchikov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">02 Dec 2017, 09:42:57</span> Vytenis Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">02 Dec 2017, 14:44:23</span> Aviv Rosental</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">02 Dec 2017, 15:18:10</span> Boris Litvinsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">02 Dec 2017, 17:19:15</span> Omer Burshtein</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">02 Dec 2017, 17:46:59</span> Amit Marx</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">03 Dec 2017, 01:04:39</span> Arye Lukashevski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">03 Dec 2017, 05:56:17</span> Jonathan Adler</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">03 Dec 2017, 15:45:05</span> Bohdan Lyzanets</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">04 Dec 2017, 04:34:54</span> Shalev Shalit</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">06 Dec 2017, 15:04:43</span> Yair Haimovitch</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">06 Dec 2017, 15:57:34</span> Dovydas Mikalauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">06 Dec 2017, 16:09:57</span> Arnoldas Šeščila</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">06 Dec 2017, 17:24:52</span> Noam Neeman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">07 Dec 2017, 03:00:31</span> Tzvika Farber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">07 Dec 2017, 04:57:29</span> Oded Soffrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">07 Dec 2017, 05:09:08</span> Maksym Petruk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">07 Dec 2017, 07:26:03</span> Salick Cogan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">07 Dec 2017, 07:34:50</span> Itai Pelles</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">07 Dec 2017, 13:13:47</span> GabiGrin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">09 Dec 2017, 11:10:11</span> boriskor</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">11 Dec 2017, 05:11:48</span> Guy Kori</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">11 Dec 2017, 12:01:31</span> Oded Cagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">12 Dec 2017, 04:37:01</span> (anonymous user #76749)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">13 Dec 2017, 11:07:01</span> Dvir Cooper</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">29 Dec 2017, 10:55:58</span> ugniusb</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">26 Feb 2018, 07:17:23</span> Lior Ur</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">15 Sept 2018, 17:43:01</span> Shmulik Flint</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">01 Dec 2018, 08:03:17</span> Ronny Ringel</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">01 Dec 2018, 15:56:00</span> Sergey Ilyevsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">27 Dec 2018, 13:14:21</span> Audrius Kovalenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">26 Nov 2019, 05:42:00</span> Daniel Kagan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">29 Nov 2019, 12:46:27</span> Tadas Kundelis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">06 Aug 2020, 17:00:04</span> Rėjus Paukštė</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">15 Nov 2021, 03:07:22</span> Gal Elmalah</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">27 Nov 2021, 08:11:11</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">20 Dec 2021, 08:46:46</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">29 Nov 2022, 03:15:30</span> ShaharR</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">01 Dec 2017, 01:45:38</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">01 Dec 2017, 06:39:41</span> Wo1v3r</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">01 Dec 2017, 07:17:12</span> argshook</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">01 Dec 2017, 07:37:53</span> Niкitа Shulipа</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">01 Dec 2017, 13:26:53</span> Mantas Miliukas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">01 Dec 2017, 16:06:49</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">01 Dec 2017, 16:29:47</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">01 Dec 2017, 18:38:33</span> Aviad Hadad</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">02 Dec 2017, 05:49:37</span> Maor Yosef</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">02 Dec 2017, 07:32:33</span> Alon Yehezkel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">02 Dec 2017, 08:37:46</span> bolshchikov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">02 Dec 2017, 09:42:57</span> Vytenis Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">02 Dec 2017, 14:44:23</span> Aviv Rosental</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">02 Dec 2017, 15:18:10</span> Boris Litvinsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">02 Dec 2017, 17:19:15</span> Omer Burshtein</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">02 Dec 2017, 17:46:59</span> Amit Marx</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">03 Dec 2017, 01:04:39</span> Arye Lukashevski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">03 Dec 2017, 05:56:17</span> Jonathan Adler</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">03 Dec 2017, 15:45:05</span> Bohdan Lyzanets</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">04 Dec 2017, 04:34:54</span> Shalev Shalit</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">06 Dec 2017, 15:04:43</span> Yair Haimovitch</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">06 Dec 2017, 15:57:34</span> Dovydas Mikalauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">06 Dec 2017, 16:09:57</span> Arnoldas Šeščila</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">06 Dec 2017, 17:24:52</span> Noam Neeman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">07 Dec 2017, 03:00:31</span> Tzvika Farber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">07 Dec 2017, 04:57:29</span> Oded Soffrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">07 Dec 2017, 05:09:08</span> Maksym Petruk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">07 Dec 2017, 07:26:03</span> Salick Cogan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">07 Dec 2017, 07:34:50</span> Itai Pelles</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">07 Dec 2017, 13:13:47</span> GabiGrin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">09 Dec 2017, 11:10:11</span> boriskor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">11 Dec 2017, 05:11:48</span> Guy Kori</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">11 Dec 2017, 12:01:31</span> Oded Cagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">12 Dec 2017, 04:37:01</span> (anonymous user #76749)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">13 Dec 2017, 11:07:01</span> Dvir Cooper</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">29 Dec 2017, 10:55:58</span> (anonymous user #315860)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">26 Feb 2018, 07:17:23</span> Lior Ur</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">15 Sept 2018, 17:43:01</span> Shmulik Flint</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">01 Dec 2018, 08:03:17</span> Ronny Ringel</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">01 Dec 2018, 15:56:00</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">27 Dec 2018, 13:14:21</span> Audrius Kovalenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">26 Nov 2019, 05:42:00</span> Daniel Kagan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">29 Nov 2019, 12:46:27</span> Tadas Kundelis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">06 Aug 2020, 17:00:04</span> Rėjus Paukštė</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">15 Nov 2021, 03:07:22</span> Gal Elmalah</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">27 Nov 2021, 08:11:11</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">20 Dec 2021, 08:46:46</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">29 Nov 2022, 03:15:30</span> ShaharR</div> 
 </td>
 </tr>
       </table>
