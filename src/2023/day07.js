@@ -13,16 +13,13 @@ function getHandType(hand) {
     return acc;
   }, {});
   const countsArray = Object.values(counts);
-  const isFiveOfAKind = countsArray.includes(5);
-  const isFourOfAKind = countsArray.includes(4);
-  const isFullHouse = countsArray.includes(3) && countsArray.includes(2);
-  if (isFiveOfAKind) return 8;
-  if (isFourOfAKind) return 7;
-  if (isFullHouse) return 6;
-  if (countsArray.includes(3)) return 5;
-  if (countsArray.filter(count => count === 2).length === 2) return 4;
-  if (countsArray.includes(2)) return 3;
-  return 2;
+  if (countsArray.includes(5)) return 6;
+  if (countsArray.includes(4)) return 5;
+  if (countsArray.includes(3) && countsArray.includes(2)) return 4;
+  if (countsArray.includes(3)) return 3;
+  if (countsArray.filter(count => count === 2).length === 2) return 2;
+  if (countsArray.includes(2)) return 1;
+  return 0;
 }
 
 function compare(a, b) {
@@ -34,10 +31,10 @@ function compare(a, b) {
   }
 }
 
-function cardNumber(card) {
+function cardNumber(card, jokers) {
   const number = card;
   if (number === 'T') return 10;
-  if (number === 'J') return 11;
+  if (number === 'J') return jokers ? 1 : 11;
   if (number === 'Q') return 12;
   if (number === 'K') return 13;
   if (number === 'A') return 14;
@@ -48,14 +45,11 @@ export function part1(input, jokers = false) {
   const hands = input
     .split('\n')
     .map(line => {
-      let [hand, bid] = line.split(' ');
-      bid = +bid;
-      hand = hand
-        .split('')
-        .map(card =>
-          jokers && cardNumber(card) === 11 ? 1 : cardNumber(card),
-        );
-      return { bid, hand };
+      const [hand, bid] = line.split(' ');
+      return {
+        bid: +bid,
+        hand: hand.split('').map(card => cardNumber(card, jokers)),
+      };
     })
     .sort((a, b) => compare(a.hand, b.hand));
 
