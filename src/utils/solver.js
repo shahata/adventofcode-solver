@@ -77,9 +77,9 @@ export default async function solveAll(year, day, run = true) {
       total: days.length * 2 + downloadIndexTicks,
       width: 40,
     });
-    await downloadIndex(year, bar);
+    await downloadIndex(year, bar, days.length * 2);
     for (const day of days) {
-      await downloadQuestion(year, day);
+      await downloadQuestion(year, day, days.length * 2);
       bar.tick();
       await downloadInput(year, day);
       bar.tick();
