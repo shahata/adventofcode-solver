@@ -32,9 +32,14 @@ function renderTemplate(year, name, extension, model) {
   return fileName;
 }
 
-export async function downloadQuestion(year, day) {
+export async function downloadQuestion(year, day, stars) {
   const question = await getQuestionPage(year, day);
-  return renderTemplate(year, dayName(day), 'html', { question, year, day });
+  return renderTemplate(year, dayName(day), 'html', {
+    question,
+    year,
+    day,
+    stars,
+  });
 }
 
 export async function downloadInput(year, day) {
@@ -50,24 +55,25 @@ export function tempLeaderboard(year) {
 }
 
 export const downloadIndexTicks = 7;
-export async function downloadIndex(year, bar) {
-  renderTemplate(year, 'solver', 'html', { year });
+export async function downloadIndex(year, bar, stars) {
+  renderTemplate(year, 'solver', 'html', { year, stars });
   bar.tick();
   const page = await getYearPage(year);
-  renderTemplate(year, 'index', 'html', { year, page });
+  renderTemplate(year, 'index', 'html', { year, page, stars });
   bar.tick();
   const events = await getEventsPage(year);
-  renderTemplate(year, 'events', 'html', { year, page: events });
+  renderTemplate(year, 'events', 'html', { year, page: events, stars });
   bar.tick();
   const leaderboards = await getLeaderboardJsons(year);
   renderTemplate(year, 'leaderboard', 'html', {
     year,
     ...calcLeaderboard(leaderboards),
+    stars,
   });
   bar.tick();
   const end = await getEndPage(year).catch(() => undefined);
   if (end) {
-    renderTemplate(year, 'end', 'html', { year, page: end });
+    renderTemplate(year, 'end', 'html', { year, page: end, stars });
   }
   bar.tick();
   downloadStatic('https://adventofcode.com/static/style.css');
