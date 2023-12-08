@@ -14,15 +14,13 @@ export function divisors(x) {
 
 //lcm = a*b/gcd(a,b)
 export function lcm(numbers) {
-  return numbers
-    .map(x => Math.abs(x))
-    .reduce((a, b) => {
-      const m = a * b;
-      while (b) {
-        const t = b;
-        b = a % b;
-        a = t;
-      }
-      return m / a;
-    });
+  return numbers.reduce((a, b) => {
+    const m = a * b;
+    while (b) {
+      const t = b;
+      b = a % b;
+      a = t;
+    }
+    return m / a;
+  });
 }
