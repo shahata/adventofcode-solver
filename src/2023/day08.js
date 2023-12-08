@@ -1,41 +1,20 @@
+import { lcm } from '../utils/divisors.js';
+
 function parse(input) {
   let [steps, maps] = input.split('\n\n');
-  maps = maps.split('\n').map(map => {
-    const [, node, left, right] = map.match(/^(.+) = \((.+), (.+)\)$/);
-    return { node, left, right };
-  });
-  maps = maps.reduce((acc, map) => ({ ...acc, [map.node]: map }), {});
+  maps = maps.split('\n').reduce((acc, map) => {
+    const [, node, L, R] = map.match(/^(.+) = \((.+), (.+)\)$/);
+    return { ...acc, [node]: { L, R } };
+  }, {});
   return { steps, maps };
 }
 
 function walk(current, steps, maps, dest = key => key === 'ZZZ') {
   let count = 0;
-  while (!dest(current)) {
-    for (let i = 0; i < steps.length; i++) {
-      count++;
-      const step = steps[i];
-      if (step === 'L') {
-        current = maps[current].left;
-      } else if (step === 'R') {
-        current = maps[current].right;
-      }
-    }
+  for (count = 0; !dest(current); count++) {
+    for (let i = 0; i < steps.length; i++) current = maps[current][steps[i]];
   }
-  return count;
-}
-
-function lcm(numbers) {
-  return numbers
-    .map(x => Math.abs(x))
-    .reduce((a, b) => {
-      const m = a * b;
-      while (b) {
-        const t = b;
-        b = a % b;
-        a = t;
-      }
-      return m / a;
-    });
+  return count * steps.length;
 }
 
 export function part1(input) {
@@ -45,9 +24,7 @@ export function part1(input) {
 
 export function part2(input) {
   const { steps, maps } = parse(input);
-  const current = Object.keys(maps).filter(key => key.endsWith('A'));
-  let counts = current.map(key =>
-    walk(key, steps, maps, key => key.endsWith('Z')),
-  );
+  const keys = Object.keys(maps).filter(key => key.endsWith('A'));
+  const counts = keys.map(x => walk(x, steps, maps, key => key.endsWith('Z')));
   return lcm(counts);
 }

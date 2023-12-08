@@ -1,3 +1,5 @@
+import { lcm } from '../utils/divisors.js';
+
 function parse(input) {
   return input
     .split('\n')
@@ -26,21 +28,6 @@ function rotate(moons) {
       moon.position[i] += moon.velocity[i];
     });
   });
-}
-
-//lcm = a*b/gcd(a,b)
-function lcm(numbers) {
-  return numbers
-    .map(x => Math.abs(x))
-    .reduce((a, b) => {
-      const m = a * b;
-      while (b) {
-        const t = b;
-        b = a % b;
-        a = t;
-      }
-      return m / a;
-    });
 }
 
 export function part1(input, rotations = 1000) {
