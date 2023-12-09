@@ -1,22 +1,10 @@
-import * as path from 'node:path';
-import { readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import solveAll from './utils/solver.js';
+import { solveAll, solveAllYears } from './utils/solver.js';
 import { execSync } from 'node:child_process';
-
-async function solveAllYears() {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const years = readdirSync(__dirname).filter(x => x.match(/^\d\d\d\d$/));
-  for (const year of years) {
-    await solveAll(year, undefined, false);
-  }
-}
 
 if (!process.env.ADVENT_SESSION) {
   try {
-    process.env.ADVENT_SESSION = execSync(
-      'cookies https://adventofcode.com/ session',
-    ).toString();
+    const session = execSync('cookies https://adventofcode.com/ session');
+    process.env.ADVENT_SESSION = session.toString();
   } catch {
     //
   }
@@ -37,7 +25,7 @@ if (process.env.ADVENT_SESSION) {
     day = `${dayNum}`;
   }
   if (year) {
-    solveAll(`${year}`, day && `${day}`).catch(err => console.error(err.stack));
+    solveAll(year, day).catch(err => console.error(err.stack));
   } else {
     solveAllYears().catch(err => console.error(err.stack));
   }

@@ -62,26 +62,27 @@ function getDays(year) {
   }
 }
 
+function getAllYears() {
+  const directory = path.resolve(__dirname, '..');
+  let years = readdirSync(directory).filter(x => x.match(/^\d\d\d\d$/));
+  return years.sort((a, b) => parseInt(a) - parseInt(b));
+}
+
 async function takeScreenshots(year) {
-  if (year !== '2023') return;
+  if (year !== getAllYears().at(-1)) return;
   const browser = await chromium.launch();
+  const clip = { x: 0, y: 0, width: 1030, height: 420 };
   const page = await browser.newPage();
-  await page.goto(resolve(import.meta.url, '../2023/events.html'));
+  await page.goto(resolve(import.meta.url, `../${year}/events.html`));
   await page.waitForTimeout(1000);
-  await page.screenshot({
-    path: 'src/static/events-screenshot.png',
-    clip: { x: 0, y: 0, width: 1030, height: 420 },
-  });
-  await page.goto(resolve(import.meta.url, '../2023/solver.html'));
+  await page.screenshot({ path: 'src/static/events-screenshot.png', clip });
+  await page.goto(resolve(import.meta.url, `../${year}/solver.html`));
   await page.waitForTimeout(1000);
-  await page.screenshot({
-    path: 'src/static/solver-screenshot.png',
-    clip: { x: 0, y: 0, width: 1030, height: 420 },
-  });
+  await page.screenshot({ path: 'src/static/solver-screenshot.png', clip });
   await browser.close();
 }
 
-export default async function solveAll(year, day, run = true) {
+export async function solveAll(year, day, run = true) {
   if (day) {
     tempLeaderboard(year);
     const solver = solverFunction(year, day);
@@ -105,7 +106,6 @@ export default async function solveAll(year, day, run = true) {
       bar.tick();
     }
     await takeScreenshots(year);
-    console.log('');
 
     if (run) {
       for (const day of days) {
@@ -113,5 +113,12 @@ export default async function solveAll(year, day, run = true) {
         await solver();
       }
     }
+  }
+}
+
+export async function solveAllYears() {
+  const years = getAllYears();
+  for (const year of years) {
+    await solveAll(year, undefined, false);
   }
 }
