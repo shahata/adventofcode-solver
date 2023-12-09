@@ -1,9 +1,10 @@
 import * as path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, resolve } from 'node:url';
 import { performance } from 'node:perf_hooks';
 import { existsSync, readdirSync } from 'node:fs';
 
 import ProgressBar from 'progress';
+import { chromium } from 'playwright';
 import readInput from './read-input.js';
 import { dayName } from './day-name.js';
 import {
@@ -61,6 +62,24 @@ function getDays(year) {
   }
 }
 
+async function takeScreenshots() {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  await page.goto(resolve(import.meta.url, '../2023/events.html'));
+  await page.waitForTimeout(1000);
+  await page.screenshot({
+    path: 'src/static/events-screenshot.png',
+    clip: { x: 0, y: 0, width: 1030, height: 420 },
+  });
+  await page.goto(resolve(import.meta.url, '../2023/solver.html'));
+  await page.waitForTimeout(1000);
+  await page.screenshot({
+    path: 'src/static/solver-screenshot.png',
+    clip: { x: 0, y: 0, width: 1030, height: 420 },
+  });
+  await browser.close();
+}
+
 export default async function solveAll(year, day, run = true) {
   if (day) {
     tempLeaderboard(year);
@@ -84,6 +103,7 @@ export default async function solveAll(year, day, run = true) {
       await downloadInput(year, day);
       bar.tick();
     }
+    await takeScreenshots();
     console.log('');
 
     if (run) {

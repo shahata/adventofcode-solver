@@ -10,7 +10,7 @@
     "start": "node src/index.js",
     "serve": "open https://127.0.0.1/ && http-server -p 443 -P https://127.0.0.1/ -S",
     "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi }; NODE_OPTIONS=--experimental-vm-modules f",
-    "lint": "eslint src && tsc && playwright test",
+    "lint": "eslint src && tsc",
     "prepare": "husky install"
   },
   "dependencies": {
