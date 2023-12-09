@@ -62,7 +62,8 @@ function getDays(year) {
   }
 }
 
-async function takeScreenshots() {
+async function takeScreenshots(year) {
+  if (year !== '2023') return;
   const browser = await chromium.launch();
   const page = await browser.newPage();
   await page.goto(resolve(import.meta.url, '../2023/events.html'));
@@ -103,7 +104,7 @@ export default async function solveAll(year, day, run = true) {
       await downloadInput(year, day);
       bar.tick();
     }
-    await takeScreenshots();
+    await takeScreenshots(year);
     console.log('');
 
     if (run) {
