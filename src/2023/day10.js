@@ -1,15 +1,19 @@
-function start(map, UP, DOWN, LEFT, RIGHT) {
-  let S = '';
-  if ('|7F'.includes(map[UP.y]?.[UP.x])) S += 'U';
-  if ('|LJ'.includes(map[DOWN.y]?.[DOWN.x])) S += 'D';
-  if ('-LF'.includes(map[LEFT.y]?.[LEFT.x])) S += 'L';
-  if ('-J7'.includes(map[RIGHT.y]?.[RIGHT.x])) S += 'R';
-  if (S === 'UD') return '|';
-  if (S === 'LR') return '-';
-  if (S === 'UR') return 'L';
-  if (S === 'UL') return 'J';
-  if (S === 'DL') return '7';
-  if (S === 'DR') return 'F';
+const dic = {
+  '|': ['UP', 'DOWN'],
+  '-': ['LEFT', 'RIGHT'],
+  'L': ['UP', 'RIGHT'],
+  'J': ['UP', 'LEFT'],
+  '7': ['DOWN', 'LEFT'],
+  'F': ['DOWN', 'RIGHT'],
+};
+
+function start(map, { UP, DOWN, LEFT, RIGHT }) {
+  const S = [];
+  if ('|7F'.includes(map[UP.y]?.[UP.x])) S.push('UP');
+  if ('|LJ'.includes(map[DOWN.y]?.[DOWN.x])) S.push('DOWN');
+  if ('-LF'.includes(map[LEFT.y]?.[LEFT.x])) S.push('LEFT');
+  if ('-J7'.includes(map[RIGHT.y]?.[RIGHT.x])) S.push('RIGHT');
+  return Object.keys(dic).find(key => dic[key].join('_') === S.join('_'));
 }
 
 function solve(input) {
@@ -21,20 +25,16 @@ function solve(input) {
   let max = 0;
   while (queue.length > 0) {
     const current = queue.shift();
-    const UP = { x: current.x, y: current.y - 1, steps: current.steps + 1 };
-    const DOWN = { x: current.x, y: current.y + 1, steps: current.steps + 1 };
-    const LEFT = { x: current.x - 1, y: current.y, steps: current.steps + 1 };
-    const RIGHT = { x: current.x + 1, y: current.y, steps: current.steps + 1 };
+    const neighbors = {
+      UP: { x: current.x, y: current.y - 1, steps: current.steps + 1 },
+      DOWN: { x: current.x, y: current.y + 1, steps: current.steps + 1 },
+      LEFT: { x: current.x - 1, y: current.y, steps: current.steps + 1 },
+      RIGHT: { x: current.x + 1, y: current.y, steps: current.steps + 1 },
+    };
     if (map[current.y][current.x] === 'S') {
-      map[current.y][current.x] = start(map, UP, DOWN, LEFT, RIGHT);
+      map[current.y][current.x] = start(map, neighbors);
     }
-    let next = [];
-    if (map[current.y][current.x] === '|') next.push(UP, DOWN);
-    if (map[current.y][current.x] === '-') next.push(LEFT, RIGHT);
-    if (map[current.y][current.x] === 'L') next.push(UP, RIGHT);
-    if (map[current.y][current.x] === 'J') next.push(UP, LEFT);
-    if (map[current.y][current.x] === '7') next.push(DOWN, LEFT);
-    if (map[current.y][current.x] === 'F') next.push(DOWN, RIGHT);
+    let next = dic[map[current.y][current.x]].map(dir => neighbors[dir]);
     next = next.filter(({ x, y }) => !visited.has(`${x},${y}`));
     next.forEach(({ x, y }) => visited.add(`${x},${y}`));
     max = Math.max(max, current.steps);
@@ -50,35 +50,12 @@ function zoomin(map) {
     const line2 = [];
     const line3 = [];
     for (let xi = 0; xi < map[yi].length; xi++) {
-      if (map[yi][xi] === '.') {
-        line1.push('.', '.', '.');
-        line2.push('.', '.', '.');
-        line3.push('.', '.', '.');
-      } else if (map[yi][xi] === '|') {
-        line1.push('.', '|', '.');
-        line2.push('.', '|', '.');
-        line3.push('.', '|', '.');
-      } else if (map[yi][xi] === '-') {
-        line1.push('.', '.', '.');
-        line2.push('-', '-', '-');
-        line3.push('.', '.', '.');
-      } else if (map[yi][xi] === 'L') {
-        line1.push('.', '|', '.');
-        line2.push('.', 'L', '-');
-        line3.push('.', '.', '.');
-      } else if (map[yi][xi] === 'J') {
-        line1.push('.', '|', '.');
-        line2.push('-', 'J', '.');
-        line3.push('.', '.', '.');
-      } else if (map[yi][xi] === '7') {
-        line1.push('.', '.', '.');
-        line2.push('-', '7', '.');
-        line3.push('.', '|', '.');
-      } else if (map[yi][xi] === 'F') {
-        line1.push('.', '.', '.');
-        line2.push('.', 'F', '-');
-        line3.push('.', '|', '.');
-      }
+      const [UP, DOWN, LEFT, RIGHT] = ['UP', 'DOWN', 'LEFT', 'RIGHT'].map(x =>
+        (dic[map[yi][xi]] || []).includes(x) ? '#' : '.',
+      );
+      line1.push('.', UP, '.');
+      line2.push(LEFT, map[yi][xi], RIGHT);
+      line3.push('.', DOWN, '.');
     }
     big.push(line1, line2, line3);
   }
