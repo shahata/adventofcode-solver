@@ -41,6 +41,22 @@ describe('day10 2023', () => {
       expect(
         part2(
           [
+            '..........',
+            '.S------7.',
+            '.|F----7|.',
+            '.||....||.',
+            '.||....||.',
+            '.|L-7F-J|.',
+            '.|..||..|.',
+            '.L--JL--J.',
+            '..........',
+          ].join('\n'),
+        ),
+      ).toEqual(4);
+
+      expect(
+        part2(
+          [
             '.F----7F7F7F7F-7....',
             '.|F--7||||||||FJ....',
             '.||.FJ||||||||L7....',
@@ -74,7 +90,7 @@ describe('day10 2023', () => {
     });
 
     it('should work for part 2 input', () => {
-      // expect(part2(input)).toEqual(0);
+      expect(part2(input)).toEqual(325);
     });
   });
 });

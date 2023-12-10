@@ -15,6 +15,20 @@ function solve(input) {
       RIGHT: { x: current.x + 1, y: current.y, steps: current.steps + 1 },
     };
     let next = [];
+    if (map[current.y][current.x] === 'S') {
+      let S = '';
+      if ('|7F'.includes(map[neighbors.UP.y]?.[neighbors.UP.x])) S += 'U';
+      if ('|LJ'.includes(map[neighbors.DOWN.y]?.[neighbors.DOWN.x])) S += 'D';
+      if ('-LF'.includes(map[neighbors.LEFT.y]?.[neighbors.LEFT.x])) S += 'L';
+      if ('-J7'.includes(map[neighbors.RIGHT.y]?.[neighbors.RIGHT.x])) S += 'R';
+      if (S === 'UD') S = '|';
+      else if (S === 'LR') S = '-';
+      else if (S === 'UR') S = 'L';
+      else if (S === 'UL') S = 'J';
+      else if (S === 'DL') S = '7';
+      else if (S === 'DR') S = 'F';
+      map[current.y][current.x] = S;
+    }
     switch (map[current.y][current.x]) {
       case 'S':
         map[current.y][current.x] = '$';
@@ -51,10 +65,6 @@ function solve(input) {
         next.push(neighbors.DOWN);
         next.push(neighbors.RIGHT);
         break;
-      case '$':
-        break;
-      default:
-        throw new Error('unexpected');
     }
     next = next.filter(({ x, y }) => !visited.has(`${x},${y}`));
     next.forEach(({ x, y }) => visited.add(`${x},${y}`));
@@ -65,6 +75,50 @@ function solve(input) {
 export function part1(input) {
   const { max } = solve(input);
   return max;
+}
+
+function zoomin(map) {
+  let bigger = [];
+  for (let yi = 0; yi < map.length; yi++) {
+    const line1 = [];
+    const line2 = [];
+    const line3 = [];
+    for (let xi = 0; xi < map[yi].length; xi++) {
+      if ('.OI'.includes(map[yi][xi])) {
+        line1.push('.', '.', '.');
+        line2.push('.', '.', '.');
+        line3.push('.', '.', '.');
+      } else if (map[yi][xi] === '|') {
+        line1.push('.', '|', '.');
+        line2.push('.', '|', '.');
+        line3.push('.', '|', '.');
+      } else if (map[yi][xi] === '-') {
+        line1.push('.', '.', '.');
+        line2.push('-', '-', '-');
+        line3.push('.', '.', '.');
+      } else if (map[yi][xi] === 'L') {
+        line1.push('.', '|', '.');
+        line2.push('.', 'L', '-');
+        line3.push('.', '.', '.');
+      } else if (map[yi][xi] === 'J') {
+        line1.push('.', '|', '.');
+        line2.push('-', 'J', '.');
+        line3.push('.', '.', '.');
+      } else if (map[yi][xi] === '7') {
+        line1.push('.', '.', '.');
+        line2.push('-', '7', '.');
+        line3.push('.', '|', '.');
+      } else if (map[yi][xi] === 'F') {
+        line1.push('.', '.', '.');
+        line2.push('.', 'F', '-');
+        line3.push('.', '|', '.');
+      } else {
+        map[yi][xi];
+      }
+    }
+    bigger.push(line1, line2, line3);
+  }
+  return bigger;
 }
 
 function flood(map, x, y) {
@@ -104,16 +158,21 @@ export function part2(input) {
       if (!visited.has(`${x},${y}`)) map[y][x] = '.';
     }
   }
+  const bigger = zoomin(map);
   let sum = 0;
-  for (let y = 0; y < map.length; y++) {
-    for (let x = 0; x < map[y].length; x++) {
-      if (map[y][x] === '.') {
-        const trapped = flood(map, x, y);
-        if (trapped > 0) {
-          sum += trapped;
-        }
+  for (let y = 0; y < bigger.length; y++) {
+    for (let x = 0; x < bigger[y].length; x++) {
+      if (bigger[y][x] === '.') {
+        flood(bigger, x, y);
       }
     }
   }
-  return sum; //?
+  for (let y = 1; y < bigger.length; y += 3) {
+    for (let x = 1; x < bigger[y].length; x += 3) {
+      if (bigger[y][x] === 'I') {
+        sum++;
+      }
+    }
+  }
+  return sum;
 }
