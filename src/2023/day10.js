@@ -1,9 +1,23 @@
+function start(map, UP, DOWN, LEFT, RIGHT) {
+  let S = '';
+  if ('|7F'.includes(map[UP.y]?.[UP.x])) S += 'U';
+  if ('|LJ'.includes(map[DOWN.y]?.[DOWN.x])) S += 'D';
+  if ('-LF'.includes(map[LEFT.y]?.[LEFT.x])) S += 'L';
+  if ('-J7'.includes(map[RIGHT.y]?.[RIGHT.x])) S += 'R';
+  if (S === 'UD') return '|';
+  if (S === 'LR') return '-';
+  if (S === 'UR') return 'L';
+  if (S === 'UL') return 'J';
+  if (S === 'DL') return '7';
+  if (S === 'DR') return 'F';
+}
+
 function solve(input) {
   const map = input.split('\n').map(line => line.split(''));
   const y = map.findIndex(line => line.includes('S'));
   const x = map[y].findIndex(c => c === 'S');
   const queue = [{ x, y, steps: 0 }];
-  let visited = new Set();
+  let visited = new Set([`${x},${y}`]);
   let max = 0;
   while (queue.length > 0) {
     const current = queue.shift();
@@ -11,20 +25,10 @@ function solve(input) {
     const DOWN = { x: current.x, y: current.y + 1, steps: current.steps + 1 };
     const LEFT = { x: current.x - 1, y: current.y, steps: current.steps + 1 };
     const RIGHT = { x: current.x + 1, y: current.y, steps: current.steps + 1 };
-    let next = [];
     if (map[current.y][current.x] === 'S') {
-      let S = '';
-      if ('|7F'.includes(map[UP.y]?.[UP.x])) S += 'U';
-      if ('|LJ'.includes(map[DOWN.y]?.[DOWN.x])) S += 'D';
-      if ('-LF'.includes(map[LEFT.y]?.[LEFT.x])) S += 'L';
-      if ('-J7'.includes(map[RIGHT.y]?.[RIGHT.x])) S += 'R';
-      if (S === 'UD') map[current.y][current.x] = '|';
-      if (S === 'LR') map[current.y][current.x] = '-';
-      if (S === 'UR') map[current.y][current.x] = 'L';
-      if (S === 'UL') map[current.y][current.x] = 'J';
-      if (S === 'DL') map[current.y][current.x] = '7';
-      if (S === 'DR') map[current.y][current.x] = 'F';
+      map[current.y][current.x] = start(map, UP, DOWN, LEFT, RIGHT);
     }
+    let next = [];
     if (map[current.y][current.x] === '|') next.push(UP, DOWN);
     if (map[current.y][current.x] === '-') next.push(LEFT, RIGHT);
     if (map[current.y][current.x] === 'L') next.push(UP, RIGHT);
@@ -39,13 +43,8 @@ function solve(input) {
   return { max, map, visited };
 }
 
-export function part1(input) {
-  const { max } = solve(input);
-  return max;
-}
-
 function zoomin(map) {
-  let bigger = [];
+  const big = [];
   for (let yi = 0; yi < map.length; yi++) {
     const line1 = [];
     const line2 = [];
@@ -81,16 +80,25 @@ function zoomin(map) {
         line3.push('.', '|', '.');
       }
     }
-    bigger.push(line1, line2, line3);
+    big.push(line1, line2, line3);
   }
-  return bigger;
+  return big;
+}
+
+function zoomout(map) {
+  const small = [];
+  for (let y = 0; y < map.length; y += 3) {
+    const line = [];
+    for (let x = 0; x < map[y].length; x += 3) line.push(map[y + 1][x + 1]);
+    small.push(line);
+  }
+  return small;
 }
 
 function flood(map, x, y) {
-  let visited = new Set();
+  let visited = new Set([`${x},${y}`]);
   let queue = [{ x, y }];
   let trapped = true;
-  visited.add(`${x},${y}`);
   while (queue.length > 0) {
     const current = queue.shift();
     const neighbors = [
@@ -113,24 +121,22 @@ function flood(map, x, y) {
   }
 }
 
+export function part1(input) {
+  const { max } = solve(input);
+  return max;
+}
+
 export function part2(input) {
-  const { map, visited } = solve(input);
-  for (let y = 0; y < map.length; y++) {
-    for (let x = 0; x < map[y].length; x++) {
-      if (!visited.has(`${x},${y}`)) map[y][x] = '.';
+  let { map, visited } = solve(input);
+  map = map.map((line, y) => {
+    return line.map((c, x) => (visited.has(`${x},${y}`) ? c : '.'));
+  });
+  const big = zoomin(map);
+  for (let y = 0; y < big.length; y++) {
+    for (let x = 0; x < big[y].length; x++) {
+      if (big[y][x] === '.') flood(big, x, y);
     }
   }
-  const bigger = zoomin(map);
-  for (let y = 0; y < bigger.length; y++) {
-    for (let x = 0; x < bigger[y].length; x++) {
-      if (bigger[y][x] === '.') flood(bigger, x, y);
-    }
-  }
-  let sum = 0;
-  for (let y = 1; y < bigger.length; y += 3) {
-    for (let x = 1; x < bigger[y].length; x += 3) {
-      if (bigger[y][x] === 'I') sum++;
-    }
-  }
-  return sum;
+  const small = zoomout(big);
+  return small.flat().filter(c => c === 'I').length;
 }
