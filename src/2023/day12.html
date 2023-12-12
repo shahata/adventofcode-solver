@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 12 - Advent of Code 2023</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a
+            href="https://www.wix.engineering/" target="_blank" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">24*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2023</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <article class="day-desc"><h2>--- Day 12: Hot Springs ---</h2><p>You finally reach the hot springs! You can see steam rising from secluded areas attached to the primary, ornate building.</p>
+<p>As you turn to enter, the <a href="day11.html">researcher</a> stops you. "Wait - I thought you were looking for the hot springs, weren't you?" You indicate that this definitely looks like hot springs to you.</p>
+<p>"Oh, sorry, common mistake! This is actually the <a href="https://en.wikipedia.org/wiki/Onsen" target="_blank">onsen</a>! The hot springs are next door."</p>
+<p>You look in the direction the researcher is pointing and suddenly notice the <span title="I love this joke. I'm not sorry.">massive metal helixes</span> towering overhead. "This way!"</p>
+<p>It only takes you a few more steps to reach the main gate of the massive fenced-off area containing the springs. You go through the gate and into a small administrative building.</p>
+<p>"Hello! What brings you to the hot springs today? Sorry they're not very hot right now; we're having a <em>lava shortage</em> at the moment." You ask about the missing machine parts for Desert Island.</p>
+<p>"Oh, all of Gear Island is currently offline! Nothing is being manufactured at the moment, not until we get more lava to heat our forges. And our springs. The springs aren't very springy unless they're hot!"</p>
+<p>"Say, could you go up and see why the lava stopped flowing? The springs are too cold for normal operation, but we should be able to find one springy enough to launch <em>you</em> up there!"</p>
+<p>There's just one problem - many of the springs have fallen into disrepair, so they're not actually sure which springs would even be <em>safe</em> to use! Worse yet, their <em>condition records of which springs are damaged</em> (your puzzle input) are also damaged! You'll need to help them repair the damaged records.</p>
+<p>In the giant field just outside, the springs are arranged into <em>rows</em>. For each row, the condition records show every spring and whether it is <em>operational</em> (<code>.</code>) or <em>damaged</em> (<code>#</code>). This is the part of the condition records that is itself damaged; for some springs, it is simply <em>unknown</em> (<code>?</code>) whether the spring is operational or damaged.</p>
+<p>However, the engineer that produced the condition records also duplicated some of this information in a different format! After the list of springs for a given row, the size of each <em>contiguous group of damaged springs</em> is listed in the order those groups appear in the row. This list always accounts for every damaged spring, and each number is the entire size of its contiguous group (that is, groups are always separated by at least one operational spring: <code>####</code> would always be <code>4</code>, never <code>2,2</code>).</p>
+<p>So, condition records with no unknown spring conditions might look like this:</p>
+<pre><code>#.#.### 1,1,3
+.#...#....###. 1,1,3
+.#.###.#.###### 1,3,1,6
+####.#...#... 4,1,1
+#....######..#####. 1,6,5
+.###.##....# 3,2,1
+</code></pre>
+<p>However, the condition records are partially damaged; some of the springs' conditions are actually <em>unknown</em> (<code>?</code>). For example:</p>
+<pre><code>???.### 1,1,3
+.??..??...?##. 1,1,3
+?#?#?#?#?#?#?#? 1,3,1,6
+????.#...#... 4,1,1
+????.######..#####. 1,6,5
+?###???????? 3,2,1
+</code></pre>
+<p>Equipped with this information, it is your job to figure out <em>how many different arrangements</em> of operational and broken springs fit the given criteria in each row.</p>
+<p>In the first line (<code>???.### 1,1,3</code>), there is exactly <em>one</em> way separate groups of one, one, and three broken springs (in that order) can appear in that row: the first three unknown springs must be broken, then operational, then broken (<code>#.#</code>), making the whole row <code>#.#.###</code>.</p>
+<p>The second line is more interesting: <code>.??..??...?##. 1,1,3</code> could be a total of <em>four</em> different arrangements. The last <code>?</code> must always be broken (to satisfy the final contiguous group of three broken springs), and each <code>??</code> must hide exactly one of the two broken springs. (Neither <code>??</code> could be both broken springs or they would form a single contiguous group of two; if that were true, the numbers afterward would have been <code>2,3</code> instead.) Since each <code>??</code> can either be <code>#.</code> or <code>.#</code>, there are four possible arrangements of springs.</p>
+<p>The last line is actually consistent with <em>ten</em> different arrangements! Because the first number is <code>3</code>, the first and second <code>?</code> must both be <code>.</code> (if either were <code>#</code>, the first number would have to be <code>4</code> or higher). However, the remaining run of unknown spring conditions have many different ways they could hold groups of two and one broken springs:</p>
+<pre><code>?###???????? 3,2,1
+.###.##.#...
+.###.##..#..
+.###.##...#.
+.###.##....#
+.###..##.#..
+.###..##..#.
+.###..##...#
+.###...##.#.
+.###...##..#
+.###....##.#
+</code></pre>
+<p>In this example, the number of possible arrangements for each row is:</p>
+<ul>
+<li><code>???.### 1,1,3</code> - <code><em>1</em></code> arrangement</li>
+<li><code>.??..??...?##. 1,1,3</code> - <code><em>4</em></code> arrangements</li>
+<li><code>?#?#?#?#?#?#?#? 1,3,1,6</code> - <code><em>1</em></code> arrangement</li>
+<li><code>????.#...#... 4,1,1</code> - <code><em>1</em></code> arrangement</li>
+<li><code>????.######..#####. 1,6,5</code> - <code><em>4</em></code> arrangements</li>
+<li><code>?###???????? 3,2,1</code> - <code><em>10</em></code> arrangements</li>
+</ul>
+<p>Adding all of the possible arrangement counts together produces a total of <code><em>21</em></code> arrangements.</p>
+<p>For each row, count all of the different arrangements of operational and broken springs that meet the given criteria. <em>What is the sum of those counts?</em></p>
+</article>
+<p>Your puzzle answer was <code>7260</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>As you look out at the field of springs, you feel like there are way more springs than the condition records list. When you examine the records, you discover that they were actually <em>folded up</em> this whole time!</p>
+<p>To <em>unfold the records</em>, on each row, replace the list of spring conditions with five copies of itself (separated by <code>?</code>) and replace the list of contiguous groups of damaged springs with five copies of itself (separated by <code>,</code>).</p>
+<p>So, this row:</p>
+<pre><code>.# 1</code></pre>
+<p>Would become:</p>
+<pre><code>.#?.#?.#?.#?.# 1,1,1,1,1</code></pre>
+<p>The first line of the above example would become:</p>
+<pre><code>???.###????.###????.###????.###????.### 1,1,3,1,1,3,1,1,3,1,1,3,1,1,3</code></pre>
+<p>In the above example, after unfolding, the number of possible arrangements for some rows is now much larger:</p>
+<ul>
+<li><code>???.### 1,1,3</code> - <code><em>1</em></code> arrangement</li>
+<li><code>.??..??...?##. 1,1,3</code> - <code><em>16384</em></code> arrangements</li>
+<li><code>?#?#?#?#?#?#?#? 1,3,1,6</code> - <code><em>1</em></code> arrangement</li>
+<li><code>????.#...#... 4,1,1</code> - <code><em>16</em></code> arrangements</li>
+<li><code>????.######..#####. 1,6,5</code> - <code><em>2500</em></code> arrangements</li>
+<li><code>?###???????? 3,2,1</code> - <code><em>506250</em></code> arrangements</li>
+</ul>
+<p>After unfolding, adding all of the possible arrangement counts together produces <code><em>525152</em></code>.</p>
+<p>Unfold your condition records; <em>what is the new sum of possible arrangement counts?</em></p>
+</article>
+<p>Your puzzle answer was <code>1909291258644</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, you should <a href="index.html">return to your Advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href="day12.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Hot+Springs%22+%2D+Day+12+%2D+Advent+of+Code+2023&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F12&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Hot+Springs%22+%2D+Day+12+%2D+Advent+of+Code+2023+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2023%2Fday%2F12';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+    </main>
+  </body>
+</html>
