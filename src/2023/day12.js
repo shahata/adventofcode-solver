@@ -2,13 +2,12 @@ function add(queue, next) {
   const remain = (next.pattern.match(/[^.]/g) || []).length;
   if (remain + next.buffer < next.counts.reduce((a, b) => a + b, 0)) return;
 
-  const queued = queue.map.get(JSON.stringify(next));
-  if (queued) {
-    queued.x += next.x;
-    return;
-  } else {
+  const { pattern, counts, buffer } = next;
+  const queued = queue.map.get(JSON.stringify({ pattern, counts, buffer }));
+  if (queued) queued.x += next.x;
+  else {
     queue.arr.push(next);
-    queue.map.set(JSON.stringify(next), next);
+    queue.map.set(JSON.stringify({ pattern, counts, buffer }), next);
   }
 }
 
