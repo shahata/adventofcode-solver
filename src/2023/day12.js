@@ -1,41 +1,39 @@
-function add(queue, next) {
-  const remain = (next.pattern.match(/[^.]/g) || []).length;
-  if (remain + next.buffer < next.counts.reduce((a, b) => a + b, 0)) return;
-
-  const { pattern, counts, buffer } = next;
-  const queued = queue.map.get(JSON.stringify({ pattern, counts, buffer }));
-  if (queued) queued.x += next.x;
-  else {
-    queue.arr.push(next);
-    queue.map.set(JSON.stringify({ pattern, counts, buffer }), next);
-  }
+function memoize(fn) {
+  const memo = {};
+  return function (...x) {
+    const s = JSON.stringify(x);
+    return (memo[s] = memo[s] ?? fn(...x));
+  };
 }
 
-function solve(pattern, counts) {
+function advance(options, char) {
+  const { len, groups, i, left } = options;
+  let update = {};
+  if (char === '#') update = { len: len + 1, left: left - 1 };
+  else if (len > 0) update = { len: 0, groups: [...groups, len] };
+  return { ...options, ...update, i: i + 1 };
+}
+
+const solve = memoize((pattern, counts, options) => {
+  options = options || { groups: [], len: 0, i: 0 };
+  options.left = options.left ?? counts.reduce((a, b) => a + b, 0);
+
+  if (options.i >= pattern.length) {
+    if (options.len > 0) options.groups = [...options.groups, options.len];
+    if (options.groups.length !== counts.length) return 0;
+    return options.groups.every((x, i) => x === counts[i]) ? 1 : 0;
+  } else {
+    if (options.groups.some((x, i) => x !== counts[i])) return 0;
+    if (options.len > counts[options.groups.length]) return 0;
+    if (options.left > pattern.length - options.i) return 0;
+  }
+
   let result = 0;
-  const queue = { arr: [], map: new Map() };
-  add(queue, { pattern, counts, buffer: 0, x: 1 });
-  while (queue.arr.length > 0) {
-    const next = queue.arr.shift();
-    const { pattern, counts, buffer, x } = next;
-    const c = pattern[0];
-    next.pattern = pattern.slice(1);
-    if (c === undefined) {
-      if (buffer === 0 && counts.length === 0) result += x;
-      if (buffer > 0 && buffer === counts[0] && counts.length === 1)
-        result += x;
-    } else if (buffer === 0) {
-      if (c !== '#') add(queue, { ...next, buffer: 0 });
-      if (c !== '.') add(queue, { ...next, buffer: 1 });
-    } else if (counts.length > 0) {
-      if (c !== '#' && buffer === counts[0])
-        add(queue, { ...next, counts: counts.slice(1), buffer: 0 });
-      if (c !== '.' && buffer !== counts[0])
-        add(queue, { ...next, buffer: buffer + 1 });
-    }
-  }
+  const c = pattern[options.i];
+  if (c !== '#') result += solve(pattern, counts, advance(options, '.'));
+  if (c !== '.') result += solve(pattern, counts, advance(options, '#'));
   return result;
-}
+});
 
 export function part1(input) {
   return input
@@ -49,7 +47,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  return input
+  const x = input
     .split('\n')
     .map(line => {
       let [pattern, counts] = line.split(' ');
@@ -60,4 +58,5 @@ export function part2(input) {
       return solve(pattern, counts);
     })
     .reduce((a, b) => a + b);
+  return x;
 }

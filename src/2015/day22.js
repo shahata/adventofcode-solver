@@ -78,12 +78,9 @@ function playBoss(game) {
 
 function memoize(fn) {
   const memo = {};
-  return function (x) {
+  return function (...x) {
     const s = JSON.stringify(x);
-    if (!memo[s]) {
-      memo[s] = fn(x);
-    }
-    return memo[s];
+    return (memo[s] = memo[s] ?? fn(...x));
   };
 }
 
