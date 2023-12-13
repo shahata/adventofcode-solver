@@ -1,18 +1,11 @@
-function equals(a, b, state) {
-  const x = a.split('').filter((x, i) => x !== b[i]).length;
-  if (x <= state.smudges) {
-    state.smudges -= x;
-    return true;
-  }
-}
-
 function isMirror(rows, i, smudges) {
-  const state = { smudges };
   if (i + 1 >= rows.length) return false;
   for (let j = 0; i - j >= 0 && i + j + 1 < rows.length; j++) {
-    if (!equals(rows[i - j], rows[i + j + 1], state)) return false;
+    const x = rows[i - j].split('').filter((x, k) => x !== rows[i + j + 1][k]);
+    if (x.length > smudges) return false;
+    else smudges -= x.length;
   }
-  return state.smudges === 0;
+  return smudges === 0;
 }
 
 function getRowMirror(rows, smudges) {
