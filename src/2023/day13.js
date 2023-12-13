@@ -1,83 +1,41 @@
-function diff(a, b) {
-  let result = 0;
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) result++;
-  }
-  return result;
-}
-
 function equals(a, b, state) {
-  if (state.smudges > 0) {
-    const x = diff(a, b);
-    if (x <= state.smudges) {
-      state.smudges -= x;
-      return true;
-    }
+  const x = a.split('').filter((x, i) => x !== b[i]).length;
+  if (x <= state.smudges) {
+    state.smudges -= x;
+    return true;
   }
-  return a === b;
 }
 
-function getRowMirror(patch, smudges = 0) {
-  const rows = patch.map(row => row.join(''));
-  for (let i = 0; i < rows.length; i++) {
-    const state = { smudges };
-    let mirror = false;
-    if (i + 1 < rows.length && equals(rows[i], rows[i + 1], state)) {
-      mirror = true;
-      for (let j = 1; i - j >= 0 && i + j + 1 < rows.length; j++) {
-        if (!equals(rows[i - j], rows[i + j + 1], state)) {
-          mirror = false;
-        }
-      }
-    }
-    if (mirror && state.smudges === 0) {
-      return i + 1;
-    }
+function isMirror(rows, i, smudges) {
+  const state = { smudges };
+  for (let j = 0; i - j >= 0 && i + j + 1 < rows.length; j++) {
+    if (!equals(rows[i - j], rows[i + j + 1], state)) return false;
   }
-  return 0;
+  return state.smudges === 0;
+}
+
+function getRowMirror(rows, smudges = 0) {
+  for (let i = 0; i < rows.length - 1; i++) {
+    if (isMirror(rows, i, smudges)) return i + 1;
+  }
 }
 
 function rotate(patch) {
-  const result = [];
-  for (let i = 0; i < patch[0].length; i++) {
-    const row = patch.map(row => row[i]);
-    result.push(row);
-  }
-  return result;
+  const result = new Array(patch[0].length).fill();
+  return result.map((x, i) => patch.map(row => row[i]).join(''));
 }
 
-export function part1(input) {
-  const patches = input
-    .split('\n\n')
-    .map(patch => patch.split('\n').map(row => row.split('')));
+export function part1(input, smudges = 0) {
+  const patches = input.split('\n\n').map(patch => patch.split('\n'));
   let result = 0;
   for (let patch of patches) {
-    const row = getRowMirror(patch);
-    if (row > 0) {
-      result += row * 100;
-      continue;
-    }
-    patch = rotate(patch);
-    const col = getRowMirror(patch);
-    result += row * 100 + col;
+    const row = getRowMirror(patch, smudges);
+    if (row) result += row * 100;
+    else result += getRowMirror(rotate(patch), smudges);
   }
   return result;
 }
 
 export function part2(input) {
-  const patches = input
-    .split('\n\n')
-    .map(patch => patch.split('\n').map(row => row.split('')));
-  let result = 0;
-  for (let patch of patches) {
-    const row = getRowMirror(patch, 1);
-    if (row > 0) {
-      result += row * 100;
-      continue;
-    }
-    patch = rotate(patch);
-    const col = getRowMirror(patch, 1);
-    result += col;
-  }
-  return result; //?
+  return part1(input, 1);
 }
