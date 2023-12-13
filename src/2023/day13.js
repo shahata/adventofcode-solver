@@ -8,16 +8,15 @@ function equals(a, b, state) {
 
 function isMirror(rows, i, smudges) {
   const state = { smudges };
+  if (i + 1 >= rows.length) return false;
   for (let j = 0; i - j >= 0 && i + j + 1 < rows.length; j++) {
     if (!equals(rows[i - j], rows[i + j + 1], state)) return false;
   }
   return state.smudges === 0;
 }
 
-function getRowMirror(rows, smudges = 0) {
-  for (let i = 0; i < rows.length - 1; i++) {
-    if (isMirror(rows, i, smudges)) return i + 1;
-  }
+function getRowMirror(rows, smudges) {
+  return rows.findIndex((row, i) => isMirror(rows, i, smudges)) + 1;
 }
 
 function rotate(patch) {
