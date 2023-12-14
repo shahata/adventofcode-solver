@@ -1,4 +1,4 @@
-function vertical(lines, add = 1) {
+function vertical(lines, add) {
   for (let x = 0; x < lines[0].length; x++) {
     let target = add > 0 ? 0 : lines.length - 1;
     for (let y = target; y >= 0 && y < lines.length; y += add) {
@@ -12,7 +12,7 @@ function vertical(lines, add = 1) {
   }
 }
 
-function horizontal(lines, add = 1) {
+function horizontal(lines, add) {
   for (let y = 0; y < lines.length; y++) {
     let target = add > 0 ? 0 : lines[0].length - 1;
     for (let x = target; x >= 0 && x < lines[0].length; x += add) {
