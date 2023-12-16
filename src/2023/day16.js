@@ -1,19 +1,14 @@
-function getNextSteps(map, x, y, d) {
-  const R = { x: x + 1, y, d: 'right' };
-  const L = { x: x - 1, y, d: 'left' };
-  const U = { x, y: y - 1, d: 'up' };
-  const D = { x, y: y + 1, d: 'down' };
-  const answers = {
-    '.': { right: [R], left: [L], up: [U], down: [D] },
-    '/': { right: [U], left: [D], up: [R], down: [L] },
-    '\\': { right: [D], left: [U], up: [L], down: [R] },
-    '-': { right: [R], left: [L], up: [L, R], down: [L, R] },
-    '|': { right: [U, D], left: [U, D], up: [U], down: [D] },
-  };
-  return answers[map[y][x].cell][d].filter(
-    ({ x, y, d }) => map[y]?.[x]?.beams.includes(d) === false,
-  );
-}
+const R = { x: +1, y: 0, d: 'right' };
+const L = { x: -1, y: 0, d: 'left' };
+const U = { x: 0, y: -1, d: 'up' };
+const D = { x: 0, y: +1, d: 'down' };
+const answers = {
+  '.': { right: [R], left: [L], up: [U], down: [D] },
+  '/': { right: [U], left: [D], up: [R], down: [L] },
+  '\\': { right: [D], left: [U], up: [L], down: [R] },
+  '-': { right: [R], left: [L], up: [L, R], down: [L, R] },
+  '|': { right: [U, D], left: [U, D], up: [U], down: [D] },
+};
 
 export function part1(input, start = { x: 0, y: 0, d: 'right' }) {
   const init = cell => ({ cell, beams: [] });
@@ -21,8 +16,11 @@ export function part1(input, start = { x: 0, y: 0, d: 'right' }) {
   const queue = [start];
   while (queue.length > 0) {
     const { x, y, d } = queue.shift();
+    const next = answers[map[y][x].cell][d]
+      .map(a => ({ x: x + a.x, y: y + a.y, d: a.d }))
+      .filter(({ x, y, d }) => map[y]?.[x]?.beams.includes(d) === false);
     map[y][x].beams.push(d);
-    queue.push(...getNextSteps(map, x, y, d));
+    queue.push(...next);
   }
   return map.flatMap(lines => lines.filter(x => x.beams.length > 0)).length;
 }
