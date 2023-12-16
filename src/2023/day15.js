@@ -15,9 +15,7 @@ export function part1(input) {
 export function part2(input) {
   const operations = input.split(',').map(x => {
     const [label, focal] = x.split(/[-=]/);
-    return focal === ''
-      ? { op: '-', label }
-      : { op: '=', label, focal: +focal };
+    return focal ? { op: '=', label, focal: +focal } : { op: '-', label };
   });
   const hashmap = new Array(256).fill().map(() => []);
   for (const operation of operations) {
