@@ -1,8 +1,8 @@
 function getNextSteps(map, x, y, d) {
-  const R = { x: x + 1, y: y, d: 'right' };
-  const L = { x: x - 1, y: y, d: 'left' };
-  const U = { x: x, y: y - 1, d: 'up' };
-  const D = { x: x, y: y + 1, d: 'down' };
+  const R = { x: x + 1, y, d: 'right' };
+  const L = { x: x - 1, y, d: 'left' };
+  const U = { x, y: y - 1, d: 'up' };
+  const D = { x, y: y + 1, d: 'down' };
   const answers = {
     '.': { right: [R], left: [L], up: [U], down: [D] },
     '/': { right: [U], left: [D], up: [R], down: [L] },
