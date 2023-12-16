@@ -4,62 +4,35 @@ export function part1(input, start = { x: 0, y: 0, d: 'right' }) {
     .map(line => line.split('').map(c => ({ c, l: [] })));
   const queue = [start];
   while (queue.length > 0) {
-    const current = queue.shift();
-    map[current.y][current.x].l.push(current.d);
     let next = [];
-    if (
-      map[current.y][current.x].c === '.' ||
-      (map[current.y][current.x].c === '|' && current.d === 'up') ||
-      (map[current.y][current.x].c === '|' && current.d === 'down') ||
-      (map[current.y][current.x].c === '-' && current.d === 'right') ||
-      (map[current.y][current.x].c === '-' && current.d === 'left')
-    ) {
-      if (current.d === 'right') {
-        next.push({ x: current.x + 1, y: current.y, d: 'right' });
-      } else if (current.d === 'left') {
-        next.push({ x: current.x - 1, y: current.y, d: 'left' });
-      } else if (current.d === 'up') {
-        next.push({ x: current.x, y: current.y - 1, d: 'up' });
-      } else if (current.d === 'down') {
-        next.push({ x: current.x, y: current.y + 1, d: 'down' });
-      }
-    } else if (
-      (map[current.y][current.x].c === '-' && current.d === 'up') ||
-      (map[current.y][current.x].c === '-' && current.d === 'down')
-    ) {
-      next.push({ x: current.x - 1, y: current.y, d: 'left' });
-      next.push({ x: current.x + 1, y: current.y, d: 'right' });
-    } else if (
-      (map[current.y][current.x].c === '|' && current.d === 'right') ||
-      (map[current.y][current.x].c === '|' && current.d === 'left')
-    ) {
-      next.push({ x: current.x, y: current.y - 1, d: 'up' });
-      next.push({ x: current.x, y: current.y + 1, d: 'down' });
-    } else if (map[current.y][current.x].c === '\\') {
-      if (current.d === 'right') {
-        next.push({ x: current.x, y: current.y + 1, d: 'down' });
-      } else if (current.d === 'left') {
-        next.push({ x: current.x, y: current.y - 1, d: 'up' });
-      } else if (current.d === 'up') {
-        next.push({ x: current.x - 1, y: current.y, d: 'left' });
-      } else if (current.d === 'down') {
-        next.push({ x: current.x + 1, y: current.y, d: 'right' });
-      }
-    } else if (map[current.y][current.x].c === '/') {
-      if (current.d === 'right') {
-        next.push({ x: current.x, y: current.y - 1, d: 'up' });
-      } else if (current.d === 'left') {
-        next.push({ x: current.x, y: current.y + 1, d: 'down' });
-      } else if (current.d === 'up') {
-        next.push({ x: current.x + 1, y: current.y, d: 'right' });
-      } else if (current.d === 'down') {
-        next.push({ x: current.x - 1, y: current.y, d: 'left' });
-      }
+    const { x, y, d } = queue.shift();
+    const RIGHT = { x: x + 1, y: y, d: 'right' };
+    const LEFT = { x: x - 1, y: y, d: 'left' };
+    const UP = { x: x, y: y - 1, d: 'up' };
+    const DOWN = { x: x, y: y + 1, d: 'down' };
+
+    map[y][x].l.push(d);
+    if (map[y][x].c === '-' && (d === 'up' || d === 'down')) {
+      next.push(LEFT, RIGHT);
+    } else if (map[y][x].c === '|' && (d === 'right' || d === 'left')) {
+      next.push(UP, DOWN);
+    } else if (map[y][x].c === '\\') {
+      if (d === 'right') next.push(DOWN);
+      if (d === 'left') next.push(UP);
+      if (d === 'up') next.push(LEFT);
+      if (d === 'down') next.push(RIGHT);
+    } else if (map[y][x].c === '/') {
+      if (d === 'right') next.push(UP);
+      if (d === 'left') next.push(DOWN);
+      if (d === 'up') next.push(RIGHT);
+      if (d === 'down') next.push(LEFT);
+    } else {
+      if (d === 'right') next.push(RIGHT);
+      if (d === 'left') next.push(LEFT);
+      if (d === 'up') next.push(UP);
+      if (d === 'down') next.push(DOWN);
     }
-    next = next.filter(({ x, y, d }) => {
-      if (x < 0 || y < 0 || y >= map.length || x >= map[y].length) return false;
-      return !map[y][x].l.includes(d);
-    });
+    next = next.filter(({ x, y, d }) => map[y]?.[x]?.l.includes(d) === false);
     queue.push(...next);
   }
   return map.flatMap(lines => lines.filter(c => c.l.length > 0)).length;
