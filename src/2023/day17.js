@@ -1,132 +1,49 @@
-function key({ x, y, direction, lastTurn }) {
-  return `${x},${y},${direction},${lastTurn}`;
-}
-
-function getNext(current, map, visited) {
+function getNext(current, map, minSteps, maxSteps) {
   const next = [];
-  const { x, y, total, direction, lastTurn } = current;
-  if (lastTurn < 3) {
-    if (direction === 'right')
-      next.push({ x: x + 1, y, direction: 'right', lastTurn: lastTurn + 1 });
-    if (direction === 'left')
-      next.push({ x: x - 1, y, direction: 'left', lastTurn: lastTurn + 1 });
-    if (direction === 'up')
-      next.push({ x, y: y - 1, direction: 'up', lastTurn: lastTurn + 1 });
-    if (direction === 'down')
-      next.push({ x, y: y + 1, direction: 'down', lastTurn: lastTurn + 1 });
+  const { x, y, total, d, s } = current;
+  if (s < maxSteps) {
+    if (d === 'right') next.push({ x: x + 1, y, d: 'right', s: s + 1 });
+    if (d === 'left') next.push({ x: x - 1, y, d: 'left', s: s + 1 });
+    if (d === 'up') next.push({ x, y: y - 1, d: 'up', s: s + 1 });
+    if (d === 'down') next.push({ x, y: y + 1, d: 'down', s: s + 1 });
   }
-  if (direction === 'right') {
-    next.push({ x, y: y - 1, direction: 'up', lastTurn: 1 });
-    next.push({ x, y: y + 1, direction: 'down', lastTurn: 1 });
+  if (s >= minSteps && (d === 'right' || d === 'left')) {
+    if (s >= minSteps) next.push({ x, y: y - 1, d: 'up', s: 1 });
+    if (s >= minSteps) next.push({ x, y: y + 1, d: 'down', s: 1 });
   }
-  if (direction === 'left') {
-    next.push({ x, y: y - 1, direction: 'up', lastTurn: 1 });
-    next.push({ x, y: y + 1, direction: 'down', lastTurn: 1 });
-  }
-  if (direction === 'up') {
-    next.push({ x: x - 1, y, direction: 'left', lastTurn: 1 });
-    next.push({ x: x + 1, y, direction: 'right', lastTurn: 1 });
-  }
-  if (direction === 'down') {
-    next.push({ x: x - 1, y, direction: 'left', lastTurn: 1 });
-    next.push({ x: x + 1, y, direction: 'right', lastTurn: 1 });
+  if (s >= minSteps && (d === 'up' || d === 'down')) {
+    if (s >= minSteps) next.push({ x: x - 1, y, d: 'left', s: 1 });
+    if (s >= minSteps) next.push({ x: x + 1, y, d: 'right', s: 1 });
   }
   return next
     .filter(({ x, y }) => map[y]?.[x] !== undefined)
-    .map(n => ({ ...n, total: total + map[n.y][n.x] }))
-    .filter(n => !visited.has(key(n)) || visited.get(key(n)).total > n.total);
+    .map(n => ({ ...n, total: total + map[n.y][n.x] }));
 }
 
-function getNext2(current, map, visited) {
-  const next = [];
-  const { x, y, total, direction, lastTurn } = current;
-  if (lastTurn < 4) {
-    if (direction === 'right')
-      next.push({ x: x + 1, y, direction: 'right', lastTurn: lastTurn + 1 });
-    if (direction === 'left')
-      next.push({ x: x - 1, y, direction: 'left', lastTurn: lastTurn + 1 });
-    if (direction === 'up')
-      next.push({ x, y: y - 1, direction: 'up', lastTurn: lastTurn + 1 });
-    if (direction === 'down')
-      next.push({ x, y: y + 1, direction: 'down', lastTurn: lastTurn + 1 });
-  } else {
-    if (lastTurn < 10) {
-      if (direction === 'right')
-        next.push({ x: x + 1, y, direction: 'right', lastTurn: lastTurn + 1 });
-      if (direction === 'left')
-        next.push({ x: x - 1, y, direction: 'left', lastTurn: lastTurn + 1 });
-      if (direction === 'up')
-        next.push({ x, y: y - 1, direction: 'up', lastTurn: lastTurn + 1 });
-      if (direction === 'down')
-        next.push({ x, y: y + 1, direction: 'down', lastTurn: lastTurn + 1 });
-    }
-    if (direction === 'right') {
-      next.push({ x, y: y - 1, direction: 'up', lastTurn: 1 });
-      next.push({ x, y: y + 1, direction: 'down', lastTurn: 1 });
-    }
-    if (direction === 'left') {
-      next.push({ x, y: y - 1, direction: 'up', lastTurn: 1 });
-      next.push({ x, y: y + 1, direction: 'down', lastTurn: 1 });
-    }
-    if (direction === 'up') {
-      next.push({ x: x - 1, y, direction: 'left', lastTurn: 1 });
-      next.push({ x: x + 1, y, direction: 'right', lastTurn: 1 });
-    }
-    if (direction === 'down') {
-      next.push({ x: x - 1, y, direction: 'left', lastTurn: 1 });
-      next.push({ x: x + 1, y, direction: 'right', lastTurn: 1 });
-    }
-  }
-  return next
-    .filter(({ x, y }) => map[y]?.[x] !== undefined)
-    .map(n => ({ ...n, total: total + map[n.y][n.x] }))
-    .filter(n => !visited.has(key(n)) || visited.get(key(n)).total > n.total);
-}
-
-export function part1(input) {
+export function part1(input, minSteps = 0, maxSteps = 3) {
   const map = input.split('\n').map(line => line.split('').map(Number));
-  const queue = [{ x: 0, y: 0, total: 0, direction: 'right', lastTurn: 0 }];
+  const queue = [{ x: 0, y: 0, total: 0, d: 'right', s: 0 }];
   const visited = new Map();
-  visited.set(key(queue[0]), queue[0]);
+  const key = ({ x, y, d, s }) => `${x},${y},${d},${s}`;
   let min = Infinity;
   while (queue.length > 0) {
     const current = queue.shift();
     if (current.x === map[0].length - 1 && current.y === map.length - 1) {
+      if (current.s < minSteps) continue;
       min = Math.min(min, current.total);
       continue;
     }
     if (current.total >= min) continue;
-    if (visited.get(key(current)).total < current.total) continue;
-    const next = getNext(current, map, visited);
+    const next = getNext(current, map, minSteps, maxSteps).filter(
+      n => !visited.has(key(n)) || visited.get(key(n)).total > n.total,
+    );
     next.forEach(n => visited.set(key(n), n));
     queue.push(...next);
-    queue.sort((a, b) => a.x + a.y - (b.x + b.y));
+    queue.sort((a, b) => a.x + a.y - (b.x + b.y) || a.total - b.total);
   }
   return min;
 }
 
 export function part2(input) {
-  const map = input.split('\n').map(line => line.split('').map(Number));
-  const queue = [{ x: 0, y: 0, total: 0, direction: 'right', lastTurn: 0 }];
-  const visited = new Map();
-  visited.set(key(queue[0]), queue[0]);
-  let min = Infinity;
-  while (queue.length > 0) {
-    const current = queue.shift();
-    if (current.x === map[0].length - 1 && current.y === map.length - 1) {
-      if (current.lastTurn < 4) {
-        // console.log('hmmm', current.total);
-        continue;
-      }
-      min = Math.min(min, current.total);
-      continue;
-    }
-    if (current.total >= min) continue;
-    if (visited.get(key(current)).total < current.total) continue;
-    const next = getNext2(current, map, visited);
-    next.forEach(n => visited.set(key(n), n));
-    queue.push(...next);
-    queue.sort((a, b) => a.x + a.y - (b.x + b.y));
-  }
-  return min;
+  return part1(input, 4, 10);
 }
