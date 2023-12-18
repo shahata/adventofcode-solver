@@ -1,3 +1,5 @@
+import { PriorityQueue } from '@datastructures-js/priority-queue';
+
 function jump(map, { x, y, total, d, s }, minSteps) {
   for (; s < minSteps; s++) {
     total += map[y]?.[x] || 0;
@@ -35,14 +37,18 @@ function getNext(current, map, minSteps, maxSteps) {
 export function part1(input, minSteps = 0, maxSteps = 3) {
   const map = input.split('\n').map(line => line.split('').map(Number));
   const key = ({ x, y, d, s }) => `${x},${y},${d},${s}`;
-  const queue = [
+  const initial = [
     { x: 0, y: 0, total: 0, d: 'right', s: 0 },
     { x: 0, y: 0, total: 0, d: 'down', s: 0 },
   ];
-  const visited = new Map(queue.map(n => [key(n), n]));
+  const queue = new PriorityQueue(
+    (a, b) => a.x + a.y - (b.x + b.y) || a.total - b.total,
+    initial,
+  );
+  const visited = new Map(initial.map(n => [key(n), n]));
   let min = Infinity;
-  while (queue.length > 0) {
-    const current = queue.shift();
+  while (queue.size() > 0) {
+    const current = queue.dequeue();
     if (current.x === map[0].length - 1 && current.y === map.length - 1) {
       min = Math.min(min, current.total);
       continue;
@@ -51,9 +57,10 @@ export function part1(input, minSteps = 0, maxSteps = 3) {
     const next = getNext(current, map, minSteps, maxSteps).filter(
       n => !visited.has(key(n)) || visited.get(key(n)).total > n.total,
     );
-    next.forEach(n => visited.set(key(n), n));
-    queue.push(...next);
-    queue.sort((a, b) => a.x + a.y - (b.x + b.y) || a.total - b.total);
+    next.forEach(n => {
+      visited.set(key(n), n);
+      queue.enqueue(n);
+    });
   }
   return min;
 }

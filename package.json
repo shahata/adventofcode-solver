@@ -14,6 +14,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@datastructures-js/priority-queue": "^6.3.0",
     "@shahata/inquirer-timeout-confirm-prompt": "^0.1.1",
     "chart.js": "^4.4.0",
     "combinatorial-generators": "^1.1.2",

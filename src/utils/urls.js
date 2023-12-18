@@ -9,6 +9,7 @@ const unpkg = (name, suffix = '') => ({
 });
 
 export const imports = {
+  ...skypack('@datastructures-js/priority-queue'),
   ...skypack('combinatorial-generators'),
   ...skypack('chart.js'),
   ...unpkg('node-forge', '/dist/forge.min.js'),
