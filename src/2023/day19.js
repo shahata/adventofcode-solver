@@ -1,32 +1,30 @@
 function run(part, workflows, name = 'in') {
-  const { rules } = workflows[name];
-  let result = false;
-  for (const rule of rules) {
+  if (name === 'A') return true;
+  if (name === 'R') return false;
+  for (const rule of workflows[name].rules) {
     const { operator, key, value } = rule.condition;
-    if (!operator) result = true;
-    if (rule.condition.operator === '<' && part[key] < value) result = true;
-    if (rule.condition.operator === '>' && part[key] > value) result = true;
-    if (result) {
-      if (rule.result === 'R') return false;
-      if (rule.result === 'A') return true;
+    if (
+      !operator ||
+      (rule.condition.operator === '<' && part[key] < value) ||
+      (rule.condition.operator === '>' && part[key] > value)
+    )
       return run(part, workflows, rule.result);
-    }
   }
 }
 
-function run2(ranges, workflows, start = 'in') {
+function run2(ranges, workflows, name = 'in') {
   let count = 0;
-  for (const rule of workflows[start].rules) {
+  if (name === 'A')
+    return Object.values(ranges).reduce((a, b) => a * (b.max - b.min + 1), 1);
+  if (name === 'R') return 0;
+  for (const rule of workflows[name].rules) {
     const { operator, key, value } = rule.condition;
     const next = JSON.parse(JSON.stringify(ranges));
     if (operator && ranges[key].min < value && ranges[key].max > value) {
       if (operator === '<') next[key].max = (ranges[key].min = value) - 1;
-      else if (operator === '>') next[key].min = (ranges[key].max = value) + 1;
+      if (operator === '>') next[key].min = (ranges[key].max = value) + 1;
     }
-    if (rule.result === 'A')
-      count += Object.values(next).reduce((a, b) => a * (b.max - b.min + 1), 1);
-    else if (rule.result !== 'R') count += run2(next, workflows, rule.result);
-    else if (!operator) break;
+    count += run2(next, workflows, rule.result);
   }
   return count;
 }
@@ -56,7 +54,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  let { workflows } = parse(input);
+  const { workflows } = parse(input);
   const range = { min: 1, max: 4000 };
   const ranges = 'xmas'.split('').map(key => [key, { ...range }]);
   return run2(Object.fromEntries(ranges), workflows);
