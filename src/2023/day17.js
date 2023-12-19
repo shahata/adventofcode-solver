@@ -37,15 +37,12 @@ function getNext(current, map, minSteps, maxSteps) {
 export function part1(input, minSteps = 0, maxSteps = 3) {
   const map = input.split('\n').map(line => line.split('').map(Number));
   const key = ({ x, y, d, s }) => `${x},${y},${d},${s}`;
-  const initial = [
+  const compare = (a, b) => a.x + a.y - (b.x + b.y) || a.total - b.total;
+  const queue = new PriorityQueue(compare, [
     { x: 0, y: 0, total: 0, d: 'right', s: 0 },
     { x: 0, y: 0, total: 0, d: 'down', s: 0 },
-  ];
-  const queue = new PriorityQueue(
-    (a, b) => a.x + a.y - (b.x + b.y) || a.total - b.total,
-    initial,
-  );
-  const visited = new Map(initial.map(n => [key(n), n]));
+  ]);
+  const visited = new Map(queue.toArray().map(n => [key(n), n]));
   let min = Infinity;
   while (queue.size() > 0) {
     const current = queue.dequeue();
