@@ -19,12 +19,12 @@ function run2(ranges, workflows, name = 'in') {
   if (name === 'R') return 0;
   for (const rule of workflows[name]) {
     const { operator, key, value } = rule.condition;
-    const next = JSON.parse(JSON.stringify(ranges));
-    if (operator && ranges[key].min < value && ranges[key].max > value) {
+    if (!operator || (ranges[key].min < value && ranges[key].max > value)) {
+      const next = JSON.parse(JSON.stringify(ranges));
       if (operator === '<') next[key].max = (ranges[key].min = value) - 1;
       if (operator === '>') next[key].min = (ranges[key].max = value) + 1;
+      count += run2(next, workflows, rule.result);
     }
-    count += run2(next, workflows, rule.result);
   }
   return count;
 }
