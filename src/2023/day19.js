@@ -1,7 +1,7 @@
 function run(part, workflows, name = 'in') {
   if (name === 'A') return true;
   if (name === 'R') return false;
-  for (const rule of workflows[name].rules) {
+  for (const rule of workflows[name]) {
     const { operator, key, value } = rule.condition;
     if (
       !operator ||
@@ -17,7 +17,7 @@ function run2(ranges, workflows, name = 'in') {
   if (name === 'A')
     return Object.values(ranges).reduce((a, b) => a * (b.max - b.min + 1), 1);
   if (name === 'R') return 0;
-  for (const rule of workflows[name].rules) {
+  for (const rule of workflows[name]) {
     const { operator, key, value } = rule.condition;
     const next = JSON.parse(JSON.stringify(ranges));
     if (operator && ranges[key].min < value && ranges[key].max > value) {
@@ -32,15 +32,16 @@ function run2(ranges, workflows, name = 'in') {
 function parse(input) {
   let [workflows, parts] = input.split('\n\n').map(s => s.split('\n'));
   workflows = workflows.map(workflow => {
-    let [name, rules] = workflow.replace('}', '').split('{');
+    let [, name, rules] = workflow.match(/^(.*)\{(.*)\}$/);
     rules = rules.split(',').map(rule => {
-      let [condition, result] = rule.split(':');
-      const [key, value] = condition.split(/[<>]/);
-      const operator = condition.match(/[<>]/)?.[0];
-      condition = { key, value: +value, operator };
-      return { condition, result: operator ? result : key };
+      const [condition, result] = rule.split(':');
+      const [, key, operator, value] = condition.split(/^(.)([<>])(.*)$/);
+      return {
+        condition: { key, value: +value, operator },
+        result: operator ? result : condition,
+      };
     });
-    return [name, { rules }];
+    return [name, rules];
   });
   parts = parts.map(part => JSON.parse(part.replaceAll(/(.)=/g, '"$1":')));
   return { workflows: Object.fromEntries(workflows), parts };
