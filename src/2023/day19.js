@@ -19,7 +19,7 @@ function run2(ranges, workflows, start = 'in') {
   for (const rule of workflows[start].rules) {
     const { operator, key, value } = rule.condition;
     const next = JSON.parse(JSON.stringify(ranges));
-    if (operator && ranges[key].min < value && value < ranges[key].max) {
+    if (operator && ranges[key].min < value && ranges[key].max > value) {
       if (operator === '<') next[key].max = (ranges[key].min = value) - 1;
       else if (operator === '>') next[key].min = (ranges[key].max = value) + 1;
     }
