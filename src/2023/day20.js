@@ -1,25 +1,19 @@
 function parse(input) {
   let parts = input.split('\n').map(line => {
-    let [part, connectors] = line.split(' -> ');
-    let type =
-      part[0] === '%' ? 'flip' : part[0] === '&' ? 'conj' : 'broadcaster';
-    if (type !== 'broadcaster') {
-      part = part.slice(1);
-    }
-    connectors = connectors.split(', ');
-    return [part, { part, type, connectors }];
+    let [part, links] = line.split(' -> ');
+    let type = part[0];
+    if (type !== 'b') part = part.slice(1);
+    links = links.split(', ');
+    return [part, { part, type, links }];
   });
   parts = Object.fromEntries(parts);
   Object.values(parts).forEach(part => {
-    if (part.type === 'flip') part.state = false;
-    if (part.type === 'conj') {
-      part.memory = {};
-      Object.values(parts).forEach(x => {
-        if (x.connectors.includes(part.part)) {
-          part.memory[x.part] = 'low';
-        }
-      });
-      part.memory;
+    if (part.type === '%') part.state = 'low';
+    if (part.type === '&') {
+      const linked = Object.values(parts).filter(x =>
+        x.links.includes(part.part),
+      );
+      part.memory = Object.fromEntries(linked.map(x => [x.part, 'low']));
     }
   });
   return parts;
@@ -34,32 +28,24 @@ function signal(parts, wait) {
 
     if (`${part},${level},${from}` === wait) throw new Error('wait');
     if (!parts[part]) continue;
-    if (parts[part].type === 'broadcaster') {
-      parts[part].connectors.forEach(connector => {
-        queue.push({ part: connector, level, from: part });
+    if (parts[part].type === 'b') {
+      parts[part].links.forEach(link => {
+        queue.push({ part: link, level, from: part });
       });
     }
-    if (parts[part].type === 'flip' && level === 'low') {
-      parts[part].state = !parts[part].state;
-      parts[part].connectors.forEach(connector => {
-        queue.push({
-          part: connector,
-          level: parts[part].state ? 'high' : 'low',
-          from: part,
-        });
+    if (parts[part].type === '%' && level === 'low') {
+      parts[part].state = parts[part].state === 'low' ? 'high' : 'low';
+      parts[part].links.forEach(link => {
+        queue.push({ part: link, level: parts[part].state, from: part });
       });
     }
-    if (parts[part].type === 'conj') {
+    if (parts[part].type === '&') {
       parts[part].memory[from] = level;
       const allHigh = Object.values(parts[part].memory).every(
         x => x === 'high',
       );
-      parts[part].connectors.forEach(connector => {
-        queue.push({
-          part: connector,
-          level: allHigh ? 'low' : 'high',
-          from: part,
-        });
+      parts[part].links.forEach(link => {
+        queue.push({ part: link, level: allHigh ? 'low' : 'high', from: part });
       });
     }
   }
@@ -67,9 +53,8 @@ function signal(parts, wait) {
 }
 
 export function part1(input) {
-  let parts = parse(input);
-  let count = { low: 0, high: 0 };
-
+  const parts = parse(input);
+  const count = { low: 0, high: 0 };
   for (let i = 0; i < 1000; i++) {
     const result = signal(parts);
     count.low += result.low;
@@ -79,7 +64,7 @@ export function part1(input) {
 }
 
 function wait(input, part, from) {
-  let parts = parse(input);
+  const parts = parse(input);
   for (let i = 1; i < Infinity; i++) {
     try {
       signal(parts, `${part},high,${from}`);
@@ -88,11 +73,10 @@ function wait(input, part, from) {
     }
   }
 }
+
 export function part2(input) {
-  let parts = parse(input);
-  const conj = Object.values(parts).find(x => x.connectors[0] === 'rx');
-  return Object.keys(conj.memory).reduce(
-    (acc, key) => acc * wait(input, conj.part, key),
-    1,
-  );
+  const parts = parse(input);
+  const conj = Object.values(parts).find(x => x.links[0] === 'rx');
+  const loops = Object.keys(conj.memory).map(x => wait(input, conj.part, x));
+  return loops.reduce((acc, x) => acc * x, 1);
 }
