@@ -49,20 +49,27 @@ function fall(bricks) {
   }
 }
 
+function inspect(bricks) {
+  const map = index(bricks);
+  return bricks.map((brick, i) => {
+    const set = new Set();
+    brick.forEach(b => {
+      const under = map.get(`${b[0]},${b[1]},${b[2] - 1}`);
+      if (under !== undefined && under !== i) set.add(under);
+    });
+    return set;
+  });
+}
+
 export function part1(input) {
   const bricks = parse(input);
   fall(bricks);
 
-  const map = index(bricks);
   const important = new Set();
-  for (let i = 0; i < bricks.length; i++) {
-    const support = new Set();
-    bricks[i].forEach(b => {
-      const under = map.get(`${b[0]},${b[1]},${b[2] - 1}`);
-      if (under !== undefined && under !== i) support.add(under);
-    });
-    if (support.size === 1) support.forEach(x => important.add(x));
-  }
+  const support = inspect(bricks);
+  support.forEach(set => {
+    if (set.size === 1) set.forEach(x => important.add(x));
+  });
   return bricks.length - important.size;
 }
 
@@ -71,12 +78,21 @@ export function part2(input) {
   fall(bricks);
 
   let moved = 0;
-  for (let brick of bricks) {
-    const test = JSON.parse(JSON.stringify(bricks.filter(b => b !== brick)));
-    const before = test.map(brick => brick.reduce((a, b) => a + b[2], 0));
-    fall(test);
-    const after = test.map(brick => brick.reduce((a, b) => a + b[2], 0));
-    for (let i = 0; i < before.length; i++) if (before[i] !== after[i]) moved++;
+  const support = inspect(bricks);
+  for (let i = 0; i < bricks.length; i++) {
+    const removed = new Set([i]);
+    let change = true;
+    while (change) {
+      change = false;
+      for (let j = 0; j < support.length; j++) {
+        if (removed.has(j) || support[j].size === 0) continue;
+        if ([...support[j]].every(x => removed.has(x))) {
+          removed.add(j);
+          change = true;
+        }
+      }
+    }
+    moved += removed.size - 1;
   }
   return moved;
 }
