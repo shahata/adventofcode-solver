@@ -1,3 +1,5 @@
+import { PriorityQueue } from '@datastructures-js/priority-queue';
+
 const toKey = state =>
   state
     .sort((a, b) => a.x - b.x || a.y - b.y)
@@ -36,16 +38,19 @@ function neighbors({ state, energy: curr }) {
 
 function solve(start, end) {
   const visited = new Map();
-  const queue = [{ state: start, energy: 0 }];
-  while (queue.length > 0) {
-    const n = queue.sort((a, b) => a.energy - b.energy).shift();
+  const queue = new PriorityQueue(
+    (a, b) => a.energy - b.energy,
+    [{ state: start, energy: 0 }],
+  );
+  while (queue.size() > 0) {
+    const n = queue.dequeue();
     if (toKey(n.state) === end) return n.energy;
     neighbors(n).forEach(neighbor => {
       const v = visited.get(toKey(neighbor.state));
       if (!v || neighbor.energy < v.energy) {
-        if (v) queue.splice(queue.indexOf(v), 1);
+        if (v) queue.remove(x => x === v);
         visited.set(toKey(neighbor.state), neighbor);
-        queue.push(neighbor);
+        queue.enqueue(neighbor);
       }
     });
   }

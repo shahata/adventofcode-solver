@@ -1,3 +1,5 @@
+import { PriorityQueue } from '@datastructures-js/priority-queue';
+
 function neighbors({ x, y, risk }, maze) {
   return [
     { x, y: y - 1, risk: maze[y - 1] && maze[y - 1][x + 0] },
@@ -11,21 +13,23 @@ function neighbors({ x, y, risk }, maze) {
 
 function solve(maze) {
   const visited = new Map();
-  const queue = [{ x: 0, y: 0, risk: 0 }];
-  while (queue.length > 0) {
-    const n = queue.shift();
+  const queue = new PriorityQueue(
+    (a, b) => a.risk - b.risk,
+    [{ x: 0, y: 0, risk: 0 }],
+  );
+  while (queue.size() > 0) {
+    const n = queue.dequeue();
     if (n.x === maze[0].length - 1 && n.y === maze.length - 1) {
       return n.risk;
     }
     neighbors(n, maze).forEach(neighbor => {
       const v = visited.get(`${neighbor.x},${neighbor.y}`);
       if (!v || neighbor.risk < v.risk) {
-        if (v) queue.splice(queue.indexOf(v), 1);
+        if (v) queue.remove(x => x === v);
         visited.set(`${neighbor.x},${neighbor.y}`, neighbor);
-        queue.push(neighbor);
+        queue.enqueue(neighbor);
       }
     });
-    queue.sort((a, b) => a.risk - b.risk);
   }
 }
 
