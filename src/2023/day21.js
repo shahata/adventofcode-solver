@@ -9,10 +9,8 @@ function solve(input, steps, infinite) {
     }
   }
   let t = [];
-  let visited = new Map();
-  visited.set(`${start.x},${start.y}`, start);
-  const max = steps > 5000 ? map.length * 2 + (steps % map.length) : steps;
-  for (let i = 1; i <= max; i++) {
+  let visited = new Map([[`${start.x},${start.y}`, start]]);
+  for (let i = 1; i <= steps && t.length < 3; i++) {
     const next = new Map();
     for (const { x, y } of visited.values()) {
       const neighbors = [
@@ -21,15 +19,16 @@ function solve(input, steps, infinite) {
         { x, y: y - 1 },
         { x, y: y + 1 },
       ].filter(n => {
-        if (!infinite) return map[n.y]?.[n.x] && map[n.y][n.x] !== '#';
-        return map.at(n.y % map.length).at(n.x % map[0].length) !== '#';
+        return infinite
+          ? map.at(n.y % map.length).at(n.x % map[0].length) !== '#'
+          : map[n.y]?.[n.x] && map[n.y][n.x] !== '#';
       });
       neighbors.forEach(n => next.set(`${n.x},${n.y}`, n));
     }
     visited = next;
-    if (i === steps) return visited.size;
     if (i % map.length === steps % map.length) t.push(visited.size);
   }
+  if (t.length < 3) return visited.size;
 
   // 1. 0^2*a + 0*b + c = t[0]
   // 2. 1^2*a + 1*b + c = t[1]
