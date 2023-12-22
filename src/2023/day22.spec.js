@@ -43,9 +43,8 @@ describe('day22 2023', () => {
       ).toEqual(7);
     });
 
-    // runs for 10 minutes, need to optimize
-    // it('should work for part 2 input', () => {
-    //   expect(part2(input)).toEqual(100376);
-    // });
+    it('should work for part 2 input', () => {
+      expect(part2(input)).toEqual(100376);
+    });
   });
 });
