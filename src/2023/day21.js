@@ -9,8 +9,7 @@ function solve(input, steps, infinite) {
     }
   }
   let t = [];
-  let visited = new Map();
-  visited.set(`${start.x},${start.y}`, start);
+  let visited = new Map([[`${start.x},${start.y}`, start]]);
   const max = steps > 5000 ? map.length * 2 + (steps % map.length) : steps;
   for (let i = 1; i <= max; i++) {
     const next = new Map();
@@ -21,8 +20,9 @@ function solve(input, steps, infinite) {
         { x, y: y - 1 },
         { x, y: y + 1 },
       ].filter(n => {
-        if (!infinite) return map[n.y]?.[n.x] && map[n.y][n.x] !== '#';
-        return map.at(n.y % map.length).at(n.x % map[0].length) !== '#';
+        return infinite
+          ? map.at(n.y % map.length).at(n.x % map[0].length) !== '#'
+          : map[n.y]?.[n.x] && map[n.y][n.x] !== '#';
       });
       neighbors.forEach(n => next.set(`${n.x},${n.y}`, n));
     }
