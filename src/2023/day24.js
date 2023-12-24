@@ -1,12 +1,16 @@
 import { init } from 'z3-solver';
 
-export function part1(input, min = 200000000000000, max = 400000000000000) {
-  let hails = input.split('\n').map(line => {
+function parse(input) {
+  return input.split('\n').map(line => {
     let [point, velocity] = line.split(' @ ');
     point = point.split(', ').map(n => +n);
     velocity = velocity.split(', ').map(n => +n);
     return { point, velocity };
   });
+}
+
+export function part1(input, min = 2e14, max = 4e14) {
+  let hails = parse(input);
   hails = hails.map(({ point, velocity }) => {
     let point2 = point.map((n, i) => n + velocity[i]);
     let m = (point[1] - point2[1]) / (point[0] - point2[0]);
@@ -21,12 +25,8 @@ export function part1(input, min = 200000000000000, max = 400000000000000) {
       let x = (n2 - n1) / (m1 - m2);
       let y = m1 * x + n1;
       if (x > min && x < max && y > min && y < max) {
-        if ((x - hails[i].point[0]) * hails[i].velocity[0] < 0) {
-          continue;
-        }
-        if ((x - hails[j].point[0]) * hails[j].velocity[0] < 0) {
-          continue;
-        }
+        if ((x - hails[i].point[0]) / hails[i].velocity[0] < 0) continue;
+        if ((x - hails[j].point[0]) / hails[j].velocity[0] < 0) continue;
         result++;
       }
     }
@@ -35,29 +35,23 @@ export function part1(input, min = 200000000000000, max = 400000000000000) {
 }
 
 export async function part2(input) {
-  let hails = input.split('\n').map(line => {
-    let [point, velocity] = line.split(' @ ');
-    point = point.split(', ').map(n => +n);
-    velocity = velocity.split(', ').map(n => +n);
-    return { point, velocity };
-  });
+  const hails = parse(input);
 
   const { Context } = await init();
   const { Solver, Int } = Context('main');
   const solver = new Solver();
-  const r = [Int.const('rx'), Int.const('ry'), Int.const('rz')];
+  const rp = [Int.const('rpx'), Int.const('rpy'), Int.const('rpz')];
   const rv = [Int.const('rvx'), Int.const('rvy'), Int.const('rvz')];
-  for (let i = 0; i < hails.length; i++) {
-    let { point, velocity } = hails[i];
+  for (let i = 0; i < 3; i++) {
+    const { point: p, velocity: v } = hails[i];
     const t = Int.const(`t${i}`);
-    solver.add(t.ge(0));
-    for (let j = 0; j < 3; j++) {
-      solver.add(t.mul(velocity[j]).add(point[j]).eq(t.mul(rv[j]).add(r[j])));
-    }
+    solver.add(t.mul(v[0]).add(p[0]).eq(t.mul(rv[0]).add(rp[0])));
+    solver.add(t.mul(v[1]).add(p[1]).eq(t.mul(rv[1]).add(rp[1])));
+    solver.add(t.mul(v[2]).add(p[2]).eq(t.mul(rv[2]).add(rp[2])));
   }
   if ((await solver.check()) === 'sat') {
     const model = solver.model();
-    const result = model.eval(r[0].add(r[1]).add(r[2])).toString();
+    const result = model.eval(rp[0].add(rp[1]).add(rp[2])).toString();
     return +result;
   }
 }

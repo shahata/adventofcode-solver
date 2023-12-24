@@ -2,9 +2,9 @@
 import { dayName } from '../../utils/day-name.js';
 
 let duration;
-function timerify(fn) {
+async function timerify(fn) {
   const start = performance.now();
-  const result = fn();
+  const result = await fn();
   const end = performance.now();
   duration = `(${Math.round(end - start)}ms)`;
   return result;
@@ -63,13 +63,13 @@ async function solver(session, year, day) {
   const module = await import(`../../${fileName}.js`);
   const input = await readInput(session, year, day);
   if (module.day) {
-    const { part1, part2 } = timerify(() => module.day(input));
+    const { part1, part2 } = await timerify(() => module.day(input));
     console.log(await submit(1, part1));
     console.log(await submit(2, part2, duration));
   } else {
-    const part1 = timerify(() => module.part1(input));
+    const part1 = await timerify(() => module.part1(input));
     console.log(await submit(1, part1, duration));
-    const part2 = timerify(() => module.part2(input));
+    const part2 = await timerify(() => module.part2(input));
     console.log(await submit(2, part2, duration));
   }
 }

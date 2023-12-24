@@ -9,6 +9,8 @@ const unpkg = (name, suffix = '') => ({
 });
 
 export const imports = {
+  ...skypack('async-mutex'),
+  ...skypack('z3-solver'),
   ...skypack('@datastructures-js/priority-queue'),
   ...skypack('combinatorial-generators'),
   ...skypack('chart.js'),
