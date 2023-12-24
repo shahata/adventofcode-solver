@@ -25,9 +25,9 @@ if (process.env.ADVENT_SESSION) {
     day = `${dayNum}`;
   }
   if (year) {
-    solveAll(year, day).catch(err => console.error(err.stack));
+    await solveAll(year, day).catch(err => console.error(err.stack));
   } else {
-    solveAllYears().catch(err => console.error(err.stack));
+    await solveAllYears().catch(err => console.error(err.stack));
   }
 } else {
   console.error('************************************************************');
@@ -39,5 +39,5 @@ if (process.env.ADVENT_SESSION) {
   console.error('************************************************************');
   console.error('************************************************************');
   console.error('');
-  process.exit(0);
 }
+process.exit(0);

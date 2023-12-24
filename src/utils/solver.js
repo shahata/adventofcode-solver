@@ -17,9 +17,9 @@ import {
 } from './renderer.js';
 
 let duration;
-function timerify(fn) {
+async function timerify(fn) {
   const start = performance.now();
-  const result = fn();
+  const result = await fn();
   const end = performance.now();
   duration = `(${Math.round(end - start)}ms)`;
   return result;
@@ -40,12 +40,14 @@ function solverFunction(year, day) {
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log('----------------------------');
     if (module.day) {
-      const { part1, part2 } = timerify(() => module.day(input));
+      const { part1, part2 } = await timerify(() => module.day(input));
       console.log(`Part1: ${part1}`);
       console.log(`Part2: ${part2}`, duration);
     } else {
-      console.log(`Part1: ${timerify(() => module.part1(input))}`, duration);
-      console.log(`Part2: ${timerify(() => module.part2(input))}`, duration);
+      const result1 = timerify(() => module.part1(input));
+      console.log(`Part1: ${await result1}`, duration);
+      const result2 = timerify(() => module.part2(input));
+      console.log(`Part2: ${await result2}`, duration);
     }
     console.log('');
   };
