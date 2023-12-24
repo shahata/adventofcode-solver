@@ -45,23 +45,19 @@ export async function part2(input) {
   const { Context } = await init();
   const { Solver, Int } = Context('main');
   const solver = new Solver();
-  const rx = Int.const('rx');
-  const ry = Int.const('ry');
-  const rz = Int.const('rz');
-  const rvx = Int.const('rvx');
-  const rvy = Int.const('rvy');
-  const rvz = Int.const('rvz');
+  const r = [Int.const('rx'), Int.const('ry'), Int.const('rz')];
+  const rv = [Int.const('rvx'), Int.const('rvy'), Int.const('rvz')];
   for (let i = 0; i < hails.length; i++) {
     let { point, velocity } = hails[i];
     const t = Int.const(`t${i}`);
     solver.add(t.ge(0));
-    solver.add(t.mul(velocity[0]).add(point[0]).eq(t.mul(rvx).add(rx)));
-    solver.add(t.mul(velocity[1]).add(point[1]).eq(t.mul(rvy).add(ry)));
-    solver.add(t.mul(velocity[2]).add(point[2]).eq(t.mul(rvz).add(rz)));
+    for (let j = 0; j < 3; j++) {
+      solver.add(t.mul(velocity[j]).add(point[j]).eq(t.mul(rv[j]).add(r[j])));
+    }
   }
   if ((await solver.check()) === 'sat') {
     const model = solver.model();
-    const result = model.eval(rx.add(ry).add(rz)).toString();
+    const result = model.eval(r[0].add(r[1]).add(r[2])).toString();
     return +result;
   }
 }
