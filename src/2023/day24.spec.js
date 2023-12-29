@@ -27,9 +27,9 @@ describe('day24 2023', () => {
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', async () => {
+    it('should work for part 2 examples', () => {
       expect(
-        await part2(
+        part2(
           [
             '19, 13, 30 @ -2,  1, -2',
             '18, 19, 22 @ -1, -1, -2',
@@ -38,11 +38,11 @@ describe('day24 2023', () => {
             '20, 19, 15 @  1, -5, -3',
           ].join('\n'),
         ),
-      ).toEqual(47);
+      ).toEqual(47n);
     });
 
-    it('should work for part 2 input', async () => {
-      expect(await part2(input)).toEqual(578177720733043);
-    }, 60000);
+    it('should work for part 2 input', () => {
+      expect(part2(input)).toEqual(578177720733043n);
+    });
   });
 });
