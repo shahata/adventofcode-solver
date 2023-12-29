@@ -42,7 +42,7 @@ export async function part2(input) {
   const solver = new Solver();
   const rp = [Int.const('rpx'), Int.const('rpy'), Int.const('rpz')];
   const rv = [Int.const('rvx'), Int.const('rvy'), Int.const('rvz')];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < hails.length; i++) {
     const { point: p, velocity: v } = hails[i];
     const t = Int.const(`t${i}`);
     solver.add(t.mul(v[0]).add(p[0]).eq(t.mul(rv[0]).add(rp[0])));

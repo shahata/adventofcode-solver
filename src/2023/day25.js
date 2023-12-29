@@ -1,15 +1,16 @@
 import 'regenerator-runtime';
 import { mincut } from '@graph-algorithm/minimum-cut';
 
-function graphSize(graph, component, ignored, visited = new Set()) {
-  let result = 1;
-  visited.add(component);
-  graph[component].forEach(c => {
-    if (!visited.has(c) && !ignored[component]?.includes(c)) {
-      result += graphSize(graph, c, ignored, visited);
-    }
-  });
-  return result;
+function graphSize(graph, ignored, visited = new Set()) {
+  const queue = [Object.keys(graph)[0]];
+  while (queue.length > 0) {
+    const component = queue.shift();
+    visited.add(component);
+    graph[component].forEach(c => {
+      if (!visited.has(c) && !ignored[component]?.includes(c)) queue.push(c);
+    });
+  }
+  return visited.size;
 }
 
 function toGraph(edges) {
@@ -30,8 +31,8 @@ export function part1(input) {
   });
   const graph = toGraph(edges);
   const ignored = toGraph([...mincut(edges)]);
-  const size = graphSize(graph, Object.keys(graph)[0], {});
-  const x = graphSize(graph, Object.keys(graph)[0], ignored);
+  const size = graphSize(graph, {});
+  const x = graphSize(graph, ignored);
   return x * (size - x);
 }
 
