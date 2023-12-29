@@ -82,7 +82,7 @@ async function solveAll(session, year, day) {
     } catch (e) {
       console.log(e);
       console.log('Please retry once issue is resolved');
-      return;
+      // return;
     }
   }
 }
