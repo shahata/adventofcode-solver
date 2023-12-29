@@ -1,3 +1,4 @@
+import 'regenerator-runtime';
 import { mincut } from '@graph-algorithm/minimum-cut';
 
 function graphSize(graph, component, ignored, visited = new Set()) {

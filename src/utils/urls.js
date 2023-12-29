@@ -9,11 +9,13 @@ const unpkg = (name, suffix = '') => ({
 });
 
 export const imports = {
+  ...skypack('regenerator-runtime'),
   ...skypack('async-mutex'),
   ...skypack('z3-solver'),
   ...skypack('@datastructures-js/priority-queue'),
   ...skypack('combinatorial-generators'),
   ...skypack('chart.js'),
+  ...skypack('@graph-algorithm/minimum-cut'),
   ...unpkg('node-forge', '/dist/forge.min.js'),
   ...unpkg('es-module-shims'),
 };
