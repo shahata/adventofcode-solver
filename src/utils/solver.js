@@ -77,10 +77,10 @@ async function takeScreenshots(year) {
   const page = await browser.newPage();
   await page.goto(resolve(import.meta.url, `../${year}/events.html`));
   await page.waitForTimeout(1000);
-  await page.screenshot({ path: 'src/static/screenshot-events.png', clip });
+  await page.screenshot({ path: 'static/screenshot-events.png', clip });
   await page.goto(resolve(import.meta.url, `../${year}/solver.html`));
   await page.waitForTimeout(1000);
-  await page.screenshot({ path: 'src/static/screenshot-solver.png', clip });
+  await page.screenshot({ path: 'static/screenshot-solver.png', clip });
   await browser.close();
 }
 
