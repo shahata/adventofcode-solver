@@ -19,7 +19,7 @@ import TimeoutConfirm from '@shahata/inquirer-timeout-confirm-prompt';
 function renderTemplate(year, name, extension, model) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const src = path.resolve(__dirname, '..');
-  const template = path.join(src, 'template', isDayName(name) ? 'day' : name);
+  const template = path.join(src, 'templates', isDayName(name) ? 'day' : name);
   const fileName = `${path.join(src, year, name)}.${extension}`;
   const result = Object.keys(model).reduce(
     (result, key) => result.replaceAll(`{{${key}}}`, model[key]),

@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import { imports } from '../../utils/urls.js';
+import { imports } from './urls.js';
 
 class WorkerShim {
   constructor(url, options) {
@@ -32,12 +32,12 @@ function runWorker(session, year, day = 1) {
 
     const u = s => new URL(s, window.location.toString());
     const worker = /** @type {Worker} */ (
-      new WorkerShim(u('../static/scripts/worker.js'), {
+      new WorkerShim(u('../utils/worker.js'), {
         type: 'module',
         importMap: {
           imports: {
             ...imports,
-            'node:crypto': u('../static/polyfills/crypto.js'),
+            'node:crypto': u('../utils/crypto-polyfill.js'),
           },
         },
       })

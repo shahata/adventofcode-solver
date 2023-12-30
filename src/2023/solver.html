@@ -37,7 +37,7 @@
 
       </style>
       <script type="module">
-        import { run } from '../static/scripts/create.js';
+        import { run } from '../utils/create-worker.js';
         document.getElementById('solver').onsubmit = () => run('2023') && false;
         window.addEventListener('click', function (e, s, r) {
           if (e.target.nodeName === 'CODE' && e.detail === 3) {

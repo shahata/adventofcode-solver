@@ -1,5 +1,5 @@
 /* eslint-env worker */
-import { dayName } from '../../utils/day-name.js';
+import { dayName } from './day-name.js';
 
 let duration;
 async function timerify(fn) {
@@ -60,7 +60,7 @@ async function solver(session, year, day) {
     `<br><span><a href="${url}" target="_blank">Solution for ${fileName}!!!</a></span><br>`,
   );
   console.log('----------------------------');
-  const module = await import(`../../${fileName}.js`);
+  const module = await import(`../${fileName}.js`);
   const input = await readInput(session, year, day);
   if (module.day) {
     const { part1, part2 } = await timerify(() => module.day(input));
