@@ -9,6 +9,6 @@
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
-    "src/templates"
+    "templates"
   ]
 }

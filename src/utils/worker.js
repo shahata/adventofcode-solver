@@ -14,7 +14,7 @@ async function readInput(session, year, day) {
   let url = `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`;
   if (!session) {
     const fileName = `${year}/${dayName(day)}`;
-    url = new URL(`../../${fileName}.txt`, self['workerShimUrl']).toString();
+    url = new URL(`../${fileName}.txt`, self['workerShimUrl']).toString();
   }
   const result = await fetch(url);
   if (result.status !== 200) {

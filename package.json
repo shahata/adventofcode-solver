@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "serve": "http-server -p 443 -S -o -c-1 -C src/static/http-cert.pem -K src/static/http-key.pem",
+    "serve": "http-server -p 443 -S -o -c-1 -C static/http-cert.pem -K static/http-key.pem",
     "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi }; NODE_OPTIONS=--experimental-vm-modules f",
     "lint": "eslint src && tsc",
     "prepare": "husky install"
@@ -55,12 +55,9 @@
       "plugin:@typescript-eslint/recommended"
     ]
   },
-  "eslintIgnore": [
-    "src/templates/*.js"
-  ],
   "jest": {
     "testPathIgnorePatterns": [
-      "<rootDir>/src/templates"
+      "<rootDir>/templates"
     ]
   },
   "prettier": {

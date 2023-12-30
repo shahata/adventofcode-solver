@@ -34,7 +34,7 @@ async function downloadContent(url, postPayload) {
 
 export async function downloadStatic(url) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const src = path.resolve(__dirname, '..', 'static');
+  const src = path.resolve(__dirname, '..', '..', 'static');
   const fileName = path.join(src, url.split('/').pop());
   const response = await downloadRequest(url);
   if (response.headers.get('Content-Type') === 'image/png') {
