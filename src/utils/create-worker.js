@@ -18,10 +18,12 @@ class WorkerShim {
   }
 }
 
+let solverWorker;
+
 function runWorker(session, year, day = 1) {
   return new Promise(resolve => {
-    if (window['SolverWorker']) {
-      window['SolverWorker'].terminate();
+    if (solverWorker) {
+      solverWorker.terminate();
     }
     if (day === 1) {
       document.getElementById('output').innerHTML = '';
@@ -30,16 +32,10 @@ function runWorker(session, year, day = 1) {
       runWorker(session, year, day + 1) && false;
     document.getElementById('loader').style.display = 'block';
 
-    const u = s => new URL(s, window.location.toString());
     const worker = /** @type {Worker} */ (
-      new WorkerShim(u('../utils/worker.js'), {
+      new WorkerShim(new URL('../utils/worker.js', location.href), {
         type: 'module',
-        importMap: {
-          imports: {
-            ...imports,
-            'node:crypto': u('../utils/crypto-polyfill.js'),
-          },
-        },
+        importMap: { imports },
       })
     );
     worker.onmessage = e => {
@@ -54,7 +50,7 @@ function runWorker(session, year, day = 1) {
         resolve();
       }
     };
-    window['SolverWorker'] = worker;
+    solverWorker = worker;
   });
 }
 

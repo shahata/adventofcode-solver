@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import pkg from '../../package-lock.json' assert { type: 'json' };
 
 const v = p => pkg.packages[`node_modules/${p}`].version;
@@ -16,4 +17,5 @@ export const imports = {
   ...skypack('@graph-algorithm/minimum-cut'),
   ...unpkg('node-forge', '/dist/forge.min.js'),
   ...unpkg('es-module-shims'),
+  'node:crypto': new URL('../utils/crypto-polyfill.js', location.href),
 };
