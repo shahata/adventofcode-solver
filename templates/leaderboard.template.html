@@ -37,15 +37,20 @@
       <script type="module">
         import { Chart, registerables } from '{{chartJsUrl}}';
         Chart.register(...registerables);
-        var config = JSON.parse('{{config}}');
+        const config = JSON.parse('{{config}}');
+        function currentConfig() {
+          return (new URLSearchParams(location.search)).get('draw') || 'all';
+        }
         window.drawChart = function (group) {
+          history.pushState({ draw: group }, '', `?draw=${group}`);
           window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
           window.myLine.update();
         };
         window.onload = function () {
-          var ctx = document.getElementById("canvas").getContext("2d");
-          window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config.all)));
+          const ctx = document.getElementById('canvas').getContext('2d');
+          window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config[currentConfig()])));
         };
+        window.addEventListener('popstate', () => drawChart(currentConfig()));
       </script>
       <table>
         {{table}}
