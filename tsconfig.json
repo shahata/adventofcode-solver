@@ -3,15 +3,12 @@
     "module": "esnext",
     "moduleResolution": "node",
     "target": "esnext",
-    "allowJs": true,
     "checkJs": true,
     "noEmit": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    // "strict": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": [
-    "node_modules",
     "src/template"
   ]
 }
