@@ -57,6 +57,7 @@ export async function getQuestionPage(year, day) {
     .replace(/href="\/\d+"/g, 'href="index.html"')
     .replace(/href="\d+\/input"/g, `href="${dayName(day)}.txt"`)
     .replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`)
+    .replace('method="post"', 'method="get"')
     .replace(/action="[^"]*"/g, 'action="end.html"');
 }
 
