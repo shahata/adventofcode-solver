@@ -73,10 +73,9 @@ export async function getYearPage(year) {
 export async function getEventsPage(year) {
   const text = await downloadContent(`https://adventofcode.com/${year}/events`);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return page.replace(
-    /href="[^"]*">\[(\d+)\]/g,
-    'href="../$1/index.html">[$1]',
-  );
+  return page
+    .replace(/href="[^"]*">\[(\d+)\]/g, 'href="../$1/solver.html">[$1]')
+    .replace(/href="\/\d+\/support"/g, '');
 }
 
 export async function getEndPage(year) {

@@ -17,5 +17,4 @@ export const imports = {
   ...skypack('@graph-algorithm/minimum-cut'),
   ...unpkg('node-forge', '/dist/forge.min.js'),
   ...unpkg('es-module-shims'),
-  'node:crypto': new URL('../utils/crypto-polyfill.js', location.href),
 };

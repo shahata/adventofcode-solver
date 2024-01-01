@@ -32,10 +32,16 @@ function runWorker(session, year, day = 1) {
       runWorker(session, year, day + 1) && false;
     document.getElementById('loader').style.display = 'block';
 
+    const u = s => new URL(s, location.toString());
     const worker = /** @type {Worker} */ (
-      new WorkerShim(new URL('../utils/worker.js', location.href), {
+      new WorkerShim(u('../utils/worker.js'), {
         type: 'module',
-        importMap: { imports },
+        importMap: {
+          imports: {
+            ...imports,
+            'node:crypto': u('../utils/crypto-polyfill.js'),
+          },
+        },
       })
     );
     worker.onmessage = e => {

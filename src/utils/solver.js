@@ -1,7 +1,7 @@
 import * as path from 'node:path';
 import { fileURLToPath, resolve } from 'node:url';
 import { performance } from 'node:perf_hooks';
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync, writeFileSync } from 'node:fs';
 
 import ProgressBar from 'progress';
 import { chromium } from 'playwright';
@@ -82,6 +82,12 @@ async function takeScreenshots(year) {
   await page.waitForTimeout(1000);
   await page.screenshot({ path: 'static/screenshot-solver.png', clip });
   await browser.close();
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const index = path.resolve(__dirname, '..', '..', 'index.html');
+  writeFileSync(
+    index,
+    `<meta http-equiv="refresh" content="0; URL=src/${year}/events.html">`,
+  );
 }
 
 export async function solveAll(year, day, run = true) {
