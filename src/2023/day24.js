@@ -58,38 +58,38 @@ function cramersRule(A, B) {
 // pxr vy1 - pyr vx1 - vxr py1 + vyr px1 + pyr vxr - pxr vyr = px1 vy1 - py1 vx1
 
 // pxr (vy0 - vy1) + pyr (vx1 - vx0) + vxr (py1 - py0) + vyr (px0 - px1) = px0 vy0 - py0 vx0 - px1 vy1 + py1 vx1
-// pxr (vy1 - vy2) + pyr (vx2 - vx1) + vxr (py2 - py1) + vyr (px1 - px2) = px1 vy1 - py1 vx1 - px2 vy2 + py2 vx2
-// pxr (vy2 - vy3) + pyr (vx3 - vx2) + vxr (py3 - py2) + vyr (px2 - px3) = px2 vy2 - py2 vx2 - px3 vy3 + py3 vx3
-// pxr (vy3 - vy4) + pyr (vx4 - vx3) + vxr (py4 - py3) + vyr (px3 - px4) = px3 vy3 - py3 vx3 - px4 vy4 + py4 vx4
+// pxr (vy0 - vy2) + pyr (vx2 - vx0) + vxr (py2 - py0) + vyr (px0 - px2) = px0 vy0 - py0 vx0 - px2 vy2 + py2 vx2
+// pxr (vy0 - vy3) + pyr (vx3 - vx0) + vxr (py3 - py0) + vyr (px0 - px3) = px0 vy0 - py0 vx0 - px3 vy3 + py3 vx3
+// pxr (vy0 - vy4) + pyr (vx4 - vx0) + vxr (py4 - py0) + vyr (px0 - px4) = px0 vy0 - py0 vx0 - px4 vy4 + py4 vx4
+// pxr (vz0 - vz1) + pzr (vx1 - vx0) + vxr (pz1 - pz0) + vzr (px0 - px1) = px0 vz0 - pz0 vx0 - px1 vz1 + pz1 vx1
+// pxr (vz0 - vz2) + pzr (vx2 - vx0) + vxr (pz2 - pz0) + vzr (px0 - px2) = px0 vz0 - pz0 vx0 - px2 vz2 + pz2 vx2
 
 function solve(hails) {
   const [px0, py0, pz0, vx0, vy0, vz0] = hails[0];
   const [px1, py1, pz1, vx1, vy1, vz1] = hails[1];
-  const [px2, py2, , vx2, vy2] = hails[2];
+  const [px2, py2, pz2, vx2, vy2, vz2] = hails[2];
   const [px3, py3, , vx3, vy3] = hails[3];
   const [px4, py4, , vx4, vy4] = hails[4];
 
   const A = [
-    [vy0 - vy1, vx1 - vx0, py1 - py0, px0 - px1],
-    [vy1 - vy2, vx2 - vx1, py2 - py1, px1 - px2],
-    [vy2 - vy3, vx3 - vx2, py3 - py2, px2 - px3],
-    [vy3 - vy4, vx4 - vx3, py4 - py3, px3 - px4],
+    [vy0 - vy1, vx1 - vx0, 0n, py1 - py0, px0 - px1, 0n],
+    [vy0 - vy2, vx2 - vx0, 0n, py2 - py0, px0 - px2, 0n],
+    [vy0 - vy3, vx3 - vx0, 0n, py3 - py0, px0 - px3, 0n],
+    [vy0 - vy4, vx4 - vx0, 0n, py4 - py0, px0 - px4, 0n],
+    [vz0 - vz1, 0n, vx1 - vx0, pz1 - pz0, 0n, px0 - px1],
+    [vz0 - vz2, 0n, vx2 - vx0, pz2 - pz0, 0n, px0 - px2],
   ];
 
   const B = [
     px0 * vy0 - py0 * vx0 - px1 * vy1 + py1 * vx1,
-    px1 * vy1 - py1 * vx1 - px2 * vy2 + py2 * vx2,
-    px2 * vy2 - py2 * vx2 - px3 * vy3 + py3 * vx3,
-    px3 * vy3 - py3 * vx3 - px4 * vy4 + py4 * vx4,
+    px0 * vy0 - py0 * vx0 - px2 * vy2 + py2 * vx2,
+    px0 * vy0 - py0 * vx0 - px3 * vy3 + py3 * vx3,
+    px0 * vy0 - py0 * vx0 - px4 * vy4 + py4 * vx4,
+    px0 * vz0 - pz0 * vx0 - px1 * vz1 + pz1 * vx1,
+    px0 * vz0 - pz0 * vx0 - px2 * vz2 + pz2 * vx2,
   ];
 
-  const [pxr, pyr, vxr] = cramersRule(A, B);
-
-  const t0 = (pxr - px0) / (vx0 - vxr);
-  const t1 = (pxr - px1) / (vx1 - vxr);
-  const vzr = (pz0 - pz1 + t0 * vz0 - t1 * vz1) / (t0 - t1);
-  const pzr = pz0 + t0 * (vz0 - vzr);
-
+  const [pxr, pyr, pzr] = cramersRule(A, B);
   return pxr + pyr + pzr;
 }
 
