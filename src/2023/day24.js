@@ -72,26 +72,16 @@ function cramersRule(A, B) {
   return B.map((_, i) => det(A.map((r, j) => r.toSpliced(i, 1, B[j]))) / detA);
 }
 
-function solve(hails) {
-  const A = [];
-  const B = [];
-  for (let i = 1; i <= 4; i++) add(A, B, hails, i);
-  const [pxr, pyr, pzr] = cramersRule(A.slice(0, 6), B.slice(0, 6));
-  return pxr + pyr + pzr;
-}
-
 export function part2(input) {
   const hails = parse(input).map(({ point, velocity }) => [
     ...point.map(n => BigInt(n)),
     ...velocity.map(n => BigInt(n)),
   ]);
-  for (let i = 0; i < hails.length; i++) {
-    try {
-      return solve(hails.slice(i));
-    } catch {
-      //just a hack to avoid parallel hailstones
-    }
-  }
+  const A = [];
+  const B = [];
+  for (let i = 1; i <= 4; i++) add(A, B, hails, i);
+  const [pxr, pyr, pzr] = cramersRule(A.slice(0, 6), B.slice(0, 6));
+  return pxr + pyr + pzr;
 }
 
 // import { init } from 'z3-solver';
