@@ -46,18 +46,16 @@ export function part1(input, min = 2e14, max = 4e14) {
 // pxr vyN - pyr vxN - vxr pyN + vyr pxN + pyr vxr - pxr vyr = pxN vyN - pyN vxN
 // =
 // pxr (vy0 - vyN) + pyr (vxN - vx0) + vxr (pyN - py0) + vyr (px0 - pxN) = px0 vy0 - py0 vx0 - pxN vyN + pyN vxN
-
-function add(A, B, hails, i) {
-  const [px0, py0, pz0, vx0, vy0, vz0] = hails[0];
-  const [pxN, pyN, pzN, vxN, vyN, vzN] = hails[i];
-  // pxr (vy0 - vyN) + pyr (vxN - vx0) + pzr (0) + vxr (pyN - py0) + vyr (px0 - pxN) + vzr (0)
-  // =
-  // px0 vy0 - py0 vx0 - pxN vyN + pyN vxN
+//
+// 1) pxr (vy0 - vyN) + pyr (vxN - vx0) + pzr (0) + vxr (pyN - py0) + vyr (px0 - pxN) + vzr (0) = px0 vy0 - py0 vx0 - pxN vyN + pyN vxN
+// 2) pxr (vz0 - vzN) + pyr (0) + pzr (vxN - vx0) + vxr (pzN - pz0) + vyr (0) + vzr (px0 - pxN) = px0 vz0 - pz0 vx0 - pxN vzN + pzN vxN
+function add(A, B, hails, n) {
+  const [px0, py0, pz0] = hails[0].point.map(BigInt);
+  const [vx0, vy0, vz0] = hails[0].velocity.map(BigInt);
+  const [pxN, pyN, pzN] = hails[n].point.map(BigInt);
+  const [vxN, vyN, vzN] = hails[n].velocity.map(BigInt);
   A.push([vy0 - vyN, vxN - vx0, 0n, pyN - py0, px0 - pxN, 0n]);
   B.push(px0 * vy0 - py0 * vx0 - pxN * vyN + pyN * vxN);
-  // pxr (vz0 - vzN) + pyr (0) + pzr (vxN - vx0) + vxr (pzN - pz0) + vyr (0) + vzr (px0 - pxN)
-  // =
-  // px0 vz0 - pz0 vx0 - pxN vzN + pzN vxN
   A.push([vz0 - vzN, 0n, vxN - vx0, pzN - pz0, 0n, px0 - pxN]);
   B.push(px0 * vz0 - pz0 * vx0 - pxN * vzN + pzN * vxN);
 }
@@ -69,20 +67,17 @@ function det(m) {
   return r.reduce((a, b, i) => (i % 2 ? a - b : a + b), 0n);
 }
 
-function cramersRule(A, B) {
+function cramer(A, B) {
   const detA = det(A);
-  return B.map((_, i) => det(A.map((r, j) => r.toSpliced(i, 1, B[j]))) / detA);
+  return A.map((_, i) => det(A.map((r, j) => r.toSpliced(i, 1, B[j]))) / detA);
 }
 
 export function part2(input) {
-  const hails = parse(input).map(({ point, velocity }) => [
-    ...point.map(n => BigInt(n)),
-    ...velocity.map(n => BigInt(n)),
-  ]);
+  const hails = parse(input);
   const A = [];
   const B = [];
-  for (let i = 1; i < hails.length; i++) add(A, B, hails, i);
-  const [pxr, pyr, pzr] = cramersRule(A.slice(0, 6), B.slice(0, 6));
+  for (let i = 1; i <= 3; i++) add(A, B, hails, i);
+  const [pxr, pyr, pzr] = cramer(A, B);
   return pxr + pyr + pzr;
 }
 
