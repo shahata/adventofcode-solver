@@ -1,4 +1,5 @@
 import * as path from 'node:path';
+import * as process from 'node:process';
 import { fileURLToPath, resolve } from 'node:url';
 import { performance } from 'node:perf_hooks';
 import { existsSync, readdirSync, writeFileSync } from 'node:fs';
@@ -57,7 +58,9 @@ function getDays(year) {
   try {
     return readdirSync(path.resolve(__dirname, '..', year))
       .filter(x => x.match(/^day\d+\.js$/))
-      .map(x => `${parseInt(x.match(/\d+/).shift())}`);
+      .map(x => parseInt(x.match(/\d+/).shift()))
+      .sort((a, b) => a - b)
+      .map(x => `${x}`);
   } catch (e) {
     console.error(`must pass valid year in first argument`);
     process.exit(0);

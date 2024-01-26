@@ -1,5 +1,6 @@
 import { solveAll, solveAllYears } from './utils/solver.js';
 import { execSync } from 'node:child_process';
+import * as process from 'node:process';
 
 if (!process.env.ADVENT_SESSION) {
   try {

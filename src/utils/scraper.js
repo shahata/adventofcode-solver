@@ -1,4 +1,6 @@
 import * as path from 'node:path';
+import * as process from 'node:process';
+import { Buffer } from 'node:buffer';
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dayName } from './day-name.js';
