@@ -4,7 +4,7 @@ import readInput from '../utils/read-input.js';
 const input = readInput(import.meta.url);
 
 describe('day15 2015', () => {
-  it('should work for example', () => {
+  test('it should work for example', () => {
     const { part1, part2 } = day(
       [
         'Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8',
@@ -15,7 +15,7 @@ describe('day15 2015', () => {
     expect(part2).toEqual(57600000);
   });
 
-  it('should work for input', () => {
+  test('it should work for input', () => {
     const { part1, part2 } = day(input);
     expect(part1).toEqual(13882464);
     expect(part2).toEqual(11171160);

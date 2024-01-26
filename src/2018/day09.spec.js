@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day09 2018', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       expect(part1('9 players; last marble is worth 25')).toEqual(32);
       expect(part1('10 players; last marble is worth 1618')).toEqual(8317);
       expect(part1('13 players; last marble is worth 7999 points')).toEqual(
@@ -22,13 +22,13 @@ describe('day09 2018', () => {
       );
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(439089);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(3668541094);
     });
   });

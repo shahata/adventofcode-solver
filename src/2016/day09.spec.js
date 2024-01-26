@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day09 2016', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       expect(part1('ADVENT')).toEqual('ADVENT'.length);
       expect(part1('A(1x5)BC')).toEqual('ABBBBBC'.length);
       expect(part1('(3x3)XYZ')).toEqual('XYZXYZXYZ'.length);
@@ -13,13 +13,13 @@ describe('day09 2016', () => {
       expect(part1('X(8x2)(3x3)ABCY')).toEqual('X(3x3)ABC(3x3)ABCY'.length);
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(74532);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
+    test('it should work for part 2 examples', () => {
       expect(part2('(3x3)XYZ')).toEqual('XYZXYZXYZ'.length);
       expect(part2('X(8x2)(3x3)ABCY')).toEqual('XABCABCABCABCABCABCY'.length);
       expect(part2('(27x12)(20x12)(13x14)(7x10)(1x12)A')).toEqual(241920);
@@ -28,7 +28,7 @@ describe('day09 2016', () => {
       ).toEqual(445);
     });
 
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(11558231665);
     });
   });

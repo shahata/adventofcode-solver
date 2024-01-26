@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day15 2017', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       expect(
         part1(
           ['Generator A starts with 65', 'Generator B starts with 8921'].join(
@@ -24,13 +24,13 @@ describe('day15 2017', () => {
       ).toEqual(588);
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(638);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
+    test('it should work for part 2 examples', () => {
       expect(
         part2(
           ['Generator A starts with 65', 'Generator B starts with 8921'].join(
@@ -48,7 +48,7 @@ describe('day15 2017', () => {
       ).toEqual(309);
     });
 
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(343);
     });
   });

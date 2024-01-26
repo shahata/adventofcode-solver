@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day15 2018', () => {
   describe('part1', () => {
-    it('should work for part 1 examples 1', () => {
+    test('it should work for part 1 examples 1', () => {
       expect(
         part1(
           [
@@ -21,7 +21,7 @@ describe('day15 2018', () => {
       ).toEqual(27730);
     });
 
-    it('should work for part 1 examples 2', () => {
+    test('it should work for part 1 examples 2', () => {
       expect(
         part1(
           [
@@ -37,7 +37,7 @@ describe('day15 2018', () => {
       ).toEqual(36334);
     });
 
-    it('should work for part 1 examples 3', () => {
+    test('it should work for part 1 examples 3', () => {
       expect(
         part1(
           [
@@ -53,7 +53,7 @@ describe('day15 2018', () => {
       ).toEqual(27755);
     });
 
-    it('should work for part 1 examples 4', () => {
+    test('it should work for part 1 examples 4', () => {
       expect(
         part1(
           [
@@ -69,7 +69,7 @@ describe('day15 2018', () => {
       ).toEqual(28944);
     });
 
-    it('should work for part 1 examples 5', () => {
+    test('it should work for part 1 examples 5', () => {
       expect(
         part1(
           [
@@ -87,13 +87,13 @@ describe('day15 2018', () => {
       ).toEqual(18740);
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(189000);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples 1', () => {
+    test('it should work for part 2 examples 1', () => {
       expect(
         part2(
           [
@@ -109,7 +109,7 @@ describe('day15 2018', () => {
       ).toEqual(4988);
     });
 
-    it('should work for part 2 examples 2', () => {
+    test('it should work for part 2 examples 2', () => {
       expect(
         part2(
           [
@@ -125,7 +125,7 @@ describe('day15 2018', () => {
       ).toEqual(31284);
     });
 
-    it('should work for part 2 examples 3', () => {
+    test('it should work for part 2 examples 3', () => {
       expect(
         part2(
           [
@@ -141,7 +141,7 @@ describe('day15 2018', () => {
       ).toEqual(3478);
     });
 
-    it('should work for part 2 examples 4', () => {
+    test('it should work for part 2 examples 4', () => {
       expect(
         part2(
           [
@@ -157,7 +157,7 @@ describe('day15 2018', () => {
       ).toEqual(6474);
     });
 
-    it('should work for part 2 examples 5', () => {
+    test('it should work for part 2 examples 5', () => {
       expect(
         part2(
           [
@@ -175,7 +175,7 @@ describe('day15 2018', () => {
       ).toEqual(1140);
     });
 
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(38512);
     });
   });

@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day07 2016', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       let s1, s2, s3, s4;
       expect(part1((s1 = 'abba[mnop]qrst'))).toEqual(1);
       expect(part1((s2 = 'abcd[bddb]xyyx'))).toEqual(0);
@@ -14,17 +14,17 @@ describe('day07 2016', () => {
       expect(part1([s1, s2, s3, s4].join('\n'))).toEqual(2);
     });
 
-    it('should support multiple hypernets', () => {
+    test('it should support multiple hypernets', () => {
       expect(part1('abba[abba]a[xxxx]qrst')).toEqual(0);
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(105);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
+    test('it should work for part 2 examples', () => {
       let s1, s2, s3, s4;
       expect(part2((s1 = 'aba[bab]xyz'))).toEqual(1);
       expect(part2((s2 = 'xyx[xyx]xyx'))).toEqual(0);
@@ -33,7 +33,7 @@ describe('day07 2016', () => {
       expect(part2([s1, s2, s3, s4].join('\n'))).toEqual(3);
     });
 
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(258);
     });
   });

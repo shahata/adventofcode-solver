@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day21 2016', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       expect(
         part1(
           `swap position 4 with position 0
@@ -21,13 +21,13 @@ rotate based on position of letter d`,
       ).toEqual('decab');
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual('fdhbcgea');
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
+    test('it should work for part 2 examples', () => {
       expect(
         part2(
           `swap position 4 with position 0
@@ -43,7 +43,7 @@ rotate based on position of letter d`,
       ).toEqual('abcde');
     });
 
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual('egfbcadh');
     });
   });

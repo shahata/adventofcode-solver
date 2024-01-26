@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day07 2015', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       expect(part1('123 -> x\n456 -> y\nx AND y -> a')).toEqual(72);
       expect(part1(`123 -> x\n456 -> y\nx OR y -> a`)).toEqual(507);
       expect(part1(`123 -> x\n456 -> y\nx LSHIFT 2 -> a`)).toEqual(492);
@@ -14,13 +14,13 @@ describe('day07 2015', () => {
       expect(part1(`123 -> x\n456 -> y\nNOT y -> a`)).toEqual(65079);
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(16076);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(2797);
     });
   });

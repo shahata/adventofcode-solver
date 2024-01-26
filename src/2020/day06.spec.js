@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day06 2020', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       expect(
         part1(
           [
@@ -29,13 +29,13 @@ describe('day06 2020', () => {
       ).toEqual(11);
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(6587);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
+    test('it should work for part 2 examples', () => {
       expect(
         part2(
           [
@@ -59,7 +59,7 @@ describe('day06 2020', () => {
       ).toEqual(6);
     });
 
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(3235);
     });
   });

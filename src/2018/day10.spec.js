@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day10 2018', () => {
   describe('part1', () => {
-    it('should work for example', () => {
+    test('it should work for example', () => {
       const { part1, part2 } = day(
         [
           'position=< 9,  1> velocity=< 0,  2>',
@@ -57,7 +57,7 @@ describe('day10 2018', () => {
       expect(part2).toEqual(3);
     });
 
-    it('should work for input', () => {
+    test('it should work for input', () => {
       const { part1, part2 } = day(input);
       expect(part1).toEqual('ZZCBGGCJ');
       expect(part2).toEqual(10886);

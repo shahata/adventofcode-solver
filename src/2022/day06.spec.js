@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day06 2022', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       expect(part1('mjqjpqmgbljsphdztnvjfqwrcgsmlb')).toEqual(7);
       expect(part1('bvwbjplbgvbhsrlpgdmjqwftvncz')).toEqual(5);
       expect(part1('nppdvjthqldpwncqszvftbrmjlhg')).toEqual(6);
@@ -13,13 +13,13 @@ describe('day06 2022', () => {
       expect(part1('zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw')).toEqual(11);
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(1892);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
+    test('it should work for part 2 examples', () => {
       expect(part2('mjqjpqmgbljsphdztnvjfqwrcgsmlb')).toEqual(19);
       expect(part2('bvwbjplbgvbhsrlpgdmjqwftvncz')).toEqual(23);
       expect(part2('nppdvjthqldpwncqszvftbrmjlhg')).toEqual(23);
@@ -27,7 +27,7 @@ describe('day06 2022', () => {
       expect(part2('zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw')).toEqual(26);
     });
 
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(2313);
     });
   });

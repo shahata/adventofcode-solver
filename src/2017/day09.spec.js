@@ -5,7 +5,7 @@ const input = readInput(import.meta.url);
 
 describe('day09 2017', () => {
   describe('part1', () => {
-    it('should work for part 1 examples', () => {
+    test('it should work for part 1 examples', () => {
       expect(part1('{}')).toEqual(1);
       expect(part1('{{{}}}')).toEqual(6);
       expect(part1('{{},{}}')).toEqual(5);
@@ -16,13 +16,13 @@ describe('day09 2017', () => {
       expect(part1('{{<a!>},{<a!>},{<a!>},{<ab>}}')).toEqual(3);
     });
 
-    it('should work for part 1 input', () => {
+    test('it should work for part 1 input', () => {
       expect(part1(input)).toEqual(20530);
     });
   });
 
   describe('part2', () => {
-    it('should work for part 2 examples', () => {
+    test('it should work for part 2 examples', () => {
       expect(part2('<>')).toEqual(0);
       expect(part2('<random characters>')).toEqual(17);
       expect(part2('<<<<>')).toEqual(3);
@@ -32,7 +32,7 @@ describe('day09 2017', () => {
       expect(part2('<{o"i!a,<{i<a>')).toEqual(10);
     });
 
-    it('should work for part 2 input', () => {
+    test('it should work for part 2 input', () => {
       expect(part2(input)).toEqual(9978);
     });
   });
