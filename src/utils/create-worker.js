@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { imports } from './urls.js';
 
 class WorkerShim {

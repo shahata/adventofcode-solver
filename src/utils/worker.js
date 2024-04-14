@@ -1,4 +1,3 @@
-/* eslint-env worker */
 import { dayName } from './day-name.js';
 
 let duration;

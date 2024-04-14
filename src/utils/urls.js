@@ -1,5 +1,4 @@
-/* eslint-env browser */
-import pkg from '../../package-lock.json' assert { type: 'json' };
+import pkg from '../../static/package-lock.js';
 
 const v = p => pkg.packages[`node_modules/${p}`].version;
 const skypack = (name, suffix = '') => ({

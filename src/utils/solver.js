@@ -61,7 +61,7 @@ function getDays(year) {
       .map(x => parseInt(x.match(/\d+/).shift()))
       .sort((a, b) => a - b)
       .map(x => `${x}`);
-  } catch (e) {
+  } catch {
     console.error(`must pass valid year in first argument`);
     process.exit(0);
   }

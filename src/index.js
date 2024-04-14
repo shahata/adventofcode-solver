@@ -35,7 +35,7 @@ if (process.env.ADVENT_SESSION) {
   console.error('************************************************************');
   console.error('**                                                        **');
   console.error('** You must set environment variable named ADVENT_SESSION **');
-  console.error('** with the session cookie value from adventofcode        **');
+  console.error('** with the session cookie value from adventofcode.com    **');
   console.error('**                                                        **');
   console.error('************************************************************');
   console.error('************************************************************');

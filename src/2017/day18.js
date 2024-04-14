@@ -70,7 +70,7 @@ function execute(commands, state) {
       state.instruction++;
       run++;
     }
-  } catch (e) {
+  } catch {
     //
   }
   return run;
