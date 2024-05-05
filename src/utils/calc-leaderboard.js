@@ -19,19 +19,19 @@ function removeIgnoredDays(jsonArr) {
 }
 
 function calcChart(members, sorted, count) {
-  const leaders = members
+  let leaders = members
     .filter((m, i, a) => a[0].stars - m.stars <= 4)
     .slice(0, count)
     .map(member => {
-      const pointsPerDay = [];
+      let pointsPerDay = [];
       sorted.forEach(day => {
-        const pointsPerStar = day.map(stars => {
-          const star = stars.find(x => x.name === member.label);
+        let pointsPerStar = day.map(stars => {
+          let star = stars.find(x => x.name === member.label);
           return star ? members.length - stars.indexOf(star) : 0;
         });
         pointsPerDay.push(...pointsPerStar.reverse());
       });
-      const data = pointsPerDay.reduce((prev, today) => {
+      let data = pointsPerDay.reduce((prev, today) => {
         return prev.concat([today + (prev.length === 0 ? 0 : prev.at(-1))]);
       }, []);
       while (data.length > 1 && data.at(-1) === data.at(-2)) {
@@ -46,14 +46,14 @@ function calcChart(members, sorted, count) {
     });
   leaders.forEach(member => {
     member.leadPerDay = member.pointsPerDay.map((p, i) => {
-      const comparable = leaders
+      let comparable = leaders
         .filter(m => m.stars === members[0].stars)
         .sort((a, b) => a.pointsPerDay[i] - b.pointsPerDay[i]);
-      const median = comparable[Math.floor(comparable.length / 2)];
+      let median = comparable[Math.floor(comparable.length / 2)];
       return p - median.pointsPerDay[i];
     });
   });
-  const config = {
+  let config = {
     type: 'line',
     data: {
       labels: new Array(50)
@@ -72,9 +72,9 @@ function calcChart(members, sorted, count) {
 }
 
 export function calcLeaderboard(jsonArr) {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const jsonPath = path.resolve(__dirname, 'leaderboards.json');
-  const debugMode = false;
+  let __dirname = path.dirname(fileURLToPath(import.meta.url));
+  let jsonPath = path.resolve(__dirname, 'leaderboards.json');
+  let debugMode = false;
   if (jsonArr) {
     if (debugMode) {
       writeFileSync(jsonPath, JSON.stringify(jsonArr));
@@ -86,18 +86,18 @@ export function calcLeaderboard(jsonArr) {
   }
   removeIgnoredDays(jsonArr);
 
-  const members = Object.values(
+  let members = Object.values(
     jsonArr
       .reverse()
       .map(x => x.members)
       .reduce((a, b) => ({ ...a, ...b }), {}),
   );
-  const days = new Array(25).fill().map(() => [[], []]);
+  let days = new Array(25).fill().map(() => [[], []]);
   members.forEach(member => {
-    const name = member.name || `(anonymous user #${member.id})`;
+    let name = member.name || `(anonymous user #${member.id})`;
     member.label = name;
-    for (const [day, stars] of Object.entries(member.completion_day_level)) {
-      const index = parseInt(day) - 1;
+    for (let [day, stars] of Object.entries(member.completion_day_level)) {
+      let index = parseInt(day) - 1;
       if (stars['1']) {
         days[index][0].push({ name, ts: parseInt(stars['1'].get_star_ts) });
       }
@@ -106,7 +106,7 @@ export function calcLeaderboard(jsonArr) {
       }
     }
   });
-  const sorted = days.map(day =>
+  let sorted = days.map(day =>
     day.reverse().map(stars =>
       stars
         .sort((a, b) => a.ts - b.ts)
@@ -126,13 +126,13 @@ export function calcLeaderboard(jsonArr) {
     ),
   );
   members.sort((a, b) => b.local_score - a.local_score);
-  const config = {
+  let config = {
     all: calcChart(members, sorted, 1000),
     ten: calcChart(members, sorted, 10),
     five: calcChart(members, sorted, 5),
   };
-  const table = [];
-  const spans = [
+  let table = [];
+  let spans = [
     '<span class="leaderboard-daydesc-both">both stars</span>',
     'the <span class="leaderboard-daydesc-first">first star</span>',
   ];
@@ -145,7 +145,7 @@ export function calcLeaderboard(jsonArr) {
           `<p>First to get ${spans[starIndex]} on Day ${25 - index}:</p>`,
         );
         stars.forEach((star, index) => {
-          const paddedIndex = `${index + 1}`.padStart(
+          let paddedIndex = `${index + 1}`.padStart(
             `${stars.length}`.length,
             ' ',
           );

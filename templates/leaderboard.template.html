@@ -37,7 +37,7 @@
       <script type="module">
         import { Chart, registerables } from '{{chartJsUrl}}';
         Chart.register(...registerables);
-        const config = JSON.parse('{{config}}');
+        let config = JSON.parse('{{config}}');
         function currentConfig() {
           return (new URLSearchParams(location.search)).get('draw') || 'all';
         }
@@ -47,7 +47,7 @@
           window.myLine.update();
         };
         window.onload = function () {
-          const ctx = document.getElementById('canvas').getContext('2d');
+          let ctx = document.getElementById('canvas').getContext('2d');
           window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config[currentConfig()])));
         };
         window.addEventListener('popstate', () => drawChart(currentConfig()));

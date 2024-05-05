@@ -2,7 +2,7 @@ import { imports } from './urls.js';
 
 class WorkerShim {
   constructor(url, options) {
-    const blob = URL.createObjectURL(
+    let blob = URL.createObjectURL(
       new Blob(
         [
           `importScripts('${imports['es-module-shims']}');`,
@@ -31,8 +31,8 @@ function runWorker(session, year, day = 1) {
       runWorker(session, year, day + 1) && false;
     document.getElementById('loader').style.display = 'block';
 
-    const u = s => new URL(s, location.toString());
-    const worker = /** @type {Worker} */ (
+    let u = s => new URL(s, location.toString());
+    let worker = /** @type {Worker} */ (
       new WorkerShim(u('../utils/worker.js'), {
         type: 'module',
         importMap: {
@@ -70,14 +70,14 @@ function cleanResult(str, year) {
 }
 
 async function submitAnswer(e) {
-  const form = e.target;
-  const session = form.querySelector('#session').value;
-  const year = form.querySelector('#year').value;
-  const day = form.querySelector('#day').value;
-  const level = form.querySelector('#level').value;
-  const answer = form.querySelector('#answer').value;
-  const url = `https://www.wix.com/_serverless/adventofcode/answer/${year}/${day}?session=${session}`;
-  const result = await fetch(url, {
+  let form = e.target;
+  let session = form.querySelector('#session').value;
+  let year = form.querySelector('#year').value;
+  let day = form.querySelector('#day').value;
+  let level = form.querySelector('#level').value;
+  let answer = form.querySelector('#answer').value;
+  let url = `https://www.wix.com/_serverless/adventofcode/answer/${year}/${day}?session=${session}`;
+  let result = await fetch(url, {
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: `level=${level}&answer=${encodeURIComponent(answer)}`,
     method: 'POST',
@@ -93,20 +93,20 @@ async function submitAnswer(e) {
 
 export async function run(year) {
   /** @type {HTMLInputElement} */
-  const sessionElement = document.querySelector('#session');
-  const session = sessionElement.value;
+  let sessionElement = document.querySelector('#session');
+  let session = sessionElement.value;
   sessionElement.value = '';
   sessionElement.blur();
   await runWorker(session, year);
 }
 
 console.log = (...args) => {
-  const str = args.map(x => `${x}`).join(' ');
-  const element = document.createElement('span');
+  let str = args.map(x => `${x}`).join(' ');
+  let element = document.createElement('span');
   element.innerHTML = str;
-  const children = new Array(...element.children);
+  let children = new Array(...element.children);
   if (children.length > 0) {
-    for (const x of children) {
+    for (let x of children) {
       document.getElementById('output').appendChild(x);
     }
   } else {

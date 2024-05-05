@@ -1,12 +1,16 @@
 import pkg from '../../static/package-lock.js';
 
-const v = p => pkg.packages[`node_modules/${p}`].version;
-const skypack = (name, suffix = '') => ({
-  [name]: `https://cdn.skypack.dev/${name}@${v(name)}${suffix}?min`,
-});
-const unpkg = (name, suffix = '') => ({
-  [name]: `https://unpkg.com/${name}@${v(name)}${suffix}`,
-});
+function v(p) {
+  return pkg.packages[`node_modules/${p}`].version;
+}
+
+function skypack(name, suffix = '') {
+  return { [name]: `https://cdn.skypack.dev/${name}@${v(name)}${suffix}?min` };
+}
+
+function unpkg(name, suffix = '') {
+  return { [name]: `https://unpkg.com/${name}@${v(name)}${suffix}` };
+}
 
 export const imports = {
   ...skypack('regenerator-runtime'),

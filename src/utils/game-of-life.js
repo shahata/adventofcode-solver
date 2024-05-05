@@ -11,8 +11,8 @@ export function generation(map, neighbors, alive) {
   missing.forEach(key => map.set(key, false));
 
   for (let key of map.keys()) {
-    const active = neighbors(key).filter(key => map.get(key)).length;
-    const current = map.get(key);
+    let active = neighbors(key).filter(key => map.get(key)).length;
+    let current = map.get(key);
     next.set(key, alive(current, active));
     if (next.get(key)) {
       count++;

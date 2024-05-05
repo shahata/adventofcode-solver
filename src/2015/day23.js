@@ -15,7 +15,7 @@ const operations = {
 
 function run(state, instructions) {
   while (instructions[state.next]) {
-    const curr = instructions[state.next];
+    let curr = instructions[state.next];
     state = operations[curr.op](state, curr.p1, curr.p2);
   }
   return state;

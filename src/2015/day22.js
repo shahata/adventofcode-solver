@@ -46,7 +46,7 @@ function canSpell(spell, game) {
 
 function runSpells(game) {
   game = { ...game, hero: { ...game.hero, armor: 0 } };
-  for (const spell in game.active) {
+  for (let spell in game.active) {
     if (game.active[spell] > 0) {
       game = spells[spell].effect(game);
       game = {
@@ -77,14 +77,14 @@ function playBoss(game) {
 }
 
 function memoize(fn) {
-  const memo = {};
+  let memo = {};
   return function (...x) {
-    const s = JSON.stringify(x);
+    let s = JSON.stringify(x);
     return (memo[s] = memo[s] ?? fn(...x));
   };
 }
 
-const play = memoize(game => {
+let play = memoize(game => {
   if (game.boss.hit <= 0) {
     return 0;
   } else if (game.hero.hit <= 0) {
@@ -92,7 +92,7 @@ const play = memoize(game => {
   }
   let min = Infinity;
   game = runSpells(game);
-  for (const spell in spells) {
+  for (let spell in spells) {
     if (canSpell(spell, game)) {
       let move = castSpell(spell, game);
       move = runSpells(move);
@@ -104,14 +104,14 @@ const play = memoize(game => {
 });
 
 function parse(input, initialHit, initialMana) {
-  const [hit, damage] = input.match(/\d+/g);
-  const hero = { hit: initialHit, mana: initialMana, armor: 0 };
-  const boss = {
+  let [hit, damage] = input.match(/\d+/g);
+  let hero = { hit: initialHit, mana: initialMana, armor: 0 };
+  let boss = {
     hit: +hit,
     damage: +damage,
     armor: 0,
   };
-  const active = Object.keys(spells).reduce(
+  let active = Object.keys(spells).reduce(
     (obj, spell) => ({ ...obj, [spell]: 0 }),
     {},
   );
@@ -123,7 +123,7 @@ export function part1(input, initialHit = 50, initialMana = 500) {
 }
 
 export function part2(input, initialHit = 50, initialMana = 500) {
-  const state = parse(input, initialHit, initialMana);
+  let state = parse(input, initialHit, initialMana);
   state.hero.hit--;
   state.boss.damage++;
   return play(state);

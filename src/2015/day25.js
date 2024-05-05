@@ -18,8 +18,10 @@ export function part1(input) {
     return x;
   }
 
-  const [, row, col] = input.match(/row (\d+), column (\d+).$/).map(Number);
+  let [, row, col] = input.match(/row (\d+), column (\d+).$/).map(Number);
   return calcPosition(calcIndex(row, col));
 }
 
-export const part2 = () => undefined;
+export function part2() {
+  return undefined;
+}

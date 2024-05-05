@@ -1,2 +1,7 @@
-export const dayName = num => `day${num.padStart(2, '0')}`;
-export const isDayName = name => !!name.match(/^day\d\d$/);
+export function dayName(num) {
+  return `day${num.padStart(2, '0')}`;
+}
+
+export function isDayName(name) {
+  return !!name.match(/^day\d\d$/);
+}
