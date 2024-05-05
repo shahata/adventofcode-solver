@@ -34,5 +34,10 @@ function distance({ x, y }) {
   return diagonal + straight;
 }
 
-export const part1 = input => distance(parse(input));
-export const part2 = input => parse2(input).furthest;
+export function part1(input) {
+  return distance(parse(input));
+}
+
+export function part2(input) {
+  return parse2(input).furthest;
+}

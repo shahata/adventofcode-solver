@@ -1,5 +1,5 @@
 function get(ops, ip, offset) {
-  const mode = Math.floor(ops[ip] / Math.pow(10, offset + 1)) % 10;
+  const mode = Math.floor(ops[ip] / 10 ** (offset + 1)) % 10;
   return mode === 0 ? ops[ops[ip + offset]] : ops[ip + offset];
 }
 

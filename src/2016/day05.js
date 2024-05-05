@@ -19,7 +19,9 @@ export function day(input) {
       count++;
     }
   }
-  const part1 = password1.slice(0, 8);
-  const part2 = password2.join('');
-  return { part1, part2 };
+
+  return {
+    part1: password1.slice(0, 8),
+    part2: password2.join(''),
+  };
 }

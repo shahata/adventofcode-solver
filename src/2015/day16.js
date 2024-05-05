@@ -42,13 +42,16 @@ function parse(input) {
     .map(([, id, s]) => ({ id: +id, ...parseMap(s, ', ', ': ') }));
 }
 
-export const part1 = input =>
-  parse(input)
+export function part1(input) {
+  return parse(input)
     .filter(x => matches(x, expect1))
     .map(x => x.id)
     .shift();
-export const part2 = input =>
-  parse(input)
+}
+
+export function part2(input) {
+  return parse(input)
     .filter(x => matches(x, expect2))
     .map(x => x.id)
     .shift();
+}

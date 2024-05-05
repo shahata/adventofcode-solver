@@ -14,6 +14,10 @@ function parse(input) {
   return input.split('\n').map(Number);
 }
 
-export const part1 = input => solve(parse(input), x => x + 1);
-export const part2 = input =>
-  solve(parse(input), x => (x >= 3 ? x - 1 : x + 1));
+export function part1(input) {
+  return solve(parse(input), x => x + 1);
+}
+
+export function part2(input) {
+  return solve(parse(input), x => (x >= 3 ? x - 1 : x + 1));
+}

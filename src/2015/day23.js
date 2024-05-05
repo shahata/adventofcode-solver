@@ -32,5 +32,10 @@ function parse(input) {
     .map(([, op, p1, p2]) => ({ op, p1, p2 }));
 }
 
-export const part1 = input => run({ a: 0, b: 0, next: 0 }, parse(input)).b;
-export const part2 = input => run({ a: 1, b: 0, next: 0 }, parse(input)).b;
+export function part1(input) {
+  return run({ a: 0, b: 0, next: 0 }, parse(input)).b;
+}
+
+export function part2(input) {
+  return run({ a: 1, b: 0, next: 0 }, parse(input)).b;
+}

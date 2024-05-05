@@ -20,6 +20,10 @@ function parse(input) {
   });
 }
 
-export const part1 = input => parse(input).filter(validTriangle).length;
-export const part2 = input =>
-  parse(input).map(rotate).filter(validTriangle).length;
+export function part1(input) {
+  return parse(input).filter(validTriangle).length;
+}
+
+export function part2(input) {
+  return parse(input).map(rotate).filter(validTriangle).length;
+}

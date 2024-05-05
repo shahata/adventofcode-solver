@@ -25,5 +25,10 @@ function countGroups(graph) {
   return groups;
 }
 
-export const part1 = input => count(parse(input), '0').size;
-export const part2 = input => countGroups(parse(input));
+export function part1(input) {
+  return count(parse(input), '0').size;
+}
+
+export function part2(input) {
+  return countGroups(parse(input));
+}

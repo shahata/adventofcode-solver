@@ -23,7 +23,9 @@ function popBase(astroids) {
 
 const calcAngle = (a, b) => (Math.atan2(a.y - b.y, a.x - b.x) * 180) / Math.PI;
 
-export const part1 = input => popBase(parse(input)).count;
+export function part1(input) {
+  return popBase(parse(input)).count;
+}
 
 export function part2(input) {
   const astroids = parse(input);

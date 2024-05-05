@@ -1,10 +1,10 @@
 const ops = {
-  AND: (p1, p2) => (Math.pow(2, 16) + (p1 & p2)) % Math.pow(2, 16),
-  OR: (p1, p2) => (Math.pow(2, 16) + (p1 | p2)) % Math.pow(2, 16),
-  NOT: (p1, p2) => (Math.pow(2, 16) + ~p2) % Math.pow(2, 16),
-  LSHIFT: (p1, p2) => (Math.pow(2, 16) + (p1 << p2)) % Math.pow(2, 16),
-  RSHIFT: (p1, p2) => (Math.pow(2, 16) + (p1 >> p2)) % Math.pow(2, 16),
-  undefined: p1 => (Math.pow(2, 16) + p1) % Math.pow(2, 16),
+  AND: (p1, p2) => (2 ** 16 + (p1 & p2)) % 2 ** 16,
+  OR: (p1, p2) => (2 ** 16 + (p1 | p2)) % 2 ** 16,
+  NOT: (p1, p2) => (2 ** 16 + ~p2) % 2 ** 16,
+  LSHIFT: (p1, p2) => (2 ** 16 + (p1 << p2)) % 2 ** 16,
+  RSHIFT: (p1, p2) => (2 ** 16 + (p1 >> p2)) % 2 ** 16,
+  undefined: p1 => (2 ** 16 + p1) % 2 ** 16,
 };
 
 function getter(id) {
@@ -24,7 +24,7 @@ function makeCircuit(input) {
     }))
     .reduce((circuit, gate) => {
       circuit[gate.result] = () => {
-        const memo = gate.op(gate.p1(circuit), gate.p2(circuit));
+        let memo = gate.op(gate.p1(circuit), gate.p2(circuit));
         circuit[gate.result] = () => memo;
         return memo;
       };
@@ -32,6 +32,10 @@ function makeCircuit(input) {
     }, {});
 }
 
-export const part1 = input => makeCircuit(input.split('\n')).a();
-export const part2 = input =>
-  makeCircuit(input.split('\n').concat(`${part1(input)} -> b`)).a();
+export function part1(input) {
+  return makeCircuit(input.split('\n')).a();
+}
+
+export function part2(input) {
+  return makeCircuit(input.split('\n').concat(`${part1(input)} -> b`)).a();
+}

@@ -54,9 +54,12 @@ function list(size) {
   return new Array(size).fill().map((x, i) => i);
 }
 
-export const part1 = (input, size = 256) =>
-  solve(list(size), parse(input))
+export function part1(input, size = 256) {
+  return solve(list(size), parse(input))
     .chain.slice(0, 2)
     .reduce((a, b) => a * b);
-export const part2 = (input, size = 256) =>
-  encode(dense(solve2(list(size), parse2(input))));
+}
+
+export function part2(input, size = 256) {
+  return encode(dense(solve2(list(size), parse2(input))));
+}

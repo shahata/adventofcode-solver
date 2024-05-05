@@ -38,5 +38,10 @@ function md5times(str, count) {
   return str;
 }
 
-export const part1 = input => generateKeys(input, x => md5times(x, 1)).pop();
-export const part2 = input => generateKeys(input, x => md5times(x, 2017)).pop();
+export function part1(input) {
+  return generateKeys(input, x => md5times(x, 1)).pop();
+}
+
+export function part2(input) {
+  return generateKeys(input, x => md5times(x, 2017)).pop();
+}

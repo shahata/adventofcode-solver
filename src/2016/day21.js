@@ -89,9 +89,12 @@ function undo(x) {
   }
 }
 
-export const part1 = (input, password = 'abcdefgh') =>
-  parse(input, x => x).reduce((x, f) => f(x), password);
-export const part2 = (input, encoded = 'fbgdceah') =>
-  parse(input, undo)
+export function part1(input, password = 'abcdefgh') {
+  return parse(input, x => x).reduce((x, f) => f(x), password);
+}
+
+export function part2(input, encoded = 'fbgdceah') {
+  return parse(input, undo)
     .reverse()
     .reduce((x, f) => f(x), encoded);
+}

@@ -1,5 +1,5 @@
 function at(ops, ip, user, offset) {
-  const mode = Math.floor(ops[ip] / Math.pow(10, offset + 1)) % 10;
+  const mode = Math.floor(ops[ip] / 10 ** (offset + 1)) % 10;
   if (mode === 0) {
     return ops[ip + offset];
   } else if (mode === 1) {

@@ -73,5 +73,10 @@ function solve2(destination) {
   return current;
 }
 
-export const part1 = input => solve1(+input);
-export const part2 = input => solve2(+input);
+export function part1(input) {
+  return solve1(+input);
+}
+
+export function part2(input) {
+  return solve2(+input);
+}

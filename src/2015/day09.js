@@ -1,5 +1,5 @@
 function shortest(graph, curr, visited) {
-  const paths = Object.keys(graph[curr])
+  let paths = Object.keys(graph[curr])
     .filter(node => visited.indexOf(node) === -1)
     .map(
       node => graph[curr][node] + shortest(graph, node, visited.concat(curr)),
@@ -8,7 +8,7 @@ function shortest(graph, curr, visited) {
 }
 
 function longest(graph, curr, visited) {
-  const paths = Object.keys(graph[curr])
+  let paths = Object.keys(graph[curr])
     .filter(node => visited.indexOf(node) === -1)
     .map(
       node => graph[curr][node] + longest(graph, node, visited.concat(curr)),
@@ -17,7 +17,7 @@ function longest(graph, curr, visited) {
 }
 
 function parse(input) {
-  const graph = input
+  let graph = input
     .split('\n')
     .map(x => x.match(/^(.*) to (.*) = (\d+)$/))
     .map(([, p1, p2, d]) => ({ p1, p2, d: +d }))
@@ -33,5 +33,10 @@ function parse(input) {
   return graph;
 }
 
-export const part1 = input => shortest(parse(input), '$$start', []);
-export const part2 = input => longest(parse(input), '$$start', []);
+export function part1(input) {
+  return shortest(parse(input), '$$start', []);
+}
+
+export function part2(input) {
+  return longest(parse(input), '$$start', []);
+}

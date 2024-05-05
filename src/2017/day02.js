@@ -1,5 +1,5 @@
-export const part1 = input =>
-  input
+export function part1(input) {
+  return input
     .split('\n')
     .map(line => {
       const numbers = line
@@ -9,9 +9,10 @@ export const part1 = input =>
       return numbers.pop() - numbers.shift();
     })
     .reduce((sum, x) => sum + x, 0);
+}
 
-export const part2 = input =>
-  input
+export function part2(input) {
+  return input
     .split('\n')
     .map(line => {
       const numbers = line
@@ -27,3 +28,4 @@ export const part2 = input =>
       return a / b;
     })
     .reduce((sum, x) => sum + x, 0);
+}

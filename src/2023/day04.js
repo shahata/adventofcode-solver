@@ -10,9 +10,7 @@ function parse(input) {
 
 export function part1(input) {
   const cards = parse(input);
-  return cards
-    .map(x => (x > 0 ? Math.pow(2, x - 1) : 0))
-    .reduce((a, b) => a + b, 0);
+  return cards.map(x => (x > 0 ? 2 ** (x - 1) : 0)).reduce((a, b) => a + b, 0);
 }
 
 export function part2(input) {

@@ -33,5 +33,10 @@ function solve(input, shortest = true) {
   return max;
 }
 
-export const part1 = input => solve(input, true);
-export const part2 = input => solve(input, false);
+export function part1(input) {
+  return solve(input, true);
+}
+
+export function part2(input) {
+  return solve(input, false);
+}

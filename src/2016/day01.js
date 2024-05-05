@@ -36,7 +36,8 @@ export function day(input) {
     );
   destination.twice = destination.twice || { x: NaN, y: NaN };
 
-  const part1 = Math.abs(destination.x) + Math.abs(destination.y);
-  const part2 = Math.abs(destination.twice.x) + Math.abs(destination.twice.y);
-  return { part1, part2 };
+  return {
+    part1: Math.abs(destination.x) + Math.abs(destination.y),
+    part2: Math.abs(destination.twice.x) + Math.abs(destination.twice.y),
+  };
 }

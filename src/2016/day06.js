@@ -17,11 +17,14 @@ function solve(input) {
     });
 }
 
-export const part1 = input =>
-  solve(input)
+export function part1(input) {
+  return solve(input)
     .map(x => x.shift())
     .join('');
-export const part2 = input =>
-  solve(input)
+}
+
+export function part2(input) {
+  return solve(input)
     .map(x => x.pop())
     .join('');
+}

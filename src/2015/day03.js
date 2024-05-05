@@ -16,7 +16,7 @@ function parse(input) {
 export function part1(input) {
   return parse(input).reduce(
     (state, next) => {
-      const pos = (state.pos = next(state.pos));
+      let pos = (state.pos = next(state.pos));
       state.visited.add(`${pos.x}-${pos.y}`);
       return state;
     },
@@ -27,8 +27,8 @@ export function part1(input) {
 export function part2(input) {
   return parse(input).reduce(
     (state, next, index) => {
-      const turn = index % 2 === 0 ? 'santa' : 'robot';
-      const pos = (state.pos[turn] = next(state.pos[turn]));
+      let turn = index % 2 === 0 ? 'santa' : 'robot';
+      let pos = (state.pos[turn] = next(state.pos[turn]));
       state.visited.add(`${pos.x}-${pos.y}`);
       return state;
     },

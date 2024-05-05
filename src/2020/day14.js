@@ -21,7 +21,7 @@ export function part2(input) {
     if (address === 'mask') {
       const floating = [...value.matchAll('X')].map(m => 35n - BigInt(m.index));
       const orMask = BigInt(parseInt(value.replaceAll('X', '0'), 2));
-      masks = new Array(Math.pow(2, floating.length))
+      masks = new Array(2 ** floating.length)
         .fill({ orMask, andMask: 0n })
         .map((x, i) => {
           return floating.reduce(({ orMask, andMask }, position, bit) => {

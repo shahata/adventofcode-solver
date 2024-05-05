@@ -27,5 +27,10 @@ function solve(input, x) {
   return f(boxes, total / x, x);
 }
 
-export const part1 = input => solve(input, 3);
-export const part2 = input => solve(input, 4);
+export function part1(input) {
+  return solve(input, 3);
+}
+
+export function part2(input) {
+  return solve(input, 4);
+}

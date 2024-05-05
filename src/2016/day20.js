@@ -25,6 +25,11 @@ function parse(input) {
   );
 }
 
-export const part1 = input => merge(parse(input))[0][1] + 1;
-export const part2 = input =>
-  MAX_IP - merge(parse(input)).reduce((sum, x) => sum + x[1] - x[0] + 1, 0) + 1;
+export function part1(input) {
+  return merge(parse(input))[0][1] + 1;
+}
+
+export function part2(input) {
+  let merged = merge(parse(input)).reduce((sum, x) => sum + x[1] - x[0] + 1, 0);
+  return MAX_IP - merged + 1;
+}

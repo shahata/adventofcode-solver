@@ -32,5 +32,10 @@ function process(input) {
     .reduce(parse, { score: 0, level: 0, removed: 0, mode: 'read' });
 }
 
-export const part1 = input => process(input).score;
-export const part2 = input => process(input).removed;
+export function part1(input) {
+  return process(input).score;
+}
+
+export function part2(input) {
+  return process(input).removed;
+}

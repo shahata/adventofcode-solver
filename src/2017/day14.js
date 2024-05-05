@@ -59,5 +59,10 @@ function countRegions(disk) {
   return regions;
 }
 
-export const part1 = input => countUsed(parse(input));
-export const part2 = input => countRegions(parse(input));
+export function part1(input) {
+  return countUsed(parse(input));
+}
+
+export function part2(input) {
+  return countRegions(parse(input));
+}

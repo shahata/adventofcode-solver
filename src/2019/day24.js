@@ -48,7 +48,7 @@ export function part1(input) {
   }
 
   const chars = life.reduce((prev, line) => prev.concat(line), []);
-  const ratings = chars.map((x, i) => (x === '.' ? 0 : Math.pow(2, i)));
+  const ratings = chars.map((x, i) => (x === '.' ? 0 : 2 ** i));
   return ratings.reduce((a, b) => a + b);
 }
 

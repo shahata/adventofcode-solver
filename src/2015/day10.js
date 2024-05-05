@@ -5,7 +5,10 @@ function transform(s) {
     .join('');
 }
 
-export const part1 = (input, times = 40) =>
-  new Array(times).fill().reduce(prev => transform(prev), input).length;
-export const part2 = (input, times = 50) =>
-  new Array(times).fill().reduce(prev => transform(prev), input).length;
+export function part1(input, times = 40) {
+  return new Array(times).fill().reduce(prev => transform(prev), input).length;
+}
+
+export function part2(input, times = 50) {
+  return new Array(times).fill().reduce(prev => transform(prev), input).length;
+}

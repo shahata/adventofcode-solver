@@ -92,5 +92,10 @@ function solve({ maze, targets }, andBack) {
   }, Infinity);
 }
 
-export const part1 = input => solve(parse(input), false);
-export const part2 = input => solve(parse(input), true);
+export function part1(input) {
+  return solve(parse(input), false);
+}
+
+export function part2(input) {
+  return solve(parse(input), true);
+}

@@ -107,7 +107,7 @@ function attempt(input, i) {
 
 function binarySearch(cb) {
   let start = 0;
-  let increment = Math.pow(2, 10);
+  let increment = 2 ** 10;
   while (increment > 4) {
     while (!cb(start)) {
       start += increment;

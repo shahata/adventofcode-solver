@@ -8,5 +8,10 @@ function solve(input, prefix) {
   return result;
 }
 
-export const part1 = input => solve(input, '00000');
-export const part2 = input => solve(input, '000000');
+export function part1(input) {
+  return solve(input, '00000');
+}
+
+export function part2(input) {
+  return solve(input, '000000');
+}

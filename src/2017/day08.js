@@ -44,5 +44,10 @@ function max(registers) {
     .pop();
 }
 
-export const part1 = input => max(execute(parse(input)));
-export const part2 = input => max(executeMax(parse(input)));
+export function part1(input) {
+  return max(execute(parse(input)));
+}
+
+export function part2(input) {
+  return max(executeMax(parse(input)));
+}

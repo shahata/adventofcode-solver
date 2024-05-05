@@ -23,5 +23,10 @@ function solve(scanners) {
   return i;
 }
 
-export const part1 = input => severity(parse(input));
-export const part2 = input => solve(parse(input));
+export function part1(input) {
+  return severity(parse(input));
+}
+
+export function part2(input) {
+  return solve(parse(input));
+}
