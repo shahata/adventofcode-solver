@@ -1,14 +1,15 @@
+const ops = {
+  cpy: (src, register) => state =>
+    (state[register] = src.match(/^\d+$/) ? +src : state[src]),
+  inc: register => state => state[register]++,
+  dec: register => state => state[register]--,
+  jnz: (register, distance) => state =>
+    (state.index += state[register] === 0 ? 0 : +distance - 1),
+};
+
 function toReducer(str) {
-  const params = str.split(/\s+/);
-  const ops = {
-    cpy: (src, register) => state =>
-      (state[register] = src.match(/^\d+$/) ? +src : state[src]),
-    inc: register => state => state[register]++,
-    dec: register => state => state[register]--,
-    jnz: (register, distance) => state =>
-      (state.index += state[register] === 0 ? 0 : +distance - 1),
-  };
-  const cmd = ops[params.shift()](...params);
+  let params = str.split(/\s+/);
+  let cmd = ops[params.shift()](...params);
   return state => {
     cmd(state);
     state.index++;

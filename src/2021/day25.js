@@ -32,4 +32,6 @@ export function part1(input) {
   return i;
 }
 
-export const part2 = () => undefined;
+export function part2() {
+  return undefined;
+}

@@ -116,4 +116,6 @@ export function part1(input) {
   return result;
 }
 
-export const part2 = () => undefined;
+export function part2() {
+  return undefined;
+}

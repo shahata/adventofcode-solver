@@ -13,7 +13,7 @@ function solve(input, shortest = true) {
   let queue = [{ x: 0, y: 0, path: '' }],
     max = -1;
   while (queue.length > 0) {
-    const next = queue.shift();
+    let next = queue.shift();
     if (next.x === 3 && next.y === 3) {
       if (shortest) {
         return next.path;
@@ -21,7 +21,7 @@ function solve(input, shortest = true) {
         max = Math.max(max, next.path.length);
       }
     } else {
-      const doors = md5(input + next.path)
+      let doors = md5(input + next.path)
         .slice(0, 4)
         .split('')
         .map(x => 'bcdef'.includes(x));

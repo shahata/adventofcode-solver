@@ -1,5 +1,5 @@
 function calcOptions() {
-  const items = {
+  let items = {
     weapons: [
       { name: 'dagger', cost: 8, damage: 4, armor: 0 },
       { name: 'shortsword', cost: 10, damage: 5, armor: 0 },

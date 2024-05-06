@@ -4,20 +4,21 @@ const directions = [
   { y: -1, x: 0 },
   { y: 0, x: -1 },
 ];
+
 export function day(input) {
-  const destination = input
+  let destination = input
     .split(', ')
     .map(x => {
-      const [, turn, count] = x.match(/^(R|L)(\d+)$/);
+      let [, turn, count] = x.match(/^(R|L)(\d+)$/);
       return { turn: turn === 'R' ? 1 : -1, count: +count };
     })
     .reduce(
       (state, next) => {
-        const direction =
+        let direction =
           (state.direction + next.turn + directions.length) % directions.length;
         return new Array(next.count).fill().reduce(state => {
-          const x = state.x + directions[direction].x;
-          const y = state.y + directions[direction].y;
+          let x = state.x + directions[direction].x;
+          let y = state.y + directions[direction].y;
           if (state.history[`${x},${y}`]) {
             state.twice = state.twice || { x, y };
           } else {

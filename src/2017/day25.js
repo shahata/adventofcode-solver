@@ -40,4 +40,6 @@ export function part1(input) {
   return Object.values(tape).filter(x => x === '1').length;
 }
 
-export const part2 = () => undefined;
+export function part2() {
+  return undefined;
+}

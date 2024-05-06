@@ -7,17 +7,17 @@ function findRepeatingCharacters(str, num) {
 }
 
 function generateKeys(input, hashFn) {
-  const keys = [],
+  let keys = [],
     window = [],
     characters = {};
   for (let i = 0; keys.length < 64; i++) {
-    const str = hashFn(`${input}${i}`);
+    let str = hashFn(`${input}${i}`);
     findRepeatingCharacters(str, 5).forEach(
       x => (characters[x] = (characters[x] || []).concat([i])),
     );
     if (i >= 1000) {
-      const digit = findRepeatingCharacters(window.shift(), 3).shift();
-      const index =
+      let digit = findRepeatingCharacters(window.shift(), 3).shift();
+      let index =
         digit !== undefined &&
         characters[digit] &&
         characters[digit].find(x => x > i - 1000);

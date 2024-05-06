@@ -24,4 +24,6 @@ export function part1(input) {
   return answer.join('');
 }
 
-export const part2 = () => undefined;
+export function part2() {
+  return undefined;
+}

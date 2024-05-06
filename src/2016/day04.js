@@ -1,10 +1,10 @@
 function parseRoom(s) {
-  const [, name, sector, checksum] = s.match(/^(.*)-(\d+)\[(.*)\]$/);
+  let [, name, sector, checksum] = s.match(/^(.*)-(\d+)\[(.*)\]$/);
   return { name, sector: +sector, checksum };
 }
 
 function checksum(s) {
-  const occurrences = s
+  let occurrences = s
     .replace(/-/g, '')
     .split('')
     .sort()
@@ -48,13 +48,13 @@ function parse(input) {
 }
 
 export function part1(input) {
-  const rooms = parse(input);
+  let rooms = parse(input);
   return rooms.reduce((sum, room) => sum + room.sector, 0);
 }
 
 export function part2(input) {
-  const rooms = parse(input);
-  const room = rooms
+  let rooms = parse(input);
+  let room = rooms
     .map(room => decrypt(room.name, room.sector))
     .findIndex(x => x === 'northpole object storage');
   return rooms[room] && rooms[room].sector;

@@ -6,7 +6,7 @@ const directions = {
 };
 
 function move(keypad, position, step) {
-  const next = { x: position.x + step.x, y: position.y + step.y };
+  let next = { x: position.x + step.x, y: position.y + step.y };
   return keypad[next.y] && keypad[next.y][next.x] ? next : position;
 }
 
@@ -28,22 +28,24 @@ function solve(input, keypad, start) {
     .join('');
 }
 
+const keypad1 = [
+  ['1', '2', '3'],
+  ['4', '5', '6'],
+  ['7', '8', '9'],
+];
+
 export function part1(input) {
-  const keypad1 = [
-    ['1', '2', '3'],
-    ['4', '5', '6'],
-    ['7', '8', '9'],
-  ];
   return solve(input, keypad1, { x: 1, y: 1 });
 }
 
+const keypad2 = [
+  [NaN, NaN, '1', NaN, NaN],
+  [NaN, '2', '3', '4', NaN],
+  ['5', '6', '7', '8', '9'],
+  [NaN, 'A', 'B', 'C', NaN],
+  [NaN, NaN, 'D', NaN, NaN],
+];
+
 export function part2(input) {
-  const keypad2 = [
-    [NaN, NaN, '1', NaN, NaN],
-    [NaN, '2', '3', '4', NaN],
-    ['5', '6', '7', '8', '9'],
-    [NaN, 'A', 'B', 'C', NaN],
-    [NaN, NaN, 'D', NaN, NaN],
-  ];
   return solve(input, keypad2, { x: 0, y: 2 });
 }
