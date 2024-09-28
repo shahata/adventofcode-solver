@@ -24,7 +24,7 @@ function neighbors(seats, current, far) {
 function life(input, count, far) {
   let seats = input.split('\n').map(x => x.split(''));
   let occupied = 0;
-  let prev = 0;
+  let prev;
   do {
     seats = seats.map((line, y) =>
       line.map((seat, x) => {

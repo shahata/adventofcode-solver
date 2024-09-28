@@ -10,7 +10,7 @@ function parse(input) {
           /^([a-z]+): ([a-z]+) (.) ([a-z]+)$/,
         );
         return { variable, param1, operator, param2 };
-      }
+      } else return undefined;
     })
     .reduce((obj, x) => ({ ...obj, [x.variable]: x }), {});
 }

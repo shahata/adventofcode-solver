@@ -32,7 +32,7 @@ export function part2(input) {
   const str = input.replace('S', 'a');
   let min = Infinity;
   for (const { index } of str.matchAll(/a/g)) {
-    const result = part1(str.slice(0, index) + 'S' + str.slice(index + 1));
+    const result = part1(`${str.slice(0, index)}S${str.slice(index + 1)}`);
     min = result < min ? result : min;
   }
   return min;

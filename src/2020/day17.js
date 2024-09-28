@@ -20,8 +20,8 @@ function neighbors(key) {
 
 export function part1(input, dimensions = 3) {
   const map = new Map();
-  input.split('\n').map((line, y) => {
-    line.split('').map((char, x) => {
+  input.split('\n').forEach((line, y) => {
+    line.split('').forEach((char, x) => {
       const coordinates = new Array(dimensions - 2).fill(0);
       map.set([x, y, ...coordinates].join(','), char === '#');
     });

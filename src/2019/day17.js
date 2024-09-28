@@ -101,7 +101,7 @@ export function part1(input) {
 export function part2(input) {
   const map = createMap(input);
   const route = findRoute(map).join(',');
-  const [, A, B, C] = (route + ',').match(
+  const [, A, B, C] = `${route},`.match(
     /^(.{1,20}),(?:\1,)*(.{1,20}),(?:\1,|\2,)*(.{1,20}),(?:\1,|\2,|\3,)*$/,
   );
   const main = route

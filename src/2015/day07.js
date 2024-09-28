@@ -17,7 +17,7 @@ function makeCircuit(input) {
       x.match(/^(?:(\w+) )?(?:(AND|OR|NOT|LSHIFT|RSHIFT) (\w+) )?-> (\w+)$/),
     )
     .map(x => ({
-      op: ops[x[2] + ''],
+      op: ops[`${x[2]}`],
       p1: getter(x[1]),
       p2: getter(x[3]),
       result: x[4],

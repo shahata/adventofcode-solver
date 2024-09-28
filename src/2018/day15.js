@@ -85,7 +85,7 @@ function fight(input, elfBoost = 0) {
 
 export function part1(input) {
   const { i, units } = fight(input);
-  return i * units.reduce((sum, u) => (sum += u.hit), 0);
+  return i * units.reduce((sum, u) => sum + u.hit, 0);
 }
 
 export function part2(input) {
@@ -96,5 +96,5 @@ export function part2(input) {
     ({ i, units } = fight(input, elfBoost));
     elfBoost++;
   } while (elfCount !== count(units, 'E'));
-  return i * units.reduce((sum, u) => (sum += u.hit), 0);
+  return i * units.reduce((sum, u) => sum + u.hit, 0);
 }

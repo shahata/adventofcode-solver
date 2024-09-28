@@ -31,7 +31,7 @@ function transform(current, transformations, memo, i) {
     return recall(current, memo, i);
   }
   current.start -= 5;
-  current.state = '.....' + current.state + '.....';
+  current.state = `.....${current.state}.....`;
   const next = { start: current.start, state: '..' };
   for (let i = 0; i < current.state.length - 5; i++) {
     if (transformations[current.state.slice(i, i + 5)] === '#') {

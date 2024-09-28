@@ -27,9 +27,9 @@ export function part1(input) {
 
 export function part2(input) {
   const lines = input.split('\n').map(line => {
-    let [direction, count, color] = line.split(' ');
-    count = parseInt(color.slice(2, -2), 16);
-    direction = 'RDLU'.at(color.slice(-2, -1));
+    const [, , color] = line.split(' ');
+    const count = parseInt(color.slice(2, -2), 16);
+    const direction = 'RDLU'.at(color.slice(-2, -1));
     return { direction, count };
   });
   return solve(lines);
