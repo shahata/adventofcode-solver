@@ -2,7 +2,6 @@ import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync, writeFileSync } from 'node:fs';
 
-import inquirer from 'inquirer';
 import { dayName, isDayName } from './day-name.js';
 import { calcLeaderboard } from './calc-leaderboard.js';
 import {
@@ -14,7 +13,7 @@ import {
   getEndPage,
   downloadStatic,
 } from './scraper.js';
-import TimeoutConfirm from '@shahata/inquirer-timeout-confirm-prompt';
+import timeoutConfirm from '@shahata/inquirer-timeout-confirm-prompt';
 
 function renderTemplate(year, name, extension, model) {
   let __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -82,16 +81,7 @@ export async function downloadIndex(year, bar, stars) {
   bar.tick();
 }
 
-function toHHMMSS(sec_num) {
-  let hours = Math.floor(sec_num / 3600);
-  let minutes = Math.floor((sec_num - hours * 3600) / 60);
-  let seconds = sec_num - hours * 3600 - minutes * 60;
-  let pad = num => (num < 10 ? '0' : '') + num;
-  return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
-}
-
 export async function createSolver(year, day) {
-  inquirer.registerPrompt('timeout-confirm', TimeoutConfirm);
   let page = await getYearPage(year);
   if (page.match(new RegExp(`key = "${year}-(\\d+)-"`))) {
     let [, actual] = page.match(new RegExp(`key = "${year}-(\\d+)-"`));
@@ -99,18 +89,12 @@ export async function createSolver(year, day) {
   }
   if (page.match(/server_eta = (\d+)/)) {
     let [, eta] = page.match(/server_eta = (\d+)/);
-    let answers = await inquirer.prompt([
-      {
-        type: 'timeout-confirm',
-        timeout: eta,
-        timeoutTips: t => `(${toHHMMSS(t)})`,
-        name: 'create',
-        message: `Create solver ${year}/${dayName(day)}?`,
-      },
-    ]);
-    if (!answers.create) {
-      return;
-    }
+    let create = await timeoutConfirm({
+      message: `Create solver ${year}/${dayName(day)}?`,
+      timeout: eta,
+      timeoutTips: t => `(${new Date(t * 1000).toISOString().slice(11, 19)})`,
+    });
+    if (!create) return;
   }
 
   let txtFileName = await downloadInput(year, day);
