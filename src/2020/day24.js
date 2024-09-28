@@ -36,7 +36,7 @@ function neighbors(key) {
 }
 
 export function part2(input) {
-  let map = parse(input);
+  const map = parse(input);
   return gol(
     map,
     neighbors,

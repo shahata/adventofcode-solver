@@ -54,7 +54,7 @@ export function part1(input, checkExterior = false) {
   }
 
   let count = 0;
-  let cache = new Set();
+  const cache = new Set();
   for (const cube of cubes) {
     const neighbors = getNeighbors(cube).filter(p => !checkExists(p));
     neighbors.forEach(neighbor => {

@@ -6,7 +6,7 @@ const directions = {
 };
 
 function move(keypad, position, step) {
-  let next = { x: position.x + step.x, y: position.y + step.y };
+  const next = { x: position.x + step.x, y: position.y + step.y };
   return keypad[next.y] && keypad[next.y][next.x] ? next : position;
 }
 

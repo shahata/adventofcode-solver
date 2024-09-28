@@ -1,5 +1,5 @@
 function parse(input) {
-  let allIngredients = new Map();
+  const allIngredients = new Map();
   const allAllergens = new Set();
   const foods = input
     .split('\n')

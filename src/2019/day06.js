@@ -33,9 +33,9 @@ export function part2(input) {
   });
 
   let queue = [{ distance: 0, position: start }];
-  let visited = ['YOU'];
+  const visited = ['YOU'];
   while (queue.length !== 0) {
-    let next = queue.shift();
+    const next = queue.shift();
     if (next.position === destination) {
       return next.distance;
     }

@@ -1,7 +1,7 @@
 function parse(input) {
   let parts = input.split('\n').map(line => {
     let [part, links] = line.split(' -> ');
-    let type = part[0];
+    const type = part[0];
     if (type !== 'b') part = part.slice(1);
     return [part, { part, type, links: links.split(', ') }];
   });
@@ -18,7 +18,7 @@ function parse(input) {
 
 function signal(parts, wait) {
   const queue = [{ part: 'broadcaster', level: false, from: 'button' }];
-  let count = { low: 0, high: 0 };
+  const count = { low: 0, high: 0 };
   while (queue.length > 0) {
     let { part, level, from } = queue.shift();
     count[level ? 'high' : 'low']++;

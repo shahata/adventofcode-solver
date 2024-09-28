@@ -10,7 +10,7 @@ function getNeighbors(maps, { x, y, steps }) {
 }
 
 function makeTrip(maps, start, end, steps = 0) {
-  let queue = [{ ...start, steps }];
+  const queue = [{ ...start, steps }];
   const visited = new Set();
   while (queue.length > 0) {
     const next = queue.shift();

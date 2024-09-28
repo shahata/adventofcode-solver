@@ -18,7 +18,7 @@ export function part1(input) {
     return x;
   }
 
-  let [, row, col] = input.match(/row (\d+), column (\d+).$/).map(Number);
+  const [, row, col] = input.match(/row (\d+), column (\d+).$/).map(Number);
   return calcPosition(calcIndex(row, col));
 }
 

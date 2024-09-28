@@ -7,7 +7,7 @@ function generate(input, size) {
 }
 
 function dragonCurve(a) {
-  let b = a.map(x => (x === '0' ? '1' : '0')).reverse();
+  const b = a.map(x => (x === '0' ? '1' : '0')).reverse();
   return a.concat('0', b);
 }
 

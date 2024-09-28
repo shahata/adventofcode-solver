@@ -1,5 +1,5 @@
 function parse(input, floor) {
-  let max = { x: 0, y: 0 };
+  const max = { x: 0, y: 0 };
   const rocks = input.split('\n').map(rock =>
     rock.split(' -> ').map(line => {
       const [x, y] = line.split(',').map(n => +n);
@@ -32,7 +32,7 @@ function drip(cave) {
   let count = 0;
   let resting = true;
   while (cave[0][500] === '.' && resting) {
-    let sand = { x: 500, y: 0 };
+    const sand = { x: 500, y: 0 };
     resting = false;
     while (cave[sand.y + 1] && !resting) {
       if (cave[sand.y + 1][sand.x] === '.') {

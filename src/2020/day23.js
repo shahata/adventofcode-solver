@@ -1,16 +1,16 @@
 function play(cups, moves) {
   const nextDestination = n => ((n - 2 + cups.length) % cups.length) + 1;
-  let { list, map } = linkList(cups);
+  const { list, map } = linkList(cups);
   let current = list;
   for (let i = 0; i < moves; i++) {
-    let take = current.next;
+    const take = current.next;
     current.next = take.next.next.next;
     let destinationValue = nextDestination(current.value);
     const takeValues = [take.value, take.next.value, take.next.next.value];
     while (takeValues.includes(destinationValue)) {
       destinationValue = nextDestination(destinationValue);
     }
-    let destination = map.get(destinationValue);
+    const destination = map.get(destinationValue);
     take.next.next.next = destination.next;
     destination.next = take;
     current = current.next;
@@ -49,7 +49,7 @@ export function part1(input, moves = 100) {
 }
 
 export function part2(input) {
-  let cups = input.split('').map(Number);
+  const cups = input.split('').map(Number);
   const arr = new Array(1000000)
     .fill(0)
     .map((x, i) => i + 1)

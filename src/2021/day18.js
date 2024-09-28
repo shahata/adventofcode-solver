@@ -51,8 +51,8 @@ export function part1(input) {
 export function part2(input) {
   const lines = input.split('\n').map(parse);
   let max = 0;
-  for (let a of lines) {
-    for (let b of lines) {
+  for (const a of lines) {
+    for (const b of lines) {
       max = Math.max(max, a !== b ? magnitude(add(a, b)) : 0);
     }
   }

@@ -36,7 +36,7 @@ function subtract(a, b) {
 function calculateAreas(input) {
   const commands = input.split('\n').map(line => {
     const [operation, rest] = line.split(' ');
-    let [x, y, z] = rest
+    const [x, y, z] = rest
       .split(',')
       .map(x => x.slice(2).split('..').map(Number));
     return {

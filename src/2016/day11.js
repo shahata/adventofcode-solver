@@ -2,11 +2,11 @@ import { combinations } from 'combinatorial-generators';
 
 function parse(input) {
   let pieces = [];
-  let state = {
+  const state = {
     elevator: 0,
     floors: input.split('\n').map(x => {
-      let generators = x.match(/[^\s]+(?=\s*generator)/g) || [];
-      let microchips = x.match(/[^\s]+(?=-compatible microchip)/g) || [];
+      const generators = x.match(/[^\s]+(?=\s*generator)/g) || [];
+      const microchips = x.match(/[^\s]+(?=-compatible microchip)/g) || [];
       pieces = pieces.concat(generators).concat(microchips);
       return { generators, microchips };
     }),
@@ -59,8 +59,8 @@ function legal(state) {
 }
 
 function getMoves(state, diff) {
-  let src = state.floors[state.elevator];
-  let pairs = src.generators.filter(x => src.microchips.includes(x));
+  const src = state.floors[state.elevator];
+  const pairs = src.generators.filter(x => src.microchips.includes(x));
   return pairs
     .map(x => ({ generators: [x], microchips: [x] }))
     .concat(
@@ -91,7 +91,7 @@ function getNeighbors(state) {
 }
 
 function done(state) {
-  let { generators, microchips } = state.floors.at(-1);
+  const { generators, microchips } = state.floors.at(-1);
   return state.pieces.length === generators.length + microchips.length;
 }
 
@@ -136,13 +136,15 @@ function stringify({ elevator, floors }) {
 }
 
 function solve(state) {
-  let queue = [{ distance: 0, state, path: [state] }];
-  let visited = new Set().add(stringify(state));
+  const queue = [{ distance: 0, state, path: [state] }];
+  const visited = new Set().add(stringify(state));
   while (queue.length > 0) {
-    let { state, distance, path } = queue.shift();
-    let neighbors = getNeighbors(state).filter(x => !visited.has(stringify(x)));
-    for (let x of neighbors) {
-      let json = stringify(x);
+    const { state, distance, path } = queue.shift();
+    const neighbors = getNeighbors(state).filter(
+      x => !visited.has(stringify(x)),
+    );
+    for (const x of neighbors) {
+      const json = stringify(x);
       if (done(x)) {
         // path.concat(x).forEach(state => console.log(print(state), '\n----------------------'));
         return distance + 1;
@@ -159,7 +161,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  let state = parse(input);
+  const state = parse(input);
   state.floors[0].generators.push('elerium', 'dilithium');
   state.floors[0].microchips.push('elerium', 'dilithium');
   state.pieces.push('elerium', 'dilithium', 'elerium', 'dilithium');

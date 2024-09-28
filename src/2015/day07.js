@@ -24,7 +24,7 @@ function makeCircuit(input) {
     }))
     .reduce((circuit, gate) => {
       circuit[gate.result] = () => {
-        let memo = gate.op(gate.p1(circuit), gate.p2(circuit));
+        const memo = gate.op(gate.p1(circuit), gate.p2(circuit));
         circuit[gate.result] = () => memo;
         return memo;
       };

@@ -1,11 +1,11 @@
 import { day } from './day17.js';
 import readInput from '../utils/read-input.js';
 
-let input = readInput(import.meta.url);
+const input = readInput(import.meta.url);
 
 describe('day17 2018', () => {
   test('it should work for example', () => {
-    let { part1, part2 } = day(
+    const { part1, part2 } = day(
       [
         'x=495, y=2..7',
         'y=7, x=495..501',
@@ -22,7 +22,7 @@ describe('day17 2018', () => {
   });
 
   test('it should work for input', () => {
-    let { part1, part2 } = day(input);
+    const { part1, part2 } = day(input);
     expect(part1).toEqual(38451);
     expect(part2).toEqual(28142);
   });

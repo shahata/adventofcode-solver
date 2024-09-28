@@ -1,12 +1,12 @@
 import { day } from './day10.js';
 import readInput from '../utils/read-input.js';
 
-let input = readInput(import.meta.url);
+const input = readInput(import.meta.url);
 
 describe('day10 2018', () => {
   describe('part1', () => {
     test('it should work for example', () => {
-      let { part1, part2 } = day(
+      const { part1, part2 } = day(
         [
           'position=< 9,  1> velocity=< 0,  2>',
           'position=< 7,  0> velocity=<-1,  0>',
@@ -58,7 +58,7 @@ describe('day10 2018', () => {
     });
 
     test('it should work for input', () => {
-      let { part1, part2 } = day(input);
+      const { part1, part2 } = day(input);
       expect(part1).toEqual('ZZCBGGCJ');
       expect(part2).toEqual(10886);
     });

@@ -20,7 +20,7 @@ function calculate(input) {
     .map(x => x.split('=').pop().split('..').map(Number));
   const deepY = Math.min(...yRange);
   const farX = Math.max(...xRange);
-  let results = [];
+  const results = [];
   for (let xVelocity = 0; xVelocity <= farX; xVelocity++) {
     for (let yVelocity = deepY; yVelocity <= Math.abs(deepY); yVelocity++) {
       const maxY = shoot(xVelocity, yVelocity, xRange, yRange);

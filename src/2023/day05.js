@@ -24,7 +24,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  let { seeds, maps } = parse(input);
+  const { seeds, maps } = parse(input);
   let seeds2 = [];
   for (let i = 0; i < seeds.length; i += 2) {
     seeds2.push({ start: seeds[i], length: seeds[i + 1] });

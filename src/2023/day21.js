@@ -8,7 +8,7 @@ function solve(input, steps, infinite) {
       }
     }
   }
-  let t = [];
+  const t = [];
   let visited = new Map([[`${start.x},${start.y}`, start]]);
   const max = steps > 5000 ? map.length * 2 + (steps % map.length) : steps;
   for (let i = 1; i <= max; i++) {

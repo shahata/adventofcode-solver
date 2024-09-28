@@ -31,7 +31,7 @@ function blockDeadEnds(map, current, visited = []) {
 
 function findNextKeys(map, point, keys) {
   const nextKeys = [];
-  let queue = [{ point, distance: 0 }];
+  const queue = [{ point, distance: 0 }];
   const visited = new Set();
   while (queue.length) {
     const next = queue.shift();

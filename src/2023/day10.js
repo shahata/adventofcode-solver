@@ -21,7 +21,7 @@ function solve(input) {
   const y = map.findIndex(line => line.includes('S'));
   const x = map[y].findIndex(c => c === 'S');
   const queue = [{ x, y, steps: 0 }];
-  let visited = new Set([`${x},${y}`]);
+  const visited = new Set([`${x},${y}`]);
   let max = 0;
   while (queue.length > 0) {
     const current = queue.shift();
@@ -73,8 +73,8 @@ function zoomout(map) {
 }
 
 function flood(map, x, y) {
-  let visited = new Set([`${x},${y}`]);
-  let queue = [{ x, y }];
+  const visited = new Set([`${x},${y}`]);
+  const queue = [{ x, y }];
   let trapped = true;
   while (queue.length > 0) {
     const current = queue.shift();

@@ -1,10 +1,10 @@
 function calcNeighbors({ molecule, replacements }) {
-  let results = new Set();
+  const results = new Set();
   replacements.forEach(pair => {
-    let regexp = new RegExp(pair.from, 'g');
+    const regexp = new RegExp(pair.from, 'g');
     while (regexp.exec(molecule)) {
-      let a = molecule.slice(0, regexp.lastIndex - pair.from.length);
-      let b = molecule.slice(regexp.lastIndex);
+      const a = molecule.slice(0, regexp.lastIndex - pair.from.length);
+      const b = molecule.slice(regexp.lastIndex);
       results.add(a + pair.to + b);
     }
   });
@@ -12,18 +12,18 @@ function calcNeighbors({ molecule, replacements }) {
 }
 
 function calcDistance({ molecule, replacements }) {
-  let elements = molecule.match(/[A-Z]/g).length;
-  let wrappers = (molecule.match(/(Rn|Ar)/g) || { length: 0 }).length;
-  let separators = (molecule.match(/Y/g) || { length: 0 }).length;
-  let last = replacements.find(x => x.from === 'e').to.length - 1;
+  const elements = molecule.match(/[A-Z]/g).length;
+  const wrappers = (molecule.match(/(Rn|Ar)/g) || { length: 0 }).length;
+  const separators = (molecule.match(/Y/g) || { length: 0 }).length;
+  const last = replacements.find(x => x.from === 'e').to.length - 1;
   return elements - wrappers - separators * 2 - last;
 }
 
 function parse(input) {
   input = input.split('\n');
-  let molecule = input.pop();
+  const molecule = input.pop();
   input.pop();
-  let replacements = input
+  const replacements = input
     .map(x => x.match(/^(\w+) => (\w+)$/))
     .map(([, from, to]) => ({ from, to }));
   return { molecule, replacements };

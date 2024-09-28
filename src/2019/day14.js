@@ -28,7 +28,7 @@ export function part1(input, fuelAmount = 1) {
     .reduce((prev, next) => Object.assign(prev, { [next.element]: next }), {});
 
   const spare = {};
-  let requirements = [{ amount: fuelAmount, element: 'FUEL' }];
+  const requirements = [{ amount: fuelAmount, element: 'FUEL' }];
   while (requirements.length > 1 || requirements[0].element !== 'ORE') {
     const next = requirements.shift();
     if (next.element === 'ORE') {

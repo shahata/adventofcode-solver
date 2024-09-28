@@ -1,7 +1,7 @@
 import readInput from '../utils/read-input.js';
 import { part1, part2 } from './day01.js';
 
-let input = readInput(import.meta.url);
+const input = readInput(import.meta.url);
 
 describe('day01 2017', () => {
   describe('part1', () => {

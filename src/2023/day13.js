@@ -20,7 +20,7 @@ function rotate(patch) {
 export function part1(input, smudges = 0) {
   const patches = input.split('\n\n').map(patch => patch.split('\n'));
   let result = 0;
-  for (let patch of patches) {
+  for (const patch of patches) {
     const row = getRowMirror(patch, smudges);
     if (row) result += row * 100;
     else result += getRowMirror(rotate(patch), smudges);

@@ -5,7 +5,7 @@ function run(input, commands) {
     .join('\n')
     .split('')
     .map(x => x.charCodeAt(0));
-  let output = [];
+  const output = [];
 
   const user = {
     input: () => chars.shift(),

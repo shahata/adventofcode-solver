@@ -19,7 +19,7 @@ function neighbors(key) {
 }
 
 export function part1(input, dimensions = 3) {
-  let map = new Map();
+  const map = new Map();
   input.split('\n').map((line, y) => {
     line.split('').map((char, x) => {
       const coordinates = new Array(dimensions - 2).fill(0);

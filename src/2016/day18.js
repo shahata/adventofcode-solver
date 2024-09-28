@@ -2,7 +2,7 @@ function calcRow(row) {
   return row
     .split('')
     .map((x, i) => {
-      let [l, c, r] = [row[i - 1] || '.', row[i], row[i + 1] || '.'];
+      const [l, c, r] = [row[i - 1] || '.', row[i], row[i + 1] || '.'];
       return (l !== c && l !== r) || (r !== c && r !== l) ? '^' : '.';
     })
     .join('');

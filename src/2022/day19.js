@@ -33,7 +33,7 @@ function best(blueprint, timeAvailable) {
   ];
   while (queue.length > 0) {
     const next = queue.pop();
-    let { resources, robots, time } = next;
+    const { resources, robots, time } = next;
     max = Math.max(max, resources[3] + robots[3] * time);
 
     blueprint.forEach((requirements, robotType) => {

@@ -18,7 +18,7 @@ function parse(input) {
 
 function index(bricks) {
   const map = new Map();
-  for (let brick of bricks) {
+  for (const brick of bricks) {
     brick.forEach(b => {
       const key = `${b[0]},${b[1]}`;
       map.set(key, (map.get(key) || []).concat({ brick, b }));
@@ -33,7 +33,7 @@ function fall(bricks) {
   const map = index(bricks);
   while (change) {
     change = false;
-    for (let brick of bricks) {
+    for (const brick of bricks) {
       const distances = brick.map(b => {
         const under = map
           .get(`${b[0]},${b[1]}`)

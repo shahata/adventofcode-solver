@@ -12,7 +12,7 @@ export function part1(input) {
   }
 
   const arr = sum.toString(5).split('');
-  let answer = [];
+  const answer = [];
   for (let i = arr.length - 1; i >= 0; i--) {
     if (+arr[i] < 3) answer.unshift(arr[i]);
     else {

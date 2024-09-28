@@ -1,10 +1,10 @@
 export function day(input, fill = 150) {
-  let boxes = input.split('\n').map(Number);
-  let result = new Array(boxes.length).fill(0);
-  let pad = result.join('');
+  const boxes = input.split('\n').map(Number);
+  const result = new Array(boxes.length).fill(0);
+  const pad = result.join('');
 
   for (let i = 2 ** boxes.length - 1; i > 0; i--) {
-    let select = (pad + i.toString(2))
+    const select = (pad + i.toString(2))
       .slice(-boxes.length)
       .split('')
       .map(Number);

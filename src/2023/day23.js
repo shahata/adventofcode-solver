@@ -63,8 +63,8 @@ function solve(map, teleports, start, end) {
 export function part1(input) {
   const map = input.split('\n').map(line => line.split(''));
   const teleports = findTeleports(map);
-  let start = { x: 1, y: 0, steps: 0, len: 0 };
-  let end = { x: map.length - 2, y: map.length - 1 };
+  const start = { x: 1, y: 0, steps: 0, len: 0 };
+  const end = { x: map.length - 2, y: map.length - 1 };
   return solve(map, teleports, start, end);
 }
 

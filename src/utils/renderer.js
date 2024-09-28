@@ -16,12 +16,12 @@ import {
 import timeoutConfirm from '@shahata/inquirer-timeout-confirm-prompt';
 
 function renderTemplate(year, name, extension, model) {
-  let __dirname = path.dirname(fileURLToPath(import.meta.url));
-  let src = path.resolve(__dirname, '..');
-  let templates = path.resolve(src, '..', 'templates');
-  let template = path.join(templates, isDayName(name) ? 'day' : name);
-  let fileName = `${path.join(src, year, name)}.${extension}`;
-  let result = Object.keys(model).reduce(
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const src = path.resolve(__dirname, '..');
+  const templates = path.resolve(src, '..', 'templates');
+  const template = path.join(templates, isDayName(name) ? 'day' : name);
+  const fileName = `${path.join(src, year, name)}.${extension}`;
+  const result = Object.keys(model).reduce(
     (result, key) => result.replaceAll(`{{${key}}}`, model[key]),
     readFileSync(`${template}.template.${extension}`).toString(),
   );
@@ -30,7 +30,7 @@ function renderTemplate(year, name, extension, model) {
 }
 
 export async function downloadQuestion(year, day, stars) {
-  let question = await getQuestionPage(year, day);
+  const question = await getQuestionPage(year, day);
   return renderTemplate(year, dayName(day), 'html', {
     question,
     year,
@@ -40,35 +40,35 @@ export async function downloadQuestion(year, day, stars) {
 }
 
 export async function downloadInput(year, day) {
-  let input = await getDayInput(year, day);
+  const input = await getDayInput(year, day);
   return renderTemplate(year, dayName(day), 'txt', { input });
 }
 
 export function tempLeaderboard(year) {
-  let model = calcLeaderboard();
+  const model = calcLeaderboard();
   if (model) {
     renderTemplate(year, 'leaderboard', 'html', { year, ...model });
   }
 }
 
-export let downloadIndexTicks = 7;
+export const downloadIndexTicks = 7;
 export async function downloadIndex(year, bar, stars) {
   renderTemplate(year, 'solver', 'html', { year, stars });
   bar.tick();
-  let page = await getYearPage(year);
+  const page = await getYearPage(year);
   renderTemplate(year, 'index', 'html', { year, page, stars });
   bar.tick();
-  let events = await getEventsPage(year);
+  const events = await getEventsPage(year);
   renderTemplate(year, 'events', 'html', { year, page: events, stars });
   bar.tick();
-  let leaderboards = await getLeaderboardJsons(year);
+  const leaderboards = await getLeaderboardJsons(year);
   renderTemplate(year, 'leaderboard', 'html', {
     year,
     ...calcLeaderboard(leaderboards),
     stars,
   });
   bar.tick();
-  let end = await getEndPage(year).catch(() => undefined);
+  const end = await getEndPage(year).catch(() => undefined);
   if (end) {
     renderTemplate(year, 'end', 'html', { year, page: end, stars });
   }
@@ -82,14 +82,14 @@ export async function downloadIndex(year, bar, stars) {
 }
 
 export async function createSolver(year, day) {
-  let page = await getYearPage(year);
+  const page = await getYearPage(year);
   if (page.match(new RegExp(`key = "${year}-(\\d+)-"`))) {
-    let [, actual] = page.match(new RegExp(`key = "${year}-(\\d+)-"`));
+    const [, actual] = page.match(new RegExp(`key = "${year}-(\\d+)-"`));
     day = actual;
   }
   if (page.match(/server_eta = (\d+)/)) {
-    let [, eta] = page.match(/server_eta = (\d+)/);
-    let create = await timeoutConfirm({
+    const [, eta] = page.match(/server_eta = (\d+)/);
+    const create = await timeoutConfirm({
       message: `Create solver ${year}/${dayName(day)}?`,
       timeout: eta,
       timeoutTips: t => `(${new Date(t * 1000).toISOString().slice(11, 19)})`,
@@ -97,9 +97,9 @@ export async function createSolver(year, day) {
     if (!create) return;
   }
 
-  let txtFileName = await downloadInput(year, day);
-  let jsFileName = renderTemplate(year, dayName(day), 'js', {});
-  let specFileName = renderTemplate(year, dayName(day), 'spec.js', {
+  const txtFileName = await downloadInput(year, day);
+  const jsFileName = renderTemplate(year, dayName(day), 'js', {});
+  const specFileName = renderTemplate(year, dayName(day), 'spec.js', {
     year,
     day: dayName(day),
   });

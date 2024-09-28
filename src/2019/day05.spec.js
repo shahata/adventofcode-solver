@@ -1,7 +1,7 @@
 import { part1, part2 } from './day05.js';
 import readInput from '../utils/read-input.js';
 
-let input = readInput(import.meta.url);
+const input = readInput(import.meta.url);
 
 describe('day05 2019', () => {
   describe('part1', () => {
@@ -30,7 +30,7 @@ describe('day05 2019', () => {
       expect(part2('3,3,1105,-1,9,1101,0,0,12,4,12,99,1', 0)).toEqual(0);
       expect(part2('3,3,1105,-1,9,1101,0,0,12,4,12,99,1', 5)).toEqual(1);
 
-      let long = [
+      const long = [
         '3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31',
         '1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104',
         '999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99',

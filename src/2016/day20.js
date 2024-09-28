@@ -4,7 +4,7 @@ function merge(ranges) {
   ranges.sort((a, b) => a[0] - b[0]);
   return ranges.reduce(
     (segments, range) => {
-      let lastSegment = segments.at(-1);
+      const lastSegment = segments.at(-1);
       if (range[0] > lastSegment[1] + 1) {
         segments.push(range);
       } else {
@@ -30,6 +30,9 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  let merged = merge(parse(input)).reduce((sum, x) => sum + x[1] - x[0] + 1, 0);
+  const merged = merge(parse(input)).reduce(
+    (sum, x) => sum + x[1] - x[0] + 1,
+    0,
+  );
   return MAX_IP - merged + 1;
 }

@@ -69,7 +69,7 @@ function parse(input) {
   return state;
 }
 
-let solved = [
+const solved = [
   '#############',
   '#...........#',
   '###A#B#C#D###',

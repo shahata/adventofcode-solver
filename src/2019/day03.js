@@ -20,7 +20,7 @@ function mark(map, current, direction, times) {
 
 function draw(map, line, id) {
   const steps = line.split(',');
-  let current = { x: 0, y: 0, track: 0, id };
+  const current = { x: 0, y: 0, track: 0, id };
   steps.forEach(s => {
     const [, direction, times] = s.match(/^(.)(\d+)$/);
     mark(map, current, direction, +times);

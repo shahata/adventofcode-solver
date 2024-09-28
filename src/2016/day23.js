@@ -44,8 +44,8 @@ function toggle(command) {
 }
 
 function toReducer(str) {
-  let params = str.split(/\s+/);
-  let cmd = { name: params.shift(), params };
+  const params = str.split(/\s+/);
+  const cmd = { name: params.shift(), params };
   return cmd;
 }
 
@@ -63,7 +63,7 @@ function run(commands, state) {
       state.d = 0;
       state.index = 10;
     } else {
-      let cmd = commands[state.index];
+      const cmd = commands[state.index];
       ops[cmd.name](...cmd.params)(state, commands);
       state.index++;
     }
@@ -72,11 +72,11 @@ function run(commands, state) {
 }
 
 export function part1(input, state = { a: 7, b: 0, c: 0, d: 0, index: 0 }) {
-  let commands1 = input.split('\n').map(toReducer);
+  const commands1 = input.split('\n').map(toReducer);
   return run(commands1, state).a;
 }
 
 export function part2(input, state = { a: 12, b: 0, c: 0, d: 0, index: 0 }) {
-  let commands2 = input.split('\n').map(toReducer);
+  const commands2 = input.split('\n').map(toReducer);
   return run(commands2, state).a;
 }

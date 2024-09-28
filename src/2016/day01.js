@@ -6,19 +6,19 @@ const directions = [
 ];
 
 export function day(input) {
-  let destination = input
+  const destination = input
     .split(', ')
     .map(x => {
-      let [, turn, count] = x.match(/^(R|L)(\d+)$/);
+      const [, turn, count] = x.match(/^(R|L)(\d+)$/);
       return { turn: turn === 'R' ? 1 : -1, count: +count };
     })
     .reduce(
       (state, next) => {
-        let direction =
+        const direction =
           (state.direction + next.turn + directions.length) % directions.length;
         return new Array(next.count).fill().reduce(state => {
-          let x = state.x + directions[direction].x;
-          let y = state.y + directions[direction].y;
+          const x = state.x + directions[direction].x;
+          const y = state.y + directions[direction].y;
           if (state.history[`${x},${y}`]) {
             state.twice = state.twice || { x, y };
           } else {

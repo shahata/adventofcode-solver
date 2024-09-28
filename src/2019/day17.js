@@ -1,7 +1,7 @@
 import { execute } from './day09.js';
 
 function createMap(input, commands) {
-  let output = [];
+  const output = [];
 
   const user = {
     input: () => commands.shift(),

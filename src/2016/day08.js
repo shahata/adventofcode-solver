@@ -14,7 +14,7 @@ function rect(state, x, y) {
 }
 
 function rotateRow(state, x, y) {
-  let moved = state[y].splice(-x, x);
+  const moved = state[y].splice(-x, x);
   state[y] = moved.concat(state[y]);
   return state;
 }
@@ -33,19 +33,19 @@ function flatten(screen) {
 
 function parseCommand(command) {
   if (command.startsWith('rect')) {
-    let [, x, y] = command.match(/^rect (\d+)x(\d+)$/);
+    const [, x, y] = command.match(/^rect (\d+)x(\d+)$/);
     return state => rect(state, +x, +y);
   } else if (command.startsWith('rotate row')) {
-    let [, y, x] = command.match(/^rotate row y=(\d+) by (\d+)$/);
+    const [, y, x] = command.match(/^rotate row y=(\d+) by (\d+)$/);
     return state => rotateRow(state, +x, +y);
   } else if (command.startsWith('rotate column')) {
-    let [, x, y] = command.match(/^rotate column x=(\d+) by (\d+)$/);
+    const [, x, y] = command.match(/^rotate column x=(\d+) by (\d+)$/);
     return state => rotateColumn(state, +x, +y);
   }
 }
 
 function solve(input, width, height) {
-  let screen = init(width, height);
+  const screen = init(width, height);
   return input
     .split('\n')
     .map(parseCommand)
@@ -53,12 +53,12 @@ function solve(input, width, height) {
 }
 
 export function part1(input, width = 50, height = 6) {
-  let final = solve(input, width, height);
+  const final = solve(input, width, height);
   return flatten(final).filter(x => x).length;
 }
 
 export function part2(input, width = 50, height = 6) {
-  let final = solve(input, width, height);
+  const final = solve(input, width, height);
   return ocr(
     final.map(row => `${row.map(x => (x ? '#' : '.')).join('')}`).join('\n'),
   );

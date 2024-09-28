@@ -25,7 +25,7 @@ function validate(ticket, rules) {
 }
 
 export function part1(input) {
-  let { rules, tickets } = parse(input);
+  const { rules, tickets } = parse(input);
   return tickets.map(x => validate(x, rules)).reduce((a, b) => a + b);
 }
 

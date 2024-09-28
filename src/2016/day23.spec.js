@@ -1,8 +1,8 @@
 import { part1, part2 } from './day23.js';
 import readInput from '../utils/read-input.js';
 
-let input = readInput(import.meta.url);
-let oldInput = readInput(import.meta.url.toString().replace(/23/g, '12'));
+const input = readInput(import.meta.url);
+const oldInput = readInput(import.meta.url.toString().replace(/23/g, '12'));
 
 describe('day23 2016', () => {
   describe('part1', () => {

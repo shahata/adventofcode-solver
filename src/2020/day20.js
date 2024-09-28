@@ -16,7 +16,7 @@ function allRotations(image) {
 }
 
 function parse(rows) {
-  let [id, ...tile] = rows.split('\n');
+  const [id, ...tile] = rows.split('\n');
   return {
     id: +id.match(/^Tile (\d+):$/).pop(),
     tile,

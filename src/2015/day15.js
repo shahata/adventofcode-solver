@@ -2,8 +2,8 @@ export function day(input) {
   function add(digits, param, i) {
     i = i || 0;
     if (i < digits.length) {
-      let sum = digits[i] + param;
-      let pass = Math.floor(sum / 101);
+      const sum = digits[i] + param;
+      const pass = Math.floor(sum / 101);
       digits[i] = sum % 101;
       return pass ? add(digits, pass, i + 1) : digits;
     }
@@ -22,24 +22,24 @@ export function day(input) {
     }, {});
   }
 
-  let ingredients = input
+  const ingredients = input
     .split('\n')
     .map(x => x.match(/^.*: (.*)$/))
     .map(([, s]) => parseMap(s, ', ', ' '));
 
   let part1 = 0,
     part2 = 0;
-  let spoons = new Array(ingredients.length).fill(0);
+  const spoons = new Array(ingredients.length).fill(0);
   while (add(spoons, 100)) {
     if (spoons.reduce((prev, x) => prev + x) === 100) {
-      let amounts = ingredients.map((x, index) =>
+      const amounts = ingredients.map((x, index) =>
         objMap(x, property => property * spoons[index]),
       );
-      let sum = amounts.reduce((prev, x) =>
+      const sum = amounts.reduce((prev, x) =>
         objMap(x, (value, key) => prev[key] + value),
       );
-      let properties = Object.keys(sum).filter(x => x !== 'calories');
-      let result = properties
+      const properties = Object.keys(sum).filter(x => x !== 'calories');
+      const result = properties
         .map(x => Math.max(0, sum[x]))
         .reduce((prev, x) => prev * x);
 

@@ -1,5 +1,5 @@
 export function day(input, low = 17, high = 61) {
-  let part1, part2;
+  let part1;
 
   function assign(state, dest, index, value) {
     state[dest] = {
@@ -17,10 +17,10 @@ export function day(input, low = 17, high = 61) {
   }
 
   function parse(line) {
-    let match = line.match(
+    const match = line.match(
       /^bot (\d+) gives low to (bot|output) (\d+) and high to (bot|output) (\d+)$/,
     );
-    let [, bot, lowDest, lowIndex, highDest, highIndex] = match;
+    const [, bot, lowDest, lowIndex, highDest, highIndex] = match;
     return state => {
       if (state.bots[bot] && state.bots[bot].length === 2) {
         state = assign(state, `${lowDest}s`, +lowIndex, state.bots[bot][0]);
@@ -34,20 +34,20 @@ export function day(input, low = 17, high = 61) {
   function init(lines) {
     return lines.reduce(
       (state, line) => {
-        let [, value, bot] = line.match(/^value (\d+) goes to bot (\d+)$/);
+        const [, value, bot] = line.match(/^value (\d+) goes to bot (\d+)$/);
         return assign(state, 'bots', +bot, +value);
       },
       { bots: {}, outputs: {} },
     );
   }
 
-  let lines = input.split('\n');
-  let state = init(lines.filter(x => x.startsWith('value')));
-  let instructions = lines.filter(x => x.startsWith('bot')).map(parse);
+  const lines = input.split('\n');
+  const state = init(lines.filter(x => x.startsWith('value')));
+  const instructions = lines.filter(x => x.startsWith('bot')).map(parse);
   while (instructions.some(update => update(state))) {
     /**/
   }
 
-  part2 = state.outputs[0] * state.outputs[1] * state.outputs[2];
+  const part2 = state.outputs[0] * state.outputs[1] * state.outputs[2];
   return { part1, part2 };
 }

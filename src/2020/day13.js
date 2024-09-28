@@ -18,7 +18,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  let buses = input
+  const buses = input
     .split('\n')
     .pop()
     .split(',')
