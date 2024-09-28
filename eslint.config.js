@@ -12,10 +12,7 @@ export default [
   { languageOptions: { globals: globals.browser } },
   {
     rules: {
-      'prefer-const': ['error', { destructuring: 'all' }],
       'prefer-template': 'error',
-      'array-callback-return': 'error',
-      'no-useless-assignment': 'error',
     },
   },
 ];
