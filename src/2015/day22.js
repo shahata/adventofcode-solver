@@ -78,7 +78,7 @@ function playBoss(game) {
 
 function memoize(fn) {
   const memo = {};
-  return function (...x) {
+  return (...x) => {
     const s = JSON.stringify(x);
     return (memo[s] = memo[s] ?? fn(...x));
   };

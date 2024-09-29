@@ -20,7 +20,7 @@ function wrapLogic1(maze, pos) {
 }
 
 function wrapLogic2(squares, width) {
-  return function (maze, pos) {
+  return (maze, pos) => {
     const offset = { x: pos.x % width, y: pos.y % width };
     const mirror = { x: width - offset.x - 1, y: width - offset.y - 1 };
     const [i, direction] = squares.find(

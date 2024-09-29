@@ -56,7 +56,7 @@ export function part2(input) {
 
   let mid = Math.floor((start + end) / 2);
   let result = part1(input, mid);
-  while (result != value && start < end) {
+  while (result !== value && start < end) {
     if (value < result) {
       end = mid - 1;
     } else if (value > result) {

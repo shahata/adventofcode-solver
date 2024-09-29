@@ -19,10 +19,10 @@ function getBugs2(lifez, x, y, z) {
     if (y === 4) result.push(up[3][2]);
   }
   if (down) {
-    if (x == 2 && y === 1) result.push(...down[0]);
-    if (x == 2 && y === 3) result.push(...down[4]);
-    if (y == 2 && x === 1) result.push(...down.map(l => l[0]));
-    if (y == 2 && x === 3) result.push(...down.map(l => l[4]));
+    if (x === 2 && y === 1) result.push(...down[0]);
+    if (x === 2 && y === 3) result.push(...down[4]);
+    if (y === 2 && x === 1) result.push(...down.map(l => l[0]));
+    if (y === 2 && x === 3) result.push(...down.map(l => l[4]));
   }
   return result.filter(x => x === '#').length + getBugs(lifez[z], x, y);
 }
