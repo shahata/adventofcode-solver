@@ -1,4 +1,4 @@
-import { imports } from './urls.js';
+import { imports, aocSolverServer } from './urls.js';
 
 class WorkerShim {
   constructor(url, options) {
@@ -76,7 +76,7 @@ async function submitAnswer(e) {
   const day = form.querySelector('#day').value;
   const level = form.querySelector('#level').value;
   const answer = form.querySelector('#answer').value;
-  const url = `https://www.wix.com/_serverless/adventofcode/answer/${year}/${day}?session=${session}`;
+  const url = `${aocSolverServer}/answer/${year}/${day}?session=${session}`;
   const result = await fetch(url, {
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: `level=${level}&answer=${encodeURIComponent(answer)}`,

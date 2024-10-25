@@ -21,3 +21,6 @@ export const imports = {
   ...unpkg('node-forge', '/dist/forge.min.js'),
   ...unpkg('es-module-shims'),
 };
+
+// export const aocSolverServer = 'https://www.wix.com/_serverless/adventofcode';
+export const aocSolverServer = 'https://aoc.deno.dev';

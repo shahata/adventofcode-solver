@@ -1,4 +1,5 @@
 import { dayName } from './day-name.js';
+import { aocSolverServer } from './urls.js';
 
 let duration;
 async function timerify(fn) {
@@ -10,7 +11,7 @@ async function timerify(fn) {
 }
 
 async function readInput(session, year, day) {
-  let url = `https://www.wix.com/_serverless/adventofcode/input/${year}/${day}?session=${session}`;
+  let url = `${aocSolverServer}/input/${year}/${day}?session=${session}`;
   if (!session) {
     const fileName = `${year}/${dayName(day)}`;
     url = new URL(`../${fileName}.txt`, self['workerShimUrl']).toString();
@@ -23,7 +24,7 @@ async function readInput(session, year, day) {
 }
 
 async function readAnswers(session, year, day) {
-  const url = `https://www.wix.com/_serverless/adventofcode/question/${year}/${day}?session=${session}`;
+  const url = `${aocSolverServer}/question/${year}/${day}?session=${session}`;
   const result = await fetch(url);
   return result.status === 200 ? await result.json() : [];
 }
