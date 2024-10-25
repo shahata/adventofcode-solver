@@ -23,4 +23,5 @@ export const imports = {
 };
 
 // export const aocSolverServer = 'https://www.wix.com/_serverless/adventofcode';
+// export const aocSolverServer = 'https://aoc.shahar-talmi.workers.dev';
 export const aocSolverServer = 'https://aoc.deno.dev';

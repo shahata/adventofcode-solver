@@ -1,0 +1,10 @@
+{
+  "deploy": {
+    "project": "652c6edb-dacd-440a-845e-8ea175eddd31",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "deno.js"
+  }
+}
