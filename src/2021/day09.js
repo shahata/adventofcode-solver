@@ -19,8 +19,8 @@ function markBasin(map, point) {
 function findBasins(input) {
   const basins = [];
   const map = input
-    .split('\n')
-    .map((line, i) => line.split('').map((x, j) => ({ val: +x, i, j })));
+    .split("\n")
+    .map((line, i) => line.split("").map((x, j) => ({ val: +x, i, j })));
   for (const line of map) {
     for (const point of line) {
       if (neighbors(map, point).every(x => x.val > point.val)) {

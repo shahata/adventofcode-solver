@@ -21,20 +21,20 @@ function fft2(digits) {
 }
 
 export function part1(input, phases = 100) {
-  let digits = input.split('').map(Number);
+  let digits = input.split("").map(Number);
   for (let i = 0; i < phases; i++) {
     digits = fft(digits);
   }
-  return digits.slice(0, 8).join('');
+  return digits.slice(0, 8).join("");
 }
 
 export function part2(input) {
   input = input.repeat(10000).slice(+input.slice(0, 7));
-  let digits = input.split('').map(Number);
+  let digits = input.split("").map(Number);
 
   for (let i = 0; i < 100; i++) {
     digits = fft2(digits);
   }
 
-  return digits.slice(0, 8).join('');
+  return digits.slice(0, 8).join("");
 }

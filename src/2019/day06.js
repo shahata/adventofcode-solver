@@ -8,7 +8,7 @@ function calc(map, x) {
 }
 
 export function part1(input) {
-  const orbits = input.split('\n').map(x => x.split(')'));
+  const orbits = input.split("\n").map(x => x.split(")"));
   const map = {};
   orbits.forEach(orbit => {
     map[orbit[1]] = { orbiting: orbit[0] };
@@ -19,13 +19,13 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const orbits = input.split('\n').map(x => x.split(')'));
+  const orbits = input.split("\n").map(x => x.split(")"));
   const map = {};
   let start, destination;
   orbits.forEach(orbit => {
-    if (orbit[1] === 'YOU') {
+    if (orbit[1] === "YOU") {
       start = orbit[0];
-    } else if (orbit[1] === 'SAN') {
+    } else if (orbit[1] === "SAN") {
       destination = orbit[0];
     }
     map[orbit[1]] = (map[orbit[1]] || []).concat([orbit[0]]);
@@ -33,7 +33,7 @@ export function part2(input) {
   });
 
   let queue = [{ distance: 0, position: start }];
-  const visited = ['YOU'];
+  const visited = ["YOU"];
   while (queue.length !== 0) {
     const next = queue.shift();
     if (next.position === destination) {

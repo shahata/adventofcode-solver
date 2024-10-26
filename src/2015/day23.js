@@ -23,7 +23,7 @@ function run(state, instructions) {
 
 function parse(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(x => {
       return x
         .match(/^(\w+) ([\w+-]+)(?:, ([\w+-]+))?$/)

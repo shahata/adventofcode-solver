@@ -24,13 +24,13 @@ function life(grid, stuck) {
 }
 
 export function part1(input, steps = 100) {
-  const grid1 = input.split('\n').map(x => x.split('').map(c => c === '#'));
+  const grid1 = input.split("\n").map(x => x.split("").map(c => c === "#"));
   const result = new Array(steps).fill().reduce(x => life(x), grid1);
   return result.reduce((prev, row) => prev.concat(row)).filter(x => x).length;
 }
 
 export function part2(input, steps = 100) {
-  const grid1 = input.split('\n').map(x => x.split('').map(c => c === '#'));
+  const grid1 = input.split("\n").map(x => x.split("").map(c => c === "#"));
   const corner = (i, j) =>
     (i === 0 || i === grid1.length - 1) && (j === 0 || j === grid1.length - 1);
   const grid2 = grid1.map((row, i) =>

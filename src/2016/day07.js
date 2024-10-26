@@ -10,9 +10,9 @@ function tls(ip) {
 }
 
 export function part1(input) {
-  return input.split('\n').filter(tls).length;
+  return input.split("\n").filter(tls).length;
 }
 
 export function part2(input) {
-  return input.split('\n').filter(ssl).length;
+  return input.split("\n").filter(ssl).length;
 }

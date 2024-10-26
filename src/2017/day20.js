@@ -34,7 +34,7 @@ function findCollisions(particles) {
 }
 
 function parse(input) {
-  return input.split('\n').map((line, i) => {
+  return input.split("\n").map((line, i) => {
     const parser =
       /^p=<(-?\d+),(-?\d+),(-?\d+)>, v=<(-?\d+),(-?\d+),(-?\d+)>, a=<(-?\d+),(-?\d+),(-?\d+)>$/;
     const numbers = line.match(parser).slice(1).map(Number);

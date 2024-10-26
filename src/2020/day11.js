@@ -15,30 +15,30 @@ function neighbors(seats, current, far) {
       let point = current;
       do {
         point = direction(point);
-      } while (far && seats[point.y] && seats[point.y][point.x] === '.');
-      return seats[point.y] && seats[point.y][point.x] === '#' ? 1 : 0;
+      } while (far && seats[point.y] && seats[point.y][point.x] === ".");
+      return seats[point.y] && seats[point.y][point.x] === "#" ? 1 : 0;
     })
     .reduce((a, b) => a + b, 0);
 }
 
 function life(input, count, far) {
-  let seats = input.split('\n').map(x => x.split(''));
+  let seats = input.split("\n").map(x => x.split(""));
   let occupied = 0;
   let prev;
   do {
     seats = seats.map((line, y) =>
       line.map((seat, x) => {
-        if (seat !== '.') {
+        if (seat !== ".") {
           const n = neighbors(seats, { x, y }, far);
-          if (seat === 'L' && n === 0) return '#';
-          if (seat === '#' && n >= count) return 'L';
+          if (seat === "L" && n === 0) return "#";
+          if (seat === "#" && n >= count) return "L";
         }
         return seat;
       }),
     );
     prev = occupied;
     occupied = seats
-      .map(line => line.map(x => (x === '#' ? 1 : 0)).reduce((a, b) => a + b))
+      .map(line => line.map(x => (x === "#" ? 1 : 0)).reduce((a, b) => a + b))
       .reduce((a, b) => a + b);
   } while (occupied !== prev);
   return occupied;

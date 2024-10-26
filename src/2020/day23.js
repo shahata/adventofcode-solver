@@ -33,7 +33,7 @@ function linkList(cups) {
 }
 
 function print(list) {
-  let result = '';
+  let result = "";
   let current = list;
   do {
     result += current.value;
@@ -43,13 +43,13 @@ function print(list) {
 }
 
 export function part1(input, moves = 100) {
-  const cups = input.split('').map(Number);
+  const cups = input.split("").map(Number);
   const list = play(cups, moves);
   return print(list).slice(1);
 }
 
 export function part2(input) {
-  const cups = input.split('').map(Number);
+  const cups = input.split("").map(Number);
   const arr = new Array(1000000)
     .fill(0)
     .map((x, i) => i + 1)

@@ -6,16 +6,16 @@
 
 function parse(input) {
   const dic = {
-    'inc': (a, b) => a + b,
-    'dec': (a, b) => a - b,
-    '>': (a, b) => a > b,
-    '<': (a, b) => a < b,
-    '>=': (a, b) => a >= b,
-    '<=': (a, b) => a <= b,
-    '==': (a, b) => a === b,
-    '!=': (a, b) => a !== b,
+    "inc": (a, b) => a + b,
+    "dec": (a, b) => a - b,
+    ">": (a, b) => a > b,
+    "<": (a, b) => a < b,
+    ">=": (a, b) => a >= b,
+    "<=": (a, b) => a <= b,
+    "==": (a, b) => a === b,
+    "!=": (a, b) => a !== b,
   };
-  return input.split('\n').map(x => {
+  return input.split("\n").map(x => {
     const [variable, operator, param, , compVariable, compOperator, compParam] =
       x.split(/\s+/);
     return state => {

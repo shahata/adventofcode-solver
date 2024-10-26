@@ -1,12 +1,12 @@
-import { combinations } from 'combinatorial-generators';
+import { combinations } from "combinatorial-generators";
 
 function parse(input) {
   const targets = [];
-  const maze = input.split('\n').map((line, y) =>
-    line.split('').map((c, x) => {
-      if (c === '#') {
+  const maze = input.split("\n").map((line, y) =>
+    line.split("").map((c, x) => {
+      if (c === "#") {
         return { x, y, wall: true };
-      } else if (c === '.') {
+      } else if (c === ".") {
         return { x, y, wall: false };
       } else {
         const point = { x, y, wall: false, target: +c };

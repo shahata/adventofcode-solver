@@ -1,11 +1,11 @@
-import { day } from './day10.js';
-import readInput from '../utils/read-input.js';
+import { day } from "./day10.js";
+import readInput from "../utils/read-input.js";
 
 const input = readInput(import.meta.url);
 
-describe('day10 2016', () => {
-  describe('part1', () => {
-    test('it should work for part 1 examples', () => {
+describe("day10 2016", () => {
+  describe("part1", () => {
+    test("it should work for part 1 examples", () => {
       expect(
         day(
           `value 5 goes to bot 2
@@ -20,13 +20,13 @@ value 2 goes to bot 2`,
       ).toEqual(2);
     });
 
-    test('it should work for part 1 input', () => {
+    test("it should work for part 1 input", () => {
       expect(day(input).part1).toEqual(181);
     });
   });
 
-  describe('part2', () => {
-    test('it should work for part 2 examples', () => {
+  describe("part2", () => {
+    test("it should work for part 2 examples", () => {
       expect(
         day(
           `value 5 goes to bot 2
@@ -41,7 +41,7 @@ value 2 goes to bot 2`,
       ).toEqual(30);
     });
 
-    test('it should work for part 2 input', () => {
+    test("it should work for part 2 input", () => {
       expect(day(input).part2).toEqual(12567);
     });
   });

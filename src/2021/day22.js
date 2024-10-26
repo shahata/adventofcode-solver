@@ -34,11 +34,11 @@ function subtract(a, b) {
 }
 
 function calculateAreas(input) {
-  const commands = input.split('\n').map(line => {
-    const [operation, rest] = line.split(' ');
+  const commands = input.split("\n").map(line => {
+    const [operation, rest] = line.split(" ");
     const [x, y, z] = rest
-      .split(',')
-      .map(x => x.slice(2).split('..').map(Number));
+      .split(",")
+      .map(x => x.slice(2).split("..").map(Number));
     return {
       operation,
       x: [x[0], x[1] + 1],
@@ -52,7 +52,7 @@ function calculateAreas(input) {
     areas = areas.flatMap(x =>
       overlaps(x, command) ? subtract(x, command) : [x],
     );
-    if (command.operation === 'on') areas.push(command);
+    if (command.operation === "on") areas.push(command);
   }
   return areas;
 }

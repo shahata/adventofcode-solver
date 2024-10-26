@@ -8,20 +8,20 @@ function hash(word) {
   return hash;
 }
 export function part1(input) {
-  const words = input.split(',');
+  const words = input.split(",");
   return words.map(hash).reduce((sum, hash) => sum + hash, 0);
 }
 
 export function part2(input) {
-  const operations = input.split(',').map(x => {
+  const operations = input.split(",").map(x => {
     const [label, focal] = x.split(/[-=]/);
-    return focal ? { op: '=', label, focal: +focal } : { op: '-', label };
+    return focal ? { op: "=", label, focal: +focal } : { op: "-", label };
   });
   const hashmap = new Array(256).fill().map(() => []);
   for (const operation of operations) {
     const box = hash(operation.label);
     const i = hashmap[box].findIndex(x => x.label === operation.label);
-    if (operation.op === '-') {
+    if (operation.op === "-") {
       if (i !== -1) hashmap[box].splice(i, 1);
     } else {
       if (i === -1) hashmap[box].push(operation);

@@ -1,5 +1,5 @@
 function parse(input) {
-  return input.split('\n').map(line => {
+  return input.split("\n").map(line => {
     const [, sx, sy, bx, by] = line.match(
       /^Sensor at x=(-?\d+), y=(-?\d+): closest beacon is at x=(-?\d+), y=(-?\d+)$/,
     );

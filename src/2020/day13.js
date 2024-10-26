@@ -1,9 +1,9 @@
 export function part1(input) {
-  let [timestamp, buses] = input.split('\n');
+  let [timestamp, buses] = input.split("\n");
   timestamp = +timestamp;
   buses = buses
-    .split(',')
-    .filter(x => x !== 'x')
+    .split(",")
+    .filter(x => x !== "x")
     .map(Number);
 
   const next = buses.map(x => {
@@ -19,9 +19,9 @@ export function part1(input) {
 
 export function part2(input) {
   const buses = input
-    .split('\n')
+    .split("\n")
     .pop()
-    .split(',')
+    .split(",")
     .map((x, i) => ({ id: +x, offset: i }))
     .filter(({ id }) => !isNaN(id));
 

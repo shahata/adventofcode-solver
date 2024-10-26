@@ -1,7 +1,7 @@
 function parse(input) {
-  return input.split('\n').reduce((obj, line) => {
-    const [key, neighbors] = line.split(' <-> ');
-    return { ...obj, [key]: neighbors.split(', ') };
+  return input.split("\n").reduce((obj, line) => {
+    const [key, neighbors] = line.split(" <-> ");
+    return { ...obj, [key]: neighbors.split(", ") };
   }, {});
 }
 
@@ -26,7 +26,7 @@ function countGroups(graph) {
 }
 
 export function part1(input) {
-  return count(parse(input), '0').size;
+  return count(parse(input), "0").size;
 }
 
 export function part2(input) {

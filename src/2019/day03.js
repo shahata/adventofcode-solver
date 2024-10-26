@@ -1,12 +1,12 @@
 function mark(map, current, direction, times) {
   for (let i = 0; i < times; i++) {
-    if (direction === 'U') {
+    if (direction === "U") {
       current.y--;
-    } else if (direction === 'D') {
+    } else if (direction === "D") {
       current.y++;
-    } else if (direction === 'L') {
+    } else if (direction === "L") {
       current.x--;
-    } else if (direction === 'R') {
+    } else if (direction === "R") {
       current.x++;
     }
     current.track++;
@@ -19,7 +19,7 @@ function mark(map, current, direction, times) {
 }
 
 function draw(map, line, id) {
-  const steps = line.split(',');
+  const steps = line.split(",");
   const current = { x: 0, y: 0, track: 0, id };
   steps.forEach(s => {
     const [, direction, times] = s.match(/^(.)(\d+)$/);
@@ -28,7 +28,7 @@ function draw(map, line, id) {
 }
 
 export function part1(input) {
-  const [line1, line2] = input.split('\n');
+  const [line1, line2] = input.split("\n");
   const map = new Map();
   draw(map, line1, 1);
   draw(map, line2, 2);
@@ -36,7 +36,7 @@ export function part1(input) {
     .filter(entry => entry[1].ids === 3)
     .map(entry => {
       return entry[0]
-        .split(',')
+        .split(",")
         .map(x => Math.abs(+x))
         .reduce((a, b) => a + b);
     });
@@ -44,7 +44,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const [line1, line2] = input.split('\n');
+  const [line1, line2] = input.split("\n");
   const map = new Map();
   draw(map, line1, 1);
   draw(map, line2, 2);

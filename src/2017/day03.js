@@ -46,14 +46,14 @@ function calc({ position, map }) {
 
 function direction({ position, direction, map }) {
   switch (direction) {
-    case 'R':
-      return map[toKey(next({ position, direction: 'U' }))] ? direction : 'U';
-    case 'L':
-      return map[toKey(next({ position, direction: 'D' }))] ? direction : 'D';
-    case 'U':
-      return map[toKey(next({ position, direction: 'L' }))] ? direction : 'L';
-    case 'D':
-      return map[toKey(next({ position, direction: 'R' }))] ? direction : 'R';
+    case "R":
+      return map[toKey(next({ position, direction: "U" }))] ? direction : "U";
+    case "L":
+      return map[toKey(next({ position, direction: "D" }))] ? direction : "D";
+    case "U":
+      return map[toKey(next({ position, direction: "L" }))] ? direction : "L";
+    case "D":
+      return map[toKey(next({ position, direction: "R" }))] ? direction : "R";
     default:
   }
 }
@@ -61,7 +61,7 @@ function direction({ position, direction, map }) {
 function solve2(destination) {
   const state = {
     position: { x: 0, y: 0 },
-    direction: 'R',
+    direction: "R",
     map: { [toKey({ x: 0, y: 0 })]: 1 },
   };
   let current = 1;

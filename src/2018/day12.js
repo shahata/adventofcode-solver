@@ -1,7 +1,7 @@
 function trim(next) {
   const prefix = next.state.match(/^\.*/).pop().length;
   next.start += prefix;
-  next.state = next.state.replace(/^\.*/, '').replace(/\.*$/, '');
+  next.state = next.state.replace(/^\.*/, "").replace(/\.*$/, "");
   return next;
 }
 
@@ -32,23 +32,23 @@ function transform(current, transformations, memo, i) {
   }
   current.start -= 5;
   current.state = `.....${current.state}.....`;
-  const next = { start: current.start, state: '..' };
+  const next = { start: current.start, state: ".." };
   for (let i = 0; i < current.state.length - 5; i++) {
-    if (transformations[current.state.slice(i, i + 5)] === '#') {
-      next.state += '#';
+    if (transformations[current.state.slice(i, i + 5)] === "#") {
+      next.state += "#";
     } else {
-      next.state += '.';
+      next.state += ".";
     }
   }
   return remember(trim(next), trim(current), memo, i);
 }
 
 export function part1(input, generations = 20) {
-  const lines = input.split('\n');
+  const lines = input.split("\n");
   const [, initialState] = lines.shift().match(/([#.]+)/);
   const transformations = lines
     .slice(1)
-    .map(x => x.split(' => '))
+    .map(x => x.split(" => "))
     .reduce((obj, [from, to]) => ({ ...obj, [from]: to }), {});
 
   const memo = {};
@@ -63,8 +63,8 @@ export function part1(input, generations = 20) {
   }
 
   return next.state
-    .split('')
-    .map((x, i) => (x === '#' ? next.start + i : 0))
+    .split("")
+    .map((x, i) => (x === "#" ? next.start + i : 0))
     .reduce((sum, x) => sum + x, 0);
 }
 

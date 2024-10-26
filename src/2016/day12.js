@@ -25,10 +25,10 @@ function run(commands, state) {
 
 export function part1(input) {
   const state = { a: 0, b: 0, c: 0, d: 0, index: 0 };
-  return run(input.split('\n').map(toReducer), state).a;
+  return run(input.split("\n").map(toReducer), state).a;
 }
 
 export function part2(input) {
   const state = { a: 0, b: 0, c: 1, d: 0, index: 0 };
-  return run(input.split('\n').map(toReducer), state).a;
+  return run(input.split("\n").map(toReducer), state).a;
 }

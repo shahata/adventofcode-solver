@@ -1,32 +1,32 @@
 const turnLeft = {
-  U: 'L',
-  D: 'R',
-  L: 'D',
-  R: 'U',
+  U: "L",
+  D: "R",
+  L: "D",
+  R: "U",
 };
 
 const turnRight = {
-  U: 'R',
-  D: 'L',
-  L: 'U',
-  R: 'D',
+  U: "R",
+  D: "L",
+  L: "U",
+  R: "D",
 };
 
 const turnBackward = {
-  U: 'D',
-  D: 'U',
-  L: 'R',
-  R: 'L',
+  U: "D",
+  D: "U",
+  L: "R",
+  R: "L",
 };
 
 function turn(state) {
   const node = state.nodes[toKey(state.position)];
   switch (node) {
-    case '#':
+    case "#":
       return turnRight[state.direction];
-    case 'W':
+    case "W":
       return state.direction;
-    case 'F':
+    case "F":
       return turnBackward[state.direction];
     default:
       return turnLeft[state.direction];
@@ -35,14 +35,14 @@ function turn(state) {
 
 function next(node, evolved) {
   switch (node) {
-    case '#':
-      return evolved ? 'F' : '.';
-    case 'W':
-      return '#';
-    case 'F':
-      return '.';
+    case "#":
+      return evolved ? "F" : ".";
+    case "W":
+      return "#";
+    case "F":
+      return ".";
     default:
-      return evolved ? 'W' : '#';
+      return evolved ? "W" : "#";
   }
 }
 
@@ -66,23 +66,23 @@ function burst(state, evolved) {
     state.nodes[toKey(state.position)],
     evolved,
   );
-  state.infections += state.nodes[toKey(state.position)] === '#' ? 1 : 0;
+  state.infections += state.nodes[toKey(state.position)] === "#" ? 1 : 0;
   state.position = move(state.position, state.direction);
 }
 
 function parse(input) {
   const nodes = {};
-  const lines = input.split('\n');
+  const lines = input.split("\n");
   const position = { x: (lines[0].length - 1) / 2, y: (lines.length - 1) / 2 };
   lines.forEach((line, y) =>
-    line.split('').forEach((node, x) => (nodes[toKey({ x, y })] = node)),
+    line.split("").forEach((node, x) => (nodes[toKey({ x, y })] = node)),
   );
   return { nodes, position };
 }
 
 export function part1(input, bursts = 1e4, evolved = false) {
   const { nodes, position } = parse(input);
-  const state = { nodes, position, direction: 'U', infections: 0 };
+  const state = { nodes, position, direction: "U", infections: 0 };
   for (let i = 0; i < bursts; i++) {
     burst(state, evolved);
   }

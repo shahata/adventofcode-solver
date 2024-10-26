@@ -1,4 +1,4 @@
-import md5 from '../utils/md5.js';
+import md5 from "../utils/md5.js";
 
 function getNeighbors(point, [U, D, L, R]) {
   return [
@@ -10,7 +10,7 @@ function getNeighbors(point, [U, D, L, R]) {
 }
 
 function solve(input, shortest = true) {
-  let queue = [{ x: 0, y: 0, path: '' }],
+  let queue = [{ x: 0, y: 0, path: "" }],
     max = -1;
   while (queue.length > 0) {
     const next = queue.shift();
@@ -23,8 +23,8 @@ function solve(input, shortest = true) {
     } else {
       const doors = md5(input + next.path)
         .slice(0, 4)
-        .split('')
-        .map(x => 'bcdef'.includes(x));
+        .split("")
+        .map(x => "bcdef".includes(x));
       queue = queue.concat(
         getNeighbors(next, [doors[0], doors[1], doors[2], doors[3]]),
       );

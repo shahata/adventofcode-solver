@@ -1,12 +1,12 @@
 function parse(input) {
   const indexMap = { ore: 0, clay: 1, obsidian: 2, geode: 3 };
-  return input.split('\n').map(line => {
-    let [, plans] = line.split(': ');
-    plans = plans.split('. ').map(line => {
+  return input.split("\n").map(line => {
+    let [, plans] = line.split(": ");
+    plans = plans.split(". ").map(line => {
       const [, cost] = line.match(/^Each [^\s]+ robot costs ([^.]*)\.?$/);
       const requirements = [0, 0, 0, 0];
-      cost.split(' and ').forEach(s => {
-        const [resourceCount, resourceType] = s.split(' ');
+      cost.split(" and ").forEach(s => {
+        const [resourceCount, resourceType] = s.split(" ");
         requirements[indexMap[resourceType]] = +resourceCount;
       });
       return requirements;

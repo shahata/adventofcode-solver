@@ -1,6 +1,6 @@
 function parse(input) {
-  return input.split('\n').map(x => {
-    const [op, param] = x.split(' ');
+  return input.split("\n").map(x => {
+    const [op, param] = x.split(" ");
     return { op, param };
   });
 }
@@ -12,9 +12,9 @@ function run(ops) {
 
   while (!visited.has(ip) && ip < ops.length) {
     visited.add(ip);
-    if (ops[ip].op === 'acc') {
+    if (ops[ip].op === "acc") {
       acc += +ops[ip].param;
-    } else if (ops[ip].op === 'jmp') {
+    } else if (ops[ip].op === "jmp") {
       ip += +ops[ip].param - 1;
     }
     ip++;
@@ -32,8 +32,8 @@ export function part2(input) {
 
   for (let toggle = 0; toggle < bad.length; toggle++) {
     const ops = bad.map(({ op, param }, index) => {
-      if (index === toggle && op !== 'acc') {
-        return { op: op === 'jmp' ? 'nop' : 'jmp', param };
+      if (index === toggle && op !== "acc") {
+        return { op: op === "jmp" ? "nop" : "jmp", param };
       } else {
         return { op, param };
       }

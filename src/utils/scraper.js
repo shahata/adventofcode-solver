@@ -1,9 +1,9 @@
-import * as path from 'node:path';
-import * as process from 'node:process';
-import { Buffer } from 'node:buffer';
-import { writeFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dayName } from './day-name.js';
+import * as path from "node:path";
+import * as process from "node:process";
+import { Buffer } from "node:buffer";
+import { writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dayName } from "./day-name.js";
 
 async function downloadRequest(url, postPayload) {
   const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
@@ -11,10 +11,10 @@ async function downloadRequest(url, postPayload) {
   if (postPayload) {
     Object.assign(options, {
       body: postPayload,
-      method: 'POST',
+      method: "POST",
     });
     Object.assign(options.headers, {
-      'content-type': 'application/x-www-form-urlencoded',
+      "content-type": "application/x-www-form-urlencoded",
     });
   }
   const response = await fetch(url, options);
@@ -23,7 +23,7 @@ async function downloadRequest(url, postPayload) {
       [
         `Failed to download from ${url} (${response.status})`,
         `Description: ${await response.text()}`,
-      ].join('\n'),
+      ].join("\n"),
     );
   }
   return response;
@@ -36,10 +36,10 @@ async function downloadContent(url, postPayload) {
 
 export async function downloadStatic(url) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const src = path.resolve(__dirname, '..', '..', 'static');
-  const fileName = path.join(src, url.split('/').pop());
+  const src = path.resolve(__dirname, "..", "..", "static");
+  const fileName = path.join(src, url.split("/").pop());
   const response = await downloadRequest(url);
-  if (response.headers.get('Content-Type') === 'image/png') {
+  if (response.headers.get("Content-Type") === "image/png") {
     writeFileSync(fileName, Buffer.from(await response.arrayBuffer()));
   } else {
     writeFileSync(fileName, await response.text());
@@ -77,12 +77,12 @@ export async function getEventsPage(year) {
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return page
     .replace(/href="[^"]*">\[(\d+)\]/g, 'href="../$1/solver.html">[$1]')
-    .replace(/href="\/\d+\/support"/g, '');
+    .replace(/href="\/\d+\/support"/g, "");
 }
 
 export async function getEndPage(year) {
   const url = `https://adventofcode.com/${year}/day/25/answer`;
-  const text = await downloadContent(url, 'level=2&answer=0');
+  const text = await downloadContent(url, "level=2&answer=0");
   const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return question.replace(/href="\/\d+"/g, 'href="index.html"');
 }

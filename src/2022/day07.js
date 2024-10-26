@@ -10,19 +10,19 @@ function calcTotals(fs, totals = []) {
 }
 
 function parse(input) {
-  const lines = input.split('\n');
+  const lines = input.split("\n");
   const fileSystem = {};
   let currentDir = [];
   for (const line of lines) {
-    if (line.startsWith('$ cd ')) {
+    if (line.startsWith("$ cd ")) {
       const dir = line.slice(5);
-      if (dir === '/') currentDir = [];
-      else if (dir === '..') currentDir.pop();
+      if (dir === "/") currentDir = [];
+      else if (dir === "..") currentDir.pop();
       else currentDir.push(dir);
-    } else if (!line.startsWith('$')) {
-      const [size, name] = line.split(' ');
+    } else if (!line.startsWith("$")) {
+      const [size, name] = line.split(" ");
       const cd = currentDir.reduce((obj, d) => obj[d], fileSystem);
-      cd[name] = size === 'dir' ? {} : +size;
+      cd[name] = size === "dir" ? {} : +size;
     }
   }
   return calcTotals(fileSystem);

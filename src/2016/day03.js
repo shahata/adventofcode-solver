@@ -15,8 +15,8 @@ function rotate(sides, index, lines) {
 }
 
 function parse(input) {
-  return input.split('\n').map(x => {
-    return x.replace(/^\s*/, '').split(/\s+/).map(Number);
+  return input.split("\n").map(x => {
+    return x.replace(/^\s*/, "").split(/\s+/).map(Number);
   });
 }
 

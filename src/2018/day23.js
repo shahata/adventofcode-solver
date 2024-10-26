@@ -1,6 +1,6 @@
 function parse(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(x => x.match(/(-?\d+),(-?\d+),(-?\d+)>, r=(-?\d+)/).map(Number))
     .map(([, x, y, z, r]) => ({ x, y, z, r }));
 }

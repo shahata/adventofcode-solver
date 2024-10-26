@@ -4,7 +4,7 @@ function cook(check) {
   while (check(board)) {
     elf1 = (elf1 + board[elf1] + 1) % board.length;
     elf2 = (elf2 + board[elf2] + 1) % board.length;
-    const newRecipes = String(board[elf1] + board[elf2]).split('');
+    const newRecipes = String(board[elf1] + board[elf2]).split("");
     board.push(...newRecipes.map(Number));
   }
   return board;
@@ -13,13 +13,13 @@ function cook(check) {
 export function part1(input) {
   const count = +input;
   const board = cook(board => board.length < count + 10);
-  return board.slice(count, count + 10).join('');
+  return board.slice(count, count + 10).join("");
 }
 
 export function part2(input) {
-  let suffix = '';
+  let suffix = "";
   const board = cook(board => {
-    suffix = board.slice(-1 * input.length - 1).join('');
+    suffix = board.slice(-1 * input.length - 1).join("");
     return !suffix.includes(input);
   });
   return board.length - input.length + suffix.indexOf(input) - 1;

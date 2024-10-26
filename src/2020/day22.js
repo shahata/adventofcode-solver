@@ -17,7 +17,7 @@ function check2(players, cards) {
 function subGame(players, check) {
   const visited = new Set();
   while (players.filter(x => x.length > 0).length > 1) {
-    const serialized = players.map(p => p.join(',')).join('#');
+    const serialized = players.map(p => p.join(",")).join("#");
     if (visited.has(serialized)) {
       return players.map((x, i) => (i === 0 ? 1 : 0));
     }
@@ -36,8 +36,8 @@ function subGame(players, check) {
 
 function parse(input) {
   return input
-    .split('\n\n')
-    .map(player => player.split('\n').slice(1).map(Number));
+    .split("\n\n")
+    .map(player => player.split("\n").slice(1).map(Number));
 }
 
 export function part1(input) {

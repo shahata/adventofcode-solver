@@ -13,7 +13,7 @@ export function execute(ops, ip, user) {
       return ip + 4;
     case 3:
       if (user.input.length === 0) {
-        throw 'waiting for input';
+        throw "waiting for input";
       }
       ops[ops[ip + 1]] = user.input.shift();
       return ip + 2;
@@ -35,7 +35,7 @@ export function execute(ops, ip, user) {
 
 export function part1(input, inputValue = 1) {
   const user = { input: [inputValue], output: undefined };
-  const ops = input.split(',').map(Number);
+  const ops = input.split(",").map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {

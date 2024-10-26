@@ -43,18 +43,18 @@ function neighbors({ point, equip, time }, depth, target) {
   points.forEach(point => {
     const next = terrain(point, depth);
     if (point.x === target.x && point.y === target.y) {
-      if (current !== 1 || equip === 'gear') add(point, 'torch');
+      if (current !== 1 || equip === "gear") add(point, "torch");
       //neither -> gear -> walk -> torch (7 + 1 + 7 = 15)
-      else options.push({ point, equip: 'torch', time: time + 15 });
+      else options.push({ point, equip: "torch", time: time + 15 });
     } else if (next === 0) {
-      if (current !== 1) add(point, 'torch');
-      if (current !== 2) add(point, 'gear');
+      if (current !== 1) add(point, "torch");
+      if (current !== 2) add(point, "gear");
     } else if (next === 1) {
-      if (current !== 0) add(point, 'neither');
-      if (current !== 2) add(point, 'gear');
+      if (current !== 0) add(point, "neither");
+      if (current !== 2) add(point, "gear");
     } else if (next === 2) {
-      if (current !== 1) add(point, 'torch');
-      if (current !== 0) add(point, 'neither');
+      if (current !== 1) add(point, "torch");
+      if (current !== 0) add(point, "neither");
     }
   });
   return options;
@@ -63,7 +63,7 @@ function neighbors({ point, equip, time }, depth, target) {
 export function part2(input) {
   const { depth, target } = parse(input);
   const visited = new Map();
-  const queue = [{ point: { x: 0, y: 0 }, equip: 'torch', time: 0 }];
+  const queue = [{ point: { x: 0, y: 0 }, equip: "torch", time: 0 }];
   const score = a =>
     a.time + Math.abs(a.point.x - target.x) + Math.abs(a.point.y - target.y);
   cache = { [pos(target)]: 0 };

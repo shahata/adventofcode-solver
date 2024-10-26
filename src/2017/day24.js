@@ -1,16 +1,16 @@
 function parse(input) {
-  return input.split('\n').map(x => x.split('/').map(n => +n));
+  return input.split("\n").map(x => x.split("/").map(n => +n));
 }
 
 function toKey(item) {
   return [
     Array.from(item.visited)
-      .map(x => x.join('-'))
+      .map(x => x.join("-"))
       .sort()
-      .join(','),
+      .join(","),
     item.strength,
     item.port,
-  ].join(':');
+  ].join(":");
 }
 
 function getNext(components, current, cache) {

@@ -1,9 +1,9 @@
-import { execute } from './day09.js';
+import { execute } from "./day09.js";
 
 function run(input, network, id) {
-  const next = { id: 'x', x: 'y', y: 'id' };
-  let outputState = 'id';
-  let inputState = 'id';
+  const next = { id: "x", x: "y", y: "id" };
+  let outputState = "id";
+  let inputState = "id";
   let sendId;
 
   function read() {
@@ -19,7 +19,7 @@ function run(input, network, id) {
 
   function write(x) {
     network[id].idle = 0;
-    if (outputState === 'id') {
+    if (outputState === "id") {
       sendId = x;
       network[sendId] = network[sendId] || { packets: [] };
     } else {
@@ -29,18 +29,18 @@ function run(input, network, id) {
   }
 
   const user = { input: read, output: write, base: 0 };
-  const ops = input.split(',').map(Number);
+  const ops = input.split(",").map(Number);
   let ip = 0;
   return () => {
     do {
       ip = execute(ops, ip, user);
-    } while (outputState !== 'id' || inputState === 'y');
+    } while (outputState !== "id" || inputState === "y");
   };
 }
 
 function init(input) {
   const network = new Array(50).fill().map((x, i) => {
-    return { packets: [{ type: 'id', value: i }], idle: 0, cpu: undefined };
+    return { packets: [{ type: "id", value: i }], idle: 0, cpu: undefined };
   });
   network.forEach((x, i) => (x.cpu = run(input, network, i)));
   return network;

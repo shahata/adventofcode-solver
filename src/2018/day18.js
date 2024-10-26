@@ -11,12 +11,12 @@ function transform(yard, x, y) {
     yard[y + 1] && yard[y + 1][x + 1],
   ];
   const total = cell => neighbors.filter(x => x === cell).length;
-  if (current === '.' && total('|') >= 3) {
-    return '|';
-  } else if (current === '|' && total('#') >= 3) {
-    return '#';
-  } else if (current === '#' && (total('#') === 0 || total('|') === 0)) {
-    return '.';
+  if (current === "." && total("|") >= 3) {
+    return "|";
+  } else if (current === "|" && total("#") >= 3) {
+    return "#";
+  } else if (current === "#" && (total("#") === 0 || total("|") === 0)) {
+    return ".";
   } else {
     return current;
   }
@@ -24,7 +24,7 @@ function transform(yard, x, y) {
 
 const memo = {};
 function next(yard, minute) {
-  const hash = yard.map(x => x.join('')).join('\n');
+  const hash = yard.map(x => x.join("")).join("\n");
   if (!memo[hash]) {
     const result = yard.map((line, y) =>
       line.map((cell, x) => transform(yard, x, y)),
@@ -35,7 +35,7 @@ function next(yard, minute) {
 }
 
 export function part1(input, minutes = 10) {
-  let yard = input.split('\n').map(x => x.split(''));
+  let yard = input.split("\n").map(x => x.split(""));
   for (let i = 0; i < minutes; i++) {
     const { result, minute } = next(yard, i);
     const diff = i - minute;
@@ -46,8 +46,8 @@ export function part1(input, minutes = 10) {
   }
   const total = yard.reduce(
     (sum, line) => ({
-      trees: sum.trees + line.filter(x => x === '|').length,
-      lumberyards: sum.lumberyards + line.filter(x => x === '#').length,
+      trees: sum.trees + line.filter(x => x === "|").length,
+      lumberyards: sum.lumberyards + line.filter(x => x === "#").length,
     }),
     { trees: 0, lumberyards: 0 },
   );

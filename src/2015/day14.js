@@ -1,6 +1,6 @@
 function parse(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(x => x.match(/fly (\d+) km\/s .* (\d+) sec.* rest .* (\d+) sec/))
     .map(([, speed, fly, rest]) => ({
       speed: +speed,

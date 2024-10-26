@@ -1,4 +1,4 @@
-import { gol } from '../utils/game-of-life.js';
+import { gol } from "../utils/game-of-life.js";
 
 const go = {
   w: ({ x, y }) => ({ x: x - 1, y }),
@@ -11,7 +11,7 @@ const go = {
 
 function parse(input) {
   const instructions = input
-    .split('\n')
+    .split("\n")
     .map(line => line.match(/(w|e|nw|ne|sw|se)/g));
   const map = new Map();
   instructions.forEach(x => {
@@ -29,7 +29,7 @@ export function part1(input) {
 }
 
 function neighbors(key) {
-  const [x, y] = key.split(',').map(Number);
+  const [x, y] = key.split(",").map(Number);
   return Object.values(go)
     .map(f => f({ x, y }))
     .map(p => `${p.x},${p.y}`);

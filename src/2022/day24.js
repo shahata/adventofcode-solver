@@ -28,13 +28,13 @@ function makeTrip(maps, start, end, steps = 0) {
 function nextMap(map, width, height) {
   const next = new Map();
   for (const key of map.keys()) {
-    const [x, y] = key.split(',').map(n => +n);
+    const [x, y] = key.split(",").map(n => +n);
     for (const thing of map.get(key)) {
       let pos = key;
-      if (thing === '>') pos = `${x === width - 2 ? 1 : x + 1},${y}`;
-      if (thing === '<') pos = `${x === 1 ? width - 2 : x - 1},${y}`;
-      if (thing === 'v') pos = `${x},${y === height - 2 ? 1 : y + 1}`;
-      if (thing === '^') pos = `${x},${y === 1 ? height - 2 : y - 1}`;
+      if (thing === ">") pos = `${x === width - 2 ? 1 : x + 1},${y}`;
+      if (thing === "<") pos = `${x === 1 ? width - 2 : x - 1},${y}`;
+      if (thing === "v") pos = `${x},${y === height - 2 ? 1 : y + 1}`;
+      if (thing === "^") pos = `${x},${y === 1 ? height - 2 : y - 1}`;
       next.set(pos, (next.get(pos) || []).concat([thing]));
     }
   }
@@ -43,23 +43,23 @@ function nextMap(map, width, height) {
 
 function parse(input) {
   let map = new Map();
-  const width = input.split('\n')[0].length;
-  const height = input.split('\n').length;
+  const width = input.split("\n")[0].length;
+  const height = input.split("\n").length;
   const start = { x: 1, y: 0 };
   const end = { x: width - 2, y: height - 1 };
-  input.split('\n').forEach((line, y) => {
-    line.split('').forEach((cell, x) => {
-      if (cell !== '.') {
+  input.split("\n").forEach((line, y) => {
+    line.split("").forEach((cell, x) => {
+      if (cell !== ".") {
         map.set(`${x},${y}`, (map.get(`${x},${y}`) || []).concat([cell]));
       }
     });
   });
-  map.set(`${start.x},${start.y - 1}`, ['#']);
-  map.set(`${end.x},${end.y + 1}`, ['#']);
+  map.set(`${start.x},${start.y - 1}`, ["#"]);
+  map.set(`${end.x},${end.y + 1}`, ["#"]);
 
   const serialize = map => {
-    const serializeKey = key => `${key}:${map.get(key).join('')}`;
-    return Array.from(map.keys()).sort().map(serializeKey).join(',');
+    const serializeKey = key => `${key}:${map.get(key).join("")}`;
+    return Array.from(map.keys()).sort().map(serializeKey).join(",");
   };
   const serialized = serialize(map);
   const maps = [];

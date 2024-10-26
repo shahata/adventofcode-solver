@@ -1,11 +1,11 @@
 export function part1(input, count = 20) {
-  const monkeys = input.split('\n\n').map(monkey => {
-    const lines = monkey.split('\n');
-    const [, items] = lines[1].split(': ');
+  const monkeys = input.split("\n\n").map(monkey => {
+    const lines = monkey.split("\n");
+    const [, items] = lines[1].split(": ");
     const [safe] = lines[2].match(/(old|\d+) (\*|\+) (old|\d+)$/);
     return {
-      items: items.split(', ').map(x => +x),
-      operation: new Function('old', `return ${safe}`),
+      items: items.split(", ").map(x => +x),
+      operation: new Function("old", `return ${safe}`),
       divisible: +lines[3].match(/\d+$/)[0],
       yes: +lines[4].match(/\d+$/)[0],
       no: +lines[5].match(/\d+$/)[0],

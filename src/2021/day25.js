@@ -1,14 +1,14 @@
 export function part1(input) {
-  let sea = input.split('\n').map(line => line.split('').map(c => c));
+  let sea = input.split("\n").map(line => line.split("").map(c => c));
   let next, i;
   for (i = 0; JSON.stringify(sea) !== JSON.stringify(next); i++) {
     sea = next || sea;
-    next = sea.map(line => line.map(() => '.'));
+    next = sea.map(line => line.map(() => "."));
     sea.forEach((line, y) => {
       line.forEach((c, x) => {
-        if (c === '>') {
+        if (c === ">") {
           const n = (x + 1) % line.length;
-          if (sea[y][n] === '.') {
+          if (sea[y][n] === ".") {
             next[y][n] = c;
           } else {
             next[y][x] = c;
@@ -18,9 +18,9 @@ export function part1(input) {
     });
     sea.forEach((line, y) => {
       line.forEach((c, x) => {
-        if (c === 'v') {
+        if (c === "v") {
           const n = (y + 1) % sea.length;
-          if (sea[n][x] !== c && next[n][x] === '.') {
+          if (sea[n][x] !== c && next[n][x] === ".") {
             next[n][x] = c;
           } else {
             next[y][x] = c;

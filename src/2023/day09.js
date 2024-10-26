@@ -1,5 +1,5 @@
 function solve(input, fn) {
-  const sequences = input.split('\n').map(line => line.split(' ').map(Number));
+  const sequences = input.split("\n").map(line => line.split(" ").map(Number));
   const histories = sequences.map(sequence => {
     const history = [sequence];
     let differences = sequence;

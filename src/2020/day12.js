@@ -1,6 +1,6 @@
 function turn(direction, count) {
   const compass = { N: 0, E: 90, S: 180, W: 270 };
-  const reverse = { 0: 'N', 90: 'E', 180: 'S', 270: 'W' };
+  const reverse = { 0: "N", 90: "E", 180: "S", 270: "W" };
   return reverse[(compass[direction] + count) % 360];
 }
 
@@ -37,7 +37,7 @@ const operations2 = {
 
 function solve(input, initial, operations) {
   const steps = input
-    .split('\n')
+    .split("\n")
     .map(x => x.match(/^(.)(\d+)$/))
     .map(([, operation, count]) => ({ operation, count: +count }));
   return steps.reduce((state, { operation, count }) => {
@@ -46,7 +46,7 @@ function solve(input, initial, operations) {
 }
 
 export function part1(input) {
-  let state = { direction: 'E', position: { x: 0, y: 0 } };
+  let state = { direction: "E", position: { x: 0, y: 0 } };
   state = solve(input, state, operations);
   return Math.abs(state.position.x) + Math.abs(state.position.y);
 }

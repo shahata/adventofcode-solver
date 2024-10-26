@@ -15,9 +15,9 @@ const ops = {
   eqir: (l, i1, i2, o) => `case ${l}: r${o} = ${i1} === r${i2} ? 1 : 0; break;`,
   eqri: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} === ${i2} ? 1 : 0; break;`,
   eqrr: (l, i1, i2, o) => {
-    if (i1 === '0') {
+    if (i1 === "0") {
       return `case ${l}: r${o} = cb(r${i2}) === r${i2} ? 1 : 0; break;`;
-    } else if (i2 === '0') {
+    } else if (i2 === "0") {
       return `case ${l}: r${o} = r${i1} === cb(r${i1}) ? 1 : 0; break;`;
     } else {
       return `case ${l}: r${o} = r${i1} === r${i2} ? 1 : 0; break;`;
@@ -26,19 +26,19 @@ const ops = {
 };
 
 function run(input, tap) {
-  const lines = input.split('\n');
-  const ip = +lines.shift().split(' ').pop();
+  const lines = input.split("\n");
+  const ip = +lines.shift().split(" ").pop();
   const commands = lines.map((x, i) => {
-    const [op, ...params] = x.split(' ');
+    const [op, ...params] = x.split(" ");
     return ops[op](i, ...params);
   });
   const exec = new Function(
-    'cb',
+    "cb",
     `
     let r0 = 0, r1 = 0, r2 = 0, r3 = 0, r4 = 0, r5 = 0;
     while (true) {
       switch (r${ip}) {
-        ${commands.join('\n')}
+        ${commands.join("\n")}
         default: return null;
       }
       r${ip}++;

@@ -1,11 +1,11 @@
 function parse(input) {
   const groups = [];
   let army;
-  input.split('\n').forEach(line => {
-    if (line === 'Immune System:') {
-      army = 'Immune System';
-    } else if (line === 'Infection:') {
-      army = 'Infection';
+  input.split("\n").forEach(line => {
+    if (line === "Immune System:") {
+      army = "Immune System";
+    } else if (line === "Infection:") {
+      army = "Infection";
     } else if (line.length > 0) {
       const [, units, hit, properties, attack, type, initiative] = line.match(
         /^(\d+) units each with (\d+) hit points(?: \(([^)]+)\))? with an attack that does (\d+) ([^\s]+) damage at initiative (\d+)$/,
@@ -21,9 +21,9 @@ function parse(input) {
         initiative: +initiative,
       };
       if (properties) {
-        properties.split('; ').forEach(property => {
-          const [type, kinds] = property.split(' to ');
-          group[type].push(...kinds.split(', '));
+        properties.split("; ").forEach(property => {
+          const [type, kinds] = property.split(" to ");
+          group[type].push(...kinds.split(", "));
         });
       }
       groups.push(group);
@@ -92,7 +92,7 @@ export function part1(input) {
 function attempt(input, i) {
   const groups = parse(input);
   const boost = groups.map(g => {
-    if (g.army === 'Immune System') {
+    if (g.army === "Immune System") {
       g.attack += i;
     }
     return g;
@@ -100,7 +100,7 @@ function attempt(input, i) {
   const result = battle(boost);
   return (
     result &&
-    result[0].army === 'Immune System' &&
+    result[0].army === "Immune System" &&
     result.reduce((sum, group) => sum + group.units, 0)
   );
 }

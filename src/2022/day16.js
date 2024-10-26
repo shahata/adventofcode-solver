@@ -1,4 +1,4 @@
-import { powerSet } from 'combinatorial-generators';
+import { powerSet } from "combinatorial-generators";
 
 function split(all) {
   const selected = [...powerSet(all)].slice(1);
@@ -31,12 +31,12 @@ function distance(valves, from, to) {
 
 function parse(input) {
   const valves = input
-    .split('\n')
+    .split("\n")
     .map(line => {
       const [, id, rate, destination] = line.match(
         /^Valve ([^\s]+) has flow rate=(\d+); tunnels? leads? to valves? (.+)$/,
       );
-      return { id, rate: +rate, destination: destination.split(', ') };
+      return { id, rate: +rate, destination: destination.split(", ") };
     })
     .reduce((obj, valve) => ({ ...obj, [valve.id]: valve }), {});
   Object.values(valves).forEach(valve => {
@@ -61,7 +61,7 @@ function best(valves, current, open, time) {
 
 export function part1(input) {
   const valves = parse(input);
-  return best(valves, 'AA', new Set(), 30);
+  return best(valves, "AA", new Set(), 30);
 }
 
 export function part2(input) {
@@ -69,8 +69,8 @@ export function part2(input) {
   const all = Object.keys(valves).filter(id => valves[id].rate > 0);
   const results = split(all).map(([human, elephant]) => {
     return (
-      best(valves, 'AA', new Set(human), 26) +
-      best(valves, 'AA', new Set(elephant), 26)
+      best(valves, "AA", new Set(human), 26) +
+      best(valves, "AA", new Set(elephant), 26)
     );
   });
   return Math.max(...results);

@@ -1,5 +1,5 @@
 export function part1(input, getShape = (e, x) => x) {
-  const turns = input.split('\n').map(x => x.split(' '));
+  const turns = input.split("\n").map(x => x.split(" "));
   const value = { A: 1, B: 2, C: 3, X: 1, Y: 2, Z: 3 };
   let score = 0;
   turns.forEach(([a, b]) => {

@@ -1,4 +1,4 @@
-import { gol } from '../utils/game-of-life.js';
+import { gol } from "../utils/game-of-life.js";
 
 const cache = [];
 function offsets(dimensions) {
@@ -12,18 +12,18 @@ function offsets(dimensions) {
 }
 
 function neighbors(key) {
-  const coordinates = key.split(',').map(Number);
+  const coordinates = key.split(",").map(Number);
   return offsets(coordinates.length)
-    .map(x => x.map((c, i) => coordinates[i] + c).join(','))
+    .map(x => x.map((c, i) => coordinates[i] + c).join(","))
     .filter(x => x !== key);
 }
 
 export function part1(input, dimensions = 3) {
   const map = new Map();
-  input.split('\n').forEach((line, y) => {
-    line.split('').forEach((char, x) => {
+  input.split("\n").forEach((line, y) => {
+    line.split("").forEach((char, x) => {
       const coordinates = new Array(dimensions - 2).fill(0);
-      map.set([x, y, ...coordinates].join(','), char === '#');
+      map.set([x, y, ...coordinates].join(","), char === "#");
     });
   });
 

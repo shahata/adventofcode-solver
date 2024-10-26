@@ -1,4 +1,4 @@
-import { PriorityQueue } from '@datastructures-js/priority-queue';
+import { PriorityQueue } from "@datastructures-js/priority-queue";
 
 function neighbors({ x, y, risk }, maze) {
   return [
@@ -34,12 +34,12 @@ function solve(maze) {
 }
 
 export function part1(input) {
-  const maze = input.split('\n').map(line => line.split('').map(risk => +risk));
+  const maze = input.split("\n").map(line => line.split("").map(risk => +risk));
   return solve(maze);
 }
 
 export function part2(input) {
-  let maze = input.split('\n').map(line => line.split('').map(risk => +risk));
+  let maze = input.split("\n").map(line => line.split("").map(risk => +risk));
   const inc = (line, i) => line.map(n => (n + i > 9 ? n + i - 9 : n + i));
   const dup = (maze, i) => maze.map(line => inc(line, i));
   maze = maze.map(l => l.concat(inc(l, 1), inc(l, 2), inc(l, 3), inc(l, 4)));

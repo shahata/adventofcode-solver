@@ -33,22 +33,22 @@ function compare(a, b) {
 
 function cardNumber(card, jokers) {
   const number = card;
-  if (number === 'T') return 10;
-  if (number === 'J') return jokers ? 1 : 11;
-  if (number === 'Q') return 12;
-  if (number === 'K') return 13;
-  if (number === 'A') return 14;
+  if (number === "T") return 10;
+  if (number === "J") return jokers ? 1 : 11;
+  if (number === "Q") return 12;
+  if (number === "K") return 13;
+  if (number === "A") return 14;
   return +number;
 }
 
 export function part1(input, jokers = false) {
   const hands = input
-    .split('\n')
+    .split("\n")
     .map(line => {
-      const [hand, bid] = line.split(' ');
+      const [hand, bid] = line.split(" ");
       return {
         bid: +bid,
-        hand: hand.split('').map(card => cardNumber(card, jokers)),
+        hand: hand.split("").map(card => cardNumber(card, jokers)),
       };
     })
     .sort((a, b) => compare(a.hand, b.hand));

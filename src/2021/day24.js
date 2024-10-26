@@ -2,8 +2,8 @@ function solve(input, digit) {
   const result = new Array(14).fill(digit);
   const stack = [];
   let push;
-  input.split('\n').forEach((line, i) => {
-    const value = +line.split(' ').pop();
+  input.split("\n").forEach((line, i) => {
+    const value = +line.split(" ").pop();
     const curr = Math.floor(i / 18);
     if (i % 18 === 4) push = value === 1;
     if (push && i % 18 === 15) {
@@ -19,7 +19,7 @@ function solve(input, digit) {
       }
     }
   });
-  return +result.join('');
+  return +result.join("");
 }
 
 export function part1(input) {

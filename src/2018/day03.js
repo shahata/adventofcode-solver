@@ -1,5 +1,5 @@
 function parseClaims(input) {
-  return input.split('\n').map(claim => {
+  return input.split("\n").map(claim => {
     const [, id, x, y, w, h] = claim
       .match(/^#(\d+) @ (\d+),(\d+): (\d+)x(\d+)$/)
       .map(Number);

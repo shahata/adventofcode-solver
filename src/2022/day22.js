@@ -10,8 +10,8 @@ function wrapLogic1(maze, pos) {
   const opposite = { x: heading.x * -1, y: heading.y * -1 };
   const wrap = { ...pos };
   while (
-    maze[wrap.y + opposite.y]?.[wrap.x + opposite.x] === '.' ||
-    maze[wrap.y + opposite.y]?.[wrap.x + opposite.x] === '#'
+    maze[wrap.y + opposite.y]?.[wrap.x + opposite.x] === "." ||
+    maze[wrap.y + opposite.y]?.[wrap.x + opposite.x] === "#"
   ) {
     wrap.x += opposite.x;
     wrap.y += opposite.y;
@@ -26,12 +26,12 @@ function wrapLogic2(squares, width) {
     const [i, direction] = squares.find(
       square => square.x === pos.x - offset.x && square.y === pos.y - offset.y,
     ).wrap[pos.direction];
-    const pair = [pos.direction, direction].sort().join('');
+    const pair = [pos.direction, direction].sort().join("");
     let next;
-    if (['02', '11', '33'].includes(pair)) next = { x: offset.x, y: mirror.y };
-    if (['00', '13', '22'].includes(pair)) next = { x: mirror.x, y: offset.y };
-    if (['03', '12'].includes(pair)) next = { x: offset.y, y: offset.x };
-    if (['01', '23'].includes(pair)) next = { x: mirror.y, y: mirror.x };
+    if (["02", "11", "33"].includes(pair)) next = { x: offset.x, y: mirror.y };
+    if (["00", "13", "22"].includes(pair)) next = { x: mirror.x, y: offset.y };
+    if (["03", "12"].includes(pair)) next = { x: offset.y, y: offset.x };
+    if (["01", "23"].includes(pair)) next = { x: mirror.y, y: mirror.x };
     return { x: squares[i].x + next.x, y: squares[i].y + next.y, direction };
   };
 }
@@ -42,25 +42,25 @@ function walk(maze, pos, steps, wrapLogic) {
     let next = { ...pos };
     next.x += heading.x;
     next.y += heading.y;
-    if (maze[next.y]?.[next.x] !== '.' && maze[next.y]?.[next.x] !== '#') {
+    if (maze[next.y]?.[next.x] !== "." && maze[next.y]?.[next.x] !== "#") {
       next = wrapLogic(maze, pos);
     }
-    if (maze[next.y][next.x] === '#') break;
+    if (maze[next.y][next.x] === "#") break;
     pos = next;
   }
   return pos;
 }
 
 export function part1(input, wrapLogic = wrapLogic1) {
-  let [maze, directions] = input.split('\n\n');
+  let [maze, directions] = input.split("\n\n");
   let pos = { x: 0, y: 0, direction: 0 };
-  maze = maze.split('\n');
-  directions = directions.replace(/(R|L)/g, ',$1,').split(',');
-  while (maze[pos.y][pos.x] !== '.') pos.x++;
+  maze = maze.split("\n");
+  directions = directions.replace(/(R|L)/g, ",$1,").split(",");
+  while (maze[pos.y][pos.x] !== ".") pos.x++;
   while (directions.length > 0) {
     const next = directions.shift();
-    if (next === 'R') pos.direction = (pos.direction + 1) % 4;
-    if (next === 'L') pos.direction = (4 + pos.direction - 1) % 4;
+    if (next === "R") pos.direction = (pos.direction + 1) % 4;
+    if (next === "L") pos.direction = (4 + pos.direction - 1) % 4;
     if (Number.isInteger(+next)) pos = walk(maze, pos, +next, wrapLogic);
   }
   return (pos.y + 1) * 1000 + (pos.x + 1) * 4 + pos.direction;

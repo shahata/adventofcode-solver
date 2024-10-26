@@ -1,7 +1,7 @@
 function parse(input) {
   return input
-    .split('\n')
-    .map(x => parseInt(x.replace(/[FL]/g, '0').replace(/[BR]/g, '1'), 2));
+    .split("\n")
+    .map(x => parseInt(x.replace(/[FL]/g, "0").replace(/[BR]/g, "1"), 2));
 }
 
 export function part1(input) {

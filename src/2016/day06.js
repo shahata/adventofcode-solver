@@ -1,7 +1,7 @@
 function solve(input) {
   return input
-    .split('\n')
-    .map(x => x.split(''))
+    .split("\n")
+    .map(x => x.split(""))
     .reduce((commons, word) => {
       return word.map((c, i) => {
         commons[i] = commons[i] || {};
@@ -20,11 +20,11 @@ function solve(input) {
 export function part1(input) {
   return solve(input)
     .map(x => x.shift())
-    .join('');
+    .join("");
 }
 
 export function part2(input) {
   return solve(input)
     .map(x => x.pop())
-    .join('');
+    .join("");
 }

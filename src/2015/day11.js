@@ -1,6 +1,6 @@
-const abc = 'abcdefghijklmnopqrstuvwxyz';
+const abc = "abcdefghijklmnopqrstuvwxyz";
 const subStrings = abc
-  .split('')
+  .split("")
   .map((x, i) => abc.substr(i, 3))
   .filter(x => x.length === 3);
 

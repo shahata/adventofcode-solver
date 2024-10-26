@@ -15,7 +15,7 @@ function solve(time, distance) {
 }
 
 export function part1(input) {
-  let [time, distance] = input.split('\n');
+  let [time, distance] = input.split("\n");
   time = time.split(/\s+/).slice(1).map(Number);
   distance = distance.split(/\s+/).slice(1).map(Number);
   const races = time.map((time, i) => ({ time, distance: distance[i] }));
@@ -24,8 +24,8 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  let [time, distance] = input.replaceAll(' ', '').split('\n');
-  time = +time.split(':')[1];
-  distance = +distance.split(':')[1];
+  let [time, distance] = input.replaceAll(" ", "").split("\n");
+  time = +time.split(":")[1];
+  distance = +distance.split(":")[1];
   return solve(time, distance);
 }

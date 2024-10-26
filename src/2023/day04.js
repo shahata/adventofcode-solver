@@ -1,8 +1,8 @@
 function parse(input) {
-  return input.split('\n').map(line => {
-    const [, numbers] = line.split(':');
+  return input.split("\n").map(line => {
+    const [, numbers] = line.split(":");
     const [left, right] = numbers
-      .split('|')
+      .split("|")
       .map(s => s.trim().split(/\s+/).map(Number));
     return right.filter(n => left.includes(n)).length;
   });

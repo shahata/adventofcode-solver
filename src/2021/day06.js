@@ -1,5 +1,5 @@
 export function part1(input, days = 80) {
-  const fish = input.split(',').map(Number);
+  const fish = input.split(",").map(Number);
   let map = {};
   for (let i = 0; i < fish.length; i++) {
     map[fish[i]] = (map[fish[i]] || 0) + 1;
@@ -7,7 +7,7 @@ export function part1(input, days = 80) {
   for (let i = 0; i < days; i++) {
     const next = {};
     for (const key in map) {
-      if (key === '0') {
+      if (key === "0") {
         next[6] = (next[6] || 0) + map[key];
         next[8] = (next[8] || 0) + map[key];
       } else {

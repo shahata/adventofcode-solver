@@ -1,16 +1,16 @@
-import { part1, part2 } from './day23.js';
-import readInput from '../utils/read-input.js';
+import { part1, part2 } from "./day23.js";
+import readInput from "../utils/read-input.js";
 
 const input = readInput(import.meta.url);
-const oldInput = readInput(import.meta.url.toString().replace(/23/g, '12'));
+const oldInput = readInput(import.meta.url.toString().replace(/23/g, "12"));
 
-describe('day23 2016', () => {
-  describe('part1', () => {
-    test('it should work for part 1 examples', () => {
+describe("day23 2016", () => {
+  describe("part1", () => {
+    test("it should work for part 1 examples", () => {
       expect(
         part1(
-          ['cpy 41 a', 'inc a', 'inc a', 'dec a', 'jnz a 2', 'dec a'].join(
-            '\n',
+          ["cpy 41 a", "inc a", "inc a", "dec a", "jnz a 2", "dec a"].join(
+            "\n",
           ),
         ),
       ).toEqual(42);
@@ -21,25 +21,25 @@ describe('day23 2016', () => {
       expect(
         part1(
           [
-            'cpy 2 a',
-            'tgl a',
-            'tgl a',
-            'tgl a',
-            'cpy 1 a',
-            'dec a',
-            'dec a',
-          ].join('\n'),
+            "cpy 2 a",
+            "tgl a",
+            "tgl a",
+            "tgl a",
+            "cpy 1 a",
+            "dec a",
+            "dec a",
+          ].join("\n"),
         ),
       ).toEqual(3);
     });
 
-    test('it should work for part 1 input', () => {
+    test("it should work for part 1 input", () => {
       expect(part1(input)).toEqual(10880);
     });
   });
 
-  describe('part2', () => {
-    test('it should work for part 2 input', () => {
+  describe("part2", () => {
+    test("it should work for part 2 input", () => {
       expect(part2(input)).toEqual(479007440);
     });
   });

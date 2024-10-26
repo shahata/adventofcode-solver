@@ -1,12 +1,12 @@
 export function part1(input) {
-  const lines = input.split('\n').map(x => x.split(' | ')[1].split(' '));
+  const lines = input.split("\n").map(x => x.split(" | ")[1].split(" "));
   return lines.flat().filter(x => x.length !== 5 && x.length !== 6).length;
 }
 
 export function part2(input) {
-  const lines = input.split('\n').map(x => x.split(' | '));
+  const lines = input.split("\n").map(x => x.split(" | "));
   return lines
-    .map(l => l.map(d => d.split(' ').map(d => d.split('').sort().join(''))))
+    .map(l => l.map(d => d.split(" ").map(d => d.split("").sort().join(""))))
     .reduce((prev, [patterns, output]) => {
       const len = n => d => d.length === n;
       const has = (p, n) => d => [...p].filter(c => d.includes(c)).length === n;
@@ -21,6 +21,6 @@ export function part2(input) {
       const d0 = patterns.filter(len(6)).find(d => d !== d6 && d !== d9);
       const d3 = patterns.filter(len(5)).find(d => d !== d2 && d !== d5);
       const map = [d0, d1, d2, d3, d4, d5, d6, d7, d8, d9];
-      return Number(output.map(d => map.indexOf(d)).join('')) + prev;
+      return Number(output.map(d => map.indexOf(d)).join("")) + prev;
     }, 0);
 }

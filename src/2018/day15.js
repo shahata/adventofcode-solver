@@ -23,7 +23,7 @@ function neighbors(map, units, next, type, forbidden) {
     { x: next.x + 1, y: next.y },
     { x: next.x, y: next.y + 1 },
   ]
-    .filter(p => map[p.y] && map[p.y][p.x] === '.' && !forbidden.has(pos(p)))
+    .filter(p => map[p.y] && map[p.y][p.x] === "." && !forbidden.has(pos(p)))
     .map(p => ({ ...p, move: next.move || p, length: next.length + 1 }));
   result.forEach(n => forbidden.add(pos(n)));
   return result;
@@ -51,7 +51,7 @@ function moveIfPossible(map, units, unit) {
 function turn(map, units) {
   units.sort((a, b) => a.y - b.y || a.x - b.x);
   for (let i = 0; i < units.length; i++) {
-    if (count(units, 'E') === 0 || count(units, 'G') === 0) {
+    if (count(units, "E") === 0 || count(units, "G") === 0) {
       return false;
     }
     const unit = units[i];
@@ -67,13 +67,13 @@ function turn(map, units) {
 function fight(input, elfBoost = 0) {
   let i = 0;
   const units = [];
-  const map = input.replace(/[EG]/g, '.').split('\n');
-  input.split('\n').forEach((row, y) =>
-    row.split('').forEach((cell, x) => {
-      if (cell === 'E') {
-        units.push({ type: 'E', hit: 200, attack: 3 + elfBoost, x, y });
-      } else if (cell === 'G') {
-        units.push({ type: 'G', hit: 200, attack: 3, x, y });
+  const map = input.replace(/[EG]/g, ".").split("\n");
+  input.split("\n").forEach((row, y) =>
+    row.split("").forEach((cell, x) => {
+      if (cell === "E") {
+        units.push({ type: "E", hit: 200, attack: 3 + elfBoost, x, y });
+      } else if (cell === "G") {
+        units.push({ type: "G", hit: 200, attack: 3, x, y });
       }
     }),
   );
@@ -95,6 +95,6 @@ export function part2(input) {
   do {
     ({ i, units } = fight(input, elfBoost));
     elfBoost++;
-  } while (elfCount !== count(units, 'E'));
+  } while (elfCount !== count(units, "E"));
   return i * units.reduce((sum, u) => sum + u.hit, 0);
 }

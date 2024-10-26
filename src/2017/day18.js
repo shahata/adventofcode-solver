@@ -1,5 +1,5 @@
 export function getter(state, p) {
-  if (typeof p === 'string') {
+  if (typeof p === "string") {
     if (state[p] === undefined) {
       state[p] = 0;
     }
@@ -28,8 +28,8 @@ export function parse(input, ops2 = {}, debug = undefined) {
     ...ops2,
   };
 
-  return input.split('\n').map(str => {
-    const [cmd, p1Str, p2Str] = str.split(' ');
+  return input.split("\n").map(str => {
+    const [cmd, p1Str, p2Str] = str.split(" ");
     const p1 = p1Str.match(/^-?\d+$/) ? +p1Str : p1Str;
     const p2 = p2Str && p2Str.match(/^-?\d+$/) ? +p2Str : p2Str;
     return state => (!debug || debug(cmd)) && ops[cmd](p1, p2)(state);
@@ -46,7 +46,7 @@ function parse2(input) {
       if (state.queue.length > 0) {
         state[p1] = state.queue.shift();
       } else {
-        throw new Error('waiting...');
+        throw new Error("waiting...");
       }
     },
   });

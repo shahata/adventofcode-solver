@@ -11,9 +11,9 @@ function value(arr, part1 = false) {
 }
 
 export function part1(input) {
-  return value(input.split(' ').map(Number), true);
+  return value(input.split(" ").map(Number), true);
 }
 
 export function part2(input) {
-  return value(input.split(' ').map(Number));
+  return value(input.split(" ").map(Number));
 }

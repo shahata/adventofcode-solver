@@ -1,28 +1,28 @@
-function run(part, workflows, name = 'in') {
-  if (name === 'A') return true;
-  if (name === 'R') return false;
+function run(part, workflows, name = "in") {
+  if (name === "A") return true;
+  if (name === "R") return false;
   for (const rule of workflows[name]) {
     const { operator, key, value } = rule.condition;
     if (
       !operator ||
-      (rule.condition.operator === '<' && part[key] < value) ||
-      (rule.condition.operator === '>' && part[key] > value)
+      (rule.condition.operator === "<" && part[key] < value) ||
+      (rule.condition.operator === ">" && part[key] > value)
     )
       return run(part, workflows, rule.result);
   }
 }
 
-function run2(ranges, workflows, name = 'in') {
+function run2(ranges, workflows, name = "in") {
   let count = 0;
-  if (name === 'A')
+  if (name === "A")
     return Object.values(ranges).reduce((a, b) => a * (b.max - b.min + 1), 1);
-  if (name === 'R') return 0;
+  if (name === "R") return 0;
   for (const rule of workflows[name]) {
     const { operator, key, value } = rule.condition;
     if (!operator || (ranges[key].min < value && ranges[key].max > value)) {
       const next = JSON.parse(JSON.stringify(ranges));
-      if (operator === '<') next[key].max = (ranges[key].min = value) - 1;
-      if (operator === '>') next[key].min = (ranges[key].max = value) + 1;
+      if (operator === "<") next[key].max = (ranges[key].min = value) - 1;
+      if (operator === ">") next[key].min = (ranges[key].max = value) + 1;
       count += run2(next, workflows, rule.result);
     }
   }
@@ -30,11 +30,11 @@ function run2(ranges, workflows, name = 'in') {
 }
 
 function parse(input) {
-  let [workflows, parts] = input.split('\n\n').map(s => s.split('\n'));
+  let [workflows, parts] = input.split("\n\n").map(s => s.split("\n"));
   workflows = workflows.map(workflow => {
     let [, name, rules] = workflow.match(/^(.*)\{(.*)\}$/);
-    rules = rules.split(',').map(rule => {
-      const [condition, result] = rule.split(':');
+    rules = rules.split(",").map(rule => {
+      const [condition, result] = rule.split(":");
       const [, key, operator, value] = condition.split(/^(.)([<>])(.*)$/);
       return {
         condition: { key, value: +value, operator },
@@ -57,6 +57,6 @@ export function part1(input) {
 export function part2(input) {
   const { workflows } = parse(input);
   const range = { min: 1, max: 4000 };
-  const ranges = 'xmas'.split('').map(key => [key, { ...range }]);
+  const ranges = "xmas".split("").map(key => [key, { ...range }]);
   return run2(Object.fromEntries(ranges), workflows);
 }

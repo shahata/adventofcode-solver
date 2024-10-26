@@ -1,9 +1,9 @@
 function parse(input) {
-  const lines = input.split('\n').map(line => line.split(''));
+  const lines = input.split("\n").map(line => line.split(""));
   const astroids = [];
   lines.forEach((line, y) => {
     line.forEach((point, x) => {
-      if (point === '#') {
+      if (point === "#") {
         astroids.push({ x, y });
       }
     });

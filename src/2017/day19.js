@@ -1,9 +1,9 @@
 function parse(input) {
-  return input.split('\n').map(line => line.split(''));
+  return input.split("\n").map(line => line.split(""));
 }
 
 function findEntryPoint(route) {
-  return { x: route[0].indexOf('|'), y: 0 };
+  return { x: route[0].indexOf("|"), y: 0 };
 }
 
 const next = {
@@ -18,30 +18,30 @@ function valueAt(route, { x, y }) {
 }
 
 function road(value, direction) {
-  const roads = { right: '|', left: '|', up: '-', down: '-' };
-  return !['.', ' ', undefined, roads[direction]].includes(value);
+  const roads = { right: "|", left: "|", up: "-", down: "-" };
+  return ![".", " ", undefined, roads[direction]].includes(value);
 }
 
 function walk(route) {
   const state = {
     point: findEntryPoint(route),
-    direction: 'down',
-    message: '',
+    direction: "down",
+    message: "",
     steps: 0,
   };
-  while (state.direction !== 'done') {
-    if (valueAt(route, state.point) === '+') {
-      if (state.direction === 'down' || state.direction === 'up') {
-        if (road(valueAt(route, next.right(state.point)), 'right')) {
-          state.direction = 'right';
+  while (state.direction !== "done") {
+    if (valueAt(route, state.point) === "+") {
+      if (state.direction === "down" || state.direction === "up") {
+        if (road(valueAt(route, next.right(state.point)), "right")) {
+          state.direction = "right";
         } else {
-          state.direction = 'left';
+          state.direction = "left";
         }
       } else {
-        if (road(valueAt(route, next.up(state.point)), 'up')) {
-          state.direction = 'up';
+        if (road(valueAt(route, next.up(state.point)), "up")) {
+          state.direction = "up";
         } else {
-          state.direction = 'down';
+          state.direction = "down";
         }
       }
     }
@@ -49,7 +49,7 @@ function walk(route) {
       state.message += valueAt(route, state.point);
     }
     if (!road(valueAt(route, next[state.direction](state.point)))) {
-      state.direction = 'done';
+      state.direction = "done";
     } else {
       state.point = next[state.direction](state.point);
     }

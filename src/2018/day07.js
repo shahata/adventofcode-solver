@@ -1,4 +1,4 @@
-const abc = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const abc = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function next(prerequisites, done) {
   const options = [];
@@ -39,7 +39,7 @@ function next2(prerequisites, done, pending, workers, base) {
 function parse(input) {
   const prerequisites = new Map();
   input
-    .split('\n')
+    .split("\n")
     .map(x => x.match(/([A-Z]) must be finished before step ([A-Z])/))
     .forEach(([, required, step]) => {
       prerequisites.set(step, (prerequisites.get(step) || []).concat(required));
@@ -55,7 +55,7 @@ export function part1(input) {
   while (done.length < steps) {
     next(prerequisites, done);
   }
-  return done.join('');
+  return done.join("");
 }
 
 export function part2(input, workers = 5, base = 60) {

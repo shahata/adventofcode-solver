@@ -1,4 +1,4 @@
-import { ocr } from '../utils/ocr.js';
+import { ocr } from "../utils/ocr.js";
 
 function move(points, seconds) {
   return points.map(p => ({
@@ -23,14 +23,14 @@ function size(points) {
 function print(points) {
   const { start, end } = size(points);
   const arr = (size, fill) => new Array(size).fill(fill);
-  const banner = arr(end.y - start.y).map(() => arr(end.x - start.x, '.'));
-  points.forEach(p => (banner[p.y - start.y][p.x - start.x] = '#'));
-  return banner.map(x => x.join('')).join('\n');
+  const banner = arr(end.y - start.y).map(() => arr(end.x - start.x, "."));
+  points.forEach(p => (banner[p.y - start.y][p.x - start.x] = "#"));
+  return banner.map(x => x.join("")).join("\n");
 }
 
 export function day(input) {
   const regex = /([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)+/;
-  const points = input.split('\n').map(line => {
+  const points = input.split("\n").map(line => {
     const [, x, y, xDiff, yDiff] = line.match(regex).map(Number);
     return { x, y, xDiff, yDiff };
   });

@@ -1,5 +1,5 @@
 function parse(input) {
-  return input.split('\n').reduce((programs, x) => {
+  return input.split("\n").reduce((programs, x) => {
     const [, name, weight, children] = x.match(
       /^([^\s]+)\s+\((\d+)\)(?:\s+->\s+(.*))?$/,
     );
@@ -8,7 +8,7 @@ function parse(input) {
       [name]: {
         name,
         weight: +weight,
-        children: children && children.replace(/\s+/g, '').split(','),
+        children: children && children.replace(/\s+/g, "").split(","),
       },
     };
   }, {});

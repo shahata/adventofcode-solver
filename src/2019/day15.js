@@ -1,4 +1,4 @@
-import { execute } from './day09.js';
+import { execute } from "./day09.js";
 
 function getNeighbors(current) {
   return [
@@ -48,7 +48,7 @@ function createMap(input, map) {
   }
 
   const user = { input: move, output: x => (output = x), base: 0 };
-  const ops = input.split(',').map(Number);
+  const ops = input.split(",").map(Number);
   let ip = 0;
 
   while (!done) {

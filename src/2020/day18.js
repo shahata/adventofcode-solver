@@ -1,12 +1,12 @@
 function simple(formula) {
   let result = 0;
-  let operation = '+';
-  formula.split(' ').forEach(x => {
-    if (x === '+' || x === '*') {
+  let operation = "+";
+  formula.split(" ").forEach(x => {
+    if (x === "+" || x === "*") {
       operation = x;
-    } else if (operation === '+') {
+    } else if (operation === "+") {
       result += +x;
-    } else if (operation === '*') {
+    } else if (operation === "*") {
       result *= +x;
     }
   });
@@ -15,8 +15,8 @@ function simple(formula) {
 
 function solve(formula, precedence) {
   while (
-    formula.includes('(') ||
-    (precedence && formula.includes('+') && formula.includes('*'))
+    formula.includes("(") ||
+    (precedence && formula.includes("+") && formula.includes("*"))
   ) {
     if (precedence) {
       formula = formula.replace(/(\d+ \+ )+\d+/g, x => simple(x));
@@ -27,11 +27,11 @@ function solve(formula, precedence) {
 }
 
 export function part1(input) {
-  const formulas = input.split('\n');
+  const formulas = input.split("\n");
   return formulas.map(x => solve(x)).reduce((a, b) => a + b);
 }
 
 export function part2(input) {
-  const formulas = input.split('\n');
+  const formulas = input.split("\n");
   return formulas.map(x => solve(x, true)).reduce((a, b) => a + b);
 }

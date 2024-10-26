@@ -8,8 +8,8 @@ function calcVisibility(tree, max) {
 
 export function part1(input) {
   const map = input
-    .split('\n')
-    .map(line => line.split('').map(x => ({ height: +x })));
+    .split("\n")
+    .map(line => line.split("").map(x => ({ height: +x })));
   for (let i = 0; i < map.length; i++) {
     for (let j = 0, max = -1; j < map[i].length; j++) {
       max = calcVisibility(map[i][j], max);
@@ -59,8 +59,8 @@ function calcScore(lines, i, j) {
 
 export function part2(input) {
   const lines = input
-    .split('\n')
-    .map(line => line.split('').map(x => ({ height: +x })));
+    .split("\n")
+    .map(line => line.split("").map(x => ({ height: +x })));
   let max = 0;
   for (let i = 0; i < lines.length; i++) {
     for (let j = lines[i].length - 1; j >= 0; j--) {

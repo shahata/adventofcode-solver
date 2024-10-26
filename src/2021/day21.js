@@ -1,5 +1,5 @@
 export function part1(input) {
-  const players = input.split('\n').map(line => +line.split(': ')[1]);
+  const players = input.split("\n").map(line => +line.split(": ")[1]);
   const score = [0, 0];
   let i = 1;
   let player = 0;
@@ -40,7 +40,7 @@ function play(currPlayer, prevPlayer, memory = new Map()) {
 }
 
 export function part2(input) {
-  const players = input.split('\n').map(line => +line.split(': ')[1]);
+  const players = input.split("\n").map(line => +line.split(": ")[1]);
   const wins = play(...players.map(p => ({ position: p, score: 0 })));
   return Math.max(...wins);
 }

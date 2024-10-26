@@ -33,7 +33,7 @@ export function part1(input) {
   state = calc(serial, 1, { ...state, max: { sum: -Infinity } });
   state = calc(serial, 2, { ...state, max: { sum: -Infinity } });
   state = calc(serial, 3, { ...state, max: { sum: -Infinity } });
-  return state.max.point.replace(/,3$/, '');
+  return state.max.point.replace(/,3$/, "");
 }
 
 export function part2(input) {

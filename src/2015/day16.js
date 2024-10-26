@@ -29,7 +29,7 @@ function parseMap(s, p1, p2) {
 
 function matches(x, expect) {
   return Object.keys(x).every(key => {
-    return typeof expect[key] === 'function'
+    return typeof expect[key] === "function"
       ? expect[key](x[key])
       : expect[key] === x[key];
   });
@@ -37,9 +37,9 @@ function matches(x, expect) {
 
 function parse(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(x => x.match(/^Sue ([^:]*): (.*)/))
-    .map(([, id, s]) => ({ id: +id, ...parseMap(s, ', ', ': ') }));
+    .map(([, id, s]) => ({ id: +id, ...parseMap(s, ", ", ": ") }));
 }
 
 export function part1(input) {

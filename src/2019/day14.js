@@ -12,12 +12,12 @@ function need(amount, element, reactions, spare) {
 
 export function part1(input, fuelAmount = 1) {
   const reactions = input
-    .split('\n')
+    .split("\n")
     .map(x => {
       const [, compounds, amount, element] = x.match(
         /^(.*) => (\d+) ([A-Z]+)$/,
       );
-      const elements = compounds.split(', ').map(x =>
+      const elements = compounds.split(", ").map(x =>
         x
           .match(/(\d+) ([A-Z]+)/)
           .slice(1)
@@ -28,10 +28,10 @@ export function part1(input, fuelAmount = 1) {
     .reduce((prev, next) => Object.assign(prev, { [next.element]: next }), {});
 
   const spare = {};
-  const requirements = [{ amount: fuelAmount, element: 'FUEL' }];
-  while (requirements.length > 1 || requirements[0].element !== 'ORE') {
+  const requirements = [{ amount: fuelAmount, element: "FUEL" }];
+  while (requirements.length > 1 || requirements[0].element !== "ORE") {
     const next = requirements.shift();
-    if (next.element === 'ORE') {
+    if (next.element === "ORE") {
       requirements.push(next);
       continue;
     }

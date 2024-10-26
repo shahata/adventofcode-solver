@@ -1,13 +1,13 @@
 function parse(input) {
   const crates = new Array(10).fill().map(() => []);
-  let [map, instructions] = input.split('\n\n');
-  map = map.split('\n').map(line => line.replace(/[[\]\d]/g, ' '));
+  let [map, instructions] = input.split("\n\n");
+  map = map.split("\n").map(line => line.replace(/[[\]\d]/g, " "));
   for (const line of map) {
     for (let i = 0; i < line.length; i++) {
-      if (line[i] !== ' ') crates[(i - 1) / 4].unshift(line[i]);
+      if (line[i] !== " ") crates[(i - 1) / 4].unshift(line[i]);
     }
   }
-  instructions = instructions.split('\n').map(line => {
+  instructions = instructions.split("\n").map(line => {
     const [, count, from, to] = line.match(/^move (\d+) from (\d+) to (\d+)$/);
     return { count: +count, from: from - 1, to: to - 1 };
   });
@@ -21,7 +21,7 @@ export function part1(input, singles = true) {
     if (singles) removed.reverse();
     crates[to].push(...removed);
   }
-  return crates.map(x => x.pop()).join('');
+  return crates.map(x => x.pop()).join("");
 }
 
 export function part2(input) {

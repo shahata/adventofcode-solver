@@ -32,8 +32,8 @@ function isExterior(point, checkExists, checkLimits, cache) {
 }
 
 export function part1(input, checkExterior = false) {
-  const cubes = input.split('\n').map(line => {
-    const [x, y, z] = line.split(',').map(n => +n);
+  const cubes = input.split("\n").map(line => {
+    const [x, y, z] = line.split(",").map(n => +n);
     return { x, y, z };
   });
 

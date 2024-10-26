@@ -1,4 +1,4 @@
-import md5 from '../utils/md5.js';
+import md5 from "../utils/md5.js";
 
 function solve(input, prefix) {
   let result = 1;
@@ -9,9 +9,9 @@ function solve(input, prefix) {
 }
 
 export function part1(input) {
-  return solve(input, '00000');
+  return solve(input, "00000");
 }
 
 export function part2(input) {
-  return solve(input, '000000');
+  return solve(input, "000000");
 }

@@ -1,27 +1,27 @@
-import pkg from '../../static/package-lock.js';
+import pkg from "../../static/package-lock.js";
 
 function v(p) {
   return pkg.packages[`node_modules/${p}`].version;
 }
 
-function skypack(name, suffix = '') {
+function skypack(name, suffix = "") {
   return { [name]: `https://cdn.skypack.dev/${name}@${v(name)}${suffix}?min` };
 }
 
-function unpkg(name, suffix = '') {
+function unpkg(name, suffix = "") {
   return { [name]: `https://unpkg.com/${name}@${v(name)}${suffix}` };
 }
 
 export const imports = {
-  ...skypack('regenerator-runtime'),
-  ...skypack('@datastructures-js/priority-queue'),
-  ...skypack('combinatorial-generators'),
-  ...skypack('chart.js'),
-  ...skypack('@graph-algorithm/minimum-cut'),
-  ...unpkg('node-forge', '/dist/forge.min.js'),
-  ...unpkg('es-module-shims'),
+  ...skypack("regenerator-runtime"),
+  ...skypack("@datastructures-js/priority-queue"),
+  ...skypack("combinatorial-generators"),
+  ...skypack("chart.js"),
+  ...skypack("@graph-algorithm/minimum-cut"),
+  ...unpkg("node-forge", "/dist/forge.min.js"),
+  ...unpkg("es-module-shims"),
 };
 
 // export const aocSolverServer = 'https://www.wix.com/_serverless/adventofcode';
 // export const aocSolverServer = 'https://aoc.shahar-talmi.workers.dev';
-export const aocSolverServer = 'https://aoc.deno.dev';
+export const aocSolverServer = "https://aoc.deno.dev";

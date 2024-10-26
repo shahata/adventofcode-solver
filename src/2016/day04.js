@@ -5,8 +5,8 @@ function parseRoom(s) {
 
 function checksum(s) {
   const occurrences = s
-    .replace(/-/g, '')
-    .split('')
+    .replace(/-/g, "")
+    .split("")
     .sort()
     .reduce((obj, c) => {
       return { ...obj, [c]: (obj[c] || 0) + 1 };
@@ -18,31 +18,31 @@ function checksum(s) {
         b.times - a.times || a.letter.charCodeAt(0) - b.letter.charCodeAt(0),
     )
     .map(x => x.letter)
-    .join('')
+    .join("")
     .slice(0, 5);
 }
 
 function shift(c, t) {
   return String.fromCharCode(
-    ((c.charCodeAt(0) - 'a'.charCodeAt(0) + t) % 26) + 'a'.charCodeAt(0),
+    ((c.charCodeAt(0) - "a".charCodeAt(0) + t) % 26) + "a".charCodeAt(0),
   );
 }
 
 function decrypt(name, sector) {
   return name
-    .split('-')
+    .split("-")
     .map(word =>
       word
-        .split('')
+        .split("")
         .map(c => shift(c, sector))
-        .join(''),
+        .join(""),
     )
-    .join(' ');
+    .join(" ");
 }
 
 function parse(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(parseRoom)
     .filter(room => room.checksum === checksum(room.name));
 }
@@ -56,6 +56,6 @@ export function part2(input) {
   const rooms = parse(input);
   const room = rooms
     .map(room => decrypt(room.name, room.sector))
-    .findIndex(x => x === 'northpole object storage');
+    .findIndex(x => x === "northpole object storage");
   return rooms[room] && rooms[room].sector;
 }

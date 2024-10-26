@@ -1,17 +1,17 @@
 const position = cart => `${cart.x},${cart.y}`;
-const onSlash = { '>': '^', '<': 'v', '^': '>', 'v': '<' };
-const onBackSlash = { '>': 'v', '<': '^', '^': '<', 'v': '>' };
-const nextTurn = { left: 'straight', straight: 'right', right: 'left' };
+const onSlash = { ">": "^", "<": "v", "^": ">", "v": "<" };
+const onBackSlash = { ">": "v", "<": "^", "^": "<", "v": ">" };
+const nextTurn = { left: "straight", straight: "right", right: "left" };
 const onTurn = {
-  left: { '>': '^', '<': 'v', '^': '<', 'v': '>' },
-  right: { '>': 'v', '<': '^', '^': '>', 'v': '<' },
-  straight: { '>': '>', '<': '<', '^': '^', 'v': 'v' },
+  left: { ">": "^", "<": "v", "^": "<", "v": ">" },
+  right: { ">": "v", "<": "^", "^": ">", "v": "<" },
+  straight: { ">": ">", "<": "<", "^": "^", "v": "v" },
 };
 const onMove = {
-  '>': c => c.x++,
-  '<': c => c.x--,
-  '^': c => c.y--,
-  'v': c => c.y++,
+  ">": c => c.x++,
+  "<": c => c.x--,
+  "^": c => c.y--,
+  "v": c => c.y++,
 };
 
 function tick(map, carts) {
@@ -19,11 +19,11 @@ function tick(map, carts) {
   carts.sort((a, b) => a.y - b.y || a.x - b.x);
   carts.forEach(cart => {
     onMove[cart.direction](cart);
-    if (map[cart.y][cart.x] === '/') {
+    if (map[cart.y][cart.x] === "/") {
       cart.direction = onSlash[cart.direction];
-    } else if (map[cart.y][cart.x] === '\\') {
+    } else if (map[cart.y][cart.x] === "\\") {
       cart.direction = onBackSlash[cart.direction];
-    } else if (map[cart.y][cart.x] === '+') {
+    } else if (map[cart.y][cart.x] === "+") {
       cart.direction = onTurn[cart.nextTurn][cart.direction];
       cart.nextTurn = nextTurn[cart.nextTurn];
     }
@@ -37,11 +37,11 @@ function tick(map, carts) {
 
 function parse(input) {
   const carts = [];
-  const map = input.replace(/[v^]/g, '|').replace(/[<>]/g, '-').split('\n');
-  input.split('\n').forEach((row, y) =>
-    row.split('').forEach((cell, x) => {
-      if ('v^<>'.includes(cell)) {
-        carts.push({ direction: cell, nextTurn: 'left', x, y });
+  const map = input.replace(/[v^]/g, "|").replace(/[<>]/g, "-").split("\n");
+  input.split("\n").forEach((row, y) =>
+    row.split("").forEach((cell, x) => {
+      if ("v^<>".includes(cell)) {
+        carts.push({ direction: cell, nextTurn: "left", x, y });
       }
     }),
   );

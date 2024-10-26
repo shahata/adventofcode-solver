@@ -1,10 +1,10 @@
 function parse(input) {
-  return input.split('\n').map(line => {
-    let [color, content] = line.split(' contain ');
-    color = color.replace(/ bags?\.?/, '');
-    content = content.split(', ').map(x => x.replace(/ bags?\.?/, ''));
+  return input.split("\n").map(line => {
+    let [color, content] = line.split(" contain ");
+    color = color.replace(/ bags?\.?/, "");
+    content = content.split(", ").map(x => x.replace(/ bags?\.?/, ""));
     content = content
-      .filter(x => x !== 'no other')
+      .filter(x => x !== "no other")
       .map(x => {
         const [, count, color] = x.match(/^(\d+) (.*)$/);
         return { color, count: +count };
@@ -29,7 +29,7 @@ export function part1(input) {
       graph[color] = (graph[color] || []).concat(bag.color);
     });
   });
-  return new Set(walk1(graph, 'shiny gold')).size;
+  return new Set(walk1(graph, "shiny gold")).size;
 }
 
 function walk2(graph, color) {
@@ -42,5 +42,5 @@ export function part2(input) {
   const bags = parse(input);
   const graph = {};
   bags.forEach(bag => (graph[bag.color] = bag.content));
-  return walk2(graph, 'shiny gold') - 1;
+  return walk2(graph, "shiny gold") - 1;
 }

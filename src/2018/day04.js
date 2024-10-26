@@ -1,6 +1,6 @@
 function calcSleep(input) {
   const lines = input
-    .split('\n')
+    .split("\n")
     .sort()
     .map(x => {
       const regex = /^\[[\d-]+ \d+:([\d]+)\] .* (#|asleep|up)(\d+)?/;
@@ -11,9 +11,9 @@ function calcSleep(input) {
   const initial = () => ({ total: 0, mins: new Map() });
   let current, start;
   lines.forEach(line => {
-    if (line.verb === '#') {
+    if (line.verb === "#") {
       current = line.id;
-    } else if (line.verb === 'asleep') {
+    } else if (line.verb === "asleep") {
       start = line.time;
     } else {
       const guard = sleep.get(current) || initial();

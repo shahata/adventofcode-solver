@@ -10,12 +10,12 @@ function mix(original, numbers) {
 }
 
 export function part1(input, key = 1, times = 1) {
-  const original = input.split('\n').map(x => ({ num: +x * key }));
+  const original = input.split("\n").map(x => ({ num: +x * key }));
   const numbers = original.slice(0);
   for (let i = 0; i < times; i++) mix(original, numbers);
 
   const base = numbers.findIndex(x => x.num === 0);
-  if (numbers.length < 1000) return numbers.map(x => x.num).join(', ');
+  if (numbers.length < 1000) return numbers.map(x => x.num).join(", ");
   return (
     numbers[(base + 1000) % numbers.length].num +
     numbers[(base + 2000) % numbers.length].num +

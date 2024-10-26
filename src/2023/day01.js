@@ -1,5 +1,5 @@
 export function part1(input) {
-  const lines = input.split('\n');
+  const lines = input.split("\n");
   const numbers = lines.map(line => {
     const first = +line.match(/[0-9]/g).at(0);
     const last = +line.match(/[0-9]/g).at(-1);
@@ -10,19 +10,19 @@ export function part1(input) {
 
 export function part2(input) {
   const letters = [
-    'zero',
-    'one',
-    'two',
-    'three',
-    'four',
-    'five',
-    'six',
-    'seven',
-    'eight',
-    'nine',
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
   ];
-  const regex = new RegExp(`(?=(?<digit>[0-9]|${letters.join('|')}))`, 'g');
-  const lines = input.split('\n');
+  const regex = new RegExp(`(?=(?<digit>[0-9]|${letters.join("|")}))`, "g");
+  const lines = input.split("\n");
   const numbers = lines.map(line => {
     const first = [...line.matchAll(regex)].at(0).groups.digit;
     const last = [...line.matchAll(regex)].at(-1).groups.digit;

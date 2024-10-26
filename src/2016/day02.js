@@ -12,8 +12,8 @@ function move(keypad, position, step) {
 
 function solve(input, keypad, start) {
   return input
-    .split('\n')
-    .map(line => line.split(''))
+    .split("\n")
+    .map(line => line.split(""))
     .reduce((code, line) => {
       return code.concat(
         line.reduce(
@@ -25,13 +25,13 @@ function solve(input, keypad, start) {
       );
     }, [])
     .map(key => keypad[key.y][key.x])
-    .join('');
+    .join("");
 }
 
 const keypad1 = [
-  ['1', '2', '3'],
-  ['4', '5', '6'],
-  ['7', '8', '9'],
+  ["1", "2", "3"],
+  ["4", "5", "6"],
+  ["7", "8", "9"],
 ];
 
 export function part1(input) {
@@ -39,11 +39,11 @@ export function part1(input) {
 }
 
 const keypad2 = [
-  [NaN, NaN, '1', NaN, NaN],
-  [NaN, '2', '3', '4', NaN],
-  ['5', '6', '7', '8', '9'],
-  [NaN, 'A', 'B', 'C', NaN],
-  [NaN, NaN, 'D', NaN, NaN],
+  [NaN, NaN, "1", NaN, NaN],
+  [NaN, "2", "3", "4", NaN],
+  ["5", "6", "7", "8", "9"],
+  [NaN, "A", "B", "C", NaN],
+  [NaN, NaN, "D", NaN, NaN],
 ];
 
 export function part2(input) {

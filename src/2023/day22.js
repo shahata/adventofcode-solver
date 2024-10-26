@@ -1,6 +1,6 @@
 function parse(input) {
-  const bricks = input.split('\n').map(line => {
-    const [a, b] = line.split('~').map(x => x.split(',').map(y => +y));
+  const bricks = input.split("\n").map(line => {
+    const [a, b] = line.split("~").map(x => x.split(",").map(y => +y));
     const body = [];
     for (let x = a[0]; x <= b[0]; x++) {
       for (let y = a[1]; y <= b[1]; y++) {
@@ -22,7 +22,7 @@ function index(bricks) {
     brick.forEach(b => {
       const key = `${b[0]},${b[1]}`;
       map.set(key, (map.get(key) || []).concat({ brick, b }));
-      map.set(b.join(','), bricks.indexOf(brick));
+      map.set(b.join(","), bricks.indexOf(brick));
     });
   }
   return map;

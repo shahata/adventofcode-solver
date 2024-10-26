@@ -1,4 +1,4 @@
-const pattern = ['.#.', '..#', '###'];
+const pattern = [".#.", "..#", "###"];
 const permutations2 = [
   [1, 2, 3, 4],
   [3, 4, 1, 2],
@@ -23,7 +23,7 @@ const permutations3 = [
 function permute(str) {
   const permutations = str.length === 4 ? permutations2 : permutations3;
   return permutations.map(x => {
-    let result = '';
+    let result = "";
     for (let i = 0; i < x.length; i++) {
       result += str[x[i] - 1];
     }
@@ -32,10 +32,10 @@ function permute(str) {
 }
 
 function parse(input) {
-  return input.split('\n').reduce((rules, line) => {
-    const [from, to] = line.split(' => ');
-    const keys = permute(from.replace(/\//g, ''));
-    const value = to.split('/');
+  return input.split("\n").reduce((rules, line) => {
+    const [from, to] = line.split(" => ");
+    const keys = permute(from.replace(/\//g, ""));
+    const value = to.split("/");
     return keys.reduce((rules, key) => ({ ...rules, [key]: value }), rules);
   }, {});
 }
@@ -59,7 +59,7 @@ function merge(divided) {
   return divided.reduce((result, boxes) => {
     const rows = [];
     for (let i = 0; i < boxes[0].length; i++) {
-      rows.push(boxes.map(x => x[i]).join(''));
+      rows.push(boxes.map(x => x[i]).join(""));
     }
     return result.concat(rows);
   }, []);
@@ -71,7 +71,7 @@ function mutate(pattern, rules) {
   return merge(
     divided.map(row =>
       row.map(x => {
-        return rules[x.join('')];
+        return rules[x.join("")];
       }),
     ),
   );
@@ -84,9 +84,9 @@ export function part1(input, count = 5) {
     result = mutate(result, rules);
   }
   return result
-    .join('')
-    .split('')
-    .filter(x => x === '#').length;
+    .join("")
+    .split("")
+    .filter(x => x === "#").length;
 }
 
 export function part2(input) {

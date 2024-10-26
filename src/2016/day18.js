@@ -1,11 +1,11 @@
 function calcRow(row) {
   return row
-    .split('')
+    .split("")
     .map((x, i) => {
-      const [l, c, r] = [row[i - 1] || '.', row[i], row[i + 1] || '.'];
-      return (l !== c && l !== r) || (r !== c && r !== l) ? '^' : '.';
+      const [l, c, r] = [row[i - 1] || ".", row[i], row[i + 1] || "."];
+      return (l !== c && l !== r) || (r !== c && r !== l) ? "^" : ".";
     })
-    .join('');
+    .join("");
 }
 
 function solve(input, rows) {

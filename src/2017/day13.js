@@ -1,6 +1,6 @@
 function parse(input) {
-  return input.split('\n').map(line => {
-    const [depth, range] = line.split(': ').map(Number);
+  return input.split("\n").map(line => {
+    const [depth, range] = line.split(": ").map(Number);
     return { depth, range };
   });
 }

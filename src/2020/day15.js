@@ -1,5 +1,5 @@
 export function part1(input, count = 2020) {
-  const start = input.split(',').map(Number);
+  const start = input.split(",").map(Number);
   const map = new Map(start.map((x, i) => [x, i]));
 
   let curr;

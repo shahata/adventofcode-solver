@@ -1,11 +1,11 @@
-import { combinations } from 'combinatorial-generators';
+import { combinations } from "combinatorial-generators";
 
 function parse(input) {
   return input
-    .split('\n')
+    .split("\n")
     .slice(2)
     .map(x => {
-      const fix = x => +x.replace(/.$/, '');
+      const fix = x => +x.replace(/.$/, "");
       const [name, size, used, avail, use] = x.split(/\s+/);
       return { name, size: fix(size), used: fix(used), avail: fix(avail), use };
     });

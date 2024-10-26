@@ -1,13 +1,13 @@
-import * as path from 'node:path';
-import * as process from 'node:process';
-import { fileURLToPath, resolve } from 'node:url';
-import { performance } from 'node:perf_hooks';
-import { existsSync, readdirSync, writeFileSync } from 'node:fs';
+import * as path from "node:path";
+import * as process from "node:process";
+import { fileURLToPath, resolve } from "node:url";
+import { performance } from "node:perf_hooks";
+import { existsSync, readdirSync, writeFileSync } from "node:fs";
 
-import ProgressBar from 'progress';
-import { chromium } from 'playwright';
-import readInput from './read-input.js';
-import { dayName } from './day-name.js';
+import ProgressBar from "progress";
+import { chromium } from "playwright";
+import readInput from "./read-input.js";
+import { dayName } from "./day-name.js";
 import {
   downloadQuestion,
   downloadIndex,
@@ -15,7 +15,7 @@ import {
   createSolver,
   tempLeaderboard,
   downloadIndexTicks,
-} from './renderer.js';
+} from "./renderer.js";
 
 let duration;
 async function timerify(fn) {
@@ -29,7 +29,7 @@ async function timerify(fn) {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function solverFunction(year, day) {
-  const solver = path.resolve(__dirname, '..', year, `${dayName(day)}.js`);
+  const solver = path.resolve(__dirname, "..", year, `${dayName(day)}.js`);
   if (!existsSync(solver)) {
     return undefined;
   }
@@ -39,7 +39,7 @@ function solverFunction(year, day) {
       new URL(`../${year}/${dayName(day)}.js`, import.meta.url),
     );
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
-    console.log('----------------------------');
+    console.log("----------------------------");
     if (module.day) {
       const { part1, part2 } = await timerify(() => module.day(input));
       console.log(`Part1: ${part1}`);
@@ -50,13 +50,13 @@ function solverFunction(year, day) {
       const result2 = timerify(() => module.part2(input));
       console.log(`Part2: ${await result2}`, duration);
     }
-    console.log('');
+    console.log("");
   };
 }
 
 function getDays(year) {
   try {
-    return readdirSync(path.resolve(__dirname, '..', year))
+    return readdirSync(path.resolve(__dirname, "..", year))
       .filter(x => x.match(/^day\d+\.js$/))
       .map(x => parseInt(x.match(/\d+/).shift()))
       .sort((a, b) => a - b)
@@ -68,7 +68,7 @@ function getDays(year) {
 }
 
 function getAllYears() {
-  const directory = path.resolve(__dirname, '..');
+  const directory = path.resolve(__dirname, "..");
   const years = readdirSync(directory).filter(x => x.match(/^\d\d\d\d$/));
   return years.sort((a, b) => parseInt(a) - parseInt(b));
 }
@@ -80,13 +80,13 @@ async function takeScreenshots(year) {
   const page = await browser.newPage();
   await page.goto(resolve(import.meta.url, `../${year}/events.html`));
   await page.waitForTimeout(1000);
-  await page.screenshot({ path: 'static/screenshot-events.png', clip });
+  await page.screenshot({ path: "static/screenshot-events.png", clip });
   await page.goto(resolve(import.meta.url, `../${year}/solver.html`));
   await page.waitForTimeout(1000);
-  await page.screenshot({ path: 'static/screenshot-solver.png', clip });
+  await page.screenshot({ path: "static/screenshot-solver.png", clip });
   await browser.close();
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const index = path.resolve(__dirname, '..', '..', 'index.html');
+  const index = path.resolve(__dirname, "..", "..", "index.html");
   writeFileSync(
     index,
     `<meta http-equiv="refresh" content="0; URL=src/${year}/events.html">`,
@@ -105,7 +105,7 @@ export async function solveAll(year, day, run = true) {
   } else {
     console.log(`Downloading questions (${year})...`);
     const days = getDays(year);
-    var bar = new ProgressBar('[:bar] :percent', {
+    var bar = new ProgressBar("[:bar] :percent", {
       total: days.length * 2 + downloadIndexTicks,
       width: 40,
     });

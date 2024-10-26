@@ -2,11 +2,11 @@ function parse(input) {
   const allIngredients = new Map();
   const allAllergens = new Set();
   const foods = input
-    .split('\n')
-    .map(line => line.replace(')', '').split(' (contains '))
+    .split("\n")
+    .map(line => line.replace(")", "").split(" (contains "))
     .map(([ingredients, allergens]) => ({
-      ingredients: ingredients.split(' '),
-      allergens: allergens.split(', '),
+      ingredients: ingredients.split(" "),
+      allergens: allergens.split(", "),
     }));
   foods.forEach(food => {
     food.ingredients.forEach(x => {
@@ -55,5 +55,5 @@ export function part2(input) {
   return allIngredients
     .sort((a, b) => a.contains.localeCompare(b.contains))
     .map(x => x.name)
-    .join(',');
+    .join(",");
 }

@@ -1,4 +1,4 @@
-import { divisors } from '../utils/divisors.js';
+import { divisors } from "../utils/divisors.js";
 
 const ops = {
   addr: (r, i1, i2, o) => (r[o] = r[i1] + r[i2]),
@@ -21,10 +21,10 @@ const ops = {
 const numbers = arr => arr.map(Number);
 
 export function part1(input, reg0 = 0) {
-  const lines = input.split('\n');
-  const ip = +lines.shift().split(' ').pop();
+  const lines = input.split("\n");
+  const ip = +lines.shift().split(" ").pop();
   const commands = lines.map(x => {
-    const [op, ...params] = x.split(' ');
+    const [op, ...params] = x.split(" ");
     return { op, params: numbers(params) };
   });
   const r = [reg0, 0, 0, 0, 0, 0];

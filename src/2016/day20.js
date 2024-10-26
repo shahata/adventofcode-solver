@@ -17,7 +17,7 @@ function merge(ranges) {
 }
 
 function parse(input) {
-  return input.split('\n').map(x =>
+  return input.split("\n").map(x =>
     x
       .match(/^(\d+)-(\d+)$/)
       .slice(1)

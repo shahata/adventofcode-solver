@@ -10,7 +10,7 @@ function longest(graph, curr, visited) {
 function parse(input) {
   const signs = { gain: +1, lose: -1 };
   const graph = input
-    .split('\n')
+    .split("\n")
     .map(x =>
       x.match(/^(.*) would (gain|lose) (\d+) happiness .* next to (.*)\.$/),
     )
@@ -35,5 +35,5 @@ export function part1(input) {
 
 export function part2(input) {
   const graph = parse(input);
-  return longest(graph, '$$me', []);
+  return longest(graph, "$$me", []);
 }

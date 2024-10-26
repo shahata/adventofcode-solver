@@ -1,5 +1,5 @@
 const readRaw = (input, length) => input.splice(0, length);
-const toNumber = number => parseInt(number.join(''), 2);
+const toNumber = number => parseInt(number.join(""), 2);
 const readNumber = (input, length) => toNumber(readRaw(input, length));
 
 function calculate(input, sumOfVersions = false) {
@@ -50,16 +50,16 @@ function calculate(input, sumOfVersions = false) {
 
 export function part1(input) {
   input = input
-    .split('')
-    .map(n => parseInt(n, 16).toString(2).padStart(4, '0').split(''))
+    .split("")
+    .map(n => parseInt(n, 16).toString(2).padStart(4, "0").split(""))
     .flat();
   return calculate(input, true);
 }
 
 export function part2(input) {
   input = input
-    .split('')
-    .map(n => parseInt(n, 16).toString(2).padStart(4, '0').split(''))
+    .split("")
+    .map(n => parseInt(n, 16).toString(2).padStart(4, "0").split(""))
     .flat();
   return calculate(input);
 }

@@ -9,7 +9,7 @@ function memoize(fn) {
 function advance(options, char) {
   const { len, groups, i, left } = options;
   let update = {};
-  if (char === '#') update = { len: len + 1, left: left - 1 };
+  if (char === "#") update = { len: len + 1, left: left - 1 };
   else if (len > 0) update = { len: 0, groups: [...groups, len] };
   return { ...options, ...update, i: i + 1 };
 }
@@ -30,17 +30,17 @@ const solve = memoize((pattern, counts, options) => {
 
   let result = 0;
   const c = pattern[options.i];
-  if (c !== '#') result += solve(pattern, counts, advance(options, '.'));
-  if (c !== '.') result += solve(pattern, counts, advance(options, '#'));
+  if (c !== "#") result += solve(pattern, counts, advance(options, "."));
+  if (c !== ".") result += solve(pattern, counts, advance(options, "#"));
   return result;
 });
 
 export function part1(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(line => {
-      let [pattern, counts] = line.split(' ');
-      counts = counts.split(',').map(Number);
+      let [pattern, counts] = line.split(" ");
+      counts = counts.split(",").map(Number);
       return solve(pattern, counts);
     })
     .reduce((a, b) => a + b);
@@ -48,13 +48,13 @@ export function part1(input) {
 
 export function part2(input) {
   const x = input
-    .split('\n')
+    .split("\n")
     .map(line => {
-      let [pattern, counts] = line.split(' ');
+      let [pattern, counts] = line.split(" ");
       pattern = new Array(5).fill().map(() => pattern);
       counts = new Array(5).fill().map(() => counts);
-      pattern = pattern.join('?');
-      counts = counts.join(',').split(',').map(Number);
+      pattern = pattern.join("?");
+      counts = counts.join(",").split(",").map(Number);
       return solve(pattern, counts);
     })
     .reduce((a, b) => a + b);

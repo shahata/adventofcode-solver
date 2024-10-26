@@ -1,10 +1,10 @@
-import { PriorityQueue } from '@datastructures-js/priority-queue';
+import { PriorityQueue } from "@datastructures-js/priority-queue";
 
 const toKey = state =>
   state
     .sort((a, b) => a.x - b.x || a.y - b.y)
     .map(s => `${s.x},${s.y},${s.sign}`)
-    .join(':');
+    .join(":");
 
 function neighbors({ state, energy: curr }) {
   const price = { A: 1, B: 10, C: 100, D: 1000 };
@@ -57,7 +57,7 @@ function solve(start, end) {
 }
 
 function parse(input) {
-  const maze = input.map(line => line.split(''));
+  const maze = input.map(line => line.split(""));
   const state = [];
   for (let y = 0; y < maze.length; y++) {
     for (let x = 0; x < maze[y].length; x++) {
@@ -70,21 +70,21 @@ function parse(input) {
 }
 
 const solved = [
-  '#############',
-  '#...........#',
-  '###A#B#C#D###',
-  '  #A#B#C#D#',
-  '  #########',
+  "#############",
+  "#...........#",
+  "###A#B#C#D###",
+  "  #A#B#C#D#",
+  "  #########",
 ];
 
 export function part1(input) {
-  return solve(parse(input.split('\n')), toKey(parse(solved)));
+  return solve(parse(input.split("\n")), toKey(parse(solved)));
 }
 
 export function part2(input) {
   const solved2 = solved.slice(0);
-  input = input.split('\n');
-  input.splice(3, 0, '  #D#C#B#A#', '  #D#B#A#C#');
-  solved2.splice(3, 0, '  #A#B#C#D#', '  #A#B#C#D#');
+  input = input.split("\n");
+  input.splice(3, 0, "  #D#C#B#A#", "  #D#B#A#C#");
+  solved2.splice(3, 0, "  #A#B#C#D#", "  #A#B#C#D#");
   return solve(parse(input), toKey(parse(solved2)));
 }

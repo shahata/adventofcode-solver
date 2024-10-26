@@ -1,5 +1,5 @@
-import 'regenerator-runtime';
-import { mincut } from '@graph-algorithm/minimum-cut';
+import "regenerator-runtime";
+import { mincut } from "@graph-algorithm/minimum-cut";
 
 function graphSize(graph, ignored, visited = new Set()) {
   const queue = [Object.keys(graph)[0]];
@@ -24,9 +24,9 @@ function toGraph(edges) {
 
 export function part1(input) {
   const edges = [];
-  input.split('\n').forEach(line => {
-    let [component, connections] = line.split(': ');
-    connections = connections.split(' ');
+  input.split("\n").forEach(line => {
+    let [component, connections] = line.split(": ");
+    connections = connections.split(" ");
     connections.forEach(connection => edges.push([component, connection]));
   });
   const graph = toGraph(edges);

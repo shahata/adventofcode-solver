@@ -1,7 +1,7 @@
 export function part1(input, right = 3, down = 1) {
   const map = input
-    .split('\n')
-    .map(line => line.split('').map(x => (x === '#' ? 1 : 0)));
+    .split("\n")
+    .map(line => line.split("").map(x => (x === "#" ? 1 : 0)));
   let point = { x: 0, y: 0 };
   let trees = 0;
   while (point.y < map.length) {

@@ -1,21 +1,21 @@
-import { part2 as knot } from './day10.js';
+import { part2 as knot } from "./day10.js";
 
 function parse(input) {
   return new Array(128).fill().map((x, y) => {
     return knot(`${input}-${y}`)
-      .split('')
+      .split("")
       .map(x => {
-        return parseInt(x, 16).toString(2).padStart(4, '0');
+        return parseInt(x, 16).toString(2).padStart(4, "0");
       })
-      .join('')
-      .split('')
-      .map((d, x) => ({ x, y, value: d === '1' ? '#' : '.' }));
+      .join("")
+      .split("")
+      .map((d, x) => ({ x, y, value: d === "1" ? "#" : "." }));
   });
 }
 
 function countUsed(disk) {
   return disk.reduce(
-    (total, row) => total + row.filter(x => x.value === '#').length,
+    (total, row) => total + row.filter(x => x.value === "#").length,
     0,
   );
 }
@@ -39,7 +39,7 @@ function count(disk, point, visited = new Set()) {
   visited.add(toKey(point));
   getNeighbors(disk, point)
     .filter(x => {
-      return !visited.has(toKey(x)) && x.value === '#';
+      return !visited.has(toKey(x)) && x.value === "#";
     })
     .forEach(x => count(disk, x, visited));
   return visited;
@@ -50,7 +50,7 @@ function countRegions(disk) {
   const visited = new Set();
   disk.forEach(row => {
     row.forEach(point => {
-      if (!visited.has(toKey(point)) && point.value === '#') {
+      if (!visited.has(toKey(point)) && point.value === "#") {
         regions++;
         count(disk, point, visited);
       }

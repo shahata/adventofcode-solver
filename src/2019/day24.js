@@ -4,7 +4,7 @@ function getBugs(life, x, y) {
     life[y + 1] && life[y + 1][x],
     life[y][x - 1],
     life[y][x + 1],
-  ].filter(x => x === '#').length;
+  ].filter(x => x === "#").length;
 }
 
 function getBugs2(lifez, x, y, z) {
@@ -24,38 +24,38 @@ function getBugs2(lifez, x, y, z) {
     if (y === 2 && x === 1) result.push(...down.map(l => l[0]));
     if (y === 2 && x === 3) result.push(...down.map(l => l[4]));
   }
-  return result.filter(x => x === '#').length + getBugs(lifez[z], x, y);
+  return result.filter(x => x === "#").length + getBugs(lifez[z], x, y);
 }
 
 function calc(c, bugs) {
-  if (c === '#') {
-    if (bugs !== 1) return '.';
+  if (c === "#") {
+    if (bugs !== 1) return ".";
   } else {
-    if (bugs === 1 || bugs === 2) return '#';
+    if (bugs === 1 || bugs === 2) return "#";
   }
   return c;
 }
 
 export function part1(input) {
-  let life = input.split('\n').map(line => line.split(''));
+  let life = input.split("\n").map(line => line.split(""));
   const memo = new Set();
 
-  while (!memo.has(life.map(line => line.join('')).join(''))) {
-    memo.add(life.map(line => line.join('')).join(''));
+  while (!memo.has(life.map(line => line.join("")).join(""))) {
+    memo.add(life.map(line => line.join("")).join(""));
     life = life.map((line, y) =>
       line.map((c, x) => calc(c, getBugs(life, x, y))),
     );
   }
 
   const chars = life.reduce((prev, line) => prev.concat(line), []);
-  const ratings = chars.map((x, i) => (x === '.' ? 0 : 2 ** i));
+  const ratings = chars.map((x, i) => (x === "." ? 0 : 2 ** i));
   return ratings.reduce((a, b) => a + b);
 }
 
 export function part2(input, minutes = 200) {
-  const level = input.split('\n').map(line => line.split(''));
+  const level = input.split("\n").map(line => line.split(""));
   let lifez = new Array(Math.ceil(minutes * 2.5)).fill().map(() => {
-    return new Array(5).fill().map(() => new Array(5).fill('.'));
+    return new Array(5).fill().map(() => new Array(5).fill("."));
   });
   lifez[Math.ceil(minutes * 1.25)] = level;
 
@@ -69,5 +69,5 @@ export function part2(input, minutes = 200) {
 
   const lines = lifez.reduce((prev, life) => prev.concat(life), []);
   const chars = lines.reduce((prev, line) => prev.concat(line), []);
-  return chars.filter(c => c === '#').length;
+  return chars.filter(c => c === "#").length;
 }

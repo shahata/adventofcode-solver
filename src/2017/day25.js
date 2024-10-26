@@ -1,25 +1,25 @@
 function parse(input) {
   let initial, diagnostic, currentState, currentValue;
-  const lines = input.split('\n');
+  const lines = input.split("\n");
   const states = {};
   for (const line of lines) {
     const [word] = line.match(/\w+/) || [];
     const [, param] = line.match(/([^\s]*).$/) || [];
-    if (word === 'Begin') {
+    if (word === "Begin") {
       initial = param;
-    } else if (word === 'Perform') {
+    } else if (word === "Perform") {
       [, diagnostic] = line.match(/(\d+) steps.$/);
-    } else if (word === 'In') {
+    } else if (word === "In") {
       currentState = param;
       states[currentState] = [];
-    } else if (word === 'If') {
+    } else if (word === "If") {
       currentValue = param;
       states[currentState][currentValue] = {};
-    } else if (word === 'Write') {
+    } else if (word === "Write") {
       states[currentState][currentValue].write = param;
-    } else if (word === 'Move') {
+    } else if (word === "Move") {
       states[currentState][currentValue].move = param;
-    } else if (word === 'Continue') {
+    } else if (word === "Continue") {
       states[currentState][currentValue].next = param;
     }
   }
@@ -32,12 +32,12 @@ export function part1(input) {
   let position = 0,
     currentState = initial;
   for (let i = 0; i < diagnostic; i++) {
-    const currentValue = tape[position] || '0';
+    const currentValue = tape[position] || "0";
     tape[position] = states[currentState][currentValue].write;
-    position += states[currentState][currentValue].move === 'left' ? -1 : 1;
+    position += states[currentState][currentValue].move === "left" ? -1 : 1;
     currentState = states[currentState][currentValue].next;
   }
-  return Object.values(tape).filter(x => x === '1').length;
+  return Object.values(tape).filter(x => x === "1").length;
 }
 
 export function part2() {

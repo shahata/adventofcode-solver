@@ -2,8 +2,8 @@ function isOpen({ x, y }, magicNumber) {
   const num = x * x + 3 * x + 2 * x * y + y + y * y + magicNumber;
   const ones = num
     .toString(2)
-    .split('')
-    .filter(x => x === '1').length;
+    .split("")
+    .filter(x => x === "1").length;
   return ones % 2 === 0;
 }
 

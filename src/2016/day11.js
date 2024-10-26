@@ -1,10 +1,10 @@
-import { combinations } from 'combinatorial-generators';
+import { combinations } from "combinatorial-generators";
 
 function parse(input) {
   let pieces = [];
   const state = {
     elevator: 0,
-    floors: input.split('\n').map(x => {
+    floors: input.split("\n").map(x => {
       const generators = x.match(/[^\s]+(?=\s*generator)/g) || [];
       const microchips = x.match(/[^\s]+(?=-compatible microchip)/g) || [];
       pieces = pieces.concat(generators).concat(microchips);
@@ -162,8 +162,8 @@ export function part1(input) {
 
 export function part2(input) {
   const state = parse(input);
-  state.floors[0].generators.push('elerium', 'dilithium');
-  state.floors[0].microchips.push('elerium', 'dilithium');
-  state.pieces.push('elerium', 'dilithium', 'elerium', 'dilithium');
+  state.floors[0].generators.push("elerium", "dilithium");
+  state.floors[0].microchips.push("elerium", "dilithium");
+  state.pieces.push("elerium", "dilithium", "elerium", "dilithium");
   return solve(state);
 }

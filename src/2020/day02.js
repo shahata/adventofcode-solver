@@ -1,16 +1,16 @@
 export function part1(input) {
-  const result = input.split('\n').filter(x => {
+  const result = input.split("\n").filter(x => {
     const [, start, end, character, password] = x.match(
       /^(\d+)-(\d+) (.): (.*)$/,
     );
-    const count = password.split('').filter(x => x === character).length;
+    const count = password.split("").filter(x => x === character).length;
     return count >= +start && count <= +end;
   }).length;
   return result;
 }
 
 export function part2(input) {
-  const result = input.split('\n').filter(x => {
+  const result = input.split("\n").filter(x => {
     const [, start, end, character, password] = x.match(
       /^(\d+)-(\d+) (.): (.*)$/,
     );

@@ -1,9 +1,9 @@
 const topBorder = t => t[0];
 const bottomBorder = t => t.at(-1);
-const leftBorder = t => t.map(x => x[0]).join('');
-const rightBorder = t => t.map(x => x.at(-1)).join('');
-const mirror = t => t.map(line => line.split('').reverse().join(''));
-const rotate = t => mirror(t.map((_, i) => t.map(x => x[i]).join('')));
+const leftBorder = t => t.map(x => x[0]).join("");
+const rightBorder = t => t.map(x => x.at(-1)).join("");
+const mirror = t => t.map(line => line.split("").reverse().join(""));
+const rotate = t => mirror(t.map((_, i) => t.map(x => x[i]).join("")));
 const findRotation = (tile, fn) => tile && tile.rotations.find(fn);
 
 function allRotations(image) {
@@ -16,7 +16,7 @@ function allRotations(image) {
 }
 
 function parse(rows) {
-  const [id, ...tile] = rows.split('\n');
+  const [id, ...tile] = rows.split("\n");
   return {
     id: +id.match(/^Tile (\d+):$/).pop(),
     tile,
@@ -27,12 +27,12 @@ function parse(rows) {
 
 function countMonsters(image) {
   const monster = [
-    '                  # ',
-    '#    ##    ##    ###',
-    ' #  #  #  #  #  #   ',
+    "                  # ",
+    "#    ##    ##    ###",
+    " #  #  #  #  #  #   ",
   ];
-  const pattern = monster.map(x => new RegExp(`^${x.replaceAll(' ', '.')}`));
-  const size = monster.join('').match(/#/g).length;
+  const pattern = monster.map(x => new RegExp(`^${x.replaceAll(" ", ".")}`));
+  const size = monster.join("").match(/#/g).length;
   let count = 0;
   for (let i = 0; i < image.length - (pattern.length - 1); i++) {
     for (let j = 0; j < image.length; j++) {
@@ -102,12 +102,12 @@ function solvePuzzle(tiles, first) {
 }
 
 export function part1(input) {
-  const tiles = input.split('\n\n').map(x => parse(x));
+  const tiles = input.split("\n\n").map(x => parse(x));
   return findCorners(tiles).reduce((a, b) => a * b);
 }
 
 export function part2(input) {
-  const tiles = input.split('\n\n').map(x => parse(x));
+  const tiles = input.split("\n\n").map(x => parse(x));
   const corners = findCorners(tiles);
   const map = solvePuzzle(tiles, corners[0]);
 
@@ -127,5 +127,5 @@ export function part2(input) {
     .find(x => x !== 0);
 
   //calculate roughness
-  return image.join('').match(/#/g).length - count;
+  return image.join("").match(/#/g).length - count;
 }

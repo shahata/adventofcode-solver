@@ -11,7 +11,7 @@ function solve(maze, mutate) {
 }
 
 function parse(input) {
-  return input.split('\n').map(Number);
+  return input.split("\n").map(Number);
 }
 
 export function part1(input) {

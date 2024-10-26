@@ -7,10 +7,10 @@ const directions = [
 
 export function day(input) {
   const destination = input
-    .split(', ')
+    .split(", ")
     .map(x => {
       const [, turn, count] = x.match(/^(R|L)(\d+)$/);
-      return { turn: turn === 'R' ? 1 : -1, count: +count };
+      return { turn: turn === "R" ? 1 : -1, count: +count };
     })
     .reduce(
       (state, next) => {
@@ -33,7 +33,7 @@ export function day(input) {
           };
         }, state);
       },
-      { direction: 0, x: 0, y: 0, history: { '0,0': true } },
+      { direction: 0, x: 0, y: 0, history: { "0,0": true } },
     );
   destination.twice = destination.twice || { x: NaN, y: NaN };
 

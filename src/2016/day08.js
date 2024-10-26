@@ -1,4 +1,4 @@
-import { ocr } from '../utils/ocr.js';
+import { ocr } from "../utils/ocr.js";
 
 function init(width, height) {
   return new Array(height).fill().map(() => new Array(width).fill(false));
@@ -32,13 +32,13 @@ function flatten(screen) {
 }
 
 function parseCommand(command) {
-  if (command.startsWith('rect')) {
+  if (command.startsWith("rect")) {
     const [, x, y] = command.match(/^rect (\d+)x(\d+)$/);
     return state => rect(state, +x, +y);
-  } else if (command.startsWith('rotate row')) {
+  } else if (command.startsWith("rotate row")) {
     const [, y, x] = command.match(/^rotate row y=(\d+) by (\d+)$/);
     return state => rotateRow(state, +x, +y);
-  } else if (command.startsWith('rotate column')) {
+  } else if (command.startsWith("rotate column")) {
     const [, x, y] = command.match(/^rotate column x=(\d+) by (\d+)$/);
     return state => rotateColumn(state, +x, +y);
   }
@@ -47,7 +47,7 @@ function parseCommand(command) {
 function solve(input, width, height) {
   const screen = init(width, height);
   return input
-    .split('\n')
+    .split("\n")
     .map(parseCommand)
     .reduce((state, fn) => fn(state), screen);
 }
@@ -60,6 +60,6 @@ export function part1(input, width = 50, height = 6) {
 export function part2(input, width = 50, height = 6) {
   const final = solve(input, width, height);
   return ocr(
-    final.map(row => `${row.map(x => (x ? '#' : '.')).join('')}`).join('\n'),
+    final.map(row => `${row.map(x => (x ? "#" : ".")).join("")}`).join("\n"),
   );
 }

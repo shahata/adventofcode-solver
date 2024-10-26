@@ -1,9 +1,9 @@
 export function part1(input, top = 1) {
   const elves = input
-    .split('\n\n')
+    .split("\n\n")
     .map(x =>
       x
-        .split('\n')
+        .split("\n")
         .map(x => +x)
         .reduce((a, b) => a + b),
     )

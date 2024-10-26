@@ -7,8 +7,8 @@ function direction(a, b) {
 }
 
 export function part1(input, diagonal = false) {
-  const lines = input.split('\n').map(line => {
-    const [from, to] = line.split(' -> ').map(x => x.split(',').map(Number));
+  const lines = input.split("\n").map(line => {
+    const [from, to] = line.split(" -> ").map(x => x.split(",").map(Number));
     return { from, to };
   });
 

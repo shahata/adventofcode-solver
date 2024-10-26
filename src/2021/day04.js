@@ -19,10 +19,10 @@ function calc(board) {
 }
 
 export function part1(input, win = true) {
-  let [numbers, ...boards] = input.split('\n\n');
-  numbers = numbers.split(',').map(n => +n);
+  let [numbers, ...boards] = input.split("\n\n");
+  numbers = numbers.split(",").map(n => +n);
   boards = boards.map(board =>
-    board.split('\n').map(row =>
+    board.split("\n").map(row =>
       row
         .trim()
         .split(/\s+/)

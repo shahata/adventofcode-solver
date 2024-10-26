@@ -1,7 +1,7 @@
-import md5 from '../utils/md5.js';
+import md5 from "../utils/md5.js";
 
 function findRepeatingCharacters(str, num) {
-  return (str.match(new RegExp(`(.)\\1{${num - 1}}`, 'g')) || []).map(
+  return (str.match(new RegExp(`(.)\\1{${num - 1}}`, "g")) || []).map(
     x => x[0],
   );
 }

@@ -1,18 +1,18 @@
-import * as path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { readFileSync, writeFileSync } from 'node:fs';
-import { imports } from './urls.js';
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
+import { readFileSync, writeFileSync } from "node:fs";
+import { imports } from "./urls.js";
 
 function removeIgnoredDays(jsonArr) {
   jsonArr.forEach(json => {
-    if (json.event === '2020') {
+    if (json.event === "2020") {
       Object.values(json.members).forEach(member => {
-        delete member.completion_day_level['1'];
+        delete member.completion_day_level["1"];
       });
     }
-    if (json.event === '2018') {
+    if (json.event === "2018") {
       Object.values(json.members).forEach(member => {
-        delete member.completion_day_level['6'];
+        delete member.completion_day_level["6"];
       });
     }
   });
@@ -54,7 +54,7 @@ function calcChart(members, sorted, count) {
     });
   });
   const config = {
-    type: 'line',
+    type: "line",
     data: {
       labels: new Array(50)
         .fill()
@@ -73,7 +73,7 @@ function calcChart(members, sorted, count) {
 
 export function calcLeaderboard(jsonArr) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const jsonPath = path.resolve(__dirname, 'leaderboards.json');
+  const jsonPath = path.resolve(__dirname, "leaderboards.json");
   const debugMode = false;
   if (jsonArr) {
     if (debugMode) {
@@ -98,11 +98,11 @@ export function calcLeaderboard(jsonArr) {
     member.label = name;
     for (const [day, stars] of Object.entries(member.completion_day_level)) {
       const index = parseInt(day) - 1;
-      if (stars['1']) {
-        days[index][0].push({ name, ts: parseInt(stars['1'].get_star_ts) });
+      if (stars["1"]) {
+        days[index][0].push({ name, ts: parseInt(stars["1"].get_star_ts) });
       }
-      if (stars['2']) {
-        days[index][1].push({ name, ts: parseInt(stars['2'].get_star_ts) });
+      if (stars["2"]) {
+        days[index][1].push({ name, ts: parseInt(stars["2"].get_star_ts) });
       }
     }
   });
@@ -112,15 +112,15 @@ export function calcLeaderboard(jsonArr) {
         .sort((a, b) => a.ts - b.ts)
         .map(star => ({
           name: star.name,
-          ts: new Date(star.ts * 1000).toLocaleString('en-GB', {
+          ts: new Date(star.ts * 1000).toLocaleString("en-GB", {
             hour12: false,
-            second: '2-digit',
-            minute: '2-digit',
-            hour: '2-digit',
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric',
-            timeZone: 'America/New_York',
+            second: "2-digit",
+            minute: "2-digit",
+            hour: "2-digit",
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            timeZone: "America/New_York",
           }),
         })),
     ),
@@ -147,24 +147,24 @@ export function calcLeaderboard(jsonArr) {
         stars.forEach((star, index) => {
           const paddedIndex = `${index + 1}`.padStart(
             `${stars.length}`.length,
-            ' ',
+            " ",
           );
           table.push(
             [
               `<div class="leaderboard-entry"><span class="leaderboard-position">`,
               `${paddedIndex})</span> <span class="leaderboard-time">${star.ts}`,
               `</span> ${star.name}</div> `,
-            ].join(''),
+            ].join(""),
           );
         });
       }
-      table.push('</td>');
+      table.push("</td>");
     });
-    table.push('</tr>');
+    table.push("</tr>");
   });
   return {
     config: JSON.stringify(config),
-    table: table.join('\n'),
-    chartJsUrl: imports['chart.js'],
+    table: table.join("\n"),
+    chartJsUrl: imports["chart.js"],
   };
 }

@@ -7,7 +7,7 @@ export function day(input, low = 17, high = 61) {
       [index]: (state[dest][index] || []).concat(value).sort((a, b) => a - b),
     };
     if (
-      dest === 'bots' &&
+      dest === "bots" &&
       state[dest][index][0] === low &&
       state[dest][index][1] === high
     ) {
@@ -35,15 +35,15 @@ export function day(input, low = 17, high = 61) {
     return lines.reduce(
       (state, line) => {
         const [, value, bot] = line.match(/^value (\d+) goes to bot (\d+)$/);
-        return assign(state, 'bots', +bot, +value);
+        return assign(state, "bots", +bot, +value);
       },
       { bots: {}, outputs: {} },
     );
   }
 
-  const lines = input.split('\n');
-  const state = init(lines.filter(x => x.startsWith('value')));
-  const instructions = lines.filter(x => x.startsWith('bot')).map(parse);
+  const lines = input.split("\n");
+  const state = init(lines.filter(x => x.startsWith("value")));
+  const instructions = lines.filter(x => x.startsWith("bot")).map(parse);
   while (instructions.some(update => update(state))) {
     /**/
   }

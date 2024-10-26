@@ -1,6 +1,6 @@
 export function part1(input) {
   const numbers = input
-    .split('\n')
+    .split("\n")
     .map(Number)
     .concat(0)
     .sort((a, b) => a - b);
@@ -18,7 +18,7 @@ export function part1(input) {
 
 export function part2(input) {
   const numbers = input
-    .split('\n')
+    .split("\n")
     .map(Number)
     .concat(0)
     .sort((a, b) => a - b);

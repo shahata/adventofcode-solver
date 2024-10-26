@@ -1,4 +1,4 @@
-import { combinations } from 'combinatorial-generators';
+import { combinations } from "combinatorial-generators";
 
 function f(boxes, total, part) {
   const rest = (all, sub) => all.filter(x => sub.indexOf(x) === -1);
@@ -22,7 +22,7 @@ function f(boxes, total, part) {
 }
 
 function solve(input, x) {
-  const boxes = input.split('\n').map(Number);
+  const boxes = input.split("\n").map(Number);
   const total = boxes.reduce((sum, x) => sum + x);
   return f(boxes, total / x, x);
 }

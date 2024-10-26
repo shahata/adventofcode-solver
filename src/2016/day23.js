@@ -18,7 +18,7 @@ const ops = {
   jnz: (register, distance) => state => {
     if (
       (state[register] !== undefined && state[register] !== 0) ||
-      (state[register] === undefined && register !== '0')
+      (state[register] === undefined && register !== "0")
     ) {
       distance = state[distance] === undefined ? +distance : state[distance];
       state.index += distance - 1;
@@ -32,11 +32,11 @@ const ops = {
 
 function toggle(command) {
   const dic = {
-    cpy: 'jnz',
-    inc: 'dec',
-    dec: 'inc',
-    jnz: 'cpy',
-    tgl: 'inc',
+    cpy: "jnz",
+    inc: "dec",
+    dec: "inc",
+    jnz: "cpy",
+    tgl: "inc",
   };
   if (command) {
     command.name = dic[command.name];
@@ -56,7 +56,7 @@ function run(commands, state) {
       commands
         .slice(4, 10)
         .map(x => x.name)
-        .join(' ') === 'cpy inc dec jnz dec jnz'
+        .join(" ") === "cpy inc dec jnz dec jnz"
     ) {
       state.a += state.b * state.d;
       state.c = 0;
@@ -72,11 +72,11 @@ function run(commands, state) {
 }
 
 export function part1(input, state = { a: 7, b: 0, c: 0, d: 0, index: 0 }) {
-  const commands1 = input.split('\n').map(toReducer);
+  const commands1 = input.split("\n").map(toReducer);
   return run(commands1, state).a;
 }
 
 export function part2(input, state = { a: 12, b: 0, c: 0, d: 0, index: 0 }) {
-  const commands2 = input.split('\n').map(toReducer);
+  const commands2 = input.split("\n").map(toReducer);
   return run(commands2, state).a;
 }

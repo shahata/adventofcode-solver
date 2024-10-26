@@ -13,11 +13,11 @@ function step({ x, y }, direction) {
 }
 
 function parse(input) {
-  return input.split(',').reduce(step, { x: 0, y: 0 });
+  return input.split(",").reduce(step, { x: 0, y: 0 });
 }
 
 function parse2(input) {
-  return input.split(',').reduce(
+  return input.split(",").reduce(
     ({ furthest, point }, direction) => {
       return {
         furthest: Math.max(furthest, distance(step(point, direction))),

@@ -1,5 +1,5 @@
 /* global forge */
-import 'node-forge';
+import "node-forge";
 
 export function createHash() {
   const hash = forge.md5.create();

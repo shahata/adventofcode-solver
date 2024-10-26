@@ -1,6 +1,6 @@
 function parse(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(line => {
       if (line.match(/^([a-z]+): (\d+)$/)) {
         const [, variable, number] = line.match(/^([a-z]+): (\d+)$/);
@@ -21,45 +21,45 @@ function calc(code, name) {
   const val1 = calc(code, line.param1);
   const val2 = calc(code, line.param2);
   switch (line.operator) {
-    case '+':
+    case "+":
       return val1 + val2;
-    case '-':
+    case "-":
       return val1 - val2;
-    case '/':
+    case "/":
       return val1 / val2;
-    case '*':
+    case "*":
       return val1 * val2;
   }
 }
 
 function calc2(code, name, result) {
-  if (name === 'humn') return result;
+  if (name === "humn") return result;
   const line = code[name];
   const val1 = calc(code, line.param1);
   const val2 = calc(code, line.param2);
   if (Number.isNaN(val1)) {
-    if (name === 'root') return calc2(code, line.param1, val2);
+    if (name === "root") return calc2(code, line.param1, val2);
     switch (line.operator) {
-      case '+':
+      case "+":
         return calc2(code, line.param1, result - val2);
-      case '-':
+      case "-":
         return calc2(code, line.param1, result + val2);
-      case '*':
+      case "*":
         return calc2(code, line.param1, result / val2);
-      case '/':
+      case "/":
         return calc2(code, line.param1, result * val2);
     }
   }
   if (Number.isNaN(val2)) {
-    if (name === 'root') return calc2(code, line.param2, val1);
+    if (name === "root") return calc2(code, line.param2, val1);
     switch (line.operator) {
-      case '+':
+      case "+":
         return calc2(code, line.param2, result - val1);
-      case '-':
+      case "-":
         return calc2(code, line.param2, val1 - result);
-      case '*':
+      case "*":
         return calc2(code, line.param2, result / val1);
-      case '/':
+      case "/":
         return calc2(code, line.param2, val1 / result);
     }
   }
@@ -67,11 +67,11 @@ function calc2(code, name, result) {
 
 export function part1(input) {
   const code = parse(input);
-  return calc(code, 'root');
+  return calc(code, "root");
 }
 
 export function part2(input) {
   const code = parse(input);
   code.humn.number = NaN;
-  return calc2(code, 'root');
+  return calc2(code, "root");
 }

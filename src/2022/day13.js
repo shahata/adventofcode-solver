@@ -15,8 +15,8 @@ function check(a, b) {
 
 export function part1(input) {
   return input
-    .split('\n\n')
-    .map(pair => pair.split('\n').map(x => JSON.parse(x)))
+    .split("\n\n")
+    .map(pair => pair.split("\n").map(x => JSON.parse(x)))
     .map((pair, i) => (check(...pair) < 0 ? i + 1 : 0))
     .reduce((a, b) => a + b);
 }
@@ -24,8 +24,8 @@ export function part1(input) {
 export function part2(input) {
   const divider = [[[2]], [[6]]];
   const list = input
-    .replaceAll('\n\n', '\n')
-    .split('\n')
+    .replaceAll("\n\n", "\n")
+    .split("\n")
     .map(x => JSON.parse(x))
     .concat(divider)
     .sort((a, b) => check(a, b));

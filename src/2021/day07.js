@@ -1,5 +1,5 @@
 export function part1(input, cost = (a, b) => Math.abs(a - b)) {
-  const positions = input.split(',').map(Number);
+  const positions = input.split(",").map(Number);
   const min = Math.min(...positions);
   const max = Math.max(...positions);
   const distances = [];

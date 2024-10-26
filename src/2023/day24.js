@@ -41,7 +41,7 @@ function cramer(A, B) {
 // 1) t1 vx1 - t2 vx2 = px2 - px1
 // 2) t1 vy1 - t2 vy2 = py2 - py1
 export function part1(input, min = 2e14, max = 4e14) {
-  const hails = input.split('\n').map(line => line.match(/-?\d+/g).map(BigInt));
+  const hails = input.split("\n").map(line => line.match(/-?\d+/g).map(BigInt));
   let result = 0;
   for (let i = 0; i < hails.length; i++) {
     for (let j = i + 1; j < hails.length; j++) {
@@ -65,7 +65,7 @@ export function part1(input, min = 2e14, max = 4e14) {
 }
 
 export function part2(input) {
-  const hails = input.split('\n').map(line => line.match(/-?\d+/g).map(BigInt));
+  const hails = input.split("\n").map(line => line.match(/-?\d+/g).map(BigInt));
   const A = [];
   const B = [];
   for (let i = 1; i <= 3; i++) add(A, B, hails, i);

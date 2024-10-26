@@ -1,5 +1,5 @@
 function parse(input) {
-  return input.split('\n').map(x => x.split('x').map(Number));
+  return input.split("\n").map(x => x.split("x").map(Number));
 }
 
 export function part1(input) {

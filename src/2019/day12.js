@@ -1,8 +1,8 @@
-import { lcm } from '../utils/divisors.js';
+import { lcm } from "../utils/divisors.js";
 
 function parse(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(s => s.match(/<x=([^,]*), y=([^,]*), z=([^>]*)>/).map(Number))
     .map(([, x, y, z]) => ({
       position: [x, y, z],

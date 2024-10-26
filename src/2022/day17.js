@@ -2,7 +2,7 @@ function toCells(shape) {
   const cells = [];
   for (let y = 0; y < shape.length; y++) {
     for (let x = 0; x < shape[y].length; x++) {
-      if (shape[y][x] === '#') cells.push({ x, y });
+      if (shape[y][x] === "#") cells.push({ x, y });
     }
   }
   return { cells, shapeHeight: shape.length };
@@ -10,7 +10,7 @@ function toCells(shape) {
 
 function moveIfPossible(cave, pos, cells, offset) {
   const next = { x: pos.x + offset.x, y: pos.y + offset.y };
-  if (cells.every(cell => cave[next.y + cell.y]?.[next.x + cell.x] === '.')) {
+  if (cells.every(cell => cave[next.y + cell.y]?.[next.x + cell.x] === ".")) {
     pos.x += offset.x;
     pos.y += offset.y;
     return true;
@@ -36,9 +36,9 @@ function dropShape(cave, cells, stream) {
   let done = false;
   while (!done) {
     const direction = stream.input[stream.index++ % stream.input.length];
-    moveIfPossible(cave, pos, cells, { x: direction === '<' ? -1 : 1, y: 0 });
+    moveIfPossible(cave, pos, cells, { x: direction === "<" ? -1 : 1, y: 0 });
     if (!moveIfPossible(cave, pos, cells, { x: 0, y: 1 })) {
-      cells.forEach(cell => (cave[pos.y + cell.y][pos.x + cell.x] = '#'));
+      cells.forEach(cell => (cave[pos.y + cell.y][pos.x + cell.x] = "#"));
       done = true;
     }
   }
@@ -48,11 +48,11 @@ function dropShape(cave, cells, stream) {
 export function part1(input, times = 2022) {
   const stream = { input, index: 0 };
   const shapes = [
-    ['####'],
-    ['.#.', '###', '.#.'],
-    ['..#', '..#', '###'],
-    ['#', '#', '#', '#'],
-    ['##', '##'],
+    ["####"],
+    [".#.", "###", ".#."],
+    ["..#", "..#", "###"],
+    ["#", "#", "#", "#"],
+    ["##", "##"],
   ].map(toCells);
 
   const cave = [];
@@ -62,7 +62,7 @@ export function part1(input, times = 2022) {
   for (let i = 0; i < times; i++) {
     const { cells, shapeHeight } = shapes[i % shapes.length];
     while (depth < height + shapeHeight + 3) {
-      cave.unshift(new Array(7).fill('.'));
+      cave.unshift(new Array(7).fill("."));
       depth++;
     }
     while (depth > height + shapeHeight + 3) {

@@ -1,5 +1,5 @@
-import { dayName } from './day-name.js';
-import { aocSolverServer } from './urls.js';
+import { dayName } from "./day-name.js";
+import { aocSolverServer } from "./urls.js";
 
 let duration;
 async function timerify(fn) {
@@ -14,7 +14,7 @@ async function readInput(session, year, day) {
   let url = `${aocSolverServer}/input/${year}/${day}?session=${session}`;
   if (!session) {
     const fileName = `${year}/${dayName(day)}`;
-    url = new URL(`../${fileName}.txt`, self['workerShimUrl']).toString();
+    url = new URL(`../${fileName}.txt`, self["workerShimUrl"]).toString();
   }
   const result = await fetch(url);
   if (result.status !== 200) {
@@ -33,7 +33,7 @@ async function form(session, year, day, level, answer, duration) {
   const answers = session && (await readAnswers(session, year, day));
   let submitter = '<input type="submit" value="[Submit]">';
   if (!session || answers[level - 1] === `${answer}`) {
-    submitter = '';
+    submitter = "";
   } else if (answers[level - 1] !== undefined) {
     submitter = `However, you've apparently entered ${answers[level - 1]} :/`;
   } else if (level === 2 && answers.length === 0) {
@@ -47,19 +47,19 @@ async function form(session, year, day, level, answer, duration) {
     `<input id="level" type="hidden" value="${level}">`,
     `<input id="answer" type="hidden" value="${answer}">`,
     `Part${level}: <code>${answer}</code> ${duration} ${submitter}`,
-    '</form>',
-  ].join('');
+    "</form>",
+  ].join("");
 }
 
 async function solver(session, year, day) {
-  const submit = (level, answer, duration = '') =>
+  const submit = (level, answer, duration = "") =>
     form(session, year, day, level, answer, duration);
   const fileName = `${year}/${dayName(day)}`;
   const url = `https://github.com/shahata/adventofcode-solver/blob/master/src/${fileName}.js`;
   console.log(
     `<br><span><a href="${url}" target="_blank">Solution for ${fileName}!!!</a></span><br>`,
   );
-  console.log('----------------------------');
+  console.log("----------------------------");
   const module = await import(`../${fileName}.js`);
   const input = await readInput(session, year, day);
   if (module.day) {
@@ -77,11 +77,11 @@ async function solver(session, year, day) {
 async function solveAll(session, year, day) {
   for (; day <= 25; day++) {
     try {
-      self.postMessage({ type: 'day', day });
+      self.postMessage({ type: "day", day });
       await solver(session, year, `${day}`);
     } catch (e) {
       console.log(e);
-      console.log('Please retry once issue is resolved');
+      console.log("Please retry once issue is resolved");
       // return;
     }
   }
@@ -90,10 +90,10 @@ async function solveAll(session, year, day) {
 self.window = self; //hack so that node-forge will work in the worker
 self.onmessage = async e => {
   await solveAll(e.data.session, e.data.year, e.data.day);
-  self.postMessage({ type: 'done' });
+  self.postMessage({ type: "done" });
 };
 console.log = (...args) => {
-  const str = args.map(x => `${x}`).join(' ');
-  self.postMessage({ type: 'log', log: str });
+  const str = args.map(x => `${x}`).join(" ");
+  self.postMessage({ type: "log", log: str });
 };
-self.postMessage({ type: 'ready' });
+self.postMessage({ type: "ready" });

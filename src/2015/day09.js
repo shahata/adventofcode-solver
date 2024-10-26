@@ -18,7 +18,7 @@ function longest(graph, curr, visited) {
 
 function parse(input) {
   const graph = input
-    .split('\n')
+    .split("\n")
     .map(x => x.match(/^(.*) to (.*) = (\d+)$/))
     .map(([, p1, p2, d]) => ({ p1, p2, d: +d }))
     .reduce((graph, edge) => {
@@ -34,9 +34,9 @@ function parse(input) {
 }
 
 export function part1(input) {
-  return shortest(parse(input), '$$start', []);
+  return shortest(parse(input), "$$start", []);
 }
 
 export function part2(input) {
-  return longest(parse(input), '$$start', []);
+  return longest(parse(input), "$$start", []);
 }

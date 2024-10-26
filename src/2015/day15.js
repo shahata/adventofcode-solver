@@ -23,9 +23,9 @@ export function day(input) {
   }
 
   const ingredients = input
-    .split('\n')
+    .split("\n")
     .map(x => x.match(/^.*: (.*)$/))
-    .map(([, s]) => parseMap(s, ', ', ' '));
+    .map(([, s]) => parseMap(s, ", ", " "));
 
   let part1 = 0,
     part2 = 0;
@@ -38,7 +38,7 @@ export function day(input) {
       const sum = amounts.reduce((prev, x) =>
         objMap(x, (value, key) => prev[key] + value),
       );
-      const properties = Object.keys(sum).filter(x => x !== 'calories');
+      const properties = Object.keys(sum).filter(x => x !== "calories");
       const result = properties
         .map(x => Math.max(0, sum[x]))
         .reduce((prev, x) => prev * x);

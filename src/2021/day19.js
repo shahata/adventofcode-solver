@@ -48,9 +48,9 @@ function match(scanner1, scanner2) {
 function solve(input) {
   const skip = [];
   const scanners = input
-    .replaceAll(/^--.*\n/gm, '')
-    .split('\n\n')
-    .map(lines => lines.split('\n').map(c => c.split(',').map(Number)));
+    .replaceAll(/^--.*\n/gm, "")
+    .split("\n\n")
+    .map(lines => lines.split("\n").map(c => c.split(",").map(Number)));
   const solution = [{ position: [0, 0, 0], beacons: scanners.shift() }];
   while (scanners.length > 0) {
     for (const a of solution) {
@@ -71,7 +71,7 @@ function solve(input) {
 
 export function part1(input) {
   const all = new Set();
-  solve(input).forEach(x => x.beacons.forEach(x => all.add(x.join(','))));
+  solve(input).forEach(x => x.beacons.forEach(x => all.add(x.join(","))));
   return all.size;
 }
 

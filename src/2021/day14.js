@@ -1,8 +1,8 @@
 export function part1(input, times = 10) {
   const map = {};
-  const [polymer, pairs] = input.split('\n\n');
-  pairs.split('\n').forEach(line => {
-    map[line.split(' -> ')[0]] = line.split(' -> ')[1];
+  const [polymer, pairs] = input.split("\n\n");
+  pairs.split("\n").forEach(line => {
+    map[line.split(" -> ")[0]] = line.split(" -> ")[1];
   });
   let pairsMap = {};
   for (let i = 0; i < polymer.length - 1; i++) {

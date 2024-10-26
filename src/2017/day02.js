@@ -1,6 +1,6 @@
 export function part1(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(line => {
       const numbers = line
         .split(/\s+/)
@@ -13,7 +13,7 @@ export function part1(input) {
 
 export function part2(input) {
   return input
-    .split('\n')
+    .split("\n")
     .map(line => {
       const numbers = line
         .split(/\s+/)

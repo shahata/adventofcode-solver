@@ -19,21 +19,21 @@ function enhance(image, algorithm) {
         get(i + 1, j - 1),
         get(i + 1, j + 0),
         get(i + 1, j + 1),
-      ].join('');
-      const pixel = area.replaceAll('#', '1').replaceAll('.', '0');
+      ].join("");
+      const pixel = area.replaceAll("#", "1").replaceAll(".", "0");
       next[i][j] = algorithm[parseInt(pixel, 2)];
     }
   }
   return next;
 }
 export function part1(input, times = 2) {
-  let [algorithm, image] = input.split('\n\n');
-  image = image.split('\n').map(line => line.split(''));
+  let [algorithm, image] = input.split("\n\n");
+  image = image.split("\n").map(line => line.split(""));
   for (let i = 0; i < times; i++) {
-    image = buffer(image, i === 0 ? '.' : image[0][0]);
+    image = buffer(image, i === 0 ? "." : image[0][0]);
     image = enhance(image, algorithm);
   }
-  return image.flat().filter(x => x === '#').length;
+  return image.flat().filter(x => x === "#").length;
 }
 
 export function part2(input) {

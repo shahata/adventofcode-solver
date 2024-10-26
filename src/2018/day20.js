@@ -13,27 +13,27 @@ const unique = arr =>
 
 function traverse(current, path, map) {
   let next;
-  while (path.length > 0 && next !== '(') {
+  while (path.length > 0 && next !== "(") {
     next = path.shift();
     if (walk[next]) {
       current = walk[next](current);
-      map.set(pos(current), '|');
+      map.set(pos(current), "|");
       current = walk[next](current);
-      map.set(pos(current), '.');
+      map.set(pos(current), ".");
     }
   }
   if (path.length > 0) {
     let depth = 1;
     let option = [];
     const options = [];
-    while (next !== ')' || depth > 0) {
+    while (next !== ")" || depth > 0) {
       next = path.shift();
-      if (next === '(') {
+      if (next === "(") {
         depth++;
-      } else if (next === ')') {
+      } else if (next === ")") {
         depth--;
       }
-      if ((depth === 1 && next === '|') || (depth === 0 && next === ')')) {
+      if ((depth === 1 && next === "|") || (depth === 0 && next === ")")) {
         options.push(option);
         option = [];
       } else {
@@ -50,8 +50,8 @@ function traverse(current, path, map) {
 function calc(input) {
   const start = { x: 0, y: 0 };
   const map = new Map();
-  map.set(pos(start), '.');
-  traverse(start, input.slice(1, -1).split(''), map);
+  map.set(pos(start), ".");
+  traverse(start, input.slice(1, -1).split(""), map);
 
   const queue = [{ distance: 0, point: start }];
   const visited = new Set([pos(start)]);
@@ -59,14 +59,14 @@ function calc(input) {
     const { distance, point } = queue.shift();
     map.set(pos(point), distance);
     const options = Object.keys(walk)
-      .map(x => map.get(pos(walk[x](point))) === '|' && walk[x](walk[x](point)))
+      .map(x => map.get(pos(walk[x](point))) === "|" && walk[x](walk[x](point)))
       .filter(x => x && !visited.has(pos(x)));
     options.forEach(option => {
       visited.add(pos(option));
       queue.push({ distance: distance + 1, point: option });
     });
   }
-  return Array.from(map.values()).filter(x => typeof x === 'number');
+  return Array.from(map.values()).filter(x => typeof x === "number");
 }
 
 export function part1(input) {

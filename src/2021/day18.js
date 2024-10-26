@@ -40,16 +40,16 @@ function magnitude(snail) {
 }
 
 function parse(str) {
-  const snail = str.replaceAll(',', '').split('');
-  return snail.map(x => (x === '[' ? open : x === ']' ? close : +x));
+  const snail = str.replaceAll(",", "").split("");
+  return snail.map(x => (x === "[" ? open : x === "]" ? close : +x));
 }
 
 export function part1(input) {
-  return magnitude(input.split('\n').map(parse).reduce(add));
+  return magnitude(input.split("\n").map(parse).reduce(add));
 }
 
 export function part2(input) {
-  const lines = input.split('\n').map(parse);
+  const lines = input.split("\n").map(parse);
   let max = 0;
   for (const a of lines) {
     for (const b of lines) {

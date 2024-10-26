@@ -1,4 +1,4 @@
-import { divisors } from '../utils/divisors.js';
+import { divisors } from "../utils/divisors.js";
 
 export function day(input, part1Only = false) {
   input = +input;

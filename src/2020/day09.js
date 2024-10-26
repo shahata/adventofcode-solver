@@ -1,7 +1,7 @@
-import { combinations } from 'combinatorial-generators';
+import { combinations } from "combinatorial-generators";
 
 export function part1(input, preamble = 25) {
-  const numbers = input.split('\n').map(Number);
+  const numbers = input.split("\n").map(Number);
   const stack = [];
   for (let i = 0; i < numbers.length; i++) {
     if (stack.length === preamble) {
@@ -17,7 +17,7 @@ export function part1(input, preamble = 25) {
 
 export function part2(input, preamble = 25) {
   const target = part1(input, preamble);
-  const numbers = input.split('\n').map(Number);
+  const numbers = input.split("\n").map(Number);
   for (let i = 0; i < numbers.length; i++) {
     let sum, j;
     for (j = i, sum = 0; sum < target; j++) {

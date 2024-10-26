@@ -1,17 +1,17 @@
 function parse(input) {
-  let [rules, ticket, tickets] = input.split('\n\n');
+  let [rules, ticket, tickets] = input.split("\n\n");
   rules = rules
-    .split('\n')
+    .split("\n")
     .map(x => x.match(/^(.*): (\d+)-(\d+) or (\d+)-(\d+)$/))
     .map(([, field, a, b, c, d]) => ({ field, a: +a, b: +b, c: +c, d: +d }));
 
-  ticket = ticket.split('\n').pop();
+  ticket = ticket.split("\n").pop();
 
   tickets = tickets
-    .split('\n')
+    .split("\n")
     .slice(1)
     .concat([ticket])
-    .map(x => x.split(',').map(Number));
+    .map(x => x.split(",").map(Number));
 
   return { rules, ticket: tickets.at(-1), tickets };
 }
@@ -50,7 +50,7 @@ export function part2(input) {
   }
 
   return rules
-    .filter(x => x.field.startsWith('departure'))
+    .filter(x => x.field.startsWith("departure"))
     .sort((a, b) => a.position - b.position)
     .reduce((mul, x) => mul * x.value, 1);
 }

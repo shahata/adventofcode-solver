@@ -1,11 +1,11 @@
 export function part1(input) {
-  const commands = input.split('\n').map(cmd => cmd.split(' = '));
+  const commands = input.split("\n").map(cmd => cmd.split(" = "));
   const map = {};
   let orMask, andMask;
   commands.forEach(([address, value]) => {
-    if (address === 'mask') {
-      orMask = BigInt(parseInt(value.replaceAll('X', '0'), 2));
-      andMask = BigInt(parseInt(value.replaceAll('X', '1'), 2));
+    if (address === "mask") {
+      orMask = BigInt(parseInt(value.replaceAll("X", "0"), 2));
+      andMask = BigInt(parseInt(value.replaceAll("X", "1"), 2));
     } else {
       map[address] = Number((BigInt(+value) | orMask) & andMask);
     }
@@ -14,13 +14,13 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const commands = input.split('\n').map(cmd => cmd.split(' = '));
+  const commands = input.split("\n").map(cmd => cmd.split(" = "));
   const map = {};
   let masks;
   commands.forEach(([address, value]) => {
-    if (address === 'mask') {
-      const floating = [...value.matchAll('X')].map(m => 35n - BigInt(m.index));
-      const orMask = BigInt(parseInt(value.replaceAll('X', '0'), 2));
+    if (address === "mask") {
+      const floating = [...value.matchAll("X")].map(m => 35n - BigInt(m.index));
+      const orMask = BigInt(parseInt(value.replaceAll("X", "0"), 2));
       masks = new Array(2 ** floating.length)
         .fill({ orMask, andMask: 0n })
         .map((x, i) => {

@@ -1,11 +1,11 @@
 function parse(input) {
-  let [seeds, ...maps] = input.split('\n\n');
-  seeds = seeds.split(': ')[1].split(' ').map(Number);
+  let [seeds, ...maps] = input.split("\n\n");
+  seeds = seeds.split(": ")[1].split(" ").map(Number);
   maps = maps.map(m =>
     m
-      .split('\n')
+      .split("\n")
       .slice(1)
-      .map(r => r.split(' ').map(Number)),
+      .map(r => r.split(" ").map(Number)),
   );
   return { seeds, maps };
 }

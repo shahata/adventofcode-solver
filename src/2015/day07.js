@@ -33,9 +33,9 @@ function makeCircuit(input) {
 }
 
 export function part1(input) {
-  return makeCircuit(input.split('\n')).a();
+  return makeCircuit(input.split("\n")).a();
 }
 
 export function part2(input) {
-  return makeCircuit(input.split('\n').concat(`${part1(input)} -> b`)).a();
+  return makeCircuit(input.split("\n").concat(`${part1(input)} -> b`)).a();
 }

@@ -1,14 +1,14 @@
 function parse(input) {
-  let parts = input.split('\n').map(line => {
-    let [part, links] = line.split(' -> ');
+  let parts = input.split("\n").map(line => {
+    let [part, links] = line.split(" -> ");
     const type = part[0];
-    if (type !== 'b') part = part.slice(1);
-    return [part, { part, type, links: links.split(', ') }];
+    if (type !== "b") part = part.slice(1);
+    return [part, { part, type, links: links.split(", ") }];
   });
   parts = Object.fromEntries(parts);
   Object.values(parts).forEach(part => {
-    if (part.type === '%') part.state = { on: false };
-    if (part.type === '&') {
+    if (part.type === "%") part.state = { on: false };
+    if (part.type === "&") {
       const m = Object.values(parts).filter(x => x.links.includes(part.part));
       part.state = { memory: Object.fromEntries(m.map(x => [x.part, false])) };
     }
@@ -17,18 +17,18 @@ function parse(input) {
 }
 
 function signal(parts, wait) {
-  const queue = [{ part: 'broadcaster', level: false, from: 'button' }];
+  const queue = [{ part: "broadcaster", level: false, from: "button" }];
   const count = { low: 0, high: 0 };
   while (queue.length > 0) {
     let { part, level, from } = queue.shift();
-    count[level ? 'high' : 'low']++;
+    count[level ? "high" : "low"]++;
 
-    if (`${part},${level},${from}` === wait) throw new Error('wait');
+    if (`${part},${level},${from}` === wait) throw new Error("wait");
     if (parts[part]) {
       const { type, links, state } = parts[part];
-      if (type === '%' && level) continue;
-      if (type === '%') level = state.on = !state.on;
-      if (type === '&') {
+      if (type === "%" && level) continue;
+      if (type === "%") level = state.on = !state.on;
+      if (type === "&") {
         state.memory[from] = level;
         level = !Object.values(state.memory).every(x => x);
       }
@@ -62,7 +62,7 @@ function wait(input, part, from) {
 
 export function part2(input) {
   const parts = parse(input);
-  const { part, state } = Object.values(parts).find(x => x.links[0] === 'rx');
+  const { part, state } = Object.values(parts).find(x => x.links[0] === "rx");
   const loops = Object.keys(state.memory).map(x => wait(input, part, x));
   return loops.reduce((acc, x) => acc * x, 1);
 }

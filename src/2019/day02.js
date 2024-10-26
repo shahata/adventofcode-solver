@@ -1,5 +1,5 @@
 export function part1(input, noun = 12, verb = 2) {
-  const ops = input.split(',').map(Number);
+  const ops = input.split(",").map(Number);
   let ip = 0;
   ops[1] = noun;
   ops[2] = verb;

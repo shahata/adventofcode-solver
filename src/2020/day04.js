@@ -1,11 +1,11 @@
 function solve(input, validations) {
   const passports = input
-    .split('\n\n')
+    .split("\n\n")
     .map(x =>
       x
         .split(/[\n\s]/)
         .reduce(
-          (obj, f) => ({ ...obj, [f.split(':')[0]]: f.split(':')[1] }),
+          (obj, f) => ({ ...obj, [f.split(":")[0]]: f.split(":")[1] }),
           {},
         ),
     );
@@ -36,12 +36,12 @@ export function part2(input) {
       const m = n && n.match(/^(\d+)(cm|in)$/);
       return (
         m &&
-        ((m[2] === 'cm' && +m[1] >= 150 && +m[1] <= 193) ||
-          (m[2] === 'in' && +m[1] >= 59 && +m[1] <= 76))
+        ((m[2] === "cm" && +m[1] >= 150 && +m[1] <= 193) ||
+          (m[2] === "in" && +m[1] >= 59 && +m[1] <= 76))
       );
     },
     hcl: n => n && !!n.match(/^#[0-9a-f]{6}$/),
-    ecl: n => n && 'amb blu brn gry grn hzl oth'.split(' ').includes(n),
+    ecl: n => n && "amb blu brn gry grn hzl oth".split(" ").includes(n),
     pid: n => n && !!n.match(/^[0-9]{9}$/),
   };
   return solve(input, validations);

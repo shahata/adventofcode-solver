@@ -1,5 +1,5 @@
 function parse(input) {
-  return input.split('').map(x => (x === '(' ? 1 : -1));
+  return input.split("").map(x => (x === "(" ? 1 : -1));
 }
 
 export function part1(input) {

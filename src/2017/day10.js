@@ -36,16 +36,16 @@ function dense(arr) {
 }
 
 function encode(arr) {
-  return arr.map(x => x.toString(16).padStart(2, '0')).join('');
+  return arr.map(x => x.toString(16).padStart(2, "0")).join("");
 }
 
 function parse(input) {
-  return input.split(',').map(Number);
+  return input.split(",").map(Number);
 }
 
 function parse2(input) {
   return input
-    .split('')
+    .split("")
     .map(x => x.charCodeAt(0))
     .concat([17, 31, 73, 47, 23]);
 }

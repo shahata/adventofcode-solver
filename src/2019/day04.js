@@ -1,9 +1,9 @@
 export function part1(input) {
-  const [start, end] = input.split('-').map(Number);
+  const [start, end] = input.split("-").map(Number);
   let options = 0;
   for (let i = start; i <= end; i++) {
-    const digits = `${i}`.split('').sort();
-    if (digits.join('') === `${i}` && `${i}`.match(/(.)\1/)) {
+    const digits = `${i}`.split("").sort();
+    if (digits.join("") === `${i}` && `${i}`.match(/(.)\1/)) {
       options++;
     }
   }
@@ -11,12 +11,12 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const [start, end] = input.split('-').map(Number);
+  const [start, end] = input.split("-").map(Number);
   let options = 0;
   for (let i = start; i <= end; i++) {
-    const digits = `${i}`.split('').sort();
+    const digits = `${i}`.split("").sort();
     if (
-      digits.join('') === `${i}` &&
+      digits.join("") === `${i}` &&
       digits.some((x, i, a) => {
         return x === a[i + 1] && x !== a[i + 2] && x !== a[i - 1];
       })
