@@ -1,3 +1,4 @@
+/* global URLPattern */
 function cleanError(s) {
   return s.match(/<h1>(.*)<\/h1>/)?.[1] || s;
 }
@@ -31,28 +32,28 @@ async function downloadContent(url, session, postPayload) {
       ].join('\n'),
     );
   }
-  return await response.text();
+  return response.text();
 }
 
-async function getDayAnswer(year, day, session) {
+function getDayAnswer(year, day, session) {
   const url = `https://adventofcode.com/${+year}/day/${+day}`;
-  return cleanQuestion(await downloadContent(url, session));
+  return downloadContent(url, session).then(cleanQuestion);
 }
 
-async function getDayInput(year, day, session) {
+function getDayInput(year, day, session) {
   const url = `https://adventofcode.com/${+year}/day/${+day}/input`;
-  return await downloadContent(url, session);
+  return downloadContent(url, session);
 }
 
-async function submitDayAnswer(year, day, session, level, answer) {
+function submitDayAnswer(year, day, session, level, answer) {
   const url = `https://adventofcode.com/${+year}/day/${+day}/answer`;
   const postPayload = `level=${level}&answer=${encodeURIComponent(answer)}`;
-  return cleanAnswer(await downloadContent(url, session, postPayload));
+  return downloadContent(url, session, postPayload).then(cleanAnswer);
 }
 
-async function respond(fn) {
+async function respond(promise) {
   try {
-    const body = await fn();
+    const body = await promise;
     return new Response(
       typeof body === 'string' ? body : JSON.stringify(body),
       {
@@ -75,20 +76,19 @@ export default {
     match = new URLPattern({ pathname: '/input/:year/:day' }).exec(req.url);
     if (req.method === 'GET' && match) {
       const { year, day } = match.pathname.groups;
-      return respond(() => getDayInput(year, day, session));
-    }
-    match = new URLPattern({ pathname: '/question/:year/:day' }).exec(req.url);
-    if (req.method === 'GET' && match) {
-      const { year, day } = match.pathname.groups;
-      return respond(() => getDayAnswer(year, day, session));
+      return respond(getDayInput(year, day, session));
     }
     match = new URLPattern({ pathname: '/answer/:year/:day' }).exec(req.url);
+    if (req.method === 'GET' && match) {
+      const { year, day } = match.pathname.groups;
+      return respond(getDayAnswer(year, day, session));
+    }
     if (req.method === 'POST' && match) {
       const { year, day } = match.pathname.groups;
       const formData = await req.formData();
       const level = formData.get('level');
       const answer = formData.get('answer');
-      return respond(() => submitDayAnswer(year, day, session, level, answer));
+      return respond(submitDayAnswer(year, day, session, level, answer));
     }
     return new Response('Not found', { status: 404 });
   },
