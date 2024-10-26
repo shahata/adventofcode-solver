@@ -45,7 +45,6 @@
     ]
   },
   "prettier": {
-    "trailingComma": "all",
     "quoteProps": "consistent",
     "arrowParens": "avoid"
   },
