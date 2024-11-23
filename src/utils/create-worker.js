@@ -64,6 +64,8 @@ function cleanResult(str, year) {
     str = str.match(/<main>([^]*)<\/main>/)[1].trim();
     str = str.replace(/<article>[^]*<\/article>/, "");
     return `<a href="https://adventofcode.com/${year}">[Go Check on Your Calendar]</a> ${str}`;
+  } else if (str.includes("too recently")) {
+    return '<input type="submit" value="[Retry (Throttled)]">';
   } else {
     return str;
   }

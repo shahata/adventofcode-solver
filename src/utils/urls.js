@@ -22,6 +22,15 @@ export const imports = {
   ...unpkg("es-module-shims"),
 };
 
-// export const aocSolverServer = 'https://www.wix.com/_serverless/adventofcode';
-// export const aocSolverServer = 'https://aoc.shahar-talmi.workers.dev';
-export const aocSolverServer = "https://aoc.deno.dev";
+function server() {
+  if (
+    typeof location !== "undefined" &&
+    location.origin === "https://localhost"
+  ) {
+    return "https://localhost";
+  } else {
+    return "https://aoc.deno.dev";
+  }
+}
+
+export const aocSolverServer = server();
