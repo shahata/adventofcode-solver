@@ -91,7 +91,7 @@ export async function createSolver(year, day) {
     const [, eta] = page.match(/server_eta = (\d+)/);
     const create = await timeoutConfirm({
       message: `Create solver ${year}/${dayName(day)}?`,
-      timeout: eta,
+      timeout: +eta,
       timeoutTips: t => `(${new Date(t * 1000).toISOString().slice(11, 19)})`,
     });
     if (!create) return;
