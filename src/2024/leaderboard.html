@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Leaderboard - Advent of Code 2024</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a
+            href="https://www.wix.engineering/" target="_blank" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">2*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2024</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <button onclick="drawChart('all')">Show All</button>
+      <button onclick="drawChart('ten')">Show Top Ten</button>
+      <button onclick="drawChart('five')">Show Top Five</button>
+      <canvas id="canvas"></canvas>
+      <script type="module">
+        import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@4.4.6?min';
+        Chart.register(...registerables);
+        let config = JSON.parse('{"all":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Tomas Peluritis","data":[4,8],"fill":false},{"label":"Sergey Ilyevsky","data":[3,6],"fill":false},{"label":"Shahar Talmi","data":[2,4],"fill":false},{"label":"Snir Sharristh","data":[1,2],"fill":false},{"label":"Domantas Bazys","data":[0,0],"fill":false},{"label":"Nachshon Schwartz","data":[-1,-2],"fill":false},{"label":"Eddie Erlich","data":[-2,-4],"fill":false},{"label":"Rostyslav Makhanko","data":[-3,-6],"fill":false},{"label":"Reut Svr","data":[-4,-8],"fill":false},{"label":"Idan Levi","data":[-5],"fill":false},{"label":"Tadas Aučiūnas","data":[-579],"fill":false},{"label":"atamurius","data":[-579],"fill":false},{"label":"Vadym Holoveichuk","data":[-579],"fill":false},{"label":"(anonymous user #76749)","data":[-579],"fill":false},{"label":"jakutis","data":[-579],"fill":false},{"label":"Lior Ur","data":[-579],"fill":false},{"label":"Maurits Out","data":[-579],"fill":false},{"label":"Alon Yehezkel","data":[-579],"fill":false},{"label":"Omer Burshtein","data":[-579],"fill":false},{"label":"Arye Lukashevski","data":[-579],"fill":false},{"label":"Oded Soffrin","data":[-579],"fill":false},{"label":"Lior Marzouk","data":[-579],"fill":false},{"label":"Tzvika Farber","data":[-579],"fill":false},{"label":"Omri Gotlieb","data":[-579],"fill":false},{"label":"Wo1v3r","data":[-579],"fill":false},{"label":"Stepan Samko","data":[-579],"fill":false},{"label":"Rėjus Paukštė","data":[-579],"fill":false},{"label":"Yevhen Kutishchev","data":[-579],"fill":false},{"label":"argshook","data":[-579],"fill":false},{"label":"Serhii Muryhin","data":[-579],"fill":false},{"label":"bolshchikov","data":[-579],"fill":false},{"label":"Illia Panasenko","data":[-579],"fill":false},{"label":"Niкitа Shulipа","data":[-579],"fill":false},{"label":"Arnoldas Šeščila","data":[-579],"fill":false},{"label":"Karolina Zarankaitė","data":[-579],"fill":false},{"label":"Mantas Miliukas","data":[-579],"fill":false},{"label":"Aviad Hadad","data":[-579],"fill":false},{"label":"Vytenis Butkevicius","data":[-579],"fill":false},{"label":"Maor Yosef","data":[-579],"fill":false},{"label":"Aviv Rosental","data":[-579],"fill":false},{"label":"Boris Litvinsky","data":[-579],"fill":false},{"label":"Amit Marx","data":[-579],"fill":false},{"label":"Jonathan Adler","data":[-579],"fill":false},{"label":"Oded Gefen","data":[-579],"fill":false},{"label":"Bohdan Lyzanets","data":[-579],"fill":false},{"label":"Shalev Shalit","data":[-579],"fill":false},{"label":"Yair Haimovitch","data":[-579],"fill":false},{"label":"Amir Yonatan","data":[-579],"fill":false},{"label":"Dovydas Mikalauskas","data":[-579],"fill":false},{"label":"Salick Cogan","data":[-579],"fill":false},{"label":"Noam Neeman","data":[-579],"fill":false},{"label":"Joseph DSCS","data":[-579],"fill":false},{"label":"Vladyslav Zhuk","data":[-579],"fill":false},{"label":"Maksym Petruk","data":[-579],"fill":false},{"label":"Itai Pelles","data":[-579],"fill":false},{"label":"GabiGrin","data":[-579],"fill":false},{"label":"boriskor","data":[-579],"fill":false},{"label":"Oded Cagan","data":[-579],"fill":false},{"label":"Guy Kori","data":[-579],"fill":false},{"label":"Shilo Magen","data":[-579],"fill":false},{"label":"Dvir Cooper","data":[-579],"fill":false},{"label":"Jonathan Avinor","data":[-579],"fill":false},{"label":"(anonymous user #315860)","data":[-579],"fill":false},{"label":"Yael Hermon","data":[-579],"fill":false},{"label":"(anonymous user #339033)","data":[-579],"fill":false},{"label":"Shmulik Flint","data":[-579],"fill":false},{"label":"Justas Trimailovas","data":[-579],"fill":false},{"label":"ShaharR","data":[-579],"fill":false},{"label":"Ronny Ringel","data":[-579],"fill":false},{"label":"Tadas Obolevicius","data":[-579],"fill":false},{"label":"Oran Shuster","data":[-579],"fill":false},{"label":"gavrielco","data":[-579],"fill":false},{"label":"Nadav Nuni","data":[-579],"fill":false},{"label":"Ophir Gross","data":[-579],"fill":false},{"label":"Tzachi Azo","data":[-579],"fill":false},{"label":"Roy Sommer","data":[-579],"fill":false},{"label":"Shalev Shalit","data":[-579],"fill":false},{"label":"Dovydas Mikalauskas","data":[-579],"fill":false},{"label":"Audrius Kovalenko","data":[-579],"fill":false},{"label":"Amit Dahan","data":[-579],"fill":false},{"label":"Elad Bogomolny","data":[-579],"fill":false},{"label":"oriprice","data":[-579],"fill":false},{"label":"Gal Elmalah","data":[-579],"fill":false},{"label":"Raviv Gurtenstein","data":[-579],"fill":false},{"label":"Lior Arbel","data":[-579],"fill":false},{"label":"Erez Paperny","data":[-579],"fill":false},{"label":"Jonathan Adler","data":[-579],"fill":false},{"label":"Ronen Erez","data":[-579],"fill":false},{"label":"gilisho","data":[-579],"fill":false},{"label":"Matan Asraf","data":[-579],"fill":false},{"label":"hadar geva","data":[-579],"fill":false},{"label":"David Perlman","data":[-579],"fill":false},{"label":"Alon Bar Tur","data":[-579],"fill":false},{"label":"Schniz","data":[-579],"fill":false},{"label":"Ehab Sharif","data":[-579],"fill":false},{"label":"Donatas Petrauskas","data":[-579],"fill":false},{"label":"cheloveq","data":[-579],"fill":false},{"label":"Vytenis Urbonavičius","data":[-579],"fill":false},{"label":"Guillaume Laudet","data":[-579],"fill":false},{"label":"Andrius Stanaitis","data":[-579],"fill":false},{"label":"viktoriianosova","data":[-579],"fill":false},{"label":"Aleksei Efimov","data":[-579],"fill":false},{"label":"BrooklynKing","data":[-579],"fill":false},{"label":"Roman","data":[-579],"fill":false},{"label":"Yaara Cohen","data":[-579],"fill":false},{"label":"Andrius Butkevicius","data":[-579],"fill":false},{"label":"Lieron Schalew","data":[-579],"fill":false},{"label":"Emilis Baliukonis","data":[-579],"fill":false},{"label":"Yakir Narkis","data":[-579],"fill":false},{"label":"Or Ben Ari (wixcode support)","data":[-579],"fill":false},{"label":"Guy Kori","data":[-579],"fill":false},{"label":"Eli Ponyatovski","data":[-579],"fill":false},{"label":"Florent Bécart","data":[-579],"fill":false},{"label":"Stanislav Prokopiv","data":[-579],"fill":false},{"label":"Gil Levin","data":[-579],"fill":false},{"label":"Aaron Vinestock","data":[-579],"fill":false},{"label":"Dvir Cohen","data":[-579],"fill":false},{"label":"Maxim Novak","data":[-579],"fill":false},{"label":"Gavin Rifkind","data":[-579],"fill":false},{"label":"Dor Duchovni","data":[-579],"fill":false},{"label":"Mosh Feu","data":[-579],"fill":false},{"label":"Sela Marjan Almog","data":[-579],"fill":false},{"label":"Aviran Huga","data":[-579],"fill":false},{"label":"Ori Dubinsky","data":[-579],"fill":false},{"label":"Karin Agan","data":[-579],"fill":false},{"label":"Guy Warzager","data":[-579],"fill":false},{"label":"felixmosh","data":[-579],"fill":false},{"label":"Alexandr Yushkov","data":[-579],"fill":false},{"label":"Gil Eckstein","data":[-579],"fill":false},{"label":"David Valencia","data":[-579],"fill":false},{"label":"Dmytro Khomutnyk","data":[-579],"fill":false},{"label":"Itai Ben David","data":[-579],"fill":false},{"label":"Boris Dichter","data":[-579],"fill":false},{"label":"Ori Price","data":[-579],"fill":false},{"label":"Sharon Zevadi","data":[-579],"fill":false},{"label":"Tatiana Podolskaya","data":[-579],"fill":false},{"label":"Adi Bar Yossef","data":[-579],"fill":false},{"label":"Or Leib","data":[-579],"fill":false},{"label":"Or Leib","data":[-579],"fill":false},{"label":"Guy Rotem","data":[-579],"fill":false},{"label":"lirancr","data":[-579],"fill":false},{"label":"Lior Hai","data":[-579],"fill":false},{"label":"Tom Bigelajzen","data":[-579],"fill":false},{"label":"jjaskulis","data":[-579],"fill":false},{"label":"Mor Shemesh","data":[-579],"fill":false},{"label":"Gerda Simoliunaite","data":[-579],"fill":false},{"label":"Yonatan Hattav","data":[-579],"fill":false},{"label":"Dor Mitzafon","data":[-579],"fill":false},{"label":"Yakir Narkis","data":[-579],"fill":false},{"label":"Daniel Kagan","data":[-579],"fill":false},{"label":"Dovile Lapinskaite","data":[-579],"fill":false},{"label":"Nikita Shulipa","data":[-579],"fill":false},{"label":"Eran Egozi","data":[-579],"fill":false},{"label":"Roi Berlin","data":[-579],"fill":false},{"label":"Leon Fedotov","data":[-579],"fill":false},{"label":"Rita Bazak","data":[-579],"fill":false},{"label":"Meir Cohen","data":[-579],"fill":false},{"label":"Vaidas Kascėnas","data":[-579],"fill":false},{"label":"​Vytautas Jakutis","data":[-579],"fill":false},{"label":"Mantas Sakalauskas","data":[-579],"fill":false},{"label":"Linas Medžiūnas","data":[-579],"fill":false},{"label":"Donatas Remeika","data":[-579],"fill":false},{"label":"Antanas Bastys","data":[-579],"fill":false},{"label":"Tadas Kundelis","data":[-579],"fill":false},{"label":"Tzachi Azo","data":[-579],"fill":false},{"label":"Yaniv Chekroun","data":[-579],"fill":false},{"label":"Alexandra Seriachenko","data":[-579],"fill":false},{"label":"ranyitz","data":[-579],"fill":false},{"label":"Tomas Eglinskas","data":[-579],"fill":false},{"label":"Vytautas Traškevičius","data":[-579],"fill":false},{"label":"Anton Podolsky","data":[-579],"fill":false},{"label":"Inbal Langer","data":[-579],"fill":false},{"label":"shtutman","data":[-579],"fill":false},{"label":"Amit Leshem","data":[-579],"fill":false},{"label":"Tomer Shkolnik","data":[-579],"fill":false},{"label":"Carl M. Lane","data":[-579],"fill":false},{"label":"Jurij Mikelionis","data":[-579],"fill":false},{"label":"Ron Ohana","data":[-579],"fill":false},{"label":"Danylo Vdovenko","data":[-579],"fill":false},{"label":"Aleksej Murogov","data":[-579],"fill":false},{"label":"Vladas Tamosiunas","data":[-579],"fill":false},{"label":"kornholio84","data":[-579],"fill":false},{"label":"Bryan Pinsker","data":[-579],"fill":false},{"label":"Hadar Raab","data":[-579],"fill":false},{"label":"Vyacheslav Miroshko","data":[-579],"fill":false},{"label":"Anton Verinov","data":[-579],"fill":false},{"label":"Oleksii Kaliuzhnyi","data":[-579],"fill":false},{"label":"Dmytro Teleha","data":[-579],"fill":false},{"label":"Andrii Koretskyi","data":[-579],"fill":false},{"label":"Kristina Lyba","data":[-579],"fill":false},{"label":"Domas Martisius","data":[-579],"fill":false},{"label":"Lior Erez","data":[-579],"fill":false},{"label":"Marius Jurgelenas","data":[-579],"fill":false},{"label":"Maya Lavie Levkovits","data":[-579],"fill":false},{"label":"michalavraham","data":[-579],"fill":false},{"label":"Hadar Geva","data":[-579],"fill":false},{"label":"Gongreg","data":[-579],"fill":false},{"label":"Nachshon Schwartz","data":[-1,-2],"fill":false},{"label":"Tal Levy","data":[-579],"fill":false},{"label":"TalZa1810","data":[-579],"fill":false},{"label":"Nir Cohen","data":[-579],"fill":false},{"label":"Yam Ben-Tzvi","data":[-579],"fill":false},{"label":"Boris Litvinsky","data":[-579],"fill":false},{"label":"mkloouo","data":[-579],"fill":false},{"label":"Justas Valskis","data":[-579],"fill":false},{"label":"Itai Schuftan","data":[-579],"fill":false},{"label":"Gal Elmalah","data":[-579],"fill":false},{"label":"etaiso","data":[-579],"fill":false},{"label":"Omer Burshtein","data":[-579],"fill":false},{"label":"Guy S","data":[-579],"fill":false},{"label":"bitamar","data":[-579],"fill":false},{"label":"Lena Zhukova","data":[-579],"fill":false},{"label":"Oleg Gordeev","data":[-579],"fill":false},{"label":"Yitzi G","data":[-579],"fill":false},{"label":"Oleksandr Bondarchuk","data":[-579],"fill":false},{"label":"darksmile","data":[-579],"fill":false},{"label":"Itay Friedman","data":[-579],"fill":false},{"label":"Etai Gross","data":[-579],"fill":false},{"label":"Roei Avrahami","data":[-579],"fill":false},{"label":"Dan Kovalsky","data":[-579],"fill":false},{"label":"Alon Weissfeld","data":[-579],"fill":false},{"label":"Ivan Vyshnevskyi","data":[-579],"fill":false},{"label":"Dor Ben Baruch","data":[-579],"fill":false},{"label":"Asaf Yonay","data":[-579],"fill":false},{"label":"Jonathan Bensaid","data":[-579],"fill":false},{"label":"GuyPerkal","data":[-579],"fill":false},{"label":"alexeytokar","data":[-579],"fill":false},{"label":"Max Artemov","data":[-579],"fill":false},{"label":"Andrey Nikitin","data":[-579],"fill":false},{"label":"Jonathan Fraimorice","data":[-579],"fill":false},{"label":"nqstr","data":[-579],"fill":false},{"label":"valerii-vorobiov","data":[-579],"fill":false},{"label":"Kobi Kadosh","data":[-579],"fill":false},{"label":"Almog Adziashvili","data":[-579],"fill":false},{"label":"Malachi Cohen","data":[-579],"fill":false},{"label":"Sergey Puzankov","data":[-579],"fill":false},{"label":"Pavlo Lisovyi","data":[-579],"fill":false},{"label":"Mindaugas Ardaravičius","data":[-579],"fill":false},{"label":"Domas Maksimas","data":[-579],"fill":false},{"label":"Roman Shevchuk","data":[-579],"fill":false},{"label":"Yael Sarusi","data":[-579],"fill":false},{"label":"David Valencia","data":[-579],"fill":false},{"label":"Luis Rodriguez","data":[-579],"fill":false},{"label":"(anonymous user #1102162)","data":[-579],"fill":false},{"label":"Mariia Havrylovych","data":[-579],"fill":false},{"label":"Arijus","data":[-579],"fill":false},{"label":"Oleksii Proniakin","data":[-579],"fill":false},{"label":"שי ליבוביץ'","data":[-579],"fill":false},{"label":"Akrabut","data":[-579],"fill":false},{"label":"Eugene Baraniuk","data":[-579],"fill":false},{"label":"daliusd","data":[-579],"fill":false},{"label":"Lior Erez","data":[-579],"fill":false},{"label":"RytisMark","data":[-579],"fill":false},{"label":"Alon Taieb","data":[-579],"fill":false},{"label":"Itay Gadot","data":[-579],"fill":false},{"label":"Salick Cogan","data":[-579],"fill":false},{"label":"Alex Kubica","data":[-579],"fill":false},{"label":"Dovilė Lapinskaitė","data":[-579],"fill":false},{"label":"Yakov Rakhamimov","data":[-579],"fill":false},{"label":"Galymzhan Kozhayev","data":[-579],"fill":false},{"label":"ArthurOx","data":[-579],"fill":false},{"label":"Asaf Korem","data":[-579],"fill":false},{"label":"Oz Sayag","data":[-579],"fill":false},{"label":"TomerAmran","data":[-579],"fill":false},{"label":"sharonzevadi","data":[-579],"fill":false},{"label":"Domant3lis","data":[-579],"fill":false},{"label":"Lukas Pažėra","data":[-579],"fill":false},{"label":"Aaron Vinestock","data":[-579],"fill":false},{"label":"Dima Bildin","data":[-579],"fill":false},{"label":"dragonofdeath","data":[-579],"fill":false},{"label":"Niryo","data":[-579],"fill":false},{"label":"Vlad Kampov","data":[-579],"fill":false},{"label":"rasmus93","data":[-579],"fill":false},{"label":"Boris Buliga","data":[-579],"fill":false},{"label":"ykrukovsky","data":[-579],"fill":false},{"label":"Mykola Borozdin","data":[-579],"fill":false},{"label":"Avraham Rosenzweig","data":[-579],"fill":false},{"label":"Oded Soffrin","data":[-579],"fill":false},{"label":"Evgeny Alterman","data":[-579],"fill":false},{"label":"Lukasadoms","data":[-579],"fill":false},{"label":"(anonymous user #1507892)","data":[-579],"fill":false},{"label":"Elad Barack","data":[-579],"fill":false},{"label":"Amir Zaushnizer","data":[-579],"fill":false},{"label":"Tomer Amran","data":[-579],"fill":false},{"label":"Pavel Forkert","data":[-579],"fill":false},{"label":"Yogev Shlomovitz","data":[-579],"fill":false},{"label":"Maxim Novak","data":[-579],"fill":false},{"label":"Yuri Tkachenko","data":[-579],"fill":false},{"label":"Anna Ivakhnik","data":[-579],"fill":false},{"label":"Uri Yakhini","data":[-579],"fill":false},{"label":"Taras Petushkov","data":[-579],"fill":false},{"label":"Živilė Kindurytė","data":[-579],"fill":false},{"label":"Dmytro Bildin","data":[-579],"fill":false},{"label":"anton-lebodkin","data":[-579],"fill":false},{"label":"Ihor Krysenko","data":[-579],"fill":false},{"label":"Nataliia Khitsan","data":[-579],"fill":false},{"label":"PavlyukVadim","data":[-579],"fill":false},{"label":"Danylo Verhuliesov","data":[-579],"fill":false},{"label":"Danylo Dzenik","data":[-579],"fill":false},{"label":"Lukas Kairys","data":[-579],"fill":false},{"label":"Vidas","data":[-579],"fill":false},{"label":"Kobi Zakut","data":[-579],"fill":false},{"label":"Oleksii Dubok","data":[-579],"fill":false},{"label":"BenasMot","data":[-579],"fill":false},{"label":"Guy Perkal","data":[-579],"fill":false},{"label":"Egidijus Jakas","data":[-579],"fill":false},{"label":"Oren Zakay","data":[-579],"fill":false},{"label":"kristinahrb","data":[-579],"fill":false},{"label":"Artem Ohanjanyan","data":[-579],"fill":false},{"label":"Bohdan Tryhub","data":[-579],"fill":false},{"label":"Gil Shochat","data":[-579],"fill":false},{"label":"Tania-Y","data":[-579],"fill":false},{"label":"bogobogo","data":[-579],"fill":false},{"label":"andrius-girdzius","data":[-579],"fill":false},{"label":"Ihor Andriiv","data":[-579],"fill":false},{"label":"Mykhailo Maslov","data":[-579],"fill":false},{"label":"Eugene Vashchuk","data":[-579],"fill":false},{"label":"daniel-azu","data":[-579],"fill":false},{"label":"Michael Wachsman","data":[-579],"fill":false},{"label":"Justinas Simanavicius","data":[-579],"fill":false},{"label":"Olexandr Yermilov","data":[-579],"fill":false},{"label":"ievgeniip","data":[-579],"fill":false},{"label":"Callum Shaw","data":[-579],"fill":false},{"label":"Vladyslav Shalamai","data":[-579],"fill":false},{"label":"Tomas Miliauskas","data":[-579],"fill":false},{"label":"SofiiaBalushka","data":[-579],"fill":false},{"label":"Jorge Rodriguez","data":[-579],"fill":false},{"label":"Mykhailo Pustovit","data":[-579],"fill":false},{"label":"Giedrius Graževičius","data":[-579],"fill":false},{"label":"Povilas Tamošauskas","data":[-579],"fill":false},{"label":"Andrius Vidmanto Bentkus","data":[-579],"fill":false},{"label":"Ukraine Screens","data":[-579],"fill":false},{"label":"Avishai Nudelman","data":[-579],"fill":false},{"label":"Viktoriia Nosova","data":[-579],"fill":false},{"label":"Антон Кисиль","data":[-579],"fill":false},{"label":"Domas Karklys","data":[-579],"fill":false},{"label":"Audrius Savickas","data":[-579],"fill":false},{"label":"Motiejus Juodelis","data":[-579],"fill":false},{"label":"Cwallice","data":[-579],"fill":false},{"label":"egidijusj","data":[-579],"fill":false},{"label":"marine-bre","data":[-579],"fill":false},{"label":"Noam Hoffman","data":[-579],"fill":false},{"label":"Tal Harel","data":[-579],"fill":false},{"label":"(anonymous user #1780487)","data":[-579],"fill":false},{"label":"Algimantas Krasauskas","data":[-579],"fill":false},{"label":"Dor","data":[-579],"fill":false},{"label":"Yogev Shlomovitz","data":[-579],"fill":false},{"label":"Savva Khalaman","data":[-579],"fill":false},{"label":"Shmuel Hizmi","data":[-579],"fill":false},{"label":"ron-shuvy","data":[-579],"fill":false},{"label":"Fer0x","data":[-579],"fill":false},{"label":"magia_li","data":[-579],"fill":false},{"label":"Volodymyr Kobeliatsky","data":[-579],"fill":false},{"label":"GregoryNative","data":[-579],"fill":false},{"label":"Roman Shevchuk","data":[-579],"fill":false},{"label":"Gennadii Sirtsov","data":[-579],"fill":false},{"label":"Gilad Frish","data":[-579],"fill":false},{"label":"Maksim Norkin","data":[-579],"fill":false},{"label":"(anonymous user #2266745)","data":[-579],"fill":false},{"label":"Ted Kostylev","data":[-579],"fill":false},{"label":"Amit Abuksis","data":[-579],"fill":false},{"label":"Guy Even","data":[-579],"fill":false},{"label":"Ifat Kooperli","data":[-579],"fill":false},{"label":"Itay Avtalyon","data":[-579],"fill":false},{"label":"(anonymous user #2301674)","data":[-579],"fill":false},{"label":"Vitalii Kloz","data":[-579],"fill":false},{"label":"(anonymous user #2301856)","data":[-579],"fill":false},{"label":"Eido Weksler","data":[-579],"fill":false},{"label":"Aviv Sela","data":[-579],"fill":false},{"label":"Vaidas Pilkauskas","data":[-579],"fill":false},{"label":"Guy Porges","data":[-579],"fill":false},{"label":"Lukas Kairys","data":[-579],"fill":false},{"label":"Matan Keidar","data":[-579],"fill":false},{"label":"Yuval Shoham","data":[-579],"fill":false},{"label":"Ohad Cohen","data":[-579],"fill":false},{"label":"Michał Kosowski","data":[-579],"fill":false},{"label":"Bar Amsalem","data":[-579],"fill":false},{"label":"(anonymous user #2303276)","data":[-579],"fill":false},{"label":"(anonymous user #2303455)","data":[-579],"fill":false},{"label":"Lior Gerstein","data":[-579],"fill":false},{"label":"Yogev Ben David","data":[-579],"fill":false},{"label":"Kirill Gladkov","data":[-579],"fill":false},{"label":"Tomer Groisman","data":[-579],"fill":false},{"label":"Gražvydas Jučius","data":[-579],"fill":false},{"label":"Laurynas Remeika","data":[-579],"fill":false},{"label":"dmarav","data":[-579],"fill":false},{"label":"Daniel Kochavi","data":[-579],"fill":false},{"label":"Adam Gorkoz","data":[-579],"fill":false},{"label":"Ugnius Mickys","data":[-579],"fill":false},{"label":"Karolis Astrauka","data":[-579],"fill":false},{"label":"Yaniv Efraim","data":[-579],"fill":false},{"label":"YanaYaroshevich","data":[-579],"fill":false},{"label":"Nikolajus Lebedenko","data":[-579],"fill":false},{"label":"Tzah Hillel","data":[-579],"fill":false},{"label":"Omer Braha","data":[-579],"fill":false},{"label":"ivellios","data":[-579],"fill":false},{"label":"Nitzan Hadar","data":[-579],"fill":false},{"label":"Dalius Krivickas","data":[-579],"fill":false},{"label":"Anton Feoktistov","data":[-579],"fill":false},{"label":"Donatas Uziela","data":[-579],"fill":false},{"label":"Shir Shintel","data":[-579],"fill":false},{"label":"Alexander Panman","data":[-579],"fill":false},{"label":"Riel Journo","data":[-579],"fill":false},{"label":"viliusmileris","data":[-579],"fill":false},{"label":"Rokas Žeruolis","data":[-579],"fill":false},{"label":"Dalia Simons","data":[-579],"fill":false},{"label":"Andrii Domin","data":[-579],"fill":false},{"label":"Justas Brazauskas","data":[-579],"fill":false},{"label":"Donatas Kučinskas","data":[-579],"fill":false},{"label":"(anonymous user #2373525)","data":[-579],"fill":false},{"label":"Tomaš Monkevič","data":[-579],"fill":false},{"label":"Shachar Almagor","data":[-579],"fill":false},{"label":"vytautasm","data":[-579],"fill":false},{"label":"Jonathan Toledano","data":[-579],"fill":false},{"label":"yoav tsook","data":[-579],"fill":false},{"label":"Dor Wiser","data":[-579],"fill":false},{"label":"Oleksandr Yakover","data":[-579],"fill":false},{"label":"Oleh Lypskyi","data":[-579],"fill":false},{"label":"Einav Levy","data":[-579],"fill":false},{"label":"Milda Glebauskaite","data":[-579],"fill":false},{"label":"Yinon Cohen","data":[-579],"fill":false},{"label":"Audrey Oved","data":[-579],"fill":false},{"label":"Tomas Jurevic","data":[-579],"fill":false},{"label":"Michael Pustovit","data":[-579],"fill":false},{"label":"Kyrylo Penzykov","data":[-579],"fill":false},{"label":"Oleksandr Yermilov","data":[-579],"fill":false},{"label":"Aidas Rudis","data":[-579],"fill":false},{"label":"Yedidya Kennard","data":[-579],"fill":false},{"label":"Slava Goverdovsky","data":[-579],"fill":false},{"label":"Kyrylo Taran","data":[-579],"fill":false},{"label":"Ravid Ben Harosh","data":[-579],"fill":false},{"label":"Ziv Pizanti","data":[-579],"fill":false},{"label":"Avigdor Mansbach","data":[-579],"fill":false},{"label":"Snir Sharristh","data":[1,2],"fill":false},{"label":"Yuriy Fedorov","data":[-579],"fill":false},{"label":"Tom May Rimok","data":[-579],"fill":false},{"label":"Iurii Kozhan","data":[-579],"fill":false},{"label":"Yevhen Kramorenko","data":[-579],"fill":false},{"label":"Hudyma Vitalii","data":[-579],"fill":false},{"label":"(anonymous user #2443579)","data":[-579],"fill":false},{"label":"Uzi Cohen","data":[-579],"fill":false},{"label":"Anton Kolhun","data":[-579],"fill":false},{"label":"Dvir Cohen","data":[-579],"fill":false},{"label":"Gil Galditzky","data":[-579],"fill":false},{"label":"Nadav Bahalul","data":[-579],"fill":false},{"label":"Jonathan Moskovich","data":[-579],"fill":false},{"label":"Tomer Binder","data":[-579],"fill":false},{"label":"Leonid Kolomiitsev","data":[-579],"fill":false},{"label":"Tal Grunwald","data":[-579],"fill":false},{"label":"Alon Peretz","data":[-579],"fill":false},{"label":"Rimvydas Gimbutas","data":[-579],"fill":false},{"label":"(anonymous user #2520749)","data":[-579],"fill":false},{"label":"Lietuvaitis","data":[-579],"fill":false},{"label":"Marik Shnitman","data":[-579],"fill":false},{"label":"Tom Sandalon","data":[-579],"fill":false},{"label":"Zoe Cohen","data":[-579],"fill":false},{"label":"chenelisha","data":[-579],"fill":false},{"label":"Avivbh","data":[-579],"fill":false},{"label":"Magia Li","data":[-579],"fill":false},{"label":"Gil Shochat","data":[-579],"fill":false},{"label":"Avi Laviad","data":[-579],"fill":false},{"label":"ykravv","data":[-579],"fill":false},{"label":"Sapir Levy","data":[-579],"fill":false},{"label":"Assaf Segev","data":[-579],"fill":false},{"label":"Ron Yadgar","data":[-579],"fill":false},{"label":"Daniel Shterenberg","data":[-579],"fill":false},{"label":"Gil Ben Netanel","data":[-579],"fill":false},{"label":"Aviv Ben-Haim","data":[-579],"fill":false},{"label":"Aviv Liberman","data":[-579],"fill":false},{"label":"Dago Dragony","data":[-579],"fill":false},{"label":"Eldar Siboni","data":[-579],"fill":false},{"label":"Liron Ashami","data":[-579],"fill":false},{"label":"Moriya Tzubara","data":[-579],"fill":false},{"label":"ExitNot","data":[-579],"fill":false},{"label":"Kamile Evelina Randall","data":[-579],"fill":false},{"label":"I.I","data":[-579],"fill":false},{"label":"Povilas Stašys","data":[-579],"fill":false},{"label":"Bernardas Laucius","data":[-579],"fill":false},{"label":"Hillel Kahana","data":[-579],"fill":false},{"label":"Vadim Kisilov","data":[-579],"fill":false},{"label":"Laurynas Lubys","data":[-579],"fill":false},{"label":"Mantas Indrašius","data":[-579],"fill":false},{"label":"Kirill Gladkov","data":[-579],"fill":false},{"label":"Eldar Siboni","data":[-579],"fill":false},{"label":"Dziugas Untulis","data":[-579],"fill":false},{"label":"Rostyslav Makhanko","data":[-3,-6],"fill":false},{"label":"borisslutskiwix","data":[-579],"fill":false},{"label":"Serhii Tuniehov","data":[-579],"fill":false},{"label":"Rostyslav Yadelskyi","data":[-579],"fill":false},{"label":"Yehor Chornyi","data":[-579],"fill":false},{"label":"Grantas Gadliauskas","data":[-579],"fill":false},{"label":"Boris Bakshiyev","data":[-579],"fill":false},{"label":"Motiejus Jakštys","data":[-579],"fill":false},{"label":"Pavlo Vyshnevetskyi","data":[-579],"fill":false},{"label":"Michael Wachsman","data":[-579],"fill":false},{"label":"Liraz Reichenstein","data":[-579],"fill":false},{"label":"Daryna Chernysheva","data":[-579],"fill":false},{"label":"Dmytro Dranko","data":[-579],"fill":false},{"label":"Lital Gilboa","data":[-579],"fill":false},{"label":"Agnius Valaitis","data":[-579],"fill":false},{"label":"Hlib Riabtsev","data":[-579],"fill":false},{"label":"Justinas Sapezinskas","data":[-579],"fill":false},{"label":"karins14","data":[-579],"fill":false},{"label":"Algirdas Jasaitis","data":[-579],"fill":false},{"label":"Adomas Sileikis","data":[-579],"fill":false},{"label":"Mantas Valiulis","data":[-579],"fill":false},{"label":"Yevhenii Kravchenko","data":[-579],"fill":false},{"label":"kateryname","data":[-579],"fill":false},{"label":"יצחק גטה","data":[-579],"fill":false},{"label":"Jonathan Mosenkis","data":[-579],"fill":false},{"label":"(anonymous user #3309619)","data":[-579],"fill":false},{"label":"Evaldas Grublys","data":[-579],"fill":false},{"label":"Anton Kolhun","data":[-579],"fill":false},{"label":"Domantas Slėnys","data":[-579],"fill":false},{"label":"Dmitry Naumenko","data":[-579],"fill":false},{"label":"Martynas Puronas","data":[-579],"fill":false},{"label":"Gediminas Krisceliunas","data":[-579],"fill":false},{"label":"Ieva Vaitkute","data":[-579],"fill":false},{"label":"Justas Mileika","data":[-579],"fill":false},{"label":"ondblclick","data":[-579],"fill":false},{"label":"Moshe Teter","data":[-579],"fill":false},{"label":"Salomėja","data":[-579],"fill":false},{"label":"Anton Kisil","data":[-579],"fill":false},{"label":"Lev Vidrak","data":[-579],"fill":false},{"label":"Yevhenii Dovhaniuk","data":[-579],"fill":false},{"label":"Volodymyr Ozhekhovskyi","data":[-579],"fill":false},{"label":"Roman Panchenko","data":[-579],"fill":false},{"label":"Bohdana Soroka","data":[-579],"fill":false},{"label":"(anonymous user #3385295)","data":[-579],"fill":false},{"label":"Shaked Erinberg","data":[-579],"fill":false},{"label":"Andrius Naruševičius","data":[-579],"fill":false},{"label":"Maksym Butsykin","data":[-579],"fill":false},{"label":"PenzK","data":[-579],"fill":false},{"label":"Or Oz","data":[-579],"fill":false},{"label":"Yevhen Kovalchuk","data":[-579],"fill":false},{"label":"Serhii But","data":[-579],"fill":false},{"label":"Nicolas Galer","data":[-579],"fill":false},{"label":"Nancy Hernandez","data":[-579],"fill":false},{"label":"Gilad Bison","data":[-579],"fill":false},{"label":"Lior Shtaimberg","data":[-579],"fill":false},{"label":"Dekel Adler","data":[-579],"fill":false},{"label":"Tom Sandalon","data":[-579],"fill":false},{"label":"Matan Georgi","data":[-579],"fill":false},{"label":"Sharon Mor","data":[-579],"fill":false},{"label":"Israel Koplowicz","data":[-579],"fill":false},{"label":"Alon Trugman","data":[-579],"fill":false},{"label":"Andrew Pavlenko","data":[-579],"fill":false},{"label":"Yuval Shavit","data":[-579],"fill":false},{"label":"Uriel Parienti","data":[-579],"fill":false},{"label":"ArthurOxenhorn","data":[-579],"fill":false},{"label":"Yoav Danieli","data":[-579],"fill":false},{"label":"תמר אגמון","data":[-579],"fill":false},{"label":"Kateryna Madzhara","data":[-579],"fill":false},{"label":"Siril-O","data":[-579],"fill":false},{"label":"Iaryna Tokar (Yarina)","data":[-579],"fill":false},{"label":"Andrew Peresada","data":[-579],"fill":false},{"label":"Maksim Smetana","data":[-579],"fill":false},{"label":"Chen Kahana","data":[-579],"fill":false},{"label":"Oleksii Lozovoi","data":[-579],"fill":false},{"label":"Andrei Timofeev","data":[-579],"fill":false},{"label":"Jaunius Belickas","data":[-579],"fill":false},{"label":"danielg-wix","data":[-579],"fill":false},{"label":"Dolev Epshtein","data":[-579],"fill":false},{"label":"Augustinas Vainius","data":[-579],"fill":false},{"label":"Lidor Tevet","data":[-579],"fill":false},{"label":"overengineered","data":[-579],"fill":false},{"label":"Roman Koniukhov","data":[-579],"fill":false},{"label":"Hillel Kahana","data":[-579],"fill":false},{"label":"Or Gertman","data":[-579],"fill":false},{"label":"Or Gertman","data":[-579],"fill":false},{"label":"(anonymous user #3990975)","data":[-579],"fill":false},{"label":"Anton Feoktistov","data":[-579],"fill":false},{"label":"Hanan Yazdi","data":[-579],"fill":false},{"label":"Vitalii Sashyn","data":[-579],"fill":false},{"label":"(anonymous user #4286627)","data":[-579],"fill":false},{"label":"iryna-novykova","data":[-579],"fill":false},{"label":"Lior Gutweter","data":[-579],"fill":false},{"label":"SERHII BUT","data":[-579],"fill":false},{"label":"Maksym Netreba","data":[-579],"fill":false},{"label":"Orestas Miskivas","data":[-579],"fill":false},{"label":"Emilija Puronaite","data":[-579],"fill":false},{"label":"Igor","data":[-579],"fill":false},{"label":"Adi Confino","data":[-579],"fill":false}]}},"ten":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Tomas Peluritis","data":[4,8],"fill":false},{"label":"Sergey Ilyevsky","data":[3,6],"fill":false},{"label":"Shahar Talmi","data":[2,4],"fill":false},{"label":"Snir Sharristh","data":[1,2],"fill":false},{"label":"Domantas Bazys","data":[0,0],"fill":false},{"label":"Nachshon Schwartz","data":[-1,-2],"fill":false},{"label":"Eddie Erlich","data":[-2,-4],"fill":false},{"label":"Rostyslav Makhanko","data":[-3,-6],"fill":false},{"label":"Reut Svr","data":[-4,-8],"fill":false},{"label":"Idan Levi","data":[-5],"fill":false}]}},"five":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Tomas Peluritis","data":[2,4],"fill":false},{"label":"Sergey Ilyevsky","data":[1,2],"fill":false},{"label":"Shahar Talmi","data":[0,0],"fill":false},{"label":"Snir Sharristh","data":[-1,-2],"fill":false},{"label":"Domantas Bazys","data":[-2,-4],"fill":false}]}}}');
+        function currentConfig() {
+          return (new URLSearchParams(location.search)).get('draw') || 'all';
+        }
+        window.drawChart = function (group) {
+          history.pushState({ draw: group }, '', `?draw=${group}`);
+          window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
+          window.myLine.update();
+        };
+        window.onload = function () {
+          let ctx = document.getElementById('canvas').getContext('2d');
+          window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config[currentConfig()])));
+        };
+        window.addEventListener('popstate', () => drawChart(currentConfig()));
+      </script>
+      <table>
+        <tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+</td>
+<td style="padding-right: 50px;">
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="padding-right: 50px;">
+<p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 1:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">01 Dec 2024, 00:06:47</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">01 Dec 2024, 00:07:43</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">01 Dec 2024, 00:09:45</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">01 Dec 2024, 00:13:20</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">01 Dec 2024, 00:13:31</span> Domantas Bazys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">6)</span> <span class="leaderboard-time">01 Dec 2024, 00:19:53</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">7)</span> <span class="leaderboard-time">01 Dec 2024, 00:23:17</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">8)</span> <span class="leaderboard-time">01 Dec 2024, 00:26:11</span> Rostyslav Makhanko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">9)</span> <span class="leaderboard-time">01 Dec 2024, 00:31:17</span> Reut Svr</div> 
+</td>
+<td style="padding-right: 50px;">
+<p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">01 Dec 2024, 00:03:55</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">01 Dec 2024, 00:05:08</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">01 Dec 2024, 00:06:02</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">01 Dec 2024, 00:09:26</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">01 Dec 2024, 00:10:31</span> Domantas Bazys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">01 Dec 2024, 00:16:16</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">01 Dec 2024, 00:16:56</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">01 Dec 2024, 00:20:59</span> Rostyslav Makhanko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">01 Dec 2024, 00:28:08</span> Reut Svr</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">01 Dec 2024, 00:30:23</span> Idan Levi</div> 
+</td>
+</tr>
+      </table>
+    </main>
+  </body>
+</html>

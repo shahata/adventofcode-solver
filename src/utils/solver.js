@@ -76,7 +76,8 @@ function getAllYears() {
 async function takeScreenshots(year) {
   if (year !== getAllYears().at(-1)) return;
   const browser = await chromium.launch();
-  const clip = { x: 0, y: 0, width: 1030, height: 420 };
+  const height = 208.16 + getAllYears().length * 23.5;
+  const clip = { x: 0, y: 0, width: 1030, height };
   const page = await browser.newPage();
   await page.goto(resolve(import.meta.url, `../${year}/events.html`));
   await page.waitForTimeout(1000);
