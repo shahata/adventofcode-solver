@@ -25,7 +25,7 @@ export function part2(input) {
     for (let i = 0; i < arr.length; i++) {
       const without = arr.map((x, index) => (index === i ? "*" : x)).join("");
       if (memory.has(without)) {
-        return without.replace(/\*/g, "");
+        return without.replace(/\*/, "");
       } else {
         memory.add(without);
       }
