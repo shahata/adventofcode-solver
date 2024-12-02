@@ -83,11 +83,8 @@ export async function downloadIndex(year, bar, stars) {
 
 export async function createSolver(year, day) {
   const page = await getYearPage(year);
-  if (page.match(new RegExp(`key = "${year}-(\\d+)-"`))) {
-    const [, actual] = page.match(new RegExp(`key = "${year}-(\\d+)-"`));
-    day = actual;
-  }
-  if (page.match(/server_eta = (\d+)/)) {
+  const actual = page.match(new RegExp(`key = "${year}-(\\d+)-"`))?.[1];
+  if (actual === day && page.match(/server_eta = (\d+)/)) {
     const [, eta] = page.match(/server_eta = (\d+)/);
     const create = await timeoutConfirm({
       message: `Create solver ${year}/${dayName(day)}?`,
