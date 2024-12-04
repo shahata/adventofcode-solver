@@ -24,7 +24,7 @@ export function part2(input) {
         [m[i][j], m[i + 1]?.[j + 1], m[i + 2]?.[j + 2]],
         [m[i][j + 2], m[i + 1]?.[j + 1], m[i + 2]?.[j]],
       ].map(lookup => lookup.join(""));
-      if (lookups.filter(x => x === "MAS" || x === "SAM").length === 2) count++;
+      if (lookups.every(x => x === "MAS" || x === "SAM")) count++;
     }
   }
   return count;
