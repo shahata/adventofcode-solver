@@ -1,24 +1,26 @@
+function correct(update, rules) {
+  for (let i = 0; i < update.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (rules.has(`${update[i]}|${update[j]}`)) {
+        return () => {
+          let tmp = update[i];
+          update[i] = update[j];
+          update[j] = tmp;
+        };
+      }
+    }
+  }
+  return true;
+}
+
 export function part1(input) {
   let [rules, updates] = input.split("\n\n");
   let sum = 0;
-  rules = rules.split("\n").map(rule => rule.split("|").map(Number));
+  rules = new Set(rules.split("\n"));
   updates = updates.split("\n").map(update => update.split(",").map(Number));
   for (const update of updates) {
     let middle = update[(update.length - 1) / 2];
-    for (let i = 0; i < update.length; i++) {
-      for (let j = 0; j < i; j++) {
-        if (
-          rules.find(rule => rule[0] === update[i] && rule[1] === update[j])
-        ) {
-          middle = 0;
-          break;
-        }
-      }
-      if (middle === 0) {
-        break;
-      }
-    }
-    sum += middle;
+    if (correct(update, rules) === true) sum += middle;
   }
   return sum;
 }
@@ -26,46 +28,20 @@ export function part1(input) {
 export function part2(input) {
   let [rules, updates] = input.split("\n\n");
   let bad = [];
-  rules = rules.split("\n").map(rule => rule.split("|").map(Number));
+  rules = new Set(rules.split("\n"));
   updates = updates.split("\n").map(update => update.split(",").map(Number));
   for (const update of updates) {
-    let middle = update[(update.length - 1) / 2];
-    for (let i = 0; i < update.length; i++) {
-      for (let j = 0; j < i; j++) {
-        if (
-          rules.find(rule => rule[0] === update[i] && rule[1] === update[j])
-        ) {
-          bad.push(update);
-          middle = 0;
-          break;
-        }
-      }
-      if (middle === 0) {
-        break;
-      }
-    }
+    if (correct(update, rules) !== true) bad.push(update);
   }
 
   let sum = 0;
   for (const update of bad) {
-    let good = false;
-    while (!good) {
-      good = true;
-      for (let i = 0; i < update.length; i++) {
-        for (let j = 0; j < i; j++) {
-          if (
-            rules.find(rule => rule[0] === update[i] && rule[1] === update[j])
-          ) {
-            let tmp = update[i];
-            update[i] = update[j];
-            update[j] = tmp;
-            good = false;
-          }
-        }
-      }
-    }
-    let middle = update[(update.length - 1) / 2];
-    sum += middle;
+    let fix;
+    do {
+      fix = correct(update, rules);
+      if (typeof fix === "function") fix();
+    } while (fix !== true);
+    sum += update[(update.length - 1) / 2];
   }
   return sum;
 }
