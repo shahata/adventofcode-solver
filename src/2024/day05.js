@@ -13,35 +13,36 @@ function correct(update, rules) {
   return true;
 }
 
-export function part1(input) {
+function parse(input) {
   let [rules, updates] = input.split("\n\n");
-  let sum = 0;
   rules = new Set(rules.split("\n"));
   updates = updates.split("\n").map(update => update.split(",").map(Number));
+  return [rules, updates];
+}
+
+export function part1(input) {
+  let sum = 0;
+  const [rules, updates] = parse(input);
   for (const update of updates) {
-    let middle = update[(update.length - 1) / 2];
-    if (correct(update, rules) === true) sum += middle;
+    if (correct(update, rules) === true) {
+      sum += update[(update.length - 1) / 2];
+    }
   }
   return sum;
 }
 
 export function part2(input) {
-  let [rules, updates] = input.split("\n\n");
-  let bad = [];
-  rules = new Set(rules.split("\n"));
-  updates = updates.split("\n").map(update => update.split(",").map(Number));
-  for (const update of updates) {
-    if (correct(update, rules) !== true) bad.push(update);
-  }
-
   let sum = 0;
-  for (const update of bad) {
-    let fix;
-    do {
-      fix = correct(update, rules);
-      if (typeof fix === "function") fix();
-    } while (fix !== true);
-    sum += update[(update.length - 1) / 2];
+  const [rules, updates] = parse(input);
+  for (const update of updates) {
+    if (correct(update, rules) !== true) {
+      let fix;
+      while (fix !== true) {
+        fix = correct(update, rules);
+        if (typeof fix === "function") fix();
+      }
+      sum += update[(update.length - 1) / 2];
+    }
   }
   return sum;
 }
