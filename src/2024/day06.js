@@ -1,75 +1,47 @@
-export function part1(input) {
+const step = {
+  up: { x: 0, y: -1, turn: "right" },
+  down: { x: 0, y: 1, turn: "left" },
+  left: { x: -1, y: 0, turn: "up" },
+  right: { x: 1, y: 0, turn: "down" },
+};
+
+function test(input, add = undefined) {
   const map = input.split("\n").map(line => line.split(""));
   const startY = map.findIndex(line => line.includes("^"));
   const startX = map[startY].indexOf("^");
   let current = { x: startX, y: startY, direction: "up" };
   const visited = new Set();
+  const turns = new Set();
+  if (add && map[add.y]?.[add.x] === ".") map[add.y][add.x] = "#";
+  map[startY][startX] = ".";
   while (map[current.y]?.[current.x] !== undefined) {
     let next = { ...current };
-    visited.add(`${current.x},${current.y}`);
-    if (current.direction === "up") {
-      next.y -= 1;
-    } else if (current.direction === "down") {
-      next.y += 1;
-    } else if (current.direction === "left") {
-      next.x -= 1;
-    } else if (current.direction === "right") {
-      next.x += 1;
+    while (map[next.y]?.[next.x] === ".") {
+      if (!add) visited.add(`${next.x},${next.y}`);
+      next.x += step[current.direction].x;
+      next.y += step[current.direction].y;
     }
     if (map[next.y]?.[next.x] === "#") {
-      next = { ...current };
-      if (current.direction === "up") next.direction = "right";
-      else if (current.direction === "down") next.direction = "left";
-      else if (current.direction === "left") next.direction = "up";
-      else if (current.direction === "right") next.direction = "down";
+      next.x -= step[current.direction].x;
+      next.y -= step[current.direction].y;
+      next.direction = step[current.direction].turn;
+      if (turns.has(`${next.x},${next.y},${next.direction}`)) return turns;
+      turns.add(`${next.x},${next.y},${next.direction}`);
     }
     current = next;
   }
-  return visited.size;
+  return add ? undefined : visited;
 }
 
-function test(input) {
-  const map = input.split("\n").map(line => line.split(""));
-  const startY = map.findIndex(line => line.includes("^"));
-  const startX = map[startY].indexOf("^");
-  let current = { x: startX, y: startY, direction: "up" };
-  const visited = new Set();
-  while (map[current.y]?.[current.x] !== undefined) {
-    let next = { ...current };
-    if (visited.has(`${current.x},${current.y},${current.direction}`)) {
-      return true;
-    }
-    visited.add(`${current.x},${current.y},${current.direction}`);
-    if (current.direction === "up") {
-      next.y -= 1;
-    } else if (current.direction === "down") {
-      next.y += 1;
-    } else if (current.direction === "left") {
-      next.x -= 1;
-    } else if (current.direction === "right") {
-      next.x += 1;
-    }
-    if (map[next.y]?.[next.x] === "#") {
-      next = { ...current };
-      if (current.direction === "up") next.direction = "right";
-      else if (current.direction === "down") next.direction = "left";
-      else if (current.direction === "left") next.direction = "up";
-      else if (current.direction === "right") next.direction = "down";
-    }
-    current = next;
-  }
-  return false;
+export function part1(input) {
+  return test(input).size;
 }
 
 export function part2(input) {
   let count = 0;
-  for (let i = 0; i < input.length; i++) {
-    if (
-      input[i] === "." &&
-      test(`${input.slice(0, i)}#${input.slice(i + 1)}`)
-    ) {
-      count++;
-    }
-  }
+  test(input).forEach(pos => {
+    const [x, y] = pos.split(",").map(Number);
+    if (test(input, { x, y })) count++;
+  });
   return count;
 }
