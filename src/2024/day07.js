@@ -1,12 +1,10 @@
 function getPossibleAnswers(numbers, thirdOperator) {
   if (numbers.length === 1) return numbers;
-  const answers = getPossibleAnswers(numbers.slice(1), thirdOperator);
-  const all = answers.flatMap(answer => {
+  return getPossibleAnswers(numbers.slice(1), thirdOperator).flatMap(answer => {
     return [answer + numbers[0], answer * numbers[0]].concat(
       thirdOperator ? +`${answer}${numbers[0]}` : [],
     );
   });
-  return all;
 }
 
 export function part1(input, thirdOperator = false) {
