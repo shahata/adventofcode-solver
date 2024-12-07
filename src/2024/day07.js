@@ -1,24 +1,22 @@
-function getPossibleAnswers(numbers, thirdOperator) {
-  let result = [numbers[0]];
+function getResultIfPossible(result, numbers, thirdOperator) {
+  let all = [numbers[0]];
   for (let i = 1; i < numbers.length; i++) {
-    result = result.flatMap(answer => {
+    all = all.flatMap(answer => {
       const options = [answer + numbers[i], answer * numbers[i]];
       if (thirdOperator) options.push(+`${answer}${numbers[i]}`);
       return options;
     });
   }
-  return result;
+  return all.includes(result) ? result : 0;
 }
 
 export function part1(input, thirdOperator = false) {
-  const equations = input.split("\n").map(line => {
-    const [result, numbers] = line.split(": ");
-    return [+result, numbers.split(" ").map(Number)];
+  const results = input.split("\n").map(line => {
+    let [result, numbers] = line.split(": ");
+    numbers = numbers.split(" ").map(Number);
+    return getResultIfPossible(+result, numbers, thirdOperator);
   });
-  const solvable = equations.filter(([result, numbers]) => {
-    return getPossibleAnswers(numbers, thirdOperator).includes(result);
-  });
-  return solvable.reduce((acc, [result]) => acc + result, 0);
+  return results.reduce((a, b) => a + b);
 }
 
 export function part2(input) {
