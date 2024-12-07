@@ -1,20 +1,16 @@
-function getResultIfPossible(result, numbers, thirdOperator) {
+function getResultIfPossible(result, numbers, op) {
   let all = [numbers[0]];
-  for (let i = 1; i < numbers.length; i++) {
-    all = all.flatMap(answer => {
-      const options = [answer + numbers[i], answer * numbers[i]];
-      if (thirdOperator) options.push(+`${answer}${numbers[i]}`);
-      return options;
-    });
+  for (const n of numbers.slice(1)) {
+    all = all.flatMap(x => [+`${x}${n}`, x + n, x * n].slice(op ? 0 : 1));
   }
   return all.includes(result) ? result : 0;
 }
 
-export function part1(input, thirdOperator = false) {
+export function part1(input, op = false) {
   const results = input.split("\n").map(line => {
     let [result, numbers] = line.split(": ");
     numbers = numbers.split(" ").map(Number);
-    return getResultIfPossible(+result, numbers, thirdOperator);
+    return getResultIfPossible(+result, numbers, op);
   });
   return results.reduce((a, b) => a + b);
 }
