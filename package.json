@@ -50,7 +50,7 @@
   },
   "wallaby": {
     "autoDetect": true,
-    "runSelectedTestsOnly": true,
+    "startAutomatically": true,
     "env": {
       "params": {
         "env": "NODE_OPTIONS=--experimental-vm-modules"

@@ -1,7 +1,7 @@
 {
   "Paste AoC Example": {
     "scope": "javascript,typescript",
-    "prefix": "aoc",
+    "prefix": "paste",
     "body": ["[", "${CLIPBOARD/^(.*)$/\"$1\",/gm}", "].join(\"\\n\")"],
     "description": "Paste lines as array joined by newlines",
   },
