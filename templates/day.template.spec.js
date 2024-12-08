@@ -6,7 +6,7 @@ const input = readInput(import.meta.url);
 describe.only("{{day}} {{year}}", () => {
   describe("part1", () => {
     test("it should work for part 1 examples", () => {
-      expect(part1(paste)).toEqual(0);
+      expect(part1(paste)).toEqual(paste);
     });
 
     test("it should work for part 1 input", () => {
@@ -16,7 +16,7 @@ describe.only("{{day}} {{year}}", () => {
 
   describe("part2", () => {
     test("it should work for part 2 examples", () => {
-      // expect(part2(paste)).toEqual(0);
+      // expect(part2(paste)).toEqual(paste);
     });
 
     test("it should work for part 2 input", () => {

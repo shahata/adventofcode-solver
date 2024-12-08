@@ -31,14 +31,14 @@
     </header>
     <main>
       <style>
-.calendar .calendar-color-r { color:#ff0000; }
 .calendar .calendar-color-g { color:#00cc00; }
-.calendar .calendar-color-w { color:#ffffff; }
+.calendar .calendar-color-l { color:#ccccff; }
 .calendar .calendar-color-p { color:#9900ff; }
-.calendar .calendar-color-b { color:#333399; }
+.calendar .calendar-color-r { color:#ff0000; }
 .calendar .calendar-color-o { color:#ffcc99; }
 .calendar .calendar-color-a { color:#cccccc; }
-.calendar .calendar-color-l { color:#ccccff; }
+.calendar .calendar-color-b { color:#333399; }
+.calendar .calendar-color-w { color:#ffffff; }
 @keyframes anim-seamonster {
     0% { transform: translate(-.9em,0); }
    50% { transform: translate( .9em,0); }
@@ -115,7 +115,7 @@ for (var i=0; i<500; i++) {
   var cloud = document.createElement("div");
   cloud.className = "cloud";
   cloud.textContent = "|";
-  var r = Math.random() ** 1.2;
+  var r = Math.pow(Math.random(),1.2);
   var t = Math.random();
   cloud.style.opacity = 1-r;
   cloud.style.transform = "rotate("+(-1*(t+r))+"turn) translate(-.5em,"+(-6*r)+"em) rotate("+(.2*r)+"turn)";
