@@ -1,10 +1,8 @@
 function parse(input) {
   const disk = [];
-  let id = 0;
   for (let i = 0; i < input.length; i++) {
-    const count = +input[i];
-    if (i % 2 === 0) disk.push({ id: id++, count });
-    else disk.push({ id: -1, count });
+    if (i % 2 === 0) disk.push({ id: i / 2, count: +input[i] });
+    else disk.push({ id: -1, count: +input[i] });
   }
   return disk;
 }
@@ -22,8 +20,11 @@ function checksum(disk) {
 }
 
 function split(disk, i, count) {
-  disk.splice(i + 1, 0, { id: disk[i].id, count: disk[i].count - count });
-  disk[i].count = count;
+  const add = [
+    { id: disk[i].id, count },
+    { id: disk[i].id, count: disk[i].count - count },
+  ];
+  disk.splice(i, 1, ...add);
 }
 
 function move(disk, from, to) {
@@ -35,10 +36,9 @@ function move(disk, from, to) {
     split(disk, from, disk[from].count - disk[to].count);
     from++;
   }
-  if (disk[to].count === disk[from].count) {
-    disk[to].id = disk[from].id;
-    disk[from].id = -1;
-  }
+  let tmp = disk[to].id;
+  disk[to].id = disk[from].id;
+  disk[from].id = tmp;
   return from;
 }
 
