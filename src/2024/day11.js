@@ -1,7 +1,5 @@
 function next(stone) {
-  if (stone === 0) {
-    return [1];
-  }
+  if (stone === 0) return [1];
   if (`${stone}`.length % 2 === 0) {
     const s = `${stone}`;
     return [
@@ -14,15 +12,12 @@ function next(stone) {
 
 const memory = new Map();
 function doit(stone, times) {
-  if (times === 0) return 1;
-
   const key = `${stone},${times}`;
   if (memory.has(key)) return memory.get(key);
   let sum = 0;
   let stones = next(stone);
-  stones.forEach(stone => {
-    sum += doit(stone, times - 1);
-  });
+  if (times === 1) sum = stones.length;
+  else stones.forEach(stone => (sum += doit(stone, times - 1)));
   memory.set(key, sum);
   return sum;
 }
