@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 13 - Advent of Code 2024</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a
+            href="https://www.wix.engineering/" target="_blank" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">26*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2024</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <article class="day-desc"><h2>--- Day 13: Claw Contraption ---</h2><p>Next up: the <a href="/2020/day/24">lobby</a> of a resort on a tropical island. The Historians take a moment to admire the hexagonal floor tiles before spreading out.</p>
+<p>Fortunately, it looks like the resort has a new <a href="https://en.wikipedia.org/wiki/Amusement_arcade">arcade</a>! Maybe you can win some prizes from the <a href="https://en.wikipedia.org/wiki/Claw_machine" target="_blank">claw machines</a>?</p>
+<p>The claw machines here are a little unusual. Instead of a joystick or directional buttons to control the claw, these machines have two buttons labeled <code>A</code> and <code>B</code>. Worse, you can't just put in a token and play; it costs <em>3 tokens</em> to push the <code>A</code> button and <em>1 token</em> to push the <code>B</code> button.</p>
+<p>With a little experimentation, you figure out that each machine's buttons are configured to move the claw a specific amount to the <em>right</em> (along the <code>X</code> axis) and a specific amount <em>forward</em> (along the <code>Y</code> axis) each time that button is pressed.</p>
+<p>Each machine contains one <em>prize</em>; to win the prize, the claw must be positioned <em>exactly</em> above the prize on both the <code>X</code> and <code>Y</code> axes.</p>
+<p>You wonder: what is the smallest number of tokens you would have to spend to win as many prizes as possible? You assemble a list of every machine's button behavior and prize location (your puzzle input). For example:</p>
+<pre><code>Button A: X+94, Y+34
+Button B: X+22, Y+67
+Prize: X=8400, Y=5400
+
+Button A: X+26, Y+66
+Button B: X+67, Y+21
+Prize: X=12748, Y=12176
+
+Button A: X+17, Y+86
+Button B: X+84, Y+37
+Prize: X=7870, Y=6450
+
+Button A: X+69, Y+23
+Button B: X+27, Y+71
+Prize: X=18641, Y=10279
+</code></pre>
+<p>This list describes the button configuration and prize location of four different claw machines.</p>
+<p>For now, consider just the first claw machine in the list:</p>
+<ul>
+<li>Pushing the machine's <code>A</code> button would move the claw <code>94</code> units along the <code>X</code> axis and <code>34</code> units along the <code>Y</code> axis.</li>
+<li>Pushing the <code>B</code> button would move the claw <code>22</code> units along the <code>X</code> axis and <code>67</code> units along the <code>Y</code> axis.</li>
+<li>The prize is located at <code>X=8400</code>, <code>Y=5400</code>; this means that from the claw's initial position, it would need to move exactly <code>8400</code> units along the <code>X</code> axis and exactly <code>5400</code> units along the <code>Y</code> axis to be perfectly aligned with the prize in this machine.</li>
+</ul>
+<p>The cheapest way to win the prize is by pushing the <code>A</code> button <code>80</code> times and the <code>B</code> button <code>40</code> times. This would line up the claw along the <code>X</code> axis (because <code>80*94 + 40*22 = 8400</code>) and along the <code>Y</code> axis (because <code>80*34 + 40*67 = 5400</code>). Doing this would cost <code>80*3</code> tokens for the <span title="Half A presses are not allowed."><code>A</code> presses</span> and <code>40*1</code> for the <code>B</code> presses, a total of <code><em>280</em></code> tokens.</p>
+<p>For the second and fourth claw machines, there is no combination of A and B presses that will ever win a prize.</p>
+<p>For the third claw machine, the cheapest way to win the prize is by pushing the <code>A</code> button <code>38</code> times and the <code>B</code> button <code>86</code> times. Doing this would cost a total of <code><em>200</em></code> tokens.</p>
+<p>So, the most prizes you could possibly win is two; the minimum tokens you would have to spend to win all (two) prizes is <code><em>480</em></code>.</p>
+<p>You estimate that each button would need to be pressed <em>no more than <code>100</code> times</em> to win a prize. How else would someone be expected to play?</p>
+<p>Figure out how to win as many prizes as possible. <em>What is the fewest tokens you would have to spend to win all possible prizes?</em></p>
+</article>
+<p>Your puzzle answer was <code>29388</code>.</p><article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>As you go to win the first prize, you discover that the claw is nowhere near where you expected it would be. Due to a unit conversion error in your measurements, the position of every prize is actually <code>10000000000000</code> higher on both the <code>X</code> and <code>Y</code> axis!</p>
+<p>Add <code>10000000000000</code> to the <code>X</code> and <code>Y</code> position of every prize. After making this change, the example above would now look like this:</p>
+<pre><code>Button A: X+94, Y+34
+Button B: X+22, Y+67
+Prize: X=10000000008400, Y=10000000005400
+
+Button A: X+26, Y+66
+Button B: X+67, Y+21
+Prize: X=10000000012748, Y=10000000012176
+
+Button A: X+17, Y+86
+Button B: X+84, Y+37
+Prize: X=10000000007870, Y=10000000006450
+
+Button A: X+69, Y+23
+Button B: X+27, Y+71
+Prize: X=10000000018641, Y=10000000010279
+</code></pre>
+<p>Now, it is only possible to win a prize on the second and fourth claw machines. Unfortunately, it will take <em>many more than <code>100</code> presses</em> to do so.</p>
+<p>Using the corrected prize coordinates, figure out how to win as many prizes as possible. <em>What is the fewest tokens you would have to spend to win all possible prizes?</em></p>
+</article>
+<p>Your puzzle answer was <code>99548032866004</code>.</p><p class="day-success">Both parts of this puzzle are complete! They provide two gold stars: **</p>
+<p>At this point, you should <a href="index.html">return to your Advent calendar</a> and try another puzzle.</p>
+<p>If you still want to see it, you can <a href="day13.txt" target="_blank">get your puzzle input</a>.</p>
+<p>You can also <span class="share">[Share<span class="share-content">on
+  <a href="https://bsky.app/intent/compose?text=I%27ve+completed+%22Claw+Contraption%22+%2D+Day+13+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F13" target="_blank">Bluesky</a>
+  <a href="https://twitter.com/intent/tweet?text=I%27ve+completed+%22Claw+Contraption%22+%2D+Day+13+%2D+Advent+of+Code+2024&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F13&amp;related=ericwastl&amp;hashtags=AdventOfCode" target="_blank">Twitter</a>
+  <a href="javascript:void(0);" onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I%27ve+completed+%22Claw+Contraption%22+%2D+Day+13+%2D+Advent+of+Code+2024+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F2024%2Fday%2F13';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}" target="_blank">Mastodon</a
+></span>]</span> this puzzle.</p>
+    </main>
+  </body>
+</html>
