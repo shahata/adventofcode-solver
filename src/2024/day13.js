@@ -1,61 +1,38 @@
-import { init } from "z3-solver";
-
+// px = a * ax + b * bx
+// py = a * ay + b * by
+//
+// b = (px - a * ax) / bx
+// py = a * ay + (px - a * ax) / bx * by
+// py = a * ay + px * by / bx - a * ax * by / bx
+// a * ay + px * by / bx - a * ax * by / bx - py = 0
+// a * ay - a * ax * by / bx = py - px * by / bx
+// a * (ay - ax * by / bx) = py - px * by / bx
+// a = (py - px * by / bx) / (ay - ax * by / bx)
 function solve({ ax, ay, bx, by, px, py }) {
-  for (let a = 0; a <= 100; a++) {
-    for (let b = 0; b <= 100; b++) {
-      const x = a * ax + b * bx;
-      const y = a * ay + b * by;
-      if (x === px && y === py) {
-        return a * 3 + b;
-      }
-    }
-  }
-  return 0;
+  const b = (py * ax - px * ay) / (by * ax - bx * ay);
+  const a = (px - b * bx) / ax;
+  if (Math.floor(a) === a && Math.floor(b) === b) return a * 3 + b;
+  else return 0;
+}
+
+function parse(input) {
+  return input.split("\n\n").map(group => {
+    const [a, b, prize] = group.split("\n");
+    const [, ax, ay] = a.match(/X\+(\d+), Y\+(\d+)/);
+    const [, bx, by] = b.match(/X\+(\d+), Y\+(\d+)/);
+    const [, px, py] = prize.match(/X=(\d+), Y=(\d+)/);
+    return { ax: +ax, ay: +ay, bx: +bx, by: +by, px: +px, py: +py };
+  });
 }
 
 export function part1(input) {
-  let machines = input.split("\n\n").map(group => {
-    const [a, b, prize] = group.split("\n");
-    const [, ax, ay] = a.match(/X\+(\d+), Y\+(\d+)/);
-    const [, bx, by] = b.match(/X\+(\d+), Y\+(\d+)/);
-    const [, px, py] = prize.match(/X=(\d+), Y=(\d+)/);
-    return { ax: +ax, ay: +ay, bx: +bx, by: +by, px: +px, py: +py };
-  });
-  const price = machines.map(solve).reduce((a, b) => a + b, 0);
-  return price;
+  let machines = parse(input);
+  return machines.map(solve).reduce((a, b) => a + b, 0);
 }
 
-async function solve2({ ax, ay, bx, by, px, py }) {
-  px += 10000000000000;
-  py += 10000000000000;
-  const { Context } = await init();
-  const { Solver, Int } = Context("main");
-  const solver = new Solver();
-  const a = Int.const(`a`);
-  const b = Int.const(`b`);
-  solver.add(a.ge(0));
-  solver.add(b.ge(0));
-  solver.add(a.mul(ax).add(b.mul(bx)).eq(px));
-  solver.add(a.mul(ay).add(b.mul(by)).eq(py));
-  if ((await solver.check()) === "sat") {
-    const model = solver.model();
-    const result = model.eval(a.mul(3).add(b)).toString();
-    return +result;
-  }
-  return 0;
-}
-
-export async function part2(input) {
-  let machines = input.split("\n\n").map(group => {
-    const [a, b, prize] = group.split("\n");
-    const [, ax, ay] = a.match(/X\+(\d+), Y\+(\d+)/);
-    const [, bx, by] = b.match(/X\+(\d+), Y\+(\d+)/);
-    const [, px, py] = prize.match(/X=(\d+), Y=(\d+)/);
-    return { ax: +ax, ay: +ay, bx: +bx, by: +by, px: +px, py: +py };
-  });
-  let price = 0;
-  for (const machine of machines) {
-    price += await solve2(machine);
-  }
-  return price;
+export function part2(input) {
+  let machines = parse(input);
+  machines = machines.map(m => ({ ...m, px: m.px + 10000000000000 }));
+  machines = machines.map(m => ({ ...m, py: m.py + 10000000000000 }));
+  return machines.map(solve).reduce((a, b) => a + b, 0);
 }
