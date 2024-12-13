@@ -37,7 +37,7 @@
       <script type="module">
         import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@4.4.7?min';
         Chart.register(...registerables);
-        let config = JSON.parse('{"all":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Sergey Ilyevsky","data":[1,2,6,9,11,12,17,22,26,29,25,26,31,34,41,46,53,55,59,65,70,75,79,80,78,74],"fill":false},{"label":"Shahar Talmi","data":[0,0,3,7,10,12,13,16,17,18,17,19,23,25,30,33,36,37,38,41,49,51,53,52,51,48],"fill":false},{"label":"Tomas Peluritis","data":[2,4,0,0,-2,-5,-8,-7,-5,-8,-14,-16,-13,-17,-13,-12,-13,-16,-13,-8,-4,-5,0,0,0,0],"fill":false},{"label":"Snir Sharristh","data":[-1,-2,0,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,-4,-8,-10],"fill":false},{"label":"Anton Zuiev","data":[-58,-143,-152,-157,-164,-169,-165,-159,-156,-154,-156,-159,-162,-165,-159,-155,-151,-152,-153,-151,-154,-150,-147,-145,-148,-149],"fill":false},{"label":"Idan Levi","data":[-7,-14,-15,-13,-14,-15,-37,-56,-58,-59,-66,-80,-82,-84,-85,-86,-81,-90,-93,-94,-87,-91,-115,-125],"fill":false},{"label":"Almog Adziashvili","data":[-8,-16,-23,-26,-35,-43,-55,-65,-79,-93,-96,-97,-102,-108,-105,-103,-120,-133,-135,-134,-128,-122,-137,-143],"fill":false},{"label":"Rostyslav Makhanko","data":[-5,-10,-12,-11,-22,-31,-33,-31,-34,-40,-49,-53,-51,-89,-88,-91,-89,-91,-97,-100,-101,-127,-130,-145],"fill":false},{"label":"Nachshon Schwartz","data":[-3,-6,-6,-7,-10,-12,-9,-5,-6,-13,-27,-34,-78,-123,-135,-151,-154,-158,-156,-152,-154,-153,-153,-156],"fill":false},{"label":"Anton Kolhun","data":[-10,-19,-27,-34,-39,-50,-58,-69,-77,-87,-95,-117,-116,-115,-113,-115,-119,-157,-161,-163,-161,-173,-177,-197],"fill":false},{"label":"Matan Keidar","data":[-14,-26,-49,-63,-82,-100,-111,-120,-149,-170,-181,-186,-193,-202,-204,-208,-215,-222,-236,-259,-266,-273,-278,-282],"fill":false},{"label":"Liran Cohen","data":[-16,-32,-47,-66,-93,-115,-128,-140,-155,-173,-185,-195,-196,-197,-202,-207,-220,-232,-247,-257,-256,-272,-281,-313],"fill":false},{"label":"Roy Peleg","data":[-60,-116,-122,-163,-167,-174,-181,-187,-193,-198,-211,-224,-228,-233,-252,-290,-284,-290,-297,-302,-299,-301,-302,-340],"fill":false},{"label":"Leonid Kolomiitsev","data":[-19,-37,-51,-59,-67,-77,-81,-84,-93,-101,-116,-124,-145,-169,-176,-184,-198,-213,-239,-267,-314,-354,-400,-439],"fill":false},{"label":"Domas Maksimas","data":[-28,-53,-80,-98,-126,-164,-178,-192,-203,-215,-236,-247,-287,-329,-340,-351,-359,-369,-386,-399,-415,-426,-437,-455],"fill":false},{"label":"dragonofdeath","data":[-31,-60,-81,-93,-116,-132,-203,-267,-285,-300,-318,-327,-345,-363,-385,-405,-415,-423,-441,-455,-470,-476,-484,-491],"fill":false},{"label":"Amit Dahan","data":[-33,-64,-92,-113,-149,-177,-194,-207,-239,-263,-307,-334,-365,-396,-413,-432,-448,-465,-484,-501,-523,-533,-552,-560],"fill":false},{"label":"Omer Gerhard","data":[-48,-92,-109,-118,-177,-228,-233,-237,-242,-246,-291,-319,-355,-391,-394,-401,-450,-492,-502,-510,-520,-525,-543,-560],"fill":false},{"label":"danielg-wix","data":[-65,-124,-195,-252,-276,-296,-315,-341,-365,-384,-400,-412,-420,-428,-446,-461,-481,-499,-524,-545,-574,-591,-611,-634],"fill":false},{"label":"ranyitz","data":[-69,-132,-157,-172,-233,-287,-307,-323,-340,-362,-395,-416,-431,-446,-480,-513,-543,-566,-587,-607,-626,-634,-640,-645],"fill":false},{"label":"Donatas Petrauskas","data":[-32,-66,-159,-240,-250,-256,-318,-374,-378,-380,-397,-428,-437,-448,-487,-526,-525,-564,-610,-653,-657,-654,-680,-693],"fill":false},{"label":"Emilija Puronaite","data":[-119,-235,-288,-333,-346,-359,-368,-376,-395,-415,-438,-463,-469,-476,-485,-502,-507,-534,-573,-610,-618,-666,-678,-705],"fill":false},{"label":"Taras Petushkov","data":[-47,-90,-137,-174,-216,-253,-281,-304,-324,-340,-377,-400,-425,-451,-478,-504,-523,-542,-573,-602,-634,-652,-693,-715],"fill":false},{"label":"Tomer Groisman","data":[-20,-39,-59,-76,-133,-181,-249,-310,-371,-424,-450,-470,-480,-490,-496,-536,-551,-582,-605,-627,-645,-676,-689,-718],"fill":false},{"label":"Tom Sandalon","data":[-37,-72,-158,-229,-261,-294,-317,-334,-376,-411,-436,-454,-484,-514,-535,-557,-586,-616,-636,-652,-693,-722,-765,-789],"fill":false},{"label":"Anastasiia Hordieieva","data":[-89,-171,-205,-227,-265,-324,-394,-456,-466,-475,-507,-531,-553,-575,-618,-662,-668,-673,-697,-715,-746,-761,-790,-799],"fill":false},{"label":"Hillel Kahana","data":[-29,-56,-91,-115,-135,-154,-170,-265,-288,-325,-368,-397,-445,-495,-508,-522,-568,-612,-650,-686,-720,-748,-779,-807],"fill":false},{"label":"ykrukovsky","data":[-73,-140,-189,-225,-273,-316,-340,-362,-374,-387,-418,-433,-462,-494,-532,-568,-605,-642,-671,-697,-722,-752,-791,-822],"fill":false},{"label":"Bar Amsalem","data":[-51,-98,-124,-140,-213,-281,-334,-378,-400,-464,-529,-575,-624,-673,-683,-693,-705,-716,-738,-757,-777,-815,-836,-848],"fill":false},{"label":"Yoav Danieli","data":[-53,-148,-184,-217,-247,-273,-306,-331,-359,-384,-464,-527,-586,-647,-684,-719,-737,-753,-765,-776,-803,-840,-847,-866],"fill":false},{"label":"Dalius Krivickas","data":[-50,-123,-212,-288,-304,-387,-443,-500,-513,-554,-578,-648,-660,-681,-705,-728,-756,-789,-797,-803,-812,-845,-855,-869],"fill":false},{"label":"GregoryNative","data":[-25,-49,-59,-69,-98,-133,-151,-169,-247,-320,-392,-449,-500,-552,-577,-602,-624,-664,-718,-770,-820,-865,-905,-926],"fill":false},{"label":"Donatas Kučinskas","data":[-90,-173,-197,-224,-295,-360,-366,-371,-402,-458,-514,-549,-568,-587,-616,-644,-686,-731,-774,-815,-854,-875,-900,-937],"fill":false},{"label":"SofiiaBalushka","data":[-122,-240,-343,-431,-475,-521,-546,-566,-596,-622,-658,-707,-723,-739,-755,-779,-800,-820,-853,-883,-911,-925,-948,-974],"fill":false},{"label":"Vlad Shamaida","data":[-75,-146,-209,-258,-276,-297,-349,-395,-440,-479,-528,-567,-602,-637,-677,-718,-751,-787,-823,-856,-892,-911,-953,-994],"fill":false},{"label":"Artem Ohanjanyan","data":[-109,-214,-287,-347,-433,-515,-541,-562,-600,-629,-695,-742,-766,-791,-806,-819,-858,-883,-920,-955,-992,-1024,-1056,-1072],"fill":false},{"label":"Stanislav Prokopiv","data":[-123,-242,-342,-427,-517,-605,-639,-667,-708,-742,-762,-778,-795,-812,-838,-867,-891,-913,-940,-965,-989,-1002,-1040,-1080],"fill":false},{"label":"Oleh Olefir","data":[-111,-218,-295,-359,-423,-483,-533,-576,-627,-670,-718,-752,-779,-808,-836,-863,-898,-927,-962,-994,-1032,-1055,-1091,-1121],"fill":false},{"label":"Justas Valskis","data":[-24,-47,-50,-52,-73,-90,-100,-107,-169,-236,-274,-896,-907,-919,-927,-936,-947,-961,-1003,-1043,-1048,-1091,-1113,-1147],"fill":false},{"label":"YanaYaroshevich","data":[-27,-53,-108,-166,-217,-270,-329,-380,-432,-481,-534,-566,-611,-657,-714,-771,-822,-870,-926,-980,-1031,-1078,-1128,-1164],"fill":false},{"label":"Yevhen Kovalchuk","data":[-106,-209,-273,-325,-380,-451,-531,-602,-656,-703,-745,-803,-849,-896,-926,-957,-983,-1009,-1043,-1074,-1086,-1108,-1142,-1167],"fill":false},{"label":"Kamile Evelina Randall","data":[-21,-42,-58,-101,-118,-132,-147,-162,-178,-205,-227,-263,-315,-372,-386,-398,-423,-1045,-1097,-1147,-1190,-1225,-1253,-1286],"fill":false},{"label":"Dziugas Untulis","data":[-86,-166,-257,-329,-412,-493,-581,-660,-733,-799,-859,-901,-914,-927,-947,-965,-1006,-1049,-1100,-1149,-1193,-1229,-1277,-1312],"fill":false},{"label":"Kobi Zakut","data":[-12,-23,-64,-102,-135,-165,-225,-278,-305,-333,-392,-436,-470,-504,-549,-596,-605,-626,-654,-678,-695,-737,-753],"fill":false},{"label":"Chen Sella","data":[-11,-24,-35,-81,-107,-186,-251,-314,-339,-402,-448,-488,-527,-568,-614,-664,-700,-732,-743,-750,-763,-790,-825],"fill":false},{"label":"Chen Kahana","data":[-18,-38,-75,-100,-143,-182,-211,-240,-276,-322,-390,-440,-503,-568,-612,-657,-680,-714,-755,-794,-840,-881,-926],"fill":false},{"label":"(anonymous user #2303455)","data":[-43,-84,-129,-164,-217,-264,-305,-338,-398,-452,-507,-558,-599,-642,-684,-727,-754,-782,-822,-860,-902,-948,-997],"fill":false},{"label":"Dmytro Khomutnyk","data":[-120,-237,-332,-410,-447,-479,-519,-551,-607,-686,-720,-737,-794,-853,-876,-897,-931,-955,-985,-1012,-1035,-1044,-1061],"fill":false},{"label":"Michael Silber","data":[-38,-74,-179,-269,-362,-454,-531,-601,-622,-639,-679,-731,-763,-796,-827,-857,-907,-956,-1009,-1060,-1109,-1153,-1197],"fill":false},{"label":"Maksym Netreba","data":[-82,-158,-243,-327,-401,-467,-548,-620,-687,-747,-816,-876,-930,-984,-1017,-1063,-1103,-1725,-1772,-1817,-1850,-1875,-1926,-1968],"fill":false},{"label":"Grantas Gadliauskas","data":[-59,-112,-177,-233,-322,-408,-481,-546,-622,-691,-766,-833,-900,-970,-1024,-1078,-1125,-1176,-1231,-1284,-1336,-1385,-1437],"fill":false},{"label":"Ievgenii Petrenko","data":[-91,-175,-206,-226,-273,-340,-425,-501,-556,-613,-652,-693,-730,-769,-805,-839,-877,-912,-944,-978,-1008,-1042],"fill":false},{"label":"Oleksandr Bondarchuk","data":[-56,-106,-188,-267,-349,-429,-503,-570,-636,-695,-759,-804,-837,-874,-909,-946,-990,-1036,-1081,-1125,-1165,-1189],"fill":false}]}},"ten":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Sergey Ilyevsky","data":[1,2,6,9,11,12,17,22,26,29,25,26,31,34,41,46,53,55,59,65,70,75,79,80,78,74],"fill":false},{"label":"Shahar Talmi","data":[0,0,3,7,10,12,13,16,17,18,17,19,23,25,30,33,36,37,38,41,49,51,53,52,51,48],"fill":false},{"label":"Tomas Peluritis","data":[2,4,0,0,-2,-5,-8,-7,-5,-8,-14,-16,-13,-17,-13,-12,-13,-16,-13,-8,-4,-5,0,0,0,0],"fill":false},{"label":"Snir Sharristh","data":[-1,-2,0,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,-4,-8,-10],"fill":false},{"label":"Anton Zuiev","data":[-58,-143,-152,-157,-164,-169,-165,-159,-156,-154,-156,-159,-162,-165,-159,-155,-151,-152,-153,-151,-154,-150,-147,-145,-148,-149],"fill":false},{"label":"Idan Levi","data":[-7,-14,-15,-13,-14,-15,-37,-56,-58,-59,-66,-80,-82,-84,-85,-86,-81,-90,-93,-94,-87,-91,-115,-125],"fill":false},{"label":"Almog Adziashvili","data":[-8,-16,-23,-26,-35,-43,-55,-65,-79,-93,-96,-97,-102,-108,-105,-103,-120,-133,-135,-134,-128,-122,-137,-143],"fill":false},{"label":"Rostyslav Makhanko","data":[-5,-10,-12,-11,-22,-31,-33,-31,-34,-40,-49,-53,-51,-89,-88,-91,-89,-91,-97,-100,-101,-127,-130,-145],"fill":false},{"label":"Nachshon Schwartz","data":[-3,-6,-6,-7,-10,-12,-9,-5,-6,-13,-27,-34,-78,-123,-135,-151,-154,-158,-156,-152,-154,-153,-153,-156],"fill":false},{"label":"Anton Kolhun","data":[-10,-19,-27,-34,-39,-50,-58,-69,-77,-87,-95,-117,-116,-115,-113,-115,-119,-157,-161,-163,-161,-173,-177,-197],"fill":false}]}},"five":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Sergey Ilyevsky","data":[1,2,6,9,11,12,17,22,26,29,25,26,31,34,41,46,53,55,59,65,70,75,79,80,78,74],"fill":false},{"label":"Shahar Talmi","data":[0,0,3,7,10,12,13,16,17,18,17,19,23,25,30,33,36,37,38,41,49,51,53,52,51,48],"fill":false},{"label":"Tomas Peluritis","data":[2,4,0,0,-2,-5,-8,-7,-5,-8,-14,-16,-13,-17,-13,-12,-13,-16,-13,-8,-4,-5,0,0,0,0],"fill":false},{"label":"Snir Sharristh","data":[-1,-2,0,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,-4,-8,-10],"fill":false},{"label":"Anton Zuiev","data":[-58,-143,-152,-157,-164,-169,-165,-159,-156,-154,-156,-159,-162,-165,-159,-155,-151,-152,-153,-151,-154,-150,-147,-145,-148,-149],"fill":false}]}}}');
+        let config = JSON.parse('{"all":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Sergey Ilyevsky","data":[38,74,128,166,188,240,268,332,365,391,420,438,456,480,519,548,560,589,632,667,688,709,719,725,741,759],"fill":false},{"label":"Shahar Talmi","data":[37,72,125,164,187,240,264,326,356,380,412,431,448,471,508,535,543,571,611,643,667,685,693,697,714,733],"fill":false},{"label":"Tomas Peluritis","data":[39,76,122,157,175,223,243,303,334,354,381,396,412,429,465,490,494,518,560,594,614,629,640,645,663,685],"fill":false},{"label":"Snir Sharristh","data":[36,70,122,153,177,228,251,310,339,362,395,412,425,446,478,502,507,534,573,602,618,634,638,641,655,675],"fill":false},{"label":"Idan Levi","data":[30,58,107,144,163,213,214,254,281,303,329,332,343,362,393,416,426,444,480,508,531,543,525,520,526,540],"fill":false},{"label":"Anton Zuiev","data":[-21,-71,-30,0,13,59,86,151,183,208,239,253,263,281,319,347,356,382,420,451,464,484,493,500,515,536],"fill":false},{"label":"Almog Adziashvili","data":[29,56,99,131,142,185,196,245,260,269,299,315,323,338,373,399,387,401,438,468,490,512,503,502,510,525],"fill":false},{"label":"Nachshon Schwartz","data":[34,66,116,150,167,216,242,305,333,349,368,378,347,323,343,351,353,376,417,450,464,481,487,489,501,517],"fill":false},{"label":"Rostyslav Makhanko","data":[32,62,110,146,155,197,218,279,305,322,346,359,374,357,390,411,418,443,476,502,517,507,510,500,510,517],"fill":false},{"label":"Anton Kolhun","data":[27,53,95,123,138,178,193,241,262,275,300,295,309,331,365,387,388,377,412,439,457,461,463,448,457,458],"fill":false},{"label":"Matan Keidar","data":[23,46,73,94,95,128,140,190,190,192,214,226,232,244,274,294,292,312,337,343,352,361,362,363,355,361],"fill":false},{"label":"Roy Peleg","data":[-23,-44,0,-6,10,54,70,123,146,164,184,188,197,213,226,212,223,244,276,300,319,333,338,305,309,314],"fill":false},{"label":"Liran Cohen","data":[21,40,75,91,84,113,123,170,184,189,210,217,229,249,276,295,287,302,326,345,362,362,359,332,314,310],"fill":false},{"label":"Domas Maksimas","data":[9,19,42,59,51,64,73,118,136,147,159,165,138,117,138,151,148,165,187,203,203,208,203,190,186,188],"fill":false},{"label":"dragonofdeath","data":[6,12,41,64,61,96,48,43,54,62,77,85,80,83,93,97,92,111,132,147,148,158,156,154,155,141],"fill":false},{"label":"Amit Dahan","data":[4,8,30,44,28,51,57,103,100,99,88,78,60,50,65,70,59,69,89,101,95,101,88,85,82,92],"fill":false},{"label":"Omer Gerhard","data":[-11,-20,13,39,0,0,18,73,97,116,104,93,70,55,84,101,57,42,71,92,98,109,97,85,73,71],"fill":false},{"label":"danielg-wix","data":[-28,-52,-73,-95,-99,-68,-64,-31,-26,-22,-5,0,5,18,32,41,26,35,49,57,44,43,29,11,16,24],"fill":false},{"label":"ranyitz","data":[-32,-60,-35,-15,-56,-59,-56,-13,-1,0,0,-4,-6,0,-2,-11,-36,-32,-14,-5,-8,0,0,0,0,0],"fill":false},{"label":"Emilija Puronaite","data":[-82,-163,-166,-176,-169,-131,-117,-66,-56,-53,-43,-51,-44,-30,-7,0,0,0,0,-8,0,-32,-38,-60,-53,-41],"fill":false},{"label":"Donatas Petrauskas","data":[5,6,-37,-83,-73,-28,-67,-64,-39,-18,-2,-16,-12,-2,-9,-24,-18,-30,-37,-51,-39,-20,-40,-48,-46,-47],"fill":false},{"label":"Taras Petushkov","data":[-10,-18,-15,-17,-39,-25,-30,6,15,22,18,12,0,-5,0,-2,-16,-8,0,0,-16,-18,-53,-70,-80,-77],"fill":false},{"label":"Tomer Groisman","data":[17,33,63,81,44,47,2,0,-32,-62,-55,-58,-55,-44,-18,-34,-44,-48,-32,-25,-27,-42,-49,-73,-84,-89],"fill":false},{"label":"Tom Sandalon","data":[0,0,-36,-72,-84,-66,-66,-24,-37,-49,-41,-42,-59,-68,-57,-55,-79,-82,-63,-50,-75,-88,-125,-144,-150,-141],"fill":false},{"label":"ykrukovsky","data":[-36,-68,-67,-68,-96,-88,-89,-52,-35,-25,-23,-21,-37,-48,-54,-66,-98,-108,-98,-95,-104,-118,-151,-177,-166,-153],"fill":false},{"label":"Anastasiia Hordieieva","data":[-52,-99,-83,-70,-88,-96,-143,-146,-127,-113,-112,-119,-128,-129,-140,-160,-161,-139,-124,-113,-128,-127,-150,-154,-174,-182],"fill":false},{"label":"Bar Amsalem","data":[-14,-26,-2,17,-36,-53,-83,-68,-61,-102,-134,-163,-199,-227,-205,-191,-198,-182,-165,-155,-159,-181,-196,-203,-205,-221],"fill":false},{"label":"Chen Sella","data":[26,48,87,76,70,42,0,-4,0,-40,-53,-76,-102,-122,-136,-162,-193,-198,-170,-148,-145,-156,-185,-225,-242,-249],"fill":false},{"label":"Vlad Shamaida","data":[-38,-74,-87,-101,-99,-69,-98,-85,-101,-117,-133,-155,-177,-191,-199,-216,-244,-253,-250,-254,-274,-277,-313,-349,-336,-319],"fill":false},{"label":"SofiiaBalushka","data":[-85,-168,-221,-274,-298,-293,-295,-256,-257,-260,-263,-295,-298,-293,-277,-277,-293,-286,-280,-281,-293,-291,-308,-329,-334,-343],"fill":false},{"label":"(anonymous user #2303455)","data":[-6,-12,-7,-7,-40,-36,-54,-28,-59,-90,-112,-146,-174,-196,-206,-225,-247,-248,-249,-258,-284,-314,-357,-396,-418,-428],"fill":false},{"label":"Artem Ohanjanyan","data":[-72,-142,-165,-190,-256,-287,-290,-252,-261,-267,-300,-330,-341,-345,-328,-317,-351,-349,-347,-353,-374,-390,-416,-427,-434,-430],"fill":false},{"label":"Stanislav Prokopiv","data":[-86,-170,-220,-270,-340,-377,-388,-357,-369,-380,-367,-366,-370,-366,-360,-365,-384,-379,-367,-363,-371,-368,-400,-435,-444,-450],"fill":false},{"label":"Justas Valskis","data":[13,25,72,105,104,138,151,203,170,126,121,-484,-482,-473,-449,-434,-440,-427,-430,-441,-430,-457,-473,-502,-503,-492],"fill":false},{"label":"Oleh Olefir","data":[-74,-146,-173,-202,-246,-255,-282,-266,-288,-308,-323,-340,-354,-362,-358,-361,-391,-393,-389,-392,-414,-421,-451,-476,-492,-507],"fill":false},{"label":"Yevhen Kovalchuk","data":[-69,-137,-151,-168,-203,-223,-280,-292,-317,-341,-350,-391,-424,-450,-448,-455,-476,-475,-470,-472,-468,-474,-502,-522,-541,-552],"fill":false},{"label":"Yana Yaroshevich","data":[10,19,14,-9,-40,-42,-78,-70,-93,-119,-139,-154,-186,-211,-236,-269,-315,-336,-353,-378,-413,-444,-488,-519,-542,-555],"fill":false},{"label":"Dziugas Untulis","data":[-49,-94,-135,-172,-235,-265,-330,-350,-394,-437,-464,-489,-489,-481,-469,-463,-499,-515,-527,-547,-575,-595,-637,-667,-688,-700],"fill":false},{"label":"Hillel Kahana","data":[8,16,31,42,42,74,81,45,51,37,27,15,-20,-49,-30,-20,-61,-78,-77,-84,-102,-114,-139,-162,-177],"fill":false},{"label":"Dalius Krivickas","data":[-13,-51,-90,-131,-127,-159,-192,-190,-174,-192,-183,-236,-235,-235,-227,-226,-249,-255,-224,-201,-194,-211,-215,-224,-237],"fill":false},{"label":"Donatas Kučinskas","data":[-53,-101,-75,-67,-118,-132,-115,-61,-63,-96,-119,-137,-143,-141,-138,-142,-179,-197,-201,-213,-236,-241,-260,-292,-289],"fill":false},{"label":"Leonid Kolomiitsev","data":[18,35,71,98,110,151,170,226,246,261,279,288,280,277,302,318,309,321,334,335,304,280,240,206],"fill":false},{"label":"Dmytro Khomutnyk","data":[-83,-165,-210,-253,-270,-251,-268,-241,-268,-324,-325,-325,-369,-407,-398,-395,-424,-421,-412,-410,-417,-410,-421,-1038,-1052,-1055],"fill":false},{"label":"Kamile Evelina Randall","data":[16,30,64,56,59,96,104,148,161,157,168,149,110,74,92,104,84,-511,-524,-545,-572,-591,-613,-641,-665],"fill":false},{"label":"Yoav Danieli","data":[-16,-76,-62,-60,-70,-45,-55,-21,-20,-22,-69,-115,-161,-201,-206,-217,-230,-219,-192,-174,-185,-206,-207,-221],"fill":false},{"label":"GregoryNative","data":[12,23,63,88,79,95,100,141,92,42,3,-37,-75,-106,-99,-100,-117,-130,-145,-168,-202,-231,-265,-281],"fill":false},{"label":"Kobi Zakut","data":[25,49,58,55,42,63,26,32,34,29,3,-24,-45,-58,-71,-94,-98,-92,-81,-76,-77,-103,-113],"fill":false},{"label":"Chen Kahana","data":[19,34,47,57,34,46,40,70,63,40,5,-28,-78,-122,-134,-155,-173,-180,-182,-192,-222,-247,-286],"fill":false},{"label":"Michael Silber","data":[-1,-2,-57,-112,-185,-226,-280,-291,-283,-277,-284,-319,-338,-350,-349,-355,-400,-422,-436,-458,-491,-519,-557],"fill":false},{"label":"Maksym Netreba","data":[-45,-86,-121,-170,-224,-239,-297,-310,-348,-385,-421,-464,-505,-538,-539,-561,-596,-1191,-1199,-1215,-1232,-1241,-1286,-1323],"fill":false},{"label":"Grantas Gadliauskas","data":[-22,-40,-55,-76,-145,-180,-230,-236,-283,-329,-371,-421,-475,-524,-546,-576,-618,-642,-658,-682,-718,-751,-797],"fill":false},{"label":"Ievgenii Petrenko","data":[-54,-103,-84,-69,-96,-112,-174,-191,-217,-251,-257,-281,-305,-323,-327,-337,-370,-378,-371,-376,-390,-408],"fill":false},{"label":"Oleksandr Bondarchuk","data":[-19,-34,-66,-110,-172,-201,-252,-260,-297,-333,-364,-392,-412,-428,-431,-444,-483,-502,-508,-523,-547,-555],"fill":false}]}},"ten":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Sergey Ilyevsky","data":[4,8,12,16,21,24,26,29,32,42,52,60,82,118,126,132,134,145,152,159,157,166,194,205,215,219],"fill":false},{"label":"Shahar Talmi","data":[3,6,9,14,20,24,22,23,23,31,44,53,74,109,115,119,117,127,131,135,136,142,168,177,188,193],"fill":false},{"label":"Tomas Peluritis","data":[5,10,6,7,8,7,1,0,1,5,13,18,38,67,72,74,68,74,80,86,83,86,115,125,137,145],"fill":false},{"label":"Snir Sharristh","data":[2,4,6,3,10,12,9,7,6,13,27,34,51,84,85,86,81,90,93,94,87,91,113,121,129,135],"fill":false},{"label":"Idan Levi","data":[-4,-8,-9,-6,-4,-3,-28,-49,-52,-46,-39,-46,-31,0,0,0,0,0,0,0,0,0,0,0,0,0],"fill":false},{"label":"Anton Zuiev","data":[-55,-137,-146,-150,-154,-157,-156,-152,-150,-141,-129,-125,-111,-81,-74,-69,-70,-62,-60,-57,-67,-59,-32,-20,-11,-4],"fill":false},{"label":"Almog Adziashvili","data":[-5,-10,-17,-19,-25,-31,-46,-58,-73,-80,-69,-63,-51,-24,-20,-17,-39,-43,-42,-40,-41,-31,-22,-18,-16,-15],"fill":false},{"label":"Nachshon Schwartz","data":[0,0,0,0,0,0,0,2,0,0,0,0,-27,-39,-50,-65,-73,-68,-63,-58,-67,-62,-38,-31,-25,-23],"fill":false},{"label":"Rostyslav Makhanko","data":[-2,-4,-6,-4,-12,-19,-24,-24,-28,-27,-22,-19,0,-5,-3,-5,-8,-1,-4,-6,-14,-36,-15,-20,-16,-23],"fill":false},{"label":"Anton Kolhun","data":[-7,-13,-21,-27,-29,-38,-49,-62,-71,-74,-68,-83,-65,-31,-28,-29,-38,-67,-68,-69,-74,-82,-62,-72,-69,-82],"fill":false}]}},"five":{"type":"line","data":{"labels":["Day 1-1","Day 1-2","Day 2-1","Day 2-2","Day 3-1","Day 3-2","Day 4-1","Day 4-2","Day 5-1","Day 5-2","Day 6-1","Day 6-2","Day 7-1","Day 7-2","Day 8-1","Day 8-2","Day 9-1","Day 9-2","Day 10-1","Day 10-2","Day 11-1","Day 11-2","Day 12-1","Day 12-2","Day 13-1","Day 13-2","Day 14-1","Day 14-2","Day 15-1","Day 15-2","Day 16-1","Day 16-2","Day 17-1","Day 17-2","Day 18-1","Day 18-2","Day 19-1","Day 19-2","Day 20-1","Day 20-2","Day 21-1","Day 21-2","Day 22-1","Day 22-2","Day 23-1","Day 23-2","Day 24-1","Day 24-2","Day 25-1","Day 25-2"],"datasets":[{"label":"Sergey Ilyevsky","data":[1,2,6,9,11,12,17,22,26,29,25,26,31,34,41,46,53,55,59,65,70,75,79,80,78,74],"fill":false},{"label":"Shahar Talmi","data":[0,0,3,7,10,12,13,16,17,18,17,19,23,25,30,33,36,37,38,41,49,51,53,52,51,48],"fill":false},{"label":"Tomas Peluritis","data":[2,4,0,0,-2,-5,-8,-7,-5,-8,-14,-16,-13,-17,-13,-12,-13,-16,-13,-8,-4,-5,0,0,0,0],"fill":false},{"label":"Snir Sharristh","data":[-1,-2,0,-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,-4,-8,-10],"fill":false},{"label":"Idan Levi","data":[-7,-14,-15,-13,-14,-15,-37,-56,-58,-59,-66,-80,-82,-84,-85,-86,-81,-90,-93,-94,-87,-91,-115,-125,-137,-145],"fill":false}]}}}');
         function currentConfig() {
           return (new URLSearchParams(location.search)).get('draw') || 'all';
         }
@@ -128,19 +128,91 @@
 <tr style="vertical-align: top;">
 <td style="padding-right: 50px;">
 <p>First to get <span class="leaderboard-daydesc-both">both stars</span> on Day 13:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">13 Dec 2024, 00:08:28</span> Tomas Peluritis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">13 Dec 2024, 00:27:47</span> Anton Zuiev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">13 Dec 2024, 00:30:09</span> Snir Sharristh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">13 Dec 2024, 00:32:54</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">13 Dec 2024, 00:34:16</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">13 Dec 2024, 00:08:28</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">13 Dec 2024, 00:27:47</span> Anton Zuiev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">13 Dec 2024, 00:30:09</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">13 Dec 2024, 00:32:54</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">13 Dec 2024, 00:34:16</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">13 Dec 2024, 01:08:26</span> Vlad Shamaida</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">13 Dec 2024, 01:35:58</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">13 Dec 2024, 01:42:33</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">13 Dec 2024, 02:11:00</span> Idan Levi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">13 Dec 2024, 02:18:26</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">13 Dec 2024, 02:19:59</span> Emilija Puronaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">13 Dec 2024, 03:04:42</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">13 Dec 2024, 03:46:02</span> Amit Dahan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">13 Dec 2024, 04:06:49</span> Tom Sandalon</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">13 Dec 2024, 04:12:31</span> danielg-wix</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">13 Dec 2024, 04:24:10</span> Rostyslav Makhanko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">13 Dec 2024, 04:33:35</span> Matan Keidar</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">13 Dec 2024, 04:35:21</span> Roy Peleg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">13 Dec 2024, 04:38:51</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">13 Dec 2024, 05:25:34</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">13 Dec 2024, 05:34:47</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">13 Dec 2024, 05:52:10</span> Anton Kolhun</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">13 Dec 2024, 06:00:17</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">13 Dec 2024, 06:13:45</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">13 Dec 2024, 06:49:59</span> Omer Gerhard</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">13 Dec 2024, 08:56:21</span> Dmytro Khomutnyk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">13 Dec 2024, 09:19:36</span> Liran Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">13 Dec 2024, 11:04:09</span> Tomer Groisman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">13 Dec 2024, 11:08:02</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">13 Dec 2024, 11:14:24</span> Chen Sella</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">13 Dec 2024, 11:16:58</span> Anastasiia Hordieieva</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">13 Dec 2024, 11:45:45</span> SofiiaBalushka</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">13 Dec 2024, 11:55:19</span> (anonymous user #2303455)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">13 Dec 2024, 12:16:31</span> Yevhen Kovalchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">13 Dec 2024, 12:21:58</span> Dziugas Untulis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">13 Dec 2024, 14:09:12</span> Yana Yaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">13 Dec 2024, 15:13:51</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">13 Dec 2024, 15:48:10</span> Oleh Olefir</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">13 Dec 2024, 15:56:11</span> Bar Amsalem</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 13:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position">1)</span> <span class="leaderboard-time">13 Dec 2024, 00:07:56</span> Tomas Peluritis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">2)</span> <span class="leaderboard-time">13 Dec 2024, 00:08:35</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">3)</span> <span class="leaderboard-time">13 Dec 2024, 00:15:31</span> Sergey Ilyevsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">4)</span> <span class="leaderboard-time">13 Dec 2024, 00:16:24</span> Anton Zuiev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">5)</span> <span class="leaderboard-time">13 Dec 2024, 00:26:10</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">13 Dec 2024, 00:07:56</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">13 Dec 2024, 00:08:35</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">13 Dec 2024, 00:15:31</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">13 Dec 2024, 00:16:24</span> Anton Zuiev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">13 Dec 2024, 00:26:10</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">13 Dec 2024, 00:58:57</span> Vlad Shamaida</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">13 Dec 2024, 01:11:48</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">13 Dec 2024, 01:21:05</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">13 Dec 2024, 01:26:34</span> Rostyslav Makhanko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">13 Dec 2024, 01:33:40</span> Anton Kolhun</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">13 Dec 2024, 01:41:38</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">13 Dec 2024, 01:50:22</span> Emilija Puronaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">13 Dec 2024, 01:51:57</span> Idan Levi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">13 Dec 2024, 01:56:42</span> danielg-wix</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">13 Dec 2024, 01:57:35</span> Roy Peleg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">13 Dec 2024, 01:59:48</span> Donatas Kučinskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">13 Dec 2024, 02:26:36</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">13 Dec 2024, 02:30:54</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">13 Dec 2024, 02:34:52</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">13 Dec 2024, 02:54:02</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">13 Dec 2024, 03:27:29</span> Bar Amsalem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">13 Dec 2024, 03:37:54</span> Amit Dahan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">13 Dec 2024, 03:40:20</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">13 Dec 2024, 03:49:30</span> SofiiaBalushka</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">13 Dec 2024, 04:04:52</span> Tom Sandalon</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">13 Dec 2024, 04:14:13</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">13 Dec 2024, 04:24:18</span> Matan Keidar</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">13 Dec 2024, 05:01:46</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">13 Dec 2024, 05:23:35</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">13 Dec 2024, 05:24:53</span> Tomer Groisman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">13 Dec 2024, 06:46:46</span> Omer Gerhard</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">13 Dec 2024, 06:54:30</span> Dalius Krivickas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">13 Dec 2024, 07:10:24</span> Dmytro Khomutnyk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">13 Dec 2024, 07:42:01</span> Hillel Kahana</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">13 Dec 2024, 08:49:30</span> Oleh Olefir</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">13 Dec 2024, 09:03:54</span> Chen Sella</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">13 Dec 2024, 09:15:04</span> Liran Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">13 Dec 2024, 09:55:06</span> Yevhen Kovalchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">13 Dec 2024, 11:15:42</span> Anastasiia Hordieieva</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">13 Dec 2024, 11:22:40</span> Dziugas Untulis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">13 Dec 2024, 11:51:48</span> (anonymous user #2303455)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">13 Dec 2024, 14:07:03</span> Yana Yaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">13 Dec 2024, 14:09:00</span> Kamile Evelina Randall</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -184,7 +256,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">12 Dec 2024, 14:50:52</span> Kamile Evelina Randall</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">12 Dec 2024, 15:01:13</span> Justas Valskis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">12 Dec 2024, 15:43:07</span> Dziugas Untulis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">12 Dec 2024, 15:43:30</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">12 Dec 2024, 15:43:30</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">12 Dec 2024, 15:56:47</span> Donatas Kučinskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">12 Dec 2024, 16:16:02</span> Roy Peleg</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">12 Dec 2024, 17:08:41</span> Leonid Kolomiitsev</div> 
@@ -192,6 +264,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">12 Dec 2024, 17:57:58</span> Vlad Shamaida</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">12 Dec 2024, 18:12:10</span> Maksym Netreba</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">12 Dec 2024, 19:37:50</span> Danylo Dzenik</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">13 Dec 2024, 05:53:51</span> (anonymous user #2303455)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">13 Dec 2024, 06:34:48</span> Chen Sella</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 12:</p>
@@ -250,10 +324,11 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">12 Dec 2024, 14:28:29</span> Tomaš Monkevič</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">12 Dec 2024, 14:41:29</span> Dziugas Untulis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">12 Dec 2024, 14:48:30</span> (anonymous user #2303455)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">12 Dec 2024, 15:23:01</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">12 Dec 2024, 15:23:01</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">12 Dec 2024, 16:36:28</span> Maksym Netreba</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">12 Dec 2024, 17:14:30</span> Grantas Gadliauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">12 Dec 2024, 17:45:04</span> Bohdan Tryhub</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">13 Dec 2024, 03:40:08</span> Serhii Muryhin</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -312,7 +387,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">11 Dec 2024, 19:48:31</span> Michael Silber</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">12 Dec 2024, 02:09:30</span> GregoryNative</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">12 Dec 2024, 03:24:10</span> (anonymous user #2303455)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">12 Dec 2024, 10:25:03</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">12 Dec 2024, 10:25:03</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">12 Dec 2024, 11:33:43</span> Emilija Puronaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">12 Dec 2024, 16:26:46</span> Grantas Gadliauskas</div> 
 </td>
@@ -377,7 +452,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">11 Dec 2024, 16:39:39</span> Bohdan Tryhub</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">11 Dec 2024, 18:40:53</span> Michael Silber</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">12 Dec 2024, 01:48:57</span> GregoryNative</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">12 Dec 2024, 10:24:34</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">12 Dec 2024, 10:24:34</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">12 Dec 2024, 14:03:02</span> Grantas Gadliauskas</div> 
 </td>
 </tr>
@@ -444,7 +519,9 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">11 Dec 2024, 18:25:59</span> Michael Silber</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">12 Dec 2024, 06:08:54</span> GregoryNative</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">12 Dec 2024, 06:09:59</span> Grantas Gadliauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">12 Dec 2024, 08:22:05</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">12 Dec 2024, 08:22:05</span> Yana Yaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">13 Dec 2024, 10:03:33</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">13 Dec 2024, 10:33:06</span> Ido Kahlon</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 10:</p>
@@ -508,7 +585,9 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">11 Dec 2024, 18:23:55</span> Michael Silber</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">12 Dec 2024, 06:06:04</span> GregoryNative</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">12 Dec 2024, 06:07:49</span> Grantas Gadliauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">12 Dec 2024, 08:15:32</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">12 Dec 2024, 08:15:32</span> Yana Yaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">13 Dec 2024, 09:50:37</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">13 Dec 2024, 10:32:47</span> Ido Kahlon</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -564,10 +643,11 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">10 Dec 2024, 08:08:37</span> Donatas Kučinskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">10 Dec 2024, 15:08:03</span> Oleksandr Bondarchuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">10 Dec 2024, 15:47:09</span> Gavin Rifkind</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">11 Dec 2024, 07:47:14</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">11 Dec 2024, 07:47:14</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">11 Dec 2024, 18:04:48</span> Michael Silber</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">12 Dec 2024, 04:13:39</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">12 Dec 2024, 04:38:14</span> Grantas Gadliauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">13 Dec 2024, 05:23:05</span> Ido Kahlon</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 9:</p>
@@ -629,7 +709,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">09 Dec 2024, 19:05:22</span> Meir Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">10 Dec 2024, 01:40:08</span> Omer Gerhard</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">10 Dec 2024, 10:51:21</span> Michael Silber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">11 Dec 2024, 05:49:13</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">11 Dec 2024, 05:49:13</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">11 Dec 2024, 16:12:04</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">12 Dec 2024, 04:45:53</span> Ido Kahlon</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">12 Dec 2024, 04:48:07</span> Tamir Houri</div> 
@@ -700,10 +780,11 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">09 Dec 2024, 17:15:26</span> Grantas Gadliauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">09 Dec 2024, 18:19:41</span> Meir Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">10 Dec 2024, 03:46:31</span> Stepan Samko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">10 Dec 2024, 08:45:28</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">10 Dec 2024, 08:45:28</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">10 Dec 2024, 17:43:05</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">11 Dec 2024, 15:18:27</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">12 Dec 2024, 11:16:01</span> Itay Friedman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">13 Dec 2024, 09:56:14</span> Ido Kahlon</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 8:</p>
@@ -771,7 +852,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">09 Dec 2024, 17:09:32</span> Grantas Gadliauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">09 Dec 2024, 18:15:48</span> Meir Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">10 Dec 2024, 03:24:39</span> Stepan Samko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">10 Dec 2024, 07:05:29</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">10 Dec 2024, 07:05:29</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">10 Dec 2024, 16:31:33</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">11 Dec 2024, 06:49:36</span> Daniel Kochavi</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">11 Dec 2024, 14:56:33</span> Lior Hai</div> 
@@ -831,7 +912,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">07 Dec 2024, 09:51:26</span> (anonymous user #2303455)</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">07 Dec 2024, 10:30:13</span> Maksym Butsykin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">07 Dec 2024, 11:10:11</span> Nachshon Schwartz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">07 Dec 2024, 11:16:30</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">07 Dec 2024, 11:16:30</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">07 Dec 2024, 12:23:20</span> Yevhen Kovalchuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">07 Dec 2024, 13:06:05</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">07 Dec 2024, 13:37:53</span> Bar Amsalem</div> 
@@ -915,7 +996,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">07 Dec 2024, 10:26:43</span> Maksym Butsykin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">07 Dec 2024, 10:45:59</span> Gilad Bison</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">07 Dec 2024, 10:49:15</span> Nachshon Schwartz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">07 Dec 2024, 10:53:37</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">07 Dec 2024, 10:53:37</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">07 Dec 2024, 12:10:42</span> Yevhen Kovalchuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">07 Dec 2024, 12:21:57</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">07 Dec 2024, 13:21:03</span> Hillel Kahana</div> 
@@ -984,7 +1065,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">06 Dec 2024, 08:33:54</span> Hillel Kahana</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">06 Dec 2024, 09:48:37</span> Andrius Naruševičius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">06 Dec 2024, 10:17:27</span> Donatas Petrauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">06 Dec 2024, 10:44:15</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">06 Dec 2024, 10:44:15</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">06 Dec 2024, 11:38:36</span> Boris Dichter</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">06 Dec 2024, 11:55:59</span> Oleh Olefir</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">06 Dec 2024, 12:18:14</span> Donatas Kučinskas</div> 
@@ -1027,6 +1108,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">11 Dec 2024, 02:57:38</span> Daniel Kochavi</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">11 Dec 2024, 04:16:31</span> Lior Hai</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">12 Dec 2024, 07:27:43</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">13 Dec 2024, 11:40:05</span> Yehonatan Zaritsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">13 Dec 2024, 15:06:44</span> Maurits Out</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 6:</p>
@@ -1083,7 +1166,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">06 Dec 2024, 09:01:14</span> Nir Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">06 Dec 2024, 09:27:09</span> Andrius Naruševičius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">06 Dec 2024, 10:01:16</span> Itay Friedman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">06 Dec 2024, 10:08:13</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">06 Dec 2024, 10:08:13</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">06 Dec 2024, 11:03:35</span> Boris Dichter</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">06 Dec 2024, 11:10:00</span> (anonymous user #2303455)</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">06 Dec 2024, 11:31:42</span> Donatas Kučinskas</div> 
@@ -1124,6 +1207,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">92)</span> <span class="leaderboard-time">12 Dec 2024, 04:11:42</span> Yakir Narkis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">93)</span> <span class="leaderboard-time">12 Dec 2024, 06:39:49</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">12 Dec 2024, 11:32:09</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">13 Dec 2024, 11:08:13</span> Yehonatan Zaritsky</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1181,7 +1265,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">05 Dec 2024, 09:11:59</span> Chen Kahana</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">05 Dec 2024, 09:52:48</span> Yevhen Kovalchuk</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">05 Dec 2024, 09:53:25</span> Nir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">05 Dec 2024, 09:56:54</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">05 Dec 2024, 09:56:54</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">05 Dec 2024, 10:41:52</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">05 Dec 2024, 11:07:39</span> kateryname</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">05 Dec 2024, 11:33:06</span> Anton Feoktistov</div> 
@@ -1225,108 +1309,110 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">12 Dec 2024, 04:53:58</span> Yehonatan Zaritsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">12 Dec 2024, 06:01:52</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">96)</span> <span class="leaderboard-time">12 Dec 2024, 10:52:18</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">97)</span> <span class="leaderboard-time">13 Dec 2024, 09:34:08</span> Gediminas Krisceliunas</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 5:</p>
-<div class="leaderboard-entry"><span class="leaderboard-position"> 1)</span> <span class="leaderboard-time">05 Dec 2024, 00:09:46</span> Sergey Ilyevsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 2)</span> <span class="leaderboard-time">05 Dec 2024, 00:11:24</span> Anton Zuiev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 3)</span> <span class="leaderboard-time">05 Dec 2024, 00:13:10</span> Tomas Peluritis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 4)</span> <span class="leaderboard-time">05 Dec 2024, 00:13:43</span> Shahar Talmi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 5)</span> <span class="leaderboard-time">05 Dec 2024, 00:15:52</span> Snir Sharristh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 6)</span> <span class="leaderboard-time">05 Dec 2024, 00:18:30</span> Nachshon Schwartz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 7)</span> <span class="leaderboard-time">05 Dec 2024, 00:20:36</span> Idan Levi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 8)</span> <span class="leaderboard-time">05 Dec 2024, 00:26:58</span> Rostyslav Makhanko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 9)</span> <span class="leaderboard-time">05 Dec 2024, 00:29:25</span> Donatas Petrauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">10)</span> <span class="leaderboard-time">05 Dec 2024, 00:35:11</span> Omer Gerhard</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">11)</span> <span class="leaderboard-time">05 Dec 2024, 00:35:42</span> Roy Peleg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">12)</span> <span class="leaderboard-time">05 Dec 2024, 00:41:03</span> Oleksandr Kylinskyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">13)</span> <span class="leaderboard-time">05 Dec 2024, 00:45:53</span> Anton Kolhun</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">14)</span> <span class="leaderboard-time">05 Dec 2024, 00:58:10</span> Leonid Kolomiitsev</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">15)</span> <span class="leaderboard-time">05 Dec 2024, 01:18:53</span> Anastasiia Hordieieva</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">16)</span> <span class="leaderboard-time">05 Dec 2024, 01:32:58</span> Domas Maksimas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">17)</span> <span class="leaderboard-time">05 Dec 2024, 01:36:30</span> ykrukovsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">18)</span> <span class="leaderboard-time">05 Dec 2024, 02:11:48</span> Dalius Krivickas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">19)</span> <span class="leaderboard-time">05 Dec 2024, 02:17:44</span> Almog Adziashvili</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">20)</span> <span class="leaderboard-time">05 Dec 2024, 02:18:16</span> Liran Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">21)</span> <span class="leaderboard-time">05 Dec 2024, 02:21:09</span> Kamile Evelina Randall</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">22)</span> <span class="leaderboard-time">05 Dec 2024, 02:21:20</span> ranyitz</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">23)</span> <span class="leaderboard-time">05 Dec 2024, 02:21:49</span> dragonofdeath</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">24)</span> <span class="leaderboard-time">05 Dec 2024, 02:22:50</span> Emilija Puronaite</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">25)</span> <span class="leaderboard-time">05 Dec 2024, 02:23:17</span> Taras Petushkov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">26)</span> <span class="leaderboard-time">05 Dec 2024, 02:25:40</span> Michael Silber</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">27)</span> <span class="leaderboard-time">05 Dec 2024, 02:30:18</span> Bar Amsalem</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">28)</span> <span class="leaderboard-time">05 Dec 2024, 02:57:52</span> Hillel Kahana</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">29)</span> <span class="leaderboard-time">05 Dec 2024, 03:03:36</span> danielg-wix</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">30)</span> <span class="leaderboard-time">05 Dec 2024, 03:04:36</span> Chen Sella</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">31)</span> <span class="leaderboard-time">05 Dec 2024, 03:10:00</span> Bohdan Tryhub</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">32)</span> <span class="leaderboard-time">05 Dec 2024, 03:10:06</span> Kobi Zakut</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">33)</span> <span class="leaderboard-time">05 Dec 2024, 03:10:59</span> Yoav Danieli</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">34)</span> <span class="leaderboard-time">05 Dec 2024, 03:15:43</span> Matan Keidar</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">35)</span> <span class="leaderboard-time">05 Dec 2024, 03:16:33</span> SofiiaBalushka</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">36)</span> <span class="leaderboard-time">05 Dec 2024, 03:16:39</span> Donatas Kučinskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">37)</span> <span class="leaderboard-time">05 Dec 2024, 03:24:26</span> Amit Dahan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">38)</span> <span class="leaderboard-time">05 Dec 2024, 03:26:10</span> Leon Fedotov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">39)</span> <span class="leaderboard-time">05 Dec 2024, 03:26:31</span> Maksym Butsykin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">40)</span> <span class="leaderboard-time">05 Dec 2024, 03:39:45</span> Mindaugas Ardaravičius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">41)</span> <span class="leaderboard-time">05 Dec 2024, 03:44:52</span> Chen Kahana</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">42)</span> <span class="leaderboard-time">05 Dec 2024, 03:46:15</span> Daniel Kochavi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">43)</span> <span class="leaderboard-time">05 Dec 2024, 03:49:28</span> Artem Ohanjanyan</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">44)</span> <span class="leaderboard-time">05 Dec 2024, 04:06:48</span> roiros</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">45)</span> <span class="leaderboard-time">05 Dec 2024, 04:11:08</span> Meir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">46)</span> <span class="leaderboard-time">05 Dec 2024, 04:25:25</span> Stanislav Prokopiv</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">47)</span> <span class="leaderboard-time">05 Dec 2024, 04:31:11</span> Tom Sandalon</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">48)</span> <span class="leaderboard-time">05 Dec 2024, 04:42:57</span> (anonymous user #3097131)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">49)</span> <span class="leaderboard-time">05 Dec 2024, 04:48:17</span> Andrius Butkevicius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">50)</span> <span class="leaderboard-time">05 Dec 2024, 05:04:59</span> Vlad Shamaida</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">51)</span> <span class="leaderboard-time">05 Dec 2024, 05:08:06</span> Nir Cohen</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">52)</span> <span class="leaderboard-time">05 Dec 2024, 05:33:59</span> Andrius Naruševičius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">53)</span> <span class="leaderboard-time">05 Dec 2024, 05:46:06</span> Anton Feoktistov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">54)</span> <span class="leaderboard-time">05 Dec 2024, 06:23:51</span> Boris Dichter</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">55)</span> <span class="leaderboard-time">05 Dec 2024, 06:51:03</span> Pavlo Vyshnevetskyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">56)</span> <span class="leaderboard-time">05 Dec 2024, 07:30:59</span> Oleh Olefir</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">57)</span> <span class="leaderboard-time">05 Dec 2024, 07:52:19</span> YanaYaroshevich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">58)</span> <span class="leaderboard-time">05 Dec 2024, 07:53:45</span> felixmosh</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">59)</span> <span class="leaderboard-time">05 Dec 2024, 08:10:55</span> Yevhen Kovalchuk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">60)</span> <span class="leaderboard-time">05 Dec 2024, 08:12:48</span> Ievgenii Petrenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">61)</span> <span class="leaderboard-time">05 Dec 2024, 09:50:42</span> Dmytro Khomutnyk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">62)</span> <span class="leaderboard-time">05 Dec 2024, 10:03:43</span> שי ליבוביץ'</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">63)</span> <span class="leaderboard-time">05 Dec 2024, 10:24:17</span> Tzachi Azo</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">64)</span> <span class="leaderboard-time">05 Dec 2024, 11:07:31</span> kateryname</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">65)</span> <span class="leaderboard-time">05 Dec 2024, 11:29:32</span> (anonymous user #2303455)</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">66)</span> <span class="leaderboard-time">05 Dec 2024, 11:31:25</span> Tomer Groisman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">67)</span> <span class="leaderboard-time">05 Dec 2024, 11:34:02</span> Justas Valskis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">68)</span> <span class="leaderboard-time">05 Dec 2024, 12:05:41</span> LimeFizzy</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">69)</span> <span class="leaderboard-time">05 Dec 2024, 12:49:44</span> Amit Tamari</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">70)</span> <span class="leaderboard-time">05 Dec 2024, 13:36:53</span> Stepan Samko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">71)</span> <span class="leaderboard-time">05 Dec 2024, 13:50:20</span> Oleksandr Bondarchuk</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">72)</span> <span class="leaderboard-time">05 Dec 2024, 14:06:19</span> Maksym Netreba</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">73)</span> <span class="leaderboard-time">05 Dec 2024, 14:20:56</span> Andrii Butko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">74)</span> <span class="leaderboard-time">05 Dec 2024, 14:24:41</span> Tadas Krivickas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">75)</span> <span class="leaderboard-time">05 Dec 2024, 15:00:03</span> Dmitry Naumenko</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">76)</span> <span class="leaderboard-time">05 Dec 2024, 15:39:34</span> Etai Solomon</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">77)</span> <span class="leaderboard-time">05 Dec 2024, 16:30:48</span> Reut Svr</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">78)</span> <span class="leaderboard-time">05 Dec 2024, 16:38:56</span> Dziugas Untulis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">79)</span> <span class="leaderboard-time">05 Dec 2024, 16:50:51</span> Oleh Lypskyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">80)</span> <span class="leaderboard-time">05 Dec 2024, 17:14:44</span> Gavin Rifkind</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">81)</span> <span class="leaderboard-time">05 Dec 2024, 17:54:07</span> Grantas Gadliauskas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">82)</span> <span class="leaderboard-time">06 Dec 2024, 08:26:18</span> Itay Friedman</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">83)</span> <span class="leaderboard-time">06 Dec 2024, 14:50:49</span> GregoryNative</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">84)</span> <span class="leaderboard-time">07 Dec 2024, 09:05:21</span> Gilad Bison</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">85)</span> <span class="leaderboard-time">07 Dec 2024, 10:52:50</span> Ido Kahlon</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">86)</span> <span class="leaderboard-time">07 Dec 2024, 16:34:30</span> Istaiti</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">87)</span> <span class="leaderboard-time">07 Dec 2024, 17:30:00</span> jonas-brb-wix</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">88)</span> <span class="leaderboard-time">07 Dec 2024, 19:34:38</span> Gongreg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">89)</span> <span class="leaderboard-time">08 Dec 2024, 04:43:52</span> BenasMot</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">90)</span> <span class="leaderboard-time">08 Dec 2024, 08:32:45</span> Maurits Out</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">91)</span> <span class="leaderboard-time">08 Dec 2024, 15:27:19</span> Maksim Barbašov</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">92)</span> <span class="leaderboard-time">09 Dec 2024, 14:32:07</span> atamurius</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">93)</span> <span class="leaderboard-time">09 Dec 2024, 15:15:20</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">94)</span> <span class="leaderboard-time">10 Dec 2024, 04:52:40</span> Lior Hai</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">95)</span> <span class="leaderboard-time">10 Dec 2024, 05:38:19</span> Yakir Narkis</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">96)</span> <span class="leaderboard-time">11 Dec 2024, 09:13:28</span> Michał Kosowski</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">97)</span> <span class="leaderboard-time">12 Dec 2024, 03:49:03</span> Yehonatan Zaritsky</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">98)</span> <span class="leaderboard-time">12 Dec 2024, 05:45:42</span> Serhii Muryhin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position">99)</span> <span class="leaderboard-time">12 Dec 2024, 10:35:56</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  1)</span> <span class="leaderboard-time">05 Dec 2024, 00:09:46</span> Sergey Ilyevsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  2)</span> <span class="leaderboard-time">05 Dec 2024, 00:11:24</span> Anton Zuiev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  3)</span> <span class="leaderboard-time">05 Dec 2024, 00:13:10</span> Tomas Peluritis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  4)</span> <span class="leaderboard-time">05 Dec 2024, 00:13:43</span> Shahar Talmi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  5)</span> <span class="leaderboard-time">05 Dec 2024, 00:15:52</span> Snir Sharristh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  6)</span> <span class="leaderboard-time">05 Dec 2024, 00:18:30</span> Nachshon Schwartz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  7)</span> <span class="leaderboard-time">05 Dec 2024, 00:20:36</span> Idan Levi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  8)</span> <span class="leaderboard-time">05 Dec 2024, 00:26:58</span> Rostyslav Makhanko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">  9)</span> <span class="leaderboard-time">05 Dec 2024, 00:29:25</span> Donatas Petrauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 10)</span> <span class="leaderboard-time">05 Dec 2024, 00:35:11</span> Omer Gerhard</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 11)</span> <span class="leaderboard-time">05 Dec 2024, 00:35:42</span> Roy Peleg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 12)</span> <span class="leaderboard-time">05 Dec 2024, 00:41:03</span> Oleksandr Kylinskyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 13)</span> <span class="leaderboard-time">05 Dec 2024, 00:45:53</span> Anton Kolhun</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 14)</span> <span class="leaderboard-time">05 Dec 2024, 00:58:10</span> Leonid Kolomiitsev</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 15)</span> <span class="leaderboard-time">05 Dec 2024, 01:18:53</span> Anastasiia Hordieieva</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 16)</span> <span class="leaderboard-time">05 Dec 2024, 01:32:58</span> Domas Maksimas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 17)</span> <span class="leaderboard-time">05 Dec 2024, 01:36:30</span> ykrukovsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 18)</span> <span class="leaderboard-time">05 Dec 2024, 02:11:48</span> Dalius Krivickas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 19)</span> <span class="leaderboard-time">05 Dec 2024, 02:17:44</span> Almog Adziashvili</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 20)</span> <span class="leaderboard-time">05 Dec 2024, 02:18:16</span> Liran Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 21)</span> <span class="leaderboard-time">05 Dec 2024, 02:21:09</span> Kamile Evelina Randall</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 22)</span> <span class="leaderboard-time">05 Dec 2024, 02:21:20</span> ranyitz</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 23)</span> <span class="leaderboard-time">05 Dec 2024, 02:21:49</span> dragonofdeath</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 24)</span> <span class="leaderboard-time">05 Dec 2024, 02:22:50</span> Emilija Puronaite</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 25)</span> <span class="leaderboard-time">05 Dec 2024, 02:23:17</span> Taras Petushkov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 26)</span> <span class="leaderboard-time">05 Dec 2024, 02:25:40</span> Michael Silber</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 27)</span> <span class="leaderboard-time">05 Dec 2024, 02:30:18</span> Bar Amsalem</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 28)</span> <span class="leaderboard-time">05 Dec 2024, 02:57:52</span> Hillel Kahana</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">05 Dec 2024, 03:03:36</span> danielg-wix</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">05 Dec 2024, 03:04:36</span> Chen Sella</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 31)</span> <span class="leaderboard-time">05 Dec 2024, 03:10:00</span> Bohdan Tryhub</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 32)</span> <span class="leaderboard-time">05 Dec 2024, 03:10:06</span> Kobi Zakut</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 33)</span> <span class="leaderboard-time">05 Dec 2024, 03:10:59</span> Yoav Danieli</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 34)</span> <span class="leaderboard-time">05 Dec 2024, 03:15:43</span> Matan Keidar</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 35)</span> <span class="leaderboard-time">05 Dec 2024, 03:16:33</span> SofiiaBalushka</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 36)</span> <span class="leaderboard-time">05 Dec 2024, 03:16:39</span> Donatas Kučinskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 37)</span> <span class="leaderboard-time">05 Dec 2024, 03:24:26</span> Amit Dahan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 38)</span> <span class="leaderboard-time">05 Dec 2024, 03:26:10</span> Leon Fedotov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 39)</span> <span class="leaderboard-time">05 Dec 2024, 03:26:31</span> Maksym Butsykin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 40)</span> <span class="leaderboard-time">05 Dec 2024, 03:39:45</span> Mindaugas Ardaravičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 41)</span> <span class="leaderboard-time">05 Dec 2024, 03:44:52</span> Chen Kahana</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 42)</span> <span class="leaderboard-time">05 Dec 2024, 03:46:15</span> Daniel Kochavi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 43)</span> <span class="leaderboard-time">05 Dec 2024, 03:49:28</span> Artem Ohanjanyan</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 44)</span> <span class="leaderboard-time">05 Dec 2024, 04:06:48</span> roiros</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 45)</span> <span class="leaderboard-time">05 Dec 2024, 04:11:08</span> Meir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 46)</span> <span class="leaderboard-time">05 Dec 2024, 04:25:25</span> Stanislav Prokopiv</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 47)</span> <span class="leaderboard-time">05 Dec 2024, 04:31:11</span> Tom Sandalon</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 48)</span> <span class="leaderboard-time">05 Dec 2024, 04:42:57</span> (anonymous user #3097131)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 49)</span> <span class="leaderboard-time">05 Dec 2024, 04:48:17</span> Andrius Butkevicius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 50)</span> <span class="leaderboard-time">05 Dec 2024, 05:04:59</span> Vlad Shamaida</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 51)</span> <span class="leaderboard-time">05 Dec 2024, 05:08:06</span> Nir Cohen</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 52)</span> <span class="leaderboard-time">05 Dec 2024, 05:33:59</span> Andrius Naruševičius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 53)</span> <span class="leaderboard-time">05 Dec 2024, 05:46:06</span> Anton Feoktistov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 54)</span> <span class="leaderboard-time">05 Dec 2024, 06:23:51</span> Boris Dichter</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">05 Dec 2024, 06:51:03</span> Pavlo Vyshnevetskyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">05 Dec 2024, 07:30:59</span> Oleh Olefir</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">05 Dec 2024, 07:52:19</span> Yana Yaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">05 Dec 2024, 07:53:45</span> felixmosh</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">05 Dec 2024, 08:10:55</span> Yevhen Kovalchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">05 Dec 2024, 08:12:48</span> Ievgenii Petrenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">05 Dec 2024, 09:50:42</span> Dmytro Khomutnyk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">05 Dec 2024, 10:03:43</span> שי ליבוביץ'</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">05 Dec 2024, 10:24:17</span> Tzachi Azo</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 64)</span> <span class="leaderboard-time">05 Dec 2024, 11:07:31</span> kateryname</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">05 Dec 2024, 11:29:32</span> (anonymous user #2303455)</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 66)</span> <span class="leaderboard-time">05 Dec 2024, 11:31:25</span> Tomer Groisman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 67)</span> <span class="leaderboard-time">05 Dec 2024, 11:34:02</span> Justas Valskis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 68)</span> <span class="leaderboard-time">05 Dec 2024, 12:05:41</span> LimeFizzy</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 69)</span> <span class="leaderboard-time">05 Dec 2024, 12:49:44</span> Amit Tamari</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 70)</span> <span class="leaderboard-time">05 Dec 2024, 13:36:53</span> Stepan Samko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 71)</span> <span class="leaderboard-time">05 Dec 2024, 13:50:20</span> Oleksandr Bondarchuk</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 72)</span> <span class="leaderboard-time">05 Dec 2024, 14:06:19</span> Maksym Netreba</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 73)</span> <span class="leaderboard-time">05 Dec 2024, 14:20:56</span> Andrii Butko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 74)</span> <span class="leaderboard-time">05 Dec 2024, 14:24:41</span> Tadas Krivickas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 75)</span> <span class="leaderboard-time">05 Dec 2024, 15:00:03</span> Dmitry Naumenko</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 76)</span> <span class="leaderboard-time">05 Dec 2024, 15:39:34</span> Etai Solomon</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 77)</span> <span class="leaderboard-time">05 Dec 2024, 16:30:48</span> Reut Svr</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 78)</span> <span class="leaderboard-time">05 Dec 2024, 16:38:56</span> Dziugas Untulis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 79)</span> <span class="leaderboard-time">05 Dec 2024, 16:50:51</span> Oleh Lypskyi</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 80)</span> <span class="leaderboard-time">05 Dec 2024, 17:14:44</span> Gavin Rifkind</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 81)</span> <span class="leaderboard-time">05 Dec 2024, 17:54:07</span> Grantas Gadliauskas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 82)</span> <span class="leaderboard-time">06 Dec 2024, 08:26:18</span> Itay Friedman</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 83)</span> <span class="leaderboard-time">06 Dec 2024, 14:50:49</span> GregoryNative</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 84)</span> <span class="leaderboard-time">07 Dec 2024, 09:05:21</span> Gilad Bison</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 85)</span> <span class="leaderboard-time">07 Dec 2024, 10:52:50</span> Ido Kahlon</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 86)</span> <span class="leaderboard-time">07 Dec 2024, 16:34:30</span> Istaiti</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 87)</span> <span class="leaderboard-time">07 Dec 2024, 17:30:00</span> jonas-brb-wix</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 88)</span> <span class="leaderboard-time">07 Dec 2024, 19:34:38</span> Gongreg</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 89)</span> <span class="leaderboard-time">08 Dec 2024, 04:43:52</span> BenasMot</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 90)</span> <span class="leaderboard-time">08 Dec 2024, 08:32:45</span> Maurits Out</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 91)</span> <span class="leaderboard-time">08 Dec 2024, 15:27:19</span> Maksim Barbašov</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 92)</span> <span class="leaderboard-time">09 Dec 2024, 14:32:07</span> atamurius</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 93)</span> <span class="leaderboard-time">09 Dec 2024, 15:15:20</span> Eddie Erlich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 94)</span> <span class="leaderboard-time">10 Dec 2024, 04:52:40</span> Lior Hai</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 95)</span> <span class="leaderboard-time">10 Dec 2024, 05:38:19</span> Yakir Narkis</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 96)</span> <span class="leaderboard-time">11 Dec 2024, 09:13:28</span> Michał Kosowski</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 97)</span> <span class="leaderboard-time">12 Dec 2024, 03:49:03</span> Yehonatan Zaritsky</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 98)</span> <span class="leaderboard-time">12 Dec 2024, 05:45:42</span> Serhii Muryhin</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 99)</span> <span class="leaderboard-time">12 Dec 2024, 10:35:56</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">13 Dec 2024, 09:12:16</span> Gediminas Krisceliunas</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1389,7 +1475,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">04 Dec 2024, 08:42:06</span> roiros</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">04 Dec 2024, 09:36:27</span> Tzachi Azo</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">04 Dec 2024, 10:37:06</span> jonas-brb-wix</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">04 Dec 2024, 10:44:43</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">04 Dec 2024, 10:44:43</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">04 Dec 2024, 11:12:51</span> Nir Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">04 Dec 2024, 11:16:12</span> Kobi Zakut</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">04 Dec 2024, 11:21:44</span> marine-bre</div> 
@@ -1434,6 +1520,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">100)</span> <span class="leaderboard-time">12 Dec 2024, 05:31:26</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">101)</span> <span class="leaderboard-time">12 Dec 2024, 10:17:20</span> Evaldas Grublys</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">102)</span> <span class="leaderboard-time">12 Dec 2024, 15:46:32</span> Hillel Kahana</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">103)</span> <span class="leaderboard-time">13 Dec 2024, 08:58:41</span> Gediminas Krisceliunas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">104)</span> <span class="leaderboard-time">13 Dec 2024, 15:07:24</span> Adi Confino</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 4:</p>
@@ -1501,7 +1589,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">04 Dec 2024, 09:58:00</span> Dalius Krivickas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">04 Dec 2024, 10:20:47</span> Lyre Shechter</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 64)</span> <span class="leaderboard-time">04 Dec 2024, 10:21:45</span> Eddie Erlich</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">04 Dec 2024, 10:24:19</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">04 Dec 2024, 10:24:19</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 66)</span> <span class="leaderboard-time">04 Dec 2024, 10:44:30</span> Kobi Zakut</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 67)</span> <span class="leaderboard-time">04 Dec 2024, 10:54:40</span> marine-bre</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 68)</span> <span class="leaderboard-time">04 Dec 2024, 11:41:59</span> Donatas Petrauskas</div> 
@@ -1547,6 +1635,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">108)</span> <span class="leaderboard-time">11 Dec 2024, 13:17:28</span> Yehonatan Zaritsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">109)</span> <span class="leaderboard-time">12 Dec 2024, 05:14:08</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">110)</span> <span class="leaderboard-time">12 Dec 2024, 10:09:15</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">111)</span> <span class="leaderboard-time">13 Dec 2024, 11:40:36</span> Adi Confino</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1607,7 +1696,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 53)</span> <span class="leaderboard-time">03 Dec 2024, 05:11:06</span> Andrius Naruševičius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 54)</span> <span class="leaderboard-time">03 Dec 2024, 05:13:23</span> Omer Gerhard</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">03 Dec 2024, 05:14:21</span> Oleh Lypskyi</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">03 Dec 2024, 05:19:18</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">03 Dec 2024, 05:19:18</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">03 Dec 2024, 05:33:50</span> ranyitz</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">03 Dec 2024, 05:36:00</span> Meir Cohen</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">03 Dec 2024, 05:45:13</span> Maksym Butsykin</div> 
@@ -1669,6 +1758,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">115)</span> <span class="leaderboard-time">11 Dec 2024, 12:24:51</span> Yehonatan Zaritsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">116)</span> <span class="leaderboard-time">12 Dec 2024, 04:55:15</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">117)</span> <span class="leaderboard-time">12 Dec 2024, 09:15:45</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">118)</span> <span class="leaderboard-time">13 Dec 2024, 02:40:58</span> Orestas Miskivas</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">119)</span> <span class="leaderboard-time">13 Dec 2024, 10:59:22</span> Adi Confino</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 3:</p>
@@ -1727,7 +1818,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 53)</span> <span class="leaderboard-time">03 Dec 2024, 04:09:36</span> ykrukovsky</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 54)</span> <span class="leaderboard-time">03 Dec 2024, 04:11:04</span> Anton Feoktistov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 55)</span> <span class="leaderboard-time">03 Dec 2024, 04:13:08</span> Lior Hai</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">03 Dec 2024, 04:23:20</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 56)</span> <span class="leaderboard-time">03 Dec 2024, 04:23:20</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">03 Dec 2024, 04:28:53</span> Gediminas Krisceliunas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">03 Dec 2024, 04:31:50</span> (anonymous user #2303455)</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">03 Dec 2024, 04:33:58</span> Maksym Butsykin</div> 
@@ -1794,6 +1885,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">120)</span> <span class="leaderboard-time">12 Dec 2024, 03:52:15</span> Orestas Miskivas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">121)</span> <span class="leaderboard-time">12 Dec 2024, 04:50:37</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">122)</span> <span class="leaderboard-time">12 Dec 2024, 09:04:41</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">123)</span> <span class="leaderboard-time">13 Dec 2024, 10:36:16</span> Adi Confino</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -1861,7 +1953,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">02 Dec 2024, 08:04:11</span> kateryname</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">02 Dec 2024, 08:16:34</span> Grantas Gadliauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">02 Dec 2024, 09:29:25</span> danielg-wix</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">02 Dec 2024, 09:43:40</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">02 Dec 2024, 09:43:40</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 64)</span> <span class="leaderboard-time">02 Dec 2024, 09:43:55</span> Anton Feoktistov</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 65)</span> <span class="leaderboard-time">02 Dec 2024, 09:46:27</span> Artem Ohanjanyan</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 66)</span> <span class="leaderboard-time">02 Dec 2024, 10:02:52</span> Tzachi Azo</div> 
@@ -1922,6 +2014,8 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">121)</span> <span class="leaderboard-time">12 Dec 2024, 04:25:04</span> Algimantas Krasauskas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">122)</span> <span class="leaderboard-time">12 Dec 2024, 04:41:24</span> Serhii Muryhin</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">123)</span> <span class="leaderboard-time">12 Dec 2024, 07:44:39</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">124)</span> <span class="leaderboard-time">13 Dec 2024, 06:23:03</span> Igor</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">125)</span> <span class="leaderboard-time">13 Dec 2024, 10:02:44</span> Adi Confino</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 2:</p>
@@ -1984,7 +2078,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 57)</span> <span class="leaderboard-time">02 Dec 2024, 05:14:48</span> Andrius Naruševičius</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 58)</span> <span class="leaderboard-time">02 Dec 2024, 05:40:02</span> Emilija Puronaite</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 59)</span> <span class="leaderboard-time">02 Dec 2024, 05:45:44</span> Maksym Butsykin</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">02 Dec 2024, 05:47:40</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 60)</span> <span class="leaderboard-time">02 Dec 2024, 05:47:40</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 61)</span> <span class="leaderboard-time">02 Dec 2024, 05:50:33</span> Illia Panasenko</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 62)</span> <span class="leaderboard-time">02 Dec 2024, 06:06:48</span> (anonymous user #3097131)</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 63)</span> <span class="leaderboard-time">02 Dec 2024, 06:17:55</span> Kim Pinnes</div> 
@@ -2067,6 +2161,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">140)</span> <span class="leaderboard-time">12 Dec 2024, 05:00:12</span> Itay Avtalyon</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">141)</span> <span class="leaderboard-time">12 Dec 2024, 05:49:22</span> Evaldas Grublys</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">142)</span> <span class="leaderboard-time">12 Dec 2024, 06:57:58</span> Lukas Kairys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">143)</span> <span class="leaderboard-time">13 Dec 2024, 09:23:46</span> Adi Confino</div> 
 </td>
 </tr>
 <tr style="vertical-align: top;">
@@ -2100,7 +2195,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 26)</span> <span class="leaderboard-time">01 Dec 2024, 03:01:44</span> Justas Valskis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 27)</span> <span class="leaderboard-time">01 Dec 2024, 03:19:19</span> GregoryNative</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 28)</span> <span class="leaderboard-time">01 Dec 2024, 03:21:34</span> Domas Maksimas</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">01 Dec 2024, 03:24:26</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">01 Dec 2024, 03:24:26</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">01 Dec 2024, 03:28:22</span> Hillel Kahana</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 31)</span> <span class="leaderboard-time">01 Dec 2024, 03:33:21</span> Boris Dichter</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 32)</span> <span class="leaderboard-time">01 Dec 2024, 03:49:05</span> dragonofdeath</div> 
@@ -2220,6 +2315,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">146)</span> <span class="leaderboard-time">12 Dec 2024, 04:23:55</span> Laurynas Remeika</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">147)</span> <span class="leaderboard-time">12 Dec 2024, 04:34:38</span> Itay Avtalyon</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">148)</span> <span class="leaderboard-time">12 Dec 2024, 04:50:47</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">149)</span> <span class="leaderboard-time">13 Dec 2024, 08:50:07</span> Adi Confino</div> 
 </td>
 <td style="padding-right: 50px;">
 <p>First to get the <span class="leaderboard-daydesc-first">first star</span> on Day 1:</p>
@@ -2252,7 +2348,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position"> 27)</span> <span class="leaderboard-time">01 Dec 2024, 02:54:53</span> Justas Valskis</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 28)</span> <span class="leaderboard-time">01 Dec 2024, 03:12:36</span> GregoryNative</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 29)</span> <span class="leaderboard-time">01 Dec 2024, 03:17:11</span> Lior Shtaimberg</div> 
-<div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">01 Dec 2024, 03:17:17</span> YanaYaroshevich</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position"> 30)</span> <span class="leaderboard-time">01 Dec 2024, 03:17:17</span> Yana Yaroshevich</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 31)</span> <span class="leaderboard-time">01 Dec 2024, 03:18:20</span> Domas Maksimas</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 32)</span> <span class="leaderboard-time">01 Dec 2024, 03:23:35</span> Hillel Kahana</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position"> 33)</span> <span class="leaderboard-time">01 Dec 2024, 03:29:35</span> Boris Dichter</div> 
@@ -2375,6 +2471,7 @@
 <div class="leaderboard-entry"><span class="leaderboard-position">150)</span> <span class="leaderboard-time">12 Dec 2024, 04:11:47</span> Laurynas Remeika</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">151)</span> <span class="leaderboard-time">12 Dec 2024, 04:15:47</span> Itay Avtalyon</div> 
 <div class="leaderboard-entry"><span class="leaderboard-position">152)</span> <span class="leaderboard-time">12 Dec 2024, 04:45:54</span> Evaldas Grublys</div> 
+<div class="leaderboard-entry"><span class="leaderboard-position">153)</span> <span class="leaderboard-time">13 Dec 2024, 08:41:20</span> Adi Confino</div> 
 </td>
 </tr>
       </table>

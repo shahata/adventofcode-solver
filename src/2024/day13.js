@@ -1,19 +1,18 @@
+// Given equations:
 // px = a * ax + b * bx
 // py = a * ay + b * by
 //
-// b = (px - a * ax) / bx
-// py = a * ay + (px - a * ax) / bx * by
-// py = a * ay + px * by / bx - a * ax * by / bx
-// py - px * by / bx = a * ay - a * ax * by / bx
-// py * bx - px * by = a * ay * bx - a * ax * by
-// py * bx - px * by = a * (ay * bx - ax * by)
-//
-// a = (py * bx - px * by) / (ay * bx - ax * by)
-// b = (px - a * ax) / bx
+// Solve for a and b:
+// 1) Multiply first equation by by: px * by = a * ax * by + b * bx * by
+// 2) Multiply second equation by bx: py * bx = a * ay * bx + b * by * bx
+// 3) Subtract equations: px * by - py * bx = a * (ax * by - ay * bx)
+// 4) Therefore: a = (px * by - py * bx) / (ax * by - ay * bx)
+// 5) Substitute back to get b: b = (px - a * ax) / bx
+
 function solve({ ax, ay, bx, by, px, py }) {
-  const a = (py * bx - px * by) / (ay * bx - ax * by);
+  const a = (px * by - py * bx) / (ax * by - ay * bx);
   const b = (px - a * ax) / bx;
-  if (Math.floor(a) === a && Math.floor(b) === b) return a * 3 + b;
+  if (Number.isInteger(a) && Number.isInteger(b)) return a * 3 + b;
   else return 0;
 }
 
