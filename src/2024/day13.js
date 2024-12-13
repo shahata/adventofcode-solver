@@ -4,13 +4,15 @@
 // b = (px - a * ax) / bx
 // py = a * ay + (px - a * ax) / bx * by
 // py = a * ay + px * by / bx - a * ax * by / bx
-// a * ay + px * by / bx - a * ax * by / bx - py = 0
-// a * ay - a * ax * by / bx = py - px * by / bx
-// a * (ay - ax * by / bx) = py - px * by / bx
-// a = (py - px * by / bx) / (ay - ax * by / bx)
+// py - px * by / bx = a * ay - a * ax * by / bx
+// py * bx - px * by = a * ay * bx - a * ax * by
+// py * bx - px * by = a * (ay * bx - ax * by)
+//
+// a = (py * bx - px * by) / (ay * bx - ax * by)
+// b = (px - a * ax) / bx
 function solve({ ax, ay, bx, by, px, py }) {
-  const b = (py * ax - px * ay) / (by * ax - bx * ay);
-  const a = (px - b * bx) / ax;
+  const a = (py * bx - px * by) / (ay * bx - ax * by);
+  const b = (px - a * ax) / bx;
   if (Math.floor(a) === a && Math.floor(b) === b) return a * 3 + b;
   else return 0;
 }
