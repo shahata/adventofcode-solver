@@ -34,10 +34,6 @@ describe("day14 2024", () => {
   });
 
   describe("part2", () => {
-    test("it should work for part 2 examples", () => {
-      // expect(part2(paste)).toEqual(paste);
-    });
-
     test("it should work for part 2 input", () => {
       expect(part2(input)).toEqual(7892);
     });
