@@ -6,11 +6,9 @@ import { dayName, isDayName } from "./day-name.js";
 import { calcLeaderboard } from "./calc-leaderboard.js";
 import {
   getDayInput,
-  getQuestionPage,
   getYearPage,
   getEventsPage,
   getLeaderboardJsons,
-  getEndPage,
   downloadStatic,
 } from "./scraper.js";
 import timeoutConfirm from "@shahata/inquirer-timeout-confirm-prompt";
@@ -27,16 +25,6 @@ function renderTemplate(year, name, extension, model) {
   );
   writeFileSync(fileName, result);
   return fileName;
-}
-
-export async function downloadQuestion(year, day, stars) {
-  const question = await getQuestionPage(year, day);
-  return renderTemplate(year, dayName(day), "html", {
-    question,
-    year,
-    day,
-    stars,
-  });
 }
 
 export async function downloadInput(year, day) {
@@ -67,11 +55,6 @@ export async function downloadIndex(year, bar, stars) {
     ...calcLeaderboard(leaderboards),
     stars,
   });
-  bar.tick();
-  const end = await getEndPage(year).catch(() => undefined);
-  if (end) {
-    renderTemplate(year, "end", "html", { year, page: end, stars });
-  }
   bar.tick();
   downloadStatic("https://adventofcode.com/static/style.css");
   bar.tick();

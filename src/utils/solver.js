@@ -9,7 +9,6 @@ import { chromium } from "playwright";
 import readInput from "./read-input.js";
 import { dayName } from "./day-name.js";
 import {
-  downloadQuestion,
   downloadIndex,
   downloadInput,
   createSolver,
@@ -107,13 +106,11 @@ export async function solveAll(year, day, run = true) {
     console.log(`Downloading questions (${year})...`);
     const days = getDays(year);
     var bar = new ProgressBar("[:bar] :percent", {
-      total: days.length * 2 + downloadIndexTicks,
+      total: days.length + downloadIndexTicks,
       width: 40,
     });
     await downloadIndex(year, bar, days.length * 2);
     for (const day of days) {
-      await downloadQuestion(year, day, days.length * 2);
-      bar.tick();
       await downloadInput(year, day);
       bar.tick();
     }

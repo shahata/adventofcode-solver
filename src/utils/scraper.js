@@ -3,7 +3,6 @@ import * as process from "node:process";
 import { Buffer } from "node:buffer";
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { dayName } from "./day-name.js";
 
 async function downloadRequest(url, postPayload) {
   const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
@@ -51,25 +50,10 @@ export async function getDayInput(year, day) {
   return await downloadContent(url);
 }
 
-export async function getQuestionPage(year, day) {
-  const url = `https://adventofcode.com/${year}/day/${day}`;
-  const text = await downloadContent(url);
-  const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return question
-    .replace(/href="\/\d+"/g, 'href="index.html"')
-    .replace(/href="\d+\/input"/g, `href="${dayName(day)}.txt"`)
-    .replace(/href="(\d+)"/g, (full, num) => `href="${dayName(num)}.html"`)
-    .replace('method="post"', 'method="get"')
-    .replace(/action="[^"]*"/g, 'action="end.html"');
-}
-
 export async function getYearPage(year) {
   const text = await downloadContent(`https://adventofcode.com/${year}`);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return page.replace(
-    /href="\/\d+\/day\/(\d+)"/g,
-    (full, num) => `href="${dayName(num)}.html"`,
-  );
+  return page.replace(/href="\/\d+\/day\/\d+"/g, `href="solver.html"`);
 }
 
 export async function getEventsPage(year) {
@@ -78,13 +62,6 @@ export async function getEventsPage(year) {
   return page
     .replace(/href="[^"]*">\[(\d+)\]/g, 'href="../$1/solver.html">[$1]')
     .replace(/href="\/\d+\/support"/g, "");
-}
-
-export async function getEndPage(year) {
-  const url = `https://adventofcode.com/${year}/day/25/answer`;
-  const text = await downloadContent(url, "level=2&answer=0");
-  const question = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return question.replace(/href="\/\d+"/g, 'href="index.html"');
 }
 
 export async function getLeaderboardJsons(year) {
