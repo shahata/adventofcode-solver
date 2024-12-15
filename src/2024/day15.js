@@ -1,23 +1,20 @@
-function move(map, current, direction) {
+function move(map, current, dir) {
   let dest = { ...current };
-  if (direction === "v") dest.y++;
-  else if (direction === "^") dest.y--;
-  else if (direction === "<") dest.x--;
-  else if (direction === ">") dest.x++;
+  if (dir === "v") dest.y++;
+  if (dir === "^") dest.y--;
+  if (dir === ">") dest.x++;
+  if (dir === "<") dest.x--;
 
-  if (map[dest.y][dest.x] === "O") move(map, dest, direction);
+  if (map[dest.y][dest.x] === "O") move(map, dest, dir);
   if (map[dest.y][dest.x] === "[" || map[dest.y][dest.x] === "]") {
-    if (dest.x !== current.x) move(map, dest, direction);
+    if (dest.x !== current.x) move(map, dest, dir);
     else {
-      let copy = map.map(row => row.slice(0));
+      let copy = map.map(row => [...row]);
       let pair = { ...dest };
       pair.x += map[dest.y][dest.x] === "[" ? 1 : -1;
-      if (
-        move(copy, dest, direction) !== dest &&
-        move(copy, pair, direction) !== pair
-      ) {
-        move(map, dest, direction);
-        move(map, pair, direction);
+      if (move(copy, dest, dir) !== dest && move(copy, pair, dir) !== pair) {
+        move(map, dest, dir);
+        move(map, pair, dir);
       }
     }
   }
@@ -51,7 +48,7 @@ function parse(input) {
 
 export function part1(input) {
   let { map, moves, current } = parse(input);
-  moves.reduce((current, x) => move(map, current, x), current);
+  moves.reduce((current, next) => move(map, current, next), current);
   return checksum(map);
 }
 
@@ -61,7 +58,5 @@ export function part2(input) {
     .replaceAll("O", "[]")
     .replaceAll(".", "..")
     .replaceAll("@", "@.");
-  let { map, moves, current } = parse(input);
-  moves.reduce((current, x) => move(map, current, x), current);
-  return checksum(map);
+  return part1(input);
 }
