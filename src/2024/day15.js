@@ -1,69 +1,26 @@
-function domove(map, current, move) {
-  let dest = { x: current.x, y: current.y };
-  if (move === "v") {
-    dest.y++;
-  } else if (move === "^") {
-    dest.y--;
-  } else if (move === "<") {
-    dest.x--;
-  } else if (move === ">") {
-    dest.x++;
-  }
-  if (map[dest.y][dest.x] === "O") {
-    domove(map, dest, move);
-  }
-  if (map[dest.y][dest.x] === "#") {
-    return current;
-  }
-  if (map[dest.y][dest.x] === ".") {
-    map[dest.y][dest.x] = map[current.y][current.x];
-    map[current.y][current.x] = ".";
-    return dest;
-  }
-  return current;
-}
+function move(map, current, direction) {
+  let dest = { ...current };
+  if (direction === "v") dest.y++;
+  else if (direction === "^") dest.y--;
+  else if (direction === "<") dest.x--;
+  else if (direction === ">") dest.x++;
 
-function domove2(map, current, move) {
-  let dest = { x: current.x, y: current.y };
-  if (move === "v") {
-    dest.y++;
-  } else if (move === "^") {
-    dest.y--;
-  } else if (move === "<") {
-    dest.x--;
-  } else if (move === ">") {
-    dest.x++;
-  }
+  if (map[dest.y][dest.x] === "O") move(map, dest, direction);
   if (map[dest.y][dest.x] === "[" || map[dest.y][dest.x] === "]") {
-    if (move === ">" || move === "<") domove2(map, dest, move);
+    if (dest.x !== current.x) move(map, dest, direction);
     else {
-      if (map[dest.y][dest.x] === "[") {
-        let copy = map.map(row => row.slice(0));
-        let pair = { ...dest, x: dest.x + 1 };
-        if (
-          domove2(copy, dest, move) !== dest &&
-          domove2(copy, pair, move) !== pair
-        ) {
-          domove2(map, dest, move);
-          domove2(map, pair, move);
-        }
-      }
-      if (map[dest.y][dest.x] === "]") {
-        let copy = map.map(row => row.slice(0));
-        let pair = { ...dest, x: dest.x - 1 };
-        if (
-          domove2(copy, dest, move) !== dest &&
-          domove2(copy, pair, move) !== pair
-        ) {
-          domove2(map, dest, move);
-          domove2(map, pair, move);
-        }
+      let copy = map.map(row => row.slice(0));
+      let pair = { ...dest };
+      pair.x += map[dest.y][dest.x] === "[" ? 1 : -1;
+      if (
+        move(copy, dest, direction) !== dest &&
+        move(copy, pair, direction) !== pair
+      ) {
+        move(map, dest, direction);
+        move(map, pair, direction);
       }
     }
   }
-  if (map[dest.y][dest.x] === "#") {
-    return current;
-  }
   if (map[dest.y][dest.x] === ".") {
     map[dest.y][dest.x] = map[current.y][current.x];
     map[current.y][current.x] = ".";
@@ -72,50 +29,39 @@ function domove2(map, current, move) {
   return current;
 }
 
-export function part1(input) {
+function checksum(map) {
+  let sum = 0;
+  for (let y = 0; y < map.length; y++) {
+    for (let x = 0; x < map[y].length; x++) {
+      if (map[y][x] === "O" || map[y][x] === "[") sum += 100 * y + x;
+    }
+  }
+  return sum;
+}
+
+function parse(input) {
   let [map, moves] = input.split("\n\n");
   map = map.split("\n").map(row => row.split(""));
   moves = moves.split("").filter(x => x !== "\n");
   let y = map.findIndex(row => row.includes("@"));
   let x = map[y].findIndex(cell => cell === "@");
   let current = { x, y };
-  for (let i = 0; i < moves.length; i++) {
-    current = domove(map, current, moves[i]);
-  }
+  return { map, moves, current };
+}
 
-  let sum = 0;
-  for (let i = 0; i < map.length; i++) {
-    for (let j = 0; j < map[i].length; j++) {
-      if (map[i][j] === "O") sum += 100 * i + j;
-    }
-  }
-
-  return sum;
+export function part1(input) {
+  let { map, moves, current } = parse(input);
+  moves.reduce((current, x) => move(map, current, x), current);
+  return checksum(map);
 }
 
 export function part2(input) {
-  let [map, moves] = input.split("\n\n");
-  map = map
+  input = input
     .replaceAll("#", "##")
     .replaceAll("O", "[]")
     .replaceAll(".", "..")
     .replaceAll("@", "@.");
-  map = map.split("\n").map(row => row.split(""));
-  moves = moves.split("").filter(x => x !== "\n");
-
-  let y = map.findIndex(row => row.includes("@"));
-  let x = map[y].findIndex(cell => cell === "@");
-  let current = { x, y };
-  for (let i = 0; i < moves.length; i++) {
-    current = domove2(map, current, moves[i]);
-  }
-
-  let sum = 0;
-  for (let i = 0; i < map.length; i++) {
-    for (let j = 0; j < map[i].length; j++) {
-      if (map[i][j] === "[") sum += 100 * i + j;
-    }
-  }
-
-  return sum;
+  let { map, moves, current } = parse(input);
+  moves.reduce((current, x) => move(map, current, x), current);
+  return checksum(map);
 }
