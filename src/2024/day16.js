@@ -1,62 +1,64 @@
 const opposite = { up: "down", down: "up", left: "right", right: "left" };
 
-function solve(input, part2 = false) {
+function parse(input) {
   let map = input.split("\n").map(line => line.split(""));
   let sy = map.findIndex(line => line.includes("S"));
   let sx = map[sy].indexOf("S");
   let ey = map.findIndex(line => line.includes("E"));
   let ex = map[ey].indexOf("E");
-  let current = { x: sx, y: sy, score: 0, dir: "right", path: ["0,0"] };
+  return { map, start: { x: sx, y: sy }, end: { x: ex, y: ey } };
+}
+
+function getNeighbors(current, map) {
+  let neighbors = [
+    { x: current.x - 1, y: current.y, direction: "left" },
+    { x: current.x + 1, y: current.y, direction: "right" },
+    { x: current.x, y: current.y - 1, direction: "up" },
+    { x: current.x, y: current.y + 1, direction: "down" },
+  ]
+    .filter(n => n.direction !== opposite[current.direction])
+    .filter(n => map[n.y]?.[n.x] !== "#")
+    .map(n => ({
+      ...n,
+      path: current.path.concat(`${n.x},${n.y}`),
+      score: current.score + (n.direction !== current.direction ? 1001 : 1),
+    }));
+  return neighbors;
+}
+
+function solve(input, part2 = false) {
+  let { map, start, end } = parse(input);
+  let current = { ...start, score: 0, direction: "right", path: ["0,0"] };
   let queue = [current];
   let visited = new Map();
-  let min = Infinity;
-  let paths = [];
+  let results = [{ score: Infinity }];
   visited.set(`${current.x},${current.y}`, 0);
   while (queue.length > 0) {
     current = queue.shift();
-    if (current.x === ex && current.y === ey) {
-      if (current.score < min) paths = [current.path];
-      if (current.score === min) paths.push(current.path);
-      min = Math.min(min, current.score);
+    if (current.x === end.x && current.y === end.y) {
+      if (current.score < results[0].score) results = [current];
+      if (current.score === results[0].score) results.push(current);
       continue;
     }
-    let neighbors = [
-      { x: current.x - 1, y: current.y, dir: "left" },
-      { x: current.x + 1, y: current.y, dir: "right" },
-      { x: current.x, y: current.y - 1, dir: "up" },
-      { x: current.x, y: current.y + 1, dir: "down" },
-    ]
-      .filter(neighbor => neighbor.dir !== opposite[current.dir])
-      .filter(neighbor => map[neighbor.y]?.[neighbor.x] !== "#")
-      .map(neighbor => ({
-        ...neighbor,
-        path: current.path.concat(`${neighbor.x},${neighbor.y}`),
-        score: current.score + (neighbor.dir !== current.dir ? 1001 : 1),
-      }));
-    neighbors.forEach(neighbor => {
-      if (
-        !visited.has(`${neighbor.x},${neighbor.y},${neighbor.dir}`) ||
-        visited.get(`${neighbor.x},${neighbor.y},${neighbor.dir}`) >
-          neighbor.score
-      ) {
-        queue.push(neighbor);
-        visited.set(
-          `${neighbor.x},${neighbor.y},${neighbor.dir}`,
-          neighbor.score + (part2 ? 1 : 0),
-        );
+    getNeighbors(current, map).forEach(n => {
+      const prev = visited.get(`${n.x},${n.y},${n.direction}`) || Infinity;
+      // for part two we follow also paths with same score passing the same cell
+      // this can easily be optimized by saving the path and going in only once
+      // alternatively we could use dfs with memoization to optimize the search
+      if (prev > n.score || (part2 && prev === n.score)) {
+        queue.push(n);
+        visited.set(`${n.x},${n.y},${n.direction}`, n.score);
       }
     });
   }
-  return { min, paths };
+  return results;
 }
 
 export function part1(input) {
-  return solve(input).min;
+  return solve(input)[0].score;
 }
 
 export function part2(input) {
-  return solve(input, true).paths.reduce(
-    (acc, path) => acc.union(new Set(path)),
-    new Set(),
-  ).size;
+  const results = solve(input, true).map(result => new Set(result.path));
+  return results.reduce((acc, next) => acc.union(next)).size;
 }
