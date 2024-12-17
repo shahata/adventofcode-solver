@@ -8,13 +8,13 @@ const opcodes = [
   (r, p) => (r.B = combo(p, r) % 8n),
   (r, p) => r.A && (r.ip = Number(p) - 2),
   r => (r.B = r.B ^ r.C),
-  (r, p) => r.out.push(Number(combo(p, r) % 8n)),
+  (r, p) => r.out.push(combo(p, r) % 8n),
   (r, p) => (r.B = r.A / 2n ** combo(p, r)),
   (r, p) => (r.C = r.A / 2n ** combo(p, r)),
 ];
 
 function run(program, registers) {
-  Object.assign(registers, { ip: 0, out: [] });
+  registers = { ...registers, ip: 0, out: [] };
   while (registers.ip < program.length) {
     let op = program[registers.ip];
     let param = BigInt(program[registers.ip + 1]);
