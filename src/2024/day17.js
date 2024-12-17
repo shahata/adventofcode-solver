@@ -43,17 +43,15 @@ function parse(input) {
 // 4) if A is not 0, jump to step 1
 //
 // This solver does the reverse process:
-// 1) Start from A=0
-// 2) Find the smallest value to add to A that will output the end of the program
-// 3) A = A * 8
-// 4) Repeat until it outputs the whole program
-function solve2(program, registers, n = program.length - 1) {
+// 1) Find the smallest value to add to A that will output the end of the program
+// 2) A = A * 8
+// 3) Repeat until it outputs the whole program
+function solve2(program, r) {
   for (let i = 0n; i < 8n; i++) {
-    const rs = { ...registers, A: registers.A + i };
-    const { out } = run(program, { ...rs });
-    if (out.join(",") === program.slice(n).join(",")) {
-      if (out.length === program.length) return rs.A;
-      const result = solve2(program, { ...rs, A: rs.A * 8n }, n - 1);
+    const { out } = run(program, { ...r, A: r.A + i });
+    if (program.join(",").endsWith(out.join(","))) {
+      if (out.length === program.length) return r.A + i;
+      const result = solve2(program, { ...r, A: (r.A + i) * 8n });
       if (result !== undefined) return result;
     }
   }
@@ -66,5 +64,5 @@ export function part1(input) {
 
 export function part2(input) {
   const { program, registers } = parse(input);
-  return solve2(program, { ...registers, A: 0n });
+  return solve2(program, { ...registers, A: 1n });
 }
