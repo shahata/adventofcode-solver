@@ -1,20 +1,16 @@
 function combo(n, r) {
-  if (n >= 0n && n <= 3n) return n;
-  if (n === 4n) return r.A;
-  if (n === 5n) return r.B;
-  if (n === 6n) return r.C;
-  throw new Error("Invalid combo");
+  return [0n, 1n, 2n, 3n, r.A, r.B, r.C][n];
 }
 
 const opcodes = [
-  /* 0 */ (r, p) => (r.A = r.A / 2n ** combo(p, r)),
-  /* 1 */ (r, p) => (r.B = r.B ^ p),
-  /* 2 */ (r, p) => (r.B = combo(p, r) % 8n),
-  /* 3 */ (r, p) => r.A && (r.ip = Number(p) - 2),
-  /* 4 */ r => (r.B = r.B ^ r.C),
-  /* 5 */ (r, p) => r.out.push(Number(combo(p, r) % 8n)),
-  /* 6 */ (r, p) => (r.B = r.A / 2n ** combo(p, r)),
-  /* 7 */ (r, p) => (r.C = r.A / 2n ** combo(p, r)),
+  (r, p) => (r.A = r.A / 2n ** combo(p, r)),
+  (r, p) => (r.B = r.B ^ p),
+  (r, p) => (r.B = combo(p, r) % 8n),
+  (r, p) => r.A && (r.ip = Number(p) - 2),
+  r => (r.B = r.B ^ r.C),
+  (r, p) => r.out.push(Number(combo(p, r) % 8n)),
+  (r, p) => (r.B = r.A / 2n ** combo(p, r)),
+  (r, p) => (r.C = r.A / 2n ** combo(p, r)),
 ];
 
 function run(program, registers) {
@@ -25,7 +21,7 @@ function run(program, registers) {
     opcodes[op](registers, param);
     registers.ip += 2;
   }
-  return registers;
+  return registers.out.join(",");
 }
 
 function parse(input) {
@@ -36,7 +32,7 @@ function parse(input) {
   return { program, registers };
 }
 
-// in general the program always:
+// In general the program always:
 // 1) does calculations on A, ignoring B and C
 // 2) A = A / 8
 // 3) output the calculated value
@@ -48,9 +44,9 @@ function parse(input) {
 // 3) Repeat until it outputs the whole program
 function solve2(program, r) {
   for (let i = 0n; i < 8n; i++) {
-    const { out } = run(program, { ...r, A: r.A + i });
-    if (program.join(",").endsWith(out.join(","))) {
-      if (out.length === program.length) return r.A + i;
+    const out = run(program, { ...r, A: r.A + i });
+    if (program.join(",") === out) return r.A + i;
+    if (program.join(",").endsWith(out)) {
       const result = solve2(program, { ...r, A: (r.A + i) * 8n });
       if (result) return result;
     }
@@ -59,7 +55,7 @@ function solve2(program, r) {
 
 export function part1(input) {
   const { program, registers } = parse(input);
-  return run(program, registers).out.join(",");
+  return run(program, registers);
 }
 
 export function part2(input) {
