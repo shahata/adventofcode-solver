@@ -1,5 +1,5 @@
 function combo(n, r) {
-  if (n >= 0n && n <= 3n) return BigInt(n);
+  if (n >= 0n && n <= 3n) return n;
   if (n === 4n) return r.A;
   if (n === 5n) return r.B;
   if (n === 6n) return r.C;
