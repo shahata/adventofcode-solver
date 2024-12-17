@@ -52,7 +52,7 @@ function solve2(program, r) {
     if (program.join(",").endsWith(out.join(","))) {
       if (out.length === program.length) return r.A + i;
       const result = solve2(program, { ...r, A: (r.A + i) * 8n });
-      if (result !== undefined) return result;
+      if (result) return result;
     }
   }
 }
