@@ -44,16 +44,16 @@ function parse(input) {
 //
 // This solver does the reverse process:
 // 1) Start from A=0
-// 2) Find the smallest value that will output the end of the program
+// 2) Find the smallest value to add to A that will output the end of the program
 // 3) A = A * 8
 // 4) Repeat until it outputs the whole program
 function solve2(program, registers, n = program.length - 1) {
-  if (n < 0) return registers.A;
   for (let i = 0n; i < 8n; i++) {
-    const rs = { ...registers, A: registers.A * 8n + i };
+    const rs = { ...registers, A: registers.A + i };
     const { out } = run(program, { ...rs });
     if (out.join(",") === program.slice(n).join(",")) {
-      const result = solve2(program, rs, n - 1);
+      if (out.length === program.length) return rs.A;
+      const result = solve2(program, { ...rs, A: rs.A * 8n }, n - 1);
       if (result !== undefined) return result;
     }
   }
