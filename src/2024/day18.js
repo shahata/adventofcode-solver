@@ -1,11 +1,11 @@
 export function part1(input, wh = 70, fallen = 1024) {
   let bytes = input.split("\n");
   let queue = [{ x: 0, y: 0, steps: 0 }];
-  let visited = new Set(["0,0", ...bytes.slice(0, fallen)]);
+  let visited = new Set(bytes.slice(0, fallen));
   while (queue.length) {
     let curr = queue.shift();
     if (curr.x === wh && curr.y === wh) return curr.steps;
-    const neighbors = [
+    let neighbors = [
       { x: curr.x + 1, y: curr.y },
       { x: curr.x - 1, y: curr.y },
       { x: curr.x, y: curr.y + 1 },
