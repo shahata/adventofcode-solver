@@ -10,15 +10,9 @@ function countMatches(line, patterns, memo) {
   return (memo[line] = matches);
 }
 
-function solve(input) {
-  let [patterns, lines] = input.split("\n\n");
-  patterns = patterns.split(", ");
-  let matches = [];
-  let memo = {};
-  for (let line of lines.split("\n")) {
-    matches.push(countMatches(line, patterns, memo));
-  }
-  return matches;
+function solve(input, memo = {}) {
+  let [patterns, lines] = input.split("\n\n").map(x => x.split(/(\n|, )/));
+  return lines.map(line => countMatches(line, patterns, memo));
 }
 
 export function part1(input) {
