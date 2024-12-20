@@ -27,14 +27,13 @@ function findPath(input) {
 }
 
 export function part1(input, save = 100, cheat = 2) {
+  const distance = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
   let path = findPath(input);
   let count = 0;
-  for (let i = 0; i < path.length; i++) {
+  for (let i = 0; i < path.length - save; i++) {
     for (let j = i + save; j < path.length; j++) {
-      const distance =
-        Math.abs(path[j].x - path[i].x) + Math.abs(path[j].y - path[i].y);
-      const saved = j - i - distance;
-      if (saved >= save && distance <= cheat) count++;
+      const length = distance(path[i], path[j]);
+      if (j - i - length >= save && length <= cheat) count++;
     }
   }
   return count;
