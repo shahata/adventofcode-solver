@@ -3,6 +3,7 @@ import * as process from "node:process";
 import { Buffer } from "node:buffer";
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { dayName } from "./day-name.js";
 
 async function downloadRequest(url, postPayload) {
   const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
@@ -53,7 +54,11 @@ export async function getDayInput(year, day) {
 export async function getYearPage(year) {
   const text = await downloadContent(`https://adventofcode.com/${year}`);
   const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
-  return page.replace(/href="\/\d+\/day\/\d+"/g, `href="solver.html"`);
+  return page.replace(
+    /href="\/\d+\/day\/(\d+)"/g,
+    (full, num) =>
+      `href="https://github.com/shahata/adventofcode-solver/blob/master/src/${year}/${dayName(num)}.js"`,
+  );
 }
 
 export async function getEventsPage(year) {

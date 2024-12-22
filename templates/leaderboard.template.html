@@ -36,10 +36,10 @@
       <canvas id="canvas"></canvas>
       <script type="module">
         import { Chart, registerables } from '{{chartJsUrl}}';
+        import config from "./leaderboard.json" with { type: "json" };
         Chart.register(...registerables);
-        let config = JSON.parse('{{config}}');
         function currentConfig() {
-          return (new URLSearchParams(location.search)).get('draw') || 'all';
+          return (new URLSearchParams(location.search)).get('draw') || 'five';
         }
         window.drawChart = function (group) {
           history.pushState({ draw: group }, '', `?draw=${group}`);

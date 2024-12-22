@@ -36,6 +36,7 @@ export function tempLeaderboard(year) {
   const model = calcLeaderboard();
   if (model) {
     renderTemplate(year, "leaderboard", "html", { year, ...model });
+    renderTemplate(year, "leaderboard", "json", { year, ...model });
   }
 }
 
@@ -49,12 +50,9 @@ export async function downloadIndex(year, bar, stars) {
   const events = await getEventsPage(year);
   renderTemplate(year, "events", "html", { year, page: events, stars });
   bar.tick();
-  const leaderboards = await getLeaderboardJsons(year);
-  renderTemplate(year, "leaderboard", "html", {
-    year,
-    ...calcLeaderboard(leaderboards),
-    stars,
-  });
+  const lbmodel = calcLeaderboard(await getLeaderboardJsons(year));
+  renderTemplate(year, "leaderboard", "html", { year, ...lbmodel, stars });
+  renderTemplate(year, "leaderboard", "json", { year, ...lbmodel, stars });
   bar.tick();
   downloadStatic("https://adventofcode.com/static/style.css");
   bar.tick();
