@@ -13,26 +13,23 @@ export function part1(input) {
 
 export function part2(input) {
   let numbers = input.split("\n").map(BigInt);
-  let diffs = numbers.map(() => []);
   let cache = new Map();
-  let max = 0;
-  for (let i = 0; i < 2000; i++) {
-    numbers = numbers.map((prev, j) => {
+  for (let prev of numbers) {
+    let visited = new Set();
+    let diffs = [];
+    for (let i = 0; i < 2000; i++) {
       let next = hash(prev);
-      diffs[j].push(Number((next % 10n) - (prev % 10n)));
-      if (diffs[j].length === 4) {
-        let key = diffs[j].join(",");
-        let value = cache.get(key) || { sum: 0, set: new Set() };
-        if (!value.set.has(j)) {
-          value.set.add(j);
-          value.sum += Number(next % 10n);
-          max = Math.max(max, value.sum);
+      diffs.push(Number((next % 10n) - (prev % 10n)));
+      prev = next;
+      if (diffs.length >= 4) {
+        let key = diffs.slice(-4).join(",");
+        if (!visited.has(key)) {
+          let sum = (cache.get(key) || 0) + Number(next % 10n);
+          cache.set(key, sum);
+          visited.add(key);
         }
-        cache.set(key, value);
-        diffs[j].shift();
       }
-      return next;
-    });
+    }
   }
-  return max;
+  return Math.max(...cache.values());
 }
