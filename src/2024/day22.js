@@ -20,8 +20,8 @@ export function part2(input) {
     numbers = numbers.map((prev, j) => {
       let next = hash(prev);
       diffs[j].push(Number((next % 10n) - (prev % 10n)));
-      if (diffs[j].length >= 4) {
-        let key = diffs[j].slice(-4).join(",");
+      if (diffs[j].length === 4) {
+        let key = diffs[j].join(",");
         let value = cache.get(key) || { sum: 0, set: new Set() };
         if (!value.set.has(j)) {
           value.set.add(j);
@@ -29,6 +29,7 @@ export function part2(input) {
           max = Math.max(max, value.sum);
         }
         cache.set(key, value);
+        diffs[j].shift();
       }
       return next;
     });
