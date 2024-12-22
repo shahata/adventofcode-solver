@@ -163,7 +163,7 @@ export function calcLeaderboard(jsonArr) {
     table.push("</tr>");
   });
   return {
-    config: JSON.stringify(config),
+    config: JSON.stringify(config, null, 2),
     table: table.join("\n"),
     chartJsUrl: imports["chart.js"],
   };
