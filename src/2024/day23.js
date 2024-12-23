@@ -1,11 +1,15 @@
+function unique(networks) {
+  networks = networks.map(x => x.sort().join(","));
+  return [...new Set(networks)].map(x => x.split(","));
+}
+
 function addOneToNetworks(networks, map) {
-  let set = new Set();
-  networks.forEach(computers => {
+  networks = networks.flatMap(computers => {
     let candidates = computers.map(c => map.get(c));
-    let result = candidates.reduce((a, b) => a.intersection(b));
-    result.forEach(x => set.add([...computers, x].sort().join(",")));
+    let result = [...candidates.reduce((a, b) => a.intersection(b))];
+    return result.map(x => [...computers, x]);
   });
-  return set;
+  return unique(networks);
 }
 
 function parse(input) {
@@ -20,15 +24,13 @@ function parse(input) {
 
 export function part1(input) {
   let { networks, map } = parse(input);
-  let set = addOneToNetworks(networks, map);
-  return [...set].filter(x => x.match(/(^t|,t)/)).length;
+  networks = addOneToNetworks(networks, map);
+  networks = networks.filter(c => c.some(x => x.startsWith("t")));
+  return networks.length;
 }
 
 export function part2(input) {
   let { networks, map } = parse(input);
-  while (networks.length > 1) {
-    let next = addOneToNetworks(networks, map);
-    networks = [...next].map(x => x.split(","));
-  }
+  while (networks.length > 1) networks = addOneToNetworks(networks, map);
   return networks[0].sort().join(",");
 }
