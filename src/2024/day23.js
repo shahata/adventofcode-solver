@@ -1,37 +1,31 @@
-function addOneToNetwork(network, connections = network) {
+function addOneToNetworks(networks, connections = networks) {
   let set = new Set();
-  network.forEach(connection => {
-    let as = connection
+  networks.forEach(computers => {
+    let candidates = computers
       .map(c => {
         return connections
-          .filter(other => other.includes(c))
-          .map(a => a.find(x => x !== c));
+          .filter(pair => pair.includes(c))
+          .map(pair => pair.find(x => x !== c));
       })
-      .map(a => new Set(a));
-    let result = as.reduce((a, b) => a.intersection(b));
-    result.forEach(x => set.add([...connection, x].sort().join(",")));
+      .map(x => new Set(x));
+    let result = candidates.reduce((a, b) => a.intersection(b));
+    result.forEach(x => set.add([...computers, x].sort().join(",")));
   });
   return set;
 }
 
 export function part1(input) {
-  let connections = input.split("\n").map(line => {
-    let [a, b] = line.split("-").sort();
-    return [a, b];
-  });
-  let set = addOneToNetwork(connections);
+  let connections = input.split("\n").map(line => line.split("-"));
+  let set = addOneToNetworks(connections);
   return [...set].filter(x => x.match(/(^t|,t)/)).length;
 }
 
 export function part2(input) {
-  let connections = input.split("\n").map(line => {
-    let [a, b] = line.split("-").sort();
-    return [a, b];
-  });
-  let network = connections;
-  while (network.length > 1) {
-    let next = addOneToNetwork(network, connections);
-    network = [...next].map(x => x.split(","));
+  let connections = input.split("\n").map(line => line.split("-"));
+  let networks = connections;
+  while (networks.length > 1) {
+    let next = addOneToNetworks(networks, connections);
+    networks = [...next].map(x => x.split(","));
   }
-  return network[0].sort().join(",");
+  return networks[0].sort().join(",");
 }
