@@ -4,12 +4,12 @@ function unique(networks) {
 }
 
 function addOneToNetworks(networks, map) {
-  networks = networks.flatMap(computers => {
+  let result = networks.flatMap(computers => {
     let candidates = computers.map(c => map.get(c));
-    let result = [...candidates.reduce((a, b) => a.intersection(b))];
-    return result.map(x => [...computers, x]);
+    let additions = candidates.reduce((a, b) => a.intersection(b));
+    return [...additions].map(add => [...computers, add]);
   });
-  return unique(networks);
+  return unique(result);
 }
 
 function parse(input) {
