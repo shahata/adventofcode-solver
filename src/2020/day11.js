@@ -1,4 +1,4 @@
-const directions = [
+let directions = [
   ({ x, y }) => ({ y: y - 1, x: x - 1 }),
   ({ x, y }) => ({ y: y - 1, x: x }),
   ({ x, y }) => ({ y: y - 1, x: x + 1 }),
@@ -29,7 +29,7 @@ function life(input, count, far) {
     seats = seats.map((line, y) =>
       line.map((seat, x) => {
         if (seat !== ".") {
-          const n = neighbors(seats, { x, y }, far);
+          let n = neighbors(seats, { x, y }, far);
           if (seat === "L" && n === 0) return "#";
           if (seat === "#" && n >= count) return "L";
         }

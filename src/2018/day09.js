@@ -1,5 +1,5 @@
 function add(value, position) {
-  const newItem = { value };
+  let newItem = { value };
   newItem.next = position ? position.next : newItem;
   newItem.prev = position || newItem;
   if (position) {
@@ -16,11 +16,11 @@ function remove(position) {
 }
 
 export function part1(input) {
-  const [, players, lastMarble] = input
+  let [, players, lastMarble] = input
     .match(/(\d+) players; last marble is worth (\d+)/)
     .map(Number);
 
-  const score = new Map();
+  let score = new Map();
   let player = 0;
   let marble = 1;
   let pointer = add(0);
@@ -40,7 +40,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const [, players, lastMarble] = input
+  let [, players, lastMarble] = input
     .match(/(\d+) players; last marble is worth (\d+)/)
     .map(Number);
   return part1(`${players} players; last marble is worth ${lastMarble * 100}`);

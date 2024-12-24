@@ -14,12 +14,12 @@ import {
 import timeoutConfirm from "@shahata/inquirer-timeout-confirm-prompt";
 
 function renderTemplate(year, name, extension, model) {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const src = path.resolve(__dirname, "..");
-  const templates = path.resolve(src, "..", "templates");
-  const template = path.join(templates, isDayName(name) ? "day" : name);
-  const fileName = `${path.join(src, year, name)}.${extension}`;
-  const result = Object.keys(model).reduce(
+  let __dirname = path.dirname(fileURLToPath(import.meta.url));
+  let src = path.resolve(__dirname, "..");
+  let templates = path.resolve(src, "..", "templates");
+  let template = path.join(templates, isDayName(name) ? "day" : name);
+  let fileName = `${path.join(src, year, name)}.${extension}`;
+  let result = Object.keys(model).reduce(
     (result, key) => result.replaceAll(`{{${key}}}`, model[key]),
     readFileSync(`${template}.template.${extension}`).toString(),
   );
@@ -28,29 +28,29 @@ function renderTemplate(year, name, extension, model) {
 }
 
 export async function downloadInput(year, day) {
-  const input = await getDayInput(year, day);
+  let input = await getDayInput(year, day);
   return renderTemplate(year, dayName(day), "txt", { input });
 }
 
 export function tempLeaderboard(year) {
-  const model = calcLeaderboard();
+  let model = calcLeaderboard();
   if (model) {
     renderTemplate(year, "leaderboard", "html", { year, ...model });
     renderTemplate(year, "leaderboard", "json", { year, ...model });
   }
 }
 
-export const downloadIndexTicks = 7;
+export let downloadIndexTicks = 7;
 export async function downloadIndex(year, bar, stars) {
   renderTemplate(year, "solver", "html", { year, stars });
   bar.tick();
-  const page = await getYearPage(year);
+  let page = await getYearPage(year);
   renderTemplate(year, "index", "html", { year, page, stars });
   bar.tick();
-  const events = await getEventsPage(year);
+  let events = await getEventsPage(year);
   renderTemplate(year, "events", "html", { year, page: events, stars });
   bar.tick();
-  const lbmodel = calcLeaderboard(await getLeaderboardJsons(year));
+  let lbmodel = calcLeaderboard(await getLeaderboardJsons(year));
   renderTemplate(year, "leaderboard", "html", { year, ...lbmodel, stars });
   renderTemplate(year, "leaderboard", "json", { year, ...lbmodel, stars });
   bar.tick();
@@ -63,11 +63,11 @@ export async function downloadIndex(year, bar, stars) {
 }
 
 export async function createSolver(year, day) {
-  const page = await getYearPage(year);
-  const actual = page.match(new RegExp(`key = "${year}-(\\d+)-"`))?.[1];
+  let page = await getYearPage(year);
+  let actual = page.match(new RegExp(`key = "${year}-(\\d+)-"`))?.[1];
   if (actual === day && page.match(/server_eta = (\d+)/)) {
-    const [, eta] = page.match(/server_eta = (\d+)/);
-    const create = await timeoutConfirm({
+    let [, eta] = page.match(/server_eta = (\d+)/);
+    let create = await timeoutConfirm({
       message: `Create solver ${year}/${dayName(day)}?`,
       timeout: +eta,
       timeoutTips: t => `(${new Date(t * 1000).toISOString().slice(11, 19)})`,
@@ -75,9 +75,9 @@ export async function createSolver(year, day) {
     if (!create) return;
   }
 
-  const txtFileName = await downloadInput(year, day);
-  const jsFileName = renderTemplate(year, dayName(day), "js", {});
-  const specFileName = renderTemplate(year, dayName(day), "spec.js", {
+  let txtFileName = await downloadInput(year, day);
+  let jsFileName = renderTemplate(year, dayName(day), "js", {});
+  let specFileName = renderTemplate(year, dayName(day), "spec.js", {
     year,
     day: dayName(day),
   });

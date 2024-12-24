@@ -1,9 +1,9 @@
-const pos = ({ x, y }) => `${x},${y}`;
-const count = (units, type) => units.filter(u => u.type === type).length;
+let pos = ({ x, y }) => `${x},${y}`;
+let count = (units, type) => units.filter(u => u.type === type).length;
 
 function attackIfPossible(map, units, unit) {
-  const inRange = u => Math.abs(u.x - unit.x) + Math.abs(u.y - unit.y) === 1;
-  const attack = units
+  let inRange = u => Math.abs(u.x - unit.x) + Math.abs(u.y - unit.y) === 1;
+  let attack = units
     .filter(u => u.type !== unit.type && inRange(u))
     .sort((a, b) => a.hit - b.hit || a.y - b.y || a.x - b.x)
     .shift();
@@ -17,7 +17,7 @@ function attackIfPossible(map, units, unit) {
 }
 
 function neighbors(map, units, next, type, forbidden) {
-  const result = [
+  let result = [
     { x: next.x, y: next.y - 1 },
     { x: next.x - 1, y: next.y },
     { x: next.x + 1, y: next.y },
@@ -31,11 +31,11 @@ function neighbors(map, units, next, type, forbidden) {
 
 function moveIfPossible(map, units, unit) {
   let solutionLength = Infinity;
-  const solutions = [];
-  const queue = [{ x: unit.x, y: unit.y, length: 0 }];
-  const forbidden = new Set(units.filter(u => u.type === unit.type).map(pos));
+  let solutions = [];
+  let queue = [{ x: unit.x, y: unit.y, length: 0 }];
+  let forbidden = new Set(units.filter(u => u.type === unit.type).map(pos));
   while (queue.length > 0 && queue[0].length <= solutionLength) {
-    const next = queue.shift();
+    let next = queue.shift();
     if (units.find(u => pos(u) === pos(next) && u.type !== unit.type)) {
       solutions.push(next);
       solutionLength = next.length;
@@ -54,7 +54,7 @@ function turn(map, units) {
     if (count(units, "E") === 0 || count(units, "G") === 0) {
       return false;
     }
-    const unit = units[i];
+    let unit = units[i];
     if (!attackIfPossible(map, units, unit)) {
       moveIfPossible(map, units, unit);
       attackIfPossible(map, units, unit);
@@ -66,8 +66,8 @@ function turn(map, units) {
 
 function fight(input, elfBoost = 0) {
   let i = 0;
-  const units = [];
-  const map = input.replace(/[EG]/g, ".").split("\n");
+  let units = [];
+  let map = input.replace(/[EG]/g, ".").split("\n");
   input.split("\n").forEach((row, y) =>
     row.split("").forEach((cell, x) => {
       if (cell === "E") {
@@ -84,12 +84,12 @@ function fight(input, elfBoost = 0) {
 }
 
 export function part1(input) {
-  const { i, units } = fight(input);
+  let { i, units } = fight(input);
   return i * units.reduce((sum, u) => sum + u.hit, 0);
 }
 
 export function part2(input) {
-  const elfCount = input.match(/E/g).length;
+  let elfCount = input.match(/E/g).length;
   let elfBoost = 1;
   let i, units;
   do {

@@ -1,6 +1,6 @@
 export function part1(input, w = 101, h = 103) {
-  const robots = input.split("\n").map(line => {
-    const [, px, py, vx, vy] = line.match(/p=(.+),(.+) v=(.+),(.+)/);
+  let robots = input.split("\n").map(line => {
+    let [, px, py, vx, vy] = line.match(/p=(.+),(.+) v=(.+),(.+)/);
     return { px: +px, py: +py, vx: +vx, vy: +vy };
   });
   for (let i = 1; i <= 100; i++) {
@@ -21,7 +21,7 @@ export function part1(input, w = 101, h = 103) {
   return q.reduce((a, b) => a * b, 1);
 }
 
-const tree = [
+let tree = [
   "###############################",
   "#.............................#",
   "#.............................#",
@@ -58,8 +58,8 @@ const tree = [
 ];
 
 export function part2(input, w = 101, h = 103) {
-  const robots = input.split("\n").map(line => {
-    const [, px, py, vx, vy] = line.match(/p=(.+),(.+) v=(.+),(.+)/);
+  let robots = input.split("\n").map(line => {
+    let [, px, py, vx, vy] = line.match(/p=(.+),(.+) v=(.+),(.+)/);
     return { px: +px, py: +py, vx: +vx, vy: +vy };
   });
   for (let i = 1; i < Infinity; i++) {

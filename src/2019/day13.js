@@ -1,9 +1,9 @@
 import { execute } from "./day09.js";
 
 export function part1(input) {
-  const output = [];
-  const user = { input: [], output: x => output.push(x), base: 0 };
-  const ops = input.split(",").map(Number);
+  let output = [];
+  let user = { input: [], output: x => output.push(x), base: 0 };
+  let ops = input.split(",").map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {
@@ -13,13 +13,13 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const output = [];
-  const board = [];
+  let output = [];
+  let board = [];
   let score = 0;
 
   function move() {
     while (output.length) {
-      const [x, y, id] = output.splice(0, 3);
+      let [x, y, id] = output.splice(0, 3);
       if (x === -1 && y === 0) {
         score = id;
       } else {
@@ -27,13 +27,13 @@ export function part2(input) {
         board[y][x] = id;
       }
     }
-    const paddle = Math.max(...board.map(row => row.indexOf(3)));
-    const ball = Math.max(...board.map(row => row.indexOf(4)));
+    let paddle = Math.max(...board.map(row => row.indexOf(3)));
+    let ball = Math.max(...board.map(row => row.indexOf(4)));
     return (ball - paddle) / Math.abs(ball - paddle);
   }
 
-  const user = { input: move, output: x => output.push(x), base: 0 };
-  const ops = input.split(",").map(Number);
+  let user = { input: move, output: x => output.push(x), base: 0 };
+  let ops = input.split(",").map(Number);
   let ip = 0;
   ops[0] = 2;
 

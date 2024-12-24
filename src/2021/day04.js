@@ -5,8 +5,8 @@ function mark(board, number) {
 }
 
 function winner(board) {
-  const winnerRow = board.some(row => row.every(slot => slot.marked));
-  const winnerCol = board[0].some((s, i) => board.every(row => row[i].marked));
+  let winnerRow = board.some(row => row.every(slot => slot.marked));
+  let winnerCol = board[0].some((s, i) => board.every(row => row[i].marked));
   return winnerRow || winnerCol;
 }
 
@@ -29,8 +29,8 @@ export function part1(input, win = true) {
         .map(n => ({ marked: false, number: +n })),
     ),
   );
-  for (const number of numbers) {
-    for (const board of boards) {
+  for (let number of numbers) {
+    for (let board of boards) {
       mark(board, number);
       if (winner(board)) {
         if (win || boards.length === 1) {

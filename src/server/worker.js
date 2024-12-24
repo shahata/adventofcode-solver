@@ -12,8 +12,8 @@ function cleanQuestion(s) {
 }
 
 async function downloadContent(url, session, postPayload) {
-  const headers = { Cookie: `session=${session}` };
-  const options = { headers };
+  let headers = { Cookie: `session=${session}` };
+  let options = { headers };
   if (postPayload) {
     Object.assign(options, {
       body: postPayload,
@@ -23,7 +23,7 @@ async function downloadContent(url, session, postPayload) {
       "content-type": "application/x-www-form-urlencoded",
     });
   }
-  const response = await fetch(url, options);
+  let response = await fetch(url, options);
   if (response.status >= 400) {
     throw new Error(
       [
@@ -36,24 +36,24 @@ async function downloadContent(url, session, postPayload) {
 }
 
 function getDayAnswer(year, day, session) {
-  const url = `https://adventofcode.com/${+year}/day/${+day}`;
+  let url = `https://adventofcode.com/${+year}/day/${+day}`;
   return downloadContent(url, session).then(cleanQuestion);
 }
 
 function getDayInput(year, day, session) {
-  const url = `https://adventofcode.com/${+year}/day/${+day}/input`;
+  let url = `https://adventofcode.com/${+year}/day/${+day}/input`;
   return downloadContent(url, session);
 }
 
 function submitDayAnswer(year, day, session, level, answer) {
-  const url = `https://adventofcode.com/${+year}/day/${+day}/answer`;
-  const postPayload = `level=${level}&answer=${encodeURIComponent(answer)}`;
+  let url = `https://adventofcode.com/${+year}/day/${+day}/answer`;
+  let postPayload = `level=${level}&answer=${encodeURIComponent(answer)}`;
   return downloadContent(url, session, postPayload).then(cleanAnswer);
 }
 
 async function respond(promise) {
   try {
-    const body = await promise;
+    let body = await promise;
     return new Response(
       typeof body === "string" ? body : JSON.stringify(body),
       {
@@ -72,22 +72,22 @@ async function respond(promise) {
 export default {
   async fetch(req) {
     let match;
-    const session = new URL(req.url).searchParams.get("session");
+    let session = new URL(req.url).searchParams.get("session");
     match = new URLPattern({ pathname: "/input/:year/:day" }).exec(req.url);
     if (req.method === "GET" && match) {
-      const { year, day } = match.pathname.groups;
+      let { year, day } = match.pathname.groups;
       return respond(getDayInput(year, day, session));
     }
     match = new URLPattern({ pathname: "/answer/:year/:day" }).exec(req.url);
     if (req.method === "GET" && match) {
-      const { year, day } = match.pathname.groups;
+      let { year, day } = match.pathname.groups;
       return respond(getDayAnswer(year, day, session));
     }
     if (req.method === "POST" && match) {
-      const { year, day } = match.pathname.groups;
-      const formData = await req.formData();
-      const level = formData.get("level");
-      const answer = formData.get("answer");
+      let { year, day } = match.pathname.groups;
+      let formData = await req.formData();
+      let level = formData.get("level");
+      let answer = formData.get("answer");
       return respond(submitDayAnswer(year, day, session, level, answer));
     }
     return new Response("Not found", { status: 404 });

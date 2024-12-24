@@ -1,6 +1,6 @@
 let cache = {};
-const pos = ({ x, y }) => `${x},${y}`;
-const terrain = (point, depth) => erosion(point, depth) % 3;
+let pos = ({ x, y }) => `${x},${y}`;
+let terrain = (point, depth) => erosion(point, depth) % 3;
 
 function erosion({ x, y }, depth) {
   let geo;
@@ -13,12 +13,12 @@ function erosion({ x, y }, depth) {
 }
 
 function parse(input) {
-  const [depth, x, y] = input.match(/\d+/g).map(Number);
+  let [depth, x, y] = input.match(/\d+/g).map(Number);
   return { depth, target: { x, y } };
 }
 
 export function part1(input) {
-  const { depth, target } = parse(input);
+  let { depth, target } = parse(input);
   let risk = 0;
   cache = { [pos(target)]: 0 };
   for (let x = 0; x <= target.x; x++) {
@@ -30,18 +30,18 @@ export function part1(input) {
 }
 
 function neighbors({ point, equip, time }, depth, target) {
-  const options = [];
-  const current = terrain(point, depth);
-  const add = (p, e) =>
+  let options = [];
+  let current = terrain(point, depth);
+  let add = (p, e) =>
     options.push({ point: p, equip: e, time: time + (e === equip ? 1 : 8) });
-  const points = [
+  let points = [
     { x: point.x - 1, y: point.y + 0 },
     { x: point.x + 1, y: point.y + 0 },
     { x: point.x + 0, y: point.y - 1 },
     { x: point.x + 0, y: point.y + 1 },
   ].filter(p => p.x >= 0 && p.y >= 0);
   points.forEach(point => {
-    const next = terrain(point, depth);
+    let next = terrain(point, depth);
     if (point.x === target.x && point.y === target.y) {
       if (current !== 1 || equip === "gear") add(point, "torch");
       //neither -> gear -> walk -> torch (7 + 1 + 7 = 15)
@@ -61,19 +61,19 @@ function neighbors({ point, equip, time }, depth, target) {
 }
 
 export function part2(input) {
-  const { depth, target } = parse(input);
-  const visited = new Map();
-  const queue = [{ point: { x: 0, y: 0 }, equip: "torch", time: 0 }];
-  const score = a =>
+  let { depth, target } = parse(input);
+  let visited = new Map();
+  let queue = [{ point: { x: 0, y: 0 }, equip: "torch", time: 0 }];
+  let score = a =>
     a.time + Math.abs(a.point.x - target.x) + Math.abs(a.point.y - target.y);
   cache = { [pos(target)]: 0 };
   while (queue.length > 0) {
-    const n = queue.shift();
+    let n = queue.shift();
     if (n.point.x === target.x && n.point.y === target.y) {
       return n.time;
     }
     neighbors(n, depth, target).forEach(o => {
-      const v = visited.get(`${o.point.x},${o.point.y},${o.equip}`);
+      let v = visited.get(`${o.point.x},${o.point.y},${o.equip}`);
       if (!v || o.time < v.time) {
         if (v) queue.splice(queue.indexOf(v), 1);
         visited.set(`${o.point.x},${o.point.y},${o.equip}`, o);

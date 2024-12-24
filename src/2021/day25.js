@@ -7,7 +7,7 @@ export function part1(input) {
     sea.forEach((line, y) => {
       line.forEach((c, x) => {
         if (c === ">") {
-          const n = (x + 1) % line.length;
+          let n = (x + 1) % line.length;
           if (sea[y][n] === ".") {
             next[y][n] = c;
           } else {
@@ -19,7 +19,7 @@ export function part1(input) {
     sea.forEach((line, y) => {
       line.forEach((c, x) => {
         if (c === "v") {
-          const n = (y + 1) % sea.length;
+          let n = (y + 1) % sea.length;
           if (sea[n][x] !== c && next[n][x] === ".") {
             next[n][x] = c;
           } else {

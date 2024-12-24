@@ -3,7 +3,7 @@ function check(a, b) {
     if (Number.isInteger(a[i]) && Number.isInteger(b[i])) {
       if (a[i] !== b[i]) return a[i] - b[i];
     } else {
-      const result = check(
+      let result = check(
         Number.isInteger(a[i]) ? [a[i]] : a[i],
         Number.isInteger(b[i]) ? [b[i]] : b[i],
       );
@@ -22,8 +22,8 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const divider = [[[2]], [[6]]];
-  const list = input
+  let divider = [[[2]], [[6]]];
+  let list = input
     .replaceAll("\n\n", "\n")
     .split("\n")
     .map(x => JSON.parse(x))

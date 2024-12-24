@@ -6,8 +6,8 @@ import { fileURLToPath } from "node:url";
 import { dayName } from "./day-name.js";
 
 async function downloadRequest(url, postPayload) {
-  const headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
-  const options = { headers };
+  let headers = { Cookie: `session=${process.env.ADVENT_SESSION}` };
+  let options = { headers };
   if (postPayload) {
     Object.assign(options, {
       body: postPayload,
@@ -17,7 +17,7 @@ async function downloadRequest(url, postPayload) {
       "content-type": "application/x-www-form-urlencoded",
     });
   }
-  const response = await fetch(url, options);
+  let response = await fetch(url, options);
   if (response.status >= 400) {
     throw new Error(
       [
@@ -30,15 +30,15 @@ async function downloadRequest(url, postPayload) {
 }
 
 async function downloadContent(url, postPayload) {
-  const response = await downloadRequest(url, postPayload);
+  let response = await downloadRequest(url, postPayload);
   return await response.text();
 }
 
 export async function downloadStatic(url) {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const src = path.resolve(__dirname, "..", "..", "static");
-  const fileName = path.join(src, url.split("/").pop());
-  const response = await downloadRequest(url);
+  let __dirname = path.dirname(fileURLToPath(import.meta.url));
+  let src = path.resolve(__dirname, "..", "..", "static");
+  let fileName = path.join(src, url.split("/").pop());
+  let response = await downloadRequest(url);
   if (response.headers.get("Content-Type") === "image/png") {
     writeFileSync(fileName, Buffer.from(await response.arrayBuffer()));
   } else {
@@ -47,13 +47,13 @@ export async function downloadStatic(url) {
 }
 
 export async function getDayInput(year, day) {
-  const url = `https://adventofcode.com/${year}/day/${day}/input`;
+  let url = `https://adventofcode.com/${year}/day/${day}/input`;
   return await downloadContent(url);
 }
 
 export async function getYearPage(year) {
-  const text = await downloadContent(`https://adventofcode.com/${year}`);
-  const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
+  let text = await downloadContent(`https://adventofcode.com/${year}`);
+  let page = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return page.replace(
     /href="\/\d+\/day\/(\d+)"/g,
     (full, num) =>
@@ -62,18 +62,18 @@ export async function getYearPage(year) {
 }
 
 export async function getEventsPage(year) {
-  const text = await downloadContent(`https://adventofcode.com/${year}/events`);
-  const page = text.match(/<main>([^]*)<\/main>/)[1].trim();
+  let text = await downloadContent(`https://adventofcode.com/${year}/events`);
+  let page = text.match(/<main>([^]*)<\/main>/)[1].trim();
   return page
     .replace(/href="[^"]*">\[(\d+)\]/g, 'href="../$1/solver.html">[$1]')
     .replace(/href="\/\d+\/support"/g, "");
 }
 
 export async function getLeaderboardJsons(year) {
-  const url = `https://adventofcode.com/${year}/leaderboard/private`;
-  const text = await downloadContent(url);
-  const jsons = [];
-  for (const [, id] of text.matchAll(/\/leaderboard\/private\/view\/(\d+)/g)) {
+  let url = `https://adventofcode.com/${year}/leaderboard/private`;
+  let text = await downloadContent(url);
+  let jsons = [];
+  for (let [, id] of text.matchAll(/\/leaderboard\/private\/view\/(\d+)/g)) {
     jsons.push(
       JSON.parse(
         await downloadContent(

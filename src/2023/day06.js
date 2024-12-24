@@ -18,8 +18,8 @@ export function part1(input) {
   let [time, distance] = input.split("\n");
   time = time.split(/\s+/).slice(1).map(Number);
   distance = distance.split(/\s+/).slice(1).map(Number);
-  const races = time.map((time, i) => ({ time, distance: distance[i] }));
-  const options = races.map(({ time, distance }) => solve(time, distance));
+  let races = time.map((time, i) => ({ time, distance: distance[i] }));
+  let options = races.map(({ time, distance }) => solve(time, distance));
   return options.reduce((a, b) => a * b, 1);
 }
 

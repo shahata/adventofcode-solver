@@ -1,6 +1,6 @@
 function value(arr, part1 = false) {
-  const [childCount, metaCount] = arr.splice(0, 2);
-  const children = new Array(childCount).fill().map(() => value(arr, part1));
+  let [childCount, metaCount] = arr.splice(0, 2);
+  let children = new Array(childCount).fill().map(() => value(arr, part1));
   let result = arr.splice(0, metaCount);
   if (part1) {
     result = result.concat(children);

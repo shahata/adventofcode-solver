@@ -1,4 +1,4 @@
-const ops = {
+let ops = {
   cpy: (src, register) => state =>
     (state[register] = state[src] === undefined ? +src : state[src]),
   inc: register => state => state[register]++,
@@ -16,8 +16,8 @@ const ops = {
 };
 
 function toReducer(str) {
-  const params = str.split(/\s+/);
-  const cmd = ops[params.shift()](...params);
+  let params = str.split(/\s+/);
+  let cmd = ops[params.shift()](...params);
   return state => {
     cmd(state);
     state.index++;
@@ -32,7 +32,7 @@ function run(commands, state) {
 }
 
 export function part1(input) {
-  const commands = input.split("\n").map(toReducer);
+  let commands = input.split("\n").map(toReducer);
   let a = 0;
   while (
     run(commands, { a, b: 0, c: 0, d: 0, index: 0, out: "" }).out !==

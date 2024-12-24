@@ -6,19 +6,19 @@ export function part1(input) {
     .filter(x => x !== "x")
     .map(Number);
 
-  const next = buses.map(x => {
+  let next = buses.map(x => {
     let result = 0;
     while (result < timestamp) {
       result += x;
     }
     return result;
   });
-  const time = Math.min(...next);
+  let time = Math.min(...next);
   return (time - timestamp) * buses[next.indexOf(time)];
 }
 
 export function part2(input) {
-  const buses = input
+  let buses = input
     .split("\n")
     .pop()
     .split(",")

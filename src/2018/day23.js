@@ -10,21 +10,21 @@ function distance(a, b = { x: 0, y: 0, z: 0 }) {
 }
 
 export function part1(input) {
-  const bots = parse(input);
-  const strong = bots.sort((a, b) => b.r - a.r)[0];
-  const inRange = bots.filter(a => distance(a, strong) <= strong.r);
+  let bots = parse(input);
+  let strong = bots.sort((a, b) => b.r - a.r)[0];
+  let inRange = bots.filter(a => distance(a, strong) <= strong.r);
   return inRange.length;
 }
 
 export function part2(input) {
-  const bots = parse(input);
-  const minX = Math.min(...bots.map(b => b.x), 0);
-  const maxX = Math.max(...bots.map(b => b.x), 0);
-  const minY = Math.min(...bots.map(b => b.y), 0);
-  const maxY = Math.max(...bots.map(b => b.y), 0);
-  const minZ = Math.min(...bots.map(b => b.z), 0);
-  const maxZ = Math.max(...bots.map(b => b.z), 0);
-  const maxCoordinate = Math.max(
+  let bots = parse(input);
+  let minX = Math.min(...bots.map(b => b.x), 0);
+  let maxX = Math.max(...bots.map(b => b.x), 0);
+  let minY = Math.min(...bots.map(b => b.y), 0);
+  let maxY = Math.max(...bots.map(b => b.y), 0);
+  let minZ = Math.min(...bots.map(b => b.z), 0);
+  let maxZ = Math.max(...bots.map(b => b.z), 0);
+  let maxCoordinate = Math.max(
     ...[minX, maxX, minY, maxY, minZ, maxZ].map(Math.abs),
   );
 
@@ -33,7 +33,7 @@ export function part2(input) {
     searchDistance *= 2;
   }
 
-  const queue = [
+  let queue = [
     {
       numBots: bots.length,
       searchSize: 2 * searchDistance,
@@ -44,27 +44,27 @@ export function part2(input) {
     },
   ];
 
-  const deltas = [];
-  for (const x of [0, 1]) {
-    for (const y of [0, 1]) {
-      for (const z of [0, 1]) {
+  let deltas = [];
+  for (let x of [0, 1]) {
+    for (let y of [0, 1]) {
+      for (let z of [0, 1]) {
         deltas.push({ x, y, z });
       }
     }
   }
 
   while (queue.length > 0) {
-    const current = queue.shift();
-    const newSize = current.searchSize / 2;
+    let current = queue.shift();
+    let newSize = current.searchSize / 2;
     if (current.searchSize === 1) return current.distance;
-    for (const delta of deltas) {
-      const minX = current.minX + newSize * delta.x;
-      const minY = current.minY + newSize * delta.y;
-      const minZ = current.minZ + newSize * delta.z;
-      const maxX = minX + newSize - 1;
-      const maxY = minY + newSize - 1;
-      const maxZ = minZ + newSize - 1;
-      const numBots = bots.filter(bot => {
+    for (let delta of deltas) {
+      let minX = current.minX + newSize * delta.x;
+      let minY = current.minY + newSize * delta.y;
+      let minZ = current.minZ + newSize * delta.z;
+      let maxX = minX + newSize - 1;
+      let maxY = minY + newSize - 1;
+      let maxZ = minZ + newSize - 1;
+      let numBots = bots.filter(bot => {
         let distance = 0;
         if (bot.x < minX) distance += minX - bot.x;
         else if (bot.x > maxX) distance += bot.x - maxX;

@@ -5,7 +5,7 @@
 // k inc 303 if k > -8
 
 function parse(input) {
-  const dic = {
+  let dic = {
     "inc": (a, b) => a + b,
     "dec": (a, b) => a - b,
     ">": (a, b) => a > b,
@@ -16,7 +16,7 @@ function parse(input) {
     "!=": (a, b) => a !== b,
   };
   return input.split("\n").map(x => {
-    const [variable, operator, param, , compVariable, compOperator, compParam] =
+    let [variable, operator, param, , compVariable, compOperator, compParam] =
       x.split(/\s+/);
     return state => {
       state[variable] = state[variable] || 0;
@@ -34,7 +34,7 @@ function execute(commands) {
 }
 
 function executeMax(commands) {
-  const state = {};
+  let state = {};
   return commands.map(cmd => max(cmd(state)));
 }
 

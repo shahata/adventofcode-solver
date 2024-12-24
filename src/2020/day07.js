@@ -6,7 +6,7 @@ function parse(input) {
     content = content
       .filter(x => x !== "no other")
       .map(x => {
-        const [, count, color] = x.match(/^(\d+) (.*)$/);
+        let [, count, color] = x.match(/^(\d+) (.*)$/);
         return { color, count: +count };
       });
     return { color, content };
@@ -22,8 +22,8 @@ function walk1(graph, color, total = []) {
 }
 
 export function part1(input) {
-  const bags = parse(input);
-  const graph = {};
+  let bags = parse(input);
+  let graph = {};
   bags.forEach(bag => {
     bag.content.forEach(({ color }) => {
       graph[color] = (graph[color] || []).concat(bag.color);
@@ -39,8 +39,8 @@ function walk2(graph, color) {
 }
 
 export function part2(input) {
-  const bags = parse(input);
-  const graph = {};
+  let bags = parse(input);
+  let graph = {};
   bags.forEach(bag => (graph[bag.color] = bag.content));
   return walk2(graph, "shiny gold") - 1;
 }

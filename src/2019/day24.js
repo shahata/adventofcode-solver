@@ -8,9 +8,9 @@ function getBugs(life, x, y) {
 }
 
 function getBugs2(lifez, x, y, z) {
-  const up = lifez[z - 1];
-  const down = lifez[z + 1];
-  const result = [];
+  let up = lifez[z - 1];
+  let down = lifez[z + 1];
+  let result = [];
   if (x === 2 && y === 2) return 0;
   if (up) {
     if (x === 0) result.push(up[2][1]);
@@ -38,7 +38,7 @@ function calc(c, bugs) {
 
 export function part1(input) {
   let life = input.split("\n").map(line => line.split(""));
-  const memo = new Set();
+  let memo = new Set();
 
   while (!memo.has(life.map(line => line.join("")).join(""))) {
     memo.add(life.map(line => line.join("")).join(""));
@@ -47,13 +47,13 @@ export function part1(input) {
     );
   }
 
-  const chars = life.reduce((prev, line) => prev.concat(line), []);
-  const ratings = chars.map((x, i) => (x === "." ? 0 : 2 ** i));
+  let chars = life.reduce((prev, line) => prev.concat(line), []);
+  let ratings = chars.map((x, i) => (x === "." ? 0 : 2 ** i));
   return ratings.reduce((a, b) => a + b);
 }
 
 export function part2(input, minutes = 200) {
-  const level = input.split("\n").map(line => line.split(""));
+  let level = input.split("\n").map(line => line.split(""));
   let lifez = new Array(Math.ceil(minutes * 2.5)).fill().map(() => {
     return new Array(5).fill().map(() => new Array(5).fill("."));
   });
@@ -67,7 +67,7 @@ export function part2(input, minutes = 200) {
     );
   }
 
-  const lines = lifez.reduce((prev, life) => prev.concat(life), []);
-  const chars = lines.reduce((prev, line) => prev.concat(line), []);
+  let lines = lifez.reduce((prev, life) => prev.concat(life), []);
+  let chars = lines.reduce((prev, line) => prev.concat(line), []);
   return chars.filter(c => c === "#").length;
 }

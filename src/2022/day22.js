@@ -6,9 +6,9 @@ function calcHeading(direction) {
 }
 
 function wrapLogic1(maze, pos) {
-  const heading = calcHeading(pos.direction);
-  const opposite = { x: heading.x * -1, y: heading.y * -1 };
-  const wrap = { ...pos };
+  let heading = calcHeading(pos.direction);
+  let opposite = { x: heading.x * -1, y: heading.y * -1 };
+  let wrap = { ...pos };
   while (
     maze[wrap.y + opposite.y]?.[wrap.x + opposite.x] === "." ||
     maze[wrap.y + opposite.y]?.[wrap.x + opposite.x] === "#"
@@ -21,12 +21,12 @@ function wrapLogic1(maze, pos) {
 
 function wrapLogic2(squares, width) {
   return (maze, pos) => {
-    const offset = { x: pos.x % width, y: pos.y % width };
-    const mirror = { x: width - offset.x - 1, y: width - offset.y - 1 };
-    const [i, direction] = squares.find(
+    let offset = { x: pos.x % width, y: pos.y % width };
+    let mirror = { x: width - offset.x - 1, y: width - offset.y - 1 };
+    let [i, direction] = squares.find(
       square => square.x === pos.x - offset.x && square.y === pos.y - offset.y,
     ).wrap[pos.direction];
-    const pair = [pos.direction, direction].sort().join("");
+    let pair = [pos.direction, direction].sort().join("");
     let next;
     if (["02", "11", "33"].includes(pair)) next = { x: offset.x, y: mirror.y };
     if (["00", "13", "22"].includes(pair)) next = { x: mirror.x, y: offset.y };
@@ -38,7 +38,7 @@ function wrapLogic2(squares, width) {
 
 function walk(maze, pos, steps, wrapLogic) {
   for (; steps > 0; steps--) {
-    const heading = calcHeading(pos.direction);
+    let heading = calcHeading(pos.direction);
     let next = { ...pos };
     next.x += heading.x;
     next.y += heading.y;
@@ -58,7 +58,7 @@ export function part1(input, wrapLogic = wrapLogic1) {
   directions = directions.replace(/(R|L)/g, ",$1,").split(",");
   while (maze[pos.y][pos.x] !== ".") pos.x++;
   while (directions.length > 0) {
-    const next = directions.shift();
+    let next = directions.shift();
     if (next === "R") pos.direction = (pos.direction + 1) % 4;
     if (next === "L") pos.direction = (4 + pos.direction - 1) % 4;
     if (Number.isInteger(+next)) pos = walk(maze, pos, +next, wrapLogic);
@@ -68,7 +68,7 @@ export function part1(input, wrapLogic = wrapLogic1) {
 
 export function part2(input) {
   if (input.length > 200) {
-    const squares = [
+    let squares = [
       { x: 50, y: 0, wrap: [null, null, [4, 0], [5, 0]] },
       { x: 100, y: 0, wrap: [[3, 2], [2, 2], null, [5, 3]] },
       { x: 50, y: 50, wrap: [[1, 3], null, [4, 1], null] },
@@ -78,7 +78,7 @@ export function part2(input) {
     ];
     return part1(input, wrapLogic2(squares, 50));
   } else {
-    const squares = [
+    let squares = [
       { x: 8, y: 0, wrap: [[5, 2], null, [2, 1], [1, 1]] },
       { x: 0, y: 4, wrap: [null, [4, 3], [5, 3], [0, 1]] },
       { x: 4, y: 4, wrap: [null, [4, 0], null, [0, 0]] },

@@ -1,6 +1,6 @@
 export function part1(input, len = 4) {
   for (let i = 0; i < input.length; i++) {
-    const slice = input.slice(i, i + len);
+    let slice = input.slice(i, i + len);
     if (new Set(slice.split("")).size === len) {
       return i + len;
     }

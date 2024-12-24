@@ -8,8 +8,8 @@ function check(input, { x, y }) {
     return current % 2 === 1 ? x : y;
   }
 
-  const user = { input: read, output: x => (output = x), base: 0 };
-  const ops = input.split(",").map(Number);
+  let user = { input: read, output: x => (output = x), base: 0 };
+  let ops = input.split(",").map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {
@@ -37,7 +37,7 @@ export function part2(input) {
       point.x++;
     }
 
-    const next = { x: point.x, y: point.y + 1 };
+    let next = { x: point.x, y: point.y + 1 };
     while (check(input, point)) {
       point.x++;
     }

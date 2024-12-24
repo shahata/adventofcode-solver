@@ -1,5 +1,5 @@
 function parse(input) {
-  const groups = [];
+  let groups = [];
   let army;
   input.split("\n").forEach(line => {
     if (line === "Immune System:") {
@@ -7,10 +7,10 @@ function parse(input) {
     } else if (line === "Infection:") {
       army = "Infection";
     } else if (line.length > 0) {
-      const [, units, hit, properties, attack, type, initiative] = line.match(
+      let [, units, hit, properties, attack, type, initiative] = line.match(
         /^(\d+) units each with (\d+) hit points(?: \(([^)]+)\))? with an attack that does (\d+) ([^\s]+) damage at initiative (\d+)$/,
       );
-      const group = {
+      let group = {
         army,
         units: +units,
         hit: +hit,
@@ -22,7 +22,7 @@ function parse(input) {
       };
       if (properties) {
         properties.split("; ").forEach(property => {
-          const [type, kinds] = property.split(" to ");
+          let [type, kinds] = property.split(" to ");
           group[type].push(...kinds.split(", "));
         });
       }
@@ -49,10 +49,10 @@ function damage(attacking, defending) {
 function battle(groups) {
   while (groups.some(group => group.army !== groups[0].army)) {
     groups.sort(effectiveSort);
-    const options = groups.slice(0);
-    const fight = [];
+    let options = groups.slice(0);
+    let fight = [];
     groups.forEach(attacking => {
-      const selected = options
+      let selected = options
         .filter(option => option.army !== attacking.army)
         .map(option => ({ option, damage: damage(attacking, option) }))
         .sort(
@@ -60,7 +60,7 @@ function battle(groups) {
         )
         .shift();
       if (selected && selected.damage > 0) {
-        const defending = selected.option;
+        let defending = selected.option;
         options.splice(options.indexOf(defending), 1);
         fight.push({ attacking, defending });
       }
@@ -69,7 +69,7 @@ function battle(groups) {
     let totalKilled = 0;
     fight.forEach(({ attacking, defending }) => {
       if (attacking.units > 0) {
-        const killed = Math.floor(damage(attacking, defending) / defending.hit);
+        let killed = Math.floor(damage(attacking, defending) / defending.hit);
         defending.units -= killed;
         totalKilled += killed;
         if (defending.units <= 0) {
@@ -85,19 +85,19 @@ function battle(groups) {
 }
 
 export function part1(input) {
-  const groups = parse(input);
+  let groups = parse(input);
   return battle(groups).reduce((sum, group) => sum + group.units, 0);
 }
 
 function attempt(input, i) {
-  const groups = parse(input);
-  const boost = groups.map(g => {
+  let groups = parse(input);
+  let boost = groups.map(g => {
     if (g.army === "Immune System") {
       g.attack += i;
     }
     return g;
   });
-  const result = battle(boost);
+  let result = battle(boost);
   return (
     result &&
     result[0].army === "Immune System" &&
@@ -115,7 +115,7 @@ function binarySearch(cb) {
     start -= increment;
     increment /= 2;
   }
-  const end = start + increment * 2;
+  let end = start + increment * 2;
   for (let i = start; i <= end; i++) {
     if (cb(i)) {
       return cb(i);

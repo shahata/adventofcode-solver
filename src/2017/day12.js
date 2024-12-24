@@ -1,6 +1,6 @@
 function parse(input) {
   return input.split("\n").reduce((obj, line) => {
-    const [key, neighbors] = line.split(" <-> ");
+    let [key, neighbors] = line.split(" <-> ");
     return { ...obj, [key]: neighbors.split(", ") };
   }, {});
 }
@@ -15,7 +15,7 @@ function count(graph, key, visited = new Set()) {
 
 function countGroups(graph) {
   let groups = 0;
-  const visited = new Set();
+  let visited = new Set();
   Object.keys(graph).forEach(x => {
     if (!visited.has(x)) {
       groups++;

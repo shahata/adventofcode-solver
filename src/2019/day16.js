@@ -1,6 +1,6 @@
 function fft(digits) {
-  const pattern = [0, 1, 0, -1];
-  const result = [];
+  let pattern = [0, 1, 0, -1];
+  let result = [];
   for (let i = 0; i < digits.length; i++) {
     let calc = 0;
     for (let j = 0; j < digits.length; j++) {
@@ -12,9 +12,9 @@ function fft(digits) {
 }
 
 function fft2(digits) {
-  const result = new Array(digits.length);
+  let result = new Array(digits.length);
   for (let i = digits.length - 1; i >= 0; i--) {
-    const prev = result[i + 1] || 0;
+    let prev = result[i + 1] || 0;
     result[i] = Math.abs(prev + digits[i]) % 10;
   }
   return result;

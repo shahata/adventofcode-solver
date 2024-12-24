@@ -1,4 +1,4 @@
-const dic = {
+let dic = {
   "|": ["UP", "DOWN"],
   "-": ["LEFT", "RIGHT"],
   "L": ["UP", "RIGHT"],
@@ -8,7 +8,7 @@ const dic = {
 };
 
 function start(map, { UP, DOWN, LEFT, RIGHT }) {
-  const S = [];
+  let S = [];
   if ("|7F".includes(map[UP.y]?.[UP.x])) S.push("UP");
   if ("|LJ".includes(map[DOWN.y]?.[DOWN.x])) S.push("DOWN");
   if ("-LF".includes(map[LEFT.y]?.[LEFT.x])) S.push("LEFT");
@@ -17,15 +17,15 @@ function start(map, { UP, DOWN, LEFT, RIGHT }) {
 }
 
 function solve(input) {
-  const map = input.split("\n").map(line => line.split(""));
-  const y = map.findIndex(line => line.includes("S"));
-  const x = map[y].findIndex(c => c === "S");
-  const queue = [{ x, y, steps: 0 }];
-  const visited = new Set([`${x},${y}`]);
+  let map = input.split("\n").map(line => line.split(""));
+  let y = map.findIndex(line => line.includes("S"));
+  let x = map[y].findIndex(c => c === "S");
+  let queue = [{ x, y, steps: 0 }];
+  let visited = new Set([`${x},${y}`]);
   let max = 0;
   while (queue.length > 0) {
-    const current = queue.shift();
-    const neighbors = {
+    let current = queue.shift();
+    let neighbors = {
       UP: { x: current.x, y: current.y - 1, steps: current.steps + 1 },
       DOWN: { x: current.x, y: current.y + 1, steps: current.steps + 1 },
       LEFT: { x: current.x - 1, y: current.y, steps: current.steps + 1 },
@@ -44,13 +44,13 @@ function solve(input) {
 }
 
 function zoomin(map) {
-  const big = [];
+  let big = [];
   for (let yi = 0; yi < map.length; yi++) {
-    const line1 = [];
-    const line2 = [];
-    const line3 = [];
+    let line1 = [];
+    let line2 = [];
+    let line3 = [];
     for (let xi = 0; xi < map[yi].length; xi++) {
-      const [UP, DOWN, LEFT, RIGHT] = ["UP", "DOWN", "LEFT", "RIGHT"].map(x =>
+      let [UP, DOWN, LEFT, RIGHT] = ["UP", "DOWN", "LEFT", "RIGHT"].map(x =>
         (dic[map[yi][xi]] || []).includes(x) ? "#" : ".",
       );
       line1.push(".", UP, ".");
@@ -63,9 +63,9 @@ function zoomin(map) {
 }
 
 function zoomout(map) {
-  const small = [];
+  let small = [];
   for (let y = 0; y < map.length; y += 3) {
-    const line = [];
+    let line = [];
     for (let x = 0; x < map[y].length; x += 3) line.push(map[y + 1][x + 1]);
     small.push(line);
   }
@@ -73,18 +73,18 @@ function zoomout(map) {
 }
 
 function flood(map, x, y) {
-  const visited = new Set([`${x},${y}`]);
-  const queue = [{ x, y }];
+  let visited = new Set([`${x},${y}`]);
+  let queue = [{ x, y }];
   let trapped = true;
   while (queue.length > 0) {
-    const current = queue.shift();
-    const neighbors = [
+    let current = queue.shift();
+    let neighbors = [
       { x: current.x, y: current.y - 1 },
       { x: current.x, y: current.y + 1 },
       { x: current.x - 1, y: current.y },
       { x: current.x + 1, y: current.y },
     ];
-    const next = neighbors.filter(({ x, y }) => {
+    let next = neighbors.filter(({ x, y }) => {
       if (!map[y] || !map[y][x]) trapped = false;
       return map[y]?.[x] === "." && !visited.has(`${x},${y}`);
     });
@@ -99,7 +99,7 @@ function flood(map, x, y) {
 }
 
 export function part1(input) {
-  const { max } = solve(input);
+  let { max } = solve(input);
   return max;
 }
 
@@ -108,12 +108,12 @@ export function part2(input) {
   map = map.map((line, y) => {
     return line.map((c, x) => (visited.has(`${x},${y}`) ? c : "."));
   });
-  const big = zoomin(map);
+  let big = zoomin(map);
   for (let y = 0; y < big.length; y++) {
     for (let x = 0; x < big[y].length; x++) {
       if (big[y][x] === ".") flood(big, x, y);
     }
   }
-  const small = zoomout(big);
+  let small = zoomout(big);
   return small.flat().filter(c => c === "I").length;
 }

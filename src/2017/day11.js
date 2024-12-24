@@ -1,5 +1,5 @@
 function step({ x, y }, direction) {
-  const directions = {
+  let directions = {
     s: { x: x + 0, y: y - 2 },
     n: { x: x + 0, y: y + 2 },
     w: { x: x - 2, y: y + 0 },
@@ -29,8 +29,8 @@ function parse2(input) {
 }
 
 function distance({ x, y }) {
-  const diagonal = Math.min(Math.abs(x), Math.abs(y));
-  const straight = (Math.max(Math.abs(x), Math.abs(y)) - diagonal) / 2;
+  let diagonal = Math.min(Math.abs(x), Math.abs(y));
+  let straight = (Math.max(Math.abs(x), Math.abs(y)) - diagonal) / 2;
   return diagonal + straight;
 }
 

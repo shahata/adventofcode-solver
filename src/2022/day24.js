@@ -1,5 +1,5 @@
 function getNeighbors(maps, { x, y, steps }) {
-  const map = maps[(steps + 1) % maps.length];
+  let map = maps[(steps + 1) % maps.length];
   return [
     { x: x - 1, y, steps: steps + 1 },
     { x: x + 1, y, steps: steps + 1 },
@@ -10,13 +10,13 @@ function getNeighbors(maps, { x, y, steps }) {
 }
 
 function makeTrip(maps, start, end, steps = 0) {
-  const queue = [{ ...start, steps }];
-  const visited = new Set();
+  let queue = [{ ...start, steps }];
+  let visited = new Set();
   while (queue.length > 0) {
-    const next = queue.shift();
+    let next = queue.shift();
     if (next.x === end.x && next.y === end.y) return next.steps;
-    for (const pos of getNeighbors(maps, next)) {
-      const hash = `${pos.x},${pos.y},${pos.steps % maps.length}`;
+    for (let pos of getNeighbors(maps, next)) {
+      let hash = `${pos.x},${pos.y},${pos.steps % maps.length}`;
       if (!visited.has(hash)) {
         visited.add(hash);
         queue.push(pos);
@@ -26,10 +26,10 @@ function makeTrip(maps, start, end, steps = 0) {
 }
 
 function nextMap(map, width, height) {
-  const next = new Map();
-  for (const key of map.keys()) {
-    const [x, y] = key.split(",").map(n => +n);
-    for (const thing of map.get(key)) {
+  let next = new Map();
+  for (let key of map.keys()) {
+    let [x, y] = key.split(",").map(n => +n);
+    for (let thing of map.get(key)) {
       let pos = key;
       if (thing === ">") pos = `${x === width - 2 ? 1 : x + 1},${y}`;
       if (thing === "<") pos = `${x === 1 ? width - 2 : x - 1},${y}`;
@@ -43,10 +43,10 @@ function nextMap(map, width, height) {
 
 function parse(input) {
   let map = new Map();
-  const width = input.split("\n")[0].length;
-  const height = input.split("\n").length;
-  const start = { x: 1, y: 0 };
-  const end = { x: width - 2, y: height - 1 };
+  let width = input.split("\n")[0].length;
+  let height = input.split("\n").length;
+  let start = { x: 1, y: 0 };
+  let end = { x: width - 2, y: height - 1 };
   input.split("\n").forEach((line, y) => {
     line.split("").forEach((cell, x) => {
       if (cell !== ".") {
@@ -57,12 +57,12 @@ function parse(input) {
   map.set(`${start.x},${start.y - 1}`, ["#"]);
   map.set(`${end.x},${end.y + 1}`, ["#"]);
 
-  const serialize = map => {
-    const serializeKey = key => `${key}:${map.get(key).join("")}`;
+  let serialize = map => {
+    let serializeKey = key => `${key}:${map.get(key).join("")}`;
     return Array.from(map.keys()).sort().map(serializeKey).join(",");
   };
-  const serialized = serialize(map);
-  const maps = [];
+  let serialized = serialize(map);
+  let maps = [];
   do {
     maps.push(map);
     map = nextMap(map, width, height);
@@ -71,12 +71,12 @@ function parse(input) {
 }
 
 export function part1(input) {
-  const { maps, start, end } = parse(input);
+  let { maps, start, end } = parse(input);
   return makeTrip(maps, start, end);
 }
 
 export function part2(input) {
-  const { maps, start, end } = parse(input);
+  let { maps, start, end } = parse(input);
   let steps = 0;
   steps = makeTrip(maps, start, end, steps);
   steps = makeTrip(maps, end, start, steps);

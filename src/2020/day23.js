@@ -1,16 +1,16 @@
 function play(cups, moves) {
-  const nextDestination = n => ((n - 2 + cups.length) % cups.length) + 1;
-  const { list, map } = linkList(cups);
+  let nextDestination = n => ((n - 2 + cups.length) % cups.length) + 1;
+  let { list, map } = linkList(cups);
   let current = list;
   for (let i = 0; i < moves; i++) {
-    const take = current.next;
+    let take = current.next;
     current.next = take.next.next.next;
     let destinationValue = nextDestination(current.value);
-    const takeValues = [take.value, take.next.value, take.next.next.value];
+    let takeValues = [take.value, take.next.value, take.next.next.value];
     while (takeValues.includes(destinationValue)) {
       destinationValue = nextDestination(destinationValue);
     }
-    const destination = map.get(destinationValue);
+    let destination = map.get(destinationValue);
     take.next.next.next = destination.next;
     destination.next = take;
     current = current.next;
@@ -21,7 +21,7 @@ function play(cups, moves) {
 function linkList(cups) {
   let list = {};
   let current = list;
-  const map = new Map();
+  let map = new Map();
   cups.forEach(n => {
     current.next = { value: n };
     current = current.next;
@@ -43,18 +43,18 @@ function print(list) {
 }
 
 export function part1(input, moves = 100) {
-  const cups = input.split("").map(Number);
-  const list = play(cups, moves);
+  let cups = input.split("").map(Number);
+  let list = play(cups, moves);
   return print(list).slice(1);
 }
 
 export function part2(input) {
-  const cups = input.split("").map(Number);
-  const arr = new Array(1000000)
+  let cups = input.split("").map(Number);
+  let arr = new Array(1000000)
     .fill(0)
     .map((x, i) => i + 1)
     .slice(cups.length);
 
-  const list = play(cups.concat(arr), 10000000);
+  let list = play(cups.concat(arr), 10000000);
   return list.next.value * list.next.next.value;
 }

@@ -1,6 +1,6 @@
 export function part1(input, count = 2020) {
-  const start = input.split(",").map(Number);
-  const map = new Map(start.map((x, i) => [x, i]));
+  let start = input.split(",").map(Number);
+  let map = new Map(start.map((x, i) => [x, i]));
 
   let curr;
   let next = 0;

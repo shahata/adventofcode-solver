@@ -1,10 +1,10 @@
 export function part1(input, getShape = (e, x) => x) {
-  const turns = input.split("\n").map(x => x.split(" "));
-  const value = { A: 1, B: 2, C: 3, X: 1, Y: 2, Z: 3 };
+  let turns = input.split("\n").map(x => x.split(" "));
+  let value = { A: 1, B: 2, C: 3, X: 1, Y: 2, Z: 3 };
   let score = 0;
   turns.forEach(([a, b]) => {
-    const shapeA = value[a];
-    const shapeB = getShape(shapeA, value[b]);
+    let shapeA = value[a];
+    let shapeB = getShape(shapeA, value[b]);
     if (shapeB - shapeA === 1 || shapeB - shapeA === -2) score += 6;
     else if (shapeA === shapeB) score += 3;
     score += shapeB;

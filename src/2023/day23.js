@@ -1,9 +1,9 @@
 function findTeleports(map) {
-  const teleports = {};
+  let teleports = {};
   for (let y = 0; y < map.length; y++) {
     for (let x = 0; x < map[0].length; x++) {
       if (map[y][x] === "#") continue;
-      const neighbors = getNeighbors(map, { x, y });
+      let neighbors = getNeighbors(map, { x, y });
       if (neighbors.length === 2) continue;
       neighbors.forEach(n => {
         let neighbors;
@@ -35,7 +35,7 @@ function getNeighbors(map, { x, y, steps = 0 }, visited = [], teleports = {}) {
   if (map[y][x] === "v") neighbors = [neighbors[2]];
   if (map[y][x] === "^") neighbors = [neighbors[3]];
   neighbors = neighbors.map(n => {
-    const { dest, steps } = teleports[`${n.x},${n.y}`] || {};
+    let { dest, steps } = teleports[`${n.x},${n.y}`] || {};
     return dest ? { ...dest, steps: n.steps + steps } : n;
   });
   return neighbors.filter(
@@ -48,23 +48,23 @@ function getNeighbors(map, { x, y, steps = 0 }, visited = [], teleports = {}) {
 
 function solve(map, teleports, start, end) {
   let best = 0;
-  const path = [];
-  const stack = [start];
+  let path = [];
+  let stack = [start];
   while (stack.length > 0) {
-    const next = stack.pop();
+    let next = stack.pop();
     path.splice(next.len, Infinity, `${next.x},${next.y}`);
     if (next.x === end.x && next.y === end.y) best = Math.max(best, next.steps);
-    const neighbors = getNeighbors(map, next, path, teleports);
+    let neighbors = getNeighbors(map, next, path, teleports);
     neighbors.forEach(n => stack.push({ ...n, len: path.length }));
   }
   return best;
 }
 
 export function part1(input) {
-  const map = input.split("\n").map(line => line.split(""));
-  const teleports = findTeleports(map);
-  const start = { x: 1, y: 0, steps: 0, len: 0 };
-  const end = { x: map.length - 2, y: map.length - 1 };
+  let map = input.split("\n").map(line => line.split(""));
+  let teleports = findTeleports(map);
+  let start = { x: 1, y: 0, steps: 0, len: 0 };
+  let end = { x: map.length - 2, y: map.length - 1 };
   return solve(map, teleports, start, end);
 }
 

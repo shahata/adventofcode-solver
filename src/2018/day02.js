@@ -1,6 +1,6 @@
 export function part1(input) {
-  const ids = input.split("\n");
-  const counts = { double: 0, triple: 0 };
+  let ids = input.split("\n");
+  let counts = { double: 0, triple: 0 };
   ids.forEach(id => {
     let s = id.split("").sort().join("");
     if (s.match(/([a-z])\1\1\1+/)) {
@@ -18,12 +18,12 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const ids = input.split("\n");
-  const memory = new Set();
-  for (const id of ids) {
-    const arr = id.split("");
+  let ids = input.split("\n");
+  let memory = new Set();
+  for (let id of ids) {
+    let arr = id.split("");
     for (let i = 0; i < arr.length; i++) {
-      const without = arr.map((x, index) => (index === i ? "*" : x)).join("");
+      let without = arr.map((x, index) => (index === i ? "*" : x)).join("");
       if (memory.has(without)) {
         return without.replace("*", "");
       } else {

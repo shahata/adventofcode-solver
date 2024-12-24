@@ -1,10 +1,10 @@
 export function part1(input) {
-  const players = input.split("\n").map(line => +line.split(": ")[1]);
-  const score = [0, 0];
+  let players = input.split("\n").map(line => +line.split(": ")[1]);
+  let score = [0, 0];
   let i = 1;
   let player = 0;
   while (score[0] < 1000 && score[1] < 1000) {
-    const x = i % 100;
+    let x = i % 100;
     players[player] += (3 * (x + 1)) % 10;
     if (players[player] > 10) players[player] -= 10;
     score[player] += players[player];
@@ -17,16 +17,16 @@ export function part1(input) {
 function play(currPlayer, prevPlayer, memory = new Map()) {
   if (prevPlayer.score >= 21) return [0, 1];
 
-  const key = JSON.stringify({ player1: currPlayer, player2: prevPlayer });
-  const result = memory.get(key);
+  let key = JSON.stringify({ player1: currPlayer, player2: prevPlayer });
+  let result = memory.get(key);
   if (result) return result;
 
-  const wins = [0, 0];
-  const odds = { 3: 1, 9: 1, 4: 3, 8: 3, 5: 6, 7: 6, 6: 7 };
-  for (const key in odds) {
+  let wins = [0, 0];
+  let odds = { 3: 1, 9: 1, 4: 3, 8: 3, 5: 6, 7: 6, 6: 7 };
+  for (let key in odds) {
     let position = currPlayer.position + +key;
     if (position > 10) position -= 10;
-    const next = play(
+    let next = play(
       prevPlayer,
       { position, score: currPlayer.score + position },
       memory,
@@ -40,7 +40,7 @@ function play(currPlayer, prevPlayer, memory = new Map()) {
 }
 
 export function part2(input) {
-  const players = input.split("\n").map(line => +line.split(": ")[1]);
-  const wins = play(...players.map(p => ({ position: p, score: 0 })));
+  let players = input.split("\n").map(line => +line.split(": ")[1]);
+  let wins = play(...players.map(p => ({ position: p, score: 0 })));
   return Math.max(...wins);
 }

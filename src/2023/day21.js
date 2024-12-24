@@ -1,5 +1,5 @@
 function solve(input, steps, infinite) {
-  const map = input.split("\n").map(line => line.split(""));
+  let map = input.split("\n").map(line => line.split(""));
   let start;
   for (let y = 0; y < map.length; y++) {
     for (let x = 0; x < map[0].length; x++) {
@@ -8,13 +8,13 @@ function solve(input, steps, infinite) {
       }
     }
   }
-  const t = [];
+  let t = [];
   let visited = new Map([[`${start.x},${start.y}`, start]]);
-  const max = steps > 5000 ? map.length * 2 + (steps % map.length) : steps;
+  let max = steps > 5000 ? map.length * 2 + (steps % map.length) : steps;
   for (let i = 1; i <= max; i++) {
-    const next = new Map();
-    for (const { x, y } of visited.values()) {
-      const neighbors = [
+    let next = new Map();
+    for (let { x, y } of visited.values()) {
+      let neighbors = [
         { x: x - 1, y },
         { x: x + 1, y },
         { x, y: y - 1 },
@@ -50,10 +50,10 @@ function solve(input, steps, infinite) {
   // 2. b = t[1] - t[0] - a
   // 1. c = t[0]
 
-  const a = (t[2] + t[0]) / 2 - t[1];
-  const b = t[1] - t[0] - a;
-  const c = t[0];
-  const x = Math.floor(steps / map.length);
+  let a = (t[2] + t[0]) / 2 - t[1];
+  let b = t[1] - t[0] - a;
+  let c = t[0];
+  let x = Math.floor(steps / map.length);
   return a * x * x + b * x + c;
 }
 

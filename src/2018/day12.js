@@ -1,5 +1,5 @@
 function trim(next) {
-  const prefix = next.state.match(/^\.*/).pop().length;
+  let prefix = next.state.match(/^\.*/).pop().length;
   next.start += prefix;
   next.state = next.state.replace(/^\.*/, "").replace(/\.*$/, "");
   return next;
@@ -32,7 +32,7 @@ function transform(current, transformations, memo, i) {
   }
   current.start -= 5;
   current.state = `.....${current.state}.....`;
-  const next = { start: current.start, state: ".." };
+  let next = { start: current.start, state: ".." };
   for (let i = 0; i < current.state.length - 5; i++) {
     if (transformations[current.state.slice(i, i + 5)] === "#") {
       next.state += "#";
@@ -44,19 +44,19 @@ function transform(current, transformations, memo, i) {
 }
 
 export function part1(input, generations = 20) {
-  const lines = input.split("\n");
-  const [, initialState] = lines.shift().match(/([#.]+)/);
-  const transformations = lines
+  let lines = input.split("\n");
+  let [, initialState] = lines.shift().match(/([#.]+)/);
+  let transformations = lines
     .slice(1)
     .map(x => x.split(" => "))
     .reduce((obj, [from, to]) => ({ ...obj, [from]: to }), {});
 
-  const memo = {};
+  let memo = {};
   let next = { start: 0, state: initialState };
   for (let i = 0; i < generations; i++) {
     next = transform(next, transformations, memo, i);
     if (next.loop) {
-      const { diff, size } = next.loop;
+      let { diff, size } = next.loop;
       next.start += diff * Math.floor((generations - i - 1) / size);
       i += Math.floor((generations - i - 1) / size) * size;
     }

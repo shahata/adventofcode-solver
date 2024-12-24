@@ -1,6 +1,6 @@
 function isOpen({ x, y }, magicNumber) {
-  const num = x * x + 3 * x + 2 * x * y + y + y * y + magicNumber;
-  const ones = num
+  let num = x * x + 3 * x + 2 * x * y + y + y * y + magicNumber;
+  let ones = num
     .toString(2)
     .split("")
     .filter(x => x === "1").length;
@@ -21,16 +21,16 @@ function cellId({ x, y }) {
 }
 
 function solveMaze(input, source, destination) {
-  const magicNumber = +input;
+  let magicNumber = +input;
   let queue = [source];
-  const maze = { [cellId(source)]: { distance: 0, open: true } };
+  let maze = { [cellId(source)]: { distance: 0, open: true } };
   while (queue.length) {
-    const next = queue.shift();
+    let next = queue.shift();
     if (next.x === destination.x && next.y === destination.y) {
       return maze;
     } else {
-      const neighbors = getNeighbors(next).filter(x => !maze[cellId(x)]);
-      const distance = maze[cellId(next)].distance + 1;
+      let neighbors = getNeighbors(next).filter(x => !maze[cellId(x)]);
+      let distance = maze[cellId(next)].distance + 1;
       neighbors.forEach(
         x => (maze[cellId(x)] = { distance, open: isOpen(x, magicNumber) }),
       );
@@ -40,11 +40,11 @@ function solveMaze(input, source, destination) {
 }
 
 export function part1(input, destination = { x: 31, y: 39 }) {
-  const maze = solveMaze(input, { x: 1, y: 1 }, destination);
+  let maze = solveMaze(input, { x: 1, y: 1 }, destination);
   return maze[cellId(destination)].distance;
 }
 
 export function part2(input, destination = { x: 31, y: 39 }) {
-  const maze = solveMaze(input, { x: 1, y: 1 }, destination);
+  let maze = solveMaze(input, { x: 1, y: 1 }, destination);
   return Object.values(maze).filter(x => x.distance <= 50 && x.open).length;
 }

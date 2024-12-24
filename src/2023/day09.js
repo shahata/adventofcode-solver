@@ -1,7 +1,7 @@
 function solve(input, fn) {
-  const sequences = input.split("\n").map(line => line.split(" ").map(Number));
-  const histories = sequences.map(sequence => {
-    const history = [sequence];
+  let sequences = input.split("\n").map(line => line.split(" ").map(Number));
+  let histories = sequences.map(sequence => {
+    let history = [sequence];
     let differences = sequence;
     while (differences.some(x => x !== 0)) {
       differences = differences.reduce(

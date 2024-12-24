@@ -10,7 +10,7 @@ export function getter(state, p) {
 }
 
 export function parse(input, ops2 = {}, debug = undefined) {
-  const ops = {
+  let ops = {
     snd: p1 => state => (state.sound = getter(state, p1)),
     set: (p1, p2) => state => (state[p1] = getter(state, p2)),
     add: (p1, p2) => state =>
@@ -29,9 +29,9 @@ export function parse(input, ops2 = {}, debug = undefined) {
   };
 
   return input.split("\n").map(str => {
-    const [cmd, p1Str, p2Str] = str.split(" ");
-    const p1 = p1Str.match(/^-?\d+$/) ? +p1Str : p1Str;
-    const p2 = p2Str && p2Str.match(/^-?\d+$/) ? +p2Str : p2Str;
+    let [cmd, p1Str, p2Str] = str.split(" ");
+    let p1 = p1Str.match(/^-?\d+$/) ? +p1Str : p1Str;
+    let p2 = p2Str && p2Str.match(/^-?\d+$/) ? +p2Str : p2Str;
     return state => (!debug || debug(cmd)) && ops[cmd](p1, p2)(state);
   });
 }
@@ -53,8 +53,8 @@ function parse2(input) {
 }
 
 export function part1(input) {
-  const commands = parse(input);
-  const state = { instruction: 0 };
+  let commands = parse(input);
+  let state = { instruction: 0 };
   while (state.instruction < commands.length && !state.recovered) {
     commands[state.instruction](state);
     state.instruction++;
@@ -77,9 +77,9 @@ function execute(commands, state) {
 }
 
 export function part2(input) {
-  const commands = parse2(input);
-  const state1 = { instruction: 0, queue: [], sent: 0, p: 0 };
-  const state2 = { instruction: 0, queue: [], sent: 0, p: 1 };
+  let commands = parse2(input);
+  let state1 = { instruction: 0, queue: [], sent: 0, p: 0 };
+  let state2 = { instruction: 0, queue: [], sent: 0, p: 1 };
   state1.send = state2.queue;
   state2.send = state1.queue;
 

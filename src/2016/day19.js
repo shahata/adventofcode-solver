@@ -14,7 +14,7 @@
 
 function solve1(count) {
   // https://www.youtube.com/watch?v=uCsD3ZGzMgE
-  const binary = count.toString(2);
+  let binary = count.toString(2);
   return parseInt(binary.slice(1) + binary.slice(0, 1), 2);
 }
 
@@ -36,7 +36,7 @@ function solve1(count) {
 // }
 
 function solve2(count) {
-  const pow = 3 ** (count.toString(3).length - 1);
+  let pow = 3 ** (count.toString(3).length - 1);
   if (pow === count) {
     return count;
   } else if (count <= pow * 2) {

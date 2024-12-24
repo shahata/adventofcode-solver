@@ -1,23 +1,21 @@
 function need(amount, element, reactions, spare) {
   if (spare[element]) {
-    const take = Math.min(amount, spare[element]);
+    let take = Math.min(amount, spare[element]);
     amount -= take;
     spare[element] -= take;
   }
-  const multiply = Math.ceil(amount / reactions[element].amount);
+  let multiply = Math.ceil(amount / reactions[element].amount);
   spare[element] =
     (spare[element] || 0) + (reactions[element].amount * multiply - amount);
   return reactions[element].elements.map(x => [x[0] * multiply, x[1]]);
 }
 
 export function part1(input, fuelAmount = 1) {
-  const reactions = input
+  let reactions = input
     .split("\n")
     .map(x => {
-      const [, compounds, amount, element] = x.match(
-        /^(.*) => (\d+) ([A-Z]+)$/,
-      );
-      const elements = compounds.split(", ").map(x =>
+      let [, compounds, amount, element] = x.match(/^(.*) => (\d+) ([A-Z]+)$/);
+      let elements = compounds.split(", ").map(x =>
         x
           .match(/(\d+) ([A-Z]+)/)
           .slice(1)
@@ -27,17 +25,17 @@ export function part1(input, fuelAmount = 1) {
     })
     .reduce((prev, next) => Object.assign(prev, { [next.element]: next }), {});
 
-  const spare = {};
-  const requirements = [{ amount: fuelAmount, element: "FUEL" }];
+  let spare = {};
+  let requirements = [{ amount: fuelAmount, element: "FUEL" }];
   while (requirements.length > 1 || requirements[0].element !== "ORE") {
-    const next = requirements.shift();
+    let next = requirements.shift();
     if (next.element === "ORE") {
       requirements.push(next);
       continue;
     }
-    const r = need(next.amount, next.element, reactions, spare);
+    let r = need(next.amount, next.element, reactions, spare);
     r.forEach(([amount, element]) => {
-      const f = requirements.find(x => x.element === element);
+      let f = requirements.find(x => x.element === element);
       if (f) {
         f.amount += amount;
       } else {
@@ -49,8 +47,8 @@ export function part1(input, fuelAmount = 1) {
 }
 
 export function part2(input) {
-  const base = part1(input, 1);
-  const value = 1000000000000;
+  let base = part1(input, 1);
+  let value = 1000000000000;
   let start = Math.ceil(value / base);
   let end = Math.ceil((2 * value) / base);
 

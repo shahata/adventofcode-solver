@@ -1,6 +1,6 @@
 function parse(input) {
   return input.split("\n").map(x => {
-    const [op, param] = x.split(" ");
+    let [op, param] = x.split(" ");
     return { op, param };
   });
 }
@@ -8,7 +8,7 @@ function parse(input) {
 function run(ops) {
   let ip = 0;
   let acc = 0;
-  const visited = new Set();
+  let visited = new Set();
 
   while (!visited.has(ip) && ip < ops.length) {
     visited.add(ip);
@@ -23,15 +23,15 @@ function run(ops) {
 }
 
 export function part1(input) {
-  const { acc } = run(parse(input));
+  let { acc } = run(parse(input));
   return acc;
 }
 
 export function part2(input) {
-  const bad = parse(input);
+  let bad = parse(input);
 
   for (let toggle = 0; toggle < bad.length; toggle++) {
-    const ops = bad.map(({ op, param }, index) => {
+    let ops = bad.map(({ op, param }, index) => {
       if (index === toggle && op !== "acc") {
         return { op: op === "jmp" ? "nop" : "jmp", param };
       } else {
@@ -39,7 +39,7 @@ export function part2(input) {
       }
     });
 
-    const { ip, acc } = run(ops);
+    let { ip, acc } = run(ops);
     if (ip === ops.length) {
       return acc;
     }

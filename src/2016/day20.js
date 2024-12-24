@@ -1,10 +1,10 @@
-const MAX_IP = 4294967295;
+let MAX_IP = 4294967295;
 
 function merge(ranges) {
   ranges.sort((a, b) => a[0] - b[0]);
   return ranges.reduce(
     (segments, range) => {
-      const lastSegment = segments.at(-1);
+      let lastSegment = segments.at(-1);
       if (range[0] > lastSegment[1] + 1) {
         segments.push(range);
       } else {
@@ -30,9 +30,6 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const merged = merge(parse(input)).reduce(
-    (sum, x) => sum + x[1] - x[0] + 1,
-    0,
-  );
+  let merged = merge(parse(input)).reduce((sum, x) => sum + x[1] - x[0] + 1, 0);
   return MAX_IP - merged + 1;
 }

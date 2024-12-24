@@ -1,10 +1,10 @@
-const readRaw = (input, length) => input.splice(0, length);
-const toNumber = number => parseInt(number.join(""), 2);
-const readNumber = (input, length) => toNumber(readRaw(input, length));
+let readRaw = (input, length) => input.splice(0, length);
+let toNumber = number => parseInt(number.join(""), 2);
+let readNumber = (input, length) => toNumber(readRaw(input, length));
 
 function calculate(input, sumOfVersions = false) {
-  const version = readNumber(input, 3);
-  const typeId = readNumber(input, 3);
+  let version = readNumber(input, 3);
+  let typeId = readNumber(input, 3);
   if (typeId === 4) {
     let haveMore = 1;
     let number = [];
@@ -14,16 +14,16 @@ function calculate(input, sumOfVersions = false) {
     }
     return sumOfVersions ? version : toNumber(number);
   } else {
-    const lengthTypeId = readNumber(input, 1);
-    const subPackets = [];
+    let lengthTypeId = readNumber(input, 1);
+    let subPackets = [];
     if (lengthTypeId === 1) {
-      const numberOfPackets = readNumber(input, 11);
+      let numberOfPackets = readNumber(input, 11);
       for (let i = 0; i < numberOfPackets; i++) {
         subPackets.push(calculate(input, sumOfVersions));
       }
     } else {
-      const lengthOfPackets = readNumber(input, 15);
-      const targetLength = input.length - lengthOfPackets;
+      let lengthOfPackets = readNumber(input, 15);
+      let targetLength = input.length - lengthOfPackets;
       while (input.length !== targetLength) {
         subPackets.push(calculate(input, sumOfVersions));
       }

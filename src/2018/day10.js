@@ -21,23 +21,23 @@ function size(points) {
 }
 
 function print(points) {
-  const { start, end } = size(points);
-  const arr = (size, fill) => new Array(size).fill(fill);
-  const banner = arr(end.y - start.y).map(() => arr(end.x - start.x, "."));
+  let { start, end } = size(points);
+  let arr = (size, fill) => new Array(size).fill(fill);
+  let banner = arr(end.y - start.y).map(() => arr(end.x - start.x, "."));
   points.forEach(p => (banner[p.y - start.y][p.x - start.x] = "#"));
   return banner.map(x => x.join("")).join("\n");
 }
 
 export function day(input) {
-  const regex = /([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)+/;
-  const points = input.split("\n").map(line => {
-    const [, x, y, xDiff, yDiff] = line.match(regex).map(Number);
+  let regex = /([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)[^-\d]*([-\d]+)+/;
+  let points = input.split("\n").map(line => {
+    let [, x, y, xDiff, yDiff] = line.match(regex).map(Number);
     return { x, y, xDiff, yDiff };
   });
 
   let secs = -1;
   let currentHeight, nextHeight;
-  const height = ({ start, end }) => end.y - start.y;
+  let height = ({ start, end }) => end.y - start.y;
   do {
     secs++;
     currentHeight = nextHeight || height(size(move(points, secs)));

@@ -1,5 +1,5 @@
 function solve(input, validations) {
-  const passports = input
+  let passports = input
     .split("\n\n")
     .map(x =>
       x
@@ -15,7 +15,7 @@ function solve(input, validations) {
 }
 
 export function part1(input) {
-  const validations = {
+  let validations = {
     byr: n => !!n,
     iyr: n => !!n,
     eyr: n => !!n,
@@ -28,12 +28,12 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const validations = {
+  let validations = {
     byr: n => n && n.length === 4 && +n >= 1920 && +n <= 2002,
     iyr: n => n && n.length === 4 && +n >= 2010 && +n <= 2020,
     eyr: n => n && n.length === 4 && +n >= 2020 && +n <= 2030,
     hgt: n => {
-      const m = n && n.match(/^(\d+)(cm|in)$/);
+      let m = n && n.match(/^(\d+)(cm|in)$/);
       return (
         m &&
         ((m[2] === "cm" && +m[1] >= 150 && +m[1] <= 193) ||

@@ -1,6 +1,6 @@
 import { divisors } from "../utils/divisors.js";
 
-const ops = {
+let ops = {
   addr: (r, i1, i2, o) => (r[o] = r[i1] + r[i2]),
   addi: (r, i1, i2, o) => (r[o] = r[i1] + i2),
   mulr: (r, i1, i2, o) => (r[o] = r[i1] * r[i2]),
@@ -18,16 +18,16 @@ const ops = {
   eqri: (r, i1, i2, o) => (r[o] = r[i1] === i2 ? 1 : 0),
   eqrr: (r, i1, i2, o) => (r[o] = r[i1] === r[i2] ? 1 : 0),
 };
-const numbers = arr => arr.map(Number);
+let numbers = arr => arr.map(Number);
 
 export function part1(input, reg0 = 0) {
-  const lines = input.split("\n");
-  const ip = +lines.shift().split(" ").pop();
-  const commands = lines.map(x => {
-    const [op, ...params] = x.split(" ");
+  let lines = input.split("\n");
+  let ip = +lines.shift().split(" ").pop();
+  let commands = lines.map(x => {
+    let [op, ...params] = x.split(" ");
     return { op, params: numbers(params) };
   });
-  const r = [reg0, 0, 0, 0, 0, 0];
+  let r = [reg0, 0, 0, 0, 0, 0];
   while (commands[r[ip]]) {
     if (reg0 === 1 && r[ip] === 2) {
       return Math.max(...r);

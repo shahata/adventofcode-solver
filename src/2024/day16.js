@@ -8,7 +8,7 @@ function parse(input) {
 }
 
 function getNeighbors(map, current) {
-  const opposite = { up: "down", down: "up", left: "right", right: "left" };
+  let opposite = { up: "down", down: "up", left: "right", right: "left" };
   let neighbors = [
     { x: current.x - 1, y: current.y, direction: "left" },
     { x: current.x + 1, y: current.y, direction: "right" },
@@ -26,7 +26,7 @@ function getNeighbors(map, current) {
 }
 
 export function solve(input) {
-  const key = p => `${p.x},${p.y},${p.direction}`;
+  let key = p => `${p.x},${p.y},${p.direction}`;
   let { map, start, end } = parse(input);
   let curr = { ...start, score: 0, path: new Set([`${start.x},${start.y}`]) };
   let queue = [curr];
@@ -41,7 +41,7 @@ export function solve(input) {
       continue;
     }
     getNeighbors(map, curr).forEach(n => {
-      const prev = visited.get(key(n));
+      let prev = visited.get(key(n));
       if (!prev || prev.score > n.score) {
         queue.push(n);
         visited.set(key(n), n);

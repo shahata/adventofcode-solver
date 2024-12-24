@@ -8,7 +8,7 @@ function getNeighbors(map, { x, y }) {
 }
 
 function calcNeighbors(map, next, visited, recursive) {
-  const result = getNeighbors(map, next.point)
+  let result = getNeighbors(map, next.point)
     .map(p => {
       if (p.gates && p.gates.length === 2) {
         if (!recursive) {
@@ -38,21 +38,19 @@ function calcNeighbors(map, next, visited, recursive) {
 }
 
 function parse(input) {
-  const portals = {};
+  let portals = {};
   let counter = 0;
   let current = { end: undefined };
-  const map = input
+  let map = input
     .split("\n")
     .map((line, y) => line.split("").map((p, x) => ({ x, y, c: p })));
   map.forEach(line =>
     line.forEach(p => {
       if (p.c.match(/[A-Z]/)) {
-        const portal = getNeighbors(map, p).find(p => p.c.match(/[A-Z]/));
-        const gate = [p, portal].sort((a, b) => a.x - b.x + a.y - b.y);
-        const s = gate.map(p => p.c).join("");
-        const real = gate.find(p =>
-          getNeighbors(map, p).find(x => x.c === "."),
-        );
+        let portal = getNeighbors(map, p).find(p => p.c.match(/[A-Z]/));
+        let gate = [p, portal].sort((a, b) => a.x - b.x + a.y - b.y);
+        let s = gate.map(p => p.c).join("");
+        let real = gate.find(p => getNeighbors(map, p).find(x => x.c === "."));
         portals[s] = portals[s] || { id: `${++counter}`, gates: [] };
         if (!portals[s].gates.includes(real)) {
           portals[s].gates.push(real);
@@ -79,11 +77,11 @@ function parse(input) {
 }
 
 function bfs(input, recursive) {
-  const { map, current } = parse(input);
-  const visited = new Set();
+  let { map, current } = parse(input);
+  let visited = new Set();
   let queue = [{ point: current, distance: 0, level: 0 }];
   while (queue.length > 0) {
-    const next = queue.shift();
+    let next = queue.shift();
     if (next.point && next.point.end) {
       return next.distance - 1;
     }

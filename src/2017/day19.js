@@ -6,7 +6,7 @@ function findEntryPoint(route) {
   return { x: route[0].indexOf("|"), y: 0 };
 }
 
-const next = {
+let next = {
   down: ({ x, y }) => ({ x, y: y + 1 }),
   up: ({ x, y }) => ({ x, y: y - 1 }),
   left: ({ x, y }) => ({ x: x - 1, y }),
@@ -18,12 +18,12 @@ function valueAt(route, { x, y }) {
 }
 
 function road(value, direction) {
-  const roads = { right: "|", left: "|", up: "-", down: "-" };
+  let roads = { right: "|", left: "|", up: "-", down: "-" };
   return ![".", " ", undefined, roads[direction]].includes(value);
 }
 
 function walk(route) {
-  const state = {
+  let state = {
     point: findEntryPoint(route),
     direction: "down",
     message: "",

@@ -10,18 +10,18 @@
 // 5) Substitute back to get b: b = (px - a * ax) / bx
 
 function solve({ ax, ay, bx, by, px, py }) {
-  const a = (px * by - py * bx) / (ax * by - ay * bx);
-  const b = (px - a * ax) / bx;
+  let a = (px * by - py * bx) / (ax * by - ay * bx);
+  let b = (px - a * ax) / bx;
   if (Number.isInteger(a) && Number.isInteger(b)) return a * 3 + b;
   else return 0;
 }
 
 function parse(input) {
   return input.split("\n\n").map(group => {
-    const [a, b, prize] = group.split("\n");
-    const [, ax, ay] = a.match(/X\+(\d+), Y\+(\d+)/);
-    const [, bx, by] = b.match(/X\+(\d+), Y\+(\d+)/);
-    const [, px, py] = prize.match(/X=(\d+), Y=(\d+)/);
+    let [a, b, prize] = group.split("\n");
+    let [, ax, ay] = a.match(/X\+(\d+), Y\+(\d+)/);
+    let [, bx, by] = b.match(/X\+(\d+), Y\+(\d+)/);
+    let [, px, py] = prize.match(/X=(\d+), Y=(\d+)/);
     return { ax: +ax, ay: +ay, bx: +bx, by: +by, px: +px, py: +py };
   });
 }

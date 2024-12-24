@@ -2,7 +2,7 @@ function solve(maze, mutate) {
   let current = 0;
   let steps = 0;
   while (maze[current] !== undefined) {
-    const prev = maze[current];
+    let prev = maze[current];
     maze[current] = mutate(maze[current]);
     current += prev;
     steps++;

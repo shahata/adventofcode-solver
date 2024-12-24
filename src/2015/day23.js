@@ -1,4 +1,4 @@
-const operations = {
+let operations = {
   hlf: (state, p1) => ({ ...state, [p1]: state[p1] / 2, next: state.next + 1 }),
   tpl: (state, p1) => ({ ...state, [p1]: state[p1] * 3, next: state.next + 1 }),
   inc: (state, p1) => ({ ...state, [p1]: state[p1] + 1, next: state.next + 1 }),
@@ -15,7 +15,7 @@ const operations = {
 
 function run(state, instructions) {
   while (instructions[state.next]) {
-    const curr = instructions[state.next];
+    let curr = instructions[state.next];
     state = operations[curr.op](state, curr.p1, curr.p2);
   }
   return state;

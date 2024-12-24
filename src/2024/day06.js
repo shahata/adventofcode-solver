@@ -1,4 +1,4 @@
-const step = {
+let step = {
   up: { x: 0, y: -1, turn: "right" },
   down: { x: 0, y: 1, turn: "left" },
   left: { x: -1, y: 0, turn: "up" },
@@ -6,12 +6,12 @@ const step = {
 };
 
 function test({ map, current }, add = undefined) {
-  const visited = new Set();
-  const turns = new Set();
+  let visited = new Set();
+  let turns = new Set();
   if (add) map[add.y][add.x] = "#";
   map[current.y][current.x] = ".";
   while (map[current.y]?.[current.x]) {
-    const next = { ...current };
+    let next = { ...current };
     while (map[next.y]?.[next.x] === ".") {
       if (!add) visited.add(`${next.x},${next.y}`);
       next.x += step[current.direction].x;
@@ -30,10 +30,10 @@ function test({ map, current }, add = undefined) {
 }
 
 function parse(input) {
-  const map = input.split("\n").map(line => line.split(""));
-  const startY = map.findIndex(line => line.includes("^"));
-  const startX = map[startY].indexOf("^");
-  const current = { x: startX, y: startY, direction: "up" };
+  let map = input.split("\n").map(line => line.split(""));
+  let startY = map.findIndex(line => line.includes("^"));
+  let startX = map[startY].indexOf("^");
+  let current = { x: startX, y: startY, direction: "up" };
   return { map, current };
 }
 
@@ -44,7 +44,7 @@ export function part1(input) {
 export function part2(input) {
   let count = 0;
   test(parse(input)).forEach(pos => {
-    const [x, y] = pos.split(",").map(Number);
+    let [x, y] = pos.split(",").map(Number);
     if (test(parse(input), { x, y })) count++;
   });
   return count;

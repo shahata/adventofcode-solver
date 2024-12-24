@@ -33,17 +33,17 @@ function weight(lines) {
 }
 
 export function part1(input) {
-  const lines = input.split("\n").map(line => line.split(""));
+  let lines = input.split("\n").map(line => line.split(""));
   vertical(lines, 1);
   return weight(lines);
 }
 
 export function part2(input) {
-  const lines = input.split("\n").map(line => line.split(""));
-  const memory = new Map();
-  const count = 1000000000;
+  let lines = input.split("\n").map(line => line.split(""));
+  let memory = new Map();
+  let count = 1000000000;
   for (let i = 1; i <= count; i++) {
-    const key = lines.map(line => line.join("")).join("\n");
+    let key = lines.map(line => line.join("")).join("\n");
     if (memory.has(key)) i = count - ((count - i) % (i - memory.get(key)));
     else memory.set(key, i);
 

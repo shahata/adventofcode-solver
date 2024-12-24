@@ -12,7 +12,7 @@ function findPath(input) {
     let { x, y } = queue.shift();
     path.push({ x, y });
     if (x === ex && y === ey) break;
-    const neighbors = [
+    let neighbors = [
       { x: x + 1, y },
       { x: x - 1, y },
       { x, y: y + 1 },
@@ -27,12 +27,12 @@ function findPath(input) {
 }
 
 function countCheats(input, save, cheat) {
-  const distance = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+  let distance = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
   let path = findPath(input);
   let count = 0;
   for (let i = 0; i < path.length - save; i++) {
     for (let j = i + save; j < path.length; j++) {
-      const length = distance(path[i], path[j]);
+      let length = distance(path[i], path[j]);
       if (j - i - length >= save && length <= cheat) count++;
     }
   }

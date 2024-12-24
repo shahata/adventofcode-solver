@@ -1,8 +1,8 @@
 import { part1, part2 } from "./day21.js";
 import readInput from "../utils/read-input.js";
 
-const input = readInput(import.meta.url);
-const example = [
+let input = readInput(import.meta.url);
+let example = [
   "...........",
   ".....###.#.",
   ".###.##..#.",

@@ -28,7 +28,7 @@ function cut({ length, offset }, count, undo) {
 
 function increment({ length, offset }, count, undo) {
   if (undo) {
-    const big = BigInt(offset) * modInverse(BigInt(count), BigInt(length));
+    let big = BigInt(offset) * modInverse(BigInt(count), BigInt(length));
     return { length, offset: Number(big % BigInt(length)) };
   } else {
     return { length, offset: (offset * count) % length };
@@ -36,8 +36,8 @@ function increment({ length, offset }, count, undo) {
 }
 
 export function part1(input, length = 10007, offset = 2019, undo = undefined) {
-  const shuffles = input.split("\n").map(l => {
-    const match = l.match(/(increment|cut) (-?\d+)/);
+  let shuffles = input.split("\n").map(l => {
+    let match = l.match(/(increment|cut) (-?\d+)/);
     if (match) {
       return {
         method: match[1] === "increment" ? increment : cut,
@@ -57,15 +57,15 @@ export function part1(input, length = 10007, offset = 2019, undo = undefined) {
 }
 
 export function part2(input, length, times, offset = 2020) {
-  const m = BigInt(length || 119315717514047);
-  const n = BigInt(times || 101741582076661);
+  let m = BigInt(length || 119315717514047);
+  let n = BigInt(times || 101741582076661);
 
   //x = offset after all shuffles
   //y = offset after 1st un-shuffle
   //z = offset after 2nd un-shuffle
-  const x = BigInt(offset);
-  const y = BigInt(part1(input, Number(m), Number(x), true));
-  const z = BigInt(part1(input, Number(m), Number(y), true));
+  let x = BigInt(offset);
+  let y = BigInt(part1(input, Number(m), Number(x), true));
+  let z = BigInt(part1(input, Number(m), Number(y), true));
 
   //y = a * x + b
   //z = a * y + b
@@ -74,11 +74,11 @@ export function part2(input, length, times, offset = 2020) {
   //y - z = a * (x - y)
   //a = (y - z) / (x - y)
   //a = (y - z) * modInverse(x - y)
-  const a = (y - z) * modInverse(x - y, m);
+  let a = (y - z) * modInverse(x - y, m);
 
   //y = a * x + b
   //b = y - a * x
-  const b = y - a * x;
+  let b = y - a * x;
 
   //1st un-shuffle -> a * x + b
   //2nd un-shuffle -> a * (a * x + b) + b -> a^2 * x + (a + 1) * b
@@ -87,7 +87,7 @@ export function part2(input, length, times, offset = 2020) {
   //-------------------------------------------------------------
   //a^n * x + ((a^n - 1) / (a - 1)) * b
   //a^n * x + ((a^n - 1) * modInverse(a - 1)) * b
-  const an = pow(a, n, m);
-  const result = an * x + (an - BigInt(1)) * modInverse(a - BigInt(1), m) * b;
+  let an = pow(a, n, m);
+  let result = an * x + (an - BigInt(1)) * modInverse(a - BigInt(1), m) * b;
   return Number((m + (result % m)) % m);
 }

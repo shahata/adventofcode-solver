@@ -2,7 +2,7 @@ import { execute } from "./day09.js";
 import { ocr } from "../utils/ocr.js";
 
 function move({ x, y }, direction) {
-  const directions = {
+  let directions = {
     "^": { x, y: y - 1 },
     "v": { x, y: y + 1 },
     "<": { x: x - 1, y },
@@ -11,14 +11,14 @@ function move({ x, y }, direction) {
   return directions[direction];
 }
 
-const left = {
+let left = {
   "^": "<",
   "<": "v",
   "v": ">",
   ">": "^",
 };
 
-const right = {
+let right = {
   "^": ">",
   ">": "v",
   "v": "<",
@@ -49,8 +49,8 @@ export function part1(input, map = {}) {
     return map[`${position.x},${position.y}`].value;
   }
 
-  const user = { input: read, output: write, base: 0 };
-  const ops = input.split(",").map(Number);
+  let user = { input: read, output: write, base: 0 };
+  let ops = input.split(",").map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {
@@ -60,15 +60,15 @@ export function part1(input, map = {}) {
 }
 
 export function part2(input) {
-  const map = { "0,0": { value: 1, writes: 0 } };
+  let map = { "0,0": { value: 1, writes: 0 } };
   part1(input, map);
 
-  const coordinates = Object.keys(map)
+  let coordinates = Object.keys(map)
     .map(k => k.split(",").map(i => +i))
     .sort((a, b) => a[1] - b[1] || a[0] - b[0]);
-  const first = coordinates.at(0);
-  const last = coordinates.at(-1);
-  const lines = [];
+  let first = coordinates.at(0);
+  let last = coordinates.at(-1);
+  let lines = [];
   for (let y = first[1]; y <= last[1]; y++) {
     let line = "";
     for (let x = first[0]; x <= last[0]; x++) {

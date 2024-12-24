@@ -3,7 +3,7 @@ import { powerSet } from "combinatorial-generators";
 
 export function part1(input) {
   let mode, doors, items, name, combinations, exit, result;
-  const map = {};
+  let map = {};
   let output = [];
   let commands = [];
   let allItems = [];
@@ -25,24 +25,24 @@ export function part1(input) {
 
   function nextCommand() {
     if (items.length) {
-      const x = items.shift();
+      let x = items.shift();
       pushCommand(`take ${x}`);
       allItems.push(x);
     } else if (readyForChecks(map, name)) {
       combinations = combinations || initCombinations(allItems);
-      const next = combinations[0];
+      let next = combinations[0];
       if (next.length === allItems.length) {
         combinations.shift();
         pushCommand(exit);
       } else {
-        const remove = allItems.find(x => !next.includes(x));
+        let remove = allItems.find(x => !next.includes(x));
         pushCommand(`drop ${remove}`);
         allItems = allItems.filter(x => x !== remove);
       }
     } else {
       let direction = doors[Math.floor(Math.random() * doors.length)];
       if (map[name].doors.length > map[name].walked.size) {
-        const options = map[name].doors.filter(x => !map[name].walked.has(x));
+        let options = map[name].doors.filter(x => !map[name].walked.has(x));
         direction = options[Math.floor(Math.random() * options.length)];
         map[name].walked.add(direction);
       }
@@ -60,7 +60,7 @@ export function part1(input) {
       items = [];
     }
     if (mode === "doors") {
-      const opposite = {
+      let opposite = {
         north: "south",
         south: "north",
         west: "east",
@@ -72,7 +72,7 @@ export function part1(input) {
       doors.push(line.replace("- ", ""));
     }
     if (mode === "items") {
-      const blacklist = [
+      let blacklist = [
         "escape pod",
         "infinite loop",
         "molten lava",
@@ -107,8 +107,8 @@ export function part1(input) {
     }
   }
 
-  const user = { input: () => commands.shift(), output: write, base: 0 };
-  const ops = input.split(",").map(Number);
+  let user = { input: () => commands.shift(), output: write, base: 0 };
+  let ops = input.split(",").map(Number);
   let ip = 0;
   while (!result) {
     ip = execute(ops, ip, user);

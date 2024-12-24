@@ -7,16 +7,16 @@ function direction(a, b) {
 }
 
 export function part1(input, diagonal = false) {
-  const lines = input.split("\n").map(line => {
-    const [from, to] = line.split(" -> ").map(x => x.split(",").map(Number));
+  let lines = input.split("\n").map(line => {
+    let [from, to] = line.split(" -> ").map(x => x.split(",").map(Number));
     return { from, to };
   });
 
-  const points = {};
-  for (const line of lines) {
+  let points = {};
+  for (let line of lines) {
     let [i, j] = line.from;
-    const iDirection = direction(i, line.to[0]);
-    const jDirection = direction(j, line.to[1]);
+    let iDirection = direction(i, line.to[0]);
+    let jDirection = direction(j, line.to[1]);
     if (diagonal || iDirection === 0 || jDirection === 0) {
       while (i !== line.to[0] || j !== line.to[1]) {
         mark(points, i, j);

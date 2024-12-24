@@ -1,25 +1,25 @@
 import { PriorityQueue } from "@datastructures-js/priority-queue";
 
-const toKey = state =>
+let toKey = state =>
   state
     .sort((a, b) => a.x - b.x || a.y - b.y)
     .map(s => `${s.x},${s.y},${s.sign}`)
     .join(":");
 
 function neighbors({ state, energy: curr }) {
-  const price = { A: 1, B: 10, C: 100, D: 1000 };
-  const home = { A: 3, B: 5, C: 7, D: 9 };
-  const move = (a, b) => ({
+  let price = { A: 1, B: 10, C: 100, D: 1000 };
+  let home = { A: 3, B: 5, C: 7, D: 9 };
+  let move = (a, b) => ({
     state: state.map(m => (m !== a ? m : { ...b, done: b.y !== 1 })), //replace with new position
     energy: curr + price[a.sign] * (Math.abs(a.x - b.x) + Math.abs(a.y - b.y)), //add cost of move
   });
   return state.flatMap(member => {
-    const { x, y, sign } = member;
-    const is = (x, y) => m => m.x === x && m.y === y;
+    let { x, y, sign } = member;
+    let is = (x, y) => m => m.x === x && m.y === y;
     if (member.done) return []; //it is already in the right room
     if (y === 1) {
       //we want to bring it into the room
-      const go = { sign, x: home[sign], y: state.length === 8 ? 3 : 5 }; //set different target y for part 1 and 2
+      let go = { sign, x: home[sign], y: state.length === 8 ? 3 : 5 }; //set different target y for part 1 and 2
       if (state.some(m => (m.x - x) * (m.x - go.x) < 0 && m.y === 1)) return []; //the path to the room is blocked
       if (state.some(m => m.x === go.x && m.sign !== sign)) return []; //there's a wrong letter in the room
       while (state.some(is(go.x, go.y))) go.y--; //search for the lowest free space in the room
@@ -37,16 +37,16 @@ function neighbors({ state, energy: curr }) {
 }
 
 function solve(start, end) {
-  const visited = new Map();
-  const queue = new PriorityQueue(
+  let visited = new Map();
+  let queue = new PriorityQueue(
     (a, b) => a.energy - b.energy,
     [{ state: start, energy: 0 }],
   );
   while (queue.size() > 0) {
-    const n = queue.dequeue();
+    let n = queue.dequeue();
     if (toKey(n.state) === end) return n.energy;
     neighbors(n).forEach(neighbor => {
-      const v = visited.get(toKey(neighbor.state));
+      let v = visited.get(toKey(neighbor.state));
       if (!v || neighbor.energy < v.energy) {
         if (v) queue.remove(x => x === v);
         visited.set(toKey(neighbor.state), neighbor);
@@ -57,8 +57,8 @@ function solve(start, end) {
 }
 
 function parse(input) {
-  const maze = input.map(line => line.split(""));
-  const state = [];
+  let maze = input.map(line => line.split(""));
+  let state = [];
   for (let y = 0; y < maze.length; y++) {
     for (let x = 0; x < maze[y].length; x++) {
       if (maze[y][x].match(/[A-Z]/)) {
@@ -69,7 +69,7 @@ function parse(input) {
   return state;
 }
 
-const solved = [
+let solved = [
   "#############",
   "#...........#",
   "###A#B#C#D###",
@@ -82,7 +82,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const solved2 = solved.slice(0);
+  let solved2 = solved.slice(0);
   input = input.split("\n");
   input.splice(3, 0, "  #D#C#B#A#", "  #D#B#A#C#");
   solved2.splice(3, 0, "  #A#B#C#D#", "  #A#B#C#D#");

@@ -1,4 +1,4 @@
-const ops = {
+let ops = {
   cpy: (src, register) => state =>
     (state[register] = src.match(/^\d+$/) ? +src : state[src]),
   inc: register => state => state[register]++,
@@ -8,8 +8,8 @@ const ops = {
 };
 
 function toReducer(str) {
-  const params = str.split(/\s+/);
-  const cmd = ops[params.shift()](...params);
+  let params = str.split(/\s+/);
+  let cmd = ops[params.shift()](...params);
   return state => {
     cmd(state);
     state.index++;
@@ -24,11 +24,11 @@ function run(commands, state) {
 }
 
 export function part1(input) {
-  const state = { a: 0, b: 0, c: 0, d: 0, index: 0 };
+  let state = { a: 0, b: 0, c: 0, d: 0, index: 0 };
   return run(input.split("\n").map(toReducer), state).a;
 }
 
 export function part2(input) {
-  const state = { a: 0, b: 0, c: 1, d: 0, index: 0 };
+  let state = { a: 0, b: 0, c: 1, d: 0, index: 0 };
   return run(input.split("\n").map(toReducer), state).a;
 }

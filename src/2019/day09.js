@@ -1,5 +1,5 @@
 function at(ops, ip, user, offset) {
-  const mode = Math.floor(ops[ip] / 10 ** (offset + 1)) % 10;
+  let mode = Math.floor(ops[ip] / 10 ** (offset + 1)) % 10;
   if (mode === 0) {
     return ops[ip + offset];
   } else if (mode === 1) {
@@ -47,8 +47,8 @@ export function execute(ops, ip, user) {
 
 export function part1(input, inputValue = 1) {
   let output;
-  const user = { input: () => inputValue, output: x => (output = x), base: 0 };
-  const ops = input.split(",").map(Number);
+  let user = { input: () => inputValue, output: x => (output = x), base: 0 };
+  let ops = input.split(",").map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {

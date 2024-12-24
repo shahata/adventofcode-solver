@@ -1,4 +1,4 @@
-const ops = {
+let ops = {
   AND: (p1, p2) => (2 ** 16 + (p1 & p2)) % 2 ** 16,
   OR: (p1, p2) => (2 ** 16 + (p1 | p2)) % 2 ** 16,
   NOT: (p1, p2) => (2 ** 16 + ~p2) % 2 ** 16,
@@ -24,7 +24,7 @@ function makeCircuit(input) {
     }))
     .reduce((circuit, gate) => {
       circuit[gate.result] = () => {
-        const memo = gate.op(gate.p1(circuit), gate.p2(circuit));
+        let memo = gate.op(gate.p1(circuit), gate.p2(circuit));
         circuit[gate.result] = () => memo;
         return memo;
       };

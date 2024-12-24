@@ -3,7 +3,7 @@ function solve(lines) {
   let outline = 0;
   let area = 0;
 
-  for (const { direction, count } of lines) {
+  for (let { direction, count } of lines) {
     let next;
     if (direction === "L") next = { x: pos.x - count, y: pos.y };
     if (direction === "R") next = { x: pos.x + count, y: pos.y };
@@ -13,23 +13,23 @@ function solve(lines) {
     outline += count;
     pos = next;
   }
-  const innerArea = Math.abs(area) - (outline / 2 - 1); //pick's theorem
+  let innerArea = Math.abs(area) - (outline / 2 - 1); //pick's theorem
   return innerArea + outline;
 }
 
 export function part1(input) {
-  const lines = input.split("\n").map(line => {
-    const [direction, count] = line.split(" ");
+  let lines = input.split("\n").map(line => {
+    let [direction, count] = line.split(" ");
     return { direction, count: +count };
   });
   return solve(lines);
 }
 
 export function part2(input) {
-  const lines = input.split("\n").map(line => {
-    const [, , color] = line.split(" ");
-    const count = parseInt(color.slice(2, -2), 16);
-    const direction = "RDLU".at(color.slice(-2, -1));
+  let lines = input.split("\n").map(line => {
+    let [, , color] = line.split(" ");
+    let count = parseInt(color.slice(2, -2), 16);
+    let direction = "RDLU".at(color.slice(-2, -1));
     return { direction, count };
   });
   return solve(lines);

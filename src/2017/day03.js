@@ -5,11 +5,11 @@ function solve1(destination) {
     radius++;
     multiplier += radius;
   }
-  const bottomRight = 8 * multiplier + 1;
-  const bottomLeft = bottomRight - radius * 2;
-  const topLeft = bottomLeft - radius * 2;
-  const topRight = topLeft - radius * 2;
-  const fromCorner = Math.min(
+  let bottomRight = 8 * multiplier + 1;
+  let bottomLeft = bottomRight - radius * 2;
+  let topLeft = bottomLeft - radius * 2;
+  let topRight = topLeft - radius * 2;
+  let fromCorner = Math.min(
     Math.abs(topRight - destination),
     Math.abs(bottomLeft - destination),
   );
@@ -21,7 +21,7 @@ function toKey({ x, y }) {
 }
 
 function next({ position: { x, y }, direction }) {
-  const directions = {
+  let directions = {
     R: { x: x + 1, y },
     L: { x: x - 1, y },
     U: { x, y: y - 1 },
@@ -31,7 +31,7 @@ function next({ position: { x, y }, direction }) {
 }
 
 function calc({ position, map }) {
-  const { x, y } = position;
+  let { x, y } = position;
   return [
     map[toKey({ x: x - 1, y: y - 1 })] || 0,
     map[toKey({ x: x + 0, y: y - 1 })] || 0,
@@ -59,7 +59,7 @@ function direction({ position, direction, map }) {
 }
 
 function solve2(destination) {
-  const state = {
+  let state = {
     position: { x: 0, y: 0 },
     direction: "R",
     map: { [toKey({ x: 0, y: 0 })]: 1 },

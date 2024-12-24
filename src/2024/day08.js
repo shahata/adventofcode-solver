@@ -1,10 +1,10 @@
 function parse(input) {
-  const map = input.split("\n").map(line => line.split(""));
-  const dic = new Map();
+  let map = input.split("\n").map(line => line.split(""));
+  let dic = new Map();
   for (let y = 0; y < map.length; y++) {
     for (let x = 0; x < map[y].length; x++) {
       if (map[y][x] !== ".") {
-        const key = map[y][x];
+        let key = map[y][x];
         dic.set(key, (dic.get(key) || []).concat({ x, y }));
       }
     }
@@ -13,9 +13,9 @@ function parse(input) {
 }
 
 function pairs(dic, fn) {
-  for (const points of dic.values()) {
-    for (const point of points) {
-      for (const other of points) {
+  for (let points of dic.values()) {
+    for (let point of points) {
+      for (let other of points) {
         if (point !== other) {
           fn(point, point.x - other.x, point.y - other.y);
         }
@@ -24,7 +24,7 @@ function pairs(dic, fn) {
   }
 }
 export function part1(input) {
-  const { map, dic } = parse(input);
+  let { map, dic } = parse(input);
   pairs(dic, ({ x, y }, dx, dy) => {
     if (map[y - dy * 2]?.[x - dx * 2]) map[y - dy * 2][x - dx * 2] = "#";
   });
@@ -32,7 +32,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const { map, dic } = parse(input);
+  let { map, dic } = parse(input);
   pairs(dic, ({ x, y }, dx, dy) => {
     while (map[y - dy]?.[x - dx]) map[(y -= dy)][(x -= dx)] = "#";
   });

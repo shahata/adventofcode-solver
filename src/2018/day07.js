@@ -1,8 +1,8 @@
-const abc = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let abc = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function next(prerequisites, done) {
-  const options = [];
-  for (const [step, prerequisite] of prerequisites) {
+  let options = [];
+  for (let [step, prerequisite] of prerequisites) {
     if (!done.includes(step) && prerequisite.every(x => done.includes(x))) {
       options.push(step);
     }
@@ -18,7 +18,7 @@ function next2(prerequisites, done, pending, workers, base) {
   }
 
   let options = [];
-  for (const [step, prerequisite] of prerequisites) {
+  for (let [step, prerequisite] of prerequisites) {
     if (
       !done.find(x => x.step === step) &&
       !pending.find(x => x.step === step) &&
@@ -37,7 +37,7 @@ function next2(prerequisites, done, pending, workers, base) {
 }
 
 function parse(input) {
-  const prerequisites = new Map();
+  let prerequisites = new Map();
   input
     .split("\n")
     .map(x => x.match(/([A-Z]) must be finished before step ([A-Z])/))
@@ -49,9 +49,9 @@ function parse(input) {
 }
 
 export function part1(input) {
-  const done = [];
-  const prerequisites = parse(input);
-  const steps = Array.from(prerequisites.keys()).length;
+  let done = [];
+  let prerequisites = parse(input);
+  let steps = Array.from(prerequisites.keys()).length;
   while (done.length < steps) {
     next(prerequisites, done);
   }
@@ -59,10 +59,10 @@ export function part1(input) {
 }
 
 export function part2(input, workers = 5, base = 60) {
-  const done = [];
-  const pending = [];
-  const prerequisites = parse(input);
-  const steps = Array.from(prerequisites.keys()).length;
+  let done = [];
+  let pending = [];
+  let prerequisites = parse(input);
+  let steps = Array.from(prerequisites.keys()).length;
   while (done.length < steps) {
     next2(prerequisites, done, pending, workers, base);
   }

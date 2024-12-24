@@ -1,5 +1,5 @@
 export function part1(input, top = 1) {
-  const elves = input
+  let elves = input
     .split("\n\n")
     .map(x =>
       x

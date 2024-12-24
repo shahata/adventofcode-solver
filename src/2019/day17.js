@@ -1,14 +1,14 @@
 import { execute } from "./day09.js";
 
 function createMap(input, commands) {
-  const output = [];
+  let output = [];
 
-  const user = {
+  let user = {
     input: () => commands.shift(),
     output: x => output.push(x),
     base: 0,
   };
-  const ops = input.split(",").map(Number);
+  let ops = input.split(",").map(Number);
   let ip = 0;
 
   ops[0] = commands ? 2 : ops[0];
@@ -16,7 +16,7 @@ function createMap(input, commands) {
     ip = execute(ops, ip, user);
   }
 
-  const map = output.map(x => String.fromCharCode(x)).join("");
+  let map = output.map(x => String.fromCharCode(x)).join("");
   if (commands) {
     return output.at(-1);
   } else {
@@ -34,7 +34,7 @@ function getNeighbors(map, x, y) {
 }
 
 function getLine(map, x, y, c) {
-  const move = {
+  let move = {
     "^": ({ x, y }) => ({ x, y: y - 1 }),
     "v": ({ x, y }) => ({ x, y: y + 1 }),
     "<": ({ x, y }) => ({ x: x - 1, y }),
@@ -48,18 +48,18 @@ function getLine(map, x, y, c) {
 }
 
 function findRoute(map) {
-  const result = [];
-  const c = map
+  let result = [];
+  let c = map
     .reduce((prev, line) => prev.concat(line), [])
     .find(c => "^v<>".includes(c));
-  const y = map.findIndex(line => line.includes(c));
-  const x = map[y].indexOf(c);
+  let y = map.findIndex(line => line.includes(c));
+  let x = map[y].indexOf(c);
   let current = { x, y, c };
 
   do {
     if (current.c === "v" || current.c === "^") {
-      const lineWest = getLine(map, current.x, current.y, "<");
-      const lineEast = getLine(map, current.x, current.y, ">");
+      let lineWest = getLine(map, current.x, current.y, "<");
+      let lineEast = getLine(map, current.x, current.y, ">");
       if (lineWest > 0) {
         result.push(current.c === "^" ? "L" : "R", lineWest);
         current = { c: "<", x: current.x - lineWest, y: current.y };
@@ -68,8 +68,8 @@ function findRoute(map) {
         current = { c: ">", x: current.x + lineEast, y: current.y };
       }
     } else if (current.c === "<" || current.c === ">") {
-      const lineNorth = getLine(map, current.x, current.y, "^");
-      const lineSouth = getLine(map, current.x, current.y, "v");
+      let lineNorth = getLine(map, current.x, current.y, "^");
+      let lineSouth = getLine(map, current.x, current.y, "v");
       if (lineNorth > 0) {
         result.push(current.c === ">" ? "L" : "R", lineNorth);
         current = { c: "^", x: current.x, y: current.y - lineNorth };
@@ -84,7 +84,7 @@ function findRoute(map) {
 }
 
 export function part1(input) {
-  const map = createMap(input);
+  let map = createMap(input);
   let calc = 0;
   map.forEach((line, y) => {
     line.forEach((c, x) => {
@@ -99,17 +99,17 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const map = createMap(input);
-  const route = findRoute(map).join(",");
-  const [, A, B, C] = `${route},`.match(
+  let map = createMap(input);
+  let route = findRoute(map).join(",");
+  let [, A, B, C] = `${route},`.match(
     /^(.{1,20}),(?:\1,)*(.{1,20}),(?:\1,|\2,)*(.{1,20}),(?:\1,|\2,|\3,)*$/,
   );
-  const main = route
+  let main = route
     .replace(new RegExp(A, "g"), "A")
     .replace(new RegExp(B, "g"), "B")
     .replace(new RegExp(C, "g"), "C");
 
-  const commands = [main, A, B, C, "n", ""]
+  let commands = [main, A, B, C, "n", ""]
     .join("\n")
     .split("")
     .map(x => x.charCodeAt(0));

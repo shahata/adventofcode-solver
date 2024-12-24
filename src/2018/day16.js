@@ -1,4 +1,4 @@
-const ops = {
+let ops = {
   addr: (r, i1, i2, o) => (r[o] = r[i1] + r[i2]),
   addi: (r, i1, i2, o) => (r[o] = r[i1] + i2),
   mulr: (r, i1, i2, o) => (r[o] = r[i1] * r[i2]),
@@ -16,19 +16,19 @@ const ops = {
   eqri: (r, i1, i2, o) => (r[o] = r[i1] === i2 ? 1 : 0),
   eqrr: (r, i1, i2, o) => (r[o] = r[i1] === r[i2] ? 1 : 0),
 };
-const numbers = arr => arr.map(Number);
+let numbers = arr => arr.map(Number);
 
 function parseSamples(input) {
-  const samples = input.split("\n\n\n\n")[0].split("\n\n");
+  let samples = input.split("\n\n\n\n")[0].split("\n\n");
   return samples.map(sample => {
-    const [before, instruction, after] = sample.split("\n");
-    const regex = /\[(\d+), (\d+), (\d+), (\d+)\]/;
-    const [, r1, r2, r3, r4] = numbers(before.match(regex));
-    const [, o1, o2, o3, o4] = numbers(after.match(regex));
-    const [op, ...params] = numbers(instruction.split(" "));
-    const options = Object.keys(ops).filter(op => {
-      const r = [r1, r2, r3, r4];
-      const o = [o1, o2, o3, o4];
+    let [before, instruction, after] = sample.split("\n");
+    let regex = /\[(\d+), (\d+), (\d+), (\d+)\]/;
+    let [, r1, r2, r3, r4] = numbers(before.match(regex));
+    let [, o1, o2, o3, o4] = numbers(after.match(regex));
+    let [op, ...params] = numbers(instruction.split(" "));
+    let options = Object.keys(ops).filter(op => {
+      let r = [r1, r2, r3, r4];
+      let o = [o1, o2, o3, o4];
       ops[op](r, ...params);
       return r.join(",") === o.join(",");
     });
@@ -41,20 +41,20 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const result = parseSamples(input);
+  let result = parseSamples(input);
   let dic = new Array(Object.keys(ops).length).fill();
   dic = dic.map(() => Object.keys(ops));
   result.forEach(({ op, options }) => {
     dic[op] = dic[op].filter(x => options.includes(x));
   });
   while (dic.some(x => x.length > 1)) {
-    const done = dic.filter(x => x.length === 1).map(x => x[0]);
+    let done = dic.filter(x => x.length === 1).map(x => x[0]);
     dic = dic.map(x => (x.length > 1 ? x.filter(op => !done.includes(op)) : x));
   }
 
-  const program = input.split("\n\n\n\n").pop();
-  const commands = program.split("\n").map(x => numbers(x.split(" ")));
-  const r = [0, 0, 0, 0];
+  let program = input.split("\n\n\n\n").pop();
+  let commands = program.split("\n").map(x => numbers(x.split(" ")));
+  let r = [0, 0, 0, 0];
   commands.forEach(([op, ...params]) => ops[dic[op][0]](r, ...params));
   return r[0];
 }

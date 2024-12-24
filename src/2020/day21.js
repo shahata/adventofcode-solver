@@ -1,7 +1,7 @@
 function parse(input) {
-  const allIngredients = new Map();
-  const allAllergens = new Set();
-  const foods = input
+  let allIngredients = new Map();
+  let allAllergens = new Set();
+  let foods = input
     .split("\n")
     .map(line => line.replace(")", "").split(" (contains "))
     .map(([ingredients, allergens]) => ({
@@ -10,7 +10,7 @@ function parse(input) {
     }));
   foods.forEach(food => {
     food.ingredients.forEach(x => {
-      const ingredient = allIngredients.get(x);
+      let ingredient = allIngredients.get(x);
       if (ingredient) {
         ingredient.count++;
       } else {
@@ -19,7 +19,7 @@ function parse(input) {
     });
     food.allergens.forEach(x => allAllergens.add(x));
   });
-  const allIngredientsArr = [...allIngredients.values()];
+  let allIngredientsArr = [...allIngredients.values()];
   allIngredientsArr.forEach(
     ingredient => (ingredient.mightContain = new Set(allAllergens)),
   );
@@ -34,12 +34,12 @@ function parse(input) {
 }
 
 export function part1(input) {
-  const allIngredients = parse(input).filter(x => x.mightContain.size === 0);
+  let allIngredients = parse(input).filter(x => x.mightContain.size === 0);
   return allIngredients.reduce((sum, { count }) => sum + count, 0);
 }
 
 export function part2(input) {
-  const allIngredients = parse(input).filter(x => x.mightContain.size !== 0);
+  let allIngredients = parse(input).filter(x => x.mightContain.size !== 0);
   let done;
   while (done !== allIngredients.length) {
     done = 0;

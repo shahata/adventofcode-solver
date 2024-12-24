@@ -2,7 +2,7 @@ function combo(n, r) {
   return [0n, 1n, 2n, 3n, r.A, r.B, r.C][n];
 }
 
-const opcodes = [
+let opcodes = [
   (r, p) => (r.A = r.A / 2n ** combo(p, r)),
   (r, p) => (r.B = r.B ^ p),
   (r, p) => (r.B = combo(p, r) % 8n),
@@ -44,21 +44,21 @@ function parse(input) {
 // 3) Repeat until it outputs the whole program
 function solve2(program, r) {
   for (let i = 0n; i < 8n; i++) {
-    const out = run(program, { ...r, A: r.A + i });
+    let out = run(program, { ...r, A: r.A + i });
     if (program.join(",") === out) return r.A + i;
     if (program.join(",").endsWith(out)) {
-      const result = solve2(program, { ...r, A: (r.A + i) * 8n });
+      let result = solve2(program, { ...r, A: (r.A + i) * 8n });
       if (result) return result;
     }
   }
 }
 
 export function part1(input) {
-  const { program, registers } = parse(input);
+  let { program, registers } = parse(input);
   return run(program, registers);
 }
 
 export function part2(input) {
-  const { program, registers } = parse(input);
+  let { program, registers } = parse(input);
   return solve2(program, { ...registers, A: 1n });
 }

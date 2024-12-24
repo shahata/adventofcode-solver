@@ -1,4 +1,4 @@
-const ops = {
+let ops = {
   addr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + r${i2}; break;`,
   addi: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + ${i2}; break;`,
   mulr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} * r${i2}; break;`,
@@ -26,13 +26,13 @@ const ops = {
 };
 
 function run(input, tap) {
-  const lines = input.split("\n");
-  const ip = +lines.shift().split(" ").pop();
-  const commands = lines.map((x, i) => {
-    const [op, ...params] = x.split(" ");
+  let lines = input.split("\n");
+  let ip = +lines.shift().split(" ").pop();
+  let commands = lines.map((x, i) => {
+    let [op, ...params] = x.split(" ");
     return ops[op](i, ...params);
   });
-  const exec = new Function(
+  let exec = new Function(
     "cb",
     `
     let r0 = 0, r1 = 0, r2 = 0, r3 = 0, r4 = 0, r5 = 0;
@@ -55,7 +55,7 @@ export function part1(input) {
 
 export function part2(input) {
   let prev;
-  const all = new Set();
+  let all = new Set();
   run(input, r => (all.has(r) ? r : all.add((prev = r)) && undefined));
   return prev;
 }

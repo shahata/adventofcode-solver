@@ -2,8 +2,8 @@ import { permutations } from "combinatorial-generators";
 import { execute } from "./day05.js";
 
 function run(input, inputValues, state) {
-  const user = { input: inputValues, output: undefined };
-  const ops = state ? state.ops : input.split(",").map(Number);
+  let user = { input: inputValues, output: undefined };
+  let ops = state ? state.ops : input.split(",").map(Number);
   let ip = state ? state.ip : 0;
 
   while (ops[ip] % 100 !== 99) {
@@ -18,7 +18,7 @@ function run(input, inputValues, state) {
 }
 
 export function part1(input, phases = [0, 1, 2, 3, 4]) {
-  const results = [...permutations(phases)].map(permutation => {
+  let results = [...permutations(phases)].map(permutation => {
     let A, B, C, D, E;
     do {
       A = run(input, A ? [E.user.output] : [permutation[0], 0], A);

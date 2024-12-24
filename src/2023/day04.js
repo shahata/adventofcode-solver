@@ -1,7 +1,7 @@
 function parse(input) {
   return input.split("\n").map(line => {
-    const [, numbers] = line.split(":");
-    const [left, right] = numbers
+    let [, numbers] = line.split(":");
+    let [left, right] = numbers
       .split("|")
       .map(s => s.trim().split(/\s+/).map(Number));
     return right.filter(n => left.includes(n)).length;
@@ -9,13 +9,13 @@ function parse(input) {
 }
 
 export function part1(input) {
-  const cards = parse(input);
+  let cards = parse(input);
   return cards.map(x => (x > 0 ? 2 ** (x - 1) : 0)).reduce((a, b) => a + b, 0);
 }
 
 export function part2(input) {
-  const cards = parse(input);
-  const seen = {};
+  let cards = parse(input);
+  let seen = {};
   for (let i = 0; i < cards.length; i++) {
     seen[i] = 1;
   }

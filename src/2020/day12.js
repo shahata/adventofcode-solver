@@ -1,11 +1,11 @@
 function turn(direction, count) {
-  const compass = { N: 0, E: 90, S: 180, W: 270 };
-  const reverse = { 0: "N", 90: "E", 180: "S", 270: "W" };
+  let compass = { N: 0, E: 90, S: 180, W: 270 };
+  let reverse = { 0: "N", 90: "E", 180: "S", 270: "W" };
   return reverse[(compass[direction] + count) % 360];
 }
 
 function turn2(position, count) {
-  const rotations = {
+  let rotations = {
     90: ({ x, y }) => ({ x: -1 * y, y: x }),
     180: ({ x, y }) => ({ x: -1 * x, y: -1 * y }),
     270: ({ x, y }) => ({ x: y, y: -1 * x }),
@@ -13,7 +13,7 @@ function turn2(position, count) {
   return rotations[count](position);
 }
 
-const operations = {
+let operations = {
   N: ({ position: { x, y } }, count) => ({ position: { x, y: y - count } }),
   S: ({ position: { x, y } }, count) => ({ position: { x, y: y + count } }),
   W: ({ position: { x, y } }, count) => ({ position: { x: x - count, y } }),
@@ -23,7 +23,7 @@ const operations = {
   F: (state, count) => operations[state.direction](state, count),
 };
 
-const operations2 = {
+let operations2 = {
   ...operations,
   L: ({ position }, count) => ({ position: turn2(position, 360 - count) }),
   R: ({ position }, count) => ({ position: turn2(position, count) }),
@@ -36,7 +36,7 @@ const operations2 = {
 };
 
 function solve(input, initial, operations) {
-  const steps = input
+  let steps = input
     .split("\n")
     .map(x => x.match(/^(.)(\d+)$/))
     .map(([, operation, count]) => ({ operation, count: +count }));

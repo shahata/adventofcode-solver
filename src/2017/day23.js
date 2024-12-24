@@ -16,9 +16,9 @@ function parseDebug(input, debug) {
 }
 
 export function part1(input) {
-  const debug = {};
-  const commands = parseDebug(input, x => (debug[x] = (debug[x] || 0) + 1));
-  const state = { instruction: 0 };
+  let debug = {};
+  let commands = parseDebug(input, x => (debug[x] = (debug[x] || 0) + 1));
+  let state = { instruction: 0 };
   while (state.instruction < commands.length) {
     commands[state.instruction](state);
     state.instruction++;
@@ -27,7 +27,7 @@ export function part1(input) {
 }
 
 function isPrime(num) {
-  const sqrt = Math.floor(Math.sqrt(num));
+  let sqrt = Math.floor(Math.sqrt(num));
   for (let i = 2; i < sqrt + 1; i++) {
     if (num % i === 0) {
       return false;
@@ -37,7 +37,7 @@ function isPrime(num) {
 }
 
 export function part2(input) {
-  const num = +input.split("\n").shift().split(" ").pop() * 100 + 1e5;
+  let num = +input.split("\n").shift().split(" ").pop() * 100 + 1e5;
   let count = 0;
   for (let i = 0; i <= 17000; i += 17) {
     if (!isPrime(num + i)) {

@@ -1,20 +1,20 @@
 function memoize(fn) {
-  const memo = {};
+  let memo = {};
   return (...x) => {
-    const s = JSON.stringify(x);
+    let s = JSON.stringify(x);
     return (memo[s] = memo[s] ?? fn(...x));
   };
 }
 
 function advance(options, char) {
-  const { len, groups, i, left } = options;
+  let { len, groups, i, left } = options;
   let update = {};
   if (char === "#") update = { len: len + 1, left: left - 1 };
   else if (len > 0) update = { len: 0, groups: [...groups, len] };
   return { ...options, ...update, i: i + 1 };
 }
 
-const solve = memoize((pattern, counts, options) => {
+let solve = memoize((pattern, counts, options) => {
   options = options || { groups: [], len: 0, i: 0 };
   options.left = options.left ?? counts.reduce((a, b) => a + b, 0);
 
@@ -29,7 +29,7 @@ const solve = memoize((pattern, counts, options) => {
   }
 
   let result = 0;
-  const c = pattern[options.i];
+  let c = pattern[options.i];
   if (c !== "#") result += solve(pattern, counts, advance(options, "."));
   if (c !== ".") result += solve(pattern, counts, advance(options, "#"));
   return result;
@@ -47,7 +47,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const x = input
+  let x = input
     .split("\n")
     .map(line => {
       let [pattern, counts] = line.split(" ");

@@ -1,9 +1,9 @@
 export function part1(input) {
   let count = 0;
-  const m = input.split("\n");
+  let m = input.split("\n");
   for (let i = 0; i < m.length; i++) {
     for (let j = 0; j < m[i].length; j++) {
-      const lookups = [
+      let lookups = [
         [m[i][j], m[i + 1]?.[j], m[i + 2]?.[j], m[i + 3]?.[j]],
         [m[i][j], m[i]?.[j + 1], m[i]?.[j + 2], m[i]?.[j + 3]],
         [m[i][j], m[i + 1]?.[j + 1], m[i + 2]?.[j + 2], m[i + 3]?.[j + 3]],
@@ -17,10 +17,10 @@ export function part1(input) {
 
 export function part2(input) {
   let count = 0;
-  const m = input.split("\n");
+  let m = input.split("\n");
   for (let i = 0; i < m.length; i++) {
     for (let j = 0; j < m[i].length; j++) {
-      const lookups = [
+      let lookups = [
         [m[i][j], m[i + 1]?.[j + 1], m[i + 2]?.[j + 2]],
         [m[i][j + 2], m[i + 1]?.[j + 1], m[i + 2]?.[j]],
       ].map(lookup => lookup.join(""));

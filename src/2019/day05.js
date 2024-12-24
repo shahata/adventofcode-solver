@@ -1,5 +1,5 @@
 function get(ops, ip, offset) {
-  const mode = Math.floor(ops[ip] / 10 ** (offset + 1)) % 10;
+  let mode = Math.floor(ops[ip] / 10 ** (offset + 1)) % 10;
   return mode === 0 ? ops[ops[ip + offset]] : ops[ip + offset];
 }
 
@@ -34,8 +34,8 @@ export function execute(ops, ip, user) {
 }
 
 export function part1(input, inputValue = 1) {
-  const user = { input: [inputValue], output: undefined };
-  const ops = input.split(",").map(Number);
+  let user = { input: [inputValue], output: undefined };
+  let ops = input.split(",").map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {

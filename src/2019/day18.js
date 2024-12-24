@@ -16,9 +16,9 @@ function calcMemoKey(points, keys) {
 
 function blockDeadEnds(map, current, visited = []) {
   visited.push(current);
-  const neighbors = getNeighbors(map, current).filter(p => p && p.c !== "#");
-  const filtered = neighbors.filter(p => !visited.includes(p));
-  const blocked = filtered.filter(p => blockDeadEnds(map, p, visited));
+  let neighbors = getNeighbors(map, current).filter(p => p && p.c !== "#");
+  let filtered = neighbors.filter(p => !visited.includes(p));
+  let blocked = filtered.filter(p => blockDeadEnds(map, p, visited));
   if (
     filtered.length + 1 === neighbors.length &&
     blocked.length === filtered.length &&
@@ -30,11 +30,11 @@ function blockDeadEnds(map, current, visited = []) {
 }
 
 function findNextKeys(map, point, keys) {
-  const nextKeys = [];
-  const queue = [{ point, distance: 0 }];
-  const visited = new Set();
+  let nextKeys = [];
+  let queue = [{ point, distance: 0 }];
+  let visited = new Set();
   while (queue.length) {
-    const next = queue.shift();
+    let next = queue.shift();
     visited.add(next.point);
     getNeighbors(map, next.point)
       .filter(p => p && p.c !== "#" && !visited.has(p))
@@ -51,17 +51,15 @@ function findNextKeys(map, point, keys) {
 }
 
 function minimumDistance(map, points, keys = [], memo = {}) {
-  const memoKey = calcMemoKey(points, keys);
+  let memoKey = calcMemoKey(points, keys);
   if (!memo[memoKey]) {
-    const nextKeysPerPoint = points.map(point =>
-      findNextKeys(map, point, keys),
-    );
+    let nextKeysPerPoint = points.map(point => findNextKeys(map, point, keys));
     if (nextKeysPerPoint.reduce((sum, x) => sum + x.length, 0) === 0) {
       memo[memoKey] = 0;
     } else {
-      const distances = nextKeysPerPoint.map((nextKeys, i) => {
-        const distances = nextKeys.map(x => {
-          const nextPoints = points.map((p, j) => (i === j ? x.point : p));
+      let distances = nextKeysPerPoint.map((nextKeys, i) => {
+        let distances = nextKeys.map(x => {
+          let nextPoints = points.map((p, j) => (i === j ? x.point : p));
           return (
             x.distance +
             minimumDistance(map, nextPoints, keys.concat([x.key]), memo)
@@ -76,9 +74,9 @@ function minimumDistance(map, points, keys = [], memo = {}) {
 }
 
 function mutate(map) {
-  const line = map.find(line => line.find(p => p.c === "@"));
-  const current = line.find(p => p.c === "@");
-  const currents = [
+  let line = map.find(line => line.find(p => p.c === "@"));
+  let current = line.find(p => p.c === "@");
+  let currents = [
     map[current.y + 1][current.x + 1],
     map[current.y + 1][current.x - 1],
     map[current.y - 1][current.x + 1],
@@ -91,20 +89,20 @@ function mutate(map) {
 }
 
 export function part1(input) {
-  const map = input
+  let map = input
     .split("\n")
     .map((line, y) => line.split("").map((c, x) => ({ c, x, y })));
-  const line = map.find(line => line.find(p => p.c === "@"));
-  const current = line.find(p => p.c === "@");
+  let line = map.find(line => line.find(p => p.c === "@"));
+  let current = line.find(p => p.c === "@");
   blockDeadEnds(map, current);
   return minimumDistance(map, [current]);
 }
 
 export function part2(input) {
-  const map = input
+  let map = input
     .split("\n")
     .map((line, y) => line.split("").map((c, x) => ({ c, x, y })));
-  const currents = mutate(map);
+  let currents = mutate(map);
   currents.forEach(point => blockDeadEnds(map, point));
   return minimumDistance(map, currents);
 }

@@ -47,7 +47,7 @@ function count(disk, point, visited = new Set()) {
 
 function countRegions(disk) {
   let regions = 0;
-  const visited = new Set();
+  let visited = new Set();
   disk.forEach(row => {
     row.forEach(point => {
       if (!visited.has(toKey(point)) && point.value === "#") {

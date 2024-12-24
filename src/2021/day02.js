@@ -1,10 +1,10 @@
 export function part1(input) {
   let [x, y] = [0, 0];
-  const lines = input.split("\n").map(line => {
-    const [direction, value] = line.split(" ");
+  let lines = input.split("\n").map(line => {
+    let [direction, value] = line.split(" ");
     return { direction, value: +value };
   });
-  for (const line of lines) {
+  for (let line of lines) {
     if (line.direction === "forward") {
       x += line.value;
     }
@@ -20,11 +20,11 @@ export function part1(input) {
 
 export function part2(input) {
   let [aim, x, y] = [0, 0, 0];
-  const lines = input.split("\n").map(line => {
-    const [direction, value] = line.split(" ");
+  let lines = input.split("\n").map(line => {
+    let [direction, value] = line.split(" ");
     return { direction, value: +value };
   });
-  for (const line of lines) {
+  for (let line of lines) {
     if (line.direction === "forward") {
       x += line.value;
       y += line.value * aim;

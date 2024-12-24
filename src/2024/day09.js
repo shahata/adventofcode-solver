@@ -1,5 +1,5 @@
 function parse(input) {
-  const disk = [];
+  let disk = [];
   for (let i = 0; i < input.length; i++) {
     if (i % 2 === 0) disk.push({ id: i / 2, count: +input[i] });
     else disk.push({ id: -1, count: +input[i] });
@@ -20,7 +20,7 @@ function checksum(disk) {
 }
 
 function split(disk, i, count) {
-  const add = [
+  let add = [
     { id: disk[i].id, count },
     { id: disk[i].id, count: disk[i].count - count },
   ];
@@ -43,7 +43,7 @@ function move(disk, from, to) {
 }
 
 export function part1(input, part2 = false) {
-  const disk = parse(input);
+  let disk = parse(input);
   for (let i = disk.length - 1; i >= 0; i--) {
     if (disk[i].id === -1) continue;
     let empty = part2

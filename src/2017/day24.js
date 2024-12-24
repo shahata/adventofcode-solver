@@ -14,7 +14,7 @@ function toKey(item) {
 }
 
 function getNext(components, current, cache) {
-  const next = components.filter(x => {
+  let next = components.filter(x => {
     return (
       (x[0] === current.port || x[1] === current.port) &&
       !current.visited.has(x)
@@ -29,17 +29,17 @@ function getNext(components, current, cache) {
       };
     })
     .filter(x => {
-      const key = toKey(x);
+      let key = toKey(x);
       return !cache.has(key) && cache.add(key);
     });
 }
 
 function solve(components, compare) {
-  const cache = new Set();
+  let cache = new Set();
   let max = { visited: new Set(), strength: 0, port: 0 };
   let queue = getNext(components, max, cache);
   while (queue.length > 0) {
-    const current = queue.shift();
+    let current = queue.shift();
     max = compare(current, max) ? current : max;
     queue = queue.concat(getNext(components, current, cache));
   }
@@ -47,12 +47,12 @@ function solve(components, compare) {
 }
 
 export function part1(input) {
-  const components = parse(input);
+  let components = parse(input);
   return solve(components, (current, max) => current.strength > max.strength);
 }
 
 export function part2(input) {
-  const components = parse(input);
+  let components = parse(input);
   return solve(components, (current, max) => {
     return (
       current.visited.size > max.visited.size ||

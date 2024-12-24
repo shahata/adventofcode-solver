@@ -9,8 +9,8 @@ export function part2(input) {
   return input
     .split("\n\n")
     .map(x => {
-      const merged = x.replace(/\n/g, "").split("").sort().join("");
-      const count = x.split("\n").length;
+      let merged = x.replace(/\n/g, "").split("").sort().join("");
+      let count = x.split("\n").length;
       return merged.match(new RegExp(`(.)\\1{${count - 1}}`, "g"))?.length || 0;
     })
     .reduce((a, b) => a + b);

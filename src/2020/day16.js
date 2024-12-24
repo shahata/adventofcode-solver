@@ -16,7 +16,7 @@ function parse(input) {
   return { rules, ticket: tickets.at(-1), tickets };
 }
 
-const valid = (n, x) => (n >= x.a && n <= x.b) || (n >= x.c && n <= x.d);
+let valid = (n, x) => (n >= x.a && n <= x.b) || (n >= x.c && n <= x.d);
 
 function validate(ticket, rules) {
   return ticket.reduce((error, n) => {
@@ -25,7 +25,7 @@ function validate(ticket, rules) {
 }
 
 export function part1(input) {
-  const { rules, tickets } = parse(input);
+  let { rules, tickets } = parse(input);
   return tickets.map(x => validate(x, rules)).reduce((a, b) => a + b);
 }
 
@@ -40,7 +40,7 @@ export function part2(input) {
     rules
       .filter(x => x.position === undefined)
       .forEach(x => {
-        const found = remaining.filter(i => tickets.every(t => valid(t[i], x)));
+        let found = remaining.filter(i => tickets.every(t => valid(t[i], x)));
         if (found.length === 1) {
           x.position = found.pop();
           x.value = ticket[x.position];

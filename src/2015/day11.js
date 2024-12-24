@@ -1,5 +1,5 @@
-const abc = "abcdefghijklmnopqrstuvwxyz";
-const subStrings = abc
+let abc = "abcdefghijklmnopqrstuvwxyz";
+let subStrings = abc
   .split("")
   .map((x, i) => abc.substr(i, 3))
   .filter(x => x.length === 3);

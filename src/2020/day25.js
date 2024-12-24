@@ -8,7 +8,7 @@ function calc(subject, loop) {
 }
 
 export function part1(input) {
-  const keys = input.split("\n").map(Number);
+  let keys = input.split("\n").map(Number);
   let value = 1;
   for (let loop = 1; loop < Infinity; loop++) {
     value = value * 7;

@@ -22,8 +22,8 @@ function parse(input) {
 
 export function part1(input) {
   let sum = 0;
-  const [rules, updates] = parse(input);
-  for (const update of updates) {
+  let [rules, updates] = parse(input);
+  for (let update of updates) {
     if (correct(update, rules) === true) {
       sum += update[(update.length - 1) / 2];
     }
@@ -33,8 +33,8 @@ export function part1(input) {
 
 export function part2(input) {
   let sum = 0;
-  const [rules, updates] = parse(input);
-  for (const update of updates) {
+  let [rules, updates] = parse(input);
+  for (let update of updates) {
     if (correct(update, rules) !== true) {
       let fix;
       while (fix !== true) {

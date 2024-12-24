@@ -12,7 +12,7 @@ function unpkg(name, suffix = "") {
   return { [name]: `https://unpkg.com/${name}@${v(name)}${suffix}` };
 }
 
-export const imports = {
+export let imports = {
   ...skypack("regenerator-runtime"),
   ...skypack("@datastructures-js/priority-queue"),
   ...skypack("combinatorial-generators"),
@@ -33,4 +33,4 @@ function server() {
   }
 }
 
-export const aocSolverServer = server();
+export let aocSolverServer = server();

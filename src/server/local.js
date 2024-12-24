@@ -2,7 +2,7 @@
 import worker from "./worker.js";
 import { serveDir } from "jsr:@std/http/file-server";
 
-const options = {
+let options = {
   onListen: () => console.log("Listening on https://localhost"),
   cert: await Deno.readTextFile("./static/http-cert.pem"),
   key: await Deno.readTextFile("./static/http-key.pem"),
@@ -10,6 +10,6 @@ const options = {
 };
 
 Deno.serve(options, async function (req) {
-  const response = await worker.fetch(req);
+  let response = await worker.fetch(req);
   return response.status === 404 ? serveDir(req) : response;
 });

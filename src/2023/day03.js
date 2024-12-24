@@ -12,8 +12,8 @@ function signed(map, i, j, check = c => c && c !== "." && Number.isNaN(+c)) {
 }
 
 function parse(input, check) {
-  const map = input.split("\n").map(line => line.split(""));
-  const signs = {};
+  let map = input.split("\n").map(line => line.split(""));
+  let signs = {};
   for (let i = 0; i < map.length; i++) {
     let current = "";
     let pos = undefined;

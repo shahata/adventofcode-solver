@@ -1,15 +1,15 @@
 function buffer(image, c) {
   image = image.map(line => [c, c, ...line, c, c]);
-  const e = new Array(image[0].length).fill(c);
+  let e = new Array(image[0].length).fill(c);
   return [e, e, ...image, e, e];
 }
 
 function enhance(image, algorithm) {
-  const next = new Array(image.length).fill().map(() => []);
-  const get = (i, j) => (image[i] && image[i][j]) || image[0][0];
+  let next = new Array(image.length).fill().map(() => []);
+  let get = (i, j) => (image[i] && image[i][j]) || image[0][0];
   for (let i = 0; i < image.length; i++) {
     for (let j = 0; j < image[0].length; j++) {
-      const area = [
+      let area = [
         get(i - 1, j - 1),
         get(i - 1, j + 0),
         get(i - 1, j + 1),
@@ -20,7 +20,7 @@ function enhance(image, algorithm) {
         get(i + 1, j + 0),
         get(i + 1, j + 1),
       ].join("");
-      const pixel = area.replaceAll("#", "1").replaceAll(".", "0");
+      let pixel = area.replaceAll("#", "1").replaceAll(".", "0");
       next[i][j] = algorithm[parseInt(pixel, 2)];
     }
   }

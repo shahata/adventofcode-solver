@@ -1,6 +1,6 @@
 function parse(input) {
-  const lines = input.split("\n").map(line => line.split(""));
-  const astroids = [];
+  let lines = input.split("\n").map(line => line.split(""));
+  let astroids = [];
   lines.forEach((line, y) => {
     line.forEach((point, x) => {
       if (point === "#") {
@@ -13,7 +13,7 @@ function parse(input) {
 
 function popBase(astroids) {
   astroids.forEach(base => {
-    const angles = astroids
+    let angles = astroids
       .filter(x => x !== base)
       .map(target => calcAngle(base, target));
     base.count = new Set(angles).size;
@@ -21,16 +21,16 @@ function popBase(astroids) {
   return astroids.sort((a, b) => a.count - b.count).pop();
 }
 
-const calcAngle = (a, b) => (Math.atan2(a.y - b.y, a.x - b.x) * 180) / Math.PI;
+let calcAngle = (a, b) => (Math.atan2(a.y - b.y, a.x - b.x) * 180) / Math.PI;
 
 export function part1(input) {
   return popBase(parse(input)).count;
 }
 
 export function part2(input) {
-  const astroids = parse(input);
-  const base = popBase(astroids);
-  const angles = new Map();
+  let astroids = parse(input);
+  let base = popBase(astroids);
+  let angles = new Map();
   return astroids
     .map(target => ({
       score: target.x * 100 + target.y,

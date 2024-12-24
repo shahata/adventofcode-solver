@@ -2,17 +2,17 @@ function getHandType(hand) {
   if (hand.includes(1)) {
     return Math.max(
       ...[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(option => {
-        const i = hand.indexOf(1);
+        let i = hand.indexOf(1);
         return getHandType([...hand.slice(0, i), option, ...hand.slice(i + 1)]);
       }),
     );
   }
-  const counts = hand.reduce((acc, card) => {
+  let counts = hand.reduce((acc, card) => {
     acc[card] = acc[card] || 0;
     acc[card]++;
     return acc;
   }, {});
-  const countsArray = Object.values(counts);
+  let countsArray = Object.values(counts);
   if (countsArray.includes(5)) return 6;
   if (countsArray.includes(4)) return 5;
   if (countsArray.includes(3) && countsArray.includes(2)) return 4;
@@ -23,8 +23,8 @@ function getHandType(hand) {
 }
 
 function compare(a, b) {
-  const handTypeA = getHandType(a);
-  const handTypeB = getHandType(b);
+  let handTypeA = getHandType(a);
+  let handTypeB = getHandType(b);
   if (handTypeA !== handTypeB) return handTypeA - handTypeB;
   for (let i = 0; i < a.length; i++) {
     if (a[i] !== b[i]) return a[i] - b[i];
@@ -32,7 +32,7 @@ function compare(a, b) {
 }
 
 function cardNumber(card, jokers) {
-  const number = card;
+  let number = card;
   if (number === "T") return 10;
   if (number === "J") return jokers ? 1 : 11;
   if (number === "Q") return 12;
@@ -42,10 +42,10 @@ function cardNumber(card, jokers) {
 }
 
 export function part1(input, jokers = false) {
-  const hands = input
+  let hands = input
     .split("\n")
     .map(line => {
-      const [hand, bid] = line.split(" ");
+      let [hand, bid] = line.split(" ");
       return {
         bid: +bid,
         hand: hand.split("").map(card => cardNumber(card, jokers)),

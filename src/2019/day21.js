@@ -1,18 +1,18 @@
 import { execute } from "./day09.js";
 
 function run(input, commands) {
-  const chars = [...commands, ""]
+  let chars = [...commands, ""]
     .join("\n")
     .split("")
     .map(x => x.charCodeAt(0));
-  const output = [];
+  let output = [];
 
-  const user = {
+  let user = {
     input: () => chars.shift(),
     output: x => output.push(x),
     base: 0,
   };
-  const ops = input.split(",").map(Number);
+  let ops = input.split(",").map(Number);
   let ip = 0;
 
   while (ops[ip] % 100 !== 99) {
@@ -24,7 +24,7 @@ function run(input, commands) {
 }
 
 export function part1(input) {
-  const damage = run(input, [
+  let damage = run(input, [
     "NOT A J",
     "NOT B T",
     "OR J T",
@@ -39,7 +39,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const damage = run(input, [
+  let damage = run(input, [
     "NOT A J",
     "NOT B T",
     "OR J T",

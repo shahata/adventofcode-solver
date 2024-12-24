@@ -1,6 +1,6 @@
 function parseClaims(input) {
   return input.split("\n").map(claim => {
-    const [, id, x, y, w, h] = claim
+    let [, id, x, y, w, h] = claim
       .match(/^#(\d+) @ (\d+),(\d+): (\d+)x(\d+)$/)
       .map(Number);
     return { id, x, y, w, h };
@@ -8,11 +8,11 @@ function parseClaims(input) {
 }
 
 function resolveClaims(claims) {
-  const fabric = new Map();
+  let fabric = new Map();
   claims.forEach(claim => {
     for (let i = 0; i < claim.w; i++) {
       for (let j = 0; j < claim.h; j++) {
-        const point = `(${claim.x + i}, ${claim.y + j})`;
+        let point = `(${claim.x + i}, ${claim.y + j})`;
         fabric.set(point, (fabric.get(point) || []).concat(claim.id));
       }
     }
@@ -25,17 +25,17 @@ function getConflicts(fabric) {
 }
 
 export function part1(input) {
-  const claims = parseClaims(input);
-  const fabric = resolveClaims(claims);
-  const conflicts = getConflicts(fabric);
+  let claims = parseClaims(input);
+  let fabric = resolveClaims(claims);
+  let conflicts = getConflicts(fabric);
   return conflicts.length;
 }
 
 export function part2(input) {
-  const claims = parseClaims(input);
-  const fabric = resolveClaims(claims);
-  const conflicts = getConflicts(fabric);
-  const ok = new Set(claims.map(x => x.id));
+  let claims = parseClaims(input);
+  let fabric = resolveClaims(claims);
+  let conflicts = getConflicts(fabric);
+  let ok = new Set(claims.map(x => x.id));
   conflicts.forEach(x => x.forEach(id => ok.delete(id)));
   return Array.from(ok).shift();
 }

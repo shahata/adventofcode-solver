@@ -1,14 +1,14 @@
 function drop(pit, x, y) {
-  const queue = [{ x, y }];
-  const visited = new Set();
-  const add = ({ x, y }) => {
+  let queue = [{ x, y }];
+  let visited = new Set();
+  let add = ({ x, y }) => {
     if (!visited.has(`${x},${y}`)) {
       queue.push({ x, y });
       visited.add(`${x},${y}`);
     }
   };
   while (queue.length > 0) {
-    const next = queue.shift();
+    let next = queue.shift();
     pit[next.y][next.x] = "|";
     if (pit[next.y + 1] && pit[next.y + 1][next.x] === ".") {
       add({ x: next.x, y: next.y + 1 });
@@ -56,11 +56,11 @@ function fill(pit, base) {
 }
 
 export function day(input) {
-  const base = { x: Infinity, y: Infinity };
-  const end = { x: -Infinity, y: -Infinity };
-  const lines = input.split("\n").map(x => {
-    const result = x.match(/^([xy])=(\d+), ([xy])=(\d+)\.\.(\d+)$/);
-    const [, axis, num, rangeAxis, from, to] = result;
+  let base = { x: Infinity, y: Infinity };
+  let end = { x: -Infinity, y: -Infinity };
+  let lines = input.split("\n").map(x => {
+    let result = x.match(/^([xy])=(\d+), ([xy])=(\d+)\.\.(\d+)$/);
+    let [, axis, num, rangeAxis, from, to] = result;
     return {
       axis,
       num: +num,
@@ -77,7 +77,7 @@ export function day(input) {
   });
   base.x--;
   end.x++;
-  const pit = new Array(end.y - base.y + 1)
+  let pit = new Array(end.y - base.y + 1)
     .fill()
     .map(() => new Array(end.x - base.x + 1).fill("."));
   lines.forEach(line => {
@@ -91,7 +91,7 @@ export function day(input) {
       }
     }
   });
-  const result = fill(pit, base);
+  let result = fill(pit, base);
   // console.log(pit.map(x => x.join('')).join('\n'));
   return { part1: result.wet + result.dry, part2: result.dry };
 }

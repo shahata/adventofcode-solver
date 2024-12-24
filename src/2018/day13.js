@@ -1,13 +1,13 @@
-const position = cart => `${cart.x},${cart.y}`;
-const onSlash = { ">": "^", "<": "v", "^": ">", "v": "<" };
-const onBackSlash = { ">": "v", "<": "^", "^": "<", "v": ">" };
-const nextTurn = { left: "straight", straight: "right", right: "left" };
-const onTurn = {
+let position = cart => `${cart.x},${cart.y}`;
+let onSlash = { ">": "^", "<": "v", "^": ">", "v": "<" };
+let onBackSlash = { ">": "v", "<": "^", "^": "<", "v": ">" };
+let nextTurn = { left: "straight", straight: "right", right: "left" };
+let onTurn = {
   left: { ">": "^", "<": "v", "^": "<", "v": ">" },
   right: { ">": "v", "<": "^", "^": ">", "v": "<" },
   straight: { ">": ">", "<": "<", "^": "^", "v": "v" },
 };
-const onMove = {
+let onMove = {
   ">": c => c.x++,
   "<": c => c.x--,
   "^": c => c.y--,
@@ -15,7 +15,7 @@ const onMove = {
 };
 
 function tick(map, carts) {
-  const collisions = [];
+  let collisions = [];
   carts.sort((a, b) => a.y - b.y || a.x - b.x);
   carts.forEach(cart => {
     onMove[cart.direction](cart);
@@ -27,7 +27,7 @@ function tick(map, carts) {
       cart.direction = onTurn[cart.nextTurn][cart.direction];
       cart.nextTurn = nextTurn[cart.nextTurn];
     }
-    const other = carts.find(x => x !== cart && position(x) === position(cart));
+    let other = carts.find(x => x !== cart && position(x) === position(cart));
     if (other) {
       collisions.push(cart, other);
     }
@@ -36,8 +36,8 @@ function tick(map, carts) {
 }
 
 function parse(input) {
-  const carts = [];
-  const map = input.replace(/[v^]/g, "|").replace(/[<>]/g, "-").split("\n");
+  let carts = [];
+  let map = input.replace(/[v^]/g, "|").replace(/[<>]/g, "-").split("\n");
   input.split("\n").forEach((row, y) =>
     row.split("").forEach((cell, x) => {
       if ("v^<>".includes(cell)) {
@@ -49,7 +49,7 @@ function parse(input) {
 }
 
 export function part1(input) {
-  const { map, carts } = parse(input);
+  let { map, carts } = parse(input);
   let collisions = [];
   while (collisions.length === 0) {
     collisions = tick(map, carts);
@@ -58,9 +58,9 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const { map, carts } = parse(input);
+  let { map, carts } = parse(input);
   while (carts.length > 1) {
-    const collisions = tick(map, carts);
+    let collisions = tick(map, carts);
     collisions.forEach(cart => carts.splice(carts.indexOf(cart), 1));
   }
   return position(carts[0]);

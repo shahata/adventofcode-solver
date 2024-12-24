@@ -1,10 +1,10 @@
 function parse(input) {
   let initial, diagnostic, currentState, currentValue;
-  const lines = input.split("\n");
-  const states = {};
-  for (const line of lines) {
-    const [word] = line.match(/\w+/) || [];
-    const [, param] = line.match(/([^\s]*).$/) || [];
+  let lines = input.split("\n");
+  let states = {};
+  for (let line of lines) {
+    let [word] = line.match(/\w+/) || [];
+    let [, param] = line.match(/([^\s]*).$/) || [];
     if (word === "Begin") {
       initial = param;
     } else if (word === "Perform") {
@@ -27,12 +27,12 @@ function parse(input) {
 }
 
 export function part1(input) {
-  const { initial, diagnostic, states } = parse(input);
-  const tape = {};
+  let { initial, diagnostic, states } = parse(input);
+  let tape = {};
   let position = 0,
     currentState = initial;
   for (let i = 0; i < diagnostic; i++) {
-    const currentValue = tape[position] || "0";
+    let currentValue = tape[position] || "0";
     tape[position] = states[currentState][currentValue].write;
     position += states[currentState][currentValue].move === "left" ? -1 : 1;
     currentState = states[currentState][currentValue].next;

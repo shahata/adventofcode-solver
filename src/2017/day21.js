@@ -1,5 +1,5 @@
-const pattern = [".#.", "..#", "###"];
-const permutations2 = [
+let pattern = [".#.", "..#", "###"];
+let permutations2 = [
   [1, 2, 3, 4],
   [3, 4, 1, 2],
   [1, 3, 2, 4],
@@ -9,7 +9,7 @@ const permutations2 = [
   [4, 2, 3, 1],
   [2, 4, 1, 3],
 ];
-const permutations3 = [
+let permutations3 = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
   [7, 8, 9, 4, 5, 6, 1, 2, 3],
   [1, 4, 7, 2, 5, 8, 3, 6, 9],
@@ -21,7 +21,7 @@ const permutations3 = [
 ];
 
 function permute(str) {
-  const permutations = str.length === 4 ? permutations2 : permutations3;
+  let permutations = str.length === 4 ? permutations2 : permutations3;
   return permutations.map(x => {
     let result = "";
     for (let i = 0; i < x.length; i++) {
@@ -33,21 +33,21 @@ function permute(str) {
 
 function parse(input) {
   return input.split("\n").reduce((rules, line) => {
-    const [from, to] = line.split(" => ");
-    const keys = permute(from.replace(/\//g, ""));
-    const value = to.split("/");
+    let [from, to] = line.split(" => ");
+    let keys = permute(from.replace(/\//g, ""));
+    let value = to.split("/");
     return keys.reduce((rules, key) => ({ ...rules, [key]: value }), rules);
   }, {});
 }
 
 function divide(pattern, size) {
-  const count = pattern.length / size;
-  const result = [];
+  let count = pattern.length / size;
+  let result = [];
   for (let i = 0; i < count; i++) {
-    const rows = pattern.slice(size * i, size * (i + 1));
-    const row = [];
+    let rows = pattern.slice(size * i, size * (i + 1));
+    let row = [];
     for (let j = 0; j < count; j++) {
-      const box = rows.map(x => x.slice(size * j, size * (j + 1)));
+      let box = rows.map(x => x.slice(size * j, size * (j + 1)));
       row.push(box);
     }
     result.push(row);
@@ -57,7 +57,7 @@ function divide(pattern, size) {
 
 function merge(divided) {
   return divided.reduce((result, boxes) => {
-    const rows = [];
+    let rows = [];
     for (let i = 0; i < boxes[0].length; i++) {
       rows.push(boxes.map(x => x[i]).join(""));
     }
@@ -66,8 +66,8 @@ function merge(divided) {
 }
 
 function mutate(pattern, rules) {
-  const size = pattern.length % 2 === 0 ? 2 : 3;
-  const divided = divide(pattern, size);
+  let size = pattern.length % 2 === 0 ? 2 : 3;
+  let divided = divide(pattern, size);
   return merge(
     divided.map(row =>
       row.map(x => {
@@ -78,7 +78,7 @@ function mutate(pattern, rules) {
 }
 
 export function part1(input, count = 5) {
-  const rules = parse(input);
+  let rules = parse(input);
   let result = pattern;
   for (let i = 0; i < count; i++) {
     result = mutate(result, rules);

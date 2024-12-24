@@ -1,11 +1,11 @@
-const walk = {
+let walk = {
   W: ({ x, y }) => ({ x: x - 1, y: y + 0 }),
   E: ({ x, y }) => ({ x: x + 1, y: y + 0 }),
   N: ({ x, y }) => ({ x: x + 0, y: y - 1 }),
   S: ({ x, y }) => ({ x: x + 0, y: y + 1 }),
 };
-const pos = ({ x, y }) => `${x},${y}`;
-const unique = arr =>
+let pos = ({ x, y }) => `${x},${y}`;
+let unique = arr =>
   arr
     .reduce((all, p) => all.concat(p), [])
     .sort((a, b) => a.x - b.x || a.y - b.y)
@@ -25,7 +25,7 @@ function traverse(current, path, map) {
   if (path.length > 0) {
     let depth = 1;
     let option = [];
-    const options = [];
+    let options = [];
     while (next !== ")" || depth > 0) {
       next = path.shift();
       if (next === "(") {
@@ -40,7 +40,7 @@ function traverse(current, path, map) {
         option.push(next);
       }
     }
-    const ends = unique(options.map(option => traverse(current, option, map)));
+    let ends = unique(options.map(option => traverse(current, option, map)));
     return unique(ends.map(end => traverse(end, path.slice(0), map)));
   } else {
     return [current];
@@ -48,17 +48,17 @@ function traverse(current, path, map) {
 }
 
 function calc(input) {
-  const start = { x: 0, y: 0 };
-  const map = new Map();
+  let start = { x: 0, y: 0 };
+  let map = new Map();
   map.set(pos(start), ".");
   traverse(start, input.slice(1, -1).split(""), map);
 
-  const queue = [{ distance: 0, point: start }];
-  const visited = new Set([pos(start)]);
+  let queue = [{ distance: 0, point: start }];
+  let visited = new Set([pos(start)]);
   while (queue.length > 0) {
-    const { distance, point } = queue.shift();
+    let { distance, point } = queue.shift();
     map.set(pos(point), distance);
-    const options = Object.keys(walk)
+    let options = Object.keys(walk)
       .map(x => map.get(pos(walk[x](point))) === "|" && walk[x](walk[x](point)))
       .filter(x => x && !visited.has(pos(x)));
     options.forEach(option => {

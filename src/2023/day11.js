@@ -1,5 +1,5 @@
 export function part1(input, add = 1) {
-  const map = input.split("\n").map(line => line.split(""));
+  let map = input.split("\n").map(line => line.split(""));
   let stars = map
     .flatMap((row, y) => row.map((cell, x) => ({ cell, x, y })))
     .filter(({ cell }) => cell === "#");
@@ -17,7 +17,7 @@ export function part1(input, add = 1) {
       xdiff += add;
     }
   }
-  const distances = stars.map((a, i) =>
+  let distances = stars.map((a, i) =>
     stars
       .slice(i + 1)
       .reduce((acc, b) => acc + Math.abs(a.x - b.x) + Math.abs(a.y - b.y), 0),

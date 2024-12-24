@@ -1,13 +1,13 @@
 function topad(str) {
-  const result = {};
-  const pad = str.split("\n").map(row => row.split(""));
+  let result = {};
+  let pad = str.split("\n").map(row => row.split(""));
   pad.map((row, y) => row.map((c, x) => (result[c] = { x, y })));
   return result;
 }
 
 let memory = {};
-const keypad = topad("789\n456\n123\nX0A");
-const arrowpad = topad("X^A\n<v>");
+let keypad = topad("789\n456\n123\nX0A");
+let arrowpad = topad("X^A\n<v>");
 function type(code, robots, human = false) {
   if (robots === 0) return code.length;
   if (memory[`${code},${robots}`]) return memory[`${code},${robots}`];
@@ -15,11 +15,11 @@ function type(code, robots, human = false) {
   let from = pad["A"];
   let pushes = 0;
   for (let button of code) {
-    const to = pad[button];
-    const queue = [{ ...from, push: "" }];
+    let to = pad[button];
+    let queue = [{ ...from, push: "" }];
     let min = Infinity;
     while (queue.length) {
-      const { x, y, push } = queue.shift();
+      let { x, y, push } = queue.shift();
       if (x === pad["X"].x && y === pad["X"].y) continue;
       if (x === to.x && y === to.y) {
         min = Math.min(min, type(`${push}A`, human ? robots : robots - 1));

@@ -1,10 +1,10 @@
 function step({ chain, skip, current }, length) {
-  const currentIsFirst = chain.slice(current).concat(chain.slice(0, current));
-  const lengthReversed = currentIsFirst
+  let currentIsFirst = chain.slice(current).concat(chain.slice(0, current));
+  let lengthReversed = currentIsFirst
     .slice(0, length)
     .reverse()
     .concat(currentIsFirst.slice(length));
-  const currentRotatedBack = lengthReversed
+  let currentRotatedBack = lengthReversed
     .slice(-1 * current)
     .concat(lengthReversed.slice(0, -1 * current));
   return {
@@ -27,7 +27,7 @@ function solve2(chain, lengths) {
 }
 
 function dense(arr) {
-  const result = [];
+  let result = [];
   while (arr.length > 0) {
     result.push(arr.slice(0, 16).reduce((a, b) => a ^ b, 0));
     arr = arr.slice(16);

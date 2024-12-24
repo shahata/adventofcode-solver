@@ -1,7 +1,7 @@
 import { ocr } from "../utils/ocr.js";
 
 export function part1(input) {
-  const lines = input.split("\n");
+  let lines = input.split("\n");
   let sum = 0;
   let cycle = 0;
   let x = 1;
@@ -11,7 +11,7 @@ export function part1(input) {
       sum += x * cycle;
     }
   }
-  for (const line of lines) {
+  for (let line of lines) {
     if (line === "noop") progress();
     else {
       progress();
@@ -23,7 +23,7 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const lines = input.split("\n");
+  let lines = input.split("\n");
   let result = "";
   let cycle = 0;
   let x = 1;
@@ -32,7 +32,7 @@ export function part2(input) {
     result += Math.abs((cycle % 40) - x) <= 1 ? "#" : ".";
     cycle++;
   }
-  for (const line of lines) {
+  for (let line of lines) {
     if (line === "noop") progress();
     else {
       progress();

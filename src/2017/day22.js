@@ -1,18 +1,18 @@
-const turnLeft = {
+let turnLeft = {
   U: "L",
   D: "R",
   L: "D",
   R: "U",
 };
 
-const turnRight = {
+let turnRight = {
   U: "R",
   D: "L",
   L: "U",
   R: "D",
 };
 
-const turnBackward = {
+let turnBackward = {
   U: "D",
   D: "U",
   L: "R",
@@ -20,7 +20,7 @@ const turnBackward = {
 };
 
 function turn(state) {
-  const node = state.nodes[toKey(state.position)];
+  let node = state.nodes[toKey(state.position)];
   switch (node) {
     case "#":
       return turnRight[state.direction];
@@ -47,7 +47,7 @@ function next(node, evolved) {
 }
 
 function move({ x, y }, direction) {
-  const directions = {
+  let directions = {
     U: { x, y: y - 1 },
     D: { x, y: y + 1 },
     L: { x: x - 1, y },
@@ -71,9 +71,9 @@ function burst(state, evolved) {
 }
 
 function parse(input) {
-  const nodes = {};
-  const lines = input.split("\n");
-  const position = { x: (lines[0].length - 1) / 2, y: (lines.length - 1) / 2 };
+  let nodes = {};
+  let lines = input.split("\n");
+  let position = { x: (lines[0].length - 1) / 2, y: (lines.length - 1) / 2 };
   lines.forEach((line, y) =>
     line.split("").forEach((node, x) => (nodes[toKey({ x, y })] = node)),
   );
@@ -81,8 +81,8 @@ function parse(input) {
 }
 
 export function part1(input, bursts = 1e4, evolved = false) {
-  const { nodes, position } = parse(input);
-  const state = { nodes, position, direction: "U", infections: 0 };
+  let { nodes, position } = parse(input);
+  let state = { nodes, position, direction: "U", infections: 0 };
   for (let i = 0; i < bursts; i++) {
     burst(state, evolved);
   }

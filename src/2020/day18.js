@@ -27,11 +27,11 @@ function solve(formula, precedence) {
 }
 
 export function part1(input) {
-  const formulas = input.split("\n");
+  let formulas = input.split("\n");
   return formulas.map(x => solve(x)).reduce((a, b) => a + b);
 }
 
 export function part2(input) {
-  const formulas = input.split("\n");
+  let formulas = input.split("\n");
   return formulas.map(x => solve(x, true)).reduce((a, b) => a + b);
 }

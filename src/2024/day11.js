@@ -1,7 +1,7 @@
 function next(stone) {
   if (stone === 0) return [1];
   if (`${stone}`.length % 2 === 0) {
-    const s = `${stone}`;
+    let s = `${stone}`;
     return [
       parseInt(s.slice(0, s.length / 2)),
       parseInt(s.slice(s.length / 2)),
@@ -10,9 +10,9 @@ function next(stone) {
   return [stone * 2024];
 }
 
-const memory = new Map();
+let memory = new Map();
 function doit(stone, times) {
-  const key = `${stone},${times}`;
+  let key = `${stone},${times}`;
   if (memory.has(key)) return memory.get(key);
   let sum = 0;
   let stones = next(stone);

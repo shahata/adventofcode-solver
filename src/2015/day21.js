@@ -1,5 +1,5 @@
 function calcOptions() {
-  const items = {
+  let items = {
     weapons: [
       { name: "dagger", cost: 8, damage: 4, armor: 0 },
       { name: "shortsword", cost: 10, damage: 5, armor: 0 },
@@ -26,7 +26,7 @@ function calcOptions() {
     ],
   };
 
-  const options = [];
+  let options = [];
 
   items.weapons.forEach(weapon => {
     items.armor.forEach(armor => {
@@ -52,14 +52,14 @@ function calcOptions() {
 }
 
 function parse(input) {
-  const [hit, damage, armor] = input.match(/\d+/g).map(Number);
+  let [hit, damage, armor] = input.match(/\d+/g).map(Number);
   return { hit, damage, armor };
 }
 
 export function part1(input) {
-  const boss = parse(input);
-  const options = calcOptions();
-  const win = options.filter(
+  let boss = parse(input);
+  let options = calcOptions();
+  let win = options.filter(
     x =>
       Math.ceil(100 / Math.max(1, boss.damage - x.armor)) >=
       Math.ceil(boss.hit / Math.max(1, x.damage - boss.armor)),
@@ -68,9 +68,9 @@ export function part1(input) {
 }
 
 export function part2(input) {
-  const boss = parse(input);
-  const options = calcOptions();
-  const lose = options.filter(
+  let boss = parse(input);
+  let options = calcOptions();
+  let lose = options.filter(
     x =>
       Math.ceil(100 / Math.max(1, boss.damage - x.armor)) <
       Math.ceil(boss.hit / Math.max(1, x.damage - boss.armor)),
