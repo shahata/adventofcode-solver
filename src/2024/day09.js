@@ -36,9 +36,7 @@ function move(disk, from, to) {
     split(disk, from, disk[from].count - disk[to].count);
     from++;
   }
-  let tmp = disk[to].id;
-  disk[to].id = disk[from].id;
-  disk[from].id = tmp;
+  [disk[to].id, disk[from].id] = [disk[from].id, disk[to].id];
   return from;
 }
 

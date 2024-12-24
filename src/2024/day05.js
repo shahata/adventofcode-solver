@@ -2,11 +2,7 @@ function correct(update, rules) {
   for (let i = 0; i < update.length; i++) {
     for (let j = 0; j < i; j++) {
       if (rules.has(`${update[i]}|${update[j]}`)) {
-        return () => {
-          let tmp = update[i];
-          update[i] = update[j];
-          update[j] = tmp;
-        };
+        return () => ([update[i], update[j]] = [update[j], update[i]]);
       }
     }
   }
