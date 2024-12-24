@@ -50,17 +50,16 @@ function extractUnit(gates, i) {
   let not = gates
     .filter(x => x.a === `x${next}` && x.b === `y${next}`)
     .map(x => x.wire);
-  let wires = unit.map(x => x.wire);
   let done = false;
   while (!done) {
     done = true;
+    let wires = unit.map(x => x.wire);
     let more = gates.filter(x => wires.includes(x.a) || wires.includes(x.b));
     more = more.filter(x => !unit.includes(x));
     more = more.filter(x => !not.includes(x.a) && !not.includes(x.b));
     if (more.length) {
       done = false;
       unit.push(...more);
-      wires.push(...more.map(x => x.wire));
     }
   }
   return unit;
