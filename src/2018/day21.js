@@ -1,4 +1,4 @@
-let ops = {
+const ops = {
   addr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + r${i2}; break;`,
   addi: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} + ${i2}; break;`,
   mulr: (l, i1, i2, o) => `case ${l}: r${o} = r${i1} * r${i2}; break;`,

@@ -1,13 +1,13 @@
-let position = cart => `${cart.x},${cart.y}`;
-let onSlash = { ">": "^", "<": "v", "^": ">", "v": "<" };
-let onBackSlash = { ">": "v", "<": "^", "^": "<", "v": ">" };
-let nextTurn = { left: "straight", straight: "right", right: "left" };
-let onTurn = {
+const position = cart => `${cart.x},${cart.y}`;
+const onSlash = { ">": "^", "<": "v", "^": ">", "v": "<" };
+const onBackSlash = { ">": "v", "<": "^", "^": "<", "v": ">" };
+const nextTurn = { left: "straight", straight: "right", right: "left" };
+const onTurn = {
   left: { ">": "^", "<": "v", "^": "<", "v": ">" },
   right: { ">": "v", "<": "^", "^": ">", "v": "<" },
   straight: { ">": ">", "<": "<", "^": "^", "v": "v" },
 };
-let onMove = {
+const onMove = {
   ">": c => c.x++,
   "<": c => c.x--,
   "^": c => c.y--,

@@ -1,8 +1,8 @@
-let pos = ({ x, y }) => `${x},${y}`;
-let count = (units, type) => units.filter(u => u.type === type).length;
+const pos = ({ x, y }) => `${x},${y}`;
+const count = (units, type) => units.filter(u => u.type === type).length;
 
 function attackIfPossible(map, units, unit) {
-  let inRange = u => Math.abs(u.x - unit.x) + Math.abs(u.y - unit.y) === 1;
+  const inRange = u => Math.abs(u.x - unit.x) + Math.abs(u.y - unit.y) === 1;
   let attack = units
     .filter(u => u.type !== unit.type && inRange(u))
     .sort((a, b) => a.hit - b.hit || a.y - b.y || a.x - b.x)

@@ -8,7 +8,7 @@ function longest(graph, curr, visited) {
 }
 
 function parse(input) {
-  let signs = { gain: +1, lose: -1 };
+  const signs = { gain: +1, lose: -1 };
   let graph = input
     .split("\n")
     .map(x =>

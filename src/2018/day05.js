@@ -1,6 +1,6 @@
-let u = x => x.toUpperCase();
-let abc = "abcdefghijklmnopqrstuvwxyz".split("");
-let kill = abc.reduce((arr, x) => arr.concat([x + u(x), u(x) + x]), []);
+const u = x => x.toUpperCase();
+const abc = "abcdefghijklmnopqrstuvwxyz".split("");
+const kill = abc.reduce((arr, x) => arr.concat([x + u(x), u(x) + x]), []);
 
 export function part1(input) {
   let len;

@@ -1,6 +1,6 @@
-let regexp =
+const regexp =
   /^(swap position|swap letter|rotate based|rotate|reverse positions|move position) ([^\s]+)\s.*\s([^\s]+)$/;
-let ops = {
+const ops = {
   "swap position": (a, b) => str => {
     [a, b] = [+a, +b].sort((a, b) => a - b);
     let arr = str

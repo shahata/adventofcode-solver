@@ -1,4 +1,4 @@
-let MAX_IP = 4294967295;
+const MAX_IP = 4294967295;
 
 function merge(ranges) {
   ranges.sort((a, b) => a[0] - b[0]);

@@ -1,18 +1,18 @@
-let turnLeft = {
+const turnLeft = {
   U: "L",
   D: "R",
   L: "D",
   R: "U",
 };
 
-let turnRight = {
+const turnRight = {
   U: "R",
   D: "L",
   L: "U",
   R: "D",
 };
 
-let turnBackward = {
+const turnBackward = {
   U: "D",
   D: "U",
   L: "R",

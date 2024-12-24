@@ -1,6 +1,6 @@
 let cache = {};
-let pos = ({ x, y }) => `${x},${y}`;
-let terrain = (point, depth) => erosion(point, depth) % 3;
+const pos = ({ x, y }) => `${x},${y}`;
+const terrain = (point, depth) => erosion(point, depth) % 3;
 
 function erosion({ x, y }, depth) {
   let geo;

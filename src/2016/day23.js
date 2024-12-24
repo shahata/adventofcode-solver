@@ -1,4 +1,4 @@
-let ops = {
+const ops = {
   cpy: (src, register) => state => {
     if (state[register] !== undefined) {
       src = state[src] === undefined ? +src : state[src];

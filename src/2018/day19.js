@@ -1,6 +1,6 @@
 import { divisors } from "../utils/divisors.js";
 
-let ops = {
+const ops = {
   addr: (r, i1, i2, o) => (r[o] = r[i1] + r[i2]),
   addi: (r, i1, i2, o) => (r[o] = r[i1] + i2),
   mulr: (r, i1, i2, o) => (r[o] = r[i1] * r[i2]),
@@ -18,7 +18,7 @@ let ops = {
   eqri: (r, i1, i2, o) => (r[o] = r[i1] === i2 ? 1 : 0),
   eqrr: (r, i1, i2, o) => (r[o] = r[i1] === r[i2] ? 1 : 0),
 };
-let numbers = arr => arr.map(Number);
+const numbers = arr => arr.map(Number);
 
 export function part1(input, reg0 = 0) {
   let lines = input.split("\n");

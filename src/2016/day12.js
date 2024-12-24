@@ -1,4 +1,4 @@
-let ops = {
+const ops = {
   cpy: (src, register) => state =>
     (state[register] = src.match(/^\d+$/) ? +src : state[src]),
   inc: register => state => state[register]++,

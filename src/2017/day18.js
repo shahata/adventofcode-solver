@@ -10,7 +10,7 @@ export function getter(state, p) {
 }
 
 export function parse(input, ops2 = {}, debug = undefined) {
-  let ops = {
+  const ops = {
     snd: p1 => state => (state.sound = getter(state, p1)),
     set: (p1, p2) => state => (state[p1] = getter(state, p2)),
     add: (p1, p2) => state =>

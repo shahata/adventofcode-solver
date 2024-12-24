@@ -1,4 +1,4 @@
-let directions = {
+const directions = {
   D: { y: 1, x: 0 },
   R: { y: 0, x: 1 },
   U: { y: -1, x: 0 },
@@ -28,7 +28,7 @@ function solve(input, keypad, start) {
     .join("");
 }
 
-let keypad1 = [
+const keypad1 = [
   ["1", "2", "3"],
   ["4", "5", "6"],
   ["7", "8", "9"],
@@ -38,7 +38,7 @@ export function part1(input) {
   return solve(input, keypad1, { x: 1, y: 1 });
 }
 
-let keypad2 = [
+const keypad2 = [
   [NaN, NaN, "1", NaN, NaN],
   [NaN, "2", "3", "4", NaN],
   ["5", "6", "7", "8", "9"],

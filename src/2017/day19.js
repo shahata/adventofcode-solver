@@ -6,7 +6,7 @@ function findEntryPoint(route) {
   return { x: route[0].indexOf("|"), y: 0 };
 }
 
-let next = {
+const next = {
   down: ({ x, y }) => ({ x, y: y + 1 }),
   up: ({ x, y }) => ({ x, y: y - 1 }),
   left: ({ x, y }) => ({ x: x - 1, y }),

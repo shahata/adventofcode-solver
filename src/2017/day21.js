@@ -1,5 +1,5 @@
-let pattern = [".#.", "..#", "###"];
-let permutations2 = [
+const pattern = [".#.", "..#", "###"];
+const permutations2 = [
   [1, 2, 3, 4],
   [3, 4, 1, 2],
   [1, 3, 2, 4],
@@ -9,7 +9,7 @@ let permutations2 = [
   [4, 2, 3, 1],
   [2, 4, 1, 3],
 ];
-let permutations3 = [
+const permutations3 = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
   [7, 8, 9, 4, 5, 6, 1, 2, 3],
   [1, 4, 7, 2, 5, 8, 3, 6, 9],

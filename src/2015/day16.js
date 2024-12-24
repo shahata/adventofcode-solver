@@ -1,4 +1,4 @@
-let expect1 = {
+const expect1 = {
   id: () => true,
   children: 3,
   cats: 7,
@@ -12,7 +12,7 @@ let expect1 = {
   perfumes: 1,
 };
 
-let expect2 = {
+const expect2 = {
   ...expect1,
   cats: x => x > expect1.cats,
   trees: x => x > expect1.trees,

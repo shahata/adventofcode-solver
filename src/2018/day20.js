@@ -1,11 +1,11 @@
-let walk = {
+const walk = {
   W: ({ x, y }) => ({ x: x - 1, y: y + 0 }),
   E: ({ x, y }) => ({ x: x + 1, y: y + 0 }),
   N: ({ x, y }) => ({ x: x + 0, y: y - 1 }),
   S: ({ x, y }) => ({ x: x + 0, y: y + 1 }),
 };
-let pos = ({ x, y }) => `${x},${y}`;
-let unique = arr =>
+const pos = ({ x, y }) => `${x},${y}`;
+const unique = arr =>
   arr
     .reduce((all, p) => all.concat(p), [])
     .sort((a, b) => a.x - b.x || a.y - b.y)

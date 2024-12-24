@@ -2,7 +2,7 @@ import { execute } from "./day09.js";
 import { ocr } from "../utils/ocr.js";
 
 function move({ x, y }, direction) {
-  let directions = {
+  const directions = {
     "^": { x, y: y - 1 },
     "v": { x, y: y + 1 },
     "<": { x: x - 1, y },
@@ -11,14 +11,14 @@ function move({ x, y }, direction) {
   return directions[direction];
 }
 
-let left = {
+const left = {
   "^": "<",
   "<": "v",
   "v": ">",
   ">": "^",
 };
 
-let right = {
+const right = {
   "^": ">",
   ">": "v",
   "v": "<",

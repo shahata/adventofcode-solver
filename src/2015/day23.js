@@ -1,4 +1,4 @@
-let operations = {
+const operations = {
   hlf: (state, p1) => ({ ...state, [p1]: state[p1] / 2, next: state.next + 1 }),
   tpl: (state, p1) => ({ ...state, [p1]: state[p1] * 3, next: state.next + 1 }),
   inc: (state, p1) => ({ ...state, [p1]: state[p1] + 1, next: state.next + 1 }),

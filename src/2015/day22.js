@@ -1,4 +1,4 @@
-let spells = {
+const spells = {
   Missile: {
     mana: 53,
     effect: game => {

@@ -1,4 +1,4 @@
-let abc = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const abc = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function next(prerequisites, done) {
   let options = [];
