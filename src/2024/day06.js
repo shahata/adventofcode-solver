@@ -1,4 +1,4 @@
-let step = {
+const step = {
   up: { x: 0, y: -1, turn: "right" },
   down: { x: 0, y: 1, turn: "left" },
   left: { x: -1, y: 0, turn: "up" },

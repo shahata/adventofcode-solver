@@ -2,7 +2,7 @@ function step(x, y) {
   return pos => ({ x: pos.x + x, y: pos.y + y });
 }
 
-let steps = {
+const steps = {
   "<": step(-1, 0),
   ">": step(1, 0),
   "^": step(0, -1),
