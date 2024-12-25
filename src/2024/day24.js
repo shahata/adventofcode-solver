@@ -4,6 +4,7 @@ function read(wiresMap, prefix) {
   return out.map(x => wiresMap.get(x)).join("");
 }
 
+const ops = { AND: (a, b) => a & b, OR: (a, b) => a | b, XOR: (a, b) => a ^ b };
 function run(gates, wiresMap) {
   let done = false;
   while (!done) {
@@ -14,9 +15,7 @@ function run(gates, wiresMap) {
       let c = wiresMap.get(wire);
       if (a !== undefined && b !== undefined && c === undefined) {
         done = false;
-        if (op === "AND") wiresMap.set(wire, a & b);
-        if (op === "OR") wiresMap.set(wire, a | b);
-        if (op === "XOR") wiresMap.set(wire, a ^ b);
+        wiresMap.set(wire, ops[op](a, b));
       }
     });
   }
@@ -46,55 +45,45 @@ export function part1(input) {
 function extractUnit(gates, i) {
   let num = i.toString().padStart(2, "0");
   let next = (i + 1).toString().padStart(2, "0");
-  let unit = gates.filter(x => x.a === `x${num}` && x.b === `y${num}`);
-  let not = gates
-    .filter(x => x.a === `x${next}` && x.b === `y${next}`)
-    .map(x => x.wire);
-  let done = false;
-  while (!done) {
-    done = true;
-    let wires = unit.map(x => x.wire);
-    let more = gates.filter(x => wires.includes(x.a) || wires.includes(x.b));
-    more = more.filter(x => !unit.includes(x));
+  let more = gates.filter(x => x.a === `x${num}` && x.b === `y${num}`);
+  let not = gates.filter(x => x.a === `x${next}` && x.b === `y${next}`);
+  not = not.map(x => x.wire);
+
+  let unit = [];
+  while (more.length) {
+    let wires = more.map(x => x.wire);
+    unit.push(...more);
+    more = gates.filter(x => wires.includes(x.a) || wires.includes(x.b));
     more = more.filter(x => !not.includes(x.a) && !not.includes(x.b));
-    if (more.length) {
-      done = false;
-      unit.push(...more);
-    }
   }
   return unit;
 }
 
 function unitTest(gates) {
-  let inp = new Set(gates.flatMap(x => [x.a, x.b]));
-  let out = new Set(gates.map(x => x.wire));
-  let inputs = [...inp.difference(out)].sort();
-  let outputs = [...out.difference(inp)].sort();
+  let intoGates = new Set(gates.flatMap(x => [x.a, x.b]));
+  let outOfGates = new Set(gates.map(x => x.wire));
+  let inputs = [...intoGates.difference(outOfGates)].sort();
+  let outputs = [...outOfGates.difference(intoGates)].sort();
   if (outputs.every(x => x.startsWith("z"))) outputs.reverse();
   for (let i = 0; i < 2 ** inputs.length; i++) {
     let wiresMap = new Map();
-    let bin = i.toString(2);
-    inputs.forEach((x, j) => wiresMap.set(x, +bin[j]));
+    let binary = i.toString(2);
+    inputs.forEach((x, j) => wiresMap.set(x, +binary[j]));
     run(gates, wiresMap);
     let result = parseInt(outputs.map(x => wiresMap.get(x)).join(""), 2);
-    let expect = bin.split("").reduce((a, b) => +a + +b, 0);
+    let expect = binary.split("").reduce((a, b) => +a + +b, 0);
     if (result !== expect) return false;
   }
   return true;
 }
 
-function getSwamps(gates) {
+function getSwamps(unit) {
   let options = [];
-  let out = gates.map(x => x.wire);
-  for (let i = 0; i < out.length; i++) {
-    for (let j = i + 1; j < out.length; j++) {
-      let option = gates.map(x => {
-        let next = { ...x };
-        if (x.wire === out[i]) next.wire = out[j];
-        if (x.wire === out[j]) next.wire = out[i];
-        return next;
-      });
-      options.push({ swap: [out[i], out[j]], gates: option });
+  for (let i = 0; i < unit.length; i++) {
+    for (let j = i + 1; j < unit.length; j++) {
+      let gates = unit.map(x => ({ ...x }));
+      [gates[i].wire, gates[j].wire] = [gates[j].wire, gates[i].wire];
+      options.push({ swap: [gates[i].wire, gates[j].wire], gates });
     }
   }
   return options;
@@ -106,8 +95,7 @@ export function part2(input) {
   let swapped = [];
   for (let i = 0; i < length; i++) {
     let unit = extractUnit(gates, i);
-    let pass = unitTest(unit);
-    if (!pass) {
+    if (!unitTest(unit)) {
       let { swap } = getSwamps(unit).find(x => unitTest(x.gates));
       swapped.push(...swap);
     }
