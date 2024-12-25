@@ -70,7 +70,7 @@ export function part2(input, w = 101, h = 103) {
       map[robot.py][robot.px] = "#";
     });
     let match = 0;
-    for (let y = 0; y < h - tree.length; y++) {
+    for (let y = 0; y < h; y++) {
       if (map[y].join("").includes(tree[match])) {
         match++;
         if (match === tree.length) return i;
