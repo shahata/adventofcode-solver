@@ -103,16 +103,18 @@ export async function solveAll(year, day, run = true) {
       await createSolver(year, day);
     }
   } else {
-    console.log(`Downloading questions (${year})...`);
+    console.log(`Downloading files (${year})...`);
     let days = getDays(year);
     var bar = new ProgressBar("[:bar] :percent", {
-      total: days.length + downloadIndexTicks,
+      total: (run ? days.length : 0) + downloadIndexTicks,
       width: 40,
     });
     await downloadIndex(year, bar, days.length * 2);
-    for (let day of days) {
-      await downloadInput(year, day);
-      bar.tick();
+    if (run) {
+      for (let day of days) {
+        await downloadInput(year, day);
+        bar.tick();
+      }
     }
     await takeScreenshots(year);
 

@@ -20,8 +20,6 @@ $ npm install
 $ export ADVENT_SESSION=your-cookie-value
 
 $ npm start [year]
-- or -
-$ npm start [year] [day-number]
 ```
 
 The commands above will work for all years since 2015.
