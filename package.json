@@ -9,8 +9,8 @@
   "scripts": {
     "start": "node src/index.js",
     "serve": "http-server -p 443 -S -o -c-1 -C static/http-cert.pem -K static/http-key.pem",
-    "test": "f(){ if [ -z \"$CI\" ]; then jest --onlyChanged $*; else jest $*; fi }; NODE_OPTIONS=--experimental-vm-modules f",
-    "lint": "eslint src && tsc",
+    "test": "if [ -z \"$CI\" ]; then vitest run --changed $*; else vitest run $*; fi",
+    "lint": "eslint src",
     "prepare": "husky"
   },
   "dependencies": {
@@ -26,35 +26,20 @@
   },
   "devDependencies": {
     "@playwright/browser-chromium": "^1.47.2",
-    "@types/jest": "^29.5.13",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest": "^28.10.0",
     "eslint-plugin-prettier": "^5.2.1",
     "http-server": "^14.1.1",
     "husky": "^9.1.6",
-    "jest": "^29.7.0",
     "playwright": "^1.49.1",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2",
-    "typescript-eslint": "^8.18.1"
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "<rootDir>/templates"
-    ]
+    "typescript-eslint": "^8.18.1",
+    "vitest": "^3.0.5"
   },
   "prettier": {
     "quoteProps": "consistent",
     "arrowParens": "avoid"
-  },
-  "wallaby": {
-    "autoDetect": true,
-    "startAutomatically": true,
-    "env": {
-      "params": {
-        "env": "NODE_OPTIONS=--experimental-vm-modules"
-      }
-    }
   }
 }

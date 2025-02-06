@@ -1,4 +1,5 @@
 import { part1, part2 } from "./day24.js";
+import { describe, test, expect } from "vitest";
 import readInput from "../utils/read-input.js";
 
 let input = readInput(import.meta.url);
