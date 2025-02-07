@@ -14,8 +14,8 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceRoot}",
-      "program": "${workspaceFolder}/node_modules/.bin/vitest",
-      "args": ["${relativeFile}"]
+      "program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
+      "args": ["related", "${relativeFile}"]
     }
   ]
 }
