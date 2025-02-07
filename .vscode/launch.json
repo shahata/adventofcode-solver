@@ -7,24 +7,15 @@
       "request": "launch",
       "cwd": "${workspaceRoot}",
       "program": "${workspaceRoot}/src/index.js",
-      "args": [
-        "${relativeFile}"
-      ]
+      "args": ["${relativeFile}"]
     },
     {
       "name": "Launch Tests",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceRoot}",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": [
-        "--runInBand",
-        "--findRelatedTests",
-        "${relativeFile}"
-      ],
-      "env": {
-        "NODE_OPTIONS": "--experimental-vm-modules",
-      }
+      "program": "${workspaceFolder}/node_modules/.bin/vitest",
+      "args": ["${relativeFile}"]
     }
   ]
 }
