@@ -16,16 +16,15 @@ import {
   downloadIndexTicks,
 } from "./renderer.js";
 
-let duration;
+let __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 async function timerify(fn) {
   let start = performance.now();
   let result = await fn();
   let end = performance.now();
-  duration = `(${Math.round(end - start)}ms)`;
-  return result;
+  let duration = `(${Math.round(end - start)}ms)`;
+  return { result, duration };
 }
-
-let __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function solverFunction(year, day) {
   let solver = path.resolve(__dirname, "..", year, `${dayName(day)}.js`);
@@ -33,21 +32,21 @@ function solverFunction(year, day) {
     return undefined;
   }
   return async () => {
-    let module = await import(`../${year}/${dayName(day)}.js`);
-    let input = readInput(
-      new URL(`../${year}/${dayName(day)}.js`, import.meta.url),
-    );
+    let moduleName = `../${year}/${dayName(day)}.js`;
+    let module = await import(moduleName);
+    let input = readInput(new URL(moduleName, import.meta.url));
     console.log(`Solution for ${year}/${dayName(day)}!!!`);
     console.log("----------------------------");
+    let result, duration;
     if (module.day) {
-      let { part1, part2 } = await timerify(() => module.day(input));
-      console.log(`Part1: ${part1}`);
-      console.log(`Part2: ${part2}`, duration);
+      ({ result, duration } = await timerify(() => module.day(input)));
+      console.log(`Part1: ${result.part1}`);
+      console.log(`Part2: ${result.part2}`, duration);
     } else {
-      let result1 = timerify(() => module.part1(input));
-      console.log(`Part1: ${await result1}`, duration);
-      let result2 = timerify(() => module.part2(input));
-      console.log(`Part2: ${await result2}`, duration);
+      ({ result, duration } = await timerify(() => module.part1(input)));
+      console.log(`Part1: ${result}`, duration);
+      ({ result, duration } = await timerify(() => module.part2(input)));
+      console.log(`Part2: ${result}`, duration);
     }
     console.log("");
   };
@@ -93,36 +92,35 @@ async function takeScreenshots(year) {
   );
 }
 
-export async function solveAll(year, day, run = true) {
-  if (day) {
-    tempLeaderboard(year);
-    let solver = solverFunction(year, day);
-    if (solver) {
-      await solver();
-    } else {
-      await createSolver(year, day);
-    }
+export async function solveDay(year, day) {
+  tempLeaderboard(year);
+  let solver = solverFunction(year, day);
+  if (solver) {
+    await solver();
   } else {
-    console.log(`Downloading files (${year})...`);
-    let days = getDays(year);
-    var bar = new ProgressBar("[:bar] :percent", {
-      total: (run ? days.length : 0) + downloadIndexTicks,
-      width: 40,
-    });
-    await downloadIndex(year, bar, days.length * 2);
-    if (run) {
-      for (let day of days) {
-        await downloadInput(year, day);
-        bar.tick();
-      }
-    }
-    await takeScreenshots(year);
+    await createSolver(year, day);
+  }
+}
 
-    if (run) {
-      for (let day of days) {
-        let solver = solverFunction(year, day);
-        await solver();
-      }
+export async function solveAllDays(year, run = true) {
+  console.log(`Downloading files (${year})...`);
+  let days = getDays(year);
+  var bar = new ProgressBar("[:bar] :percent", {
+    total: (run ? days.length : 0) + downloadIndexTicks,
+    width: 40,
+  });
+  await downloadIndex(year, bar, days.length * 2);
+  if (run) {
+    for (let day of days) {
+      await downloadInput(year, day);
+      bar.tick();
+    }
+  }
+  await takeScreenshots(year);
+  if (run) {
+    for (let day of days) {
+      let solver = solverFunction(year, day);
+      await solver();
     }
   }
 }
@@ -130,6 +128,6 @@ export async function solveAll(year, day, run = true) {
 export async function solveAllYears() {
   let years = getAllYears();
   for (let year of years) {
-    await solveAll(year, undefined, false);
+    await solveAllDays(year, false);
   }
 }

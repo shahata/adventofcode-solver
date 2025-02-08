@@ -1,4 +1,4 @@
-import { solveAll, solveAllYears } from "./utils/solver.js";
+import { solveDay, solveAllDays, solveAllYears } from "./utils/solver.js";
 import { execSync } from "node:child_process";
 import * as process from "node:process";
 
@@ -16,7 +16,7 @@ if (process.env.ADVENT_SESSION) {
   let day = process.argv[3];
   if (process.argv[2] && process.argv[2].includes("/")) {
     let clean = process.argv[2].split("/").slice(-2);
-    let yearNum = parseInt(clean[0]);
+    let yearNum = parseInt(clean[0].match(/\d+/).pop());
     let dayNum = parseInt(clean[1].match(/\d+/).pop());
     if (Number.isNaN(yearNum) || Number.isNaN(dayNum)) {
       console.error("Invalid arguments");
@@ -25,11 +25,9 @@ if (process.env.ADVENT_SESSION) {
     year = `${yearNum}`;
     day = `${dayNum}`;
   }
-  if (year) {
-    await solveAll(year, day).catch(err => console.error(err.stack));
-  } else {
-    await solveAllYears().catch(err => console.error(err.stack));
-  }
+  if (day) await solveDay(year, day);
+  else if (year) await solveAllDays(year);
+  else await solveAllYears();
 } else {
   console.error("************************************************************");
   console.error("************************************************************");

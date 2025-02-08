@@ -4,13 +4,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version-file: '.nvmrc'
-    - run: npm ci
-    - run: npm run lint
-    - run: npm test
-      env:
-        CI: true
-        NODE_OPTIONS: '--experimental-vm-modules'
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+        env:
+          CI: true
