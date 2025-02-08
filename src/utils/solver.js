@@ -12,7 +12,6 @@ import {
   downloadIndex,
   downloadInput,
   createSolver,
-  tempLeaderboard,
   downloadIndexTicks,
 } from "./renderer.js";
 
@@ -24,32 +23,6 @@ async function timerify(fn) {
   let end = performance.now();
   let duration = `(${Math.round(end - start)}ms)`;
   return { result, duration };
-}
-
-function solverFunction(year, day) {
-  let solver = path.resolve(__dirname, "..", year, `${dayName(day)}.js`);
-  if (!existsSync(solver)) {
-    return undefined;
-  }
-  return async () => {
-    let moduleName = `../${year}/${dayName(day)}.js`;
-    let module = await import(moduleName);
-    let input = readInput(new URL(moduleName, import.meta.url));
-    console.log(`Solution for ${year}/${dayName(day)}!!!`);
-    console.log("----------------------------");
-    let result, duration;
-    if (module.day) {
-      ({ result, duration } = await timerify(() => module.day(input)));
-      console.log(`Part1: ${result.part1}`);
-      console.log(`Part2: ${result.part2}`, duration);
-    } else {
-      ({ result, duration } = await timerify(() => module.part1(input)));
-      console.log(`Part1: ${result}`, duration);
-      ({ result, duration } = await timerify(() => module.part2(input)));
-      console.log(`Part2: ${result}`, duration);
-    }
-    console.log("");
-  };
 }
 
 function getDays(year) {
@@ -65,16 +38,16 @@ function getDays(year) {
   }
 }
 
-function getAllYears() {
+function getYears() {
   let directory = path.resolve(__dirname, "..");
   let years = readdirSync(directory).filter(x => x.match(/^\d\d\d\d$/));
   return years.sort((a, b) => parseInt(a) - parseInt(b));
 }
 
 async function takeScreenshots(year) {
-  if (year !== getAllYears().at(-1)) return;
+  if (year !== getYears().at(-1)) return;
   let browser = await chromium.launch();
-  let height = 208.16 + getAllYears().length * 23.5;
+  let height = 208.16 + getYears().length * 23.5;
   let clip = { x: 0, y: 0, width: 1030, height };
   let page = await browser.newPage();
   await page.goto(resolve(import.meta.url, `../${year}/events.html`));
@@ -93,13 +66,27 @@ async function takeScreenshots(year) {
 }
 
 export async function solveDay(year, day) {
-  tempLeaderboard(year);
-  let solver = solverFunction(year, day);
-  if (solver) {
-    await solver();
-  } else {
-    await createSolver(year, day);
+  let solver = path.resolve(__dirname, "..", year, `${dayName(day)}.js`);
+  if (!existsSync(solver)) {
+    return createSolver(year, day);
   }
+  let moduleName = `../${year}/${dayName(day)}.js`;
+  let module = await import(moduleName);
+  let input = readInput(new URL(moduleName, import.meta.url));
+  console.log(`Solution for ${year}/${dayName(day)}!!!`);
+  console.log("----------------------------");
+  let result, duration;
+  if (module.day) {
+    ({ result, duration } = await timerify(() => module.day(input)));
+    console.log(`Part1: ${result.part1}`);
+    console.log(`Part2: ${result.part2}`, duration);
+  } else {
+    ({ result, duration } = await timerify(() => module.part1(input)));
+    console.log(`Part1: ${result}`, duration);
+    ({ result, duration } = await timerify(() => module.part2(input)));
+    console.log(`Part2: ${result}`, duration);
+  }
+  console.log("");
 }
 
 export async function solveAllDays(year, run = true) {
@@ -119,14 +106,13 @@ export async function solveAllDays(year, run = true) {
   await takeScreenshots(year);
   if (run) {
     for (let day of days) {
-      let solver = solverFunction(year, day);
-      await solver();
+      await solveDay(year, day);
     }
   }
 }
 
 export async function solveAllYears() {
-  let years = getAllYears();
+  let years = getYears();
   for (let year of years) {
     await solveAllDays(year, false);
   }

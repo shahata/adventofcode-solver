@@ -32,14 +32,6 @@ export async function downloadInput(year, day) {
   return renderTemplate(year, dayName(day), "txt", { input });
 }
 
-export function tempLeaderboard(year) {
-  let model = calcLeaderboard();
-  if (model) {
-    renderTemplate(year, "leaderboard", "html", { year, ...model });
-    renderTemplate(year, "leaderboard", "json", { year, ...model });
-  }
-}
-
 export let downloadIndexTicks = 7;
 export async function downloadIndex(year, bar, stars) {
   renderTemplate(year, "solver", "html", { year, stars });
@@ -77,11 +69,11 @@ export async function createSolver(year, day) {
 
   let txtFileName = await downloadInput(year, day);
   let jsFileName = renderTemplate(year, dayName(day), "js", {});
-  let specFileName = renderTemplate(year, dayName(day), "spec.js", {
+  let testFileName = renderTemplate(year, dayName(day), "test.js", {
     year,
     day: dayName(day),
   });
-  [jsFileName, specFileName, txtFileName].forEach(fn =>
+  [jsFileName, testFileName, txtFileName].forEach(fn =>
     console.log(`Created ${fn}`),
   );
   console.log("");

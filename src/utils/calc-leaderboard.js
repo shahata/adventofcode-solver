@@ -1,6 +1,3 @@
-import * as path from "node:path";
-import { fileURLToPath } from "node:url";
-import { readFileSync, writeFileSync } from "node:fs";
 import { imports } from "./urls.js";
 
 function removeIgnoredDays(jsonArr) {
@@ -72,18 +69,6 @@ function calcChart(members, sorted, count) {
 }
 
 export function calcLeaderboard(jsonArr) {
-  let __dirname = path.dirname(fileURLToPath(import.meta.url));
-  let jsonPath = path.resolve(__dirname, "leaderboards.json");
-  let debugMode = false;
-  if (jsonArr) {
-    if (debugMode) {
-      writeFileSync(jsonPath, JSON.stringify(jsonArr));
-    }
-  } else if (debugMode) {
-    jsonArr = JSON.parse(readFileSync(jsonPath).toString());
-  } else {
-    return;
-  }
   removeIgnoredDays(jsonArr);
 
   let members = Object.values(
