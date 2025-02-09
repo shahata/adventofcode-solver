@@ -1,6 +1,6 @@
 import globals from "globals";
 import eslint from "@eslint/js";
-import vitest from "eslint-plugin-vitest";
+import vitest from "@vitest/eslint-plugin";
 import typescript from "typescript-eslint";
 import prettier from "eslint-plugin-prettier/recommended";
 
