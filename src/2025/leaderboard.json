@@ -1,0 +1,4771 @@
+{
+  "all": {
+    "type": "line",
+    "data": {
+      "labels": [
+        "Day 1-1",
+        "Day 1-2",
+        "Day 2-1",
+        "Day 2-2",
+        "Day 3-1",
+        "Day 3-2",
+        "Day 4-1",
+        "Day 4-2",
+        "Day 5-1",
+        "Day 5-2",
+        "Day 6-1",
+        "Day 6-2",
+        "Day 7-1",
+        "Day 7-2",
+        "Day 8-1",
+        "Day 8-2",
+        "Day 9-1",
+        "Day 9-2",
+        "Day 10-1",
+        "Day 10-2",
+        "Day 11-1",
+        "Day 11-2",
+        "Day 12-1",
+        "Day 12-2",
+        "Day 13-1",
+        "Day 13-2",
+        "Day 14-1",
+        "Day 14-2",
+        "Day 15-1",
+        "Day 15-2",
+        "Day 16-1",
+        "Day 16-2",
+        "Day 17-1",
+        "Day 17-2",
+        "Day 18-1",
+        "Day 18-2",
+        "Day 19-1",
+        "Day 19-2",
+        "Day 20-1",
+        "Day 20-2",
+        "Day 21-1",
+        "Day 21-2",
+        "Day 22-1",
+        "Day 22-2",
+        "Day 23-1",
+        "Day 23-2",
+        "Day 24-1",
+        "Day 24-2",
+        "Day 25-1",
+        "Day 25-2"
+      ],
+      "datasets": [
+        {
+          "label": "Tadas Aučiūnas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomas Peluritis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shahar Talmi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "atamurius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vadym Holoveichuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #76749)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vlad Shamaida",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "jakutis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Ur",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eddie Erlich",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maurits Out",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alon Yehezkel",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Omer Burshtein",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Arye Lukashevski",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oded Soffrin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Marzouk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tzvika Farber",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Omri Gotlieb",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Wo1v3r",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Stepan Samko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Rėjus Paukštė",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yevhen Kutishchev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "argshook",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Serhii Muryhin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "bolshchikov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Illia Panasenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Niкitа Shulipа",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Arnoldas Šeščila",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Karolina Zarankaitė",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mantas Miliukas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aviad Hadad",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vytenis Butkevicius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maor Yosef",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aviv Rosental",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Boris Litvinsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Amit Marx",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oded Gefen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Bohdan Lyzanets",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shalev Shalit",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yair Haimovitch",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Amir Yonatan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dovydas Mikalauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Salick Cogan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Noam Neeman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Joseph DSCS",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vladyslav Zhuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maksym Petruk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Itai Pelles",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "GabiGrin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "boriskor",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oded Cagan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy Kori",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shilo Magen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dvir Cooper",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dmitry Naumenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jonathan Avinor",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #315860)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yael Hermon",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #339033)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shmulik Flint",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Justas Trimailovas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ShaharR",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ronny Ringel",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tadas Obolevicius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oran Shuster",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "gavrielco",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nadav Nuni",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ophir Gross",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tzachi Azo",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roy Sommer",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shalev Shalit",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dovydas Mikalauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Audrius Kovalenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Amit Dahan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Reut Svr",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Elad Bogomolny",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "oriprice",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gal Elmalah",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Sergey Ilyevsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Raviv Gurtenstein",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Arbel",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Erez Paperny",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jonathan Adler",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ronen Erez",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "gilisho",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Matan Asraf",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "hadar geva",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "David Perlman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alon Bar Tur",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Schniz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ehab Sharif",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Donatas Petrauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "cheloveq",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vytenis Urbonavičius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guillaume Laudet",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrius Stanaitis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "viktoriianosova",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aleksei Efimov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "BrooklynKing",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yaara Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrius Butkevicius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lieron Schalew",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Emilis Baliukonis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yakir Narkis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Or Ben Ari (wixcode support)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy Kori",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eli Ponyatovski",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Florent Bécart",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Stanislav Prokopiv",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gil Levin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aaron Vinestock",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dvir Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maxim Novak",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gavin Rifkind",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dor Duchovni",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mosh Feu",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Sela Marjan Almog",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aviran Huga",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ori Dubinsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Karin Agan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy Warzager",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "felixmosh",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alexandr Yushkov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gil Eckstein",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "David Valencia",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dmytro Khomutnyk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Itai Ben David",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Boris Dichter",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ori Price",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Sharon Zevadi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tatiana Podolskaya",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Adi Bar Yossef",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Or Leib",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Or Leib",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy Rotem",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "lirancr",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Hai",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tom Bigelajzen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "jjaskulis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mor Shemesh",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gerda Simoliunaite",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yonatan Hattav",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dor Mitzafon",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yakir Narkis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Daniel Kagan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dovile Lapinskaite",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nikita Shulipa",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eran Egozi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roi Berlin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Leon Fedotov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Rita Bazak",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Meir Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vaidas Kascėnas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "​Vytautas Jakutis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mantas Sakalauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Linas Medžiūnas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Donatas Remeika",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Antanas Bastys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tadas Kundelis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yaniv Chekroun",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alexandra Seriachenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ranyitz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomas Eglinskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vytautas Traškevičius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton Podolsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "justasam",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Inbal Langer",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "shtutman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Amit Leshem",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomer Shkolnik",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Carl M. Lane",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jurij Mikelionis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ron Ohana",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Danylo Vdovenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aleksej Murogov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vladas Tamosiunas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "kornholio84",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Bryan Pinsker",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Hadar Raab",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vyacheslav Miroshko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton Verinov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleksii Kaliuzhnyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dmytro Teleha",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrii Koretskyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kristina Lyba",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Domas Martisius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Erez",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Marius Jurgelenas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maya Lavie Levkovits",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "michalavraham",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Hadar Geva",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gongreg",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nachshon Schwartz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tal Levy",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "TalZa1810",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nir Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yam Ben-Tzvi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Boris Litvinsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "mkloouo",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Justas Valskis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Itai Schuftan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gal Elmalah",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Etai Solomon",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Omer Burshtein",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy S",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "bitamar",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lena Zhukova",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleg Gordeev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yitzi G",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleksandr Bondarchuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "darksmile",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Itay Friedman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Etai Gross",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roei Avrahami",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dan Kovalsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alon Weissfeld",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ivan Vyshnevskyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dor Ben Baruch",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Asaf Yonay",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jonathan Bensaid",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "GuyPerkal",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "alexeytokar",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Max Artemov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrey Nikitin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jonathan Fraimorice",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleksandr Kylinskyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "valerii-vorobiov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kobi Kadosh",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Almog Adziashvili",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Malachi Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Sergey Puzankov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Pavlo Lisovyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mindaugas Ardaravičius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Domas Maksimas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roman Shevchuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yael Sarusi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "David Valencia",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nachshon Schwartz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Luis Rodriguez",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #1102162)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mariia Havrylovych",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Arijus",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleksii Proniakin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "שי ליבוביץ'",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Akrabut",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eugene Baraniuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "daliusd",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Erez",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "RytisMark",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alon Taieb",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Itay Gadot",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Salick Cogan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alex Kubica",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dovilė Lapinskaitė",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yakov Rakhamimov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Galymzhan Kozhayev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ArthurOx",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Asaf Korem",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oz Sayag",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "TomerAmran",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "sharonzevadi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Domant3lis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lukas Pažėra",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aaron Vinestock",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dima Bildin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "dragonofdeath",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Niryo",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vlad Kampov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "rasmus93",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Boris Buliga",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ykrukovsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mykola Borozdin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Avraham Rosenzweig",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oded Soffrin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Evgeny Alterman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lukasadoms",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #1507892)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Elad Barack",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Amir Zaushnizer",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomer Amran",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Pavel Forkert",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yogev Shlomovitz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maxim Novak",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yuri Tkachenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anna Ivakhnik",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Uri Yakhini",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Taras Petushkov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Živilė Kindurytė",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dmytro Bildin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "anton-lebodkin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ihor Krysenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nataliia Khitsan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "PavlyukVadim",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Danylo Verhuliesov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Danylo Dzenik",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lukas Kairys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vidas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kobi Zakut",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleksii Dubok",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "BenasMot",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy Perkal",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Egidijus Jakas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oren Zakay",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "kristinahrb",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Artem Ohanjanyan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Bohdan Tryhub",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gil Shochat",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tania-Y",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "bogobogo",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "andrius-girdzius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ihor Andriiv",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mykhailo Maslov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eugene Vashchuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "daniel-azu",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Michael Wachsman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Justinas Simanavicius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Olexandr Yermilov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ievgenii Petrenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Callum Shaw",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vladyslav Shalamai",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomas Miliauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "SofiiaBalushka",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jorge Rodriguez",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mykhailo Pustovit",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Giedrius Graževičius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Povilas Tamošauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrius Vidmanto Bentkus",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Rostyslav Makhanko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ukraine Screens",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Avishai Nudelman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Viktoriia Nosova",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Антон Кисиль",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Domas Karklys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Audrius Savickas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Motiejus Juodelis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Cwallice",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "egidijusj",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "marine-bre",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Noam Hoffman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tal Harel",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #1780487)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Algimantas Krasauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dor",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yogev Shlomovitz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Savva Khalaman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shmuel Hizmi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ron-shuvy",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Fer0x",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "magia_li",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Volodymyr Kobeliatsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "GregoryNative",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roman Shevchuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gennadii Sirtsov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gilad Frish",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maksim Norkin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Hillel Kahana",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ted Kostylev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Amit Abuksis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy Even",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ifat Kooperli",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Itay Avtalyon",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #2301674)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vitalii Kloz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #2301856)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eido Weksler",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aviv Sela",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vaidas Pilkauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy Porges",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lukas Kairys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Matan Keidar",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yuval Shoham",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ohad Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Michał Kosowski",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Bar Amsalem",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #2303276)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #2303455)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Gerstein",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yogev Ben David",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kirill Gladkov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomer Groisman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gražvydas Jučius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Laurynas Remeika",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "dmarav",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Daniel Kochavi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Adam Gorkoz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ugnius Mickys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Karolis Astrauka",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yaniv Efraim",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yana Yaroshevich",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nikolajus Lebedenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tzah Hillel",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Omer Braha",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ivellios",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nitzan Hadar",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dalius Krivickas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton Feoktistov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Donatas Uziela",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shir Shintel",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alexander Panman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Riel Journo",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "viliusmileris",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Rokas Žeruolis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dalia Simons",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrii Domin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Justas Brazauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Donatas Kučinskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #2373525)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomaš Monkevič",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shachar Almagor",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "vytautasm",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jonathan Toledano",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "yoav tsook",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dor Wiser",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleksandr Yakover",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleh Lypskyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Einav Levy",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Milda Glebauskaite",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yinon Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Audrey Oved",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomas Jurevic",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Michael Pustovit",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kyrylo Penzykov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleksandr Yermilov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aidas Rudis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yedidya Kennard",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Slava Goverdovsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kyrylo Taran",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ravid Ben Harosh",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ziv Pizanti",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Avigdor Mansbach",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Snir Sharristh",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yuriy Fedorov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tom May Rimok",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Iurii Kozhan",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yevhen Kramorenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Hudyma Vitalii",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #2443579)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Uzi Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton Kolhun",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dvir Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gil Galditzky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nadav Bahalul",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jonathan Moskovich",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomer Binder",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Leonid Kolomiitsev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tal Grunwald",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alon Peretz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Rimvydas Gimbutas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #2520749)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Liran Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lietuvaitis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Marik Shnitman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tom Sandalon",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Zoe Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "chenelisha",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Avivbh",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Magia Li",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gil Shochat",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Avi Laviad",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ykravv",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Sapir Levy",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Assaf Segev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ron Yadgar",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Daniel Shterenberg",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gil Ben Netanel",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aviv Ben-Haim",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Istaiti",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Aviv Liberman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dalius Krivickas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eldar Siboni",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Liron Ashami",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Moriya Tzubara",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #3097131)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ExitNot",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kamile Evelina Randall",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "I.I",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Povilas Stašys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Bernardas Laucius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Hillel Kahana",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vadim Kisilov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Laurynas Lubys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mantas Indrašius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kirill Gladkov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eldar Siboni",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dziugas Untulis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Rostyslav Makhanko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "borisslutskiwix",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Serhii Tuniehov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Rostyslav Yadelskyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yehor Chornyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Grantas Gadliauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Snir Sharristh",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Boris Bakshiyev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Motiejus Jakštys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Pavlo Vyshnevetskyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Michael Wachsman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Liraz Reichenstein",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Daryna Chernysheva",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dmytro Dranko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lital Gilboa",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Agnius Valaitis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Hlib Riabtsev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Justinas Sapezinskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "karins14",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Algirdas Jasaitis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Adomas Sileikis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mantas Valiulis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yevhenii Kravchenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "kateryname",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "יצחק גטה",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jonathan Mosenkis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #3309619)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Evaldas Grublys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton Kolhun",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Domantas Slėnys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dmitry Naumenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Martynas Puronas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gediminas Krisceliunas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ieva Vaitkute",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Domantas Bazys",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Justas Mileika",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ondblclick",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Moshe Teter",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Salomėja",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton Kisil",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lev Vidrak",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yevhenii Dovhaniuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Volodymyr Ozhekhovskyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roman Panchenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Bohdana Soroka",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #3385295)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shaked Erinberg",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrius Naruševičius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maksym Butsykin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "PenzK",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Or Oz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yevhen Kovalchuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nicolas Galer",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Nancy Hernandez",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Gilad Bison",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Shtaimberg",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eli Ganim",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dekel Adler",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tom Sandalon",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Matan Georgi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Sharon Mor",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Israel Koplowicz",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alon Trugman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrew Pavlenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yuval Shavit",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Uriel Parienti",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "ArthurOxenhorn",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yoav Danieli",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kobi Zakut",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "תמר אגמון",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kateryna Madzhara",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Siril-O",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Iaryna Tokar (Yarina)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrew Peresada",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maksim Smetana",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Chen Kahana",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleksii Lozovoi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrei Timofeev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jaunius Belickas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "danielg-wix",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Dolev Epshtein",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Augustinas Vainius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lidor Tevet",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "overengineered",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roman Koniukhov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Asaf Yonay",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Hillel Kahana",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Or Gertman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Or Gertman",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #3990975)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maksym Butsykin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "gretawix",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "LimeFizzy",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "maksimbar",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Idan Levi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton Feoktistov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Hanan Yazdi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vitalii Sashyn",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #4286627)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "iryna-novykova",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Gutweter",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maksym Netreba",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Orestas Miskivas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Emilija Puronaite",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Igor",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Chen Sella",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Adi Confino",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrii Butko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Chen Kahana",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kamile Evelina Randall",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yoav Danieli",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Roy Peleg",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Michael Silber",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Einav Koren",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kim Pinnes",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Zeev Glaizer",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Daniil Dubin",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Omer Gerhard",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ido Kahlon",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anton Zuiev",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "UrielParienti",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lev Rado",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yehonatan Zaritsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kfir Strikovsky",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Denis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anastasiia Hordieieva",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tadas Krivickas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Anna Omelchenko",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Amit Ben-Menahem",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Yevhen Kovalchuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Ugne",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Oleh Olefir",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Kristoferis Solovjov",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "jonas-brb-wix",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #4527099)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Amit Tamari",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "roiros",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Andrii Blahyi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lyre Shechter",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "saarazari5",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tamir Houri",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Jordan Laor",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Alon T",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "DatenFluss",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tal David",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Artem Traier",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Laurynas Tautvydas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shlomi Toussia Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mindaugas Ramonas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maya Dinur Cohen",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Guy Friedlander",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "van-vanich-wix",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Mantas Šatrauskas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Maksym Voloshko",
+          "data": [
+            0
+          ],
+          "fill": false
+        }
+      ]
+    }
+  },
+  "ten": {
+    "type": "line",
+    "data": {
+      "labels": [
+        "Day 1-1",
+        "Day 1-2",
+        "Day 2-1",
+        "Day 2-2",
+        "Day 3-1",
+        "Day 3-2",
+        "Day 4-1",
+        "Day 4-2",
+        "Day 5-1",
+        "Day 5-2",
+        "Day 6-1",
+        "Day 6-2",
+        "Day 7-1",
+        "Day 7-2",
+        "Day 8-1",
+        "Day 8-2",
+        "Day 9-1",
+        "Day 9-2",
+        "Day 10-1",
+        "Day 10-2",
+        "Day 11-1",
+        "Day 11-2",
+        "Day 12-1",
+        "Day 12-2",
+        "Day 13-1",
+        "Day 13-2",
+        "Day 14-1",
+        "Day 14-2",
+        "Day 15-1",
+        "Day 15-2",
+        "Day 16-1",
+        "Day 16-2",
+        "Day 17-1",
+        "Day 17-2",
+        "Day 18-1",
+        "Day 18-2",
+        "Day 19-1",
+        "Day 19-2",
+        "Day 20-1",
+        "Day 20-2",
+        "Day 21-1",
+        "Day 21-2",
+        "Day 22-1",
+        "Day 22-2",
+        "Day 23-1",
+        "Day 23-2",
+        "Day 24-1",
+        "Day 24-2",
+        "Day 25-1",
+        "Day 25-2"
+      ],
+      "datasets": [
+        {
+          "label": "Tadas Aučiūnas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomas Peluritis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shahar Talmi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "atamurius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vadym Holoveichuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "(anonymous user #76749)",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vlad Shamaida",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "jakutis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Lior Ur",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Eddie Erlich",
+          "data": [
+            0
+          ],
+          "fill": false
+        }
+      ]
+    }
+  },
+  "five": {
+    "type": "line",
+    "data": {
+      "labels": [
+        "Day 1-1",
+        "Day 1-2",
+        "Day 2-1",
+        "Day 2-2",
+        "Day 3-1",
+        "Day 3-2",
+        "Day 4-1",
+        "Day 4-2",
+        "Day 5-1",
+        "Day 5-2",
+        "Day 6-1",
+        "Day 6-2",
+        "Day 7-1",
+        "Day 7-2",
+        "Day 8-1",
+        "Day 8-2",
+        "Day 9-1",
+        "Day 9-2",
+        "Day 10-1",
+        "Day 10-2",
+        "Day 11-1",
+        "Day 11-2",
+        "Day 12-1",
+        "Day 12-2",
+        "Day 13-1",
+        "Day 13-2",
+        "Day 14-1",
+        "Day 14-2",
+        "Day 15-1",
+        "Day 15-2",
+        "Day 16-1",
+        "Day 16-2",
+        "Day 17-1",
+        "Day 17-2",
+        "Day 18-1",
+        "Day 18-2",
+        "Day 19-1",
+        "Day 19-2",
+        "Day 20-1",
+        "Day 20-2",
+        "Day 21-1",
+        "Day 21-2",
+        "Day 22-1",
+        "Day 22-2",
+        "Day 23-1",
+        "Day 23-2",
+        "Day 24-1",
+        "Day 24-2",
+        "Day 25-1",
+        "Day 25-2"
+      ],
+      "datasets": [
+        {
+          "label": "Tadas Aučiūnas",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Tomas Peluritis",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Shahar Talmi",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "atamurius",
+          "data": [
+            0
+          ],
+          "fill": false
+        },
+        {
+          "label": "Vadym Holoveichuk",
+          "data": [
+            0
+          ],
+          "fill": false
+        }
+      ]
+    }
+  }
+}

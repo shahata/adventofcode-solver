@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Leaderboard - Advent of Code 2025</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:300&subset=latin,latin-ext' rel='stylesheet'
+      type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../static/style.css" />
+    <link rel="stylesheet alternate" type="text/css" href="../../static/highcontrast.css" title="High Contrast" />
+    <link rel="shortcut icon" href="../../static/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 class="title-global"><a href="index.html">Advent of Code</a></h1>
+        <nav>
+          <ul>
+            <li><a href="events.html">[Events]</a></li>
+            <li><a href="leaderboard.html">[Leaderboard]</a></li>
+            <li><a href="solver.html">[Solver]</a></li>
+          </ul>
+        </nav>
+        <div class="user">Shahar Talmi <a class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a
+            href="https://www.wix.engineering/" target="_blank" class="sponsor-badge"
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">0*</span></div>
+      </div>
+      <div>
+        <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+            href="index.html">2025</a><span class="title-event-wrap">;</span></h1>
+      </div>
+    </header>
+    <main>
+      <button onclick="drawChart('all')">Show All</button>
+      <button onclick="drawChart('ten')">Show Top Ten</button>
+      <button onclick="drawChart('five')">Show Top Five</button>
+      <canvas id="canvas"></canvas>
+      <script type="module">
+        import { Chart, registerables } from 'https://cdn.skypack.dev/chart.js@4.4.8?min';
+        import config from "./leaderboard.json" with { type: "json" };
+        Chart.register(...registerables);
+        function currentConfig() {
+          return (new URLSearchParams(location.search)).get('draw') || 'five';
+        }
+        window.drawChart = function (group) {
+          history.pushState({ draw: group }, '', `?draw=${group}`);
+          window.myLine.data = JSON.parse(JSON.stringify(config[group].data));
+          window.myLine.update();
+        };
+        window.onload = function () {
+          let ctx = document.getElementById('canvas').getContext('2d');
+          window.myLine = new Chart(ctx, JSON.parse(JSON.stringify(config[currentConfig()])));
+        };
+        window.addEventListener('popstate', () => drawChart(currentConfig()));
+      </script>
+    </main>
+  </body>
+</html>
