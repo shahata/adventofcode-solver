@@ -9,7 +9,7 @@ function skypack(name, suffix = "") {
 }
 
 function unpkg(name, suffix = "") {
-  return { [name]: `https://unpkg.com/${name}@${v(name)}${suffix}` };
+  return { [name]: `https://cdn.jsdelivr.net/npm/${name}@${v(name)}${suffix}` };
 }
 
 export let imports = {
