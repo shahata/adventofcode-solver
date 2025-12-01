@@ -61,7 +61,7 @@ async function solver(session, year, day) {
   } catch {
     return false;
   }
-  let url = `https://github.com/shahata/adventofcode-solver/blob/master/src/${fileName}.js`;
+  let url = `https://github.com/shahata/adventofcode-solver/blob/main/src/${fileName}.js`;
   console.log(
     `<br><span><a href="${url}" target="_blank">Solution for ${fileName}!!!</a></span><br>`,
   );

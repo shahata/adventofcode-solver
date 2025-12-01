@@ -57,7 +57,7 @@ export async function getYearPage(year) {
   return page.replace(
     /href="\/\d+\/day\/(\d+)"/g,
     (full, num) =>
-      `href="https://github.com/shahata/adventofcode-solver/blob/master/src/${year}/${dayName(num)}.js"`,
+      `href="https://github.com/shahata/adventofcode-solver/blob/main/src/${year}/${dayName(num)}.js"`,
   );
 }
 
