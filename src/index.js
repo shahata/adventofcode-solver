@@ -1,15 +1,5 @@
 import { solveDay, solveAllDays, solveAllYears } from "./utils/solver.js";
-import { execSync } from "node:child_process";
 import * as process from "node:process";
-
-if (!process.env.ADVENT_SESSION) {
-  try {
-    let session = execSync("cookies https://adventofcode.com/ session");
-    process.env.ADVENT_SESSION = session.toString();
-  } catch {
-    //
-  }
-}
 
 if (process.env.ADVENT_SESSION) {
   let year = process.argv[2];
