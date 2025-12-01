@@ -32,8 +32,14 @@ export async function downloadInput(year, day) {
   return renderTemplate(year, dayName(day), "txt", { input });
 }
 
-export let downloadIndexTicks = 7;
+export let downloadIndexTicks = 6;
 export async function downloadIndex(year, bar, stars) {
+  downloadStatic("https://adventofcode.com/static/style.css");
+  bar.tick();
+  downloadStatic("https://adventofcode.com/static/highcontrast.css");
+  bar.tick();
+  downloadStatic("https://adventofcode.com/favicon.png");
+  bar.tick();
   renderTemplate(year, "solver", "html", { year, stars });
   bar.tick();
   let page = await getYearPage(year);
@@ -45,13 +51,6 @@ export async function downloadIndex(year, bar, stars) {
   let lbmodel = calcLeaderboard(await getLeaderboardJsons(year));
   renderTemplate(year, "leaderboard", "html", { year, ...lbmodel, stars });
   renderTemplate(year, "leaderboard", "json", { year, ...lbmodel, stars });
-  bar.tick();
-  downloadStatic("https://adventofcode.com/static/style.css");
-  bar.tick();
-  downloadStatic("https://adventofcode.com/static/highcontrast.css");
-  bar.tick();
-  downloadStatic("https://adventofcode.com/favicon.png");
-  bar.tick();
 }
 
 export async function createSolver(year, day) {
