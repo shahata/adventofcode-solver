@@ -53,15 +53,20 @@ async function form(session, year, day, level, answer, duration) {
 
 async function solver(session, year, day) {
   let submit = (level, answer, duration = "") =>
-    form(session, year, day, level, answer, duration);
-  let fileName = `${year}/${dayName(day)}`;
+    form(session, year, `${day}`, level, answer, duration);
+  let fileName = `${year}/${dayName(`${day}`)}`;
+  let module;
+  try {
+    module = await import(`../${fileName}.js`);
+  } catch {
+    return false;
+  }
   let url = `https://github.com/shahata/adventofcode-solver/blob/master/src/${fileName}.js`;
   console.log(
     `<br><span><a href="${url}" target="_blank">Solution for ${fileName}!!!</a></span><br>`,
   );
   console.log("----------------------------");
-  let module = await import(`../${fileName}.js`);
-  let input = await readInput(session, year, day);
+  let input = await readInput(session, year, `${day}`);
   if (module.day) {
     let { part1, part2 } = await timerify(() => module.day(input));
     console.log(await submit(1, part1));
@@ -72,17 +77,17 @@ async function solver(session, year, day) {
     let part2 = await timerify(() => module.part2(input));
     console.log(await submit(2, part2, duration));
   }
+  return day + 1;
 }
 
 async function solveAll(session, year, day) {
-  for (; day <= 25; day++) {
+  while (day) {
     try {
       self.postMessage({ type: "day", day });
-      await solver(session, year, `${day}`);
+      day = await solver(session, year, day);
     } catch (e) {
       console.log(e);
       console.log("Please retry once issue is resolved");
-      // return;
     }
   }
 }
