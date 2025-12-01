@@ -22,7 +22,7 @@
         </nav>
         <div class="user">Shahar Talmi <a class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a
             href="https://www.wix.engineering/" target="_blank" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">0*</span></div>
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">2*</span></div>
       </div>
       <div>
         <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
@@ -30,14 +30,22 @@
       </div>
     </header>
     <main>
-      <p>The first puzzles will unlock on December 1st at midnight EST (UTC-5).  See you then!</p>
-<p>Also, starting this year, there will be <a href="/2025/about#faq_num_days">12 days</a> of puzzles each December.</p><pre class="calendar"><span aria-hidden="true" class="calendar-day1">         ____           *                               
-________/O___\__________|________________________  <span class="calendar-day"> 1</span><span id="calendar-countdown"></span><script>
+      <p>Starting this year, there will be <a href="/2025/about#faq_num_days">12 days</a> of puzzles each December.</p><style>
+.calendar .calendar-color-w { color: #fff; }
+.calendar .calendar-color-Y { color: #ff6; text-shadow: 0 0 5px #ff6, 0 0 10px #ff6, 0 0 15px #ff6; }
+.calendar .calendar-color-a { color: #999; }
+.calendar .calendar-color-o { color: #f90; }
+.calendar .calendar-color-r { color: #f00; }
+</style>
+<pre class="calendar"><a aria-label="Day 1, two stars" href="https://github.com/shahata/adventofcode-solver/blob/master/src/2025/day01.js" class="calendar-day1 calendar-verycomplete"> <span class="calendar-color-w">.</span> <span class="calendar-color-w">.'</span> <span class="calendar-color-w">.</span>  <span class="calendar-color-w">____</span>  <span class="calendar-color-w">.</span> <span class="calendar-color-w">.'</span>   <span class="calendar-color-w">'</span> <span class="calendar-color-Y">*</span>  <span class="calendar-color-w">'</span>      <span class="calendar-color-w">'</span>  <span class="calendar-color-w">.</span>   <span class="calendar-color-o">&lt;</span><span class="calendar-color-w">o</span>  <span class="calendar-color-w">'</span>          
+<span class="calendar-color-w">________/</span><span class="calendar-color-a">O___</span><span class="calendar-color-w">\__________</span><span class="calendar-color-r">|</span><span class="calendar-color-w">_________________O______</span>  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<span aria-hidden="true" class="calendar-day2">   _______||_________                                   
+   | _@__ || _o_    |                              <span class="calendar-day"> 2</span><span id="calendar-countdown"></span><script>
 (function(){
 var countdown = document.getElementById("calendar-countdown");
 if (!countdown) return;
-var server_eta = 137169;
-var key = "2025-1-"+server_eta;
+var server_eta = 76135;
+var key = "2025-2-"+server_eta;
 var now = Math.floor(new Date().getTime()/1000);
 var target = server_eta + now;
 if (sessionStorage) {
@@ -60,8 +68,8 @@ function update_countdown() {
     countdown.textContent = "";
 
     var a = document.createElement("a");
-    a[String.fromCharCode(104,114,101,102)] = "/2025" + String.fromCharCode(47,100,97,121,47) + "1";
-    a.className = "calendar-day1 calendar-day-new";
+    a[String.fromCharCode(104,114,101,102)] = "/2025" + String.fromCharCode(47,100,97,121,47) + "2";
+    a.className = "calendar-day2 calendar-day-new";
     var span = countdown.parentNode;
     while (span.firstChild) {
       a.appendChild(span.firstChild);
@@ -83,9 +91,7 @@ interval = setInterval(update_countdown,1000);
 update_countdown();
 })();
 </script></span>
-<span aria-hidden="true" class="calendar-day2">                                                        
-                                                   <span class="calendar-day"> 2</span></span>
-<span aria-hidden="true" class="calendar-day3">                                                        
+<span aria-hidden="true" class="calendar-day3">   |_&amp;_%__||_oo__^=_[                                   
                                                    <span class="calendar-day"> 3</span></span>
 <span aria-hidden="true" class="calendar-day4">                                                        
                                                    <span class="calendar-day"> 4</span></span>
