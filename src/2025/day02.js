@@ -3,10 +3,7 @@ function invalidSum(input, regex) {
   let sum = 0;
   for (let range of ranges) {
     for (let i = range[0]; i <= range[1]; i++) {
-      let str = i.toString();
-      if (str.match(regex)) {
-        sum += i;
-      }
+      if (`${i}`.match(regex)) sum += i;
     }
   }
   return sum;
