@@ -2,9 +2,8 @@ export function part1(input, batteries = 2) {
   let lines = input.split("\n").map(line => line.split("").map(Number));
   let voltage = lines.map(line => {
     let result = 0;
-    line.push(0);
-    for (let i = batteries; i > 0; i--) {
-      let max = Math.max(...line.slice(0, -1 * i));
+    for (let i = batteries - 1; i >= 0; i--) {
+      let max = Math.max(...line.slice(0, line.length - i));
       let index = line.findIndex(x => x === max);
       line = line.slice(index + 1);
       result = result * 10 + max;
