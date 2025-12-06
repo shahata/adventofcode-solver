@@ -19,13 +19,13 @@ export function part2(input) {
   let ops = lines.pop();
   let arr = [];
   let sum = 0;
-  let reducer;
+  let reduce;
   for (let i = 0; i <= lines[0].length; i++) {
     let digits = lines.map(x => x[i]).join("");
     digits = digits.trim();
-    reducer = reducers[ops[i]] || reducer;
+    reduce = reducers[ops[i]] || reduce;
     if (digits) arr.push(+digits);
-    else sum += reducer(arr.splice(0));
+    else sum += reduce(arr.splice(0));
   }
   return sum;
 }
