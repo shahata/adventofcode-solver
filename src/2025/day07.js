@@ -9,8 +9,8 @@ export function part1(input) {
       if (map[curr][x] === ".") {
         next.add(x);
       } else {
-        if (map[curr][x - 1]) next.add(x - 1);
-        if (map[curr][x + 1]) next.add(x + 1);
+        next.add(x - 1);
+        next.add(x + 1);
         splits++;
       }
     });
@@ -27,16 +27,13 @@ export function part2(input) {
   let timelines = 1;
   while (map[curr]) {
     let next = new Map();
-    function add(x, count) {
-      let c = next.get(x) || 0;
-      next.set(x, c + count);
-    }
+    let add = (x, count) => next.set(x, (next.get(x) || 0) + count);
     beams.forEach((count, x) => {
       if (map[curr][x] === ".") {
         add(x, count);
       } else {
-        if (map[curr][x - 1]) add(x - 1, count);
-        if (map[curr][x + 1]) add(x + 1, count);
+        add(x - 1, count);
+        add(x + 1, count);
         timelines += count;
       }
     });
