@@ -1,11 +1,10 @@
-function top3Circuits(junctions) {
+function circuitSizes(junctions) {
   let circuitCounts = new Map();
   for (let { circuit } of junctions) {
     if (circuit === null) continue;
     circuitCounts.set(circuit, (circuitCounts.get(circuit) || 0) + 1);
   }
-  let counts = Array.from(circuitCounts.values()).sort((a, b) => b - a);
-  return counts.slice(0, 3).reduce((a, b) => a * b, 1);
+  return Array.from(circuitCounts.values()).sort((a, b) => b - a);
 }
 
 function connectPair(pair, junctions) {
@@ -52,7 +51,9 @@ function parse(input) {
 export function part1(input, times = 1000) {
   let { junctions, pairs } = parse(input);
   for (let i = 0; i < times; i++) connectPair(pairs[i], junctions);
-  return top3Circuits(junctions);
+  return circuitSizes(junctions)
+    .slice(0, 3)
+    .reduce((a, b) => a * b, 1);
 }
 
 export function part2(input) {
