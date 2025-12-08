@@ -60,7 +60,7 @@ function runWorker(session, year, day = 1) {
 }
 
 function cleanResult(str, year) {
-  if (str.includes("fifty stars")) {
+  if (str.includes("Congratulations!")) {
     str = str.match(/<main>([^]*)<\/main>/)[1].trim();
     str = str.replace(/<article>[^]*<\/article>/, "");
     return `<a href="https://adventofcode.com/${year}">[Go Check on Your Calendar]</a> ${str}`;
