@@ -1,10 +1,8 @@
 function circuitSizes(junctions) {
-  let circuitCounts = new Map();
-  for (let { circuit } of junctions) {
-    if (circuit === null) continue;
-    circuitCounts.set(circuit, (circuitCounts.get(circuit) || 0) + 1);
-  }
-  return Array.from(circuitCounts.values()).sort((a, b) => b - a);
+  let connected = junctions.filter(junction => junction.circuit !== null);
+  let circuits = Map.groupBy(connected, junction => junction.circuit);
+  let sizes = circuits.values().map(circuit => circuit.length);
+  return sizes.toArray().sort((a, b) => b - a);
 }
 
 function connectPair(pair, junctions) {
@@ -22,11 +20,8 @@ function connectPair(pair, junctions) {
 }
 
 function allConnected(junctions) {
-  let firstCircuit = junctions[0].circuit;
-  return (
-    firstCircuit !== null &&
-    junctions.every(junction => junction.circuit === firstCircuit)
-  );
+  let { circuit } = junctions[0];
+  return circuit && junctions.every(junction => junction.circuit === circuit);
 }
 
 function parse(input) {
