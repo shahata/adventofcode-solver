@@ -4,7 +4,7 @@ import readInput from "../utils/read-input.js";
 
 let input = readInput(import.meta.url);
 
-describe.only("day12 2025", () => {
+describe("day12 2025", () => {
   describe("part1", () => {
     test("it should work for part 1 examples", () => {
       expect(
