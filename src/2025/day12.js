@@ -39,7 +39,7 @@ function solvable(area) {
       for (let x = 0; x <= area.space[0].length - rotation[0].length; x++) {
         let space = place(area.space, rotation, x, y);
         if (!space) continue;
-        if (++count > 20) return false;
+        if (++count > 20) return false; // 20 placements tried, give up
         if (solvable({ space, shapes: area.shapes.slice(1) })) {
           return true;
         }
