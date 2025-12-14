@@ -1,15 +1,5 @@
 import { powerSet } from "combinatorial-generators";
 
-function parse(input) {
-  return input.split("\n").map(line => {
-    let parts = line.replaceAll(/[[\](){}]/g, "").split(" ");
-    let indicator = parts[0].replace(/./g, c => (c === "#" ? 1 : 0));
-    let buttons = parts.slice(1).map(x => x.split(",").map(Number));
-    let jolts = parts.at(-1).split(",").map(Number);
-    return { indicator, buttons, jolts };
-  });
-}
-
 function producePatterns(buttons, length) {
   let patterns = {};
   for (let pressed of powerSet(buttons)) {
@@ -21,14 +11,15 @@ function producePatterns(buttons, length) {
   return patterns;
 }
 
-export function part1(input) {
-  let machines = parse(input);
-  let result = 0;
-  for (let { indicator, buttons } of machines) {
+function parse(input) {
+  return input.split("\n").map(line => {
+    let parts = line.replaceAll(/[[\](){}]/g, "").split(" ");
+    let indicator = parts[0].replace(/./g, c => (c === "#" ? 1 : 0));
+    let buttons = parts.slice(1).map(x => x.split(",").map(Number));
+    let jolts = parts.at(-1).split(",").map(Number);
     let patterns = producePatterns(buttons, indicator.length);
-    result += Math.min(...patterns[indicator].map(x => x.length));
-  }
-  return result;
+    return { indicator, buttons, jolts, patterns };
+  });
 }
 
 function minimumPresses(target, patterns) {
@@ -47,12 +38,14 @@ function minimumPresses(target, patterns) {
   return Math.min(...totals);
 }
 
+export function part1(input) {
+  return parse(input).reduce((sum, { indicator, patterns }) => {
+    return sum + Math.min(...patterns[indicator].map(x => x.length));
+  }, 0);
+}
+
 export function part2(input) {
-  let machines = parse(input);
-  let result = 0;
-  for (let { buttons, jolts } of machines) {
-    let patterns = producePatterns(buttons, jolts.length);
-    result += minimumPresses(jolts, patterns);
-  }
-  return result;
+  return parse(input).reduce((sum, { jolts, patterns }) => {
+    return sum + minimumPresses(jolts, patterns);
+  }, 0);
 }
