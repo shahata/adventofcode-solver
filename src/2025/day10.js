@@ -5,7 +5,7 @@ function parse(input) {
   return input.split("\n").map(line => {
     let parts = line.replaceAll(/[[\](){}]/g, "").split(" ");
     let indicator = parts[0].replace(/./g, c => (c === "#" ? 1 : 0));
-    let buttons = parts.map(x => x.split(",").map(Number));
+    let buttons = parts.slice(1).map(x => x.split(",").map(Number));
     let jolts = parts.at(-1).split(",").map(Number);
     return { indicator, buttons, jolts };
   });
@@ -13,12 +13,10 @@ function parse(input) {
 
 function producePatterns(buttons, length) {
   let patterns = {};
-  for (let pressed of powerSet(buttons.map((_, i) => i))) {
-    let lights = Array(length).fill(false);
-    for (let i of pressed) {
-      for (let j of buttons[i]) lights[j] = !lights[j];
-    }
-    let key = lights.map(x => (x ? 1 : 0)).join("");
+  for (let pressed of powerSet(buttons)) {
+    let lights = Array(length).fill(0);
+    for (let button of pressed) for (let i of button) lights[i]++;
+    let key = lights.map(x => x % 2).join("");
     patterns[key] = [...(patterns[key] || []), pressed];
   }
   return patterns;
@@ -46,8 +44,8 @@ export function part2(input) {
       let total = Infinity;
       let options = patterns[target.map(x => x % 2).join("")] || [];
       for (let pressed of options) {
-        let jolt = Array(jolts.length).fill(0);
-        for (let i of pressed) for (let j of buttons[i]) jolt[j]++;
+        let jolt = Array(target.length).fill(0);
+        for (let button of pressed) for (let i of button) jolt[i]++;
         let newTarget = jolt.map((a, i) => (target[i] - a) / 2);
         total = Math.min(total, pressed.length + 2 * presses(newTarget));
       }
