@@ -1,14 +1,5 @@
 import { memoize } from "../utils/memoize.js";
-
-function* product(arrays) {
-  if (arrays.length === 0) yield [];
-  else {
-    let [head, ...tail] = arrays;
-    for (let item of head) {
-      for (let rest of product(tail)) yield [item, ...rest];
-    }
-  }
-}
+import { powerSet } from "combinatorial-generators";
 
 function parse(input) {
   return input.split("\n").map(line => {
@@ -22,12 +13,12 @@ function parse(input) {
 
 function producePatterns(buttons, length) {
   let patterns = {};
-  for (let pressed of product(Array(buttons.length).fill([0, 1]))) {
-    let lights = Array(length).fill(0);
-    for (let i = 0; i < pressed.length; i++) {
-      if (pressed[i]) for (let j of buttons[i]) lights[j] = lights[j] ? 0 : 1;
+  for (let pressed of powerSet(buttons.map((_, i) => i))) {
+    let lights = Array(length).fill(false);
+    for (let i of pressed) {
+      for (let j of buttons[i]) lights[j] = !lights[j];
     }
-    let key = lights.join("");
+    let key = lights.map(x => (x ? 1 : 0)).join("");
     patterns[key] = [...(patterns[key] || []), pressed];
   }
   return patterns;
@@ -38,8 +29,7 @@ export function part1(input) {
   let p1 = 0;
   for (let { indicator, buttons } of machines) {
     let patterns = producePatterns(buttons, indicator.length);
-    let sums = patterns[indicator].map(x => x.reduce((a, b) => a + b, 0));
-    p1 += Math.min(...sums);
+    p1 += Math.min(...patterns[indicator].map(x => x.length));
   }
   return p1;
 }
@@ -57,12 +47,9 @@ export function part2(input) {
       let options = patterns[target.map(x => x % 2).join("")] || [];
       for (let pressed of options) {
         let jolt = Array(jolts.length).fill(0);
-        for (let i = 0; i < pressed.length; i++) {
-          if (pressed[i]) for (let j of buttons[i]) jolt[j] += pressed[i];
-        }
+        for (let i of pressed) for (let j of buttons[i]) jolt[j]++;
         let newTarget = jolt.map((a, i) => (target[i] - a) / 2);
-        let sum = pressed.reduce((a, b) => a + b, 0);
-        total = Math.min(total, sum + 2 * presses(newTarget));
+        total = Math.min(total, pressed.length + 2 * presses(newTarget));
       }
       return total;
     });
