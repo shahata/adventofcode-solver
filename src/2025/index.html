@@ -22,7 +22,7 @@
         </nav>
         <div class="user">Shahar Talmi <a class="supporter-badge" title="Advent of Code Supporter">(AoC++)</a> <a
             href="https://www.wix.engineering/" target="_blank" class="sponsor-badge"
-            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">20*</span></div>
+            title="Member of sponsor: Wix Engineering">(Sponsor)</a> <span class="star-count">24*</span></div>
       </div>
       <div>
         <h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
@@ -31,21 +31,31 @@
     </header>
     <main>
       <style>
-.calendar .calendar-color-r { color: #f00; }
-.calendar .calendar-color-y { color: #ff6; }
-.calendar .calendar-color-f { color: #090; }
-.calendar .calendar-color-a { color: #999; }
-.calendar .calendar-color-e { color: #0aa; }
-.calendar .calendar-color-Y { color: #ff6; text-shadow: 0 0 5px #ff6, 0 0 10px #ff6, 0 0 15px #ff6; }
+.calendar .calendar-color-m { color: #abc; }
+.calendar .calendar-color-n { color: #9b715b; }
+.calendar .calendar-color-u { color: #06f; }
+.calendar .calendar-color-2 { animation: 1s linear -0.14s infinite anim-reactor; }
+.calendar .calendar-color-t { color: #32211a; }
+.calendar .calendar-color-c { color: #0ff; }
+.calendar .calendar-color-b { color: #feda1b; }
 .calendar .calendar-color-k { color: #666; }
 .calendar .calendar-color-g { color: #0f0; }
-.calendar .calendar-color-u { color: #06f; }
-.calendar .calendar-color-m { color: #abc; }
-.calendar .calendar-color-w { color: #fff; }
-.calendar .calendar-color-o { color: #f90; }
+.calendar .calendar-color-5 { animation: 1s linear -0.35s infinite anim-reactor; }
 .calendar .calendar-color-v { color: #b6f; }
-.calendar .calendar-color-b { color: #feda1b; }
+.calendar .calendar-color-1 { animation: 1s linear -0.07s infinite anim-reactor; } @keyframes anim-reactor { 0% { color: #0ff; } 100% { color: #08f; } }
+.calendar .calendar-color-e { color: #0aa; }
+.calendar .calendar-color-Y { color: #ff6; text-shadow: 0 0 5px #ff6, 0 0 10px #ff6, 0 0 15px #ff6; }
 .calendar .calendar-color-d { color: #a74; }
+.calendar .calendar-color-a { color: #999; }
+.calendar .calendar-color-4 { animation: 1s linear -0.28s infinite anim-reactor; }
+.calendar .calendar-flicker {
+  animation: anim-flicker 2s linear infinite;
+}
+@keyframes anim-flicker { 9.30%{filter:brightness(1);}9.31%{filter:brightness(.5);} 14.18%{filter:brightness(.5);}14.19%{filter:brightness(1);} 23.04%{filter:brightness(1);}23.05%{filter:brightness(.5);} 23.71%{filter:brightness(.5);}23.72%{filter:brightness(1);} 24.84%{filter:brightness(1);}24.85%{filter:brightness(.5);} 25.12%{filter:brightness(.5);}25.13%{filter:brightness(1);} 25.76%{filter:brightness(1);}25.77%{filter:brightness(.5);} 41.61%{filter:brightness(.5);}41.62%{filter:brightness(1);} 44.35%{filter:brightness(1);}44.36%{filter:brightness(.5);} 47.66%{filter:brightness(.5);}47.67%{filter:brightness(1);} 48.94%{filter:brightness(1);}48.95%{filter:brightness(.5);} 55.07%{filter:brightness(.5);}55.08%{filter:brightness(1);} 69.99%{filter:brightness(1);}70.00%{filter:brightness(.5);} 74.15%{filter:brightness(.5);}74.16%{filter:brightness(1);} 78.39%{filter:brightness(1);}78.40%{filter:brightness(.5);} 79.65%{filter:brightness(.5);}79.66%{filter:brightness(1);} 81.84%{filter:brightness(1);}81.85%{filter:brightness(.5);} 84.06%{filter:brightness(.5);}84.07%{filter:brightness(1);} 92.89%{filter:brightness(1);}92.90%{filter:brightness(.5);} 94.69%{filter:brightness(.5);}94.70%{filter:brightness(1);} }
+
+.calendar .calendar-color-w { color: #fff; }
+.calendar .calendar-color-F { color: #f90; text-shadow: 0 0 5px #f90, 0 0 10px #f90, 0 0 15px #f90; }
+.calendar .calendar-color-o { color: #f90; }
 .calendar .calendar-conveyor {
   position: relative;
   clip-path: polygon(1ch 0em, -8ch 0em, -8ch 2em, -11ch 2em, -11ch 0em, -13ch 0em, -13ch 2em, -15ch 2em, -15ch 0em, -20ch 0em, -20ch 2em, 1ch 2em);
@@ -63,85 +73,105 @@
   100.000% { filter: none; transform: translateX(-20ch); }
 }
 
-.calendar .calendar-color-t { color: #32211a; }
-.calendar .calendar-color-F { color: #f90; text-shadow: 0 0 5px #f90, 0 0 10px #f90, 0 0 15px #f90; }
-.calendar .calendar-color-n { color: #9b715b; }
+.calendar .calendar-color-y { color: #ff6; }
+.calendar .calendar-color-3 { animation: 1s linear -0.21s infinite anim-reactor; }
+.calendar .calendar-color-r { color: #f00; }
+.calendar .calendar-color-f { color: #090; }
+#caravan { top:4em !important; }
 </style>
-<pre class="calendar"><a aria-label="Day 1, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day01.js" class="calendar-day1 calendar-verycomplete"><span class="calendar-color-w">'</span> <span class="calendar-color-w">.'''</span>   <span class="calendar-color-w">____</span>  <span class="calendar-color-w">.</span>    <span class="calendar-color-w">.</span> <span class="calendar-color-w">.</span> <span class="calendar-color-Y">*</span>       <span class="calendar-color-w">.</span>      <span class="calendar-color-w">.</span> <span class="calendar-color-o">&lt;</span><span class="calendar-color-w">o</span>             
+<pre class="calendar calendar-perfect"><a aria-label="Day 1, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day01.js" class="calendar-day1 calendar-verycomplete">      <span class="calendar-color-w">.</span>  <span class="calendar-color-w">____</span> <span class="calendar-color-w">.</span>       <span class="calendar-color-w">.</span> <span class="calendar-color-Y">*</span>    <span class="calendar-color-w">'....</span>    <span class="calendar-color-w">'.</span> <span class="calendar-color-o">&lt;</span><span class="calendar-color-w">o</span> <span class="calendar-color-w">'</span> <span class="calendar-color-w">'</span>         
 <span class="calendar-color-w">________/</span><span class="calendar-color-a">O___</span><span class="calendar-color-w">\__________</span><span class="calendar-color-r">|</span><span class="calendar-color-w">_________________O______</span>  <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 2, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day02.js" class="calendar-day2 calendar-verycomplete"><span class="calendar-color-t">'</span>  <span class="calendar-color-a">_______</span><span class="calendar-color-m">||</span><span class="calendar-color-a">_________</span> <span class="calendar-color-t">'</span>      <span class="calendar-color-t">.</span>  <span class="calendar-color-t">'</span> <span class="calendar-color-t">.</span>   <span class="calendar-color-t">.</span>  <span class="calendar-color-t">.</span>     <span class="calendar-color-t">'</span>        
-   <span class="calendar-color-a">|</span> <span class="calendar-color-n">_</span><span class="calendar-color-v">@</span><span class="calendar-color-n">__</span> <span class="calendar-color-m">||</span> <span class="calendar-color-n">_</span><span class="calendar-color-u">o</span><span class="calendar-color-n">_</span>  <span class="calendar-color-r">'.</span><span class="calendar-color-a">|_</span> <span class="calendar-color-a">_________________________</span>   <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 3, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day03.js" class="calendar-day3 calendar-verycomplete">   <span class="calendar-color-a">|_</span><span class="calendar-color-r">&amp;</span><span class="calendar-color-a">_</span><span class="calendar-color-y">%</span><span class="calendar-color-a">__</span><span class="calendar-color-m">||</span><span class="calendar-color-a">_</span><span class="calendar-color-u">o</span><span class="calendar-color-o">o</span><span class="calendar-color-a">__</span><span class="calendar-color-m">^</span><span class="calendar-color-n">=</span><span class="calendar-color-a">_</span><span class="calendar-color-n">[</span> <span class="calendar-color-a">\|</span><span class="calendar-color-g">..'</span>  <span class="calendar-color-m">_</span>    <span class="calendar-color-r">.</span><span class="calendar-color-k">.</span> <span class="calendar-color-r">.</span><span class="calendar-color-k">.</span> <span class="calendar-color-r">.</span><span class="calendar-color-k">.</span>     <span class="calendar-color-a">|</span>        
- <span class="calendar-color-t">'</span>     <span class="calendar-color-t">.''</span> <span class="calendar-color-t">.</span>    <span class="calendar-color-t">'</span>  <span class="calendar-color-t">'</span> <span class="calendar-color-a">\_</span><span class="calendar-color-m">]</span><span class="calendar-color-a">__</span><span class="calendar-color-n">--</span><span class="calendar-color-m">|_|</span><span class="calendar-color-a">___</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">_</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">_</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">__</span><span class="calendar-color-m">//</span><span class="calendar-color-a">_|</span>   <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 4, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day04.js" class="calendar-day4 calendar-verycomplete"><span class="calendar-color-t">'</span>   <span class="calendar-color-t">.</span>          <span class="calendar-color-t">.</span>   <span class="calendar-color-t">.</span>   <span class="calendar-color-t">'</span> <span class="calendar-color-t">''</span>    <span class="calendar-color-a">____________</span><span class="calendar-color-m">//</span><span class="calendar-color-a">___</span>        
+<a aria-label="Day 2, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day02.js" class="calendar-day2 calendar-verycomplete"> <span class="calendar-color-t">.</span> <span class="calendar-color-a">_______</span><span class="calendar-color-m">||</span><span class="calendar-color-a">_________</span> <span class="calendar-color-t">'</span> <span class="calendar-color-t">..</span>  <span class="calendar-color-t">.</span>  <span class="calendar-color-t">''.'</span> <span class="calendar-color-t">.</span> <span class="calendar-color-t">..</span>    <span class="calendar-color-t">.</span>           
+<span class="calendar-color-t">.'</span> <span class="calendar-color-a">|</span> <span class="calendar-color-n">_</span><span class="calendar-color-v">@</span><span class="calendar-color-n">__</span> <span class="calendar-color-m">||</span> <span class="calendar-color-n">_</span><span class="calendar-color-u">o</span><span class="calendar-color-n">_</span>  <span class="calendar-color-r">'.</span><span class="calendar-color-a">|_</span> <span class="calendar-color-a">_________________________</span>   <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 3, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day03.js" class="calendar-day3 calendar-verycomplete"><span class="calendar-color-t">'</span>  <span class="calendar-color-a">|_</span><span class="calendar-color-r">&amp;</span><span class="calendar-color-a">_</span><span class="calendar-color-y">%</span><span class="calendar-color-a">__</span><span class="calendar-color-m">||</span><span class="calendar-color-a">_</span><span class="calendar-color-u">o</span><span class="calendar-color-o">o</span><span class="calendar-color-a">__</span><span class="calendar-color-m">^</span><span class="calendar-color-n">=</span><span class="calendar-color-a">_</span><span class="calendar-color-n">[</span> <span class="calendar-color-a">\|</span><span class="calendar-color-g">..'</span>  <span class="calendar-color-m">_</span>    <span class="calendar-color-r">.</span><span class="calendar-color-k">.</span> <span class="calendar-color-r">.</span><span class="calendar-color-k">.</span> <span class="calendar-color-r">.</span><span class="calendar-color-k">.</span>     <span class="calendar-color-a">|</span>        
+  <span class="calendar-color-t">'</span>   <span class="calendar-color-t">.?</span>    <span class="calendar-color-t">'</span>        <span class="calendar-color-a">\_</span><span class="calendar-color-m">]</span><span class="calendar-color-a">__</span><span class="calendar-color-n">--</span><span class="calendar-color-m">|_|</span><span class="calendar-color-a">___</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">_</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">_</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">__</span><span class="calendar-color-m">//</span><span class="calendar-color-a">_|</span>   <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 4, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day04.js" class="calendar-day4 calendar-verycomplete"><span class="calendar-color-t">.</span> <span class="calendar-color-t">.</span> <span class="calendar-color-t">'.</span>       <span class="calendar-color-t">.</span>  <span class="calendar-color-t">''</span>   <span class="calendar-color-t">'</span> <span class="calendar-color-t">..</span>  <span class="calendar-color-t">'.'</span> <span class="calendar-color-a">____________</span><span class="calendar-color-m">//</span><span class="calendar-color-a">___</span>        
 <span class="calendar-color-a">__________________________</span>  <span class="calendar-color-d">...</span><span class="calendar-color-a">|</span> <span class="calendar-color-w">\</span> <span class="calendar-color-r">'</span><span class="calendar-color-g">'</span><span class="calendar-color-r">'</span><span class="calendar-color-g">'</span><span class="calendar-color-r">'</span><span class="calendar-color-g">'</span> <span class="calendar-color-m">//</span> <span class="calendar-color-w">@@</span><span class="calendar-color-a">|</span>   <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 5, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day05.js" class="calendar-day5 calendar-verycomplete"><span class="calendar-color-a">|</span><span class="calendar-color-f">_</span>  <span class="calendar-color-w">___</span> <span class="calendar-color-a">|</span> <span class="calendar-color-m">.--.</span>  <span class="calendar-color-f">()</span>   <span class="calendar-color-f">()</span>  <span class="calendar-color-a">|</span><span class="calendar-color-d">.'</span> <span class="calendar-color-d">..</span><span class="calendar-color-a">__</span><span class="calendar-color-m">[#]</span><span class="calendar-color-a">_</span><span class="calendar-color-w">@@</span><span class="calendar-color-a">__</span><span class="calendar-color-m">//</span><span class="calendar-color-a">_</span><span class="calendar-color-w">@@@</span><span class="calendar-color-a">|</span>        
-<span class="calendar-color-a">|</span><span class="calendar-color-f">_\</span><span class="calendar-color-a">_</span><span class="calendar-color-w">|</span><span class="calendar-color-F">^</span><span class="calendar-color-w">|</span><span class="calendar-color-a">_</span><span class="calendar-color-m">]</span><span class="calendar-color-a">_</span><span class="calendar-color-m">|</span><span class="calendar-color-n">==</span><span class="calendar-color-m">|</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-d">...'</span>    <span class="calendar-color-t">.</span> <span class="calendar-color-t">.</span>         <span class="calendar-color-t">.</span> <span class="calendar-color-t">'</span>   <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 6, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day06.js" class="calendar-day6 calendar-verycomplete"> <span class="calendar-color-f">||</span>   <span class="calendar-color-a">____________</span>  <span class="calendar-color-t">'</span> <span class="calendar-color-a">_______________________</span>   <span class="calendar-color-t">.</span>       
-<span class="calendar-color-a">_</span><span class="calendar-color-f">||</span><span class="calendar-color-a">__/</span><span class="calendar-color-r">'...'</span> <span class="calendar-color-g">'...'</span> <span class="calendar-color-a">\_</span>  <span class="calendar-color-a">|</span><span class="calendar-color-r">.</span>     <span class="calendar-color-n">|</span><span class="calendar-color-r">~</span>    <span class="calendar-color-g">.'</span><span class="calendar-color-r">'.</span>    <span class="calendar-color-r">.</span><span class="calendar-color-a">|</span> <span class="calendar-color-t">'</span>    <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<span class="calendar-color-a">|</span><span class="calendar-color-f">_\</span><span class="calendar-color-a">_</span><span class="calendar-color-w">|</span><span class="calendar-color-F">^</span><span class="calendar-color-w">|</span><span class="calendar-color-a">_</span><span class="calendar-color-m">]</span><span class="calendar-color-a">_</span><span class="calendar-color-m">|</span><span class="calendar-color-n">==</span><span class="calendar-color-m">|</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-n">T</span><span class="calendar-color-a">_</span><span class="calendar-color-d">...'</span>    <span class="calendar-color-t">.</span> <span class="calendar-color-t">.</span> <span class="calendar-color-t">'</span>  <span class="calendar-color-t">.''</span>  <span class="calendar-color-t">.</span> <span class="calendar-color-t">'</span>   <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 6, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day06.js" class="calendar-day6 calendar-verycomplete"> <span class="calendar-color-f">||</span> <span class="calendar-color-t">'</span> <span class="calendar-color-a">____________</span>  <span class="calendar-color-t">'</span> <span class="calendar-color-a">_______________________</span> <span class="calendar-color-t">'.'</span>       
+<span class="calendar-color-a">_</span><span class="calendar-color-f">||</span><span class="calendar-color-a">__/</span><span class="calendar-color-r">'...'</span> <span class="calendar-color-g">'...'</span> <span class="calendar-color-a">\_</span>  <span class="calendar-color-a">|</span><span class="calendar-color-r">.</span>     <span class="calendar-color-n">|</span><span class="calendar-color-r">~</span>    <span class="calendar-color-g">.'</span><span class="calendar-color-r">'.</span>    <span class="calendar-color-r">.</span><span class="calendar-color-a">|</span>      <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 7, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day07.js" class="calendar-day7 calendar-verycomplete"><span class="calendar-color-a">|</span><span class="calendar-color-g">^</span><span class="calendar-color-v">@</span> <span class="calendar-color-a">|</span>   <span class="calendar-color-m">1</span>  <span class="calendar-color-m">2</span>  <span class="calendar-color-m">3</span> <span class="calendar-color-f">()</span> <span class="calendar-color-a">|</span>  <span class="calendar-color-a">|</span> <span class="calendar-color-r">'..'</span><span class="calendar-color-n">/</span> <span class="calendar-color-n">\</span><span class="calendar-color-g">'..'</span>    <span class="calendar-color-r">'..'</span> <span class="calendar-color-a">|____</span>       
 <span class="calendar-color-a">|</span><span class="calendar-color-r">&amp;</span><span class="calendar-color-y">%</span><span class="calendar-color-e">;</span><span class="calendar-color-m">]</span><span class="calendar-color-a">__</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">_</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">_</span><span class="calendar-color-m">[]</span><span class="calendar-color-a">__</span><span class="calendar-color-y">&lt;&gt;</span><span class="calendar-color-a">|</span>  <span class="calendar-color-a">|</span>    <span class="calendar-color-n">|H_</span><span class="calendar-color-u">/</span><span class="calendar-color-n">|</span><span class="calendar-color-u">\</span>   <span class="calendar-color-m">\\\\\\</span>  <span class="calendar-color-a">|</span> <span class="calendar-color-m">|</span> <span class="calendar-color-a">|</span>  <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 8, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day08.js" class="calendar-day8 calendar-verycomplete"><span class="calendar-color-t">.</span> <span class="calendar-color-t">.</span>  <span class="calendar-color-t">'</span>  <span class="calendar-color-t">'</span>   <span class="calendar-color-t">'''</span>   <span class="calendar-color-y">'...</span><span class="calendar-color-a">|</span><span class="calendar-color-y">&lt;&gt;</span><span class="calendar-color-f">__</span><span class="calendar-color-n">|H</span><span class="calendar-color-f">__</span><span class="calendar-color-n">|</span><span class="calendar-color-f">_</span><span class="calendar-color-u">\</span><span class="calendar-color-f">__</span><span class="calendar-color-m">|</span><span class="calendar-color-f">_____</span><span class="calendar-color-m">|</span><span class="calendar-color-f">_</span><span class="calendar-color-n">[</span><span class="calendar-color-a">_</span><span class="calendar-color-m">O</span><span class="calendar-color-a">_|</span>       
- <span class="calendar-color-a">__________________________</span>   <span class="calendar-color-t">.''</span>  <span class="calendar-color-t">'</span>     <span class="calendar-color-t">.</span>    <span class="calendar-color-m">|</span>    <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 8, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day08.js" class="calendar-day8 calendar-verycomplete">      <span class="calendar-color-t">''.</span>  <span class="calendar-color-t">'</span> <span class="calendar-color-t">.</span> <span class="calendar-color-t">.</span>  <span class="calendar-color-y">'...</span><span class="calendar-color-a">|</span><span class="calendar-color-y">&lt;&gt;</span><span class="calendar-color-f">__</span><span class="calendar-color-n">|H</span><span class="calendar-color-f">__</span><span class="calendar-color-n">|</span><span class="calendar-color-f">_</span><span class="calendar-color-u">\</span><span class="calendar-color-f">__</span><span class="calendar-color-m">|</span><span class="calendar-color-f">_____</span><span class="calendar-color-m">|</span><span class="calendar-color-f">_</span><span class="calendar-color-n">[</span><span class="calendar-color-a">_</span><span class="calendar-color-m">O</span><span class="calendar-color-a">_|</span>       
+ <span class="calendar-color-a">__________________________</span>        <span class="calendar-color-t">.</span>     <span class="calendar-color-t">''</span>   <span class="calendar-color-m">|</span>    <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 9, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day09.js" class="calendar-day9 calendar-verycomplete"><span class="calendar-color-a">/</span><span class="calendar-color-r">'....'</span><span class="calendar-color-m">______</span><span class="calendar-color-g">'...'...'</span><span class="calendar-color-m">__</span><span class="calendar-color-r">'.</span><span class="calendar-color-a">|</span>  <span class="calendar-color-a">_________________</span><span class="calendar-color-m">O</span><span class="calendar-color-a">__</span>       
-<span class="calendar-color-n">[</span>     <span class="calendar-color-m">|</span><span class="calendar-color-u">(</span><span class="calendar-color-b">__</span><span class="calendar-color-u">)</span> <span class="calendar-color-n">[</span>        <span class="calendar-conveyor"><span style="color:#0ff;animation-delay:-2.857s;">o</span><span style="color:#f90;animation-delay:-8.571s;">o</span><span style="color:#b6f;animation-delay:-5.714s;">@</span><span style="color:#ff6;animation-delay:-0.000s;">%</span><span style="color:#0aa;animation-delay:-14.286s;">;</span><span style="color:#0f0;animation-delay:-11.429s;">^</span><span style="color:#f00;animation-delay:-17.143s;">&amp;</span></span> <span class="calendar-color-n">]</span> <span class="calendar-color-m">\</span> <span class="calendar-color-a">|__|</span>  <span class="calendar-color-u">[</span>  <span class="calendar-color-u">]</span>  <span class="calendar-color-g">'</span><span class="calendar-color-r">'</span><span class="calendar-color-g">'</span><span class="calendar-color-r">'</span><span class="calendar-color-g">'</span><span class="calendar-color-r">'</span>  <span class="calendar-color-m">|</span> <span class="calendar-color-a">|</span>  <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<span class="calendar-color-n">[</span>     <span class="calendar-color-m">|</span><span class="calendar-color-u">(</span><span class="calendar-color-b">__</span><span class="calendar-color-u">)</span> <span class="calendar-color-n">[</span>        <span class="calendar-conveyor"><span style="color:#0f0;animation-delay:-17.143s;">^</span><span style="color:#b6f;animation-delay:-8.571s;">@</span><span style="color:#ff6;animation-delay:-5.714s;">%</span><span style="color:#f90;animation-delay:-14.286s;">o</span><span style="color:#0aa;animation-delay:-0.000s;">;</span><span style="color:#f00;animation-delay:-11.429s;">&amp;</span><span style="color:#0ff;animation-delay:-2.857s;">o</span></span> <span class="calendar-color-n">]</span> <span class="calendar-color-m">\</span> <span class="calendar-color-a">|__|</span>  <span class="calendar-color-u">[</span>  <span class="calendar-color-u">]</span>  <span class="calendar-color-g">'</span><span class="calendar-color-r">'</span><span class="calendar-color-g">'</span><span class="calendar-color-r">'</span><span class="calendar-color-g">'</span><span class="calendar-color-r">'</span>  <span class="calendar-color-m">|</span> <span class="calendar-color-a">|</span>  <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <a aria-label="Day 10, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day10.js" class="calendar-day10 calendar-verycomplete"><span class="calendar-color-b">o=====</span><span class="calendar-color-m">|_____</span><span class="calendar-color-b">o=========o</span><span class="calendar-color-m">_|</span><span class="calendar-color-a">_</span><span class="calendar-color-m">[</span><span class="calendar-color-a">__</span><span class="calendar-color-n">]</span><span class="calendar-color-a">_____</span><span class="calendar-color-n">-/</span><span class="calendar-color-a">_</span><span class="calendar-color-n">-/</span><span class="calendar-color-a">_</span><span class="calendar-color-n">-/</span><span class="calendar-color-a">___</span><span class="calendar-color-m">|</span><span class="calendar-color-a">_|</span>       
-_________||______                                  <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<span aria-hidden="true" class="calendar-day11">|  ___          |                                       
-|_|   |_(:::::)_|                                  <span class="calendar-day">11</span><span id="calendar-countdown"></span><script>
-(function(){
-var countdown = document.getElementById("calendar-countdown");
-if (!countdown) return;
-var server_eta = 969;
-var key = "2025-11-"+server_eta;
-var now = Math.floor(new Date().getTime()/1000);
-var target = server_eta + now;
-if (sessionStorage) {
-  // if you navigate away and hit the back button, this makes sure the countdown doesn't start from the wrong time
-  var prev_target = sessionStorage.getItem("calendar-target");
-  try { prev_target = JSON.parse(prev_target); } catch(e){}
-  if (prev_target && typeof prev_target === 'object' && prev_target.key === key) {
-    target = prev_target.target;
-  } else {
-    sessionStorage.setItem("calendar-target", JSON.stringify({key:key, target:target+1}));
-  }
-}
-
-var interval = null;
-function update_countdown() {
-  var remaining = Math.ceil(target - new Date().getTime()/1000);
-  if (remaining <= 0) {
-    clearInterval(interval);
-    interval = null;
-    countdown.textContent = "";
-
-    var a = document.createElement("a");
-    a[String.fromCharCode(104,114,101,102)] = "/2025" + String.fromCharCode(47,100,97,121,47) + "11";
-    a.className = "calendar-day11 calendar-day-new";
-    var span = countdown.parentNode;
-    while (span.firstChild) {
-      a.appendChild(span.firstChild);
-    }
-    a.appendChild(document.createTextNode("   "));
-    span.parentNode.insertBefore(a, span);
-    span.parentNode.removeChild(span);
-    countdown.parentNode.removeChild(countdown);
-  } else {
-    var hours = Math.floor(remaining/60/60);
-    remaining -= hours * 60 * 60;
-    var minutes = Math.floor(remaining/60);
-    remaining -= minutes * 60;
-    var seconds = remaining;
-    countdown.textContent = (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-  }
-}
-interval = setInterval(update_countdown,1000);
-update_countdown();
-})();
-</script></span>
-<span aria-hidden="true" class="calendar-day12">                                                        
-                                                   <span class="calendar-day">12</span></span>
+<span class="calendar-color-a">_________</span><span class="calendar-color-m">||</span><span class="calendar-color-a">______</span> <span class="calendar-color-a">______________________________</span>   <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 11, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day11.js" class="calendar-day11 calendar-verycomplete"><span class="calendar-color-a">|</span>  <span class="calendar-color-m">___</span>       <span class="calendar-color-g">'..</span><span class="calendar-color-a">|</span> <span class="calendar-color-a">|</span><span class="calendar-color-r">'..'</span><span class="calendar-color-g">'..'</span><span class="calendar-color-r">'..'</span><span class="calendar-color-g">'..'</span><span class="calendar-color-r">'..'</span><span class="calendar-color-g">'..'</span><span class="calendar-color-r">'..'</span><span class="calendar-color-a">|</span>        
+<span class="calendar-color-a">|_</span><span class="calendar-color-m">|</span><span class="calendar-color-r"><span class="calendar-flicker" style="animation-delay:-1.74s;">'</span><span class="calendar-flicker" style="animation-delay:-0.40s;">.</span><span class="calendar-flicker" style="animation-delay:-0.50s;">'</span></span><span class="calendar-color-m">|</span><span class="calendar-color-a">_</span><span class="calendar-color-m">(</span><span class="calendar-color-1">:</span><span class="calendar-color-2">:</span><span class="calendar-color-3">:</span><span class="calendar-color-4">:</span><span class="calendar-color-5">:</span><span class="calendar-color-m">)</span><span class="calendar-color-a">_|</span> <span class="calendar-color-a">|</span>   <span class="calendar-color-Y">*</span>  <span class="calendar-color-f">()</span>  <span class="calendar-color-Y">*</span>  <span class="calendar-color-f">()</span>  <span class="calendar-color-Y">*</span>  <span class="calendar-color-f">()</span>  <span class="calendar-color-Y">*</span>   <span class="calendar-color-a">|</span>   <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 12, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2025/day12.js" class="calendar-day12 calendar-verycomplete"> <span class="calendar-color-t">.</span>  <span class="calendar-color-m">|</span>    <span class="calendar-color-t">.</span> <span class="calendar-color-m">.--.</span>   <span class="calendar-color-a">|</span>  <span class="calendar-color-f">&lt;</span><span class="calendar-color-r">o</span><span class="calendar-color-f">&gt;</span>    <span class="calendar-color-f">&lt;^</span><span class="calendar-color-g">o</span>    <span class="calendar-color-f">&lt;</span><span class="calendar-color-c">o</span><span class="calendar-color-f">&gt;</span>    <span class="calendar-color-v">o</span><span class="calendar-color-f">^&gt;</span>  <span class="calendar-color-a">|</span>        
+ <span class="calendar-color-t">'</span>  <span class="calendar-color-m">'------'</span>  <span class="calendar-color-m">'---#</span><span class="calendar-color-a">_</span><span class="calendar-color-f">&lt;&lt;^</span><span class="calendar-color-o">o</span><span class="calendar-color-f">&gt;</span><span class="calendar-color-a">__</span><span class="calendar-color-f">&lt;</span><span class="calendar-color-y">o</span><span class="calendar-color-f">^&gt;&gt;</span><span class="calendar-color-a">__</span><span class="calendar-color-f">&lt;&lt;^&gt;</span><span class="calendar-color-u">o</span><span class="calendar-color-a">__</span><span class="calendar-color-f">&lt;&lt;^</span><span class="calendar-color-r">o</span><span class="calendar-color-f">&gt;</span><span class="calendar-color-a">_|</span>   <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 </pre>
+<style>
+#caravan {
+  position: fixed;
+  left: -160px;
+  top: 7em;
+  animation: anim-caravan linear 20s infinite;
+  z-index: -1;
+}
+@keyframes anim-caravan {
+    0% { transform: translateX(0);     opacity: 1; }
+   95% { transform: translateX(96vw);  opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+#caravan div {
+  position: absolute;
+  top: 0;
+  color: #aaaaaa;
+  animation: anim-reindeer ease 3.5s infinite;
+}
+@keyframes anim-reindeer {
+    0% { transform: translateY(0); }
+   50% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+#caravan div:before {
+  content: "*";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 6pt;
+}
+#caravan div:after {
+  content: "*";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 5pt;
+}
+#caravan #sleigh:before {
+  content: "J";
+  transform: scaleX(-1) rotate(90deg);
+  font-size: 10pt;
+  color: #990000;
+  top: 2px;
+}
+#caravan #sleigh:after {
+  content: none;
+}
+#caravan #rudolph:before {
+  color: #ff0000;
+  left: 5px;
+  top: 5px;
+  text-shadow: 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000;
+}
+#caravan #rudolph:after {
+  content: none;
+}
+</style>
+<div id="caravan">
+<div style="animation-delay:-0.0s; left:0px;" id="sleigh"></div>
+<div style="animation-delay:-0.5s; left:20px;"></div>
+<div style="animation-delay:-1.0s; left:40px;"></div>
+<div style="animation-delay:-1.5s; left:60px;"></div>
+<div style="animation-delay:-2.0s; left:80px;"></div>
+<div style="animation-delay:-2.5s; left:100px;"></div>
+<div style="animation-delay:-3.0s; left:120px;"></div>
+<div style="animation-delay:-3.5s; left:140px;" id="rudolph"></div>
+</div>
     </main>
   </body>
 </html>
