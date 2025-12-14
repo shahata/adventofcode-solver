@@ -36,8 +36,8 @@ describe("day10 2025", () => {
       ).toEqual(33);
     });
 
-    test.skip("it should work for part 2 input", () => {
-      expect(part2(input)).toEqual(0); // solved with z3, will implement in code later
+    test("it should work for part 2 input", () => {
+      expect(part2(input)).toEqual(15489);
     });
   });
 });

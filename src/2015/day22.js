@@ -1,3 +1,5 @@
+import { memoize } from "../utils/memoize.js";
+
 const spells = {
   Missile: {
     mana: 53,
@@ -73,14 +75,6 @@ function playBoss(game) {
       ...game.hero,
       hit: game.hero.hit - Math.max(1, game.boss.damage - game.hero.armor),
     },
-  };
-}
-
-function memoize(fn) {
-  let memo = {};
-  return (...x) => {
-    let s = JSON.stringify(x);
-    return (memo[s] = memo[s] ?? fn(...x));
   };
 }
 

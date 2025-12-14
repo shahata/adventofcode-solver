@@ -1,10 +1,4 @@
-function memoize(fn) {
-  let memo = {};
-  return (...x) => {
-    let s = JSON.stringify(x);
-    return (memo[s] = memo[s] ?? fn(...x));
-  };
-}
+import { memoize } from "../utils/memoize.js";
 
 function advance(options, char) {
   let { len, groups, i, left } = options;

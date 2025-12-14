@@ -41,8 +41,8 @@ export function part2(input) {
   }
 
   const disjoint = (a1, a2, b1, b2) =>
-    (a1 <= b1 && a1 <= b2 && a2 <= b1 && a2 <= b2) ||
-    (a1 >= b1 && a1 >= b2 && a2 >= b1 && a2 >= b2);
+    Math.max(a1, a2) <= Math.min(b1, b2) ||
+    Math.max(b1, b2) <= Math.min(a1, a2);
 
   return squares.find(square => {
     return sides.every(
