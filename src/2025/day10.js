@@ -1,4 +1,3 @@
-import { memoize } from "../utils/memoize.js";
 import { powerSet } from "combinatorial-generators";
 
 function parse(input) {
@@ -17,41 +16,43 @@ function producePatterns(buttons, length) {
     let lights = Array(length).fill(0);
     for (let button of pressed) for (let i of button) lights[i]++;
     let key = lights.map(x => x % 2).join("");
-    patterns[key] = [...(patterns[key] || []), pressed];
+    patterns[key] = (patterns[key] || []).concat([pressed]);
   }
   return patterns;
 }
 
 export function part1(input) {
   let machines = parse(input);
-  let p1 = 0;
+  let result = 0;
   for (let { indicator, buttons } of machines) {
     let patterns = producePatterns(buttons, indicator.length);
-    p1 += Math.min(...patterns[indicator].map(x => x.length));
+    result += Math.min(...patterns[indicator].map(x => x.length));
   }
-  return p1;
+  return result;
+}
+
+function minimumPresses(target, patterns) {
+  if (target.every(x => x === 0)) return 0;
+  if (target.some(x => x < 0)) return Infinity;
+  let totals = [];
+  // find minimum presses to make all jolt counters even numbers
+  let options = patterns[target.map(x => x % 2).join("")] || [];
+  for (let pressed of options) {
+    let next = target.slice(0);
+    for (let button of pressed) for (let i of button) next[i]--;
+    // find the minimum presses to get jolts half way and multiply by 2
+    next = next.map(x => x / 2);
+    totals.push(pressed.length + 2 * minimumPresses(next, patterns));
+  }
+  return Math.min(...totals);
 }
 
 export function part2(input) {
   let machines = parse(input);
-  let p2 = 0;
+  let result = 0;
   for (let { buttons, jolts } of machines) {
     let patterns = producePatterns(buttons, jolts.length);
-    let presses = memoize(target => {
-      if (target.every(x => x === 0)) return 0;
-      if (target.some(x => x < 0)) return Infinity;
-
-      let total = Infinity;
-      let options = patterns[target.map(x => x % 2).join("")] || [];
-      for (let pressed of options) {
-        let jolt = Array(target.length).fill(0);
-        for (let button of pressed) for (let i of button) jolt[i]++;
-        let newTarget = jolt.map((a, i) => (target[i] - a) / 2);
-        total = Math.min(total, pressed.length + 2 * presses(newTarget));
-      }
-      return total;
-    });
-    p2 += presses(jolts);
+    result += minimumPresses(jolts, patterns);
   }
-  return p2;
+  return result;
 }
