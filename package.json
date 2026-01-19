@@ -19,24 +19,24 @@
     "@shahata/inquirer-timeout-confirm-prompt": "^1.0.1",
     "chart.js": "^4.5.1",
     "combinatorial-generators": "^1.1.2",
-    "es-module-shims": "^1.10.0",
+    "es-module-shims": "^2.8.0",
     "node-forge": "^1.3.3",
     "progress": "^2.0.3",
     "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
     "@playwright/browser-chromium": "^1.57.0",
-    "@vitest/eslint-plugin": "^1.5.2",
+    "@vitest/eslint-plugin": "^1.6.6",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-prettier": "^5.5.5",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
     "playwright": "^1.57.0",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.49.0",
-    "vitest": "^4.0.15"
+    "typescript-eslint": "^8.53.1",
+    "vitest": "^4.0.17"
   },
   "prettier": {
     "quoteProps": "consistent",

@@ -92,7 +92,6 @@ async function solveAll(session, year, day) {
   }
 }
 
-self.window = self; //hack so that node-forge will work in the worker
 self.onmessage = async e => {
   await solveAll(e.data.session, e.data.year, e.data.day);
   self.postMessage({ type: "done" });

@@ -5,6 +5,7 @@ class WorkerShim {
     let blob = URL.createObjectURL(
       new Blob(
         [
+          `self.window = self;`, // hack so that node-forge & es-module-shims will work in the worker
           `importScripts('${imports["es-module-shims"]}');`,
           `importShim.addImportMap(${JSON.stringify(options.importMap)});`,
           `self['workerShimUrl'] = '${url}';`,
