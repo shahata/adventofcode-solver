@@ -1,4 +1,4 @@
-import pkg from "../../static/package-lock.js";
+import pkg from "../../package-lock.json" with { type: "json" };
 
 function v(p) {
   return pkg.packages[`node_modules/${p}`].version;

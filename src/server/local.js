@@ -11,5 +11,16 @@ let options = {
 
 Deno.serve(options, async function (req) {
   let response = await worker.fetch(req);
-  return response.status === 404 ? serveDir(req) : response;
+  if (response.status === 404) response = await serveDir(req);
+  let session = Deno.env.get("ADVENT_SESSION");
+  if (
+    session &&
+    response.status === 200 &&
+    new URL(req.url).pathname.endsWith("/solver.html")
+  ) {
+    let html = await response.text();
+    html = html.replace('id="session"', `id="session" value="${session}"`);
+    response = new Response(html, response);
+  }
+  return response;
 });

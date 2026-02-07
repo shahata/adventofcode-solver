@@ -71,9 +71,8 @@ async function respond(promise) {
 
 export default {
   async fetch(req) {
-    let match;
     let session = new URL(req.url).searchParams.get("session");
-    match = new URLPattern({ pathname: "/input/:year/:day" }).exec(req.url);
+    let match = new URLPattern({ pathname: "/input/:year/:day" }).exec(req.url);
     if (req.method === "GET" && match) {
       let { year, day } = match.pathname.groups;
       return respond(getDayInput(year, day, session));

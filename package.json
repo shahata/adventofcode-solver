@@ -8,11 +8,10 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "deno": "deno run --allow-net --allow-read src/server/local.js",
+    "deno": "deno run --allow-env --allow-net --allow-read src/server/local.js",
     "serve": "http-server -p 443 -S -o -c-1 -C static/http-cert.pem -K static/http-key.pem",
     "test": "if [ -z \"$CI\" ]; then vitest run --changed $*; else vitest run $*; fi",
-    "lint": "eslint src",
-    "prepare": "husky"
+    "lint": "eslint src"
   },
   "dependencies": {
     "@datastructures-js/priority-queue": "^6.3.5",
@@ -32,7 +31,6 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "http-server": "^14.1.1",
-    "husky": "^9.1.7",
     "playwright": "^1.58.2",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
