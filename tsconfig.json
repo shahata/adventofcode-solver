@@ -8,5 +8,5 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true
   },
-  "exclude": ["server", "templates"]
+  "exclude": ["src/server", "templates"]
 }

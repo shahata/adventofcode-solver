@@ -1,4 +1,3 @@
-/* global Deno */
 import worker from "./worker.js";
 import { serveDir } from "jsr:@std/http/file-server";
 

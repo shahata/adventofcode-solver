@@ -6,6 +6,7 @@ import prettier from "eslint-plugin-prettier/recommended";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
+  { ignores: ["src/server"] },
   eslint.configs.recommended,
   vitest.configs.recommended,
   tseslint.configs.recommendedTypeChecked,

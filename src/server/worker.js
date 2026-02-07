@@ -1,4 +1,5 @@
-/* global URLPattern */
+import { URLPattern } from "node:url";
+
 function cleanError(s) {
   return s.match(/<h1>(.*)<\/h1>/)?.[1] || s;
 }
