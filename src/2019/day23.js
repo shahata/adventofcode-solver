@@ -67,7 +67,7 @@ export function part2(input) {
       let retransmit = network[255].packets.slice(-2);
       network[0].packets.push(...retransmit);
       network[0].idle = 0;
-      delete network[255];
+      network.splice(255, 1);
       prev2 = prev1;
       prev1 = retransmit[1].value;
     }

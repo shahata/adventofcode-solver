@@ -34,11 +34,11 @@ export async function downloadInput(year, day) {
 
 export let downloadIndexTicks = 6;
 export async function downloadIndex(year, bar, stars) {
-  downloadStatic("https://adventofcode.com/static/style.css");
+  await downloadStatic("https://adventofcode.com/static/style.css");
   bar.tick();
-  downloadStatic("https://adventofcode.com/static/highcontrast.css");
+  await downloadStatic("https://adventofcode.com/static/highcontrast.css");
   bar.tick();
-  downloadStatic("https://adventofcode.com/favicon.png");
+  await downloadStatic("https://adventofcode.com/favicon.png");
   bar.tick();
   renderTemplate(year, "solver", "html", { year, stars });
   bar.tick();

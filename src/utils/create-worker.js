@@ -29,7 +29,7 @@ function runWorker(session, year, day = 1) {
       document.getElementById("output").innerHTML = "";
     }
     document.getElementById("skip").onsubmit = () =>
-      runWorker(session, year, day + 1) && false;
+      runWorker(session, year, day + 1) === null;
     document.getElementById("loader").style.display = "block";
 
     let u = s => new URL(s, location.toString());
@@ -120,6 +120,6 @@ console.log = (...args) => {
     .querySelectorAll("#submitter")
     .forEach(
       (/** @type {HTMLFormElement} */ form) =>
-        (form.onsubmit = e => submitAnswer(e) && false),
+        (form.onsubmit = e => submitAnswer(e) === null),
     );
 };

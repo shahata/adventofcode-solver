@@ -18,7 +18,7 @@ async function readInput(session, year, day) {
   }
   let result = await fetch(url);
   if (result.status !== 200) {
-    throw `Could not download input!\n${await result.text()}`;
+    throw new Error(`Could not download input!\n${await result.text()}`);
   }
   return (await result.text()).trimEnd();
 }

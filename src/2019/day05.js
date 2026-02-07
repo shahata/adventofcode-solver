@@ -13,7 +13,7 @@ export function execute(ops, ip, user) {
       return ip + 4;
     case 3:
       if (user.input.length === 0) {
-        throw "waiting for input";
+        throw new Error("waiting for input");
       }
       ops[ops[ip + 1]] = user.input.shift();
       return ip + 2;
