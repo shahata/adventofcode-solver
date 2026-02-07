@@ -32,42 +32,237 @@
     <main>
       <style>
 .calendar .calendar-streets {color:#666666;}
+.calendar a.calendar-verycomplete .calendar-window-red    { color:#ff0000; text-shadow:0 0 5px #ff0000; }
+.calendar a.calendar-verycomplete .calendar-window-yellow { color:#ffff66; text-shadow:0 0 5px #ffff66; }
+.calendar a.calendar-verycomplete .calendar-window-blue   { color:#0066ff; text-shadow:0 0 5px #0066ff; }
+.calendar a.calendar-verycomplete .calendar-window-dark   { color:#333333; }
+.calendar a.calendar-verycomplete .calendar-window-brown  { color:#553322; text-shadow:0 0 5px #553322; }
+.calendar a.calendar-verycomplete .calendar-window-green  { color:#009900; text-shadow:0 0 5px #009900; }
+.calendar .calendar-tree-ornament0 { color: #0066ff; text-shadow: 0 0 5px #0066ff; }
+.calendar .calendar-tree-ornament1 { color: #ff9900; text-shadow: 0 0 5px #ff9900; }
+.calendar .calendar-tree-ornament2 { color: #ff0000; text-shadow: 0 0 5px #ff0000; }
+
+.calendar .calendar-tree-branches { color:#009900; }
+.calendar .calendar-tree-trunk { color:#aaaaaa; }
+.calendar .calendar-antenna-star    { color: #ffff66; text-shadow: 0 0 5px #ffff66; animation: anim-star   1s linear infinite;         }
+.calendar .calendar-antenna-signal0 { color: #ffff66; text-shadow: 0 0 5px #ffff66; animation: anim-signal 1s linear infinite -0.833s; }
+.calendar .calendar-antenna-signal1 { color: #ffff66; text-shadow: 0 0 5px #ffff66; animation: anim-signal 1s linear infinite -0.666s; }
+.calendar .calendar-antenna-signal2 { color: #ffff66; text-shadow: 0 0 5px #ffff66; animation: anim-signal 1s linear infinite -0.500s; }
+.calendar .calendar-antenna-signal3 { color: #ffff66; text-shadow: 0 0 5px #ffff66; animation: anim-signal 1s linear infinite -0.333s; }
+.calendar .calendar-antenna-signal4 { color: #ffff66; text-shadow: 0 0 5px #ffff66; animation: anim-signal 1s linear infinite -0.166s; }
+.calendar .calendar-antenna-signal5 { color: #ffff66; text-shadow: 0 0 5px #ffff66; animation: anim-signal 1s linear infinite -0.000s; }
+@keyframes anim-signal {
+  0%   { opacity: 0; }
+  80%  { opacity: 0; }
+  85%  { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes anim-star {
+  0%   { text-shadow: 0 0  0px #ffff66, 0 0  0px #ffff66, 0 0  0px #ffff66; }
+  75%  { text-shadow: 0 0  0px #ffff66, 0 0  0px #ffff66, 0 0  0px #ffff66; }
+  80%  { text-shadow: 0 0  5px #ffff66, 0 0 10px #ffff66, 0 0 15px #ffff66; }
+  90%  { text-shadow: 0 0  5px #ffff66, 0 0 10px #ffff66, 0 0 15px #ffff66; }
+  95%  { text-shadow: 0 0  0px #ffff66, 0 0  0px #ffff66, 0 0  0px #ffff66; }
+  100% { text-shadow: 0 0  0px #ffff66, 0 0  0px #ffff66, 0 0  0px #ffff66; }
+}
+
+.calendar .calendar-tree-star { color: #ffff66; text-shadow: 0 0 5px #ffff66; }
 </style>
-<pre class="calendar calendar-beckon"><a aria-label="Day 25" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day25.js" class="calendar-day25">                    *                                   
+<pre class="calendar calendar-perfect"><a aria-label="Day 25, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day25.js" class="calendar-day25 calendar-verycomplete"><span class="calendar-antenna-signal5">(</span>       <span class="calendar-antenna-signal4">(</span>    <span class="calendar-antenna-signal3">(</span>  <span class="calendar-antenna-signal2">(</span> <span class="calendar-antenna-signal1">(</span><span class="calendar-antenna-signal0">(</span><span class="calendar-antenna-star">*</span><span class="calendar-antenna-signal0">)</span><span class="calendar-antenna-signal1">)</span> <span class="calendar-antenna-signal2">)</span>  <span class="calendar-antenna-signal3">)</span>    <span class="calendar-antenna-signal4">)</span>       <span class="calendar-antenna-signal5">)</span>               
                     |                                   
                   +-|---+                               
                  /  |  /|                               
                 +-----+ |                               
-                |:::::| |                          <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 24" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day24.js" class="calendar-day24">        +----+  |:::::| |---+      +-----------+   <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 23" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day23.js" class="calendar-day23">       /    / \ |:::::| |  /|     / \\\\\\ [] /|   <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 22" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day22.js" class="calendar-day22">      /    / / \|:::::| | / |    / \\\\\\ [] / |   <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 21" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day21.js" class="calendar-day21">     /    / / / \:::::|/ /  |   +-----------+  |   <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 20" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day20.js" class="calendar-day20">    +----+ / / / \------+ ------|:::::::::::|  |   <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 19" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day19.js" class="calendar-day19">    |-----\ / / / \=====| ------|:::::::::::|  |   <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 18" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day18.js" class="calendar-day18">    |------\ / / / \====|   |   |:::::::::::|  |   <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 17" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day17.js" class="calendar-day17">    |-------\ / / / +===|   |   |:::::::::::|  |   <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 16" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day16.js" class="calendar-day16">    |--------\ / / /|===|   |   |:::::::::::|  |   <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 15" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day15.js" class="calendar-day15">    |---------\ / / |===|   |  /|:::::::::::|  |   <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 14" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day14.js" class="calendar-day14">    |----------\ /  |===|  /  //|:::::::::::| /    <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 13" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day13.js" class="calendar-day13">    +-----------+   |===| /  //||:::::::::::|/     <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 12" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day12.js" class="calendar-day12">    |:::::::::::|   |===|/__//___________________  <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 11" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day11.js" class="calendar-day11">    |:::::::::::|   |______//|_____...._________   <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 10" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day10.js" class="calendar-day10">    |:::::::::::|   |     //| ____/ /_/___         <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 9" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day09.js" class="calendar-day9"> ---|:::::::::::|   |--------|[][]|_|[][]_\------  <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 8" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day08.js" class="calendar-day8">----|:::::::::::|   |---------------------------   <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 7" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day07.js" class="calendar-day7"> || |:::::::::::|   |  //| ||  / / / ||      ||    <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 6" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day06.js" class="calendar-day6"> || |:::::::::::|   | //|  || /   /  ||      ||    <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 5" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day05.js" class="calendar-day5">    |:::::::::::|   |//|     / / /                 <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 4" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day04.js" class="calendar-day4">    |:::::::::::|   //|     /   /   ____________   <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 3" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day03.js" class="calendar-day3">    |:::::::::::|  //|     / / /___/ /#/ /#/#/ /   <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 2" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day02.js" class="calendar-day2">    |:::::::::::| //|     /    ___            /    <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
-<a aria-label="Day 1" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day01.js" class="calendar-day1">    |:::::::::::|//|     / / /   /_/_/_/#/#/#/     <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+                |<span class="calendar-window-dark">::</span><span class="calendar-window-yellow">:</span><span class="calendar-window-dark">::</span>| |                          <span class="calendar-day">25</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 24, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day24.js" class="calendar-day24 calendar-verycomplete">        +----+  |<span class="calendar-window-dark">::</span><span class="calendar-window-green">:</span><span class="calendar-window-dark">::</span>| |---+      +-----------+   <span class="calendar-day">24</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 23, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day23.js" class="calendar-day23 calendar-verycomplete">       /    / \ |<span class="calendar-window-dark">:</span><span class="calendar-window-green">:::</span><span class="calendar-window-dark">:</span>| |  /|     / \\\\\\ [] /|   <span class="calendar-day">23</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 22, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day22.js" class="calendar-day22 calendar-verycomplete">      /    / / \|<span class="calendar-window-green">:::::</span>| | / |    / \\\\\\ [] / |   <span class="calendar-day">22</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 21, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day21.js" class="calendar-day21 calendar-verycomplete">     /    / / / \<span class="calendar-window-dark">::</span><span class="calendar-window-brown">:</span><span class="calendar-window-dark">::</span>|/ /  |   +-----------+  |   <span class="calendar-day">21</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 20, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day20.js" class="calendar-day20 calendar-verycomplete">    +----+ / / / \------+ ------|<span class="calendar-window-dark">::::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">::::</span>|  |   <span class="calendar-day">20</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 19, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day19.js" class="calendar-day19 calendar-verycomplete">    |-----\ / / / \=====| ------|<span class="calendar-window-dark">:</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:</span>|  |   <span class="calendar-day">19</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 18, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day18.js" class="calendar-day18 calendar-verycomplete">    |------\ / / / \====|   |   |<span class="calendar-window-blue">:::</span><span class="calendar-window-dark">:</span><span class="calendar-window-blue">:::</span><span class="calendar-window-dark">:</span><span class="calendar-window-blue">:::</span>|  |   <span class="calendar-day">18</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 17, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day17.js" class="calendar-day17 calendar-verycomplete">    |-------\ / / / +===|   |   |<span class="calendar-window-dark">:::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:::</span>|  |   <span class="calendar-day">17</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 16, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day16.js" class="calendar-day16 calendar-verycomplete">    |--------\ / / /|===|   |   |<span class="calendar-window-dark">:::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:::</span>|  |   <span class="calendar-day">16</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 15, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day15.js" class="calendar-day15 calendar-verycomplete">    |---------\ / / |===|   |  /|<span class="calendar-window-blue">:::</span><span class="calendar-window-dark">:</span><span class="calendar-window-blue">:::</span><span class="calendar-window-dark">:</span><span class="calendar-window-blue">:::</span>|  |   <span class="calendar-day">15</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 14, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day14.js" class="calendar-day14 calendar-verycomplete">    |----------\ /  |===|  /  //|<span class="calendar-window-dark">:</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:</span>| /    <span class="calendar-day">14</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 13, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day13.js" class="calendar-day13 calendar-verycomplete">    +-----------+   |===| /  //||<span class="calendar-window-dark">::::</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-blue">:</span><span class="calendar-window-dark">::::</span>|/     <span class="calendar-day">13</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 12, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day12.js" class="calendar-day12 calendar-verycomplete">    |<span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">::::::::</span>|   |===|/__//___________________  <span class="calendar-day">12</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 11, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day11.js" class="calendar-day11 calendar-verycomplete">    |<span class="calendar-window-red">:::</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:::</span><span class="calendar-window-dark">::::</span>|   |______//|_____...._________   <span class="calendar-day">11</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 10, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day10.js" class="calendar-day10 calendar-verycomplete">    |<span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:</span><span class="calendar-window-dark">::::</span>|   |<span id="calendar-monorail-10">     //| ____/ /_/___       </span>  <span class="calendar-day">10</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 9, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day09.js" class="calendar-day9 calendar-verycomplete"> ---|<span class="calendar-window-dark">::::</span><span class="calendar-window-green">:::</span><span class="calendar-window-dark">::::</span>|   |<span id="calendar-monorail-9">--------|[][]|_|[][]_\------</span>  <span class="calendar-day"> 9</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 8, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day08.js" class="calendar-day8 calendar-verycomplete">----|<span class="calendar-window-dark">::</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">::::::</span>|   |---------------------------   <span class="calendar-day"> 8</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 7, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day07.js" class="calendar-day7 calendar-verycomplete"> || |<span class="calendar-window-dark">::</span><span class="calendar-window-red">:::</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:::</span><span class="calendar-window-dark">::</span>|   |  //| ||  / / / ||      ||    <span class="calendar-day"> 7</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 6, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day06.js" class="calendar-day6 calendar-verycomplete"> || |<span class="calendar-window-dark">::</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:</span><span class="calendar-window-dark">::</span>|   | //|  || /   /  ||  <span class="calendar-tree-star">*</span>   ||    <span class="calendar-day"> 6</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 5, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day05.js" class="calendar-day5 calendar-verycomplete">    |<span class="calendar-window-dark">::::::</span><span class="calendar-window-green">:::</span><span class="calendar-window-dark">::</span>|   |//|     / / /      <span class="calendar-tree-branches">&gt;<span class="calendar-tree-ornament1">o</span>&lt;</span>        <span class="calendar-day"> 5</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 4, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day04.js" class="calendar-day4 calendar-verycomplete">    |<span class="calendar-window-dark">::::</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">::::</span>|   //|     /   /   ___<span class="calendar-tree-branches">&gt;<span class="calendar-tree-ornament2">@</span>&gt;<span class="calendar-tree-ornament0">O</span>&lt;</span>____   <span class="calendar-day"> 4</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 3, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day03.js" class="calendar-day3 calendar-verycomplete">    |<span class="calendar-window-dark">::::</span><span class="calendar-window-red">:::</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:::</span>|  //|     / / /   /  <span class="calendar-tree-branches">&gt;<span class="calendar-tree-ornament0">O</span>&gt;<span class="calendar-tree-ornament1">o</span>&lt;<span class="calendar-tree-ornament2">@</span>&lt;</span>  /   <span class="calendar-day"> 3</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 2, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day02.js" class="calendar-day2 calendar-verycomplete">    |<span class="calendar-window-dark">::::</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-red">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:</span><span class="calendar-window-dark">:</span><span class="calendar-window-green">:</span>| //|     /   /   /    <span class="calendar-tree-trunk">_| |_</span>  /    <span class="calendar-day"> 2</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
+<a aria-label="Day 1, two stars" href="https://github.com/shahata/adventofcode-solver/blob/main/src/2016/day01.js" class="calendar-day1 calendar-verycomplete">    |<span class="calendar-window-dark">::::::::</span><span class="calendar-window-green">:::</span>|//|     / / /   /___________/     <span class="calendar-day"> 1</span> <span class="calendar-mark-complete">*</span><span class="calendar-mark-verycomplete">*</span></a>
 <span class="calendar-streets">  ==============//======+...+====================       
   - - - - - - -// - - -/   / - - - - - - - - - -        
 ==============//|==============================         
              //|                                 </span>       
 </pre>
+<script>(function(){
+  var l1 = document.getElementById("calendar-monorail-10");
+  var l2 = document.getElementById("calendar-monorail-9");
+  if (!l1 || !l2) return;
+
+  var m1 = " ____   _____ ";
+  var m2 = "|[][]|_|[][]_\\";
+  var b1 = "     //|     / / /          ";
+  var b2 = "----------------------------";
+
+  var m2r = {"[":"]","]":"[","\\":"/","_":"_","|":"|"};
+
+  l1.textContent = b1;
+  l2.textContent = b2;
+
+  var frame = m1.length + b1.length + 10 + m1.length + b1.length;
+
+  setInterval(function(){
+    frame++;
+
+    var f1 = '';
+    var f2 = '';
+
+    if (frame < m1.length + b1.length) {
+      for (var i=0; i<b1.length; i++) {
+        var mi = -frame + i + m1.length;
+        f1 += b1.substr(i,1) === ' ' && mi >= 0 && mi < m1.length ? m1.substr(mi,1) : b1.substr(i,1);
+        f2 +=                           mi >= 0 && mi < m2.length ? m2.substr(mi,1) : b2.substr(i,1);
+      }
+    } else if (frame < m1.length + b1.length + 10) {
+      f1 = b1;
+      f2 = b2;
+    } else if (frame < m1.length + b1.length + 10 + m1.length + b1.length) {
+      var vf = (b1.length+m1.length-1) - (frame - m1.length - b1.length - 10);
+      for (var i=0; i<b1.length; i++) {
+        var mi = m1.length-1 - (-vf + i + m1.length);
+        f1 += b1.substr(i,1) === ' ' && mi >= 0 && mi < m1.length ? m1.substr(mi,1) : b1.substr(i,1);
+        f2 +=                           mi >= 0 && mi < m2.length ? m2r[m2.substr(mi,1)] : b2.substr(i,1);
+      }
+    } else if (frame < m1.length + b1.length + 10 + m1.length + b1.length + 10) {
+      f1 = b1;
+      f2 = b2;
+    } else {
+      f1 = b1;
+      f2 = b2;
+      frame = 0;
+    }
+
+    l1.textContent = f1;
+    l2.textContent = f2;
+
+  },100);
+})();
+</script>
+<style>
+#caravan {
+  position: fixed;
+  left: -160px;
+  top: 7em;
+  animation: anim-caravan linear 20s infinite;
+  z-index: -1;
+}
+@keyframes anim-caravan {
+    0% { transform: translateX(0);     opacity: 1; }
+   95% { transform: translateX(96vw);  opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+#caravan div {
+  position: absolute;
+  top: 0;
+  color: #aaaaaa;
+  animation: anim-reindeer ease 3.5s infinite;
+}
+@keyframes anim-reindeer {
+    0% { transform: translateY(0); }
+   50% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+#caravan div:before {
+  content: "*";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 6pt;
+}
+#caravan div:after {
+  content: "*";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 5pt;
+}
+#caravan #sleigh:before {
+  content: "J";
+  transform: scaleX(-1) rotate(90deg);
+  font-size: 10pt;
+  color: #990000;
+  top: 2px;
+}
+#caravan #sleigh:after {
+  content: none;
+}
+#caravan #rudolph:before {
+  color: #ff0000;
+  left: 5px;
+  top: 5px;
+  text-shadow: 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000, 0 0 5px #ff0000;
+}
+#caravan #rudolph:after {
+  content: none;
+}
+</style>
+<div id="caravan">
+<div style="animation-delay:-0.0s; left:0px;" id="sleigh"></div>
+<div style="animation-delay:-0.5s; left:20px;"></div>
+<div style="animation-delay:-1.0s; left:40px;"></div>
+<div style="animation-delay:-1.5s; left:60px;"></div>
+<div style="animation-delay:-2.0s; left:80px;"></div>
+<div style="animation-delay:-2.5s; left:100px;"></div>
+<div style="animation-delay:-3.0s; left:120px;"></div>
+<div style="animation-delay:-3.5s; left:140px;" id="rudolph"></div>
+</div><style>
+.calendar-bkg {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 100%);
+}
+.sf {
+  position: fixed;
+  animation: anim-sf0 linear 20s infinite;
+  z-index: -1;
+}
+.sf:before {
+  content: "*";
+}
+.sf.sf0 { color: #ffffff; }
+.sf.sf1 { color: #cccccc; animation-name: anim-sf1; }
+.sf.sf2 { color: #999999; animation-name: anim-sf2; }
+.sf.sf3 { color: #666666; animation-name: anim-sf3; }
+@keyframes anim-sf0 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(8em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(8em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf1 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(6em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(6em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf2 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(4em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(4em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+@keyframes anim-sf3 {
+  0%   { transform: translate(  0,     0) rotate(0)     scale(1.0, 1.0); }
+  95%  { transform: translate(2em, 100vh) rotate(1turn) scale(1.0, 1.0); }
+  100% { transform: translate(2em, 100vh) rotate(1turn) scale(0.0, 0.0); }
+}
+</style>
+<div class="sf sf3" style="top:-4.02em; left:68.84vw; animation-delay:-18.48s;"></div><div class="sf sf0" style="top:-1.70em; left:8.24vw; animation-delay:-19.04s;"></div><div class="sf sf0" style="top:-1.50em; left:47.02vw; animation-delay:-11.82s;"></div><div class="sf sf0" style="top:-1.26em; left:48.39vw; animation-delay:-0.51s;"></div><div class="sf sf1" style="top:-2.45em; left:43.16vw; animation-delay:-0.09s;"></div><div class="sf sf2" style="top:-3.86em; left:38.31vw; animation-delay:-9.58s;"></div><div class="sf sf1" style="top:-2.98em; left:72.40vw; animation-delay:-19.44s;"></div><div class="sf sf2" style="top:-3.06em; left:77.39vw; animation-delay:-12.38s;"></div><div class="sf sf0" style="top:-1.04em; left:34.73vw; animation-delay:-5.10s;"></div><div class="sf sf0" style="top:-1.78em; left:36.28vw; animation-delay:-13.36s;"></div><div class="sf sf3" style="top:-4.09em; left:66.88vw; animation-delay:-8.84s;"></div><div class="sf sf0" style="top:-1.69em; left:34.45vw; animation-delay:-2.68s;"></div><div class="sf sf3" style="top:-4.72em; left:32.77vw; animation-delay:-3.15s;"></div><div class="sf sf1" style="top:-2.03em; left:34.55vw; animation-delay:-14.03s;"></div><div class="sf sf3" style="top:-4.12em; left:94.91vw; animation-delay:-10.94s;"></div><div class="sf sf3" style="top:-4.93em; left:67.13vw; animation-delay:-7.95s;"></div><div class="sf sf1" style="top:-2.18em; left:47.43vw; animation-delay:-10.12s;"></div><div class="sf sf1" style="top:-2.18em; left:43.22vw; animation-delay:-4.18s;"></div><div class="sf sf2" style="top:-3.10em; left:58.94vw; animation-delay:-12.95s;"></div><div class="sf sf2" style="top:-3.64em; left:83.00vw; animation-delay:-4.61s;"></div><div class="sf sf2" style="top:-3.14em; left:6.79vw; animation-delay:-11.51s;"></div><div class="sf sf1" style="top:-2.94em; left:47.18vw; animation-delay:-18.08s;"></div><div class="sf sf0" style="top:-1.59em; left:56.29vw; animation-delay:-12.87s;"></div><div class="sf sf3" style="top:-4.97em; left:3.31vw; animation-delay:-17.97s;"></div><div class="sf sf1" style="top:-2.12em; left:81.31vw; animation-delay:-19.93s;"></div><div class="sf sf0" style="top:-1.52em; left:7.48vw; animation-delay:-14.05s;"></div><div class="sf sf2" style="top:-3.33em; left:74.93vw; animation-delay:-7.43s;"></div><div class="sf sf2" style="top:-3.94em; left:86.86vw; animation-delay:-0.98s;"></div><div class="sf sf1" style="top:-2.21em; left:95.69vw; animation-delay:-16.55s;"></div><div class="sf sf0" style="top:-1.28em; left:76.46vw; animation-delay:-18.08s;"></div><div class="sf sf2" style="top:-3.03em; left:27.43vw; animation-delay:-5.85s;"></div><div class="sf sf1" style="top:-2.11em; left:73.51vw; animation-delay:-16.66s;"></div><div class="sf sf2" style="top:-3.34em; left:37.00vw; animation-delay:-11.74s;"></div><div class="sf sf1" style="top:-2.63em; left:25.13vw; animation-delay:-4.84s;"></div><div class="sf sf2" style="top:-3.10em; left:6.33vw; animation-delay:-7.32s;"></div><div class="sf sf3" style="top:-4.86em; left:4.78vw; animation-delay:-3.01s;"></div><div class="sf sf2" style="top:-3.97em; left:81.45vw; animation-delay:-4.89s;"></div><div class="sf sf2" style="top:-3.75em; left:39.98vw; animation-delay:-17.39s;"></div><div class="sf sf2" style="top:-3.30em; left:2.64vw; animation-delay:-4.48s;"></div><div class="sf sf3" style="top:-4.70em; left:93.28vw; animation-delay:-4.19s;"></div><div class="sf sf0" style="top:-1.24em; left:11.05vw; animation-delay:-8.48s;"></div><div class="sf sf3" style="top:-4.69em; left:35.10vw; animation-delay:-12.05s;"></div><div class="sf sf1" style="top:-2.44em; left:63.15vw; animation-delay:-0.63s;"></div><div class="sf sf1" style="top:-2.41em; left:76.24vw; animation-delay:-16.88s;"></div><div class="sf sf1" style="top:-2.93em; left:5.21vw; animation-delay:-6.64s;"></div><div class="sf sf0" style="top:-1.87em; left:64.32vw; animation-delay:-19.68s;"></div><div class="sf sf3" style="top:-4.81em; left:80.96vw; animation-delay:-13.29s;"></div><div class="sf sf0" style="top:-1.11em; left:32.09vw; animation-delay:-5.51s;"></div><div class="sf sf2" style="top:-3.88em; left:65.87vw; animation-delay:-3.00s;"></div><div class="sf sf0" style="top:-1.95em; left:71.74vw; animation-delay:-19.64s;"></div><div class="sf sf3" style="top:-4.80em; left:52.17vw; animation-delay:-1.52s;"></div><div class="sf sf1" style="top:-2.44em; left:7.96vw; animation-delay:-5.39s;"></div><div class="sf sf2" style="top:-3.70em; left:13.80vw; animation-delay:-18.18s;"></div><div class="sf sf3" style="top:-4.75em; left:92.86vw; animation-delay:-7.93s;"></div><div class="sf sf2" style="top:-3.92em; left:40.78vw; animation-delay:-19.72s;"></div><div class="sf sf0" style="top:-1.45em; left:9.69vw; animation-delay:-17.34s;"></div><div class="sf sf1" style="top:-2.77em; left:22.22vw; animation-delay:-1.82s;"></div><div class="sf sf0" style="top:-1.60em; left:47.19vw; animation-delay:-5.63s;"></div><div class="sf sf0" style="top:-1.19em; left:67.27vw; animation-delay:-5.46s;"></div><div class="sf sf3" style="top:-4.02em; left:29.52vw; animation-delay:-2.81s;"></div><div class="sf sf2" style="top:-3.07em; left:62.66vw; animation-delay:-9.32s;"></div><div class="sf sf1" style="top:-2.22em; left:92.07vw; animation-delay:-19.16s;"></div><div class="sf sf3" style="top:-4.72em; left:65.22vw; animation-delay:-13.91s;"></div><div class="sf sf3" style="top:-4.70em; left:95.54vw; animation-delay:-13.32s;"></div><div class="sf sf1" style="top:-2.23em; left:81.92vw; animation-delay:-18.32s;"></div><div class="sf sf3" style="top:-4.25em; left:61.03vw; animation-delay:-8.49s;"></div><div class="sf sf0" style="top:-1.78em; left:74.23vw; animation-delay:-16.35s;"></div><div class="sf sf2" style="top:-3.51em; left:65.80vw; animation-delay:-12.89s;"></div><div class="sf sf1" style="top:-2.80em; left:92.58vw; animation-delay:-5.00s;"></div><div class="sf sf1" style="top:-2.77em; left:48.96vw; animation-delay:-4.84s;"></div><div class="sf sf1" style="top:-2.75em; left:5.72vw; animation-delay:-5.59s;"></div><div class="sf sf1" style="top:-2.89em; left:53.49vw; animation-delay:-17.49s;"></div><div class="sf sf1" style="top:-2.78em; left:48.12vw; animation-delay:-5.34s;"></div><div class="sf sf0" style="top:-1.57em; left:49.87vw; animation-delay:-4.04s;"></div><div class="sf sf2" style="top:-3.83em; left:52.54vw; animation-delay:-15.54s;"></div><div class="sf sf3" style="top:-4.95em; left:18.54vw; animation-delay:-0.16s;"></div><div class="sf sf0" style="top:-1.76em; left:62.94vw; animation-delay:-11.33s;"></div><div class="sf sf0" style="top:-1.99em; left:92.09vw; animation-delay:-6.97s;"></div><div class="sf sf3" style="top:-4.21em; left:81.44vw; animation-delay:-7.83s;"></div><div class="sf sf1" style="top:-2.76em; left:29.64vw; animation-delay:-15.80s;"></div><div class="sf sf2" style="top:-3.21em; left:40.73vw; animation-delay:-17.28s;"></div><div class="sf sf1" style="top:-2.55em; left:59.14vw; animation-delay:-3.28s;"></div><div class="sf sf2" style="top:-3.29em; left:76.74vw; animation-delay:-2.85s;"></div><div class="sf sf3" style="top:-4.14em; left:64.61vw; animation-delay:-4.33s;"></div><div class="sf sf1" style="top:-2.91em; left:78.77vw; animation-delay:-16.21s;"></div><div class="sf sf3" style="top:-4.78em; left:23.58vw; animation-delay:-19.93s;"></div><div class="sf sf3" style="top:-4.03em; left:21.93vw; animation-delay:-17.80s;"></div><div class="sf sf0" style="top:-1.44em; left:45.45vw; animation-delay:-16.01s;"></div><div class="sf sf0" style="top:-1.52em; left:94.50vw; animation-delay:-11.61s;"></div><div class="sf sf3" style="top:-4.85em; left:44.74vw; animation-delay:-0.69s;"></div><div class="sf sf1" style="top:-2.55em; left:4.78vw; animation-delay:-19.53s;"></div><div class="sf sf0" style="top:-1.04em; left:68.52vw; animation-delay:-8.00s;"></div><div class="sf sf2" style="top:-3.57em; left:89.15vw; animation-delay:-14.30s;"></div><div class="sf sf2" style="top:-4.00em; left:19.81vw; animation-delay:-8.00s;"></div><div class="sf sf3" style="top:-4.49em; left:25.50vw; animation-delay:-4.42s;"></div><div class="sf sf2" style="top:-3.67em; left:53.90vw; animation-delay:-5.62s;"></div><div class="sf sf1" style="top:-2.66em; left:17.27vw; animation-delay:-19.89s;"></div><div class="sf sf3" style="top:-4.83em; left:12.07vw; animation-delay:-3.48s;"></div><div class="sf sf1" style="top:-2.92em; left:55.81vw; animation-delay:-3.19s;"></div><div class="sf sf2" style="top:-3.85em; left:56.57vw; animation-delay:-7.49s;"></div>
     </main>
   </body>
 </html>
