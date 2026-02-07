@@ -26,18 +26,18 @@
     "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
-    "@playwright/browser-chromium": "^1.57.0",
+    "@playwright/browser-chromium": "^1.58.2",
     "@vitest/eslint-plugin": "^1.6.6",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
-    "playwright": "^1.57.0",
-    "prettier": "^3.8.0",
+    "playwright": "^1.58.2",
+    "prettier": "^3.8.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.1",
-    "vitest": "^4.0.17"
+    "typescript-eslint": "^8.54.0",
+    "vitest": "^4.0.18"
   },
   "prettier": {
     "quoteProps": "consistent",
