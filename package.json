@@ -20,22 +20,24 @@
     "chart.js": "^4.5.1",
     "combinatorial-generators": "^1.1.2",
     "es-module-shims": "^2.8.0",
-    "node-forge": "^1.3.3",
+    "node-forge": "^1.4.0",
     "progress": "^2.0.3",
     "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
-    "@playwright/browser-chromium": "^1.58.2",
-    "@vitest/eslint-plugin": "^1.6.6",
-    "eslint": "^9.39.2",
+    "@eslint/js": "^10.0.1",
+    "@playwright/browser-chromium": "^1.59.1",
+    "@vitest/eslint-plugin": "^1.6.16",
+    "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.5.0",
     "http-server": "^14.1.1",
-    "playwright": "^1.58.2",
-    "prettier": "^3.8.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0",
-    "vitest": "^4.0.18"
+    "playwright": "^1.59.1",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.2",
+    "vitest": "^4.1.4"
   },
   "prettier": {
     "quoteProps": "consistent",
